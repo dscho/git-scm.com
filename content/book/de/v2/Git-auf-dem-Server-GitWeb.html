@@ -1,0 +1,98 @@
+---
+category: book
+section: documentation
+subsection: book
+sidebar: book
+book:
+  language_code: de
+  chapter:
+    title: Git auf dem Server
+    number: 4
+  section:
+    title: GitWeb
+    number: 7
+    cs_number: '4.7'
+    previous: book/de/v2/Git-auf-dem-Server-Smart-HTTP
+    next: book/de/v2/Git-auf-dem-Server-GitLab
+title: Git - GitWeb
+
+---
+<h2 id="_gitweb">GitWeb</h2>
+<div class="paragraph">
+<p>
+Nun, da Sie über einen einfachen Lese-/Schreibzugriff und Lesezugriff auf Ihr Projekt verfügen, können Sie einen einfachen webbasierten Visualizer einrichten.
+Git wird mit einem CGI-Skript namens GitWeb geliefert, das manchmal dafür verwendet wird.</p>
+</div>
+<div id="gitweb" class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/git-instaweb.png" >}}" alt="Die webbasierte Benutzeroberfläche von GitWeb">
+</div>
+<div class="title">Abbildung 49. Die webbasierte Benutzeroberfläche von GitWeb</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie herausfinden möchten, wie GitWeb für Ihr Projekt aussehen würde, gibt Git einen Befehl zum Starten einer temporären Instanz, wenn Sie einen leichten Webserver auf Ihrem System wie <code>lighttpd</code> oder <code>webrick</code> haben.
+Auf Linux-Maschinen wird <code>lighttpd</code> oft installiert, so dass Sie es möglicherweise zum Laufen bringen können, indem Sie <code>git instaweb</code> in Ihr Projektverzeichnis eingeben.
+Wenn Sie einen Mac verwenden, wird Leopard mit Ruby vorinstalliert geliefert, so dass <code>webrick</code> Ihre beste Wahl sein kann.
+Um <code>instaweb</code> mit einem nicht-lighttpd Handler zu starten, können Sie es mit der Option <code>--httpd</code> ausführen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git instaweb --httpd=webrick
+[2009-02-21 10:02:21] INFO  WEBrick 1.3.1
+[2009-02-21 10:02:21] INFO  ruby 1.8.6 (2008-03-03) [universal-darwin9.0]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Das startet einen HTTPD-Server auf Port 1234 und öffnet ein Webbrowser, der die Seiter anzeigt.
+Von ihrer Seite ist dies ziemlich einfach.
+Wenn Sie fertig sind und den Server herunterfahren möchten, können Sie den gleichen Befehl mit der Option <code>--stop</code> ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git instaweb --httpd=webrick --stop</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie das Web-Interface die ganze Zeit auf einem Server für Ihr Team oder für ein Open-Source-Projekt, das Sie hosten, ausführen möchten, müssen Sie das CGI-Skript so einrichten, dass es von Ihrem normalen Webserver bedient wird.
+Einige Linux-Distributionen haben ein <code>gitweb</code> Paket, das Sie möglicherweise über <code>apt</code> oder <code>dnf</code> installieren können, so dass Sie das zuerst ausprobieren sollten.
+Wir werden die manuelle Installation von GitWeb nur sehr kurz abhandeln.
+Zuerst müssen Sie den Git-Quellcode, der im Lieferumfang von GitWeb enthalten ist, herunterladen und das benutzerdefinierte CGI-Skript generieren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git clone https://git.kernel.org/pub/scm/git/git.git
+$ cd git/
+$ make GITWEB_PROJECTROOT="/srv/git" prefix=/usr gitweb
+    SUBDIR gitweb
+    SUBDIR ../
+make[2]: `GIT-VERSION-FILE' is up to date.
+    GEN gitweb.cgi
+    GEN static/gitweb.js
+$ sudo cp -Rf gitweb /var/www/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Beachten Sie, dass Sie dem Befehl mitteilen müssen, wo Sie Ihre Git-Repositorys mit der Variablen <code>GITWEB_PROJECTROOT</code> finden können.
+Nun müssen Sie den Apache dazu bringen, CGI für dieses Skript zu verwenden, zu dem Sie einen VirtualHost hinzufügen können:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">&lt;VirtualHost *:80&gt;
+    ServerName gitserver
+    DocumentRoot /var/www/gitweb
+    &lt;Directory /var/www/gitweb&gt;
+        Options +ExecCGI +FollowSymLinks +SymLinksIfOwnerMatch
+        AllowOverride All
+        order allow,deny
+        Allow from all
+        AddHandler cgi-script cgi
+        DirectoryIndex gitweb.cgi
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Auch hier kann GitWeb mit jedem CGI- oder Perl-fähigen Webserver bedient werden; wenn Sie etwas anderes bevorzugen, sollte es nicht schwierig sein, es einzurichten.
+An dieser Stelle sollten Sie in der Lage sein, <code><a href="http://gitserver/" class="bare">http://gitserver/</a></code> zu besuchen, um Ihre Repositorien online zu betrachten.</p>
+</div>
+<div id="nav"><a href="{{< previous-section >}}">prev</a> | <a href="{{< next-section >}}">next</a></div>

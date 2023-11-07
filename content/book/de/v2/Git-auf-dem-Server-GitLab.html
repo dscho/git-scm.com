@@ -1,0 +1,194 @@
+---
+category: book
+section: documentation
+subsection: book
+sidebar: book
+book:
+  language_code: de
+  chapter:
+    title: Git auf dem Server
+    number: 4
+  section:
+    title: GitLab
+    number: 8
+    cs_number: '4.8'
+    previous: book/de/v2/Git-auf-dem-Server-GitWeb
+    next: book/de/v2/Git-auf-dem-Server-Von-Drittanbietern-gehostete-Optionen
+title: Git - GitLab
+
+---
+<h2 id="_gitlab">GitLab</h2>
+<div class="paragraph">
+<p>
+GitWeb ist allerdings ziemlich einfach gehalten.
+Wenn Sie nach einem moderneren, voll ausgestatteten Git-Server suchen, gibt es einige Open-Source-Lösungen, die Sie stattdessen installieren können.
+Da GitLab einer der beliebtesten ist, werden wir uns mit der Installation im Detail befassen und es als Beispiel verwenden.
+Dies ist etwas schwieriger als die GitWeb-Option und erfordert mehr Wartung, aber es ist eine viel umfassendere Lösung.</p>
+</div>
+<div class="sect3">
+<h3 id="_installation">Installation</h3>
+<div class="paragraph">
+<p>GitLab ist eine datenbankgestützte Webanwendung, so dass die Installation etwas aufwändiger ist als bei einigen anderen Git-Servern.
+Glücklicherweise ist dieser Prozess sehr gut dokumentiert und unterstützt.
+GitLab empfiehlt dringend, GitLab über das offizielle Omnibus GitLab-Paket auf zu installieren.</p>
+</div>
+<div class="paragraph">
+<p>Die anderen Installationsmethoden sind:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>GitLab Helm-Chart zur Verwendung mit Kubernetes.</p>
+</li>
+<li>
+<p>Dockerisierte GitLab-Pakete zur Verwendung mit Docker.</p>
+</li>
+<li>
+<p>Direkt sus den Quelldateien.</p>
+</li>
+<li>
+<p>Cloud-Anbieter wie AWS, Google Cloud Platform, Azure, OpenShift und Digital Ocean.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Weitere Informationen finden Sie in der Readme-Datei <a href="https://gitlab.com/gitlab-org/gitlab-foss/-/blob/master/README.md" target="_blank" rel="noopener">GitLab Community Edition (CE)</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_administration">Administration</h3>
+<div class="paragraph">
+<p>Die Verwaltungsoberfläche von GitLab wird über das Internet aufgerufen.
+Benutzen Sie einfach Ihren Browser, um den Hostnamen oder die IP-Adresse, auf der GitLab installiert ist, anzugeben, und melden Sie sich als Admin-Benutzer an.
+Der Standardbenutzername ist <code>admin@local.host</code>, das Standardpasswort ist <code>5iveL!fe</code> (das Sie nach der Eingabe <strong>ändern müssen</strong>).
+Klicken Sie nach der Anmeldung im Menü oben rechts auf das Symbol „Admin-Bereich“.</p>
+</div>
+<div id="gitlab_menu" class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/gitlab-menu.png" >}}" alt="Der „Admin-Bereich“ im GitLab-Menü">
+</div>
+<div class="title">Abbildung 50. Der „Admin-Bereich“ im GitLab-Menü</div>
+</div>
+<div class="sect4">
+<h4 id="_benutzer">Benutzer</h4>
+<div class="paragraph">
+<p>Jeder der Gitlab nutzt muß ein Benutzerkonto besitzen.
+Benutzerkonten sind recht simple. Hauptsächlich beinhalten sie persönliche Informationen, die an Login-Daten geknüpft sind.
+Jedes Benutzerkonto hat einen <strong>namespace</strong> (Namensraum), der eine logische Gruppierung von Projekten ist, die diesem Benutzer gehören.
+Wenn der Benutzer jane ein Projekt mit dem Namen project hätte, wäre die URL dieses Projekts <code><a href="http://server/jane/project" class="bare">http://server/jane/project</a></code>.</p>
+</div>
+<div id="gitlab_users" class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/gitlab-users.png" >}}" alt="Das Fenster der Benutzerverwaltung von GitLab">
+</div>
+<div class="title">Abbildung 51. Das Fenster der Benutzerverwaltung von GitLab</div>
+</div>
+<div class="paragraph">
+<p>Das Entfernen eines Benutzers kann auf zwei Arten erfolgen.
+Das „Blockieren“ eines Benutzers verhindert, dass er sich am GitLab anmeldet, aber alle Daten unter dem Namensraum dieses Benutzers bleiben erhalten, und mit der E-Mail-Adresse dieses Benutzers signierte Commits werden weiterhin mit seinem Profil verknüpft.</p>
+</div>
+<div class="paragraph">
+<p>Das „Zerstören“ eines Benutzers hingegen entfernt ihn vollständig aus der Datenbank und dem Dateisystem.
+Alle Projekte und Daten in seinem Namensraum werden entfernt, und alle Gruppen, die sich in seinem Besitz befinden, werden ebenfalls entfernt.
+Das ist natürlich eine viel dauerhaftere und destruktivere Aktion, die selten angewendet wird.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_gitlab_groups_section">Gruppen</h4>
+<div class="paragraph">
+<p>Eine GitLab-Gruppe ist eine Kollektion von Projekten, zusammen mit Daten darüber, wie Benutzer auf diese Projekte zugreifen können.
+Jede Gruppe hat einen Projektnamensraum (genauso wie Benutzer), so dass, wenn die Gruppe training ein Projekt materials hat, die URL <code><a href="http://server/training/materials" class="bare">http://server/training/materials</a></code> lautet.</p>
+</div>
+<div id="gitlab_groups" class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/gitlab-groups.png" >}}" alt="Der Admin-Bildschirm für die Gruppenverwaltung von GitLab">
+</div>
+<div class="title">Abbildung 52. Der Admin-Bildschirm für die Gruppenverwaltung von GitLab</div>
+</div>
+<div class="paragraph">
+<p>Jede Gruppe ist einer Reihe von Benutzern zugeordnet, von denen jeder eine Berechtigungsstufe für die Projekte der Gruppe und der Gruppe selbst hat.
+Diese reichen von „Guest“ (nur Themen und Chat) bis hin zu „Owner“ (volle Kontrolle über die Gruppe, ihre Mitglieder und ihre Projekte).
+Die Arten von Berechtigungen sind zu zahlreich, um sie hier aufzulisten, aber GitLab hat einen hilfreichen Link auf dem Administrationsbildschirm.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_projekte">Projekte</h4>
+<div class="paragraph">
+<p>Ein GitLab-Projekt entspricht in etwa einem einzelnen Git-Repository.
+Jedes Projekt gehört zu einem einzigen Namensraum, entweder einem Benutzer oder einer Gruppe.
+Wenn das Projekt einem Benutzer gehört, hat der Projektbesitzer die direkte Kontrolle darüber, wer Zugriff auf das Projekt hat; falls das Projekt einer Gruppe gehört, werden auch die Berechtigungen der Gruppe auf Benutzerebene wirksam.</p>
+</div>
+<div class="paragraph">
+<p>Jedes Projekt hat eine Zugriffsebene, die steuert, wer Lesezugriff auf die Seiten und das Repository des Projekts hat.
+Wenn ein Projekt <em>privat</em> ist, muss der Eigentümer des Projekts bestimmten Benutzern explizit Zugriff gewähren.
+Ein <em>internes</em> Projekt ist für jeden angemeldeten Benutzer sichtbar, und ein <em>öffentliches</em> (engl. <em>public</em>) Projekt ist für jeden sichtbar.
+Beachten Sie, dass dies sowohl den Zugriff auf <code>git fetch</code> als auch den Zugriff auf die Web-Benutzeroberfläche für dieses Projekt steuert.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_hooks">Hooks</h4>
+<div class="paragraph">
+<p>GitLab bietet Unterstützung für Hooks, sowohl auf Projekt- als auch auf Systemebene.
+Für beide führt der GitLab-Server einen HTTP POST mit einem beschreibenden JSON durch, wenn relevante Ereignisse eintreten.
+Auf diese Weise können Sie Ihre Git-Repositorys und GitLab-Instanzen mit dem Rest Ihrer Entwicklungsverwaltung verbinden, wie z.B. CI-Server, Chatrooms oder Bereitstellungstools.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_grundlegende_anwendung">Grundlegende Anwendung</h3>
+<div class="paragraph">
+<p>Das erste, was Sie mit GitLab anfangen sollten, ist das Erstellen eines neuen Projekts.
+Dies geschieht durch Anklicken des Symbols „+“ in der Symbolleiste.
+Sie werden nach dem Namen des Projekts gefragt, zu welchem Namensraum es gehören soll und wie hoch seine Sichtbarkeit sein soll.
+Das meiste, was Sie hier angeben, ist nicht permanent und kann später über die Einstellungs-Oberfläche angepasst werden.
+Klicken Sie auf „Projekt erstellen“, und Sie sind fertig.</p>
+</div>
+<div class="paragraph">
+<p>Sobald das Projekt existiert, werden Sie es vermutlich mit einem lokalen Git-Repository verbinden wollen.
+Jedes Projekt ist über HTTPS oder SSH zugänglich, von denen jede zur Konfiguration einer externen Verbindung mit Git verwendet werden kann.
+Die URLs sind oben auf der Startseite des Projekts sichtbar.
+Für ein bestehendes lokales Repository erstellt dieser Befehl einen Remote mit Namen <code>gitlab</code> für den gehosteten Standort:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git remote add gitlab https://server/namespace/project.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie noch keine lokale Kopie des Repositorys haben, können Sie das ganz einfach nachholen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git clone https://server/namespace/project.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die Web-Benutzeroberfläche bietet Zugriff auf mehrere nützliche Anzeigen des Repositorys selbst.
+Die Homepage jedes Projekts zeigt die letzten Aktivitäten an, und Links oben führen Sie zu Ansichten der Projektdateien und zum Commit-Log.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_zusammen_arbeiten">Zusammen arbeiten</h3>
+<div class="paragraph">
+<p>Die einfachste Art der Zusammenarbeit bei einem GitLab-Projekt besteht darin, jedem Benutzer direkten Push-Zugriff auf das Git-Repository zu ermöglichen.
+Sie können einen Benutzer zu einem Projekt hinzufügen, indem Sie im Abschnitt „Mitglieder“ der Einstellungen dieses Projekts den neuen Benutzer einer Zugriffsebene zuordnen (die verschiedenen Zugriffsebenen werden in den <a href="ch00/_gitlab_groups_section">Gruppen</a> ein wenig erläutert).
+Indem ein Benutzer eine Zugriffsebene von „Developer“ oder höher erhält, kann dieser Benutzer Commits und Branches direkt und ohne Einschränkung in das Repository pushen.</p>
+</div>
+<div class="paragraph">
+<p>Eine weitere, stärker entkoppelte Art der Zusammenarbeit ist die Nutzung von Merge-Anfragen.
+Diese Funktion ermöglicht es jedem Benutzer, der ein Projekt sehen kann, kontrolliert dazu beizutragen.
+Benutzer mit direktem Zugriff können einfach einen Branch erstellen, Commits auf ihn verschieben und einen Merge-Request von ihrem Branch zurück in den <code>master</code> oder einen anderen Branch einreichen.
+Benutzer, die keine Push-Berechtigungen für ein Repository haben, können es „forken“ (ihre eigene Kopie erstellen), Push-Commits für <em>diese</em> Kopie erstellen und einen Merge-Request von ihrer Fork zurück zum Hauptprojekt anfordern.
+Dieses Modell ermöglicht es dem Eigentümer, die volle Kontrolle darüber zu behalten, was wann in das Repository gelangt, und gleichzeitig Beiträge von unbekannten Benutzern zu ermöglichen.</p>
+</div>
+<div class="paragraph">
+<p>Merge-Requests und Issues sind die Hauptelemente der langjährigen Zusammenarbeit in GitLab.
+Jede Merge-Anfrage ermöglicht eine zeilenweise Diskussion der vorgeschlagenen Änderung (was eine einfache Art der Code-Überprüfung unterstützt), sowie einen allgemeinen Diskussions-Thread.
+Beide können Benutzern zugeordnet oder in Milestone-Etappen  organisiert werden.</p>
+</div>
+<div class="paragraph">
+<p>Dieser Abschnitt konzentriert sich hauptsächlich auf die Git-bezogenen Funktionen von GitLab, aber als ausgereiftes Programm bietet es viele weitere Funktionen, die Ihnen bei der Teamarbeit helfen, wie Projekt-Wikis und System-Wartungstools.
+Ein Vorteil für GitLab ist, dass Sie nach der Einrichtung und Inbetriebnahme des Servers selten eine Konfigurationsdatei anpassen oder über SSH auf den Server zugreifen müssen; die überwiegende Verwaltung und allgemeine Nutzung kann über die Browser-Oberfläche erfolgen.</p>
+</div>
+</div>
+<div id="nav"><a href="{{< previous-section >}}">prev</a> | <a href="{{< next-section >}}">next</a></div>

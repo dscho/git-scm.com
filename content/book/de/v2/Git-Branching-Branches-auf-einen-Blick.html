@@ -1,0 +1,343 @@
+---
+category: book
+section: documentation
+subsection: book
+sidebar: book
+book:
+  language_code: de
+  chapter:
+    title: Git Branching
+    number: 3
+  section:
+    title: Branches auf einen Blick
+    number: 1
+    cs_number: '3.1'
+    previous: book/de/v2/Git-Grundlagen-Zusammenfassung
+    next: book/de/v2/Git-Branching-Einfaches-Branching-und-Merging
+title: Git - Branches auf einen Blick
+
+---
+<p>
+Nahezu jedes VCS unterstützt eine Form von Branching.
+Branching bedeutet, dass Sie von der Hauptlinie der Entwicklung abzweigen und Ihre Arbeit fortsetzen, ohne die Hauptlinie durcheinanderzubringen.
+In vielen VCS-Tools ist das ein etwas aufwändiger Prozess, bei dem Sie oft eine neue Kopie Ihres Quellcode-Verzeichnisses erstellen müssen, was bei großen Projekten viel Zeit in Anspruch nehmen kann.</p><p>Manche Leute bezeichnen Gits Branching-Modell als dessen „Killer-Feature“, was Git zweifellos vom Rest der VCS-Community abhebt.
+Was ist das Besondere daran?
+Die Art und Weise, wie Git Branches anlegt ist unglaublich leichtgewichtig. Branch-Operationen werden nahezu verzögerungsfrei ausgeführt und auch das Hin- und Herschalten zwischen einzelnen Entwicklungszweigen läuft meist genauso schnell ab.
+Im Gegensatz zu anderen VCS ermutigt Git zu einer Arbeitsweise mit häufigem Branching und Merging, sogar mehrmals am Tag.
+Wenn Sie diese Funktion verstehen und beherrschen, besitzen Sie ein mächtiges und besonderes Werkzeug, welches Ihre Art zu entwickeln vollständig verändern kann.</p>
+<h2 id="_git_branches_overview">Branches auf einen Blick</h2>
+<div class="paragraph">
+<p>Um richtig zu verstehen, wie Git das Verzweigen (engl. Branching) realisiert, müssen wir einen Schritt zurück gehen und untersuchen, wie Git seine Daten speichert.</p>
+</div>
+<div class="paragraph">
+<p>Wie Sie vielleicht aus Kapitel 1 <a href="ch00/what_is_git_section">Was ist Git?</a> in Erinnerung haben, speichert Git seine Daten nicht als Serie von Änderungen oder Unterschieden, sondern statt dessen als eine Reihe von <em>Snapshots</em>.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie einen Commit durchführen, speichert Git ein Commit-Objekt, das einen Zeiger auf den Snapshot des von Ihnen bereitgestellten Inhalts enthält.
+Dieses Objekt enthält auch den Namen und die E-Mail-Adresse des Autors, die Nachricht, die Sie eingegeben haben, und zeigt auf den Commit oder die Commits, die direkt vor diesem Commit stattfanden (zu seinem Vorgänger bzw. seinen Vorgängern): keine Vorgänger für den ersten Commit, einen Vorgänger für einen normalen Commit und mehrere Vorgänger für einen Commit, welcher aus dem Zusammenführen (engl. mergen) von zwei oder mehr Branches resultiert.</p>
+</div>
+<div class="paragraph">
+<p>Um das zu veranschaulichen, lassen Sie uns annehmen, Sie haben ein Verzeichnis, welches drei Dateien enthält, und Sie fügen alle Dateien zur Staging-Area hinzu und führen einen Commit durch.
+Durch das Hinzufügen der Dateien zur Staging-Area erzeugt Git für jede Datei eine Prüfsumme (den SHA-1-Hashwert, den wir in Kapitel 1 <a href="ch00/what_is_git_section">Was ist Git?</a> erwähnt haben), speichert diese Version der Datei im Git-Repository (Git verweist auf diese als <em>blobs</em>) und fügt die Prüfsumme der Staging-Area hinzu:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git add README test.rb LICENSE
+$ git commit -m 'Initial commit'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie mit der Anweisung <code>git commit</code> einen Commit erzeugen, berechnet Git für jedes Unterverzeichnis (in diesem Fall nur das Wurzelverzeichnis des Projektes) eine Prüfsumme und speichert diese als <em>tree</em>-Objekt im Git-Repository.
+Git erzeugt dann ein commit-Objekt, welches die Metadaten und einen Zeiger zum tree-Objekt des Wurzelverzeichnisses enthält, sodass es bei Bedarf den Snapshot erneut erzeugen kann.</p>
+</div>
+<div class="paragraph">
+<p>Ihr Git-Repository enthält jetzt fünf Objekte: drei <em>blobs</em> (die jeweils den Inhalt einer der drei Dateien repräsentieren), ein <em>tree</em>-Objekt, welches den Inhalt des Verzeichnisses auflistet und angibt, welcher Dateiname zu welchem Blob gehört, und ein <em>commit</em>-Objekt mit dem Zeiger, der auf die Wurzel des Projektbaumes und die Metadaten des Commits verweist.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/commit-and-tree.png" >}}" alt="Ein Commit und sein Tree">
+</div>
+<div class="title">Abbildung 9. Ein Commit und sein Tree</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie einige Änderungen vornehmen und wieder einen Commit durchführen, speichert dieser einen Zeiger zu dem Commit, der unmittelbar davor gemacht wurde.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/commits-and-parents.png" >}}" alt="Commits und ihre Vorgänger">
+</div>
+<div class="title">Abbildung 10. Commits und ihre Vorgänger</div>
+</div>
+<div class="paragraph">
+<p>Ein Branch in Git ist einfach ein leichter, beweglicher Zeiger auf einen dieser Commits.
+Die Standardbezeichnung für einen Branch bei Git lautet <code>master</code>.
+Wenn Sie damit beginnen, Commits durchzuführen, erhalten Sie einen <code>master</code> Branch, der auf den letzten Commit zeigt, den Sie gemacht haben.
+Jedes Mal, wenn Sie einen Commit durchführen, bewegt er sich automatisch vorwärts.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Anmerkung</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Der „master“-Branch in Git ist kein spezieller Branch.
+Er ist genau wie jeder andere Branch.
+Der einzige Grund dafür, dass nahezu jedes Repository einen „master“-Branch hat, ist der Umstand, dass die Anweisung <code>git init</code> diesen standardmäßig erzeugt und die meisten Leute sich nicht darum kümmern, den Namen zu ändern.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/branch-and-history.png" >}}" alt="Ein Branch und sein Commit-Verlauf">
+</div>
+<div class="title">Abbildung 11. Ein Branch und sein Commit-Verlauf</div>
+</div>
+<div class="sect3">
+<h3 id="_create_new_branch">Erzeugen eines neuen Branches</h3>
+<div class="paragraph">
+<p>
+Was passiert, wenn Sie einen neuen Branch anlegen?
+Nun, wenn Sie das tun, wird ein neuer Zeiger (Pointer) erstellt, mit dem Sie sich in der Entwicklung fortbewegen können.
+Nehmen wir an, Sie erzeugen einen neuen Branch mit dem Namen „testing“.
+Das machen Sie mit der Anweisung <code>git branch</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git branch testing</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dieser Befehl erzeugt einen neuen Zeiger, der auf denselben Commit zeigt, auf dem Sie sich gegenwärtig befinden.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/two-branches.png" >}}" alt="Zwei Branches" width="die auf dieselbe Serie von Commits zeigen">
+</div>
+<div class="title">Abbildung 12. Zwei Branches, die auf dieselbe Serie von Commits zeigen</div>
+</div>
+<div class="paragraph">
+<p>Woher weiß Git, auf welchem Branch Sie gegenwärtig sind?
+Es besitzt einen speziellen Zeiger namens <code>HEAD</code>.
+Beachten Sie, dass dieser <code>HEAD</code> sich sehr stark unterscheidet von den <code>HEAD</code> Konzepten anderer Versionsverwaltungen, mit denen Sie vielleicht vertraut sind, wie Subversion oder CVS.
+Bei Git handelt es sich bei <code>HEAD</code> um einen Zeiger auf den lokalen Branch, auf dem Sie sich gegenwärtig befinden.
+In diesem Fall sind Sie noch auf dem <code>master</code> Branch.
+Die Anweisung <code>git branch</code> hat den neuen Branch nur <em>erzeugt</em>, aber nicht zu diesem gewechselt.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/head-to-master.png" >}}" alt="Auf einen Branch zeigender HEAD">
+</div>
+<div class="title">Abbildung 13. Auf einen Branch zeigender HEAD</div>
+</div>
+<div class="paragraph">
+<p>Sie können das leicht nachvollziehen, indem Sie den einfachen Befehl <code>git log</code> ausführen, mit dem Sie sehen, wohin die Zeiger der Branches zeigen.
+Diese Option wird <code>--decorate</code> genannt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git log --oneline --decorate
+f30ab (HEAD -&gt; master, testing) Add feature #32 - ability to add new formats to the central interface
+34ac2 Fix bug #1328 - stack overflow under certain conditions
+98ca9 Initial commit</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sie können die Branches <code>master</code> und <code>testing</code> sehen, die sich rechts neben dem Commit von <code>f30ab</code> befinden.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_switching_branches">Wechseln des Branches</h3>
+<div class="paragraph">
+<p>
+Um zu einem existierenden Branch zu wechseln, führen Sie die Anweisung <code>git checkout</code> aus.
+Lassen Sie uns zu dem neuen <code>testing</code> Branch wechseln.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git checkout testing</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dadurch wird <code>HEAD</code> verschoben, um auf den Branch <code>testing</code> zu zeigen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/head-to-testing.png" >}}" alt="HEAD zeigt auf den aktuellen Branch">
+</div>
+<div class="title">Abbildung 14. HEAD zeigt auf den aktuellen Branch</div>
+</div>
+<div class="paragraph">
+<p>Was bedeutet das?
+Nun, lassen Sie uns einen weiteren Commit durchführen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ vim test.rb
+$ git commit -a -m 'made a change'</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/advance-testing.png" >}}" alt="Der Branch" width="auf den HEAD zeigt" height="bewegt sich vorwärts">
+</div>
+<div class="title">Abbildung 15. Der Branch, auf den HEAD zeigt, bewegt sich vorwärts, wenn ein Commit gemacht wird</div>
+</div>
+<div class="paragraph">
+<p>Das ist interessant, weil sich jetzt Ihr <code>testing</code> Branch vorwärts bewegt hat, aber Ihr <code>master</code> Branch noch auf den Commit zeigt, auf dem Sie sich befanden, als Sie die Anweisung <code>git checkout</code> ausführten, um die Branches zu wechseln.
+Lassen Sie uns zum Branch <code>master</code> zurückwechseln.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git checkout master</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Anmerkung</div>
+</td>
+<td class="content">
+<div class="title">
+<code>git log</code> zeigt nicht <em>immer alle</em> Branches</div>
+<div class="paragraph">
+<p>Wenn Sie jetzt <code>git log</code> aufrufen würden, könnten Sie sich fragen, wohin der gerade erstellte „testing“ Branch verschwunden ist, da er nicht in der Anzeige auftauchen würde.</p>
+</div>
+<div class="paragraph">
+<p>Der Branch ist nicht spurlos verschwunden. Git weiß nur nicht, dass Sie sich für diesen Branch interessieren, und es versucht, Ihnen das zu zeigen, woran Sie seiner Meinung nach interessiert sind.
+Anders gesagt, standardmäßig zeigt <code>git log</code> nur den Commit-Verlauf des Branches an, den Sie ausgecheckt haben.</p>
+</div>
+<div class="paragraph">
+<p>Um die Commit-Historie für den gewünschten Branch anzuzeigen, müssen Sie ihn explizit angeben: <code>git log testing</code>.
+Um alle Branches zu sehen, fügen Sie <code>--all</code> zu Ihrem Kommando <code>git log</code> hinzu.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/checkout-master.png" >}}" alt="HEAD bewegt sich" width="wenn Sie auschecken">
+</div>
+<div class="title">Abbildung 16. HEAD bewegt sich, wenn Sie auschecken</div>
+</div>
+<div class="paragraph">
+<p>Diese Anweisung hat zwei Dinge bewirkt.
+Es bewegte den HEAD-Zeiger zurück, um auf den <code>master</code> Branch zu zeigen und es setzte die Dateien in Ihrem Arbeitsverzeichnis auf den Snapshot zurück, auf den <code>master</code> zeigt.
+Das bedeutet auch, dass die Änderungen, die Sie von diesem Punkt aus vornehmen, von einer älteren Version des Projekts abzweigen werden.
+Sie macht im Grunde genommen die Änderungen rückgängig, die Sie auf Ihrem <code>testing</code> Branch vorgenommen haben, sodass Sie in eine andere Richtung gehen können.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Anmerkung</div>
+</td>
+<td class="content">
+<div class="title">Das Wechseln der Branches ändert Dateien in Ihrem Arbeitsverzeichnis</div>
+<div class="paragraph">
+<p>Es ist wichtig zu beachten, dass sich die Dateien in Ihrem Arbeitsverzeichnis verändern, wenn Sie in Git die Branches wechseln.
+Wenn Sie zu einem älteren Branch wechseln, wird Ihr Arbeitsverzeichnis zurückverwandelt, sodass es aussieht wie zu dem Zeitpunkt, als Sie Ihren letzten Commit auf diesem Branch durchgeführt haben.
+Wenn Git das nicht problemlos durchführen kann, lässt es Sie die Branches überhaupt nicht wechseln.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Lassen Sie uns ein paar Änderungen vornehmen und noch einen Commit durchführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ vim test.rb
+$ git commit -a -m 'made other changes'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Jetzt hat sich Ihr Projektverlauf verzweigt (siehe <a href="ch00/divergent_history">Verzweigter Verlauf</a>).
+Sie haben einen Branch erstellt und sind zu ihm gewechselt, haben einige Arbeiten daran durchgeführt und sind dann wieder zu Ihrem Hauptzweig zurückgekehrt, um andere Arbeiten durchzuführen.
+Beide Änderungen sind in separaten Branches isoliert: Sie können zwischen den Branches hin und her wechseln sowie sie zusammenführen, wenn Sie bereit sind.
+Und das alles mit den einfachen Befehlen <code>branch</code>, <code>checkout</code> und <code>commit</code>.</p>
+</div>
+<div id="divergent_history" class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/advance-master.png" >}}" alt="Verzweigter Verlauf">
+</div>
+<div class="title">Abbildung 17. Verzweigter Verlauf</div>
+</div>
+<div class="paragraph">
+<p>Sie können sich dies ansehen, wenn Sie die Anweisung <code>git log</code> ausführen.
+Wenn Sie die Anweisung <code>git log --oneline --decorate --graph --all</code> ausführen, wird Ihnen der Verlauf Ihrer Commits so angezeigt, dass erkennbar ist, wo Ihre Branch-Zeiger sich befinden und wie Ihr Verlauf sich verzweigt hat.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git log --oneline --decorate --graph --all
+* c2b9e (HEAD, master) Made other changes
+| * 87ab2 (testing) Made a change
+|/
+* f30ab Add feature #32 - ability to add new formats to the central interface
+* 34ac2 Fix bug #1328 - stack overflow under certain conditions
+* 98ca9 initial commit of my project</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Da ein Branch in Git in Wirklichkeit eine einfache Datei ist, welche die 40-Zeichen lange SHA-1-Prüfsumme des Commits enthält, zu dem sie zeigt, können Branches ohne großen Aufwand erzeugt und vernichtet werden.
+Einen neuen Branch anzulegen, geht so schnell und ist so einfach, wie 41 Bytes in eine Datei zu schreiben (40 Zeichen und einen Zeilenumbruch).</p>
+</div>
+<div class="paragraph">
+<p>Das steht im krassen Gegensatz zur Art und Weise, wie die meisten älteren Werkzeuge zur Versionsverwaltung Branches anlegen, bei der alle Projektdateien in ein zweites Verzeichnis kopiert werden.
+Das kann, in Abhängigkeit von der Projektgröße, mehrere Sekunden oder sogar Minuten dauern, während bei Git dieser Prozess augenblicklich erledigt ist.
+Da wir außerdem immer die Vorgänger mit aufzeichnen, wenn wir einen Commit durchführen, wird die Suche nach einer geeigneten Basis für das Zusammenführen (engl. merging) für uns automatisch durchgeführt, was in der Regel sehr einfach erledigt werden kann.
+Diese Funktionen tragen dazu bei, dass Entwickler ermutigt werden, häufig Branches zu erstellen und zu nutzen.</p>
+</div>
+<div class="paragraph">
+<p>Lassen Sie uns herausfinden, warum Sie so handeln sollten.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Anmerkung</div>
+</td>
+<td class="content">
+<div class="title">Einen neuen Branch erzeugen und gleichzeitig dorthin wechseln.</div>
+<div class="paragraph">
+<p>Es ist üblich, einen neuen Branch zu erstellen und gleichzeitig zu diesem neuen Branch zu wechseln – dies kann in einem Arbeitsschritt mit <code>git checkout -b &lt;newbranchname&gt;</code> passieren.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Anmerkung</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ab Git version 2.23 können sie <code>git switch</code> anstatt von <code>git checkout</code> nutzen um:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Zu einem bestehendem Branch wechseln mit: <code>git switch testing-branch</code>.</p>
+</li>
+<li>
+<p>Einen neuen Branch erstellen und zu ihm wechseln mit: <code>git switch -c new-branch</code>. Die <code>-c</code> Option steht für Create (Anlegen), sie können auch die komplette Option <code>--create</code> nutzen.</p>
+</li>
+<li>
+<p>Zurück zu ihrem zuletzt ausgechecktem Branch wechseln mit: <code>git switch -</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="nav"><a href="{{< previous-section >}}">prev</a> | <a href="{{< next-section >}}">next</a></div>

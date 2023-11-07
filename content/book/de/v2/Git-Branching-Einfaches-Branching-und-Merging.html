@@ -1,0 +1,421 @@
+---
+category: book
+section: documentation
+subsection: book
+sidebar: book
+book:
+  language_code: de
+  chapter:
+    title: Git Branching
+    number: 3
+  section:
+    title: Einfaches Branching und Merging
+    number: 2
+    cs_number: '3.2'
+    previous: book/de/v2/Git-Branching-Branches-auf-einen-Blick
+    next: book/de/v2/Git-Branching-Branch-Management
+title: Git - Einfaches Branching und Merging
+
+---
+<h2 id="_einfaches_branching_und_merging">Einfaches Branching und Merging</h2>
+<div class="paragraph">
+<p>Lassen Sie uns ein einfaches Beispiel für das Verzweigen und Zusammenführen (engl. branching and merging) anschauen, wie es Ihnen in einem praxisnahen Workflow begegnen könnte.
+Stellen sie sich vor, sie führen folgende Schritte aus:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sie arbeiten an einer Website</p>
+</li>
+<li>
+<p>Sie erstellen einen Branch für eine neue Anwendergeschichte (engl. User Story), an der Sie gerade arbeiten</p>
+</li>
+<li>
+<p>Sie erledigen Sie einige Arbeiten in diesem Branch</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In diesem Moment erhalten Sie einen Anruf, dass ein anderes Problem kritisch ist und Sie einen Hotfix benötigen.
+Dazu werden Sie folgendes tun:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sie wechseln zu Ihrem Produktions-Branch</p>
+</li>
+<li>
+<p>Sie erstellen einen Branch, um den Hotfix einzufügen</p>
+</li>
+<li>
+<p>Nachdem der Test abgeschlossen ist, mergen Sie den Hotfix-Branch und schieben ihn in den Produktions-Branch</p>
+</li>
+<li>
+<p>Sie wechseln zurück zu Ihrer ursprünglichen Anwenderstory und arbeiten daran weiter</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h3 id="_basic_branching">Einfaches Branching</h3>
+<div class="paragraph">
+<p>
+Lassen Sie uns zunächst annehmen, Sie arbeiten an Ihrem Projekt und haben bereits ein paar Commits in Ihren <code>master</code> Branch gemacht.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/basic-branching-1.png" >}}" alt="Ein einfacher Commit-Verlauf">
+</div>
+<div class="title">Abbildung 18. Ein einfacher Commit-Verlauf</div>
+</div>
+<div class="paragraph">
+<p>Sie haben sich dafür entschieden, an „Issue #53“ aus irgendeinem Fehlerverfolgungssystem, das Ihre Firma benutzt, zu arbeiten.
+Um einen neuen Branch anzulegen und gleichzeitig zu diesem zu wechseln, können Sie die Anweisung <code>git checkout</code> zusammen mit der Option <code>-b</code> ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git checkout -b iss53
+Switched to a new branch "iss53"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Das ist die Kurzform der beiden folgenden Befehle:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git branch iss53
+$ git checkout iss53</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/basic-branching-2.png" >}}" alt="Erstellen eines neuen Branch-Zeigers">
+</div>
+<div class="title">Abbildung 19. Erstellen eines neuen Branch-Zeigers</div>
+</div>
+<div class="paragraph">
+<p>Sie arbeiten an Ihrer Website und führen einige Commits durch.
+Sobald Sie das machen, bewegt das den <code>iss53</code> Branch vorwärts, weil Sie in ihn gewechselt (engl. checked out) haben. Das bedeutet, Ihr <code>HEAD</code> zeigt auf diesen Branch:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ vim index.html
+$ git commit -a -m 'Create new footer [issue 53]'</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/basic-branching-3.png" >}}" alt="Der `iss53` Branch hat sich bei Ihrer Arbeit vorwärts bewegt">
+</div>
+<div class="title">Abbildung 20. Der <code>iss53</code> Branch hat sich bei Ihrer Arbeit vorwärts bewegt</div>
+</div>
+<div class="paragraph">
+<p>Jetzt bekommen Sie einen Anruf, dass es ein Problem mit der Website gibt und Sie es umgehend beheben müssen.
+Bei Git müssen Sie Ihren Fix nicht zusammen mit den Änderungen bereitstellen, die Sie bereits an <code>iss53</code> vorgenommen haben. Sie müssen auch keinen großen Aufwand betreiben, diese Änderungen rückgängig zu machen, bevor Sie an den neuen Hotfix arbeiten können, um die Produktionsumgebung zu fixen.
+Alles, was Sie machen müssen, ist, zu Ihrem vorherigen <code>master</code> Branch zu wechseln.</p>
+</div>
+<div class="paragraph">
+<p>Beachten Sie dabei, dass Git das Wechseln zu einem anderen Branch blockiert, falls Ihr Arbeitsverzeichnis oder Ihr Staging-Bereich nicht committete Modifikationen enthält, die Konflikte verursachen.
+Generell ist es am besten, einen sauberen Zustand des Arbeitsbereichs anzustreben, bevor Sie Branches wechseln.
+Es gibt Möglichkeiten, das zu umgehen (nämlich das Verstecken (engl. Stashen) und Revidieren (engl. Amending) von Änderungen), die wir später in Kapitel 7 <a href="ch00/_git_stashing">Git Stashing</a> behandeln werden.
+Lassen Sie uns vorerst annehmen, Sie haben für alle Ihre Änderungen Commits durchgeführt, sodass Sie zu Ihrem vorherigen <code>master</code> Branch wechseln können.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git checkout master
+Switched to branch 'master'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Zu diesem Zeitpunkt befindet sich das Arbeitsverzeichnis des Projektes in exakt dem gleichen Zustand, in dem es sich befand, bevor Sie mit der Arbeit an „Issue #53“ begonnen haben und Sie können sich direkt auf den Hotfix konzentrieren.
+Das ist ein <strong>wichtiger Punkt</strong>, den Sie unbedingt beachten sollten: Wenn Sie die Branches wechseln, setzt Git Ihr Arbeitsverzeichnis zurück, um so auszusehen, wie es das letzte Mal war, als Sie in den Branch committed haben.
+Dateien werden automatisch hinzugefügt, entfernt und verändert, um sicherzustellen, dass Ihre Arbeitskopie auf demselben Stand ist wie zum Zeitpunkt Ihres letzten Commits auf diesem Branch.</p>
+</div>
+<div class="paragraph">
+<p>Als Nächstes müssen Sie sich um den Hotfix kümmern.
+Lassen Sie uns einen <code>hotfix</code> Branch erstellen, an dem Sie bis zu dessen Fertigstellung arbeiten:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git checkout -b hotfix
+Switched to a new branch 'hotfix'
+$ vim index.html
+$ git commit -a -m 'Fix broken email address'
+[hotfix 1fb7853] Fix broken email address
+ 1 file changed, 2 insertions(+)</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/basic-branching-4.png" >}}" alt="Auf dem `master` Branch basierender Hotfix-Branch">
+</div>
+<div class="title">Abbildung 21. Auf dem <code>master</code> Branch basierender Hotfix-Branch</div>
+</div>
+<div class="paragraph">
+<p>Sie können Ihre Tests durchführen, sich vergewissern, dass der Hotfix das macht, was Sie von ihm erwarten und schließlich den Branch <code>hotfix</code> wieder in Ihren <code>master</code> Branch integrieren (engl. merge), um ihn in der Produktion einzusetzen.
+Das machen Sie mit der Anweisung <code>git merge</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git checkout master
+$ git merge hotfix
+Updating f42c576..3a0874c
+Fast-forward
+ index.html | 2 ++
+ 1 file changed, 2 insertions(+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ihnen wird bei diesem Zusammenführen der Ausdruck „fast-forward“ auffallen.
+Da der Commit <code>C4</code>, auf den der von Ihnen eingebundene Branch <code>hotfix</code> zeigt, direkt vor dem Commit <code>C2</code> liegt, auf dem Sie sich befinden, bewegt Git den Pointer einfach nach vorne.
+Um es anders auszudrücken: Wenn Sie versuchen, einen Commit mit einem Commit zusammenzuführen, der durch Verfolgen der Historie des ersten Commits erreicht werden kann, vereinfacht Git die Dinge, indem er den Zeiger nach vorne bewegt, da es keine abweichenden Arbeiten gibt, die miteinander gemergt werden müssen – das wird als „fast-forward“ bezeichnet.</p>
+</div>
+<div class="paragraph">
+<p>Ihre Änderung befindet sich nun im Schnappschuss des Commits, auf den der <code>master</code> Branch zeigt und Sie können Ihre Fehlerbehebung anwenden.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/basic-branching-5.png" >}}" alt="`master` wurde zu `hotfix` „fast-forwarded“">
+</div>
+<div class="title">Abbildung 22. <code>master</code> wurde zu <code>hotfix</code> „fast-forwarded“</div>
+</div>
+<div class="paragraph">
+<p>Nachdem Ihre überaus wichtige Fehlerbehebung bereitgestellt wurde, können Sie sich wieder dem zuwenden, woran Sie gerade gearbeitet haben, als Sie unterbrochen wurden.
+Zunächst sollten Sie jedoch den <code>hotfix</code> Branch löschen, weil Sie diesen nicht länger benötigen – schließlich verweist der <code>master</code> Branch auf denselben Entwicklungsstand.
+Sie können ihn mit der Anweisung <code>git branch</code> und der Option <code>-d</code> löschen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git branch -d hotfix
+Deleted branch hotfix (3a0874c).</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Jetzt können Sie zu dem vorherigen Branch wechseln, auf dem Sie mit Ihren Arbeiten an „Issue #53“ begonnen hatten, und daran weiter arbeiten.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git checkout iss53
+Switched to branch "iss53"
+$ vim index.html
+$ git commit -a -m 'Finish the new footer [issue 53]'
+[iss53 ad82d7a] Finish the new footer [issue 53]
+1 file changed, 1 insertion(+)</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/basic-branching-6.png" >}}" alt="Arbeiten an `iss53` fortsetzen">
+</div>
+<div class="title">Abbildung 23. Arbeiten an <code>iss53</code> fortsetzen</div>
+</div>
+<div class="paragraph">
+<p>Erwähnenswert ist, dass die Änderungen, die Sie in Ihrem <code>hotfix</code> Branch durchgeführt haben, nicht in den Dateien ihres <code>iss53</code> Branch enthalten sind.
+Wenn Sie diese Änderungen übernehmen wollen, können Sie Ihrem <code>master</code> Branch in den <code>iss53</code> Branch übernehmen, indem Sie <code>git merge master</code> ausführen. Sie können aber auch warten und sich später dazu entscheiden, den <code>iss53</code> Branch in <code>master</code> zu übernehmen (engl. pullen).</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_basic_merging">Einfaches Merging</h3>
+<div class="paragraph">
+<p>
+Angenommen, Sie haben entschieden, dass Ihr Issue #53 abgeschlossen ist und Sie bereit sind, ihn in Ihren Branch <code>master</code> zu integrieren.
+Dann werden Sie Ihren <code>iss53</code> Branch in den <code>master</code> Branch mergen, so wie Sie es zuvor mit dem <code>hotfix</code> Branch gemacht haben.
+Sie müssen nur mit der Anweisung <code>checkout</code> zum dem Branch wechseln, in welchen Sie etwas einfließen lassen wollen und dann die Anweisung <code>git merge</code> ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git checkout master
+Switched to branch 'master'
+$ git merge iss53
+Merge made by the 'recursive' strategy.
+index.html |    1 +
+1 file changed, 1 insertion(+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Das sieht ein bisschen anders aus, als das Merging mit dem <code>hotfix</code> Branch, welches Sie zuvor gemacht haben.
+Hier hat sich der Entwicklungsverlauf an einem früheren Zustand geteilt.
+Da der Commit auf dem Branch, auf dem Sie sich gerade befinden, kein unmittelbarer Vorgänger des Branches ist, in den Sie mergen, muss Git einige Arbeiten erledigen.
+In diesem Fall führt Git einen einfachen Drei-Wege-Merge durch, indem er die beiden Schnappschüsse verwendet, auf die die Branch-Spitzen und der gemeinsame Vorgänger der beiden zeigen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/basic-merging-1.png" >}}" alt="Drei Schnappschüsse" width="die bei einem typischen `merge` benutzt werden">
+</div>
+<div class="title">Abbildung 24. Drei Schnappschüsse, die bei einem typischen <code>merge</code> benutzt werden</div>
+</div>
+<div class="paragraph">
+<p>Anstatt einfach den Zeiger des Branches vorwärts zu bewegen, erstellt Git einen neuen Schnappschuss, der aus dem Drei-Wege-Merge resultiert und erzeugt automatisch einen neuen Commit, der darauf zeigt.
+Das wird auch als Merge-Commit bezeichnet und ist ein Spezialfall, weil er mehr als nur einen Vorgänger hat.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/basic-merging-2.png" >}}" alt="Ein Merge-Commit">
+</div>
+<div class="title">Abbildung 25. Ein Merge-Commit</div>
+</div>
+<div class="paragraph">
+<p>Da Ihre Änderungen jetzt eingeflossen sind, haben Sie keinen weiteren Bedarf mehr für den <code>iss53</code> Branch.
+Sie können den Issue in Ihrem Issue-Tracking-System schließen und den Branch löschen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git branch -d iss53</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_basic_merge_conflicts">Einfache Merge-Konflikte</h3>
+<div class="paragraph">
+<p>
+Gelegentlich verläuft der Merge-Prozess nicht ganz reibungslos.
+Wenn Sie in den beiden Branches, die Sie zusammenführen wollen, an derselben Stelle in derselben Datei unterschiedliche Änderungen vorgenommen haben, wird Git nicht in der Lage sein, diese sauber zusammenzuführen.
+Wenn Ihr Fix für „Issue #53“ den gleichen Teil einer Datei wie der Branch <code>hotfix</code> geändert hat, erhalten Sie einen Merge-Konflikt, der ungefähr so aussieht:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git merge iss53
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Git konnte einen neuen Merge-Commit nicht automatisch erstellen.
+Es hat den Prozess angehalten, bis Sie den Konflikt beseitigt haben.
+Wenn Sie sehen möchten, welche Dateien zu irgendeinem Zeitpunkt nach einem Merge-Konflikt nicht zusammengeführt wurden, können Sie <code>git status</code> ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add &lt;file&gt;..." to mark resolution)
+
+    both modified:      index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alles, was Merge-Konflikte ausgelöst hat und nicht behoben wurde, wird als <code>unmerged</code> angezeigt.
+Git fügt den Dateien, die Konflikte haben, Standardmarkierungen zur Konfliktlösung hinzu, so dass Sie sie manuell öffnen und diese Konflikte lösen können.
+Ihre Datei enthält einen Bereich, der in etwa so aussieht:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:index.html
+&lt;div id="footer"&gt;contact : email.support@github.com&lt;/div&gt;
+=======
+&lt;div id="footer"&gt;
+ please contact us at support@github.com
+&lt;/div&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; iss53:index.html</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Das bedeutet, die Version in <code>HEAD</code> (das ist der aktuelle commit <code>master</code> Branches, denn der wurde per <code>checkout</code> aktiviert, als Sie den <code>Merge</code> gestartet haben) ist der obere Teil des Blocks (alles oberhalb von <code>=======</code>) und die Version aus dem <code>iss53</code> Branch ist in dem darunter befindliche Teil.
+Um den Konflikt zu lösen, müssen Sie sich entweder für einen der beiden Teile entscheiden oder Sie führen die Inhalte selbst zusammen.
+Sie können diesen Konflikt beispielsweise lösen, indem Sie den gesamten Block durch diesen ersetzen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;div id="footer"&gt;
+please contact us at email.support@github.com
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Diese Lösung hat von beiden Teilen etwas und die Zeilen mit <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> und <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> wurden vollständig entfernt.
+Nachdem Sie alle problematischen Bereiche in allen von dem Konflikt betroffenen Dateien beseitigt haben, führen Sie einfach die Anweisung <code>git add</code> für alle betroffenen Dateien aus, um sie als gelöst zu markieren.
+Dieses ‚Staging‘ der Dateien markiert sie für Git als bereinigt.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie ein grafisches Tool benutzen möchten, um die Probleme zu lösen, dann können Sie <code>git mergetool</code> verwenden, welches ein passendes grafisches Merge-Tool startet und Sie durch die Konfliktbereiche führt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git mergetool
+
+This message is displayed because 'merge.tool' is not configured.
+See 'git mergetool --tool-help' or 'git help config' for more details.
+'git mergetool' will now attempt to use one of the following tools:
+opendiff kdiff3 tkdiff xxdiff meld tortoisemerge gvimdiff diffuse diffmerge ecmerge p4merge araxis bc3 codecompare vimdiff emerge
+Merging:
+index.html
+
+Normal merge conflict for 'index.html':
+  {local}: modified file
+  {remote}: modified file
+Hit return to start merge resolution tool (opendiff):</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie ein anderes Merge-Tool anstelle des Standardwerkzeugs verwenden möchten (Git wählte in diesem Fall <code>opendiff</code>, da die Anweisung auf einem Mac ausgeführt wurde), dann können Sie alle unterstützten Werkzeuge sehen, die oben nach „one of the following tools“ aufgelistet sind.
+Tippen Sie einfach den Namen des gewünschten Programms ein.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Anmerkung</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Wenn Sie fortgeschrittenere Werkzeuge zur Lösung kniffliger Merge-Konflikte benötigen, erfahren Sie mehr darüber in Kapitel 7 <a href="ch00/_advanced_merging">Fortgeschrittenes Merging</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Nachdem Sie das Merge-Tool beendet haben, werden Sie von Git gefragt, ob das Zusammenführen erfolgreich war.
+Wenn Sie dem Skript bestätigen, dass es das war, wird die Datei der Staging-Area hinzugefügt und der Konflikt als gelöst markiert.
+Sie können den Befehl <code>git status</code> erneut ausführen, um zu überprüfen, ob alle Konflikte gelöst wurden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+    modified:   index.html</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie damit zufrieden sind und Sie geprüft haben, dass alles, was Konflikte aufwies, der Staging-Area hinzugefügt wurde, können Sie die Anweisung <code>git commit</code> ausführen, um den Merge-Commit abzuschließen.
+Die standardmäßige Commit-Nachricht sieht ungefähr so aus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">Merge branch 'iss53'
+
+Conflicts:
+    index.html
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   index.html
+#</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sie können dieser Commit-Nachricht noch Details darüber hinzufügen, wie Sie diesen Merge-Konflikt gelöst haben. Es könnte für künftige Betrachter dieses Commits hilfreich sein, zu verstehen, warum Sie was getan haben, falls es nicht offensichtlich ist.</p>
+</div>
+</div>
+<div id="nav"><a href="{{< previous-section >}}">prev</a> | <a href="{{< next-section >}}">next</a></div>

@@ -1,0 +1,675 @@
+---
+category: book
+section: documentation
+subsection: book
+sidebar: book
+book:
+  language_code: de
+  chapter:
+    title: Verteiltes Git
+    number: 5
+  section:
+    title: Ein Projekt verwalten
+    number: 3
+    cs_number: '5.3'
+    previous: book/de/v2/Verteiltes-Git-An-einem-Projekt-mitwirken
+    next: book/de/v2/Verteiltes-Git-Zusammenfassung
+title: Git - Ein Projekt verwalten
+
+---
+<h2 id="_ein_projekt_verwalten">Ein Projekt verwalten</h2>
+<div class="paragraph">
+<p>
+Sie müssen nicht nur wissen, wie Sie effektiv zu einem Projekt etwas beitragen. Sie sollten auch wissen, wie Sie ein Projekt verwalten.
+Sie müssen bspw. wissen wie sie Patches akzeptieren und anwenden, die über <code>format-patch</code> generiert und per E-Mail an Sie gesendet wurden. Weiterhin sollten sie wissen wie sie Änderungen in Remote-Branches für Repositorys integrieren, die Sie als Remotes zu Ihrem Projekt hinzugefügt haben.
+Unabhängig davon, ob Sie ein zentrales Repository verwalten oder durch Überprüfen oder Genehmigen von Patches helfen möchten, müssen Sie wissen, wie Sie die Arbeit anderer so akzeptieren, dass es für andere Mitwirkende transparent und auf lange Sicht auch nachhaltig ist.</p>
+</div>
+<div class="sect3">
+<h3 id="_arbeiten_in_themen_branches">Arbeiten in Themen Branches</h3>
+<div class="paragraph">
+<p>
+Wenn man vorhat, neuen Quelltext zu integrieren, ist es im Allgemeinen eine gute Idee, sie in einem <em>Topic Branch</em> zu testen. Das ist ein temporärer Branch, der speziell zum Ausprobieren dieser neuen Änderungen erstellt wurde.
+Auf diese Weise ist es einfach, einen Patch einzeln zu optimieren und ihn nicht weiter zu bearbeiten, wenn er nicht funktioniert, bis Sie Zeit haben, sich wieder damit zu befassen.
+Sie sollten einen einfachen Branchnamen erstellen, der auf dem Thema der Arbeit basiert, die Sie durchführen, wie z.B. <code>ruby_client</code> oder etwas ähnlich Sprechendes. Dann können Sie sich später leichter daran erinnern, falls Sie den Branch für eine Weile haben ruhen lassen und später daran weiter arbeiten.
+Der Betreuer des Git-Projekts neigt auch dazu, diese Branches mit einem Namespace zu versehen – wie z. B. <code>sc/ruby_client</code>, wobei <code>sc</code> für die Person steht, die die Arbeit beigesteuert hat.
+Wie Sie sich erinnern werden, können Sie den Branch basierend auf Ihrem <code>master</code> Branch wie folgt erstellen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git branch sc/ruby_client master</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn sie anschließend sofort zum neuen Branch wechseln möchten, können Sie auch die Option <code>checkout -b</code> verwenden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git checkout -b sc/ruby_client master</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Jetzt können Sie die getätigte Arbeit zu diesem Branch hinzufügen und festlegen, ob Sie ihn mit Ihren bestehenden Branches zusammenführen möchten.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_patches_from_email">Integrieren von Änderungen aus E-Mails</h3>
+<div class="paragraph">
+<p>
+Wenn Sie einen Patch per E-Mail erhalten, den Sie in Ihr Projekt integrieren möchten, müssen Sie den Patch in Ihrer Themen Branch einfließen lassen, damit sie ihn prüfen können.
+Es gibt zwei Möglichkeiten, einen per E-Mail versendeten Patch anzuwenden: mit <code>git apply</code> oder mit <code>git am</code>.</p>
+</div>
+<div class="sect4">
+<h4 id="_änderungen_mit_apply_integrieren">Änderungen mit <code>apply</code> integrieren</h4>
+<div class="paragraph">
+<p>
+Wenn Sie den Patch von jemandem erhalten haben, der ihn mit <code>git diff</code> oder mit einer Variante des Unix-Befehls` diff` erzeugt hat (was nicht empfohlen wird; siehe nächster Abschnitt), können Sie ihn mit dem Befehl <code>git apply</code> integrieren.
+Angenommen Sie haben den Patch unter <code>/tmp/patch-ruby-client.patch</code> gespeichert. Dann können Sie den Patch folgendermaßen integrieren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git apply /tmp/patch-ruby-client.patch</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hierdurch werden die Dateien in Ihrem Arbeitsverzeichnis geändert.
+Es ist fast identisch mit dem Ausführen eines <code>patch -p1</code> Befehls zum Anwenden des Patches, obwohl es vorsichtiger ist und unscharfe Übereinstimmungen selektiver als <code>patch</code> akzeptiert.
+Damit kann man auch Dateien Hinzufügen, Löschen und Umbenennen, wenn diese im <code>git diff</code> Format beschrieben sind, was mit <code>patch</code> nicht möglich ist.
+Zu guter Letzt ist <code>git apply</code> ein „wende alles oder nichts an“ Modell, bei dem entweder alles oder nichts übernommen wird. <code>patch</code> hingegen integriert Patchdateien eventuell nur teilweise und kann Ihr Arbeitsverzeichnis in einem undefinierten Zustand versetzen.
+<code>git apply</code> ist insgesamt sehr viel konservativer als <code>patch</code>.
+Es wird kein Commit erstellen. Nach dem Ausführen müssen Sie die eingeführten Änderungen manuell bereitstellen und comitten.</p>
+</div>
+<div class="paragraph">
+<p>Sie können <code>git apply</code> verwenden, um zu prüfen, ob ein Patch ordnungsgemäß integriert werden kann, bevor Sie versuchen, ihn tatsächlich anzuwenden. Sie können <code>git apply --check</code> auf den Patch ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git apply --check 0001-see-if-this-helps-the-gem.patch
+error: patch failed: ticgit.gemspec:1
+error: ticgit.gemspec: patch does not apply</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn keine Ausgabe erfolgt, sollte der Patch ordnungsgemäß angewendet werden können.
+Dieser Befehl wird auch mit einem Rückgabewert ungleich Null beendet, wenn die Prüfung fehlschlägt. So können sie ihn bei Bedarf in Skripten verwenden.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_git_am">Änderungen mit <code>am</code> integrieren</h4>
+<div class="paragraph">
+<p>
+Wenn der Beitragende ein Git-Benutzer ist und den Befehl <code>format-patch</code> zum Generieren seines Patches verwendet hat, ist Ihre Arbeit einfacher. Der Patch enthält bereits Informationen über den Autor und eine entsprechende Commitnachricht.
+Wenn möglich, ermutigen Sie die Beitragenden <code>format-patch</code> anstelle von <code>diff</code> zum Erstellen von Patches zu verwenden.
+Sie sollten <code>git apply</code> nur für ältere Patche und ähnliche Dinge verwenden.</p>
+</div>
+<div class="paragraph">
+<p>Um einen von <code>format-patch</code> erzeugten Patch zu integrieren, verwenden Sie <code>git am</code> (der Befehl heißt <code>am</code>, da er verwendet wird, um „eine Reihe von Patches aus einer Mailbox anzuwenden“).
+Technisch gesehen ist <code>git am</code> so aufgebaut, dass eine mbox-Datei gelesen werden kann. Hierbei handelt es sich um ein einfaches Nur-Text-Format zum Speichern einer oder mehrerer E-Mail-Nachrichten in einer Textdatei.
+Das sieht in etwa so aus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">From 330090432754092d704da8e76ca5c05c198e71a8 Mon Sep 17 00:00:00 2001
+From: Jessica Smith &lt;jessica@example.com&gt;
+Date: Sun, 6 Apr 2008 10:17:23 -0700
+Subject: [PATCH 1/2] Add limit to log function
+
+Limit log functionality to the first 20</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dies ist der Anfang der Ausgabe des Befehls <code>git format-patch</code>, den Sie im vorherigen Abschnitt gesehen haben. Es zeigt ein gültiges mbox Email Format.
+Wenn Ihnen jemand den Patch ordnungsgemäß mit <code>git send-email</code> per E-Mail zugesendet hat und Sie ihn in ein mbox-Format herunterladen, können Sie <code>git am</code> auf diese mbox-Datei ausführen. Damit werden alle angezeigten Patches entsprechend angewendet.
+Wenn Sie einen Mail-Client ausführen, der mehrere E-Mails im Mbox-Format speichern kann, können Sie ganze Patch-Serien in einer Datei speichern. Diese können anschließend mit <code>git am</code> einzeln angewendet werden.</p>
+</div>
+<div class="paragraph">
+<p>Wenn jemand eine mit <code>git format-patch</code> erzeugte Patch-Datei in ein Ticketsystem oder ähnliches hochgeladen hat, können Sie die Datei lokal speichern. Die Datei können sie dann an <code>git am</code> übergeben, um sie integrieren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git am 0001-limit-log-function.patch
+Applying: Add limit to log function</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wie sie sehen können, wurde der Patch korrekt integriert und es wurde automatisch ein neuer Commit für Sie erstellt.
+Die Autoreninformationen werden aus den Kopfzeilen <code>From</code> und <code>Date</code> der E-Mail entnommen und die Commitnachricht wird aus dem <code>Subject</code> und dem Textkörper (vor dem Patch) der E-Mail entnommen.
+Wenn dieser Patch bspw. aus dem obigen mbox-Beispiel angewendet würde, würde der erzeugte Commit in etwa so aussehen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git log --pretty=fuller -1
+commit 6c5e70b984a60b3cecd395edd5b48a7575bf58e0
+Author:     Jessica Smith &lt;jessica@example.com&gt;
+AuthorDate: Sun Apr 6 10:17:23 2008 -0700
+Commit:     Scott Chacon &lt;schacon@gmail.com&gt;
+CommitDate: Thu Apr 9 09:19:06 2009 -0700
+
+   Add limit to log function
+
+   Limit log functionality to the first 20</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die <code>Commit</code> Informationen gibt die Person an, die den Patch angewendet hat und den Zeitpunkt, wann er angewendet wurde.
+Die <code>Author</code> Information gibt die Person an, die den Patch ursprünglich erstellt hat und wann er ursprünglich erstellt wurde.</p>
+</div>
+<div class="paragraph">
+<p>Es besteht jedoch die Möglichkeit, dass der Patch nicht sauber angewendet werden kann.
+Möglicherweise ist Ihr Hauptbranch zu weit vom Branch entfernt, von dem aus der Patch erstellt wurde. Oder aber der Patch hängt noch von einem anderen Patch ab, den Sie noch nicht angewendet haben.
+In diesem Fall schlägt der Prozess <code>git am</code> fehl und Sie werden gefragt, was Sie tun möchten:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git am 0001-see-if-this-helps-the-gem.patch
+Applying: See if this helps the gem
+error: patch failed: ticgit.gemspec:1
+error: ticgit.gemspec: patch does not apply
+Patch failed at 0001.
+When you have resolved this problem run "git am --resolved".
+If you would prefer to skip this patch, instead run "git am --skip".
+To restore the original branch and stop patching run "git am --abort".</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dieser Befehl fügt Konfliktmarkierungen in alle Dateien ein, in denen Probleme auftreten. Ähnlich wie bei einem Konflikt bei der Zusammenführung (engl. merge) bzw. bei der Reorganisation (engl. rebase).
+Sie lösen dieses Problem auf die gleiche Art: Bearbeiten Sie die Datei, um den Konflikt zu lösen. Anschließend fügen sie die neue Datei der Staging-Area hinzu und führen dann <code>git am --resolved</code> aus, um mit dem nächsten Patch fortzufahren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ (fix the file)
+$ git add ticgit.gemspec
+$ git am --resolved
+Applying: See if this helps the gem</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie möchten, dass Git den Konflikt etwas intelligenter löst, können Sie ihm die Option „-3“ übergeben, wodurch Git versucht, eine Dreifachzusammenführung durchzuführen.
+Diese Option ist standardmäßig nicht aktiviert, da sie nicht funktioniert, wenn sich der Commit, auf dem der Patch basiert, nicht in Ihrem Repository befindet.
+Wenn Sie diesen Commit haben – wenn der Patch auf einem öffentlichen Commit basiert -, ist die Option „-3“ im Allgemeinen viel intelligenter beim Anwenden eines Patch mit Konflikten:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git am -3 0001-see-if-this-helps-the-gem.patch
+Applying: See if this helps the gem
+error: patch failed: ticgit.gemspec:1
+error: ticgit.gemspec: patch does not apply
+Using index info to reconstruct a base tree...
+Falling back to patching base and 3-way merge...
+No changes -- Patch already applied.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In diesem Fall wäre der Patch ohne die Option <code>-3</code> als Konflikt gewertet worden.
+Da die Option <code>-3</code> verwendet wurde, konnte der Patch sauber angewendet werden.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie mehrere Patches aus mbox anwenden, können Sie auch den Befehl <code>am</code> im interaktiven Modus ausführen. Bei jedem gefundenen Patch wird angehalten und Sie werden gefragt, ob Sie ihn anwenden möchten:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git am -3 -i mbox
+Commit Body is:
+--------------------------
+See if this helps the gem
+--------------------------
+Apply? [y]es/[n]o/[e]dit/[v]iew patch/[a]ccept all</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dies ist hilfreich, wenn Sie eine Reihe von Patches gespeichert haben. Sie können sich den Patch zuerst anzeigen lassen, wenn Sie sich nicht daran erinnern, worum es genau geht. Oder sie wenden den Patch nicht an, weil Sie es bereits getan haben.</p>
+</div>
+<div class="paragraph">
+<p>Wenn alle Patches für Ihr Thema angewendet und in Ihrem Branch committet wurden, können Sie auswählen, ob und wie Sie sie in einen Hauptbranch integrieren möchten.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_checking_out_remotes">Remote Branches auschecken</h3>
+<div class="paragraph">
+<p>
+Wenn sie einen Beitrag von einem Git-Nutzer erhalten, der sein eigenes Repository eingerichtet, eine Reihe von Änderungen vorgenommen und Ihnen dann die URL zum Repository und den Namen des Remote-Zweigs gesendet hat, in dem sich die Änderungen befinden, dann können Sie diesen als remote hinzufügen und die Änderungen lokal zusammenführen.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Jessica Ihnen bspw. eine E-Mail sendet, die besagt, dass sie eine großartige neue Funktion im <code>ruby-client</code> Branch ihres Repositorys hat, können Sie diese testen, indem Sie den Branch als remote hinzufügen und ihn lokal auschecken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git remote add jessica https://github.com/jessica/myproject.git
+$ git fetch jessica
+$ git checkout -b rubyclient jessica/ruby-client</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Jessica Ihnen später erneut eine E-Mail mit einem anderen Branch sendet, der eine weitere großartige Funktion enthält, können Sie diese direkt abrufen und auschecken, da Sie bereits über das Remote Repository verfügen.</p>
+</div>
+<div class="paragraph">
+<p>Dies ist am nützlichsten, wenn Sie durchgängig mit einer Person arbeiten.
+Wenn jemand nur selten einen Patch zur Verfügung steht, ist das Akzeptieren über E-Mail möglicherweise weniger zeitaufwendig. Andernfalls müsste jeder seinen eigenen Server unterhalten und Remotes hinzufügen und entfernen, um diese wenige Patches zu erhalten.
+Es ist auch unwahrscheinlich, dass Sie Hunderte von Remotes einbinden möchten für Personen, die nur ein oder zwei Patches beisteuern.
+Skripte und gehostete Dienste können dies jedoch vereinfachen – dies hängt weitgehend davon ab, wie Sie und die Mitwirkenden entwickeln.</p>
+</div>
+<div class="paragraph">
+<p>Der andere Vorteil dieses Ansatzes ist, dass Sie auch die Historie der Commits erhalten.
+Obwohl Sie möglicherweise berechtigte Probleme bei der Zusammenführungen haben, wissen Sie, worauf in Ihrer Historie deren Arbeit basiert. Eine ordnungsgemäße Drei-Wege-Zusammenführung ist die Standardeinstellung, anstatt ein „-3“ einzugeben, und zu hoffen, dass der Patch aus einem öffentlichen Commit generiert wurde, auf den Sie Zugriff haben.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie nicht durchgängig mit einer Person arbeiten, aber dennoch auf diese Weise von dieser Person abrufen möchten, können Sie die URL des Remote-Repositorys für den Befehl <code>git pull</code> angeben.
+Dies führt einen einmaligen Abruf durch und speichert die URL nicht als Remote-Referenz:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git pull https://github.com/onetimeguy/project
+From https://github.com/onetimeguy/project
+ * branch            HEAD       -&gt; FETCH_HEAD
+Merge made by the 'recursive' strategy.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_what_is_introduced">Bestimmen, was übernommen wird</h3>
+<div class="paragraph">
+<p>
+Sie haben nun einen Themen Branch mit neuen Beiträgen.
+An dieser Stelle können Sie festlegen, was Sie damit machen möchten.
+In diesem Abschnitt werden einige Befehle noch einmal behandelt. Mit diesen können sie genau überprüfen, was Sie übernehmen, wenn Sie die Beiträge in Ihrem Hauptbranch zusammenführen.</p>
+</div>
+<div class="paragraph">
+<p>Es ist oft hilfreich, eine Überprüfung über alle Commits zu erhalten, die sich in diesem Branch jedoch nicht in Ihrem <code>master</code> Branch befinden.
+Sie können Commits im <code>master</code> Branch ausschließen, indem Sie die Option <code>--not</code> vor dem Branchnamen hinzufügen.
+Dies entspricht dem Format <code>master..contrib</code>, welches wir zuvor verwendet haben.
+Wenn Ihr Mitarbeiter Ihnen bspw. zwei Patches sendet und Sie einen Branch mit dem Namen <code>contrib</code> erstellen und diese Patches dort anwenden, können Sie Folgendes ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git log contrib --not master
+commit 5b6235bd297351589efc4d73316f0a68d484f118
+Author: Scott Chacon &lt;schacon@gmail.com&gt;
+Date:   Fri Oct 24 09:53:59 2008 -0700
+
+    See if this helps the gem
+
+commit 7482e0d16d04bea79d0dba8988cc78df655f16a0
+Author: Scott Chacon &lt;schacon@gmail.com&gt;
+Date:   Mon Oct 22 19:38:36 2008 -0700
+
+    Update gemspec to hopefully work better</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Denken Sie daran, dass Sie die Option <code>-p</code> an <code>git log</code> übergeben können, um zu sehen, welche Änderungen jeder Commit einführt.</p>
+</div>
+<div class="paragraph">
+<p>Um einen vollständigen Überblick darüber zu erhalten, was passieren würde, wenn Sie diesen Branch mit einem anderen Branch zusammenführen würden, müssen Sie möglicherweise einen ungewöhnlichen Kniff anwenden, um die richtigen Ergebnisse zu erzielen.
+Eventuell denken sie daran folgendes auszuführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git diff master</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dieser Befehl gibt Ihnen den Unterschied zurück, jedoch kann dies irreführend sein.
+Wenn Ihr Masterbranch vorgerückt ist, seit Sie den Themenbranch daraus erstellt haben, erhalten Sie scheinbar unerwartete Ergebnisse.
+Dies geschieht, weil Git den Snapshots des letzten Commits des Branches, in dem Sie sich befinden, und den Snapshot des letzten Commits des Branches <code>master</code> direkt miteinander vergleicht.
+Wenn Sie bspw. eine Zeile in eine Datei im Branch <code>master</code> eingefügt haben, sieht ein direkter Vergleich der Snapshots so aus, als würde der Themen Branch diese Zeile entfernen.</p>
+</div>
+<div class="paragraph">
+<p>Wenn <code>master</code> ein direkter Vorgänger Ihres Themenbranches ist, ist dies kein Problem. Wenn aber beiden Historien voneinander abweichen, sieht es so aus, als würden Sie alle neuen Inhalte in Ihrem Themenbranch hinzufügen und alles entfernen, was im <code>master</code> Branch eindeutig ist.</p>
+</div>
+<div class="paragraph">
+<p>Was Sie wirklich sehen möchten, sind die Änderungen, die dem Themenbranch hinzugefügt wurden. Die Arbeit, die Sie hinzufügen, wenn Sie den neuen Branch mit <code>master</code> zusammenführen.
+Sie tun dies, indem Git den letzten Commit in Ihrem Themen Branch mit dem ersten gemeinsamen Vorgänger aus dem <code>master</code> Branch vergleicht.</p>
+</div>
+<div class="paragraph">
+<p>Technisch gesehen können Sie dies tun, indem Sie den gemeinsamen Vorgänger explizit herausfinden und dann Ihr <code>diff</code> darauf ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git merge-base contrib master
+36c7dba2c95e6bbb78dfa822519ecfec6e1ca649
+$ git diff 36c7db</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>oder kurzgefasst:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git diff $(git merge-base contrib master)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Beides ist jedoch nicht besonders praktisch, weshalb Git einen anderen Weg für diesen Vorgang bietet: die Drei-Punkt-Syntax (engl. Triple-Dot-Syntax).
+Im Kontext des Befehls <code>git diff</code> können Sie drei Punkte nach einem anderen Branch einfügen, um ein <code>diff</code> zwischen dem letzten Commit ihres aktuellen Branch und dem gemeinsamen Vorgänger eines anderen Branches zu erstellen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git diff master...contrib</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dieser Befehl zeigt Ihnen nur die Arbeit an, die Ihr aktueller Branch seit dem gemeinsamen Vorgänger mit <code>master</code> eingeführt hat.
+Dies ist eine sehr nützliche Syntax, die sie sich merken sollten.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_beiträge_integrieren">Beiträge integrieren</h3>
+<div class="paragraph">
+<p>
+Wenn ihr Themenbranch bereit ist, um in einen Hauptbranch integriert zu werden, lautet die Frage, wie Sie dies tun können.
+Welchen Workflow möchten Sie verwenden, um Ihr Projekt zu verwalten?
+Sie haben eine Reihe von Möglichkeiten, daher werden wir einige davon behandeln.</p>
+</div>
+<div class="sect4">
+<h4 id="_zusammenführungs_workflow_engl_mergen">Zusammenführungs Workflow (engl. mergen)</h4>
+<div class="paragraph">
+<p>
+Ein grundlegender Workflow besteht darin, all diese Arbeiten einfach direkt in Ihrem <code>master</code> Branch zusammenzuführen.
+In diesem Szenario haben Sie einen <code>master</code> Branch, der stabilen Code enthält.
+Wenn Sie in einem Branch arbeiten, von dem Sie glauben, dass Sie ihn abgeschlossen haben, oder von jemand anderem beigesteuert und überprüft haben, führen Sie ihn in Ihrem Hauptbranch zusammen. Löschen sie anschließend diesen gerade zusammengeführten Branch und wiederholen den Vorgang bei Bedarf.</p>
+</div>
+<div class="paragraph">
+<p>Wenn wir zum Beispiel ein Repository mit zwei Branches namens <code>ruby_client</code> und <code>php_client</code> haben, die wie <a href="ch00/merwf_a">Historie mit mehreren Topic Branches</a> aussehen, und wir <code>ruby_client</code> gefolgt von <code>php_client</code> zusammenführen, sieht Ihr Verlauf so aus <a href="ch00/merwf_b">Status nach einem Themen Branch Merge</a>.</p>
+</div>
+<div id="merwf_a" class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/merging-workflows-1.png" >}}" alt="Historie mit mehreren Topic Branches">
+</div>
+<div class="title">Abbildung 72. Historie mit mehreren Topic Branches</div>
+</div>
+<div id="merwf_b" class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/merging-workflows-2.png" >}}" alt="Status nach einem Themen Branch Merge">
+</div>
+<div class="title">Abbildung 73. Status nach einem Themen Branch Merge</div>
+</div>
+<div class="paragraph">
+<p>Das ist wahrscheinlich der einfachste Workflow. Es kann jedoch zu Problemen kommen, wenn Sie größere oder stabilere Projekte bearbeiten. Bei diesen müssen Sie mit der Einführung von Änderungen sehr vorsichtig sein.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie ein wichtigeres Projekt haben, möchten Sie möglicherweise einen zweistufigen Merge Prozess verwenden.
+In diesem Szenario haben Sie zwei lange laufende Branches namens <code>master</code> und <code>develop</code>. Sie legen fest, dass <code>master</code> nur dann aktualisiert wird, wenn eine sehr stabile Version vorhanden ist und der gesamte neue Code in den Branch <code>develop</code> integriert wird.
+Sie pushen diese beiden Branches regelmäßig in das öffentliche Repository.
+Jedes Mal, wenn Sie einen neuen Branch zum Zusammenführen haben (<a href="ch00/merwf_c">Vor einem Themen Branch Merge</a>), führen Sie ihn in <code>develop</code> (&lt;&lt; merwf_d &gt;&gt;) zusammen. Wenn Sie nun ein Release mit einem Tag versehen, spulen Sie <code>master</code> an die Stelle weiter, an der sich der jetzt stabile <code>develop</code> Branch befindet (<a href="ch00/merwf_e">Nach einem Projekt Release</a>).</p>
+</div>
+<div id="merwf_c" class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/merging-workflows-3.png" >}}" alt="Vor einem Themen Branch Merge">
+</div>
+<div class="title">Abbildung 74. Vor einem Themen Branch Merge</div>
+</div>
+<div id="merwf_d" class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/merging-workflows-4.png" >}}" alt="Nach einem Themen Branch Merge">
+</div>
+<div class="title">Abbildung 75. Nach einem Themen Branch Merge</div>
+</div>
+<div id="merwf_e" class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/merging-workflows-5.png" >}}" alt="Nach einem Projekt Release">
+</div>
+<div class="title">Abbildung 76. Nach einem Projekt Release</div>
+</div>
+<div class="paragraph">
+<p>Auf diese Weise können Benutzer, die das Repository Ihres Projekts klonen, entweder <code>master</code> oder <code>develop</code> auschecken. Mit <code>master</code> können sie die neueste stabile Version erstellen und somit recht einfache auf dem neuesten Stand bleiben. Oder sie können <code>develop</code> auschecken, welchen den aktuellsten Inhalt enthält.
+Sie können dieses Konzept auch erweitern, indem Sie einen <code>integrate</code> Branch einrichten, in dem alle Arbeiten zusammengeführt werden.
+Wenn die Codebasis auf diesem Branch stabil ist und die Tests erfolgreich sind, können Sie sie zu einem Entwicklungsbranch zusammen führen. Wenn sich dieser dann als stabil erwiesen hat, können sie ihren <code>master</code> Branch fast-forwarden.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_workflows_mit_umfangreichen_merges">Workflows mit umfangreichen Merges</h4>
+<div class="paragraph">
+<p>
+Das Git-Projekt selber hat vier kontinuierlich laufende Branches: <code>master</code>, <code>next</code> und <code>seen</code> (vormals 'pu' – vorgeschlagene Updates) für neue Arbeiten und <code>maint</code> für Wartungs-Backports.
+Wenn neue Arbeiten von Mitwirkenden eingereicht werden, werden sie in ähnlicher Weise wie oben beschrieben in Themenbranches im Projektrepository des Betreuers gesammelt (siehe <a href="ch00/merwf_f">Verwaltung einer komplexen Reihe paralleler Themenbranches</a>).
+Zu diesem Zeitpunkt werden die Themen evaluiert, um festzustellen, ob sie korrekt sind und zur Weiterverarbeitung bereit sind oder ob sie Nacharbeit benötigen.
+Wenn sie korrekt sind, werden sie zu <code>next</code> zusammengeführt, und dieser Branch wird dann gepushed, damit jeder die miteinander integrierten Themen testen kann.</p>
+</div>
+<div id="merwf_f" class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/large-merges-1.png" >}}" alt="Verwaltung einer komplexen Reihe paralleler Themenbranches">
+</div>
+<div class="title">Abbildung 77. Verwaltung einer komplexen Reihe paralleler Themenbranches</div>
+</div>
+<div class="paragraph">
+<p>Wenn die Themen noch bearbeitet werden müssen, werden sie in <code>seen</code> gemergt.
+Wenn festgestellt wird, dass sie absolut stabil sind, werden die Themen wieder zu <code>master</code> zusammengeführt.
+Die Branches <code>next</code> und <code>seen</code> werden dann von <code>master</code> neu aufgebaut.
+Dies bedeutet, dass <code>master</code> fast immer vorwärts geht, <code>next</code> wird gelegentlich und <code>seen</code> häufiger rebased:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/large-merges-2.png" >}}" alt="Zusammenführen von Themen Branches in langfristige Integrationsbranches">
+</div>
+<div class="title">Abbildung 78. Zusammenführen von Themen Branches in langfristige Integrationsbranches</div>
+</div>
+<div class="paragraph">
+<p>Wenn ein Branch schließlich zu <code>master</code> zusammengeführt wurde, wird er aus dem Repository entfernt.
+Das Git-Projekt hat auch einen <code>maint</code> Branch, der von letzten release geforkt wurde, um für den Fall, dass eine Wartungsversion erforderlich ist, Backport-Patches bereitzustellen.
+Wenn Sie das Git-Repository also klonen, stehen Ihnen vier Branches zur Verfügung, mit denen Sie das Projekt in verschiedenen Entwicklungsstadien bewerten können, je nachdem, wie aktuell Sie sein möchten oder wie Sie einen Beitrag leisten möchten. Der Betreuer verfügt über einen strukturierten Workflow, der ihm hilft, neue Beiträge zu überprüfen.
+Der Workflow des Git-Projekts ist sehr speziell.
+Um dies zu verstehen, können Sie das <a href="https://github.com/git/git/blob/master/Documentation/howto/maintain-git.txt" target="_blank" rel="noopener">Git Maintainer’s guide</a> lesen.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_rebase_cherry_pick">Rebasing und Cherry-Picking Workflows</h4>
+<div class="paragraph">
+<p>
+Andere Betreuer bevorzugen es, die Arbeit auf ihrem <code>master</code> Branch zu rebasen oder zu cherry-picken, anstatt sie zusammenzuführen, um einen linearen Verlauf beizubehalten.
+Wenn Sie in einem Themen Branch arbeiten und sich dazu entschlossen haben, ihn zu integrieren, wechseln Sie in diesen Branch und führen den <code>rebase</code> Befehl aus, um die Änderungen auf ihrem <code>master</code> (oder <code>develop</code> Branch usw.) aufzubauen.
+Wenn das gut funktioniert, können Sie Ihren <code>master</code> Branch fast-forwarden, und Sie erhalten eine lineare Projekthistorie.</p>
+</div>
+<div class="paragraph">
+<p>
+Eine andere Möglichkeit, die eingeführte Arbeit von einem Branch in einen anderen zu verschieben, besteht darin, sie zu cherry-picken.
+Ein Cherry-Pick in Git ist wie ein Rebase für ein einzelnes Commit.
+Es nimmt den Patch, der in einem Commit eingeführt wurde, und versucht ihn erneut auf den Branch anzuwenden, auf dem Sie sich gerade befinden.
+Dies ist nützlich, wenn Sie eine Reihe von Commits für einen Branch haben und nur eine davon integrieren möchten. Oder aber wenn Sie nur einen Commit für einen Branch haben und es vorziehen, diesen zu cherry-picken, anstatt ein Rebase auszuführen.
+Angenommen, Sie haben ein Projekt, das folgendermaßen aussieht:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/rebasing-1.png" >}}" alt="Beispiel Historie vor einem Cherry-Pick">
+</div>
+<div class="title">Abbildung 79. Beispiel Historie vor einem Cherry-Pick</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie das Commit „e43a6“ in Ihren <code>master</code> Branch ziehen möchten, können Sie folgendes ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git cherry-pick e43a6
+Finished one cherry-pick.
+[master]: created a0a41a9: "More friendly message when locking the index fails."
+ 3 files changed, 17 insertions(+), 3 deletions(-)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dies zieht die gleiche Änderung nach sich, die in <code>e43a6</code> eingeführt wurde. Sie erhalten jedoch einen neuen Commit SHA-1-Wert, da das angewendete Datum unterschiedlich ist.
+Nun sieht die Historie so aus:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="{{< relurl "book/en/v2/images/rebasing-2.png" >}}" alt="Historie nach Cherry-Picken eines Commits auf einen Themen Branch">
+</div>
+<div class="title">Abbildung 80. Historie nach Cherry-Picken eines Commits auf einen Themen Branch</div>
+</div>
+<div class="paragraph">
+<p>Jetzt können Sie Ihren Themen Branch entfernen und die Commits löschen, die Sie nicht einbeziehen wollten.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_rerere">Rerere</h4>
+<div class="paragraph">
+<p>
+Wenn Sie viel mergen und rebasen oder einen langlebigen Themenbranch pflegen, hat Git eine Funktion namens „rerere“, die nützlich sein kann.</p>
+</div>
+<div class="paragraph">
+<p>Rerere steht für „reuse recorded resolution“ (deutsch „Aufgezeichnete Lösung wiederverwenden“). Es ist eine Möglichkeit, die manuelle Konfliktlösung zu verkürzen.
+Wenn rerere aktiviert ist, behält Git eine Reihe von Pre- und Postimages von erfolgreichen Commits bei. Wenn es feststellt, dass ein Konflikt genauso aussieht, wie der, den Sie bereits behoben haben, wird die Korrektur vom letzten Mal verwendet, ohne nochmal nachzufragen.</p>
+</div>
+<div class="paragraph">
+<p>Diese Funktion besteht aus zwei Teilen: einer Konfigurationseinstellung und einem Befehl.
+Die Konfigurationseinstellung lautet <code>rerere.enabled</code>. Man kann sie in die globale Konfiguration eingeben:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git config --global rerere.enabled true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie nun einen merge durchführen, der Konflikte auflöst, wird diese Auflösung im Cache gespeichert, falls Sie sie in Zukunft benötigen.</p>
+</div>
+<div class="paragraph">
+<p>Bei Bedarf können Sie mit dem rerere Cache interagieren mittels des Befehls <code>git rerere</code>.
+Wenn der Befehlt ausgeführt wird, überprüft Git seine Lösungsdatenbank und versucht eine Übereinstimmung mit aktuellen Mergekonflikten zu finden und diesen zu lösen (dies geschieht jedoch automatisch, wenn <code>rerere.enabled</code> auf` true` gesetzt ist).
+Es gibt auch Unterbefehle, um zu sehen, was aufgezeichnet wird, um eine bestimmte Konfliktlösung aus dem Cache zu löschen oder um den gesamten Cache zu löschen.
+Wir werden uns in <a href="ch00/ref_rerere">Rerere</a> eingehender mit rerere beschäftigen.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_tagging_releases">Tagging ihres Releases</h3>
+<div class="paragraph">
+<p>
+Wenn Sie sich entschieden haben, ein Release zu erstellen, dann möchten Sie wahrscheinlich einen Tag zuweisen, damit Sie dieses Release in Zukunft jederzeit neu erstellen können.
+Sie können einen neuen Tag erstellen, wie in <a href="ch00/ch02-git-basics-chapter">Git Grundlagen</a> beschrieben.
+Wenn Sie den Tag als Betreuer signieren möchten, sieht der Tag möglicherweise folgendermaßen aus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git tag -s v1.5 -m 'my signed 1.5 tag'
+You need a passphrase to unlock the secret key for
+user: "Scott Chacon &lt;schacon@gmail.com&gt;"
+1024-bit DSA key, ID F721C45A, created 2009-02-09</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie Ihre Tags signieren, haben Sie möglicherweise das Problem, den öffentlichen PGP-Schlüssel zu verteilen, der zum Signieren Ihrer Tags verwendet wird.
+Der Betreuer des Git-Projekts hat dieses Problem behoben, indem er seinen öffentlichen Schlüssel als Blob in das Repository aufgenommen und anschließend einen Tag hinzugefügt hat, der direkt auf diesen Inhalt verweist.
+Um dies zu tun, können Sie herausfinden, welchen Schlüssel Sie möchten, indem Sie <code>gpg --list-keys</code> ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ gpg --list-keys
+/Users/schacon/.gnupg/pubring.gpg
+---------------------------------
+pub   1024D/F721C45A 2009-02-09 [expires: 2010-02-09]
+uid                  Scott Chacon &lt;schacon@gmail.com&gt;
+sub   2048g/45D02282 2009-02-09 [expires: 2010-02-09]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Anschließend können Sie den Schlüssel direkt in die Git-Datenbank importieren, indem Sie ihn exportieren und diesen über <code>git hash-object</code> weiterleiten. Dadurch wird ein neuer Blob mit diesen Inhalten in Git geschrieben und Sie erhalten den SHA-1 des Blobs zurück:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ gpg -a --export F721C45A | git hash-object -w --stdin
+659ef797d181633c87ec71ac3f9ba29fe5775b92</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nachdem Sie nun den Inhalt Ihres Schlüssels in Git haben, können Sie einen Tag erstellen, der direkt darauf verweist. Dies tun sie indem Sie den neuen SHA-1-Wert angeben, den Sie mit dem Befehl <code>hash-object</code> erhalten haben:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git tag -a maintainer-pgp-pub 659ef797d181633c87ec71ac3f9ba29fe5775b92</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie <code>git push --tags</code> ausführen, wird der Tag <code>maintainer-pgp-pub</code> für alle freigegeben.
+Wenn jemand einen Tag verifizieren möchte, kann er Ihren PGP-Schlüssel direkt importieren, indem er den Blob direkt aus der Datenbank zieht und in GPG importiert:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git show maintainer-pgp-pub | gpg --import</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mit diesem Schlüssel können sie alle Ihre signierten Tags überprüfen.
+Wenn Sie der Tag-Nachricht Anweisungen hinzufügen, können Sie dem Endbenutzer mit <code>git show &lt;tag&gt;</code> genauere Anweisungen zur Tag-Überprüfung geben.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_build_number">Eine Build Nummer generieren</h3>
+<div class="paragraph">
+<p>
+Git verfügt nicht über ansteigende Zahlen wie 'v123' oder ähnliches für jedes Commit. Wenn sie einen lesbaren Namen für ihren Commit benötigen, dann können Sie für dieses Commit den Befehl <code>git describe</code> ausführen.
+Als Antwort generiert Git eine Zeichenfolge, die aus dem Namen des jüngsten Tags vor diesem Commit besteht, gefolgt von der Anzahl der Commits seit diesem Tag, gefolgt von einem partiellen SHA-1-Wert des beschriebene Commits (vorangestelltem wird dem Buchstaben „g“ für Git):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git describe master
+v1.6.2-rc1-20-g8c5b85c</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Auf diese Weise können Sie einen Snaphot exportieren oder einen Build erstellen und einen verständlichen Namen vergeben.
+Wenn Sie Git aus den Quellcode erstellen, der aus dem Git-Repository geklont wurde, erhalten Sie mit <code>git --version</code> etwas, das genauso aussieht.
+Wenn Sie einen Commit beschreiben, den Sie direkt getaggt haben, erhalten Sie einfach den Tag-Namen.</p>
+</div>
+<div class="paragraph">
+<p>Standardmäßig erfordert der Befehl <code>git describe</code> annotierte (mit Anmerkungen versehene) Tags (die mit dem Flag <code>-a</code> oder <code>-s</code> erstellt wurden). Wenn Sie auch leichtgewichtige (nicht mit Anmerkungen versehene) Tags verwenden möchten, fügen Sie dem Befehl die Option <code>--tags</code> hinzu.
+Sie können diese Zeichenfolge auch als Ziel der Befehle <code>git checkout</code> oder <code>git show</code> verwenden, obwohl sie auf dem abgekürzten SHA-1-Wert am Ende basiert, sodass sie möglicherweise nicht für immer gültig ist.
+Zum Beispiel hat der Linux-Kernel kürzlich einen Sprung von 8 auf 10 Zeichen gemacht, um die Eindeutigkeit von SHA-1-Objekten zu gewährleisten, sodass ältere Ausgabenamen von <code>git describe</code> ungültig wurden.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_preparing_release">Ein Release vorbereiten</h3>
+<div class="paragraph">
+<p>
+Nun möchten Sie einen Build freigeben.
+Eines der Dinge, die Sie tun möchten, ist ein Archiv des neuesten Schnappschusses Ihres Codes für die armen Seelen zu erstellen, die Git nicht verwenden.
+Der Befehl dazu lautet <code>git archive</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git archive master --prefix='project/' | gzip &gt; `git describe master`.tar.gz
+$ ls *.tar.gz
+v1.6.2-rc1-20-g8c5b85c.tar.gz</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn jemand dieses Archiv öffnet, erhält er den neuesten Schnappschuss Ihres Projekts in einem <code>projekt</code> Verzeichnis.
+Sie können auch ein zip-Archiv auf die gleiche Weise erstellen, indem Sie jedoch die Option <code>--format=zip</code> an <code>git archive</code> übergeben:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git archive master --prefix='project/' --format=zip &gt; `git describe master`.zip</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sie haben jetzt einen schönen Tarball und ein Zip-Archiv Ihrer Projektversion, die Sie auf Ihre Website hochladen oder per E-Mail an andere Personen senden können.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_the_shortlog">Das Shortlog</h3>
+<div class="paragraph">
+<p>
+Es ist Zeit, eine E-Mail an die Personen Ihre Mailingliste zu senden, die wissen möchten, was in Ihrem Projekt vor sich geht.
+Mit dem Befehl <code>git shortlog</code> können Sie schnell eine Art Änderungsprotokoll dessen abrufen, was Ihrem Projekt seit Ihrer letzten Veröffentlichung oder ihrer letzte E-Mail hinzugefügt wurde.
+Es fasst alle Commits in dem von Ihnen angegebenen Bereich zusammen. Im Folgenden finden Sie als Beispiel eine Zusammenfassung aller Commits seit Ihrer letzten Veröffentlichung, sofern Ihre letzte Veröffentlichung den Namen v1.0.1 hat:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git shortlog --no-merges master --not v1.0.1
+Chris Wanstrath (6):
+      Add support for annotated tags to Grit::Tag
+      Add packed-refs annotated tag support.
+      Add Grit::Commit#to_patch
+      Update version and History.txt
+      Remove stray `puts`
+      Make ls_tree ignore nils
+
+Tom Preston-Werner (4):
+      fix dates in history
+      dynamic version method
+      Version bump to 1.0.2
+      Regenerated gemspec for version 1.0.2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sie erhalten eine übersichtliche Zusammenfassung aller Commits seit Version 1.0.1, gruppiert nach Autoren, die Sie per E-Mail an Ihre Mailingliste senden können.</p>
+</div>
+</div>
+<div id="nav"><a href="{{< previous-section >}}">prev</a> | <a href="{{< next-section >}}">next</a></div>

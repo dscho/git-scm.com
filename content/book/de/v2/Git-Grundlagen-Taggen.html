@@ -1,0 +1,372 @@
+---
+category: book
+section: documentation
+subsection: book
+sidebar: book
+book:
+  language_code: de
+  chapter:
+    title: Git Grundlagen
+    number: 2
+  section:
+    title: Taggen
+    number: 6
+    cs_number: '2.6'
+    previous: book/de/v2/Git-Grundlagen-Mit-Remotes-arbeiten
+    next: book/de/v2/Git-Grundlagen-Git-Aliases
+title: Git - Taggen
+
+---
+<h2 id="_git_tagging">Taggen</h2>
+<div class="paragraph">
+<p>
+Wie die meisten VCSs hat Git die Möglichkeit, bestimmte Punkte in der Historie eines Repositorys als wichtig zu markieren.
+Normalerweise verwenden Leute diese Funktionalität, um Releases zu markieren (<code>v1.0</code>, <code>v2.0</code> usw).
+In diesem Abschnitt erfahren Sie, wie Sie bestehende Tags auflisten, Tags erstellen und löschen können sowie was die unterschiedlichen Tag-Typen sind.</p>
+</div>
+<div class="sect3">
+<h3 id="_ihre_tags_auflisten">Ihre Tags auflisten</h3>
+<div class="paragraph">
+<p>Die Auflistung der vorhandenen Tags in Git ist unkompliziert.
+Geben Sie einfach <code>git tag</code> (mit optionalem <code>-l</code> oder <code>--list</code>) ein:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git tag
+v1.0
+v2.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dieser Befehl listet die Tags in alphabetischer Reihenfolge auf. Die Reihenfolge, in der sie angezeigt werden, hat keine wirkliche Bedeutung.</p>
+</div>
+<div class="paragraph">
+<p>Sie können auch nach Tags suchen, die einer bestimmten Zeichenfolge entsprechen.
+Das Git-Source-Repo zum Beispiel enthält mehr als 500 Tags.
+Wenn Sie nur daran interessiert sind, sich die 1.8.5-Serie anzusehen, können Sie Folgendes ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git tag -l "v1.8.5*"
+v1.8.5
+v1.8.5-rc0
+v1.8.5-rc1
+v1.8.5-rc2
+v1.8.5-rc3
+v1.8.5.1
+v1.8.5.2
+v1.8.5.3
+v1.8.5.4
+v1.8.5.5</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Anmerkung</div>
+</td>
+<td class="content">
+<div class="title">Das Auflisten von Tag-Wildcards erfordert die Option <code>-l</code> oder <code>--list</code>
+</div>
+<div class="paragraph">
+<p>Wenn Sie lediglich die gesamte Liste der Tags wünschen, geht die Ausführung des Befehls <code>git tag</code> implizit davon aus, dass Sie eine Auflistung haben wollen und gibt sie aus; die Verwendung von <code>-l</code> oder <code>--list</code> ist in diesem Fall optional.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie jedoch ein Platzhaltermuster angeben, das mit den Tag-Namen übereinstimmt, ist die Verwendung von <code>-l</code> oder <code>--list</code> obligatorisch.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_erstellen_von_tags">Erstellen von Tags</h3>
+<div class="paragraph">
+<p>Git unterstützt zwei Arten von Tags: <em>lightweight</em> (d.h. nicht-annotiert) und <em>annotated</em>.</p>
+</div>
+<div class="paragraph">
+<p>Ein nicht-annotiertes Tag ist sehr ähnlich eines Branches, der sich nicht ändert – es ist nur ein Zeiger auf einen bestimmten Commit.</p>
+</div>
+<div class="paragraph">
+<p>Annotierte Tags werden dagegen als vollständige Objekte in der Git-Datenbank gespeichert.
+Sie werden mit einer Prüfsumme versehen, enthalten den Tagger-Namen, die E-Mail-Adresse und das Datum, haben eine Tagging-Nachricht und können mit GNU Privacy Guard (GPG) signiert und überprüft werden.
+Es wird allgemein empfohlen, dass Sie annotierte Tags erstellen, damit Sie all diese Informationen erhalten können; aber wenn Sie ein temporäres Tag wünschen oder aus irgendwelchen Gründen die anderen Informationen nicht speichern wollen, sind auch nicht-annotierte Tags möglich.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_annotated_tags">Annotated Tags</h3>
+<div class="paragraph">
+<p>
+Das Erstellen eines annotierten Tags in Git ist einfach.
+Der einfachste Weg ist die Eingabe von <code>-a</code>, wenn Sie den Befehl <code>tag</code> ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git tag -a v1.4 -m "my version 1.4"
+$ git tag
+v0.1
+v1.3
+v1.4</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ein <code>-m</code> spezifiziert eine Tagging-Nachricht, die mit dem Tag gespeichert wird.
+Wenn Sie keine Nachricht für ein annotiertes Tag angeben, startet Git Ihren Editor, damit Sie diese eingeben können.</p>
+</div>
+<div class="paragraph">
+<p>Sie können die Tag-Daten zusammen mit dem getaggten Commit sehen, indem Sie den Befehl <code>git show</code> verwenden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git show v1.4
+tag v1.4
+Tagger: Ben Straub &lt;ben@straub.cc&gt;
+Date:   Sat May 3 20:19:12 2014 -0700
+
+my version 1.4
+
+commit ca82a6dff817ec66f44342007202690a93763949
+Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Mon Mar 17 21:52:11 2008 -0700
+
+    Change version number</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Es werden die Tagger-Informationen, das Datum, an dem der Commit getaggt wurde, und die Annotationsnachricht angezeigt, gefolgt von den Commit-Informationen.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_lightweight_tags">Lightweight Tags</h3>
+<div class="paragraph">
+<p>
+Eine weitere Möglichkeit, Commits zu markieren, ist ein leichtgewichtiger, nicht-annotierter Tag.
+Das ist im Grunde genommen die in einer Datei gespeicherte Commit-Prüfsumme – es werden keine weiteren Informationen gespeichert.
+Um einen leichtgewichtigen Tag zu erstellen, geben Sie keine der Optionen <code>-a</code>, <code>-s</code> oder <code>-m</code> an, sondern nur einen Tag-Namen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git tag v1.4-lw
+$ git tag
+v0.1
+v1.3
+v1.4
+v1.4-lw
+v1.5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie diesmal <code>git show</code> auf dem Tag ausführen, sehen Sie keine zusätzlichen Tag-Informationen.
+Der Befehl zeigt nur den Commit an:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git show v1.4-lw
+commit ca82a6dff817ec66f44342007202690a93763949
+Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Mon Mar 17 21:52:11 2008 -0700
+
+    Change version number</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_nachträgliches_tagging">Nachträgliches Tagging</h3>
+<div class="paragraph">
+<p>Sie können auch ältere Commits markieren.
+Angenommen, Ihr Commit-Verlauf sieht so aus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git log --pretty=oneline
+15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch 'experiment'
+a6b4c97498bd301d84096da251c98a07c7723e65 Create write support
+0d52aaab4479697da7686c15f77a3d64d9165190 One more thing
+6d52a271eda8725415634dd79daabbc4d9b6008e Merge branch 'experiment'
+0b7434d86859cc7b8c3d5e1dddfed66ff742fcbc Add commit function
+4682c3261057305bdd616e23b64b0857d832627b Add todo file
+166ae0c4d3f420721acbb115cc33848dfcc2121a Create write support
+9fceb02d0ae598e95dc970b74767f19372d61af8 Update rakefile
+964f16d36dfccde844893cac5b347e7b3d44abbc Commit the todo
+8a5cbc430f1a9c3d00faaeffd07798508422908a Update readme</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nehmen wir an, Sie haben vergessen, das Projekt mit v1.2 beim Commit von „Update rakefile“ zu taggen.
+Sie können ihn nachträglich hinzufügen.
+Um diesen Commit zu markieren, geben Sie am Ende des Befehls die Commit-Prüfsumme (oder einen Teil davon) an:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git tag -a v1.2 9fceb02</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sie sehen, dass Sie den Commit getaggt haben:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git tag
+v0.1
+v1.2
+v1.3
+v1.4
+v1.4-lw
+v1.5
+
+$ git show v1.2
+tag v1.2
+Tagger: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date:   Mon Feb 9 15:32:16 2009 -0800
+
+version 1.2
+commit 9fceb02d0ae598e95dc970b74767f19372d61af8
+Author: Magnus Chacon &lt;mchacon@gee-mail.com&gt;
+Date:   Sun Apr 27 20:43:35 2008 -0700
+
+    Update rakefile
+...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_sharing_tags">Tags teilen</h3>
+<div class="paragraph">
+<p>Normalerweise überträgt der Befehl <code>git push</code> keine Tags an den Remote-Server.
+Sie müssen Tags explizit auf einen Server verschieben, nachdem Sie sie erstellt haben.
+Dieser Prozess funktioniert genauso wie das Freigeben von Remote-Branches – Sie müssen dazu <code>git push origin &lt;tagname&gt;</code> ausführen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git push origin v1.5
+Counting objects: 14, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (14/14), 2.05 KiB | 0 bytes/s, done.
+Total 14 (delta 3), reused 0 (delta 0)
+To git@github.com:schacon/simplegit.git
+ * [new tag]         v1.5 -&gt; v1.5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie viele Tags haben, die Sie auf einmal pushen wollen, können Sie auch die Option <code>--tags</code> mit dem Befehl <code>git push</code> verwenden.
+Dadurch werden alle Ihre Tags auf den Remote-Server übertragen, die sich noch nicht auf dem Server befinden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git push origin --tags
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 160 bytes | 0 bytes/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To git@github.com:schacon/simplegit.git
+ * [new tag]         v1.4 -&gt; v1.4
+ * [new tag]         v1.4-lw -&gt; v1.4-lw</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn jetzt jemand anderes aus Ihrem Repository klont oder pullt, erhält er auch alle Ihre Tags.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Anmerkung</div>
+</td>
+<td class="content">
+<div class="title">
+<code>git push</code> pusht beide Arten von Tags</div>
+<div class="paragraph">
+<p><code>git push &lt;remote&gt; --tags</code> wird sowohl Lightweight- als auch Annotated-Tags pushen.
+Es gibt zur Zeit keine Möglichkeit, nur Lightweight-Tags zu pushen, aber wenn Sie <code>git push &lt;remote&gt; --follow-tags</code> verwenden, werden nur annotierte Tags an den Remote gepusht.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_tags_löschen">Tags löschen</h3>
+<div class="paragraph">
+<p>Um einen Tag aus dem lokalen Repository zu löschen, verwenden Sie <code>git tag -d &lt;tagname&gt;</code>.
+Wir könnten beispielsweise den leichtgewichtigen Tag wie folgt entfernen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git tag -d v1.4-lw
+Deleted tag 'v1.4-lw' (was e7d5add)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Beachten Sie, dass dadurch das Tag nicht von Remote-Servern entfernt wird.
+Es gibt zwei gängige Varianten, um ein Tag von einem entfernten Server zu löschen.</p>
+</div>
+<div class="paragraph">
+<p>Die erste Möglichkeit ist <code>git push &lt;remote&gt; :refs/tags/&lt;tagname&gt;</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git push origin :refs/tags/v1.4-lw
+To /git@github.com:schacon/simplegit.git
+ - [deleted]         v1.4-lw</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die Erklärung des obigen Befehls: als Nullwert zu lesen, bevor der Doppelpunkt auf den Remote-Tag-Name gepushed wird, wodurch dieser gelöscht wird.</p>
+</div>
+<div class="paragraph">
+<p>Der zweite, intuitivere Weg, ein Remote-Tag zu löschen, ist mit:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git push origin --delete &lt;tagname&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_tags_auschecken">Tags auschecken</h3>
+<div class="paragraph">
+<p>Wenn Sie die Dateiversion anzeigen möchten, auf die ein bestimmter Tag zeigt, können Sie <code>git checkout</code> auf dieses Tag durchführen, obwohl dies Ihr Repository in den Zustand „detached HEAD“ (dt. losgelöst) versetzt, was einige negative Nebenwirkungen hat:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git checkout v2.0.0
+Note: switching to 'v2.0.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c &lt;new-branch-name&gt;
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 99ada87... Merge pull request #89 from schacon/appendix-final
+
+$ git checkout v2.0-beta-0.1
+Previous HEAD position was 99ada87... Merge pull request #89 from schacon/appendix-final
+HEAD is now at df3f601... Add atlas.json and cover image</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie im Zustand „losgelöster HEAD“ Änderungen vornehmen und dann einen Commit erstellen, bleibt der Tag gleich, aber Ihr neuer Commit gehört zu keinem Branch und ist unzugänglich, außer mit dem genauen Commit-Hash.
+Wenn Sie also Änderungen vornehmen müssen – z.B. wenn Sie einen Fehler in einer älteren Version beheben – sollten einen Branch erstellen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git checkout -b version2 v2.0.0
+Switched to a new branch 'version2'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie das tun und einen Commit erstellen, wird sich Ihr Branch <code>version2</code> leicht von Ihrem Tag <code>v2.0.0</code> unterscheiden, da er mit Ihren neuen Änderungen fortschreitet, seien Sie also vorsichtig.</p>
+</div>
+</div>
+<div id="nav"><a href="{{< previous-section >}}">prev</a> | <a href="{{< next-section >}}">next</a></div>

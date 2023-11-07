@@ -1,0 +1,97 @@
+---
+category: book
+section: documentation
+subsection: book
+sidebar: book
+book:
+  language_code: de
+  chapter:
+    title: Git auf dem Server
+    number: 4
+  section:
+    title: Git-Daemon
+    number: 5
+    cs_number: '4.5'
+    previous: book/de/v2/Git-auf-dem-Server-Einrichten-des-Servers
+    next: book/de/v2/Git-auf-dem-Server-Smart-HTTP
+title: Git - Git-Daemon
+
+---
+<h2 id="_git_daemon">Git-Daemon</h2>
+<div class="paragraph">
+<p>
+Als Nächstes richten wir einen Daemon ein, der Repositorys mit dem „Git“-Protokoll versorgt.
+Das ist eine gängige Option für den schnellen, nicht authentifizierten Zugriff auf Ihre Git-Daten.
+Denken Sie daran, dass alles, was Sie über dieses Protokoll bereitstellen, innerhalb des Netzwerks öffentlich ist, da dies kein authentifizierter Dienst ist.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie Git auf einem Server außerhalb Ihrer Firewall ausführen, sollte dies nur für Projekte verwendet werden, die für die Welt öffentlich sichtbar sein dürfen.
+Wenn sich der Server, auf dem Sie es ausführen, hinter Ihrer Firewall befindet, können Sie es für Projekte verwenden, auf die eine große Anzahl von Personen oder Computern (Continuous Integration oder Build-Server) nur Lesezugriff haben, wenn Sie nicht für jeden einen SSH-Schlüssel hinzufügen möchten.</p>
+</div>
+<div class="paragraph">
+<p>In jedem Fall ist das Git-Protokoll relativ einfach einzurichten.
+Grundsätzlich müssen Sie diesen Befehl daemonisiert ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git daemon --reuseaddr --base-path=/srv/git/ /srv/git/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mit der <code>--reuseaddr</code> Option kann der Server neu gestartet werden, ohne dass das Zeitlimit für alte Verbindungen überschritten wird. Mit der <code>--base-path</code> Option können Benutzer Projekte klonen, ohne den gesamten Pfad anzugeben. Der Pfad am Ende teilt dem Git-Dämon mit, wo nach zu exportierenden Repositorys gesucht werden soll.
+Wenn Sie eine Firewall verwenden, müssen Sie auch an Port 9418 der Box, auf der Sie diese einrichten, ein Loch in die Firewall bohren.</p>
+</div>
+<div class="paragraph">
+<p>Sie können diesen Prozess auf verschiedene Arten dämonisieren, je nachdem, welches Betriebssystem Sie verwenden.</p>
+</div>
+<div class="paragraph">
+<p>Da <code>systemd</code> das gebräuchlichste Init-System unter modernen Linux-Distributionen ist, können Sie es für diesen Zweck verwenden.
+Legen Sie einfach eine Datei mit folgendem Inhalt in <code>/etc/systemd/system/git-daemon.service</code> ab:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">[Unit]
+Description=Start Git Daemon
+
+[Service]
+ExecStart=/usr/bin/git daemon --reuseaddr --base-path=/srv/git/ /srv/git/
+
+Restart=always
+RestartSec=500ms
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=git-daemon
+
+User=git
+Group=git
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sie haben vielleicht bemerkt, dass der Git-Daemon hier mit <code>git</code> als Gruppe und Benutzer gestartet wird.
+Passen Sie es an Ihre Bedürfnisse an und stellen Sie sicher, dass der angegebene Benutzer auf dem System vorhanden ist.
+Überprüfen Sie auch, ob sich die Git-Binärdatei tatsächlich unter <code>/usr/bin/git</code> befindet und ändern Sie gegebenenfalls den Pfad.</p>
+</div>
+<div class="paragraph">
+<p>Abschließend führen Sie <code>systemctl enable git-daemon</code> aus, um den Dienst beim Booten automatisch zu starten, so dass Sie den Dienst mit <code>systemctl start git-daemon</code> und <code>systemctl stop git-daemon</code> starten und stoppen können.</p>
+</div>
+<div class="paragraph">
+<p>Auf anderen Systemen können Sie <code>xinetd</code> verwenden um ein Skript in Ihrem <code>sysvinit</code> System zu benutzen, oder etwas anderes – solange Sie diesen Befehl aktiviert und irgendwie überwacht bekommen.</p>
+</div>
+<div class="paragraph">
+<p>Als nächstes müssen Sie Git mitteilen, auf welche Repositorys nicht authentifizierter, serverbasierter Zugriff auf Git möglich sein soll.
+Sie können das in den einzelnen Repositorys tun, indem Sie eine Datei mit dem Namen <code>git-daemon-export-ok</code> erstellen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ cd /path/to/project.git
+$ touch git-daemon-export-ok</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Das Vorhandensein dieser Datei teilt Git mit, dass es in Ordnung ist, dieses Projekt ohne Authentifizierung zu betreuen.</p>
+</div>
+<div id="nav"><a href="{{< previous-section >}}">prev</a> | <a href="{{< next-section >}}">next</a></div>

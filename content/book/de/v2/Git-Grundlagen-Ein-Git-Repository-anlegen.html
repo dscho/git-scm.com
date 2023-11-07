@@ -1,0 +1,139 @@
+---
+category: book
+section: documentation
+subsection: book
+sidebar: book
+book:
+  language_code: de
+  chapter:
+    title: Git Grundlagen
+    number: 2
+  section:
+    title: Ein Git-Repository anlegen
+    number: 1
+    cs_number: '2.1'
+    previous: book/de/v2/Erste-Schritte-Zusammenfassung
+    next: book/de/v2/Git-Grundlagen-Änderungen-nachverfolgen-und-im-Repository-speichern
+title: Git - Ein Git-Repository anlegen
+
+---
+<p>Wenn Sie nur ein Kapitel durcharbeiten wollen, um mit Git zu beginnen, dann sind sie hier richtig.
+Dieses Kapitel behandelt alle grundlegenden Befehle, die Sie benötigen, um die überwiegende Anzahl der Aufgaben zu erledigen, die Sie irgendwann einmal mit Git erledigen müssen.
+Am Ende des Kapitels sollten Sie in der Lage sein, ein neues Repository anzulegen und zu konfigurieren, Dateien zu versionieren bzw. aus der Versionsverwaltung zu entfernen, Dateien in die Staging-Area hinzuzufügen und schließlich einen Commit durchzuführen.
+Außerdem wird gezeigt, wie Sie Git so konfigurieren können, dass es bestimmte Dateien und Dateimuster ignoriert, wie Sie Fehler schnell und einfach rückgängig machen, wie Sie die Historie eines Projekts durchsuchen und Änderungen zwischen Commits nachschlagen, und wie Sie von einem Remote-Repository Daten herunter- bzw. dort hochladen können.</p>
+<h2 id="_getting_a_repo">Ein Git-Repository anlegen</h2>
+<div class="paragraph">
+<p>Sie haben zwei Möglichkeiten, ein Git-Repository auf Ihrem Rechner anzulegen.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sie können ein lokales Verzeichnis, das sich derzeit nicht unter Versionskontrolle befindet, in ein Git-Repository verwandeln, oder</p>
+</li>
+<li>
+<p>Sie können ein bestehendes Git-Repository von einem anderen Ort aus <em>klonen</em>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In beiden Fällen erhalten Sie ein einsatzbereites Git-Repository auf Ihrem lokalen Rechner.</p>
+</div>
+<div class="sect3">
+<h3 id="_ein_repository_in_einem_bestehenden_verzeichnis_einrichten">Ein Repository in einem bestehenden Verzeichnis einrichten</h3>
+<div class="paragraph">
+<p>Wenn Sie ein Projektverzeichnis haben, das sich derzeit nicht unter Versionskontrolle befindet, und Sie mit der Kontrolle über Git beginnen möchten, müssen Sie zunächst in das Verzeichnis dieses Projekts wechseln.
+Wenn Sie dies noch nie getan haben, sieht es je nachdem, welches System Sie verwenden, etwas anders aus:</p>
+</div>
+<div class="paragraph">
+<p>für Linux:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ cd /home/user/my_project</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>für macOS:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ cd /Users/user/my_project</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>für Windows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ cd C:/Users/user/my_project</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Führen Sie dort folgenden Befehl aus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git init</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Der Befehl erzeugt ein Unterverzeichnis <code>.git</code>, in dem alle relevanten Git-Repository-Daten enthalten sind, also ein Git-Repository Grundgerüst.
+Zu diesem Zeitpunkt werden noch keine Dateien in Git versioniert.
+In Kapitel 10, <a href="ch00/ch10-git-internals">Git Interna</a>, finden Sie weitere Informationen, welche Dateien im <code>.git</code> Verzeichnis enthalten sind und was ihre Aufgabe ist.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie bereits existierende Dateien versionieren möchten (und es sich nicht nur um ein leeres Verzeichnis handelt), dann sollten Sie den aktuellen Stand in einem initialen Commit starten.
+Mit dem Befehl <code>git add</code> legen Sie fest, welche Dateien versioniert werden sollen und mit dem Befehl <code>git commit</code> erzeugen Sie einen neuen Commit:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git add *.c
+$ git add LICENSE
+$ git commit -m 'Initial project version'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wir werden gleich noch einmal genauer auf diese Befehle eingehen.
+Im Moment ist nur wichtig, dass Sie verstehen, dass Sie jetzt ein Git-Repository erzeugt und einen ersten Commit angelegt haben.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_git_cloning">Ein existierendes Repository klonen</h3>
+<div class="paragraph">
+<p>Wenn Sie eine Kopie eines existierenden Git-Repositorys anlegen wollen – um beispielsweise an einem Projekt mitzuarbeiten – können Sie den Befehl <code>git clone</code> verwenden.
+Wenn Sie bereits Erfahrung mit einem anderen VCS-System, wie Subversion, gesammelt haben, fällt Ihnen bestimmt sofort auf, dass der Befehl „clone“ und nicht etwa „checkout“ lautet.
+Das ist ein wichtiger Unterschied, den Sie unbedingt verstehen sollten. Anstatt nur eine einfache Arbeitskopie vom Projekt zu erzeugen, lädt Git nahezu alle Daten, die der Server bereithält, auf den lokalen Rechner.
+Jede Version von jeder Datei der Projekt-Historie wird automatisch heruntergeladen, wenn Sie <code>git clone</code> ausführen.
+Wenn Ihre Serverfestplatte beschädigt wird, können Sie nahezu jeden der Klone auf irgendeinem Client verwenden, um den Server wieder in den Zustand zurückzusetzen, in dem er sich zum Zeitpunkt des Klonens befand. (Sie werden vielleicht einige serverseitige Hooks und dergleichen verlieren, aber alle versionierte Daten wären vorhanden – siehe Kapitel 4, <a href="ch00/_getting_git_on_a_server">Git auf dem Server</a>, für weitere Details.)</p>
+</div>
+<div class="paragraph">
+<p>Sie können ein Repository mit dem Befehl <code>git clone [url]</code> klonen.
+Um beispielsweise das Repository der verlinkbaren Git-Bibliothek <code>libgit2</code> zu klonen, führen Sie den folgenden Befehl aus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git clone https://github.com/libgit2/libgit2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Git legt dann ein Verzeichnis <code>libgit2</code> an, initialisiert in diesem ein <code>.git</code> Verzeichnis, lädt alle Daten des Repositorys herunter und checkt eine Arbeitskopie der aktuellsten Version aus.
+Wenn Sie in das neue <code>libgit2</code> Verzeichnis wechseln, finden Sie dort die Projektdateien und können gleich damit arbeiten.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie das Repository in ein Verzeichnis mit einem anderen Namen als <code>libgit2</code> klonen möchten, können Sie das wie folgt durchführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git clone https://github.com/libgit2/libgit2 mylibgit</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dieser Befehl tut das Gleiche wie der vorhergehende, aber das Zielverzeichnis lautet diesmal <code>mylibgit</code>.</p>
+</div>
+<div class="paragraph">
+<p>Git unterstützt eine Reihe unterschiedlicher Übertragungsprotokolle.
+Das vorhergehende Beispiel verwendet das <code>https://</code> Protokoll, aber Ihnen können auch die Angaben <code>git://</code> oder <code>user@server:path/to/repo.git</code> begegnen, welches das SSH-Transfer-Protokoll verwendet.
+Kapitel 4, <a href="ch00/_getting_git_on_a_server">Git auf dem Server</a>, stellt alle verfügbaren Optionen vor, die der Server für den Zugriff auf Ihr Git-Repository hat und die Vor- und Nachteile der möglichen Optionen.</p>
+</div>
+</div>
+<div id="nav"><a href="{{< previous-section >}}">prev</a> | <a href="{{< next-section >}}">next</a></div>
