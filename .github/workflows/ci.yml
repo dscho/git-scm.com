@@ -19,6 +19,14 @@ jobs:
     - name: run Hugo to build the pages
       run: hugo
 
+    - name: ensure that there are no absolute URLs
+      run: |
+        set -x
+        git grep --untracked --no-exclude-standard "\\(href\|src\) *= *[\"']/" \
+          -- public/ ':^public/js/jquery*' >/tmp/abs-urls.txt &&
+        cat /tmp/abs-urls.txt &&
+        test ! -s /tmp/abs-urls.txt
+
     - name: run Pagefind to build the search index
       run: npx -y pagefind --site public
 
