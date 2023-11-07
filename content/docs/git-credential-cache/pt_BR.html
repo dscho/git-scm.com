@@ -1,0 +1,106 @@
+---
+category: manual
+section: documentation
+subsection: manual
+title: Git - git-credential-cache Documentation
+docname: git-credential-cache
+lang: pt_BR
+aliases:
+- "/docs/git-credential-cache/pt_BR/index.html"
+
+---
+<div class="sect1">
+<h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-credential-cache - Assistente para armazenar temporariamente as senhas na memória</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>git config credential.helper 'cache [&lt;opções&gt;]'</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Este comando armazena em cache as credenciais para uso futuro dos programas Git. As credenciais armazenadas são mantidas na memória do processo cache-daemon (em vez de serem gravadas diretamente num arquivo) e são esquecidas após um determinado período que pode ser configurável. As credenciais são esquecidas mais cedo se o cache-daemon for encerrado, por exemplo, caso o sistema seja reiniciado. O cache é acessível através de um soquete de domínio Unix, restrito ao usuário atual pelas permissões do sistema de arquivos.</p>
+</div>
+<div class="paragraph">
+<p>Provavelmente você não vai querer invocar este comando diretamente; Ele deve ser utilizado pelas outras partes como um auxiliar da credencial do Git. See <a href='{{< relurl "docs/gitcredentials/pt_BR" >}}'>gitcredentials[7]</a> or <code>EXAMPLES</code> below.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-credential-cache---timeoutltsegundosgt"> <a class="anchor" href="#git-credential-cache---timeoutltsegundosgt"></a>--timeout &lt;segundos&gt; </dt>
+<dd>
+<p>Quantidade de segundos para armazenar as credenciais em cache (Predefinição: 900).</p>
+</dd>
+<dt class="hdlist1" id="git-credential-cache---socketltcaminhogt"> <a class="anchor" href="#git-credential-cache---socketltcaminhogt"></a>--socket &lt;caminho&gt; </dt>
+<dd>
+<p>Utilize o <code>&lt;caminho&gt;</code> para entrar em contato com um daemon de cache em execução (ou inicie um novo, cache daemon caso nenhum tenha sido iniciado). A predefinição retorna para <code>$XDG_CACHE_HOME/git/credential/socket</code> a menos que <code>~/.git-credential-cache/</code> exista, neste caso <code>~/.git-credential-cache/socket</code> é utilizado. Se o diretório inicial estiver num sistema de arquivos montado via rede, pode ser necessário alterá-lo para um sistema de arquivos local. Você deve usar um caminho absoluto.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_controlando_o_daemon"><a class="anchor" href="#_controlando_o_daemon"></a>CONTROLANDO O DAEMON</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Se você deseja que o daemon encerre antes esquecendo todas as credenciais em cache antes do tempo limite, você pode emitir uma ação <code>exit</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git credential-cache exit</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemplos"><a class="anchor" href="#_exemplos"></a>EXEMPLOS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O objetivo deste auxiliar é reduzir a quantidade de vezes que você deve digitar o seu nome de usuário ou senha. Por exemplo:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git config credential.helper cache
+$ git push http://exemplo.com/repo.git
+Username: &lt;digite o seu nome de usuário&gt;
+Password: &lt;digite a sua senha&gt;
+
+[funcione por mais 5 minutos]
+$ git push http://example.com/repo.git
+[as suas credenciais serão utilizadas automaticamente]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Você pode utilizar as opções através da variável de configuração <code>credential.helper</code> (este exemplo incrementa o cache a cada 1 hora):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git config credential.helper 'cache --timeout=3600'</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a></p>
+</div>
+</div>
+</div>

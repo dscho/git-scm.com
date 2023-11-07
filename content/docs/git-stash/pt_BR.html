@@ -1,0 +1,415 @@
+---
+category: manual
+section: documentation
+subsection: manual
+title: Git - git-stash Documentation
+docname: git-stash
+lang: pt_BR
+aliases:
+- "/docs/git-stash/pt_BR/index.html"
+
+---
+<div class="sect1">
+<h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-stash - Guarda as alterações em um outro diretório de trabalho</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git stash</em> list [&lt;opções-do-log&gt;]
+<em>git stash</em> show [-u | --include-untracked | --only-untracked] [&lt;opções-do-diff&gt;] [&lt;stash&gt;]
+<em>git stash</em> drop [-q | --quiet] [&lt;stash&gt;]
+<em>git stash</em> pop [--index] [-q | --quiet] [&lt;stash&gt;]
+<em>git stash</em> apply [--index] [-q | --quiet] [&lt;stash&gt;]
+<em>git stash</em> branch &lt;branchname&gt; [&lt;stash&gt;]
+<em>git stash</em> [push [-p | --patch] [-S | --staged] [-k | --[no-]keep-index] [-q | --quiet]
+	     [-u | --include-untracked] [-a | --all] [(-m | --message) &lt;mensagem&gt;]
+	     [--pathspec-from-file=&lt;file&gt; [--pathspec-file-nul]]
+	     [--] [&lt;pathspec&gt;&#8230;&#8203;]]
+<em>git stash</em> save [-p | --patch] [-S | --staged] [-k | --[no-]keep-index] [-q | --quiet]
+	     [-u | --include-untracked] [-a | --all] [&lt;message&gt;]
+<em>git stash</em> clear
+<em>git stash</em> create [&lt;mensagem&gt;]
+<em>git stash</em> store [(-m | --message) &lt;mensagem&gt;] [-q | --quiet] &lt;commit&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use o comando <code>git stash</code> quando quiser gravar a condição atual do diretório ativo e do índice, porém queira voltar para um diretório funcional limpo. O comando salva as suas alterações locais e reverte o diretório de trabalho para coincidir ao commit <code>HEAD</code>.</p>
+</div>
+<div class="paragraph">
+<p>As alterações armazenadas por este comando podem ser listadas com o comando <code>git stash list</code>, inspecionadas com o comando <code>git stash show</code> e restauradas (potencialmente em cima de um commit diferente) com o comando <code>git stash apply</code>. Chamar o comando <code>git stash</code> sem argumentos é o mesmo que executar o comando <code>git stash push</code>. É predefinido que um "stash" seja listado como "WIP no <em>nomedoramo</em> &#8230;&#8203;", porém você pode fornecer uma mensagem mais descritiva na linha de comando durante a criação de um.</p>
+</div>
+<div class="paragraph">
+<p>O último "stash" que você criou é armazenado em <code>refs/stash</code>; os "stash" mais antigos são encontrados no "reflog" desta referência e podem ser nomeados usando a sintaxe usual do "reflog" (por exemplo, <code>stash@{0}</code> é o "stash" criado mais recentemente, o <code>stash@{1}</code> é o anterior, o <code>stash@{2.hours.ago}</code> também é possível). As pilhas "stash" também podem ser referenciadas definindo apenas o índice "stash" (por exemplo, o número inteiro <code>n</code> é o equivalente a um <code>stash@{n}</code>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_comandos"><a class="anchor" href="#_comandos"></a>COMANDOS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-stash-push-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quiet-m--messageltmensagemgt--pathspec-from-fileltarquivogt--pathspec-file-nul--ltpathspecgt82308203"> <a class="anchor" href="#git-stash-push-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quiet-m--messageltmensagemgt--pathspec-from-fileltarquivogt--pathspec-file-nul--ltpathspecgt82308203"></a>push [-p|--patch] [-S|--staged] [-k|--[no-]keep-index] [-u|--include-untracked] [-a|--all] [-q|--quiet] [(-m|--message) &lt;mensagem&gt;] [--pathspec-from-file=&lt;arquivo&gt; [--pathspec-file-nul]] [--] [&lt;pathspec&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>Salva as suas alterações locais em um nova entrada <em>stash</em> e reverta-as para <code>HEAD</code> (na árvore de trabalho e no índice). A parte da &lt;mensagem&gt; é opcional e dá a descrição junto com a condição do empilhamento.</p>
+<div class="paragraph">
+<p>Para fazer um instantâneo de forma rápida, você pode omitir o "push". Neste modo, os argumentos não opcionais não são permitidos, visam impedir que um subcomando com erro de ortografia faça uma entrada na pilha indesejada. As duas exceções são <code>stash -p</code>, que atua como um alias para o <code>stash push -p</code> e os elementos pathspec, que são permitidos após um hífen duplo <code>--</code> para desambiguação.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash-save-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quietltmensagemgt"> <a class="anchor" href="#git-stash-save-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quietltmensagemgt"></a>save [-p|--patch] [-S|--staged] [-k|--[no-]keep-index] [-u|--include-untracked] [-a|--all] [-q|--quiet] [&lt;mensagem&gt;] </dt>
+<dd>
+<p>Esta opção já está obsoleta em favor da opção <em>git stash push</em>. Difere do "stash push", pois não pode lidar com o pathspec. Em vez disso, todos os argumentos não opcionais são concatenados para formar a mensagem "stash".</p>
+</dd>
+<dt class="hdlist1" id="git-stash-listltopes-do-registro-loggt"> <a class="anchor" href="#git-stash-listltopes-do-registro-loggt"></a>list [&lt;opções-do-registro-log&gt;] </dt>
+<dd>
+<p>Lista as entradas que estão armazenadas (<em>stash</em>) que você possui atualmente. Cada <em>entrada stash</em> é listada com o seu nome (por exemplo, <code>stash@{0}</code> é o lançamento mais recente, <code>stash@{1}</code> é o lançamento anterior, etc.), o nome do ramo que estava atual quando o foi feito um lançamento e uma breve descrição do commit onde a entrada teve base.</p>
+<div class="listingblock">
+<div class="content">
+<pre>stash@{0}: WIP on submit: 6ebd0e2... Update git-stash documentation
+stash@{1}: On master: 9cc0589... Add git-stash</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>O comando aceita as opções aplicáveis ao comando <em>git log</em> para controlar o que é exibido e como. See <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash-show-u--include-untracked--only-untrackedltopes-do-diffgtltstashgt"> <a class="anchor" href="#git-stash-show-u--include-untracked--only-untrackedltopes-do-diffgtltstashgt"></a>show [-u|--include-untracked|--only-untracked] [&lt;opções-do-diff&gt;] [&lt;stash&gt;] </dt>
+<dd>
+<p>Exiba as alterações registradas na entrada <em>stash</em> como uma diferença entre o conteúdo oculto e o commit quando a entrada stash for criada. É predefinido que o comando exiba o diffstat, porém aceite qualquer formato informado pelo comando <em>git diff</em> (por exemplo, <code>git stash show -p stash@{1}</code> para exibir a segunda entrada mais recente em formato patch). Caso nenhuma opção <code>&lt;opção-diff&gt;</code> seja informada, o comportamento padrão será dado pelas variáveis de configuração <code>stash.showStat</code> e <code>stash.showPatch</code>. Também é possível utilizar a variável <code>stash.showIncludeUntracked' para definir se a opção `--include-untracked</code> será ativada por padrão.</p>
+</dd>
+<dt class="hdlist1" id="git-stash-pop--index-q--quietltstashgt"> <a class="anchor" href="#git-stash-pop--index-q--quietltstashgt"></a>pop [--index] [-q|--quiet] [&lt;stash&gt;] </dt>
+<dd>
+<p>Remova a única condição do empilhamento da lista e aplique-o sobre a condição atual da árvore de trabalho, ou seja, faça a operação inversa do comando <code>git stash push</code>. O diretório de trabalho deve corresponder ao índice. O diretório de trabalho deve coincidir com o índice.</p>
+<div class="paragraph">
+<p>A aplicação da condição pode falhar com conflitos; neste caso, ele não é removido da lista <em>stash</em>. É necessário resolver os conflitos manualmente e chamar o comando <code>git stash drop</code> manualmente depois.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash-apply--index-q--quietltstashgt"> <a class="anchor" href="#git-stash-apply--index-q--quietltstashgt"></a>apply [--index] [-q|--quiet] [&lt;stash&gt;] </dt>
+<dd>
+<p>Como <code>pop ', porém não remova a condição da lista de estoque 'stash'. Diferente de `pop</code>, <code>&lt;stash&gt;</code> pode ser qualquer commit que se pareça com um commit criado através do comando <code>stash push</code> ou <code>stash create</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-stash-branchltnome-do-ramogtltstashgt"> <a class="anchor" href="#git-stash-branchltnome-do-ramogtltstashgt"></a>branch &lt;nome-do-ramo&gt; [&lt;stash&gt;] </dt>
+<dd>
+<p>Cria e efetua a averiguação de um novo ramo chamado <code>&lt;nome-do-ramo&gt;</code> iniciando a partir do commit onde o <code>&lt;stash&gt;</code> foi criado originalmente, aplica as alterações registradas do <code>&lt;stash&gt;</code> na nova árvore de trabalho e no índice. Caso seja bem-sucedido, e <code>&lt;stash&gt;</code> for uma referência do formulário <code>stash@{&lt;revision&gt;}</code>, ele liberará o <code>&lt;stash&gt;</code>.</p>
+<div class="paragraph">
+<p>É útil caso o ramo onde você executou o <code>git stash push</code> mude o suficiente para que o <code>git stash apply</code> falhe devido aos conflitos. Como a entrada que está acumulada "stash" é aplicada no topo do commit que era o <code>HEAD</code> no momento onde o <code>git stash</code> foi executado, ela restaura a condição originalmente armazenada e sem os conflitos.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash-clear"> <a class="anchor" href="#git-stash-clear"></a>clear </dt>
+<dd>
+<p>Remova todos os lançamentos que estiverem armazenados. Observe que estas entradas estarão sujeitas a remoção e podem ser impossíveis de serem recuperadas (consulte <em>Exemplos</em> abaixo para uma possível estratégia).</p>
+</dd>
+<dt class="hdlist1" id="git-stash-drop-q--quietltstashgt"> <a class="anchor" href="#git-stash-drop-q--quietltstashgt"></a>drop [-q|--quiet] [&lt;stash&gt;] </dt>
+<dd>
+<p>Remova uma única entrada "stash" da lista das entradas "stash".</p>
+</dd>
+<dt class="hdlist1" id="git-stash-create"> <a class="anchor" href="#git-stash-create"></a>create </dt>
+<dd>
+<p>Crie uma entrada "stash" (que é um objeto commit comum) e retorne seu nome de objeto, sem armazená-la em qualquer outro lugar no espaço de nomes "ref". Isso tem a intenção de ser útil para scripts. Provavelmente não é o comando que você deseja usar; veja o "push" acima.</p>
+</dd>
+<dt class="hdlist1" id="git-stash-store"> <a class="anchor" href="#git-stash-store"></a>store </dt>
+<dd>
+<p>Armazene um determinado "stash" criado através do comando <em>git stash create</em> (que é um commit pendente de mesclagem) na "ref" determinada, atualizando o "reflog" do "stash". Isso tem a intenção de ser útil para scripts. Provavelmente não é o comando que você deseja usar; veja o "push" acima.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-stash--a"> <a class="anchor" href="#git-stash--a"></a>-a </dt>
+<dt class="hdlist1" id="git-stash---all"> <a class="anchor" href="#git-stash---all"></a>--all </dt>
+<dd>
+<p>Esta opção só é válida para os comandos <code>push</code> e <code>save</code>.</p>
+<div class="paragraph">
+<p>Todos os arquivos ignorados e não monitorados também são armazenados em cache e limpos com o comando <code>git clean</code>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash--u"> <a class="anchor" href="#git-stash--u"></a>-u </dt>
+<dt class="hdlist1" id="git-stash---include-untracked"> <a class="anchor" href="#git-stash---include-untracked"></a>--include-untracked </dt>
+<dt class="hdlist1" id="git-stash---no-include-untracked"> <a class="anchor" href="#git-stash---no-include-untracked"></a>--no-include-untracked </dt>
+<dd>
+<p>Quando usado em conjunto com os comandos <code>push</code> e <code>save</code>, todos os arquivos não monitorados também são armazenados em cache e limpos com o comando <code>git clean</code>.</p>
+<div class="paragraph">
+<p>Quando usado com o comando <code>show</code>, mostra os arquivos não rastreados na entrada acumulada como parte do diff.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash---only-untracked"> <a class="anchor" href="#git-stash---only-untracked"></a>--only-untracked </dt>
+<dd>
+<p>Esta opção só é válida para o comando <code>show</code>.</p>
+<div class="paragraph">
+<p>Mostra apenas os arquivos não rastreados na entrada do stash como parte do diff.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash---index"> <a class="anchor" href="#git-stash---index"></a>--index </dt>
+<dd>
+<p>Esta opção só é válida para os comandos <code>pop</code> e <code>apply</code>.</p>
+<div class="paragraph">
+<p>Tenta restabelecer não apenas as alterações da árvore de trabalho, mas também as do índice. No entanto, isso pode falhar quando há conflitos (que são armazenados no índice e portanto, não é mais possível aplicar as alterações como eram originalmente).</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash--k"> <a class="anchor" href="#git-stash--k"></a>-k </dt>
+<dt class="hdlist1" id="git-stash---keep-index"> <a class="anchor" href="#git-stash---keep-index"></a>--keep-index </dt>
+<dt class="hdlist1" id="git-stash---no-keep-index"> <a class="anchor" href="#git-stash---no-keep-index"></a>--no-keep-index </dt>
+<dd>
+<p>Esta opção só é válida para os comandos <code>push</code> e <code>save</code>.</p>
+<div class="paragraph">
+<p>Todas as alterações que já foram adicionadas ao índice não são alteradas.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash--p"> <a class="anchor" href="#git-stash--p"></a>-p </dt>
+<dt class="hdlist1" id="git-stash---patch"> <a class="anchor" href="#git-stash---patch"></a>--patch </dt>
+<dd>
+<p>Esta opção só é válida para os comandos <code>push</code> e <code>save</code>.</p>
+<div class="paragraph">
+<p>Selecione a diferença entre os blocos interativamente entre HEAD e a árvore de trabalho a serem armazenados. A entrada "stash" é construída de maneira que a condição geral do índice seja a mesma que a condição geral do índice do seu repositório e a sua árvore de trabalho contenha apenas as alterações que você selecionou de forma interativa. As alterações selecionadas serão revertidas a partir da sua árvore de trabalho. Consulte a seção &#8220;Modo Interativo&#8221; do <a href='{{< relurl "docs/git-add/pt_BR" >}}'>git-add[1]</a> para aprender como operar o modo <code>--patch</code>.</p>
+</div>
+<div class="paragraph">
+<p>A opção <code>--patch</code> implica no uso da opção <code>--keep-index</code>. Você pode usar a <code>--no-keep-index</code> para substituir isso.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash--S"> <a class="anchor" href="#git-stash--S"></a>-S </dt>
+<dt class="hdlist1" id="git-stash---staged"> <a class="anchor" href="#git-stash---staged"></a>--staged </dt>
+<dd>
+<p>Esta opção só é válida para os comandos <code>push</code> e <code>save</code>.</p>
+<div class="paragraph">
+<p>Armazene apenas as alterações que estão sendo preparadas atualmente. Isto é similar ao comando <code>git commit</code> básico, exceto que o estado do commit é feito na pilha armazenada em vez do ramo atual.</p>
+</div>
+<div class="paragraph">
+<p>A opção <code>--patch</code> tem prioridade sobre esta.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash---pathspec-from-fileltarquivogt"> <a class="anchor" href="#git-stash---pathspec-from-fileltarquivogt"></a>--pathspec-from-file=&lt;arquivo&gt; </dt>
+<dd>
+<p>Esta opção só é válida para o comando <code>push</code>.</p>
+<div class="paragraph">
+<p>O "pathspec" é passado com <code>&lt;arquivo&gt;</code> em vez dos argumentos da linha de comando. Caso o <code>&lt;arquivo&gt;</code> seja exatamente <code>-</code>, a entrada padrão será utilizada. Os elementos do "pathspec" são separados por caracteres de término de linha <code>LF</code> ou <code>CR/LF</code>. Os elementos do "pathspec" podem ser citados conforme explicado na variável de configuração <code>core.quotePath</code> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Consulte também opção <code>--pathspec-file-nul</code> e o global <code>--literal-pathspecs</code>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash---pathspec-file-nul"> <a class="anchor" href="#git-stash---pathspec-file-nul"></a>--pathspec-file-nul </dt>
+<dd>
+<p>Esta opção só é válida para o comando <code>push</code>.</p>
+<div class="paragraph">
+<p>Só faz algum sentido caso seja utilizado junto com a opção <code>--pathspec-from-file</code>. Os elementos "pathspec" são separados com caracteres <code>NUL</code> e todos os outros caracteres são considerados de forma literal (incluindo as novas linhas e as citações).</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash--q"> <a class="anchor" href="#git-stash--q"></a>-q </dt>
+<dt class="hdlist1" id="git-stash---quiet"> <a class="anchor" href="#git-stash---quiet"></a>--quiet </dt>
+<dd>
+<p>Esta opção só é válida para os comandos <code>apply</code>, <code>drop</code>, <code>pop</code>, <code>push</code>, <code>save</code> e <code>store</code>.</p>
+<div class="paragraph">
+<p>Silencioso, suprima as mensagens de feedback.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash---"> <a class="anchor" href="#git-stash---"></a>-- </dt>
+<dd>
+<p>Esta opção só é válida para o comando <code>push</code>.</p>
+<div class="paragraph">
+<p>Separa o <em>pathspec</em> das opções para fins de desambiguação.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash-ltpathspecgt82308203"> <a class="anchor" href="#git-stash-ltpathspecgt82308203"></a>&lt;pathspec&gt;&#8230;&#8203; </dt>
+<dd>
+<p>Esta opção só é válida para o comando <code>push</code>.</p>
+<div class="paragraph">
+<p>A nova entrada stash registra as condições alteradas apenas para os arquivos que coincidam com o <em>pathspec</em>. As entradas de índice e os arquivos da árvore de trabalho são revertidos para a condição no <code>HEAD</code> apenas para estes arquivos, deixando também os arquivos que não correspondem ao <em>pathspec</em> intactos.</p>
+</div>
+<div class="paragraph">
+<p>Para mais detalhes sobre a sintaxe, consulte a entrada <em>pathspec</em> em <a href='{{< relurl "docs/gitglossary/pt_BR" >}}'>gitglossary[7]</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash-ltstashgt"> <a class="anchor" href="#git-stash-ltstashgt"></a>&lt;stash&gt; </dt>
+<dd>
+<p>Esta opção só é válida para os comandos <code>apply</code>, <code>branch</code>, <code>drop</code>, <code>pop</code> e <code>show</code>.</p>
+<div class="paragraph">
+<p>Uma referência do formulário <code>stash@{&lt;revisão&gt;}</code>. Quando nenhum <code>&lt;stash&gt;</code> é informado, o último "stash" é assumido (ou seja, <code>stash@{0}</code>).</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_discussão"><a class="anchor" href="#_discussão"></a>DISCUSSÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Um lançamento na <em>stash</em> é representado como um commit cuja árvore registra a condição do diretório de trabalho e a sua primeira origem é o commit no <code>HEAD</code> quando a entrada foi criada. A árvore da segunda origem registra a condição do índice quando o lançamento é feito, e é feito um herdeiro do commit <code>HEAD</code>. O grafo de ascendência fica assim:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>       .----W
+      /    /
+-----H----I</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>onde <code>H</code> é o commit <code>HEAD</code>, <code>I</code> é um commit que registra a condição do índice e <code>W</code> é um commit que registra a condição da árvore de trabalho.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemplos"><a class="anchor" href="#_exemplos"></a>EXEMPLOS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-stash-Obtendodeumdiretriosujo"> <a class="anchor" href="#git-stash-Obtendodeumdiretriosujo"></a>Obtendo de um diretório sujo </dt>
+<dd>
+<p>Quando você está no meio de alguma coisa, aprende que há alterações upstream que são possivelmente relevantes para o que você está fazendo. Quando as suas alterações locais não entrarem em conflito com as alterações na "upstream", um simples <code>git pull</code> permitirá que você avance.</p>
+<div class="paragraph">
+<p>No entanto, há casos onde as suas alterações locais entram em conflito com as alterações na upstream, e o <code>git pull</code> se recusa a sobrescrever as suas alterações. Nesse caso, é possível ocultar as suas alterações, executar um <em>pull</em> e remover do armazenamento da seguinte maneira:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git pull
+ ...
+file foobar not up to date, cannot merge.
+$ git stash
+$ git pull
+$ git stash pop</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash-Fluxodetrabalhointerrompido"> <a class="anchor" href="#git-stash-Fluxodetrabalhointerrompido"></a>Fluxo de trabalho interrompido </dt>
+<dd>
+<p>Quando você está no meio de alguma coisa, seu chefe entra e exige que você conserte algo imediatamente. Tradicionalmente, você faria um commit em um ramo temporário para armazenar as suas alterações e retornava ao ramo original para fazer a correção de emergência, assim:</p>
+<div class="listingblock">
+<div class="content">
+<pre># ... hack hack hack ...
+$ git switch -c my_wip
+$ git commit -a -m "WIP"
+$ git switch master
+$ edit emergency fix
+$ git commit -a -m "Arruma na pressa"
+$ git switch my_wip
+$ git reset --soft HEAD^
+# ... continue a hackear ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Você pode utilizar o comando <em>git stash</em> para simplificar o exemplo acima:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># ... hack hack hack ...
+$ git stash
+$ edit emergency fix
+$ git commit -a -m "Arrumando na correria"
+$ git stash pop
+# ... continue a hackear ...</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash-Testandocommitsparciais"> <a class="anchor" href="#git-stash-Testandocommitsparciais"></a>Testando commits parciais </dt>
+<dd>
+<p>Você pode utilizar o comando <code>git stash push --keep-index</code> quando quiser fazer dois ou mais commits das alterações na árvore de trabalho e queira testar cada uma das alterações antes de fazer o commit:</p>
+<div class="listingblock">
+<div class="content">
+<pre># ... hack hack hack ...
+$ git add --patch foo            # adiciona apenas a primeira parte ao índice
+$ git stash push --keep-index    # armazene todas as outras alterações
+$ edit/build/test first part
+$ git commit -m 'First part'     # faça o commit completo de todas as modificações testadas
+$ git stash pop                  # prepare para trabalhar em todas as outras modificações
+# ... repita os cinco passos acima até que sobre apenas um commit ...
+$ edit/build/test remaining parts
+$ git commit foo -m 'Partes resultantes'</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash-Salvandoasalteraesnorelacionadasparautilizaofutura"> <a class="anchor" href="#git-stash-Salvandoasalteraesnorelacionadasparautilizaofutura"></a>Salvando as alterações não relacionadas para utilização futura </dt>
+<dd>
+<p>Quando estiver no meio de grandes alterações e encontre algum problema não relacionado que você não queira deixar de corrigir, você pode fazer as alterações, organizá-las e usar o comando <code>git stash push --staged</code> deixando guardado para uso posterior. Isso se assemelha ao fazer o commit das alterações acumuladas, apenas o commit acaba ficando armazenado e não no ramo atual.</p>
+<div class="listingblock">
+<div class="content">
+<pre># ... hack hack hack ...
+$ git add --patch foo           # adiciona alterações não relacionadas ao índice
+$ git stash push --staged       # salva estas alterações na pilha
+# ... hack hack hack, conclui as alterações atuais ...
+$ git commit -m 'Massive'       # faz o commit de das alterações totalmente testadas
+$ git switch fixup-branch       # alterna para outro ramo
+$ git stash pop                 # para concluir o trabalho nas alterações salvas</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-stash-Recuperandoentradasstashqueforamlimpaseliminadaserroneamente"> <a class="anchor" href="#git-stash-Recuperandoentradasstashqueforamlimpaseliminadaserroneamente"></a>Recuperando entradas "stash" que foram limpas/eliminadas erroneamente </dt>
+<dd>
+<p>Caso você derrube ou limpe as entradas "stash" por engano, elas não poderão mais ser recuperadas pelos mecanismos de segurança normais. No entanto, é possível tentar o seguinte encantamento para obter uma lista das entradas stash que ainda estão em seu repositório, mas que não são mais acessíveis:</p>
+<div class="listingblock">
+<div class="content">
+<pre>git fsck --unreachable |
+grep commit | cut -d\  -f3 |
+xargs git log --merges --no-walk --grep=WIP</pre>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuração"><a class="anchor" href="#_configuração"></a>CONFIGURAÇÃO</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>pt_BR/includes/cmd-config-section-all.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>pt_BR/config/stash.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_veja_também"><a class="anchor" href="#_veja_também"></a>VEJA TAMBÉM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href='{{< relurl "docs/git-checkout/pt_BR" >}}'>git-checkout[1]</a>, <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a>, <a href='{{< relurl "docs/git-reflog/pt_BR" >}}'>git-reflog[1]</a>, <a href='{{< relurl "docs/git-reset/pt_BR" >}}'>git-reset[1]</a>, <a href='{{< relurl "docs/git-switch/pt_BR" >}}'>git-switch[1]</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a></p>
+</div>
+</div>
+</div>

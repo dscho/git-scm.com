@@ -1,0 +1,601 @@
+---
+category: manual
+section: documentation
+subsection: manual
+title: Git - git-diff-files Documentation
+docname: git-diff-files
+lang: zh_HANS-CN
+aliases:
+- "/docs/git-diff-files/zh_HANS-CN/index.html"
+
+---
+<div class="sect1">
+<h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-diff-files - 对比工作区和索引中的文件</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_概述"><a class="anchor" href="#_概述"></a>概述</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git diff-files</em> [-q] [-0 | -1 | -2 | -3 | -c | --cc] [&lt;common-diff-options&gt;] [&lt;path&gt;&#8230;&#8203;]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_描述"><a class="anchor" href="#_描述"></a>描述</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>比较工作区和索引中的文件。 当指定路径时，只比较那些命名的路径。 否则就比较索引中的所有条目。 输出格式与 <em>git diff-index</em> 和 <em>git diff-tree</em> 的相同。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_选项"><a class="anchor" href="#_选项"></a>选项</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>zh_HANS-CN/diff-options.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-files--1--"> <a class="anchor" href="#git-diff-files--1--"></a>-1 --基地 </dt>
+<dt class="hdlist1" id="git-diff-files--2--ours"> <a class="anchor" href="#git-diff-files--2--ours"></a>-2 --ours </dt>
+<dt class="hdlist1" id="git-diff-files--3--theirs"> <a class="anchor" href="#git-diff-files--3--theirs"></a>-3 --theirs </dt>
+<dt class="hdlist1" id="git-diff-files--0"> <a class="anchor" href="#git-diff-files--0"></a>-0 </dt>
+<dd>
+<p>分别与 “基础” 版本、“我们的分支” 或 “他们的分支” 进行比较。 有了这些选项，合并后的条目的差异就不会显示。</p>
+<div class="paragraph">
+<p>默认是针对我们的分支 (-2) 和干净的解决路径进行差异比对。 可以给出选项 -0 来省略未合并的条目的差异输出，只显示 "Unmerged"。</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-diff-files--c"> <a class="anchor" href="#git-diff-files--c"></a>-c </dt>
+<dt class="hdlist1" id="git-diff-files---cc"> <a class="anchor" href="#git-diff-files---cc"></a>--cc </dt>
+<dd>
+<p>这将比较第二阶段（我们的分支）、第三阶段（他们的分支）和工作区文件，并输出一个综合的差异，类似于 <em>diff-tree</em> 显示带有这些标志的合并提交。</p>
+</dd>
+<dt class="hdlist1" id="git-diff-files--q"> <a class="anchor" href="#git-diff-files--q"></a>-q </dt>
+<dd>
+<p>即使对不存在的文件也保持沉默</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_原始输出格式"><a class="anchor" href="#_原始输出格式"></a>原始输出格式</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>"git-diff-index"，"git-diff-tree"，"git-diff-files" 和 "git diff --raw"
+的原始输出格式非常相似。</p>
+</div>
+<div class="paragraph">
+<p>这些命令都比较两组事物。但比较的内容有所不同：</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-files-git-diff-indexlttree-ishgt"> <a class="anchor" href="#git-diff-files-git-diff-indexlttree-ishgt"></a>git-diff-index &lt;tree-ish&gt; </dt>
+<dd>
+<p>比较 &lt;文件树&gt; 和文件系统上的文件。</p>
+</dd>
+<dt class="hdlist1" id="git-diff-files-git-diff-index--cachedltgt"> <a class="anchor" href="#git-diff-files-git-diff-index--cachedltgt"></a>git-diff-index --cached &lt;文件树&gt; </dt>
+<dd>
+<p>比较 &lt;文件树&gt; 和索引。</p>
+</dd>
+<dt class="hdlist1" id="git-diff-files-git-diff-tree-rlt1gtlt2gtltgt82308203"> <a class="anchor" href="#git-diff-files-git-diff-tree-rlt1gtlt2gtltgt82308203"></a>git-diff-tree [-r] &lt;文件树1&gt; &lt;文件树2&gt; [&lt;模式&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>比较由两个参数传递的文件树。</p>
+</dd>
+<dt class="hdlist1" id="git-diff-files-git-diff-filesltgt82308203"> <a class="anchor" href="#git-diff-files-git-diff-filesltgt82308203"></a>git-diff-files [&lt;模式&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>compares the index and the files on the filesystem.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>"git-diff-tree" 命令在最开始输出被比较对象的哈希值。之后，所有命令都会为每个更改的文件打印一个输出行。</p>
+</div>
+<div class="paragraph">
+<p>输出行的格式如下：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>in-place edit  :100644 100644 bcd1234 0123456 M file0
+copy-edit      :100644 100644 abcd123 1234567 C68 file1 file2
+rename-edit    :100644 100644 abcd123 1234567 R86 file1 file3
+create         :000000 100644 0000000 1234567 A file4
+delete         :100644 000000 1234567 0000000 D file5
+unmerged       :000000 000000 0000000 0000000 U file6</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>含义如下，从左到右依次：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>a colon.</p>
+</li>
+<li>
+<p>"src"（源文件）的模式；如果是新建或是未合并的，则为 000000。</p>
+</li>
+<li>
+<p>空格。</p>
+</li>
+<li>
+<p>"dst"(目标文件）的模式；如果被删除或未合并则为 000000。</p>
+</li>
+<li>
+<p>空格。</p>
+</li>
+<li>
+<p>"src"（源文件）的 sha1 值；如果为新建或未合并则为 0{40}。</p>
+</li>
+<li>
+<p>空格。</p>
+</li>
+<li>
+<p>sha1 for "dst"; 0{40} if creation, unmerged or "look at work tree".</p>
+</li>
+<li>
+<p>空格。</p>
+</li>
+<li>
+<p>状态，在可选值 "score" 之后。</p>
+</li>
+<li>
+<p>当使用 <code>-z</code> 选项时为制表符或 NUL。</p>
+</li>
+<li>
+<p>"src" 的路径</p>
+</li>
+<li>
+<p>使用 <code>-z</code> 选项时为制表符或 NUL；仅当状态为 C 或 R 时存在。</p>
+</li>
+<li>
+<p>"dst" 的路径；仅当状态为 C 或 R 时存在。</p>
+</li>
+<li>
+<p>当使用 <code>-z</code> 选项时为 LF 或 NUL，用于终止记录。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>可能的状态字母为：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A：文件新增部分</p>
+</li>
+<li>
+<p>C：复制到一个新文件</p>
+</li>
+<li>
+<p>D：文件删除部分</p>
+</li>
+<li>
+<p>M：文件内容或文件模式修改</p>
+</li>
+<li>
+<p>R：文件重命名</p>
+</li>
+<li>
+<p>T：文件类型改变</p>
+</li>
+<li>
+<p>U：文件未合并（你必须在提交之前完成合并）</p>
+</li>
+<li>
+<p>X："unknown"（未知）更改类型（可能为错误，请报告）</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>状态字母 C 和 R 后面总是一个分数（表示移动或复制的源与目标之间的相似性百分比）。状态字母M后面可能有文件重写的分数（表示相异百分比）。</p>
+</div>
+<div class="paragraph">
+<p>如果文件是文件系统上的新文件，并且与索引不同步，则 &lt;sha1&gt; 将显示为全0。</p>
+</div>
+<div class="paragraph">
+<p>例如：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:100644 100644 5be4a4a 0000000 M file.c</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Without the <code>-z</code> option, pathnames with "unusual" characters are quoted as
+explained for the configuration variable <code>core.quotePath</code> (see
+<a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>).  Using <code>-z</code> the filename is output verbatim and the
+line is terminated by a NUL byte.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_合并的差异格式"><a class="anchor" href="#_合并的差异格式"></a>合并的差异格式</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>"git-diff-tree"、"git-diff-files" 和 "git-diff --raw" 可以使用 <code>-c</code> 或 <code>--cc</code>
+选项来生成差异输出，也可以用于合并提交。其输出与上面描述的格式有以下不同：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>每个父提交都有一个冒号</p>
+</li>
+<li>
+<p>there are more "src" modes and "src" sha1</p>
+</li>
+<li>
+<p>状态是每个父提交的状态字符的合并</p>
+</li>
+<li>
+<p>无可选的分数（"score"）数字</p>
+</li>
+<li>
+<p>以制表符分隔的文件路径名</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For <code>-c</code> and <code>--cc</code>, only the destination or final path is shown even if the
+file was renamed on any side of history.  With <code>--combined-all-paths</code>, the
+name of the path in each parent is shown followed by the name of the path in
+the merge commit.</p>
+</div>
+<div class="paragraph">
+<p>以下为带 <code>-c</code> 和 <code>--cc</code> 选项且不带 <code>--combined-all-paths</code> 选项的示例：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>::100644 100644 100644 fabadb8 cc95eb0 4866510 MM	desc.c
+::100755 100755 100755 52b7a2d 6d1ac04 d2ac7d7 RM	bar.sh
+::100644 100644 100644 e07d6c5 9042e82 ee91881 RR	phooey.c</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>以下为使用 <code>--combined-all-paths</code> 选项且使用 <code>-c</code> 或 <code>--cc</code> 选项的示例:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>::100644 100644 100644 fabadb8 cc95eb0 4866510 MM	desc.c	desc.c	desc.c
+::100755 100755 100755 52b7a2d 6d1ac04 d2ac7d7 RM	foo.sh	bar.sh	bar.sh
+::100644 100644 100644 e07d6c5 9042e82 ee91881 RR	fooey.c	fuey.c	phooey.c</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>请注意 <em>combined diff</em> 只列出了从所有父提交中修改过的文件。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="generate_patch_text_with_p"><a class="anchor" href="#generate_patch_text_with_p"></a>使用选项 <code>-p</code> 生成补丁文本</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Running <a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a>, <a href='{{< relurl "docs/git-log/zh_HANS-CN" >}}'>git-log[1]</a>, <a href='{{< relurl "docs/git-show/zh_HANS-CN" >}}'>git-show[1]</a>, <a href='{{< relurl "docs/git-diff-index/zh_HANS-CN" >}}'>git-diff-index[1]</a>, <a href='{{< relurl "docs/git-diff-tree/zh_HANS-CN" >}}'>git-diff-tree[1]</a>, or <a href='{{< relurl "docs/git-diff-files/zh_HANS-CN" >}}'>git-diff-files[1]</a> with the <code>-p</code> option produces patch text. You can customize the creation of patch text via the <code>GIT_EXTERNAL_DIFF</code> and the <code>GIT_DIFF_OPTS</code> environment variables (see <a href='{{< relurl "docs/git/zh_HANS-CN" >}}'>git[1]</a>), and the <code>diff</code> attribute (see <a href='{{< relurl "docs/gitattributes/zh_HANS-CN" >}}'>gitattributes[5]</a>).</p>
+</div>
+<div class="paragraph">
+<p>-p 选项产生的内容与传统的差异格式略有不同：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>它前面有一个 <code>git diff</code> 头，如下所示：</p>
+<div class="literalblock">
+<div class="content">
+<pre>diff --git a/file1 b/file2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>a/</code> 和 <code>b/</code> 的文件名相同，除非涉及到重命名/复制。特别地，即使是创建或删除，也 <em>不</em> 使用 <code>/dev/null</code> 来代替 <code>a/</code> 或 <code>b/</code> 文件名。</p>
+</div>
+<div class="paragraph">
+<p>当涉及到重命名/复制时，<code>file1</code> 和 <code>file2</code> 分别显示重命名/复制的源文件的名称和重命名/复制产生的文件的名称。</p>
+</div>
+</li>
+<li>
+<p>它的后面是一个或多个扩展头信息行：</p>
+<div class="literalblock">
+<div class="content">
+<pre>old mode &lt;模式&gt;
+new mode &lt;模式&gt;
+deleted file mode &lt;模式&gt;
+new file mode &lt;模式&gt;
+copy from &lt;路径&gt;
+copy to &lt;路径&gt;
+rename from &lt;路径&gt;
+rename to &lt;路径&gt;
+similarity index &lt;数字&gt;
+dissimilarity index &lt;数字&gt;
+index &lt;哈希&gt;..&lt;哈希&gt; &lt;模式&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>文件模式被打印为6位八进制数字，包括文件类型和文件权限位。</p>
+</div>
+<div class="paragraph">
+<p>扩展头信息中的路径名称不包括 <code>a/</code> 和 <code>b/</code> 前缀。</p>
+</div>
+<div class="paragraph">
+<p>相似性指数是未改变的行占比，而不相似性指数是改变的行占比。它是四舍五入的整数，后有百分号。因此，100%的相似度指数指为两个文件相等，而 100% 的不相似度意味着入新文件中没有旧文件中的行。</p>
+</div>
+<div class="paragraph">
+<p>索引行包括改变前和改变后的 blob 对象名称。如果文件模式没有变化，则包含 &lt;模式&gt;；否则，分别显示新旧模式。</p>
+</div>
+</li>
+<li>
+<p>含有 "不常见" 字符的路径名会被引用，这一点在配置变量` core.quotePath` 中有所解释（见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。</p>
+</li>
+<li>
+<p>输出中所有的 <code>file1</code> 文件都是指提交前的文件，而所有的 <code>file2</code> 文件都是指提交后的文件。按顺序对每个文件进行修改是不正确的。例如，这个补丁将交换文件 a 和 b：</p>
+<div class="literalblock">
+<div class="content">
+<pre>diff --git a/a b/b
+rename from a
+rename to b
+diff --git a/b b/a
+rename from b
+rename to a</pre>
+</div>
+</div>
+</li>
+<li>
+<p>块头提到了块头所适用的函数的名称。 参见 <a href='{{< relurl "docs/gitattributes/zh_HANS-CN" >}}'>gitattributes[5]</a> 中的 "定义自定义 hunk-header"，以了解如何针对特定语言进行定制。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_合并的差异格式_2"><a class="anchor" href="#_合并的差异格式_2"></a>合并的差异格式</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>任何生成差异的命令都可以使用 <code>-c</code> 或 <code>-cc</code> 选项，在显示合并时产生一个 "合并差异"。当用 <a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a> 或 <a href='{{< relurl "docs/git-show/zh_HANS-CN" >}}'>git-show[1]</a> 显示合并时，这默认格式。还需要注意的是，你可以给这些命令适当的 <code>--diff-merges</code> 选项来强制生成特定格式的差异。</p>
+</div>
+<div class="paragraph">
+<p>"合并的差异" 的格式如下：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>diff --combined describe.c
+index fabadb8,cc95eb0..4866510
+--- a/describe.c
++++ b/describe.c
+@@@ -98,20 -98,12 +98,20 @@@
+	return (a_date &gt; b_date) ? -1 : (a_date == b_date) ? 0 : 1;
+  }
+
+- static void describe(char *arg)
+ -static void describe(struct commit *cmit, int last_one)
+++static void describe(char *arg, int last_one)
+  {
+ +	unsigned char sha1[20];
+ +	struct commit *cmit;
+	struct commit_list *list;
+	static int initialized = 0;
+	struct commit_name *n;
+
+ +	if (get_sha1(arg, sha1) &lt; 0)
+ +		usage(describe_usage);
+ +	cmit = lookup_commit_reference(sha1);
+ +	if (!cmit)
+ +		usage(describe_usage);
+ +
+	if (!initialized) {
+		initialized = 1;
+		for_each_ref(get_name);</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>它前面有 "git diff" 头，如下（当使用 <code>c</code> 选项时）：</p>
+<div class="literalblock">
+<div class="content">
+<pre>diff --combined file</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>或如下（当使用 <code>--cc</code> 选项时）：</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>diff --cc file</pre>
+</div>
+</div>
+</li>
+<li>
+<p>它的后面是一个或多个扩展头信息行（本例显示的是与两个父提交的合并）：</p>
+<div class="literalblock">
+<div class="content">
+<pre>index &lt;哈希&gt;,&lt;哈希&gt;..&lt;哈希&gt;
+mode &lt;模式&gt;,&lt;模式&gt;..&lt;模式&gt;
+new file mode &lt;模式&gt;
+deleted file mode &lt;模式&gt;,&lt;模式&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>mode &lt;mode&gt;,&lt;mode&gt;..&lt;mode&gt;</code> line appears only if at least one of the &lt;mode&gt; is different from the rest. Extended headers with information about detected contents movement (renames and copying detection) are designed to work with diff of two &lt;tree-ish&gt; and are not used by combined diff format.</p>
+</div>
+</li>
+<li>
+<p>它的后面是两行源文件/目标文件的头信息</p>
+<div class="literalblock">
+<div class="content">
+<pre>--- a/file
++++ b/file</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>类似于传统的 "统一" 差异格式的双行头，<code>/dev/null</code> 用来表示创建或删除的文件。</p>
+</div>
+<div class="paragraph">
+<p>但是，如果提供了 --combined-all-paths 选项，你就会得到一个 N+1 行的源文件/目标文件头，其中 N 是合并提交中的父提交数量</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>--- a/file
+--- a/file
+--- a/file
++++ b/file</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>如果重命名或复制检测处于活动状态，这种扩展格式可能很有用，可以让你在不同的父提交中看到文件的原始名称。</p>
+</div>
+</li>
+<li>
+<p>修改了文件块头信息的格式，以防止不小心将其送入 <code>patch -p1</code>。合并的差异格式是为审查合并提交的修改而创建的，并不是为了应用。这个变化类似于扩展的 "索引" 头信息的变化：</p>
+<div class="literalblock">
+<div class="content">
+<pre>@@@ &lt;from-file-range&gt; &lt;from-file-range&gt; &lt;to-file-range&gt; @@@</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>块中有（父提交数量+1）<code>@</code> 字符，用于合并的差异格式。</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>与传统的 "统一" 差异格式不同，这种格式显示两个文件 A 和 B 的列，其中有 <code>-</code>（减号&#8201;&#8212;&#8201;在 A 中出现，但在 B 中删除），<code>+</code>（加号&#8201;&#8212;&#8201;在 A 中缺少，但在 B 中增加），或 <code>" "</code>（空格&#8201;&#8212;&#8201;不变）前缀，这种格式比较两个或多个文件与一个文件 X，并显示 X 与其中每个文件的差异。文件中的每一个都有一列被前置在输出行中，以指出 X 的行与它的不同之处。</p>
+</div>
+<div class="paragraph">
+<p>第 N 列中的 <code>-</code> 字符意味着该行出现在文件 N 中，但它没有出现在结果文件中。第 N 列中的 <code>+</code> 字符意味着该行出现在结果文件中，而文件 N 中没有该行（换句话说，从该父提交的角度来看，该行是被添加的）。</p>
+</div>
+<div class="paragraph">
+<p>在上面的输出示例中，两个文件中的函数签名都被改变了（因此从文件 1 和文件 2 中都有表示删除的 <code>-</code>，而 <code>++</code> 表示被添加的一行没有出现在文件 1 或文件 2 中）。另外还有 8 行与文件 1 中的相同，但没有出现在文件 2 中（因此前缀为 <code>+</code>）。</p>
+</div>
+<div class="paragraph">
+<p>当用 <code>git diff-tree -c</code> 显示时，它将合并提交的父提交文件与合并结果进行比较（即文件 1 &#8230;&#8203; 文件 N 是父提交文件）。当用 <code>git diff-files -c</code> 显示时，它将两个未解决的合并父提交文件与工作树文件进行比较（即文件 1 是阶段 2 ，又称 "我们的版本"，文件 2 是阶段 3，又称 "他们的版本"）。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_其他差异格式"><a class="anchor" href="#_其他差异格式"></a>其他差异格式</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>--summary</code> 选项描述新添加、删除、重命名和复制的文件。<code>--stat</code> 选项将 diffstat(1)
+图添加到输出中。这些选项可以与其他选项组合在一起，如 <code>-p</code> 选项可以提高可读性。</p>
+</div>
+<div class="paragraph">
+<p>当显示一个涉及到重命名或复制的更改时，<code>--stat</code> 输出会将路径名的前缀和后缀结合在一起，会以较紧凑的方式显示。例如，将
+"arch/i386/Makefile" 移动到 "arch/x86/Makefile"，同时修改了4行，就会显示出这样的变化：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>arch/{i386 =&gt; x86}/Makefile    |   4 +--</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>--numstat</code> 选项提供了 diffstat(1) 的信息，但其是为了方便程序使用而设计的。<code>--numstat</code> 输出中的一个条目如下：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>1	2	README
+3	1	arch/{i386 =&gt; x86}/Makefile</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>从左至右依次是：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>添加的行数；</p>
+</li>
+<li>
+<p>制表符；</p>
+</li>
+<li>
+<p>删除的行数；</p>
+</li>
+<li>
+<p>制表符；</p>
+</li>
+<li>
+<p>路径名（可能有重命名/复制信息）；</p>
+</li>
+<li>
+<p>换行符。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>当 <code>-z</code> 输出选项生效时，输出的格式如下：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>1	2	README NUL
+3	1	NUL arch/i386/Makefile NUL arch/x86/Makefile NUL</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>依次是：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>添加的行数；</p>
+</li>
+<li>
+<p>制表符；</p>
+</li>
+<li>
+<p>删除的行数；</p>
+</li>
+<li>
+<p>制表符；</p>
+</li>
+<li>
+<p>NUL（仅在重命名/复制时存在）；</p>
+</li>
+<li>
+<p>完整路径名；</p>
+</li>
+<li>
+<p>NUL（仅在重命名/复制时存在）；</p>
+</li>
+<li>
+<p>完整路径名（仅在重命名/复制时存在）；</p>
+</li>
+<li>
+<p>NUL。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The extra <code>NUL</code> before the preimage path in renamed case is to allow scripts
+that read the output to tell if the current record being read is a
+single-path record or a rename/copy record without reading ahead.  After
+reading added and deleted lines, reading up to <code>NUL</code> would yield the
+pathname, but if that is <code>NUL</code>, the record will show two paths.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>属于 <a href='{{< relurl "docs/git/zh_HANS-CN" >}}'>git[1]</a> 文档</p>
+</div>
+</div>
+</div>

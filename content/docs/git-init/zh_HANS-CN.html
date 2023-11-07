@@ -1,0 +1,220 @@
+---
+category: manual
+section: documentation
+subsection: manual
+title: Git - git-init Documentation
+docname: git-init
+lang: zh_HANS-CN
+aliases:
+- "/docs/git-init/zh_HANS-CN/index.html"
+
+---
+<div class="sect1">
+<h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-init - 创建一个空的Git仓库或重新初始化已有仓库</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_概述"><a class="anchor" href="#_概述"></a>概述</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git init</em> [-q | --quiet] [--bare] [--template=&lt;template_directory&gt;]
+	  [--separate-git-dir &lt;git dir&gt;] [--object-format=&lt;format&gt;]
+	  [-b &lt;branch-name&gt; | --initial-branch=&lt;branch-name&gt;]
+	  [--shared[=&lt;permissions&gt;]] [directory]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_描述"><a class="anchor" href="#_描述"></a>描述</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>该命令创建一个空的Git存储库 - 本质上是一个 <code>.git</code> 目录，其中包含
+<code>objects</code>、<code>refs/heads</code>、<code>refs/tags`和模板文件的子目录。还将创建一个引用master分支 HEAD 的初始 `HEAD</code>
+文件。</p>
+</div>
+<div class="paragraph">
+<p>If the <code>$GIT_DIR</code> environment variable is set then it specifies a path to
+use instead of <code>./.git</code> for the base of the repository.</p>
+</div>
+<div class="paragraph">
+<p>如果通过 <code>$GIT_OBJECT_DIRECTORY</code> 环境变量指定了对象存储目录，那么将在该目录下创建 sha1 目录，否则将使用默认的
+<code>$GIT_DIR/objects</code> 目录。</p>
+</div>
+<div class="paragraph">
+<p>Running <em>git init</em> in an existing repository is safe. It will not overwrite
+things that are already there. The primary reason for rerunning <em>git init</em>
+is to pick up newly added templates (or to move the repository to another
+place if --separate-git-dir is given).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_选项"><a class="anchor" href="#_选项"></a>选项</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init--q"> <a class="anchor" href="#git-init--q"></a>-q </dt>
+<dt class="hdlist1" id="git-init---quiet"> <a class="anchor" href="#git-init---quiet"></a>--quiet </dt>
+<dd>
+<p>仅打印错误和警告消息；所有其他输出将不会显示。</p>
+</dd>
+<dt class="hdlist1" id="git-init---bare"> <a class="anchor" href="#git-init---bare"></a>--bare </dt>
+<dd>
+<p>创建一个纯仓库。如果未设置 <code>GIT_DIR</code> 环境变量，则将其设置为当前工作目录。</p>
+</dd>
+<dt class="hdlist1" id="git-init---object-formatltformatgt"> <a class="anchor" href="#git-init---object-formatltformatgt"></a>--object-format=&lt;format&gt; </dt>
+<dd>
+<p>指定存储库的对象格式（哈希算法）。有效值为 <em>sha1</em> 和（如果启用）<em>sha256</em>。<em>sha1</em> 是默认值。</p>
+<div class="paragraph">
+<p>此选项是实验性的！SHA-256 支持是实验性的，仍然处于早期阶段。一般来说，SHA-256 仓库不能与 "常规" SHA-1 仓库共同工作。应该假定，例如，与 SHA-256 仓库有关的 Git 内部文件格式可能会以向后不兼容的方式改变。仅在测试时使用 <code>--object-format=sha256</code> 选项。</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init---templateltgt"> <a class="anchor" href="#git-init---templateltgt"></a>--template = &lt;模板目录&gt; </dt>
+<dd>
+<p>指定要使用模板的目录。（请参见下面的“模板目录”部分。）</p>
+</dd>
+<dt class="hdlist1" id="git-init---separate-git-dirltgitgt"> <a class="anchor" href="#git-init---separate-git-dirltgitgt"></a>--separate-git-dir=&lt;git目录&gt; </dt>
+<dd>
+<p>并不将存储库初始化至 <code>$GIT_DIR</code> 或 <code>./.git/</code> 目录，而是在其中创建一个包含实际存储库路径的文本文件。此文件作为连接到仓库的 Git
+符号链接，其与文件系统无关。</p>
+<div class="paragraph">
+<p>如果为重新初始化操作，则将存储库移动到指定的路径。</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-init--bltbranch-namegt"> <a class="anchor" href="#git-init--bltbranch-namegt"></a>-b &lt;branch-name&gt; </dt>
+<dt class="hdlist1" id="git-init---initial-branchltbranch-namegt"> <a class="anchor" href="#git-init---initial-branchltbranch-namegt"></a>--initial-branch=&lt;branch-name&gt; </dt>
+<dd>
+<p>在新创建的仓库中为初始分支指定名称。如果没有指定，则使用默认名称：<code>master</code>。</p>
+</dd>
+<dt class="hdlist1" id="git-init---sharedfalsetrueumaskgroupallworldeverybody0xxx"> <a class="anchor" href="#git-init---sharedfalsetrueumaskgroupallworldeverybody0xxx"></a>--shared[=(false|true|umask|group|all|world|everybody|0xxx)] </dt>
+<dd>
+<p>指定 Git 存储库在多个用户之间共享。这允许属于同一组的用户推送到该存储库。指定时，将设置配置变量
+"core.sharedRepository"，以便使用请求的权限创建 <code>$GIT_DIR</code> 下的文件和目录。未指定时，Git 将使用 umask(2)
+返回的权限。</p>
+<div class="paragraph">
+<p>此选项可以有以下值，如果未给定值，则默认为 <em>group</em>：</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init-emumaskememfalseem"> <a class="anchor" href="#git-init-emumaskememfalseem"></a><em>umask</em>（或 <em>false</em>） </dt>
+<dd>
+<p>使用 umask(2) 返回的权限。未指定 <code>--shared</code> 时，此为默认值。</p>
+</dd>
+<dt class="hdlist1" id="git-init-emgroupememtrueem"> <a class="anchor" href="#git-init-emgroupememtrueem"></a><em>group</em>（或 <em>true</em>） </dt>
+<dd>
+<p>使存储库组可写（并且 g+sx，因为 git 组可能不是所有用户的主要组）。这用于放宽原本安全的 umask(2) 值的权限。请注意，umask
+仍然适用于其他权限位（例如，如果 umask 为 <em>0022</em>，则使用 <em>group</em>
+不会删除其他（非组）用户的读取特权）。有关如何精确指定存储库权限的信息，请参见 <em>0xxx</em>。</p>
+</dd>
+<dt class="hdlist1" id="git-init-emallememworldememeverybodyem"> <a class="anchor" href="#git-init-emallememworldememeverybodyem"></a><em>all</em> （或 <em>world</em> 或 <em>everybody</em>） </dt>
+<dd>
+<p>与使用 <em>group</em> 选项相同，但使存储库对所有用户可读。</p>
+</dd>
+<dt class="hdlist1" id="git-init-em0xxxem"> <a class="anchor" href="#git-init-em0xxxem"></a><em>0xxx</em> </dt>
+<dd>
+<p><em>0xxx</em> 是一个八进制数，每个文件的模式均为 <em>0xxx</em>。' 0xxx' 将覆盖用户的 umask(2) 值（不仅像 <em>group 和 'all</em>
+那样放宽权限）。<em>0640</em> 将创建一个组可读取但不能组写入且其他用户无法访问的存储库。<em>0660</em>
+将创建当前用户和组可读可写但其他用户无法访问的存储库。</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>默认情况下，共享存储库中启用了配置标志 <code>receive.denyNonFastForwards</code>，因此您不能强制将非快速前进提交推送到其中。</p>
+</div>
+<div class="paragraph">
+<p>如果提供 <em>dicrectory</em>，则命令在其中运行。如果此目录不存在，则创建它。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_模板目录"><a class="anchor" href="#_模板目录"></a>模板目录</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>模板目录中名称不以点开头的文件和目录将在创建后复制到 <code>$GIT_DIR</code> 中。</p>
+</div>
+<div class="paragraph">
+<p>模板目录将是以下之一（按顺序）：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>用 <code>--template</code> 选项给出的参数；</p>
+</li>
+<li>
+<p><code>$GIT_TEMPLATE_DIR</code> 环境变量；</p>
+</li>
+<li>
+<p><code>init.templateDir</code> 配置变量；或者</p>
+</li>
+<li>
+<p>默认模板目录：<code>/usr/share/git-core/templates</code>。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>默认的模板目录包括一些目录结构，建议的“排除模式”（请参阅 <a href='{{< relurl "docs/gitignore/zh_HANS-CN" >}}'>gitignore[5]</a>）和示例钩子文件。</p>
+</div>
+<div class="paragraph">
+<p>默认情况下，样例钩子都被禁用。要启用一个示例挂钩，请通过删除其后缀 <code>.sample</code> 对其重命名。</p>
+</div>
+<div class="paragraph">
+<p>有关钩子执行的更多信息，请参见 <a href='{{< relurl "docs/githooks/zh_HANS-CN" >}}'>githooks[5]</a>。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_实例"><a class="anchor" href="#_实例"></a>实例</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init-Git"> <a class="anchor" href="#git-init-Git"></a>为现有代码库启动新的 Git 仓库 </dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre>$ cd /path/to/my/codebase
+$ git init      <b class="conum">(1)</b>
+$ git add .     <b class="conum">(2)</b>
+$ git commit    <b class="conum">(3)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>创建 /path/to/my/codebase/.git 目录。</p>
+</li>
+<li>
+<p>将所有现有文件添加到索引。</p>
+</li>
+<li>
+<p>将原始状态记录为历史记录中的第一次提交。</p>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href='{{< relurl "docs/git/zh_HANS-CN" >}}'>git[1]</a> 组件的一部分</p>
+</div>
+</div>
+</div>

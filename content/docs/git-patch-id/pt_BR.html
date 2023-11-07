@@ -1,0 +1,101 @@
+---
+category: manual
+section: documentation
+subsection: manual
+title: Git - git-patch-id Documentation
+docname: git-patch-id
+lang: pt_BR
+aliases:
+- "/docs/git-patch-id/pt_BR/index.html"
+
+---
+<div class="sect1">
+<h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-patch-id - Calcula o ID exclusivo de um patch</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git patch-id</em> [--stable | --unstable | --verbatim]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Carregue um patch da entrada padrão e calcule o ID para ele.</p>
+</div>
+<div class="paragraph">
+<p>Um "ID do patch" nada mais é do que uma soma do SHA-1 das diferenças dos arquivos associados com um patch que ignora os números da linha. Como tal, é "razoavelmente estável", porém ao mesmo tempo também é razoavelmente único, ou seja, dois patches que têm o mesmo "ID de patch" quase garantem que sejam o mesmo.</p>
+</div>
+<div class="paragraph">
+<p>O principal caso de uso para este comando é procurar por commits possivelmente duplicados.</p>
+</div>
+<div class="paragraph">
+<p>Ao lidar com a saída <em>git diff-tree</em>, tira proveito do fato que o patch é prefixado com o nome do objeto do commit e gera duas sequências hexadecimais com 40 bytes. O primeira cadeia de caracteres é o ID do patch e a segundo é o ID do commit. Isso pode ser utilizado para fazer um mapeamento do ID do patch para confirmar o ID.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-patch-id---verbatim"> <a class="anchor" href="#git-patch-id---verbatim"></a>--verbatim </dt>
+<dd>
+<p>Calcule o patch-id da entrada conforme é fornecido, não retire nenhum espaço em branco.</p>
+<div class="literalblock">
+<div class="content">
+<pre>Este é o padrão caso `patchid.verbatim` seja verdadeiro.</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-patch-id---stable"> <a class="anchor" href="#git-patch-id---stable"></a>--stable </dt>
+<dd>
+<p>Use uma soma "stable" (estável) de hashes como o ID do patch. Com esta opção:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reordene as diferenças do arquivo que compõem um patch não afetam o ID. Em particular, os dois patches gerados pela comparação das mesmas duas árvores com as duas configurações diferentes para "-O&lt;ordem-do-arquivo&gt;" resultam na mesma assinatura ID do patch, permitindo que o resultado computado seja utilizado como uma chave para indexar algumas metainformações sobre as alterações entre as duas árvores;</p>
+</li>
+<li>
+<p>O resultado é diferente do valor produzido pelo git 1.9 e mais antigo ou produzido quando um hash "instável" (consulte <code>--unstable</code> abaixo) é configurado - mesmo quando utilizado com um diff gerado obtido sem o uso de "-O&lt;ordem-do-arquivo&gt;", tornando, assim, os bancos de dados existentes armazenando esses IDs "instáveis" ou os históricos com correções inúteis.</p>
+</li>
+<li>
+<p>Todos os espaços em branco dentro do patch são ignorados e não afetam o id.</p>
+<div class="literalblock">
+<div class="content">
+<pre>Esta é a predefinição caso o `patchid.stable` estiver definido como 'true'.</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1" id="git-patch-id---unstable"> <a class="anchor" href="#git-patch-id---unstable"></a>--unstable </dt>
+<dd>
+<p>Use um hash "unstable" (instável) como o ID do patch. Com esta opção, o resultado produzido é compatível com o valor da ID do patch produzido pelo git 1.9 e anterior, o espaço em branco é ignorado. Usuários com bancos de dados preexistentes que armazenam as IDs dos patches produzidos pelo git 1.9 e anteriores (que não lidam com os patches reordenados) podem querer usar esta opção.</p>
+<div class="literalblock">
+<div class="content">
+<pre>Esta é a predefinição.</pre>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a></p>
+</div>
+</div>
+</div>

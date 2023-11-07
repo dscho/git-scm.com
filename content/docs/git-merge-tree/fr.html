@@ -1,0 +1,352 @@
+---
+category: manual
+section: documentation
+subsection: manual
+title: Git - git-merge-tree Documentation
+docname: git-merge-tree
+lang: fr
+aliases:
+- "/docs/git-merge-tree/fr/index.html"
+
+---
+<div class="sect1">
+<h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-merge-tree - Effectue une fusion sans toucher à l&#8217;index ou à l&#8217;arbre de travail</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git merge-tree</em> [--write-tree] [&lt;options&gt;] &lt;branche1&gt; &lt;branche2&gt;
+<em>git merge-tree</em> [--trivial-merge] &lt;arbre-base&gt; &lt;branche1&gt; &lt;branche2&gt; (obsolète)</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="NEWMERGE"><a class="anchor" href="#NEWMERGE"></a>DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette commande a un mode moderne <code>--write-tree</code> et un mode <code>---trivial-merge</code>. À l&#8217;exception de la section <a href="#DEPMERGE">DESCRIPTION OBSOL ÈTE</a> à la fin, le reste de cette documentation décrit le mode moderne <code>--write-tree</code>.</p>
+</div>
+<div class="paragraph">
+<p>Exécute une fusion, mais ne fait pas de nouveaux commits et ne lit ni n&#8217;écrit ni l&#8217;arbre de travail ni l&#8217;index.</p>
+</div>
+<div class="paragraph">
+<p>La fusion effectuée utilisera la même caractéristique que le <a href='{{< relurl "docs/git-merge/fr" >}}'>git-merge[1]</a> « réel », y compris :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>fusion de contenu à trois branches des fichiers individuels</p>
+</li>
+<li>
+<p>détection de renommage</p>
+</li>
+<li>
+<p>gestion correcte des conflits de répertoires et de fichiers</p>
+</li>
+<li>
+<p>consolidation récursive des ancêtres (c.-à-d. lorsqu&#8217;il y a plus d&#8217;une base de fusion, créant une base de fusion virtuelle en fusionnant les bases de fusion)</p>
+</li>
+<li>
+<p>etc.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Une fois la fusion terminée, un nouvel objet d&#8217;arborescence est créé au sommet. Voir <code>SORTIE</code> ci-dessous pour plus de détails.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options"><a class="anchor" href="#_options"></a>OPTIONS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-merge-tree--z"> <a class="anchor" href="#git-merge-tree--z"></a>-z </dt>
+<dd>
+<p>Ne pas citer les noms de fichiers dans la section &lt;information de fichiers en conflit&gt;, et terminer chaque nom de fichier avec un caractère NUL plutôt qu&#8217;un retour à la ligne. Commencer également la section des messages avec un caractère NUL au lieu d&#8217;une nouvelle ligne. Voir <a href="#SORTIE">[SORTIE]</a> ci-dessous pour plus d&#8217;informations.</p>
+</dd>
+<dt class="hdlist1" id="git-merge-tree---name-only"> <a class="anchor" href="#git-merge-tree---name-only"></a>--name-only </dt>
+<dd>
+<p>Dans la section d&#8217;Information sur les fichiers en conflit, au lieu d&#8217;écrire une liste de tuples (mode, oid, étape, chemin) sur la sortie pour les fichiers en conflit, ne fournir qu&#8217;une liste de noms de fichiers avec des conflits (et ne pas lister les noms de fichiers plusieurs fois s&#8217;ils ont plusieurs étapes en conflit).</p>
+</dd>
+<dt class="hdlist1" id="git-merge-tree---no-messages"> <a class="anchor" href="#git-merge-tree---no-messages"></a>--[no-]messages </dt>
+<dd>
+<p>Écrire tous les messages d&#8217;information tels que « Auto-fusion &lt;chemin&gt; » ou les notes de CONFLIT jusqu&#8217;à la fin de la sortie. Si non précisé, le comportement par défaut est d&#8217;inclure ces messages s&#8217;il y a des conflits de fusion, et de les omettre autrement.</p>
+</dd>
+<dt class="hdlist1" id="git-merge-tree---allow-unrelated-histories"> <a class="anchor" href="#git-merge-tree---allow-unrelated-histories"></a>--allow-unrelated-histories </dt>
+<dd>
+<p>merge-tree sera en erreur par défaut si les deux branches spécifiées ne partagent aucune histoire commune. Ce drapeau peut être donné pour annuler cette vérification et faire poursuivre tout de même la fusion.</p>
+</dd>
+<dt class="hdlist1" id="git-merge-tree---merge-baseltcommitgt"> <a class="anchor" href="#git-merge-tree---merge-baseltcommitgt"></a>--merge-base=&lt;commit&gt; </dt>
+<dd>
+<p>Au lieu de trouver les bases de fustion pour la &lt;branche1&gt; et &lt;branche2&gt;, il n&#8217;y a pas de prise en charge pour spécifier une base de fusion pour la fusion et préciser plusieurs bases. Cette option est incompatible avec &#8216;--stdin&#8217;.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="OUTPUT"><a class="anchor" href="#OUTPUT"></a>SORTIE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pour une fusion réussie, la sortie de git-merge-tree est simplement une ligne :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;OID de l'arbre de sommet&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alors que pour une fusion conflictuelle, la sortie est par défaut de la forme :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;OID de l'arbre supérieur&gt;
+&lt;Information sur les fichiers en conflit&gt;
+&lt;Messages d'information&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Elles sont examinées individuellement ci-dessous.</p>
+</div>
+<div class="paragraph">
+<p>Cependant, il y a une exception. Si <code>--stdin</code> est passé, il y a une section supplémentaire au début, un caractère NUL à la fin, et toutes les sections se répètent pour chaque ligne d&#8217;entrée. Ainsi, si la première fusion est en conflit et que la seconde est propre, la production serait de la forme :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;Statut de fusion&gt;
+&lt;OID de l'arbre supérieur&gt;
+&lt;Information de fichiers en conflit&gt;
+&lt;Messages d'information&gt;
+NUL
+&lt;Statut de fusion&gt;
+&lt;OID de l'arbre supérieur&gt;
+NUL</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="MS"><a class="anchor" href="#MS"></a>Status de fusion</h3>
+<div class="paragraph">
+<p>C&#8217;est un statut (nombre entier) suivi d&#8217;un caractère NUL. Le statut entier est :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>    0 : la fusion avait des conflits
+    1 : la fusion était propre
+    &lt;0 : quelque chose a empêché la fusion de fonctionner (p. ex. accès au dépôt
+objets empêché par le système de fichiers)</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="OIDTLT"><a class="anchor" href="#OIDTLT"></a>OID de l&#8217;arbre supérieur</h3>
+<div class="paragraph">
+<p>C&#8217;est un objet d&#8217;arbre qui représente ce qui serait extrait dans l&#8217;arbre de travail à la fin de <code>git merge</code>. S&#8217;il y avait des conflits, alors les fichiers dans cet arbre peuvent avoir des marqueurs de conflit intégrés. Cette section est toujours suivie d&#8217;une nouvelle ligne (ou NUL si <code>-z</code> est passé).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="CFI"><a class="anchor" href="#CFI"></a>Information sur les fichiers en conflit</h3>
+<div class="paragraph">
+<p>C&#8217;est une séquence de lignes au format</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;mode&gt; &lt;objet&gt; &lt;étape&gt; &lt;nom-de-fichier&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le nom du fichier sera cité comme expliqué pour la variable de configuration <code>core.quotePath</code> (voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>). Cependant, si l&#8217;option <code>--name-only</code> est passée, le mode, l&#8217;objet, et l&#8217;étape seront omis. Si l&#8217;option <code>-z</code> est passée, les "lignes" sont terminées par un caractère NUL au lieu d&#8217;un caractère de nouvelle ligne.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="IM"><a class="anchor" href="#IM"></a>Messages d&#8217;information</h3>
+<div class="paragraph">
+<p>Cette section fournit des messages d&#8217;information, généralement sur les conflits. Le format de la section varie considérablement selon que <code>-z</code> est passé.</p>
+</div>
+<div class="paragraph">
+<p>Si <code>-z</code> est passé :</p>
+</div>
+<div class="paragraph">
+<p>Le format de sortie est zéro ou plus enregistrements d&#8217;information sur les conflits, chacun de la forme :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;liste-de-chemins&gt;&lt;type-de-conflit&gt;NUL&lt;message-de-conflit&gt;NUL</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>où &lt;liste-de-chemins&gt; est de la forme</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;nombre-de-chemins&gt;NUL&lt;chemin1&gt;NUL&lt;chemin2&gt;NUL...&lt;cheminN&gt;NUL</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>et comprend des chemins (ou des noms de branches) touchés par le conflit ou le message d&#8217;information dans&lt;message-de-conflit&gt;. De plus, &lt;type-de-conflit&gt; est une chaîne stable expliquant le type de conflit, comme</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"Fusion automatique"</p>
+</li>
+<li>
+<p>"CONFLIT (renommage/suppression)"</p>
+</li>
+<li>
+<p>"CONFLIT (le sous-module manque d&#8217;une base de fusion)"</p>
+</li>
+<li>
+<p>"CONFLIT (binaire)"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>et &lt;message-de-conflit&gt; est un message plus détaillé sur le conflit qui souvent (mais pas toujours) embarque la &lt;description-courte-stable&gt;. Ces chaînes peuvent changer dans les futures versions Git. Quelques exemples :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"Fusion automatique de &lt;fichier&gt;"</p>
+</li>
+<li>
+<p>"CONFLIT (renommage/suppression) :&lt;ancienfichier&gt; renommé&#8230;&#8203; mais supprimé dans &#8230;&#8203;"</p>
+</li>
+<li>
+<p>"Échec de la fusion du sous-module &lt;sous-module&gt; (pas de base de fusion)"</p>
+</li>
+<li>
+<p>"Attention : ne peut pas fusionner des fichiers binaires : &lt;nom-de-fichier&gt;"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Si <code>-z</code> n&#8217;est PAS passé :</p>
+</div>
+<div class="paragraph">
+<p>Cette section commence par une ligne vierge pour la séparer des sections précédentes, puis ne contient que les informations &lt;message-de-conflit&gt; de la section précédente (séparées par des nouvelles lignes). Ce sont des chaînes non-stables qui ne doivent pas être analysées par des scripts, et sont simplement destinées à la consommation humaine. De plus, notez que si les chaînes &lt;message-de-conflit&gt; ne contiennent généralement pas de nouvelles lignes intégrées, elles le font parfois. (Cependant, les messages libres n&#8217;auront jamais de caractère NUL intégré). Ainsi, l&#8217;ensemble de l&#8217;information est destiné aux lecteurs humains comme une agglomération de tous les messages de conflit.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_statut_de_sortie"><a class="anchor" href="#_statut_de_sortie"></a>STATUT DE SORTIE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pour une fusion réussie et non conflictuelle, le statut de sortie est de 0. Lorsque la fusion a des conflits, le statut de sortie est 1. Si la fusion n&#8217;est pas capable de se terminer (ou de démarrer) en raison d&#8217;une erreur quelconque, l&#8217;état de sortie est autre chose que 0 ou 1 (et la sortie n&#8217;est pas spécifiée). Lorsque --stdin est passé, le statut de retour est 0 pour les fusions réussies et conflictuelles, et autre chose que 0 ou 1 si elle ne peut pas compléter tous les fusions demandées.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_notes_dutilisation"><a class="anchor" href="#_notes_dutilisation"></a>NOTES D&#8217;UTILISATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette commande est destinée à la plomberie de bas niveau, semblable à <a href='{{< relurl "docs/git-hash/fr" >}}'>git-hash[1]</a>, <a href='{{< relurl "docs/git-mktree/fr" >}}'>git-mktree[1]</a>, <a href='{{< relurl "docs/git-commit-tree/fr" >}}'>git-commit-tree[1]</a>, <a href='{{< relurl "docs/git-write-tree/fr" >}}'>git-write-tree[1]</a>, <a href='{{< relurl "docs/git-update-ref/fr" >}}'>git-update-ref[1]</a>, et <a href='{{< relurl "docs/git-mktag/fr" >}}'>git-mktag[1]</a>. Ainsi, elle peut être utilisée comme partie d&#8217;une série d&#8217;étapes telles que :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>NEWTREE=$(git merge-tree --write-tree $BRANCH1 $BRANCH2)
+test $? -eq 0 || die "Il y avait des conflits..."
+NEWCOMMIT=$(git commit-tree $NEWTREE -p $BRANCH1 -p $BRANCH2)
+git update-ref $BRANCH1 $NEWCOMMIT</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notez que lorsque le statut de sortie est non-zéro, <code>NEWTREE</code> dans cette séquence contiendra beaucoup plus qu&#8217;un arbre.</p>
+</div>
+<div class="paragraph">
+<p>Pour les conflits, la sortie comprend les mêmes informations que vous obtiendriez avec <a href='{{< relurl "docs/git-merge/fr" >}}'>git-merge[1]</a> :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ce qui serait écrit à l&#8217;arbre de travail l'<a href="#OIDTLT">OID de l&#8217;arbre de supraniveau</a></p>
+</li>
+<li>
+<p>les étapes d&#8217;ordre supérieur qui seraient écrites dans l&#8217;index (l'<a href="#CFI">Information de fichier en conflit</a>)</p>
+</li>
+<li>
+<p>tous les messages qui auraient été affichés sur stdout (les <a href="#IM">messages d&#8217;information</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_format_dentrée"><a class="anchor" href="#_format_dentrée"></a>FORMAT D&#8217;ENTRÉE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le format d&#8217;entrée de <em>git merge-tree --stdin</em> est entièrement textuel. Chaque ligne a ce format :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[&lt;commit-de-base&gt; -- ]&lt;branche1&gt; &lt;branche2&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If one line is separated by <code>--</code>, the string before the separator is used for specifying a merge-base for the merge and the string after the separator describes the branches to be merged.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_erreurs_à_éviter"><a class="anchor" href="#_erreurs_à_éviter"></a>ERREURS À ÉVITER</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Do NOT look through the resulting toplevel tree to try to find which files conflict; parse the <a href="#CFI">Conflicted file info</a> section instead. Not only would parsing an entire tree be horrendously slow in large repositories, there are numerous types of conflicts not representable by conflict markers (modify/delete, mode conflict, binary file changed on both sides, file/directory conflicts, various rename conflict permutations, etc.)</p>
+</div>
+<div class="paragraph">
+<p>Do NOT interpret an empty <a href="#CFI">Conflicted file info</a> list as a clean merge; check the exit status. A merge can have conflicts without having individual files conflict (there are a few types of directory rename conflicts that fall into this category, and others might also be added in the future).</p>
+</div>
+<div class="paragraph">
+<p>Do NOT attempt to guess or make the user guess the conflict types from the <a href="#CFI">Conflicted file info</a> list. The information there is insufficient to do so. For example: Rename/rename(1to2) conflicts (both sides renamed the same file differently) will result in three different file having higher order stages (but each only has one higher order stage), with no way (short of the <a href="#IM">Informational messages</a> section) to determine which three files are related. File/directory conflicts also result in a file with exactly one higher order stage. Possibly-involved-in-directory-rename conflicts (when "merge.directoryRenames" is unset or set to "conflicts") also result in a file with exactly one higher order stage. In all cases, the <a href="#IM">Informational messages</a> section has the necessary info, though it is not designed to be machine parseable.</p>
+</div>
+<div class="paragraph">
+<p>Do NOT assume that each paths from <a href="#CFI">Conflicted file info</a>, and the logical conflicts in the <a href="#IM">Informational messages</a> have a one-to-one mapping, nor that there is a one-to-many mapping, nor a many-to-one mapping. Many-to-many mappings exist, meaning that each path can have many logical conflict types in a single merge, and each logical conflict type can affect many paths.</p>
+</div>
+<div class="paragraph">
+<p>Do NOT assume all filenames listed in the <a href="#IM">Informational messages</a> section had conflicts. Messages can be included for files that have no conflicts, such as "Auto-merging &lt;file&gt;".</p>
+</div>
+<div class="paragraph">
+<p>AVOID taking the OIDS from the <a href="#CFI">Conflicted file info</a> and re-merging them to present the conflicts to the user. This will lose information. Instead, look up the version of the file found within the <a href="#OIDTLT">OID of toplevel tree</a> and show that instead. In particular, the latter will have conflict markers annotated with the original branch/commit being merged and, if renames were involved, the original filename. While you could include the original branch/commit in the conflict marker annotations when re-merging, the original filename is not available from the <a href="#CFI">Conflicted file info</a> and thus you would be losing information that might help the user resolve the conflict.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="DEPMERGE"><a class="anchor" href="#DEPMERGE"></a>DESCRIPTION DÉCONSEILLÉE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Per the <a href="#NEWMERGE">DESCRIPTION</a> and unlike the rest of this documentation, this section describes the deprecated <code>--trivial-merge</code> mode.</p>
+</div>
+<div class="paragraph">
+<p>Other than the optional <code>--trivial-merge</code>, this mode accepts no options.</p>
+</div>
+<div class="paragraph">
+<p>This mode reads three tree-ish, and outputs trivial merge results and conflicting stages to the standard output in a semi-diff format. Since this was designed for higher level scripts to consume and merge the results back into the index, it omits entries that match &lt;branch1&gt;. The result of this second form is similar to what three-way <em>git read-tree -m</em> does, but instead of storing the results in the index, the command outputs the entries to the standard output.</p>
+</div>
+<div class="paragraph">
+<p>Ce formulaire n&#8217;a pas seulement une applicabilité limitée (une fusion triviale ne peut pas gérer les fusions de contenu de fichiers individuels, la détection de renom, la manipulation de conflits répertoires/fichiers, etc.), il est également difficile de travailler avec le format de sortie, et il sera généralement moins performant que la première même sur les fusions réussies (surtout dans les grands dépôts).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fait partie de la suite <a href='{{< relurl "docs/git/fr" >}}'>git[1]</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_traduction"><a class="anchor" href="#_traduction"></a>TRADUCTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette  page de manuel a été traduite par Jean-Noël Avila &lt;jn.avila AT free DOT fr&gt; et les membres du projet git-manpages-l10n. Veuillez signaler toute erreur de traduction par un rapport de bogue sur le site <a href="https://github.com/jnavila/git-manpages-l10n" class="bare">https://github.com/jnavila/git-manpages-l10n</a> .</p>
+</div>
+</div>
+</div>

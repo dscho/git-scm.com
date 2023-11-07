@@ -1,0 +1,149 @@
+---
+category: manual
+section: documentation
+subsection: manual
+title: Git - git-fetch-pack Documentation
+docname: git-fetch-pack
+lang: pt_BR
+aliases:
+- "/docs/git-fetch-pack/pt_BR/index.html"
+
+---
+<div class="sect1">
+<h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-fetch-pack - Recebe os objetos ausentes vindos de um outro repositório</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git fetch-pack</em> [--all] [--quiet|-q] [--keep|-k] [--thin] [--include-tag]
+	[--upload-pack=&lt;pacote-de-upload-do-git&gt;]
+	[--depth=&lt;n&gt;] [--no-progress]
+	[-v] &lt;repositório&gt; [&lt;refs&gt;&#8230;&#8203;]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>No lugar utilize <em>git fetch</em> que é um wrapper de maior hierarquia deste comando.</p>
+</div>
+<div class="paragraph">
+<p>Invoca o <em>git-upload-pack</em> num repositório possivelmente remoto e solicita que ele envie os objetos autilizentes deste repositório, para atualizar determinados <code>heads</code>. A lista dos commits disponíveis localmente é descoberta examinando os <em>refs/</em> da hierarquia local e enviada para o <em>git-upload-pack</em> durante a execução na outra extremidade.</p>
+</div>
+<div class="paragraph">
+<p>Este comando deteriora durante o download de tudo para concluir os <code>refs</code> solicitados do lado remoto quando o lado local não possui um commit com um ancestral comum.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-fetch-pack---all"> <a class="anchor" href="#git-fetch-pack---all"></a>--all </dt>
+<dd>
+<p>Busque todas os <code>refs</code> remotos.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---stdin"> <a class="anchor" href="#git-fetch-pack---stdin"></a>--stdin </dt>
+<dd>
+<p>Pegue a lista dos <code>refs</code> do stdin, um por linha. Caso haja <code>refs</code> utilizados na linha de comando, além desta opção, os <code>refs</code> do stdin serão processados após as da linha de comando.</p>
+<div class="paragraph">
+<p>Caso <code>--stateless-rpc</code> seja utilizado junto com esta opção, a lista de referências deverá estar no formato do pacote (linha-pkt). Cada <code>ref</code> deve estar num pacote separado e a lista deve terminar com um pacote liberado.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack--q"> <a class="anchor" href="#git-fetch-pack--q"></a>-q </dt>
+<dt class="hdlist1" id="git-fetch-pack---quiet"> <a class="anchor" href="#git-fetch-pack---quiet"></a>--quiet </dt>
+<dd>
+<p>Passe o flag <code>-q</code> para o <em>git unpack-objects</em>; isso torna o processo de clonagem menos detalhado.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack--k"> <a class="anchor" href="#git-fetch-pack--k"></a>-k </dt>
+<dt class="hdlist1" id="git-fetch-pack---keep"> <a class="anchor" href="#git-fetch-pack---keep"></a>--keep </dt>
+<dd>
+<p>Não invoque o <em>git unpack-objects</em> nos dados recebidos, porém crie um único arquivo do pacote a partir dele e armazene-o no banco de dados do objeto. Caso seja utilizado duas vezes, o pacote será bloqueado contra a reembalagem.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---thin"> <a class="anchor" href="#git-fetch-pack---thin"></a>--thin </dt>
+<dd>
+<p>Busque um pacote "thin", que registra os objetos num formato "deltificado" com base nos objetos não inclusos no pacote para reduzir o tráfego de rede.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---include-tag"> <a class="anchor" href="#git-fetch-pack---include-tag"></a>--include-tag </dt>
+<dd>
+<p>Caso haja compatibilidade com o lado remoto, os objetos das tags anotadas serão baixados na mesma conexão que os outros objetos, caso o objeto ao qual a tag faça referência seja baixado. Caso contrário, aquele que chama deve determinar as tags que esta opção deixou disponível.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---upload-packltpacote-de-upload-do-gitgt"> <a class="anchor" href="#git-fetch-pack---upload-packltpacote-de-upload-do-gitgt"></a>--upload-pack=&lt;pacote-de-upload-do-git&gt; </dt>
+<dd>
+<p>Utilize para informar o caminho para <em>git-upload-pack</em> no lado remoto, caso não seja encontrado no seu $PATH. As instalações do sshd ignoram os scripts de configuração do ambiente do usuário para logins nas shells (.bash_profile por exemplo) e o a instalação do seu git pode não ser encontrado no $PATH predefinido do sistema. A outra solução sugerida é configurar o seu $PATH em ".bashrc", mas este flag são para pessoas que não desejam pagar o preço da sobrecarga em shells não interativos com um arquivo ".bashrc" enxuto (eles definem a maioria das coisas em .bash_profile).</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---execltpacote-de-upload-do-gitgt"> <a class="anchor" href="#git-fetch-pack---execltpacote-de-upload-do-gitgt"></a>--exec=&lt;pacote-de-upload-do-git&gt; </dt>
+<dd>
+<p>O mesmo que --upload-pack=&lt;pacote-de-upload-do-git&gt;.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---depthltngt"> <a class="anchor" href="#git-fetch-pack---depthltngt"></a>--depth=&lt;n&gt; </dt>
+<dd>
+<p>Limite a captura para as cadeias de ancestrais não maiores que n. O <em>git-upload-pack</em> trata a profundidade especial "2147483647" como infinita, mesmo que exista uma cadeia de ancestrais tão antiga.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---shallow-sinceltdatagt"> <a class="anchor" href="#git-fetch-pack---shallow-sinceltdatagt"></a>--shallow-since=&lt;data&gt; </dt>
+<dd>
+<p>Aprofunde ou encurte o histórico de um repositório raso para incluir todas os commits acessíveis após a &lt;data&gt;.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---shallow-excludeltrevisogt"> <a class="anchor" href="#git-fetch-pack---shallow-excludeltrevisogt"></a>--shallow-exclude=&lt;revisão&gt; </dt>
+<dd>
+<p>Aprofunde ou diminua o histórico de um repositório raso para excluir os commits acessíveis vindos de uma determinada tag ou ramificação remota. Esta opção pode ser utilizada várias vezes.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---deepen-relative"> <a class="anchor" href="#git-fetch-pack---deepen-relative"></a>--deepen-relative </dt>
+<dd>
+<p>O argumento <code>--depth</code> determina a quantidade limite dos commits atual da superfície em vez do cume de cada histórico do ramo remoto.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---refetch"> <a class="anchor" href="#git-fetch-pack---refetch"></a>--refetch </dt>
+<dd>
+<p>Ignora a negociação dos commits com o servidor, a fim de obter (fetch) todos os objetos correspondentes. Use para reaplicar uma nova clonagem parcial do filtro da bolha/árvore.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---no-progress"> <a class="anchor" href="#git-fetch-pack---no-progress"></a>--no-progress </dt>
+<dd>
+<p>Não exiba o progresso.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack---check-self-contained-and-connected"> <a class="anchor" href="#git-fetch-pack---check-self-contained-and-connected"></a>--check-self-contained-and-connected </dt>
+<dd>
+<p>Exiba "connectivity-ok" caso o pacote recebido seja independente e conectado.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack--v"> <a class="anchor" href="#git-fetch-pack--v"></a>-v </dt>
+<dd>
+<p>Rode de forma loquaz.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack-ltrepositriogt"> <a class="anchor" href="#git-fetch-pack-ltrepositriogt"></a>&lt;repositório&gt; </dt>
+<dd>
+<p>A URL para o repositório remoto.</p>
+</dd>
+<dt class="hdlist1" id="git-fetch-pack-ltrefsgt82308203"> <a class="anchor" href="#git-fetch-pack-ltrefsgt82308203"></a>&lt;refs&gt;&#8230;&#8203; </dt>
+<dd>
+<p>Os cabeçalhos remotos que serão atualizados. Isso é relativo ao $GIT_DIR ("HEAD", "refs/heads/master" por exemplo). Quando não especificado, receba a atualização de todos os cabeçalhos que o lado tiver.</p>
+<div class="paragraph">
+<p>Caso o lado remoto tenha as opções <code>uploadpack.allowTipSHA1InWant</code>, <code>uploadpack.allowReachableSHA1InWant</code>, ou <code>uploadpack.allowAnySHA1InWant</code> ativadas, eles poderão alternativamente ser sha1 com 40-hex.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_veja_também"><a class="anchor" href="#_veja_também"></a>VEJA TAMBÉM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href='{{< relurl "docs/git-fetch/pt_BR" >}}'>git-fetch[1]</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a></p>
+</div>
+</div>
+</div>

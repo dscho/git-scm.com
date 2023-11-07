@@ -1,0 +1,319 @@
+---
+category: manual
+section: documentation
+subsection: manual
+title: Git - git-am Documentation
+docname: git-am
+lang: pt_BR
+aliases:
+- "/docs/git-am/pt_BR/index.html"
+
+---
+<div class="sect1">
+<h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-am - Aplica uma série de patches vindas de um mailbox (caixa de correio unix)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git am</em> [--signoff] [--keep] [--[no-]keep-cr] [--[no-]utf8] [--no-verify]
+	 [--[no-]3way] [--interactive] [--committer-date-is-author-date]
+	 [--ignore-date] [--ignore-space-change | --ignore-whitespace]
+	 [--whitespace=&lt;opção&gt;] [-C&lt;n&gt;] [-p&lt;n&gt;] [--directory=&lt;dir&gt;]
+	 [--exclude=&lt;caminho&gt;] [--include=&lt;caminho&gt;] [--reject] [-q | --quiet]
+	 [--[no-]scissors] [-S[&lt;keyid&gt;]] [--patch-format=&lt;formato&gt;]
+	 [--quoted-cr=&lt;ação&gt;]
+	 [--empty=(stop|drop|keep)]
+	 [(&lt;mbox&gt; | &lt;Maildir&gt;)&#8230;&#8203;]
+<em>git am</em> (--continue | --skip | --abort | --quit | --show-current-patch[=(diff|raw)]) | --allow-empty)</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Divide as mensagens de correio num mailbox dentro das mensagens do registro log do commit, as informações de autoria, os patches e as aplica ao ramo atual. Você poderia pensar nisso como uma operação reversa do <a href='{{< relurl "docs/git-format-patch/pt_BR" >}}'>git-format-patch[1]</a> executado num ramo com um histórico direto e sem mesclagens.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-am-ltmboxgtltMaildirgt82308203"> <a class="anchor" href="#git-am-ltmboxgtltMaildirgt82308203"></a>(&lt;mbox&gt;|&lt;Maildir&gt;)&#8230;&#8203; </dt>
+<dd>
+<p>A lista dos arquivos da caixa de correio para leitura dos patches. Caso você não utilize este argumento, o comando lê na entrada padrão. Caso utilize os diretórios, eles serão tratados como caixas de correio.</p>
+</dd>
+<dt class="hdlist1" id="git-am--s"> <a class="anchor" href="#git-am--s"></a>-s </dt>
+<dt class="hdlist1" id="git-am---signoff"> <a class="anchor" href="#git-am---signoff"></a>--signoff </dt>
+<dd>
+<p>Adicione uma linha <code>Assinada por</code> à mensagem do commit utilizando a sua identidade. Para mais informações sobre a assinatura na saída da mensagem, consulte em <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-am--k"> <a class="anchor" href="#git-am--k"></a>-k </dt>
+<dt class="hdlist1" id="git-am---keep"> <a class="anchor" href="#git-am---keep"></a>--keep </dt>
+<dd>
+<p>Repasse o comando <code>-k</code> para o comando <em>git mailinfo</em> (consulte <a href='{{< relurl "docs/git-mailinfo/pt_BR" >}}'>git-mailinfo[1]</a>).</p>
+</dd>
+<dt class="hdlist1" id="git-am---keep-non-patch"> <a class="anchor" href="#git-am---keep-non-patch"></a>--keep-non-patch </dt>
+<dd>
+<p>Repasse o comando <code>-b</code> para o comando <em>git mailinfo</em> (consulte <a href='{{< relurl "docs/git-mailinfo/pt_BR" >}}'>git-mailinfo[1]</a>).</p>
+</dd>
+<dt class="hdlist1" id="git-am---no-keep-cr"> <a class="anchor" href="#git-am---no-keep-cr"></a>--[no-]keep-cr </dt>
+<dd>
+<p>Com <code>--keep-cr</code>, chame o comando <em>git mailsplit</em> (consulte <a href='{{< relurl "docs/git-mailsplit/pt_BR" >}}'>git-mailsplit[1]</a>) com a mesma opção para evitar que ele retire caractere <code>CR</code> do final das linhas. A variável de configuração <code>am.keepcr</code> pode ser utilizada para definir o comportamento predefinido. O comando <code>--no-keep-cr</code> é útil para substituir a variável <code>am.keepcr</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-am--c"> <a class="anchor" href="#git-am--c"></a>-c </dt>
+<dt class="hdlist1" id="git-am---scissors"> <a class="anchor" href="#git-am---scissors"></a>--scissors </dt>
+<dd>
+<p>Remova tudo no corpo antes de uma linha "scissors" (tesouras) (see <a href='{{< relurl "docs/git-mailinfo/pt_BR" >}}'>git-mailinfo[1]</a>). Pode ser ativada de fora predefinida ao utilizar a variável de configuração <code>mailinfo.scissors</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-am---no-scissors"> <a class="anchor" href="#git-am---no-scissors"></a>--no-scissors </dt>
+<dd>
+<p>Ignore linhas "scissors" (tesouras) (veja <a href='{{< relurl "docs/git-mailinfo/pt_BR" >}}'>git-mailinfo[1]</a>).</p>
+</dd>
+<dt class="hdlist1" id="git-am---quoted-crltaogt"> <a class="anchor" href="#git-am---quoted-crltaogt"></a>--quoted-cr=&lt;ação&gt; </dt>
+<dd>
+<p>Esta opção será passada ao comando <em>git mailinfo</em> (consulte <a href='{{< relurl "docs/git-mailinfo/pt_BR" >}}'>git-mailinfo[1]</a>).</p>
+</dd>
+<dt class="hdlist1" id="git-am---emptystopdropkeep"> <a class="anchor" href="#git-am---emptystopdropkeep"></a>--empty=(stop|drop|keep) </dt>
+<dd>
+<p>É predefinido, ou quando a opção está definida como <em>stop</em>, que o comando de um erro numa mensagem de e-mail recebida sem um patch e que pare no meio da sessão atual. Quando esta opção está definida para <em>drop</em>, ignora a mensagem de e-mail. Quando esta opção está definida para <em>keep</em>, cria um commit vazio, registrando o conteúdo da mensagem de e-mail em seu registro.</p>
+</dd>
+<dt class="hdlist1" id="git-am--m"> <a class="anchor" href="#git-am--m"></a>-m </dt>
+<dt class="hdlist1" id="git-am---message-id"> <a class="anchor" href="#git-am---message-id"></a>--message-id </dt>
+<dd>
+<p>Encaminha a opção <code>-m</code> para o comando <em>git mailinfo</em> (consulte <a href='{{< relurl "docs/git-mailinfo/pt_BR" >}}'>git-mailinfo[1]</a>), para que o ID do cabeçalho seja adicionado na mensagem do commit. A variável de configuração <code>am.messageid</code> pode ser utilizada para definir o comportamento predefinido.</p>
+</dd>
+<dt class="hdlist1" id="git-am---no-message-id"> <a class="anchor" href="#git-am---no-message-id"></a>--no-message-id </dt>
+<dd>
+<p>Não adicione o ID do cabeçalho da mensagem à mensagem do commit. A opção <code>--no-message-id</code> é útil para substituir a variável <code>am.messageid</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-am--q"> <a class="anchor" href="#git-am--q"></a>-q </dt>
+<dt class="hdlist1" id="git-am---quiet"> <a class="anchor" href="#git-am---quiet"></a>--quiet </dt>
+<dd>
+<p>Fique em silêncio Exiba apenas as mensagens de erro.</p>
+</dd>
+<dt class="hdlist1" id="git-am--u"> <a class="anchor" href="#git-am--u"></a>-u </dt>
+<dt class="hdlist1" id="git-am---utf8"> <a class="anchor" href="#git-am---utf8"></a>--utf8 </dt>
+<dd>
+<p>Passe a opção <code>-u</code> para o <em>git mailinfo</em> (consulte <a href='{{< relurl "docs/git-mailinfo/pt_BR" >}}'>git-mailinfo[1]</a>). A mensagem proposta do registro log do commit obtida a partir do e-mail é recodificada para UTF-8 (a variável de configuração <code>i18n.commitEncoding</code> pode ser usada para definir a codificação preferida do projeto caso não seja UTF-8).</p>
+<div class="paragraph">
+<p>Isso era opcional nas versões anteriores do git, agora é a codificação
+predefinida.   É possível utilizar a opção <code>--no-utf8</code> para se sobrepor a predefinição.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-am---no-utf8"> <a class="anchor" href="#git-am---no-utf8"></a>--no-utf8 </dt>
+<dd>
+<p>Repasse o comando <code>-n</code> para o comando <em>git mailinfo</em> (consulte <a href='{{< relurl "docs/git-mailinfo/pt_BR" >}}'>git-mailinfo[1]</a>).</p>
+</dd>
+<dt class="hdlist1" id="git-am--3"> <a class="anchor" href="#git-am--3"></a>-3 </dt>
+<dt class="hdlist1" id="git-am---3way"> <a class="anchor" href="#git-am---3way"></a>--3way </dt>
+<dt class="hdlist1" id="git-am---no-3way"> <a class="anchor" href="#git-am---no-3way"></a>--no-3way </dt>
+<dd>
+<p>Quando o patch não for aplicado corretamente, use a mesclagem de 3 vias caso o patch registre a identidade das bolhas aos quais devem ser aplicadas disponibilizando-as localmente. A opção <code>--no-3way</code> pode ser utilizada para substituir uma variável de configuração de três vias. Para mais informações, consulte <code>am.threeWay</code> em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-am---rerere-autoupdate"> <a class="anchor" href="#git-am---rerere-autoupdate"></a>--rerere-autoupdate </dt>
+<dt class="hdlist1" id="git-am---no-rerere-autoupdate"> <a class="anchor" href="#git-am---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
+<dd>
+<p>Após o mecanismo rerere reutilizar uma resolução gravada no conflito atual para atualizar os arquivos na árvore de trabalho, permita que ele também atualize o índice com o resultado da resolução. A opção <code>--no-rerere-autoupdate</code> é uma boa maneira de verificar novamente o que o <code>rerere</code> fez e também detectar possíveis erros da mesclagem antes de enviar o resultado para o índice com um <code>git add</code> separado.</p>
+</dd>
+</dl>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-am---ignore-space-change"> <a class="anchor" href="#git-am---ignore-space-change"></a>--ignore-space-change </dt>
+<dt class="hdlist1" id="git-am---ignore-whitespace"> <a class="anchor" href="#git-am---ignore-whitespace"></a>--ignore-whitespace </dt>
+<dt class="hdlist1" id="git-am---whitespaceltopogt"> <a class="anchor" href="#git-am---whitespaceltopogt"></a>--whitespace=&lt;opção&gt; </dt>
+<dt class="hdlist1" id="git-am--Cltngt"> <a class="anchor" href="#git-am--Cltngt"></a>-C&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-am--pltngt"> <a class="anchor" href="#git-am--pltngt"></a>-p&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-am---directoryltdirgt"> <a class="anchor" href="#git-am---directoryltdirgt"></a>--directory=&lt;dir&gt; </dt>
+<dt class="hdlist1" id="git-am---excludeltcaminhogt"> <a class="anchor" href="#git-am---excludeltcaminhogt"></a>--exclude=&lt;caminho&gt; </dt>
+<dt class="hdlist1" id="git-am---includeltcaminhogt"> <a class="anchor" href="#git-am---includeltcaminhogt"></a>--include=&lt;caminho&gt; </dt>
+<dt class="hdlist1" id="git-am---reject"> <a class="anchor" href="#git-am---reject"></a>--reject </dt>
+<dd>
+<p>Estas opções são repassadas ao comando <em>git apply</em> (conulte <a href='{{< relurl "docs/git-apply/pt_BR" >}}'>git-apply[1]</a>) que aplica o patch.</p>
+</dd>
+<dt class="hdlist1" id="git-am---patch-format"> <a class="anchor" href="#git-am---patch-format"></a>--patch-format </dt>
+<dd>
+<p>É predefinido que o comando tentará detectar o formato do patch automaticamente. Esta opção permite que o usuário ignore a detecção automática e determine como o formato do patch deve ser interpretados. Os formatos válidos são <code>mbox</code>, <code>mboxrd</code>, <code>stgit</code>, <code>stgit-series</code> e <code>hg</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-am--i"> <a class="anchor" href="#git-am--i"></a>-i </dt>
+<dt class="hdlist1" id="git-am---interactive"> <a class="anchor" href="#git-am---interactive"></a>--interactive </dt>
+<dd>
+<p>Execute de forma interativa.</p>
+</dd>
+<dt class="hdlist1" id="git-am--n"> <a class="anchor" href="#git-am--n"></a>-n </dt>
+<dt class="hdlist1" id="git-am---no-verify"> <a class="anchor" href="#git-am---no-verify"></a>--no-verify </dt>
+<dd>
+<p>É predefinido que os ganchos pre-applypatch e applypatch-msg sejam executados. Quando qualquer uma das opções <code>--no-verify</code> ou <code>-n</code> são usadas, elas são ignoradas. Consulte também <a href='{{< relurl "docs/githooks/pt_BR" >}}'>githooks[5]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-am---committer-date-is-author-date"> <a class="anchor" href="#git-am---committer-date-is-author-date"></a>--committer-date-is-author-date </dt>
+<dd>
+<p>É predefinido que o comando registre a data da mensagem do e-mail como a data do autor que fez o commit e utilize a hora da criação como a data do commit. Permite que usuário minta sobre a data do commit utilizando o mesmo valor da data de quem fez o commit.</p>
+</dd>
+<dt class="hdlist1" id="git-am---ignore-date"> <a class="anchor" href="#git-am---ignore-date"></a>--ignore-date </dt>
+<dd>
+<p>É predefinido que o comando registre a data da mensagem do e-mail como a data do autor que fez o commit e utilize a hora da criação como a data do commit. Permite que usuário minta sobre a data do autor utilizando o mesmo valor da data de quem fez o commit.</p>
+</dd>
+<dt class="hdlist1" id="git-am---skip"> <a class="anchor" href="#git-am---skip"></a>--skip </dt>
+<dd>
+<p>Ignore o patch atual. É justificado apenas quando for reiniciar um patch que foi abortado.</p>
+</dd>
+<dt class="hdlist1" id="git-am--Sltkeyidgt"> <a class="anchor" href="#git-am--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
+<dt class="hdlist1" id="git-am---gpg-signltkeyidgt"> <a class="anchor" href="#git-am---gpg-signltkeyidgt"></a>--gpg-sign[=&lt;keyid&gt;] </dt>
+<dt class="hdlist1" id="git-am---no-gpg-sign"> <a class="anchor" href="#git-am---no-gpg-sign"></a>--no-gpg-sign </dt>
+<dd>
+<p>Commits assinados com o GPG O argumento <code>keyid</code> é opcional e a predefinição retorna para a identidade de quem fez o commit; caso seja utilizado, deve estar anexado a opção e sem espaço. A opção <code>--no-gpg-sign</code> é útil para revogar a variável de configuração <code>commit.gpgSign</code> e a anterior <code>--gpg-sign</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-am---continue"> <a class="anchor" href="#git-am---continue"></a>--continue </dt>
+<dt class="hdlist1" id="git-am--r"> <a class="anchor" href="#git-am--r"></a>-r </dt>
+<dt class="hdlist1" id="git-am---resolved"> <a class="anchor" href="#git-am---resolved"></a>--resolved </dt>
+<dd>
+<p>Após uma falha no patch (tentando aplicar um patch conflitante por exemplo), o usuário o aplicou manualmente e o arquivo do índice armazena o resultado. Faça um commit utilizando o registro de autori, o registro log do commit extraído da mensagem do e-mail, do arquivo do índice atual e continue.</p>
+</dd>
+<dt class="hdlist1" id="git-am---resolvemsgltmsggt"> <a class="anchor" href="#git-am---resolvemsgltmsggt"></a>--resolvemsg=&lt;msg&gt; </dt>
+<dd>
+<p>Quando ocorrer uma falha no patch, a <code>&lt;msg&gt;</code> será exibida na tela antes de encerrar. Substitui a mensagem predefinida informando que você deve utilizar <code>--continue</code> ou <code>--skip</code> para lidar com a falha. Serve apenas para a utilização interna entre o comando <em>git rebase</em> e <em>git am</em>.</p>
+</dd>
+<dt class="hdlist1" id="git-am---abort"> <a class="anchor" href="#git-am---abort"></a>--abort </dt>
+<dd>
+<p>Restaure a ramificação original e aborte a operação de correção. Reverte o conteúdo dos arquivos envolvidos na operação am ao seu estado anterior.</p>
+</dd>
+<dt class="hdlist1" id="git-am---quit"> <a class="anchor" href="#git-am---quit"></a>--quit </dt>
+<dd>
+<p>Anule a operação de correção, porém mantenha o <code>HEAD</code> e o índice inalterados.</p>
+</dd>
+<dt class="hdlist1" id="git-am---show-current-patchdiffraw"> <a class="anchor" href="#git-am---show-current-patchdiffraw"></a>--show-current-patch[=(diff|raw)] </dt>
+<dd>
+<p>Exiba uma mensagem onde o <code>git am</code> tenha parado por causa dos conflitos. Caso <code>raw</code> seja utilizado, exiba o conteúdo bruto da mensagem do e-mail; no caso do <code>diff</code>, exiba apenas a porção relacionada ao diff. A predefinição retorna para "raw" (bruto/puro).</p>
+</dd>
+<dt class="hdlist1" id="git-am---allow-empty"> <a class="anchor" href="#git-am---allow-empty"></a>--allow-empty </dt>
+<dd>
+<p>Após uma falha do patch numa mensagem de e-mail recebida sem um patch, crie um commit vazio com o conteúdo da mensagem de e-mail como sua mensagem de registro log.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_discussão"><a class="anchor" href="#_discussão"></a>DISCUSSÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Na mensagem, o nome do autor do commit é obtido da linha "From:" (De:) e a data do autor do commit é obtida da linha "Date:" (Data:). O título do commit vem da linha "Subject:" (Assunto:) após a exclusão do prefixo comum "[PATCH &lt;alguma-coisa&gt;]". A linha "Subject:" deve descrever de forma concisa do que se trata o commit numa linha de texto.</p>
+</div>
+<div class="paragraph">
+<p>As linhas que iniciam com "From:" (De:), "Date:" (Data) e "Subject:" (Assunto:) no corpo, substituem os respectivos valores do nome e título do autor do commit que foram retirados dos cabeçalhos.</p>
+</div>
+<div class="paragraph">
+<p>A mensagem do commit é formada pelo título obtido do "Subject:" (Assunto:), uma linha em branco e do corpo da mensagem até o início do patch. O espaço em excesso no final de cada linha é removido automaticamente.</p>
+</div>
+<div class="paragraph">
+<p>Espera-se que o patch já esteja embutido após a mensagem. Qualquer linha que esteja no formato:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>três-traços e fim-de-linha, ou</p>
+</li>
+<li>
+<p>uma linha que começa com "diff -" ou</p>
+</li>
+<li>
+<p>uma linha que começa com "Index:"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>é tomado como o início de um patch, a mensagem do registro log do commit é finalizado antes da primeira ocorrência de tal linha.</p>
+</div>
+<div class="paragraph">
+<p>Ao invocar inicialmente o comando <code>git am</code>, indique os nomes das caixas do correio que serão processadas. Ao ver que o primeiro patch que não possa ser aplicado, o processo é interrompido imediatamente. É possível se recuperar deste processo de duas maneiras:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>pule o patch atual reexecutando o comando com a opção <code>--skip</code>.</p>
+</li>
+<li>
+<p>manualmente resolva o conflito no diretório de trabalho e atualize o arquivo do índice para colocá-lo na condição onde o patch deveria ter sido produzido. Em seguida, execute o comando com a opção <code>--continue</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>O comando se recusa a processar as novas caixas de correio até que a operação atual seja concluída, portanto, caso decida recomeçar do zero, execute o comando <code>git am --abort</code> antes de executar o comando com os nomes das caixas de correio.</p>
+</div>
+<div class="paragraph">
+<p>Antes de aplicar quaisquer correções, o <code>ORIG_HEAD</code> é definido na ponta do ramo atual. É útil caso tenha problemas com os vários commits como executar o comando <em>git am</em> na ramificação errada ou caso haja um erro nos commits que são mais facilmente corrigidos alterando a caixa de correio (erros nas linhas "From:" (De:) por exemplo).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ganchos"><a class="anchor" href="#_ganchos"></a>GANCHOS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Este comando pode executar os ganchos <code>applypatch-msg</code>, <code>pre-applypatch</code> e <code>post-applypatch</code>. Para mais informações consulte <a href='{{< relurl "docs/githooks/pt_BR" >}}'>githooks[5]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuração"><a class="anchor" href="#_configuração"></a>CONFIGURAÇÃO</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>pt_BR/includes/cmd-config-section-all.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>pt_BR/config/am.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_veja_também"><a class="anchor" href="#_veja_também"></a>VEJA TAMBÉM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href='{{< relurl "docs/git-apply/pt_BR" >}}'>git-apply[1]</a>, <a href='{{< relurl "docs/git-format-patch/pt_BR" >}}'>git-format-patch[1]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a></p>
+</div>
+</div>
+</div>

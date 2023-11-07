@@ -1,0 +1,243 @@
+---
+category: manual
+section: documentation
+subsection: manual
+title: Git - git-show-branch Documentation
+docname: git-show-branch
+lang: pt_BR
+aliases:
+- "/docs/git-show-branch/pt_BR/index.html"
+
+---
+<div class="sect1">
+<h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-show-branch - Exibe as ramificações e o seus commits</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git show-branch</em> [-a | --all] [-r | --remotes] [--topo-order | --date-order]
+		[--current] [--color[=&lt;when&gt;] | --no-color] [--sparse]
+		[--more=&lt;n&gt; | --list | --independent | --merge-base]
+		[--no-name | --sha1-name] [--topics]
+		[(&lt;rev&gt; | &lt;glob&gt;)&#8230;&#8203;]
+<em>git show-branch</em> (-g | --reflog)[=&lt;n&gt;[,&lt;base&gt;]] [--list] [&lt;ref&gt;]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Exibe o grafo da ancestralidade do commit, começando pelos commits informados com &lt;rev&gt;s ou &lt;glob&gt;s (ou todos as refs em <em>refs/heads</em> e/ou <em>refs/tags</em>) de forma semi-visual.</p>
+</div>
+<div class="paragraph">
+<p>Não pode exibir mais de 29 ramificações e commits por vez.</p>
+</div>
+<div class="paragraph">
+<p>Ele utiliza itens de configuração <code>showbranch.default</code> com vários valores caso nenhuma &lt;rev&gt; ou &lt;glob&gt; seja utilizado na linha de comando.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-show-branch-ltrevgt"> <a class="anchor" href="#git-show-branch-ltrevgt"></a>&lt;rev&gt; </dt>
+<dd>
+<p>A expressão arbitrária estendida do SHA-1 (consulte <a href='{{< relurl "docs/gitrevisions/pt_BR" >}}'>gitrevisions[7]</a>) que normalmente informa o cabeçalho de um ramo ou uma tag.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch-ltglobgt"> <a class="anchor" href="#git-show-branch-ltglobgt"></a>&lt;glob&gt; </dt>
+<dd>
+<p>Um padrão "glob" que corresponda aos nomes dos ramos ou tags nos refs/. Caso você tenha muitos tópicos nos ramos em <em>refs/heads/topic</em>, informando <code>topic/*</code> exibiria todas elas.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch--r"> <a class="anchor" href="#git-show-branch--r"></a>-r </dt>
+<dt class="hdlist1" id="git-show-branch---remotes"> <a class="anchor" href="#git-show-branch---remotes"></a>--remotes </dt>
+<dd>
+<p>Exibe os ramos monitorados remotamente.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch--a"> <a class="anchor" href="#git-show-branch--a"></a>-a </dt>
+<dt class="hdlist1" id="git-show-branch---all"> <a class="anchor" href="#git-show-branch---all"></a>--all </dt>
+<dd>
+<p>Exibe ambos os ramos monitorados remotamente e o ramos locais.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---current"> <a class="anchor" href="#git-show-branch---current"></a>--current </dt>
+<dd>
+<p>Com esta opção, o comando inclui o ramo atual na lista das "revs" que serão exibidas quando não for utilizada na linha de comando.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---topo-order"> <a class="anchor" href="#git-show-branch---topo-order"></a>--topo-order </dt>
+<dd>
+<p>É predefinido que os ramos e seus commits sejam exibidos em ordem cronológica inversa. Esta opção faz com que eles apareçam em ordem topológica (ou seja, os commits descendentes são exibidos antes dos parentes).</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---date-order"> <a class="anchor" href="#git-show-branch---date-order"></a>--date-order </dt>
+<dd>
+<p>Essa opção é semelhante à <code>--topo-order</code>, no sentido onde nenhum pai vem antes de todos os herdeiros, porém, caso contrário, os commits são ordenadas de acordo com a data do commits.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---sparse"> <a class="anchor" href="#git-show-branch---sparse"></a>--sparse </dt>
+<dd>
+<p>É predefinido que a saída omita as mesclagens que sejam acessíveis apenas do cume que está sendo exibido. Esta opção os torna visíveis.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---moreltngt"> <a class="anchor" href="#git-show-branch---moreltngt"></a>--more=&lt;n&gt; </dt>
+<dd>
+<p>Normalmente, o comando interrompe a saída ao mostrar o commit que é o ancestral comum de todas as ramificações. Esse sinalizador diz ao comando para fazer &lt;n&gt; mais commits comuns além desse. Quando &lt;n&gt; for negativo, exibirá apenas as &lt;ref&gt;s fornecidas, sem mostrar a árvore de ancestralidade do commit.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---list"> <a class="anchor" href="#git-show-branch---list"></a>--list </dt>
+<dd>
+<p>É um sinônimo para a opção <code>--more=-1</code></p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---merge-base"> <a class="anchor" href="#git-show-branch---merge-base"></a>--merge-base </dt>
+<dd>
+<p>Em vez de exibir a lista do commit, determine as possíveis bases para mesclagem para determinados commits. Todas as mesclagens das bases estarão contidas em todos os commits informados. Isso é diferente de como o <a href='{{< relurl "docs/git-merge-base/pt_BR" >}}'>git-merge-base[1]</a> lida com o caso de três ou mais commits.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---independent"> <a class="anchor" href="#git-show-branch---independent"></a>--independent </dt>
+<dd>
+<p>Entre as &lt;ref&gt;s fornecidas, exiba apenas as que não podem ser acessadas de nenhuma outra &lt;ref&gt;.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---no-name"> <a class="anchor" href="#git-show-branch---no-name"></a>--no-name </dt>
+<dd>
+<p>Não exiba o texto informado dos nomes para cada commit.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---sha1-name"> <a class="anchor" href="#git-show-branch---sha1-name"></a>--sha1-name </dt>
+<dd>
+<p>Em vez de nomear os commits utilizando o caminho para alcançá-los através dos cabeçalhos ("master~2" para significar o avô do "master" por exemplo), nomeie-os com o prefixo exclusivo dos nomes dos seus objetos.</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---topics"> <a class="anchor" href="#git-show-branch---topics"></a>--topics </dt>
+<dd>
+<p>Exibe apenas os commits que NÃO estão no primeiro ramo informado. Isso ajuda a monitorar o tópico das ramificações ocultando qualquer commit que já esteja na linha principal de desenvolvimento. Quando o comando <code>git show-branch --topics master topic1 topic2</code> for utilizado, isso mostra as revisões fornecidas pelo comando <code>git rev-list {caret}master topic1 topic2</code></p>
+</dd>
+<dt class="hdlist1" id="git-show-branch--g"> <a class="anchor" href="#git-show-branch--g"></a>-g </dt>
+<dt class="hdlist1" id="git-show-branch---reflogltngtltbasegtltrefgt"> <a class="anchor" href="#git-show-branch---reflogltngtltbasegtltrefgt"></a>--reflog[=&lt;n&gt;[,&lt;base&gt;]] [&lt;ref&gt;] </dt>
+<dd>
+<p>Mostra &lt;n&gt; lançamentos mais recentes do <em>ref-log</em> para uma determinada "ref". Caso a &lt;base&gt; seja utilizado, os &lt;n&gt; lançamentos retornam daquela lançamento. A opção &lt;base&gt; pode ser definida como uma contagem ou data. Quando nenhum parâmetro explícito &lt;ref&gt; é utilizado, a predefinição retorna para o ramo atual (ou <code>HEAD</code> caso esteja desanexado).</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---colorltquandogt"> <a class="anchor" href="#git-show-branch---colorltquandogt"></a>--color[=&lt;quando&gt;] </dt>
+<dd>
+<p>Color the status sign (one of these: <code>*</code> <code>!</code> <code>+</code> <code>-</code>) of each commit corresponding to the branch it&#8217;s in. Always (sempre) é o valor predefinido, as outras opções são "never" ou "auto".</p>
+</dd>
+<dt class="hdlist1" id="git-show-branch---no-color"> <a class="anchor" href="#git-show-branch---no-color"></a>--no-color </dt>
+<dd>
+<p>Turn off colored output, even when the configuration file gives the default to color output. O mesmo que <code>--color=never</code>.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Observe que as opções <code>--more</code>, <code>--list</code>, <code>--independent</code> e <code>--merge-base</code> são mutuamente exclusivas.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_saída"><a class="anchor" href="#_saída"></a>SAÍDA</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dadas N &lt;ref&gt;s, as primeiras N linhas são a descrição de uma linha da sua mensagem do commit. O cabeçalho do ramo apontado por $GIT_DIR/HEAD é prefixado com um caractere asterisco <code>*</code>, enquanto os outros cabeçalhos são prefixados com um caractere <code>!</code>.</p>
+</div>
+<div class="paragraph">
+<p>Após essas "N" linhas, um registro log com uma linha para cada commit é exibido, recuados em "N" lugares. Caso um commit esteja no "I-ésimo" ramo, o "I-ésimo" caractere de indentação exibe um sinal de <code>+</code>; caso contrário, mostra um espaço. Os commits mesclados são indicados através de um sinal <code>-</code>. Cada commit exibe um nome abreviado que pode ser utilizado como um SHA-1 estendido para dar nome a este commit.</p>
+</div>
+<div class="paragraph">
+<p>O exemplo a seguir mostra três ramificações, <code>master</code> (mestres), <code>fixes</code> (correções) e <code>mhf</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git show-branch master fixes mhf
+* [master] Add 'git show-branch'.
+ ! [fixes] Introduz a flag "reset type" para "git reset"
+  ! [mhf] Permite que o refspec "+remote:local" cause --force quando for buscar.
+---
+  + [mhf] Permite que o refspec "+remote:local" cause --force quando for buscar.
+  + [mhf~1] Usa git-octopus quando for capturar mais de um cabeçalho.
+ +  [fixes] Introduz a sinalização "reset type" para "git reset"
+  + [mhf~2] "git fetch --force".
+  + [mhf~3] Utilize .git/remote/origin, e não .git/branches/origin.
+  + [mhf~4] Faz um "git pull" e "git fetch" retornar para a predefinição no "origin"
+  + [mhf~5] Infame 'octopus merge'
+  + [mhf~6] Retira git-parse-remote.
+  + [mhf~7] Multi-head fetch.
+  + [mhf~8] Começa a adicionar a compatibilidade com o $GIT_DIR/remotes/.
+*++ [master] Adiciona 'git show-branch'.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Todos estes três ramos foram bifurcados em um commit comum, [master], cuja mensagem do commit é "Add 'git show-branch'". O ramo "fixes" adiciona um commit "Introduz a opção "reset type" para o comando "git reset"". O ramo "mhf" adiciona muitos outros commits. O ramo atual é "master".</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemplos"><a class="anchor" href="#_exemplos"></a>EXEMPLOS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Caso mantenha os seus ramos principais imediatamente sob <code>refs/heads</code> e tópico dos ramos nos subdiretórios, ter o seguinte no arquivo de configuração pode ajudar:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[showbranch]
+	default = --topo-order
+	default = heads/*</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Com isso, o comando <code>git show branch</code> sem parâmetros extras exibiria apenas as principais ramificações. Além disso, caso esteja no tópico do ramo, ele também será exibido.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git show-branch --reflog="10,1 horas atrás" --list master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>exibe 10 entradas "reflogs" retornando do cume há uma hora atrás. Sem <code>--list</code>, a saída também exibe como estes cumes estão topologicamente relacionados entre si.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuração"><a class="anchor" href="#_configuração"></a>CONFIGURAÇÃO</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>pt_BR/includes/cmd-config-section-all.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>pt_BR/config/showbranch.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a></p>
+</div>
+</div>
+</div>
