@@ -1,0 +1,213 @@
+---
+category: book
+section: documentation
+subsection: book
+sidebar: book
+book:
+  language_code: de
+  chapter:
+    title: Erste Schritte
+    number: 1
+  section:
+    title: Git Basis-Konfiguration
+    number: 6
+    cs_number: '1.6'
+    previous: book/de/v2/Erste-Schritte-Git-installieren
+    next: book/de/v2/Erste-Schritte-Hilfe-finden
+title: Git - Git Basis-Konfiguration
+
+---
+<h2 id="_first_time">Git Basis-Konfiguration</h2>
+<div class="paragraph">
+<p>Nachdem Git jetzt auf Ihrem System installiert ist, sollten Sie Ihre Git-Konfiguration noch anpassen.
+Dies muss nur einmalig auf dem jeweiligen System durchgeführt werden. Die Konfiguration bleibt bestehen, wenn Sie Git auf eine neuere Version aktualisieren.
+Die Git-Konfiguration kann auch jederzeit geändert werden, indem die nachfolgenden Befehle einfach noch einmal ausgeführt werden.</p>
+</div>
+<div class="paragraph">
+<p>Git umfasst das Werkzeug <code>git config</code>, welches die Möglichkeit bietet, Konfigurationswerte zu verändern. Auf diese Weise können Sie anpassen, wie Git aussieht und arbeitet.
+Die Konfiguration ist an drei verschiedenen Orten gespeichert:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Die Datei <code>[path]/etc/gitconfig</code>: enthält Werte, die für jeden Benutzer auf dem System und alle seine Repositories gelten.
+Wenn Sie die Option <code>--system</code> an <code>git config</code> übergeben, liest und schreibt sie spezifisch aus dieser Datei.
+Da es sich um eine Systemkonfigurationsdatei handelt, benötigen Sie Administrator- oder Superuser-Rechte, um Änderungen daran vorzunehmen.</p>
+</li>
+<li>
+<p>Die Datei <code>~/.gitconfig</code> oder <code>~/.config/git/config</code>: enthält Werte, die für Sie, den Benutzer, persönlich bestimmt sind.
+Sie können Git dazu bringen, diese Datei gezielt zu lesen und zu schreiben, indem Sie die Option <code>--global</code> übergeben, und dies betrifft <em>alle</em> der Repositories, mit denen Sie auf Ihrem System arbeiten.</p>
+</li>
+<li>
+<p>Die Datei <code>config</code> im Git-Verzeichnis (also <code>.git/config</code>) des jeweiligen Repositories, das Sie gerade verwenden:
+Sie können Git mit der Option <code>--local</code> zwingen, aus dieser Datei zu lesen und in sie zu schreiben, das ist in der Regel die Standardoption.
+(Es dürfte Sie nicht überraschen, dass Sie sich irgendwo in einem Git-Repository befinden müssen, damit diese Option ordnungsgemäß funktioniert.)</p>
+<div class="literalblock">
+<div class="content">
+<pre>Jede Ebene überschreibt Werte der vorherigen Ebene, so dass Werte in `.git/config` diejenigen in `[path]/etc/gitconfig` aushebeln.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Auf Windows-Systemen sucht Git nach der Datei <code>.gitconfig</code> im <code>$HOME</code> Verzeichnis (normalerweise zeigt <code>$HOME</code> bei den meisten Systemen auf <code>C:\Users\$USER</code>).
+Git schaut immer nach <code>[path]/etc/gitconfig</code>, auch wenn die sich relativ zu dem MSys-Wurzelverzeichnis befindet, dem Verzeichnis in das Sie Git installiert haben.
+Wenn Sie eine Version 2.x oder neuer von Git für Windows verwenden, gibt es auch eine Konfigurationsdatei auf Systemebene unter
+<code>C:\Dokumente und Einstellungen\Alle Benutzer\Anwendungsdaten\Git\config</code> unter Windows XP und unter <code>C:\ProgramData\Git\config</code> unter Windows Vista und neuer.
+Diese Konfigurationsdatei kann nur von <code>git config -f &lt;file&gt;</code> als Admin geändert werden.</p>
+</div>
+<div class="paragraph">
+<p>Sie können sich alle Ihre Einstellungen ansehen sehen, wo sie herkommen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git config --list --show-origin</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_ihre_identität">Ihre Identität</h3>
+<div class="paragraph">
+<p>Nachdem Sie Git installiert haben, sollten Sie als allererstes Ihren Namen und Ihre E-Mail-Adresse in Git konfigurieren.
+Das ist insofern wichtig, da jeder Git-Commit diese Informationen verwendet und sie unveränderlich in die Commits eingearbeitet werden, die Sie erstellen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wie schon erwähnt, brauchen Sie diese Konfiguration nur einmal vorzunehmen, wenn Sie die Option <code>--global</code> verwenden. Auf Grund der oben erwähnten Prioritäten gilt das dann für alle Ihre Projekte.
+Wenn Sie für ein spezielles Projekt einen anderen Namen oder eine andere E-Mail-Adresse verwenden möchten, können Sie den Befehl ohne die Option <code>--global</code> innerhalb des Projektes ausführen.</p>
+</div>
+<div class="paragraph">
+<p>Viele der grafischen Oberflächen helfen einem bei diesem Schritt, wenn Sie sie zum ersten Mal ausführen.</p>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_editor">Ihr Editor</h3>
+<div class="paragraph">
+<p>Jetzt, da Ihre Identität eingerichtet ist, können Sie den Standard-Texteditor konfigurieren, der verwendet wird, wenn Git Sie zum Eingeben einer Nachricht auffordert.
+Normalerweise verwendet Git den Standard-Texteditor des jeweiligen Systems.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie einen anderen Texteditor, z.B. Emacs, verwenden wollen, können Sie das wie folgt festlegen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git config --global core.editor emacs</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie auf einem Windows-System einen anderen Texteditor verwenden möchten, müssen Sie den vollständigen Pfad zu seiner ausführbaren Datei angeben.
+Dies kann, je nachdem, wie Ihr Editor eingebunden ist, unterschiedlich sein.</p>
+</div>
+<div class="paragraph">
+<p>Im Falle von Notepad++, einem beliebten Programmiereditor, sollten Sie wahrscheinlich die 32-Bit-Version verwenden, da die 64-Bit-Version zum Zeitpunkt der Erstellung nicht alle Plug-Ins unterstützt.
+Beim Einsatz auf einem 32-Bit-Windows-System oder einem 64-Bit-Editor auf einem 64-Bit-System geben Sie etwa Folgendes ein:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Anmerkung</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vim, Emacs und Notepad++ sind beliebte Texteditoren, die von Entwicklern häufig auf Unix-basierten Systemen wie Linux und macOS oder einem Windows-System verwendet werden.
+Wenn Sie einen anderen Editor oder eine 32-Bit-Version verwenden, finden Sie in <a href="ch00/ch_core_editor">git config core.editor commands</a> spezielle Anweisungen, wie Sie Ihren bevorzugten Editor mit Git einrichten können.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warnung</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Wenn Sie Git nicht so konfigurieren, dass es Ihren Texteditor verwendet und Sie keine Ahnung davon haben, wie man Vim oder Emacs benutzt, werden Sie ein wenig überfordert sein, wenn diese zum ersten Mal von Git gestartet werden.
+Ein Beispiel auf einem Windows-System könnte ein vorzeitig beendeter Git-Vorgang während einer von Git initiierten Editor-Bearbeitung sein.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_new_default_branch">Der standardmäßige Branch-Name</h3>
+<div class="paragraph">
+<p>In der Voreinstellung wird Git einen Branch mit dem Namen <em>master</em> erzeugen, wenn Sie ein neues Repository mit <code>git init</code> erstellen.
+Ab der Git-Version 2.28 können Sie einen abweichenden Namen für den initialen Branch festlegen.</p>
+</div>
+<div class="paragraph">
+<p>So konfigurieren Sie <em>main</em> als Vorgabe für den Branch-Namen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git config --global init.defaultBranch main</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_einstellungen_überprüfen">Einstellungen überprüfen</h3>
+<div class="paragraph">
+<p>Wenn Sie Ihre Konfigurationseinstellungen überprüfen möchten, können Sie mit dem Befehl <code>git config --list</code> alle Einstellungen auflisten, die Git derzeit finden kann:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git config --list
+user.name=John Doe
+user.email=johndoe@example.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Manche Parameter werden möglicherweise mehrfach aufgelistet, weil Git denselben Parameter in verschiedenen Dateien (z.B. <code>[path]/etc/gitconfig</code> und <code>~/.gitconfig</code>) gefunden hat.
+In diesem Fall verwendet Git dann den jeweils zuletzt aufgelisteten Wert.</p>
+</div>
+<div class="paragraph">
+<p>Außerdem können Sie mit dem Befehl <code>git config &lt;key&gt;</code> prüfen, welchen Wert Git für einen bestimmten Parameter verwendet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git config user.name
+John Doe</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Anmerkung</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Da Git möglicherweise den gleichen Wert der Konfigurationsvariablen aus mehr als einer Datei liest, ist es möglich, dass Sie einen unerwarteten Wert für einen dieser Werte haben und nicht wissen, warum.
+In solchen Fällen können Sie Git nach dem <em>Ursprung</em> (engl. origin) für diesen Wert fragen, und es wird Ihnen sagen, mit welcher Konfigurationsdatei der Wert letztendlich festgelegt wurde:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git config --show-origin rerere.autoUpdate
+file:/home/johndoe/.gitconfig	false</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="nav"><a href="{{< previous-section >}}">prev</a> | <a href="{{< next-section >}}">next</a></div>

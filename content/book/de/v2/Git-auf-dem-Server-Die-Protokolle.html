@@ -1,0 +1,299 @@
+---
+category: book
+section: documentation
+subsection: book
+sidebar: book
+book:
+  language_code: de
+  chapter:
+    title: Git auf dem Server
+    number: 4
+  section:
+    title: Die Protokolle
+    number: 1
+    cs_number: '4.1'
+    previous: book/de/v2/Git-Branching-Zusammenfassung
+    next: book/de/v2/Git-auf-dem-Server-Git-auf-einem-Server-einrichten
+title: Git - Die Protokolle
+
+---
+<p>
+An dieser Stelle sollten Sie in der Lage sein, die meisten der täglichen Aufgaben zu erledigen, für die Sie Git verwenden werden.
+Um jedoch in Git zusammenarbeiten zu können, benötigen Sie ein externes Git-Repository.
+Obwohl Sie, technisch gesehen, Änderungen an und aus den individuellen Repositorys verschieben können, ist das nicht empfehlenswert, da Sie sich ziemlich leicht irren könnten, woran sie arbeiten, wenn Sie nicht vorsichtig sind.
+Darüber hinaus ist es vorteilhaft, dass Ihre Mitarbeiter auch dann auf das Repository zugreifen können, wenn Ihr Computer offline ist – ein zuverlässigeres gemeinsames Repository ist oft sinnvoll.
+Daher ist die bevorzugte Methode für die Zusammenarbeit, einen Zwischenspeicher einzurichten, auf den beide Seiten Zugriff haben, und von dem aus sie Push-to and Pull ausführen können.</p><p>Das Betreiben eines Git-Servers ist recht unkompliziert.
+Zuerst bestimmen Sie, welche Protokolle Ihr Server unterstützen soll.
+Der erste Abschnitt dieses Kapitels behandelt die verfügbaren Protokolle und deren Vor- und Nachteile.
+In den nächsten Abschnitten werden einige typische Setups mit diesen Protokollen erläutert und erklärt, wie Sie Ihren Server mit diesen Protokollen zum Laufen bringen.
+Zuletzt werden wir ein paar gehostete Optionen durchgehen, wenn es Ihnen nichts ausmacht, Ihren Code auf dem Server eines anderen zu hosten und Sie nicht den Aufwand der Einrichtung und Wartung Ihres eigenen Servers auf sich nehmen wollen.</p><p>Wenn Sie keinen eigenen Server betreiben möchten, können Sie zum letzten Abschnitt dieses Kapitels springen, um einige Optionen zum Einrichten eines gehosteten Kontos zu finden und dann mit dem nächsten Kapitel fortfahren, in dem die verschiedenen Vor- und Nachteile der Arbeit in einer verteilten Versionskontrollumgebung erläutert werden.</p><p>Ein entferntes Repository ist in der Regel ein <em>„nacktes Repository“</em> – ein Git-Repository, das kein Arbeitsverzeichnis hat.
+Da das Repository nur als Kollaborationspunkt verwendet wird, gibt es keinen Grund, einen Snapshot auf die Festplatte speichern zu lassen; es enthält nur die Git-(Kontroll-)Daten.
+Im einfachsten Fall besteht ein nacktes (eng. bare) Repository aus dem Inhalt des <code>.git</code> Verzeichnisses Ihres Projekts und nichts anderem.</p>
+<h2 id="_die_protokolle">Die Protokolle</h2>
+<div class="paragraph">
+<p>Git kann vier verschiedene Protokolle für die Datenübertragung verwenden: Lokal, HTTP, Secure Shell (SSH) und Git.
+Hier werden wir klären, worum es sich handelt und unter welchen Rahmenbedingungen Sie sie verwenden könnten (oder nicht sollten).</p>
+</div>
+<div class="sect3">
+<h3 id="_lokales_protokoll">Lokales Protokoll</h3>
+<div class="paragraph">
+<p>
+Das einfachste ist das <em>lokale Protokoll</em>, bei dem sich das entfernte Repository in einem anderen Verzeichnis auf demselben Host befindet.
+Es wird häufig verwendet, wenn jeder in Ihrem Team Zugriff auf ein freigegebenes Dateisystem wie z.B. ein <a href="https://de.wikipedia.org/wiki/Network_File_System" target="_blank" rel="noopener">NFS</a>-Mount hat, oder in dem selteneren Fall, dass sich jeder auf dem gleichen Computer anmeldet.
+Letzteres wäre nicht ideal, da sich alle Ihre Code-Repository-Instanzen auf demselben Computer befinden würden, was einen katastrophalen Verlust viel wahrscheinlicher macht.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie ein gemeinsam genutztes gemountetes Dateisystem haben, können Sie ein lokales dateibasiertes Repository klonen, dort hin verschieben (engl. push to) und daraus ziehen (engl. pull).
+Verwenden Sie den Pfad zum Repository als URL, um ein solches Repository zu klonen oder einem vorhandenen Projekt ein Remote-Repository hinzuzufügen.
+Um beispielsweise ein lokales Repository zu klonen, können Sie Folgendes ausführen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git clone /srv/git/project.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>oder auch das:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git clone file:///srv/git/project.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Git funktioniert etwas anders, wenn Sie <code>file://</code> explizit am Anfang der URL angeben.
+Wenn Sie nur den Pfad angeben, versucht Git, Hardlinks zu verwenden oder die benötigten Dateien direkt zu kopieren.
+Wenn Sie <code>file://</code> angeben, löst Git Prozesse aus, die normalerweise zum Übertragen von Daten über ein Netzwerk verwendet werden, was im Allgemeinen viel weniger effizient ist.
+Der Hauptgrund für die Angabe des Präfix <code>file://</code> ist, wenn Sie eine saubere Kopie des Repositorys mit fremden Referenzen oder weggelassenen Objekten wünschen – in der Regel nach einem Import aus einem anderen VCS oder ähnlichem (siehe <a href="ch00/ch10-git-internals">Git Interna</a> für Wartungsaufgaben).
+Wir werden hier den normalen Pfad verwenden, denn das ist fast immer schneller.</p>
+</div>
+<div class="paragraph">
+<p>Um ein lokales Repository zu einem bestehenden Git-Projekt hinzuzufügen, kann so vorgegangen werden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git remote add local_proj /srv/git/project.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dann können Sie über Ihren neuen Remote-Namen <code>local_proj</code> auf dieses Remote-Repository pushen und von dort abrufen, als ob Sie dies über ein Netzwerk tun würden.</p>
+</div>
+<div class="sect4">
+<h4 id="_vorteile">Vorteile</h4>
+<div class="paragraph">
+<p>Die Vorteile dateibasierter Repositorys liegen darin, dass sie einfach sind und vorhandene Datei- und Netzwerk-Berechtigungen verwenden.
+Wenn Sie bereits über ein freigegebenes Dateisystem verfügen, auf das Ihr gesamtes Team Zugriff hat, ist das Einrichten eines Repositorys sehr einfach.
+Sie speichern die leere Repository-Kopie an einer Stelle, auf die jeder Zugriff hat, und legen die Lese- und Schreibberechtigungen wie bei jedem anderen freigegebenen Verzeichnis fest.
+Informationen zum Exportieren einer Bare-Repository-Kopie für diesen Zweck finden Sie unter <a href="ch00/_getting_git_on_a_server">Git auf einem Server installieren</a>.</p>
+</div>
+<div class="paragraph">
+<p>Das ist auch eine elegante Möglichkeit, um schnell Arbeiten aus dem Arbeits-Repository eines anderen zu holen.
+Wenn Sie und ein Mitarbeiter am gleichen Projekt arbeiten und Sie etwas überprüfen möchten, ist es oft einfacher, einen Befehl wie <code>git pull /home/john/project</code> auszuführen, als auf einen Remote-Server zu pushen und anschließend von dort zu holen.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_nachteile">Nachteile</h4>
+<div class="paragraph">
+<p>Der Nachteil dieser Methode ist, dass der gemeinsame Zugriff in der Regel schwieriger einzurichten ist damit man von mehreren Standorten aus erreichbar ist als der einfache Netzwerkzugriff.
+Wenn Sie von zu Hause mit Ihrem Laptop aus pushen möchten, müssen Sie das entfernte Verzeichnis einhängen (engl. mounten), was im Vergleich zum netzwerkbasierten Zugriff schwierig und langsamer sein kann.</p>
+</div>
+<div class="paragraph">
+<p>Es ist wichtig zu erwähnen, dass es nicht unbedingt die schnellste Option ist, wenn Sie einen gemeinsamen Mount verwenden.
+Ein lokales Repository ist nur dann schnell, wenn Sie schnellen Zugriff auf die Daten haben.
+Ein Repository auf NFS-Mounts ist oft langsamer als der Zugriff auf das Repository über SSH auf demselben Server, während Git lokale Festplatten in jedem System nutzt.</p>
+</div>
+<div class="paragraph">
+<p>Schließlich schützt dieses Protokoll das Repository nicht vor unbeabsichtigten Schäden.
+ Jeder Benutzer hat vollen Shell-Zugriff auf das „remote“ Verzeichnis, und nichts hindert ihn daran, interne Git-Dateien zu ändern oder zu entfernen und das Repository zu beschädigen.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_http_protokolle">HTTP Protokolle</h3>
+<div class="paragraph">
+<p>Git kann über HTTP in zwei verschiedenen Modi kommunizieren.
+Vor Git 1.6.6 gab es nur einen einzigen Weg, der sehr einfach und im Allgemeinen „read-only“ war.
+Mit der Version 1.6.6 wurde ein neues, intelligenteres Protokoll eingeführt, bei dem Git in der Lage ist, den Datentransfer intelligent auszuhandeln, ähnlich wie bei SSH.
+In den letzten Jahren ist dieses neue HTTP-Protokoll sehr beliebt geworden, da es für den Benutzer einfacher und intelligenter in der Kommunikation ist.
+Die neuere Version wird oft als <em>Smart</em> HTTP Protokoll und die ältere als <em>Dumb</em> HTTP bezeichnet.
+Wir werden zuerst das neuere Smart HTTP-Protokoll besprechen.</p>
+</div>
+<div class="sect4">
+<h4 id="_smart_http">Smart HTTP</h4>
+<div class="paragraph">
+<p>
+Smart HTTP funktioniert sehr ähnlich wie die Protokolle SSH oder Git, läuft aber über Standard HTTPS-Ports und kann verschiedene HTTP-Authentifizierungsmechanismen verwenden, was bedeutet, dass es für den Benutzer oft einfacher ist als so etwas wie SSH, da Sie Eingaben wie Benutzername/Passwort-Authentifizierung verwenden können, anstatt SSH-Schlüssel einrichten zu müssen.</p>
+</div>
+<div class="paragraph">
+<p>Es ist wahrscheinlich der beliebteste Weg, heute Git zu verwenden, da es so eingerichtet werden kann, dass es sowohl anonym wie das Protokoll <code>git://</code> arbeitet, als auch mit Authentifizierung und Verschlüsselung wie das SSH-Protokoll betrieben werden kann.
+Anstatt dafür verschiedene URLs einrichten zu müssen, können Sie nun eine einzige URL für beides verwenden.
+Wenn Sie versuchen, einen Push durchzuführen und das Repository eine Authentifizierung erfordert (was normalerweise der Fall sein sollte), kann der Server nach einem Benutzernamen und einem Passwort fragen.
+Gleiches gilt für den Lesezugriff.</p>
+</div>
+<div class="paragraph">
+<p>Für Dienste, wie GitHub, ist die URL, die Sie verwenden, um das Repository online anzuzeigen (z.B. <a href="https://github.com/schacon/simplegit" class="bare" target="_blank" rel="noopener">https://github.com/schacon/simplegit</a>), die gleiche URL, mit der Sie klonen und, wenn Sie Zugriff haben, dorthin pushen können.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_dumb_http">Dumb HTTP</h4>
+<div class="paragraph">
+<p>
+Wenn der Server nicht mit einem Git HTTP Smart Service antwortet, versucht der Git Client, auf das einfachere <em>Dumb</em> HTTP Protokoll zurückzugreifen.
+Das Dumb-Protokoll erwartet von dem Bare-Git-Repository, dass es vom Webserver wie normale Dateien behandelt wird.
+Das Schöne an Dumb HTTP ist die Einfachheit der Einrichtung.
+Im Grunde genommen müssen Sie nur ein leeres Git-Repository unter Ihre HTTP-Dokument-Root legen und einen bestimmten <code>post-update</code> Hook einrichten, und schon sind Sie fertig (siehe <a href="ch00/_git_hooks">Git Hooks</a>).
+Ab diesem Zeitpunkt kann jeder, der auf den Webserver zugreifen kann, unter dem Sie das Repository ablegen, auch Ihr Repository klonen.
+Um Lesezugriff auf Ihr Repository über HTTP zu ermöglichen, gehen Sie wie folgt vor:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ cd /var/www/htdocs/
+$ git clone --bare /path/to/git_project gitproject.git
+$ cd gitproject.git
+$ mv hooks/post-update.sample hooks/post-update
+$ chmod a+x hooks/post-update</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Das war’s.
+Der <code>post-update</code> Hook, der standardmäßig mit Git geliefert wird, führt den entsprechenden Befehl (<code>git update-server-info</code>) aus, um das HTTP-Abrufen und -Kloning ordnungsgemäß zu ermöglichen.
+Dieser Befehl wird ausgeführt, wenn Sie in dieses Repository pushen (vielleicht über SSH); dann können andere Leute klonen über so etwas wie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git clone https://example.com/gitproject.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In diesem speziellen Fall verwenden wir den Pfad <code>/var/www/htdocs</code>, der für Apache-Installationen üblich ist, Sie können aber jeden statischen Webserver verwenden – legen Sie einfach das leere Repository in seinen Pfad.
+Die Git-Daten werden als einfache statische Dateien bereitgestellt (siehe Kapitel <a href="ch00/ch10-git-internals">Git Interna</a> für Bedienungsdetails).</p>
+</div>
+<div class="paragraph">
+<p>Im Allgemeinen würden Sie sich entweder einen Smart HTTP-Server zum Lesen und Schreiben betreiben oder die Dateien einfach als schreibgeschützt im Dumb-Modus zur Verfügung stellen.
+Seltener wird ein Mix aus beiden Diensten angeboten.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_vorteile_2">Vorteile</h4>
+<div class="paragraph">
+<p>Wir werden uns auf die Vorteile der Smart Version des HTTP-Protokolls konzentrieren.</p>
+</div>
+<div class="paragraph">
+<p>Die Tatsache, dass eine einzige URL für alle Zugriffsarten und der Server-Prompt nur dann gebraucht wird, wenn eine Authentifizierung erforderlich ist, macht die Sache für den Endbenutzer sehr einfach.
+Die Authentifizierung mit einem Benutzernamen und einem Passwort ist ebenfalls ein großer Vorteil gegenüber SSH, da Benutzer keine SSH-Schlüssel lokal generieren und ihren öffentlichen Schlüssel auf den Server hochladen müssen, bevor sie mit ihm interagieren können.
+Für weniger anspruchsvolle Benutzer oder Benutzer auf Systemen, auf denen SSH weniger verbreitet ist, ist dies ein großer Vorteil in der Benutzerfreundlichkeit.
+Es ist auch ein sehr schnelles und effizientes Protokoll, ähnlich dem SSH-Protokoll.</p>
+</div>
+<div class="paragraph">
+<p>Sie können Ihre Repositorys auch schreibgeschützt über HTTPS bereitstellen, d.h. Sie können die Inhaltsübertragung verschlüsseln oder Sie können sogar so weit gehen, dass Clients bestimmte signierte SSL-Zertifikate verwenden müssen.</p>
+</div>
+<div class="paragraph">
+<p>Eine weitere schöne Sache ist, dass HTTP und HTTPS ein so häufig verwendetes Protokoll ist, dass Unternehmens-Firewalls oft so eingerichtet sind, dass sie den Datenverkehr über deren Ports ermöglichen.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_nachteile_2">Nachteile</h4>
+<div class="paragraph">
+<p>Git über HTTPS kann im Vergleich zu SSH auf einigen Servern etwas komplizierter einzurichten sein.
+Abgesehen davon gibt es sehr wenig Vorteile, die andere Protokolle gegenüber Smart HTTP für die Bereitstellung von Git-Inhalten haben.</p>
+</div>
+<div class="paragraph">
+<p>Wenn Sie HTTP für authentifiziertes Pushen verwenden, ist die Bereitstellung Ihrer Anmeldeinformationen manchmal komplizierter als die Verwendung von Schlüsseln über SSH.
+Es gibt jedoch mehrere Tools zum Zwischenspeichern von Berechtigungen, die Sie verwenden könnten, darunter Keychain-Zugriff auf macOS und Credential Manager unter Windows, um das ziemlich zu Vereinfachen.
+Lesen Sie den Abschnitt <a href="ch00/_credential_caching">Credential Storage</a>, um zu erfahren, wie Sie ein sicheres HTTP-Passwort-Caching auf Ihrem System einrichten können.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_ssh_protocol">SSH Protocol</h3>
+<div class="paragraph">
+<p>
+Ein gängiges Transportprotokoll für Git, wenn das Self-Hosting über SSH erfolgt.
+Der SSH-Zugriff auf den Server ist in den meisten Fällen bereits eingerichtet – und wenn nicht, ist es einfach zu bewerkstelligen.
+SSH ist auch ein authentifiziertes Netzwerkprotokoll, und da es allgegenwärtig ist, ist es im Allgemeinen einfach einzurichten und zu verwenden.</p>
+</div>
+<div class="paragraph">
+<p>Um ein Git-Repository über SSH zu klonen, können Sie eine entsprechende <code>ssh://</code> URL angeben:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git clone ssh://[user@]server/project.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Oder Sie können die kürzere scp-ähnliche Syntax für das SSH-Protokoll verwenden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git clone [user@]server:project.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie in beiden Fällen oben keinen optionalen Benutzernamen angeben, benutzt Git den User, mit dem Sie aktuell angemeldet sind.</p>
+</div>
+<div class="sect4">
+<h4 id="_vorteile_3">Vorteile</h4>
+<div class="paragraph">
+<p>Die Vorteile bei der Verwendung von SSH sind vielfältig.
+Erstens ist SSH relativ einfach einzurichten – SSH-Daemons sind weit verbreitet, viele Netzwerkadministratoren haben Erfahrung mit ihnen und viele Betriebssystem-Distributionen werden mit ihnen eingerichtet oder haben Werkzeuge, um sie zu verwalten.
+Als nächstes ist der Zugriff über SSH sicher – der gesamte Datentransfer wird verschlüsselt und authentifiziert.
+Schließlich ist SSH, wie die Protokolle HTTPS, Git und Local effizient und komprimiert die Daten vor der Übertragung so stark wie möglich.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_nachteile_3">Nachteile</h4>
+<div class="paragraph">
+<p>Die negative Seite von SSH ist, dass es keinen anonymen Zugriff auf Ihr Git-Repository unterstützt.
+Wenn Sie SSH verwenden, <em>müssen</em> Benutzer über einen SSH-Zugriff auf Ihren Computer verfügen, auch wenn sie nur über Lesezugriff verfügen. Das macht SSH in Open Source-Projekten ungeeignet, wenn, möglicherweise, die Benutzer Ihr Repository einfach nur klonen möchten, um es zu überprüfen.
+Wenn Sie es nur in Ihrem Unternehmensnetzwerk verwenden, ist SSH möglicherweise das einzige Protokoll, mit dem Sie sich befassen müssen.
+Wenn Sie anonymen schreibgeschützten Zugriff auf Ihre Projekte und die Verwendung von SSH zulassen möchten, müssen Sie SSH einrichten, damit Sie Push-Vorgänge ausführen können, aber noch zusätzliche Optionen damit andere Benutzer auch abrufen können.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h3 id="_git_protokoll">Git Protokoll</h3>
+<div class="paragraph">
+<p>
+Und schließlich haben wir das Git-Protokoll.
+Es ist ein spezieller Daemon, der mit Git ausgeliefert wird, der auf einem dedizierten Port (9418) lauscht und der einen Dienst bereitstellt, ähnlich dem des SSH-Protokolls, aber ohne jegliche Authentifizierung oder Verschlüsselung.
+Damit ein Repository über das Git-Protokoll bedient werden kann, müssen Sie eine <code>git-daemon-export-ok</code> Datei erstellen – der Daemon wird ohne diese Datei kein Repository bedienen, weil es sonst keine Sicherheit gibt.
+Entweder ist das Git-Repository für jeden zugänglich, um zu klonen, oder für keinen.
+Das bedeutet, dass es in der Regel keinen Push über dieses Protokoll gibt.
+Sie können den Push-Zugriff aktivieren, aber angesichts der fehlenden Authentifizierung kann jeder im Internet, der die URL Ihres Projekts findet, zu diesem Projekt pushen.
+Es reicht aus, zu sagen, dass das selten vorkommt.</p>
+</div>
+<div class="sect4">
+<h4 id="_vorteile_4">Vorteile</h4>
+<div class="paragraph">
+<p>Das Git-Protokoll ist oft als erstes Netzwerkübertragungsprotokoll verfügbar.
+Wenn Sie viel Traffic für ein öffentliches Projekt bereitstellen oder ein sehr großes Projekt, das keine Benutzerauthentifizierung für den Lesezugriff benötigt, dann wollen Sie voraussichtlich einen Git-Daemon einrichten, der Ihr Projekt unterstützt.
+Er verwendet den gleichen Datenübertragungsmechanismus wie das SSH-Protokoll, jedoch ohne den Aufwand für Verschlüsselung und Authentifizierung.</p>
+</div>
+</div>
+<div class="sect4">
+<h4 id="_nachteile_4">Nachteile</h4>
+<div class="paragraph">
+<p>Aufgrund des Fehlens von TLS oder einer anderer Verschlüsselung kann das Klonen über „git://“ zu der Schwachstelle der Ausführung willkürlichen Codes führen und sollte daher vermieden werden, es sei denn, Sie wissen, was Sie tun.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wenn Sie <code>git clone git://example.com/project.git</code> ausführen, kann ein Angreifer, der z. B. Ihren Router kontrolliert, das gerade geklonte Repo modifizieren und bösartigen Code injizieren. Wenn Sie dann den gerade geklonten Code kompilieren/ausführen, führen Sie diesen bösartigen Code aus.
+Das Ausführen von <code>git clone <a href="http://example.com/project.git" class="bare">http://example.com/project.git</a></code> sollte aus demselben Grund vermieden werden.</p>
+</li>
+<li>
+<p>Das Ausführen von <code>git clone <a href="https://example.com/project.git" class="bare">https://example.com/project.git</a></code> leidet nicht unter dem gleichen Problem (es sei denn, der Angreifer kann ein TLS-Zertifikat für example.com bereitstellen).
+Das Ausführen von <code>git clone <a href="mailto:git@example.com">git@example.com</a>:project.git</code> leidet nur unter diesem Problem, wenn Sie einen falschen ssh-key fingerprint akzeptieren.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Es hat auch keine Authentifizierung, d.h. jeder kann das Repo klonen (obwohl dies oft genau das ist, was Sie wollen).
+Es ist wahrscheinlich auch das am schwierigsten einzurichtende Protokoll.
+Es muss seinen eigenen Daemon laufen lassen, der eine <code>xinetd</code> oder <code>systemd</code> Konfiguration oder dergleichen erfordert, was nicht immer ein Park-Spaziergang ist.
+Es erfordert auch einen Firewall-Zugang auf Port 9418, der kein Standardport ist, den Unternehmens-Firewalls immer zulassen.
+Hinter großen Firmen-Firewalls wird dieser „obskure“ Port häufig blockiert.</p>
+</div>
+</div>
+</div>
+<div id="nav"><a href="{{< previous-section >}}">prev</a> | <a href="{{< next-section >}}">next</a></div>
