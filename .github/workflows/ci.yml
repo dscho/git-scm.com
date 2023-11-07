@@ -23,8 +23,8 @@ jobs:
       run: |
         set -x
         git grep --untracked --no-exclude-standard "\\(href\|src\) *= *[\"']/" \
-          -- public/ ':^public/js/jquery*' >/tmp/abs-urls.txt &&
-        cat /tmp/abs-urls.txt &&
+          -- public/ ':^public/js/jquery*' >/tmp/abs-urls.txt
+        cat /tmp/abs-urls.txt
         test ! -s /tmp/abs-urls.txt
 
     - name: run Pagefind to build the search index
