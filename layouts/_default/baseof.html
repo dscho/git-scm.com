@@ -106,7 +106,7 @@
           <!-- older manual page versions are less interesting and need to be excluded from the search -->
           {{ $include_in_search := (or (not (isset .Params "docname")) (isset .Params "latest-changes")) }}
           <div id="main"{{ if $include_in_search }} data-pagefind-filter="category:{{ $section }}" data-pagefind-body{{ end }}>
-            {{ .Content }}
+            {{ safe.HTML (replaceRE "(?s:>NAME</h2>.*?<p)" "$0 data-pagefind-weight=\"7\"" .Content) }}
           </div>
         </div>
       </div>
