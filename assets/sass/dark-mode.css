@@ -1,4 +1,4 @@
-@mixin mode($mode: light) {
+@mixin mode($mode: light, $theme: "") {
     // Palette
     $orange:                  #f14e32;
     $blue:                    #009099;
@@ -31,7 +31,7 @@
         $main-bg:                 #333333;
     }
 
-    :root {
+    :root#{$theme} {
         --orange:                       #{$orange};
         --orange-darker-5:              #{darken($orange, 5%)};
         --blue:                         #{$blue};
@@ -60,7 +60,9 @@
 }
 
 @include mode
+@include mode($mode: dark, $theme: '[data-theme="dark"]')
 
 @media screen and (prefers-color-scheme: dark) {
     @include mode($mode: dark)
+    @include mode($mode: light, $theme: '[data-theme="light"]')
 }
