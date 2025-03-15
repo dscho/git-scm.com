@@ -49,7 +49,11 @@ const handler = (request, response) => {
     } catch(e) {
         console.log(`Could not read ${filename}`);
         response.writeHead(404, {'Content-Type': 'text/html'});
-        fs.createReadStream(path.join(basePath, '404.html')).pipe(response);
+        // insert <base> to fix styling
+        const html = fs.readFileSync(path.join(basePath, '404.html'), 'utf-8')
+          .replace(/<head>/, '\n  <base href="/" />')
+        response.write(html)
+        response.end()
         return;
     }
 };

@@ -21,10 +21,12 @@ popped = 'state' in window.history;
 initialURL = location.href;
 
 const baseURLPrefix = (() => {
-  const scripts = document.getElementsByTagName('script');
-  const index = scripts.length - 1;
-  const thisScript = scripts[index];
-  return thisScript.src.replace(/^.*:\/\/[^/]*(.*\/)(assets|js)\/[^/]+.js(\?.*)?$/, '$1');
+  const thisScriptSrc =
+    Array.from(document.getElementsByTagName('script'))
+      .pop()
+      .getAttribute('src');
+  return thisScriptSrc
+    .replace(/^(?:[a-z]*:\/\/[^/]*)?(.*\/)(assets|js)\/[^/]+.js(\?.*)?$/, '$1');
 })();
 
 $(document).ready(function() {
@@ -338,7 +340,15 @@ var Search = {
       return;
     }
     (async () => {
-      Search.pagefind = await import(`${baseURLPrefix}pagefind/pagefind.js`);
+      const pagefindURL =
+        `${baseURLPrefix}pagefind/pagefind.js`
+	  // adjust the `baseURLPrefix` if it is relative: the `import`
+	  // is relative to the _script URL_ here, which is in /js/.
+	  // That is different from other uses of `baseURLPrefix`, which
+	  // replace `href` and `src` attributes which are relative to the
+	  // page itself that is outside of /js/.
+          .replace(/^\.\//, '../')
+      Search.pagefind = await import(pagefindURL);
       const options = {
         ranking: {
           pageLength: 0.1, // boost longer pages
