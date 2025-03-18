@@ -567,7 +567,7 @@ var DarkMode = {
         || (!prefersDarkScheme && currentTheme === "dark")) {
       button.attr("src", `${baseURLPrefix}images/light-mode.svg`);
     }
-    button.show();
+    button.css("display", "block");
 
     button.click(function(e) {
       e.preventDefault();
