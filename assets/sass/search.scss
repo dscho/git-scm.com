@@ -1,20 +1,32 @@
 @import "variables";
 @import "mixins";
 
+#search-container {
+  position: relative;
+  width: 300px;
+  padding-left: 60px;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
 #search-results {
   position: absolute;
-  top: 2px;
-  right: -8px;
+  left: 0;
   z-index: 900;
   display: none;
-  width: 384px;
   background: #398a94 url($baseurl + "images/bg/search-header.jpg") 0 1px repeat-x;
   @include border-radius(3px);
   @include box-shadow(0 0 7px rgba(0, 0, 0, 0.25));
   border-bottom: solid 1px var(--base-border-color);
 
+  width: calc(100% - 1px);
+  height: 100%;
+
   header {
-    height: 44px;
+    width: 100%;
+    height: 100%;
     padding: 0;
     margin: 0;
     text-indent: -9999px;
@@ -36,7 +48,7 @@
 
     td.category {
       width: 67px;
-      padding: 10px 12px 0 0;
+      padding-top: 10px;
       font-size: 11px;
       color: var(--blue);
       text-align: right;
@@ -130,14 +142,19 @@ ol.full-search-results {
 
 // Breakpoint ---
 @media (max-width: $default) {
+  #search-container {
+    padding-left: 0;
+  }
   #search-results{
-    @include center-transformX;
-    top: unset;
-    width: 98%;
+    width: 100%;
   }
 }
 // Mobile
 @media (max-width: $mobile-m) {
+  #search-container {
+    width: inherit;
+    margin-left: 15px;
+  }
   #search-results{
     margin-top: 4px;
   }

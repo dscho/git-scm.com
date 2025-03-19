@@ -223,7 +223,12 @@ var Search = {
             $("#show-results-label").text("No matching pages found.");
             return;
           }
-          $("#show-results-label").text("Show all results...");
+
+          const language = document.querySelector("html")?.getAttribute("lang");
+          $("#show-results-label")
+            .text("Show all results...")
+            .attr('href', `${baseURLPrefix}search/results?search=${term}${language && `&language=${language}`}`);
+
           const loadButton = $("#load-more-results");
           loadButton.text(`Loading ${
             results.results.length < 2
@@ -300,11 +305,6 @@ var Search = {
   selectResultOption: function() {
     var link = $('#search-results a')[Search.selectedIndex];
     var url = $(link).attr('href');
-    if(!url) {
-      const term = $('#search-text').val();
-      const language = document.querySelector("html")?.getAttribute("lang");
-      url = `${baseURLPrefix}search/results?search=${term}${language && `&language=${language}`}`;
-    }
     window.location.href = url;
     selectedIndex = 0;
   },
@@ -567,7 +567,7 @@ var DarkMode = {
         || (!prefersDarkScheme && currentTheme === "dark")) {
       button.attr("src", `${baseURLPrefix}images/light-mode.svg`);
     }
-    button.show();
+    button.css("display", "block");
 
     button.click(function(e) {
       e.preventDefault();
