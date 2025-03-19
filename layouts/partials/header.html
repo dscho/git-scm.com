@@ -1,29 +1,25 @@
 <header>
-  <div id="brand">
-    <a id="logo" href="{{ relURL "" }}"><img src="{{ relURL "images/logo@2x.png" }}" width="110" height="46" alt="Git" class="no-filter" /></a>
-    <span id="tagline"></span>
-    <script type="text/javascript">
-     const taglines = [
-       "fast-version-control",
-       "everything-is-local",
-       "distributed-even-if-your-workflow-isnt",
-       "local-branching-on-the-cheap",
-       "distributed-is-the-new-centralized"
-     ];
-     var tagline = taglines[Math.floor(Math.random() * taglines.length)];
-     document.getElementById('tagline').innerHTML = '--' + tagline;
-    </script>
-  </div>
+  <a id="logo" href="{{ relURL "" }}"><img src="{{ relURL "images/logo@2x.png" }}" width="110" height="46" alt="Git" class="no-filter" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+   const taglines = [
+     "fast-version-control",
+     "everything-is-local",
+     "distributed-even-if-your-workflow-isnt",
+     "local-branching-on-the-cheap",
+     "distributed-is-the-new-centralized"
+   ];
+   var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+   document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
 
-  <div>
-    {{ if ne (.Scratch.Get "section") "search" }}
-    <div id="search-container">
-      <form id="search" action="{{ relURL "search/results" }}">
-        <input id="search-text" name="search" placeholder="Type / to search entire site…" autocomplete="off" type="text" />
-      </form>
-      <div id="search-results"></div>
-    </div>
-    {{ end }}
-    <img src="{{ relURL "images/dark-mode.svg" }}" id="dark-mode-button" />
+  {{ if ne (.Scratch.Get "section") "search" }}
+  <div id="search-container">
+    <form id="search" action="{{ relURL "search/results" }}">
+      <input id="search-text" name="search" placeholder="Type / to search entire site…" autocomplete="off" type="text" />
+    </form>
+    <div id="search-results"></div>
   </div>
+  {{ end }}
+  <img src="{{ relURL "images/dark-mode.svg" }}" id="dark-mode-button" />
 </header>

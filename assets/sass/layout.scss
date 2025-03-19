@@ -77,7 +77,6 @@ aside {
 
 #masthead {
   height: 295px;
-  margin-top: -20px;
   margin-bottom: 2em;
   @include background-image-2x($baseurl + "images/bg/isometric-grid", 35px, 21px, top right, repeat);
 
@@ -110,30 +109,22 @@ aside {
 
 // Header
 header {
-  padding-bottom: 26px;
-  margin-top: 14px;
+  padding: 1rem 0;
 
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-areas:  "logo tagline search dark";
+  grid-template-columns: auto 1fr     auto   auto;
+  align-items: center;
 
-  div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    &:first-child {
-      flex-grow: 4;
-    }
-  }
   #logo {
+    grid-area: logo;
     display: flex;
   }
 
   #tagline {
-    display: block;
-    margin-left: 8px;
+    grid-area: tagline;
+    margin-left: 0.8em;
     font-size: clamp(0.8rem, 2vw, 1.3rem);
-    line-height: 24px;
     color: var(--light-font-color);
 
     em {
@@ -451,10 +442,7 @@ table.benchmarks {
   .responsive-table { overflow-x: auto; }
   .center img { height: 100%; }
   header{
-    a, span {
-      padding-left: 1rem;
-      margin-bottom: 10px ;
-    }
+    padding: 1rem;
   }
   #content { width: 100%; }
   .inner { width: 100%; }
@@ -464,7 +452,6 @@ table.benchmarks {
     height: unset;
     .inner {
       display: flex;
-      margin-top: 1.8rem;
       div:first-of-type {
         padding:1rem;
       }
@@ -489,13 +476,12 @@ table.benchmarks {
 // Mobile
 @media (max-width: $mobile-m) {
   header {
-    padding-bottom: 3rem;
+    grid-template-areas: "logo   tagline dark"
+                         "search search  search";
     #tagline {
       font-size: clamp(0.8rem, 3vw, 1.3rem);
     }
-    flex-direction: column;
   }
-  #home { .inner { > header { padding-bottom: 2.5rem; } } }
   #masthead {
     .inner { flex-direction: column-reverse; }
     .illustration-wrapper {
