@@ -587,7 +587,7 @@ def index_doc(filter_tags, doc_list, get_content)
             type = 'tree'
             target = 'howto'
           else
-            target += '.txt'
+            target += '.adoc'
           end
           front_matter = { "redirect_to" => "https://github.com/git/git/#{type}/HEAD/Documentation/#{target}" } # ltrim `docs/`
           FileUtils.mkdir_p(File.dirname(doc_path))
