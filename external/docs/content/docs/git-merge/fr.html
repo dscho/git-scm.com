@@ -94,7 +94,7 @@ L&#8217;option <code>--edit</code> (ou <code>-e</code>) est toujours utile si vo
 <p>Les scripts plus anciens peuvent dépendre du comportement historique de ne pas autoriser l&#8217;utilisateur à modifier le message du journal de fusion. Ils verront un éditeur ouvert lorsqu&#8217;ils exécuteront <code>git merge</code>. Pour faciliter l&#8217;ajustement de ces scripts au comportement mis à jour, la variable d&#8217;environnement <code>GIT_MERGE_AUTOEDIT</code> peut être définie sur <code>no</code> à leur début.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge---cleanupltmodegt"> <a class="anchor" href="#git-merge---cleanupltmodegt"></a>--cleanup=&lt;mode&gt; </dt>
+<dt class="hdlist1" id="git-merge---cleanupltmodegt"> <a class="anchor" href="#git-merge---cleanupmode"></a> <a class="anchor" href="#git-merge---cleanupltmodegt"></a>--cleanup=&lt;mode&gt; </dt>
 <dd>
 <p>Cette option détermine comment le message de fusion sera nettoyé avant d&#8217;être envoyé. Voir <a href='{{< relurl "docs/git-commit/fr" >}}'>git-commit[1]</a> pour plus de détails. De plus, si le <em>&lt;mode&gt;</em> a la valeur <code>scissors</code>, les ciseaux seront ajoutés à <em>MERGE_MSG</em> avant d&#8217;être transmis à la machinerie de commit dans le cas d&#8217;un conflit de fusion.</p>
 </dd>
@@ -113,13 +113,13 @@ L&#8217;option <code>--edit</code> (ou <code>-e</code>) est toujours utile si vo
 <p>Dans le cas <code>--ff-only</code>, il faut résoudre la fusion en avance rapide lorsque c&#8217;est possible. Lorsque ce n&#8217;est pas possible, refuser de fusionner et sortir avec un statut non nul.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge--Sltidclgt"> <a class="anchor" href="#git-merge--Sltidclgt"></a>-S[&lt;idclé&gt;] </dt>
-<dt class="hdlist1" id="git-merge---gpg-signltidclgt"> <a class="anchor" href="#git-merge---gpg-signltidclgt"></a>--gpg-sign[=&lt;idclé&gt;] </dt>
+<dt class="hdlist1" id="git-merge--Sltidclgt"> <a class="anchor" href="#git-merge--Sidcl"></a> <a class="anchor" href="#git-merge--Sltidclgt"></a>-S[&lt;idclé&gt;] </dt>
+<dt class="hdlist1" id="git-merge---gpg-signltidclgt"> <a class="anchor" href="#git-merge---gpg-signidcl"></a> <a class="anchor" href="#git-merge---gpg-signltidclgt"></a>--gpg-sign[=&lt;idclé&gt;] </dt>
 <dt class="hdlist1" id="git-merge---no-gpg-sign"> <a class="anchor" href="#git-merge---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
 <p>Signer le commit résultant de la fusion avec GPG. L&#8217;argument <code>idclé</code> est optionnel avec par défaut l&#8217;identité du validateur ; si spécifiée, elle doit être collée à l&#8217;option sans aucun espace. <code>--no-gpg-sign</code> est utile pour annuler l&#8217;effet de la variable de configuration <code>commit.gpgSign</code> ainsi que tout <code>--gpg-sign</code> précédent.</p>
 </dd>
-<dt class="hdlist1" id="git-merge---logltngt"> <a class="anchor" href="#git-merge---logltngt"></a>--log[=&lt;n&gt;] </dt>
+<dt class="hdlist1" id="git-merge---logltngt"> <a class="anchor" href="#git-merge---logn"></a> <a class="anchor" href="#git-merge---logltngt"></a>--log[=&lt;n&gt;] </dt>
 <dt class="hdlist1" id="git-merge---no-log"> <a class="anchor" href="#git-merge---no-log"></a>--no-log </dt>
 <dd>
 <p>En plus des noms de branches, remplir le message du journal avec les descriptions d&#8217;une ligne depuis au maximum &lt;n&gt; commits réels qui sont en train d&#8217;être fusionnés. Voir aussi <a href='{{< relurl "docs/git-fmt-merge-msg/fr" >}}'>git-fmt-merge-msg[1]</a>.</p>
@@ -127,8 +127,8 @@ L&#8217;option <code>--edit</code> (ou <code>-e</code>) est toujours utile si vo
 <p>Avec --no-log, ne pas indiquer les descriptions d&#8217;une ligne des commits réels qui sont fusionnés.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge-code--signoffcode"> <a class="anchor" href="#git-merge-code--signoffcode"></a><code>--signoff</code> </dt>
-<dt class="hdlist1" id="git-merge-code--no-signoffcode"> <a class="anchor" href="#git-merge-code--no-signoffcode"></a><code>--no-signoff</code> </dt>
+<dt class="hdlist1" id="git-merge-code--signoffcode"> <a class="anchor" href="#git-merge---signoff"></a> <a class="anchor" href="#git-merge-code--signoffcode"></a><code>--signoff</code> </dt>
+<dt class="hdlist1" id="git-merge-code--no-signoffcode"> <a class="anchor" href="#git-merge---no-signoff"></a> <a class="anchor" href="#git-merge-code--no-signoffcode"></a><code>--no-signoff</code> </dt>
 <dd>
 <p>Ajouter une ligne finale <code>Signed-off-by</code> du validateur à la fin du message de validation. La signification de signoff dépend du projet sur lequel vous validez. Par exemple, cela peut certifier que le validateur a le droit de soumettre son travail sous la licence du projet ou accepte une certaine représentation du contributeur, tel qu&#8217;un Certificat d&#8217;Origine de Développeur. (Voir <a href="https://developercertificate.org/" class="bare">https://developercertificate.org/</a> pour celui utilisé par les projet du noyau Linux ou de Git). Consultez la documentation ou la direction du projet auquel vous contribuez pour comprendre comment les signatures sont utilisées dans ce projet.</p>
 <div class="paragraph">
@@ -163,13 +163,13 @@ L&#8217;option <code>--edit</code> (ou <code>-e</code>) est toujours utile si vo
 <dd>
 <p>Par défaut, les crochets pre-merge et commit-msg sont exécutés. Lorsque <code>--no-verify</code> est donné, ils sont contournés. Voir aussi <a href='{{< relurl "docs/githooks/fr" >}}'>githooks[5]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-merge--sltstratgiegt"> <a class="anchor" href="#git-merge--sltstratgiegt"></a>-s &lt;stratégie&gt; </dt>
-<dt class="hdlist1" id="git-merge---strategyltstrategiegt"> <a class="anchor" href="#git-merge---strategyltstrategiegt"></a>--strategy=&lt;strategie&gt; </dt>
+<dt class="hdlist1" id="git-merge--sltstratgiegt"> <a class="anchor" href="#git-merge--sstratgie"></a> <a class="anchor" href="#git-merge--sltstratgiegt"></a>-s &lt;stratégie&gt; </dt>
+<dt class="hdlist1" id="git-merge---strategyltstrategiegt"> <a class="anchor" href="#git-merge---strategystrategie"></a> <a class="anchor" href="#git-merge---strategyltstrategiegt"></a>--strategy=&lt;strategie&gt; </dt>
 <dd>
 <p>Utiliser la stratégie de fusion donnée ; peut être fourni plus d&#8217;une fois pour spécifier l&#8217;ordre dans lequel elles doivent être essayées. S&#8217;il n&#8217;y a pas d&#8217;option <code>-s</code>, une liste intégrée de stratégies est utilisée à la place (<code>ort</code> lors de la fusion d&#8217;une seule tête, <code>octopus</code> sinon).</p>
 </dd>
-<dt class="hdlist1" id="git-merge--Xltoptiongt"> <a class="anchor" href="#git-merge--Xltoptiongt"></a>-X &lt;option&gt; </dt>
-<dt class="hdlist1" id="git-merge---strategy-optionltoptiongt"> <a class="anchor" href="#git-merge---strategy-optionltoptiongt"></a>--strategy-option=&lt;option&gt; </dt>
+<dt class="hdlist1" id="git-merge--Xltoptiongt"> <a class="anchor" href="#git-merge--Xoption"></a> <a class="anchor" href="#git-merge--Xltoptiongt"></a>-X &lt;option&gt; </dt>
+<dt class="hdlist1" id="git-merge---strategy-optionltoptiongt"> <a class="anchor" href="#git-merge---strategy-optionoption"></a> <a class="anchor" href="#git-merge---strategy-optionltoptiongt"></a>--strategy-option=&lt;option&gt; </dt>
 <dd>
 <p>Faire passer l&#8217;option spécifique de la stratégie de fusion à la stratégie de fusion.</p>
 </dd>
@@ -211,7 +211,7 @@ L&#8217;option <code>--edit</code> (ou <code>-e</code>) est toujours utile si vo
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-merge--mltmsggt"> <a class="anchor" href="#git-merge--mltmsggt"></a>-m &lt;msg&gt; </dt>
+<dt class="hdlist1" id="git-merge--mltmsggt"> <a class="anchor" href="#git-merge--mmsg"></a> <a class="anchor" href="#git-merge--mltmsggt"></a>-m &lt;msg&gt; </dt>
 <dd>
 <p>Définir le message de commit à utiliser pour le commit de fusion (dans le cas où un commit est créé).</p>
 <div class="paragraph">
@@ -221,12 +221,12 @@ L&#8217;option <code>--edit</code> (ou <code>-e</code>) est toujours utile si vo
 <p>La commande <code>git fmt-merge-msg</code> peut être utilisée pour donner une bonne valeur par défaut pour les invocations automatisées de <code>git merge</code>. Le message automatisé peut inclure la description de la branche.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge---into-nameltbranchegt"> <a class="anchor" href="#git-merge---into-nameltbranchegt"></a>--into-name &lt;branche&gt; </dt>
+<dt class="hdlist1" id="git-merge---into-nameltbranchegt"> <a class="anchor" href="#git-merge---into-namebranche"></a> <a class="anchor" href="#git-merge---into-nameltbranchegt"></a>--into-name &lt;branche&gt; </dt>
 <dd>
 <p>Préparer le message de fusion par défaut comme si la fusion se faisait vers la branche <code>&lt;branche&gt;</code>, au lieu du nom de la branche réelle vers laquelle la fusion est faite.</p>
 </dd>
-<dt class="hdlist1" id="git-merge--Fltfichiergt"> <a class="anchor" href="#git-merge--Fltfichiergt"></a>-F &lt;fichier&gt; </dt>
-<dt class="hdlist1" id="git-merge---fileltfichiergt"> <a class="anchor" href="#git-merge---fileltfichiergt"></a>--file=&lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-merge--Fltfichiergt"> <a class="anchor" href="#git-merge--Ffichier"></a> <a class="anchor" href="#git-merge--Fltfichiergt"></a>-F &lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-merge---fileltfichiergt"> <a class="anchor" href="#git-merge---filefichier"></a> <a class="anchor" href="#git-merge---fileltfichiergt"></a>--file=&lt;fichier&gt; </dt>
 <dd>
 <p>Lire le message de commit à utiliser pour le commit de fusion (dans le cas où un commit est créé).</p>
 <div class="paragraph">
@@ -265,7 +265,7 @@ L&#8217;option <code>--edit</code> (ou <code>-e</code>) est toujours utile si vo
 <dd>
 <p>Après l&#8217;arrêt d&#8217;un <code>git merge</code> en raison de conflits, vous pouvez conclure la fusion en lançant <code>git merge --continue</code> (voir la section "COMMENT RÉSOUDRE LES CONFLITS" ci-dessous).</p>
 </dd>
-<dt class="hdlist1" id="git-merge-ltcommitgt82308203"> <a class="anchor" href="#git-merge-ltcommitgt82308203"></a>&lt;commit&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-merge-ltcommitgt82308203"> <a class="anchor" href="#git-merge-commit"></a> <a class="anchor" href="#git-merge-ltcommitgt82308203"></a>&lt;commit&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Les commits, généralement les sommets des autres branches, à fusionner avec notre branche. En spécifiant plus d&#8217;un commit, on crée une fusion avec plus de deux parents (affectueusement appelée fusion Octopus).</p>
 <div class="paragraph">
@@ -570,15 +570,15 @@ Et voici une autre ligne qui est proprement résolue ou non modifiée.</pre>
 <dd>
 <p>Désactiver l&#8217;option <code>renormalize</code>. Cela surcharge la variable de configuration <code>merge.renormalize</code> .</p>
 </dd>
-<dt class="hdlist1" id="git-merge-find-renamesltngt"> <a class="anchor" href="#git-merge-find-renamesltngt"></a>find-renames[=&lt;n&gt;] </dt>
+<dt class="hdlist1" id="git-merge-find-renamesltngt"> <a class="anchor" href="#git-merge-find-renamesn"></a> <a class="anchor" href="#git-merge-find-renamesltngt"></a>find-renames[=&lt;n&gt;] </dt>
 <dd>
 <p>Activer la détection de renommage, en fixant éventuellement le seuil de similarité. C&#8217;est la valeur par défaut. Cela surcharge la variable de configuration <code>merge.renames</code>. Voir aussi <a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a> <code>--find-renames</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-merge-rename-thresholdltngt"> <a class="anchor" href="#git-merge-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-merge-rename-thresholdltngt"> <a class="anchor" href="#git-merge-rename-thresholdn"></a> <a class="anchor" href="#git-merge-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
 <dd>
 <p>Synonyme obsolète pour <code>find-renames=&lt;n&gt;</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-merge-subtreeltchemingt"> <a class="anchor" href="#git-merge-subtreeltchemingt"></a>subtree[=&lt;chemin&gt;] </dt>
+<dt class="hdlist1" id="git-merge-subtreeltchemingt"> <a class="anchor" href="#git-merge-subtreechemin"></a> <a class="anchor" href="#git-merge-subtreeltchemingt"></a>subtree[=&lt;chemin&gt;] </dt>
 <dd>
 <p>Cette option est une forme plus avancée de stratégie <em>subtree</em>, où la stratégie fait une estimation de la façon dont deux arbres doivent être déplacés pour correspondre l&#8217;un à l&#8217;autre lors de la fusion. Au lieu de cela, le chemin spécifié est préfixé (ou tronqué au debut) pour faire correspondre la forme de deux arbres.</p>
 </dd>
@@ -636,7 +636,7 @@ Et voici une autre ligne qui est proprement résolue ou non modifiée.</pre>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-merge-branchltnomgtmergeOptions"> <a class="anchor" href="#git-merge-branchltnomgtmergeOptions"></a>branch.&lt;nom&gt;.mergeOptions </dt>
+<dt class="hdlist1" id="git-merge-branchltnomgtmergeOptions"> <a class="anchor" href="#git-merge-branchnommergeOptions"></a> <a class="anchor" href="#git-merge-branchltnomgtmergeOptions"></a>branch.&lt;nom&gt;.mergeOptions </dt>
 <dd>
 <p>Définir les options par défaut pour la fusion dans la branche &lt;nom&gt;. La syntaxe et les options prises en charge sont les mêmes que celles de <code>git merge</code>, mais les valeurs d&#8217;options contenant des espaces ne sont actuellement pas prises en charge.</p>
 </dd>

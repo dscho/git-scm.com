@@ -69,27 +69,27 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-bundle-createoptionsltarquivogtltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-createoptionsltarquivogtltgit-rev-list-argsgt"></a>create [options] &lt;arquivo&gt; &lt;git-rev-list-args&gt; </dt>
+<dt class="hdlist1" id="git-bundle-createoptionsltarquivogtltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-createoptionsarquivogit-rev-list-args"></a> <a class="anchor" href="#git-bundle-createoptionsltarquivogtltgit-rev-list-argsgt"></a>create [options] &lt;arquivo&gt; &lt;git-rev-list-args&gt; </dt>
 <dd>
 <p>Usado para criar um pacote chamado <em>file</em>. Isso requer os argumentos <em>&lt;git-rev-list-args&gt;</em> para definir o conteúdo do pacote. Já <em>options</em> contém as opções específicas do subcomando <em>git bundle create</em>. Se o <em>file</em> for <code>-</code> o pacote será enviado para "stdout".</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-verifyltarquivogt"> <a class="anchor" href="#git-bundle-verifyltarquivogt"></a>verify &lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-bundle-verifyltarquivogt"> <a class="anchor" href="#git-bundle-verifyarquivo"></a> <a class="anchor" href="#git-bundle-verifyltarquivogt"></a>verify &lt;arquivo&gt; </dt>
 <dd>
 <p>Usado para verificar se um arquivo do pacote é válido e se será aplicado de forma limpa ao repositório atual. Isso inclui verificações no próprio formato do pacote, bem como a verificação se exitem pré-requisitos do commits e se estão totalmente vinculados no repositório atual. Em seguida, o <em>git bundle</em> imprime uma lista de commits ausentes, se for o caso. Por fim, são impressas informações sobre recursos adicionais, como o "filtro de objetos". Para mais informações consulte "Capacidades" do comando <a href='{{< relurl "docs/gitformat-bundle/pt_BR" >}}'>gitformat-bundle[5]</a>. Caso seja bem-sucedido o código de encerramento é zero, mas se torna um caso o arquivo do pacote seja inválido. Se o <em>file</em> for <code>-</code> o pacote será lido de "stdin".</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-list-headsltarquivogt"> <a class="anchor" href="#git-bundle-list-headsltarquivogt"></a>list-heads &lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-bundle-list-headsltarquivogt"> <a class="anchor" href="#git-bundle-list-headsarquivo"></a> <a class="anchor" href="#git-bundle-list-headsltarquivogt"></a>list-heads &lt;arquivo&gt; </dt>
 <dd>
 <p>Lista as referências definidas no pacote. Se for seguido por uma lista de referências, serão impressas apenas as referências que correspondam à lista informada. Se o <em>file</em> for <code>-</code> o pacote será lido de "stdin".</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-unbundleltarquivogt"> <a class="anchor" href="#git-bundle-unbundleltarquivogt"></a>unbundle &lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-bundle-unbundleltarquivogt"> <a class="anchor" href="#git-bundle-unbundlearquivo"></a> <a class="anchor" href="#git-bundle-unbundleltarquivogt"></a>unbundle &lt;arquivo&gt; </dt>
 <dd>
 <p>Encaminha os objetos do pacote para <em>git index-pack</em> para armazenamento no repositório e, em seguida, imprime os nomes de todas as referências definidas. Se for fornecida uma lista de referências, apenas serão impressas as referências correspondentes às da lista. Esse comando é totalmente redirecionável, tem a única função de ser invocado pelo comando <em>git fetch</em>. Se o <em>file</em> for <code>-</code> o pacote será lido de "stdin".</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-ltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-ltgit-rev-list-argsgt"></a>&lt;git-rev-list-args&gt; </dt>
+<dt class="hdlist1" id="git-bundle-ltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-git-rev-list-args"></a> <a class="anchor" href="#git-bundle-ltgit-rev-list-argsgt"></a>&lt;git-rev-list-args&gt; </dt>
 <dd>
 <p>Uma lista de argumentos, é aceitável com o comando <em>git rev-parse</em> e com o <em>git rev-list</em> (e contendo uma referência mencionada, consulte ESPECIFICANDO REFERÊNCIAS abaixo), que especifica os objetos e as referências específicos que serão transportados. Por exemplo, <code>master~10..master</code> faz com que a referência mestre atual seja empacotada junto com todos os objetos adicionados desde o décimo commit do seu ancestral. Não há limite explícito para a quantidade de referências e de objetos que podem ser empacotados.</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-ltrefnamegt82308203"> <a class="anchor" href="#git-bundle-ltrefnamegt82308203"></a>[&lt;refname&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-bundle-ltrefnamegt82308203"> <a class="anchor" href="#git-bundle-refname"></a> <a class="anchor" href="#git-bundle-ltrefnamegt82308203"></a>[&lt;refname&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Uma lista de referências utilizadas para limitar as referências relatadas como disponíveis. É muito útil para ser utilizado com o <em>git fetch</em> que espera receber apenas as referências solicitadas e não necessariamente tudo no pacote (nesse caso, <em>git bundle</em> age como <em>git fetch-pack</em>).</p>
 </dd>
@@ -97,7 +97,7 @@ aliases:
 <dd>
 <p>É predefinido que a condição geral do progresso seja relatada no fluxo de erros quando estiver conectado num terminal, a menos que <code>-q</code> seja utilizado. Esta opção impõem a condição geral do progresso, mesmo que o fluxo de erro predefinido não seja direcionado para um terminal.</p>
 </dd>
-<dt class="hdlist1" id="git-bundle---versionltversogt"> <a class="anchor" href="#git-bundle---versionltversogt"></a>--version=&lt;versão&gt; </dt>
+<dt class="hdlist1" id="git-bundle---versionltversogt"> <a class="anchor" href="#git-bundle---versionverso"></a> <a class="anchor" href="#git-bundle---versionltversogt"></a>--version=&lt;versão&gt; </dt>
 <dd>
 <p>Especifique uma versão para o pacote. A versão 2 é o formato mais antigo e só pode ser usado com repositórios SHA-1; a versão 3 mais recente, contém recursos que permitem extensões. A predefinição é o formato compatível mais antigo, com base no algoritmo de hash em uso.</p>
 </dd>

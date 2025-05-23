@@ -74,8 +74,8 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <dd>
 <p>Inclui estatísticas adicionais no fim da saída do comando blame.</p>
 </dd>
-<dt class="hdlist1" id="git-blame--Lltiniciogtltfimgt"> <a class="anchor" href="#git-blame--Lltiniciogtltfimgt"></a>-L &lt;inicio&gt;,&lt;fim&gt; </dt>
-<dt class="hdlist1" id="git-blame--Lltfuncnamegt"> <a class="anchor" href="#git-blame--Lltfuncnamegt"></a>-L :&lt;funcname&gt; </dt>
+<dt class="hdlist1" id="git-blame--Lltiniciogtltfimgt"> <a class="anchor" href="#git-blame--Liniciofim"></a> <a class="anchor" href="#git-blame--Lltiniciogtltfimgt"></a>-L &lt;inicio&gt;,&lt;fim&gt; </dt>
+<dt class="hdlist1" id="git-blame--Lltfuncnamegt"> <a class="anchor" href="#git-blame--Lfuncname"></a> <a class="anchor" href="#git-blame--Lltfuncnamegt"></a>-L :&lt;funcname&gt; </dt>
 <dd>
 <p>Anote apenas o intervalo das linhas informadas por <em>&lt;inicio&gt;,&lt;fim&gt;</em> ou pelo nome da função regex <em>&lt;nome-da-função&gt;</em>. Esta opção pode ser utilizada várias vezes. São permitidos intervalos sobrepostos.</p>
 <div class="paragraph">
@@ -122,11 +122,11 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <dd>
 <p>Exibe o registro de data e hora em formato bruto (Predefinição: desligado).</p>
 </dd>
-<dt class="hdlist1" id="git-blame--Sltrevs-filegt"> <a class="anchor" href="#git-blame--Sltrevs-filegt"></a>-S &lt;revs-file&gt; </dt>
+<dt class="hdlist1" id="git-blame--Sltrevs-filegt"> <a class="anchor" href="#git-blame--Srevs-file"></a> <a class="anchor" href="#git-blame--Sltrevs-filegt"></a>-S &lt;revs-file&gt; </dt>
 <dd>
 <p>Utilize as revisões do arquivo-revs no lugar de chamar <a href='{{< relurl "docs/git-rev-list/pt_BR" >}}'>git-rev-list[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-blame---reverseltrevgtltrevgt"> <a class="anchor" href="#git-blame---reverseltrevgtltrevgt"></a>--reverse &lt;rev&gt;..&lt;rev&gt; </dt>
+<dt class="hdlist1" id="git-blame---reverseltrevgtltrevgt"> <a class="anchor" href="#git-blame---reverserevrev"></a> <a class="anchor" href="#git-blame---reverseltrevgtltrevgt"></a>--reverse &lt;rev&gt;..&lt;rev&gt; </dt>
 <dd>
 <p>Avance com o histórico em vez de retroceder. Em vez de mostrar a revisão onde uma linha apareceu, isso mostra a última revisão onde uma linha existiu. Isso requer um intervalo de revisão como START&#8230;&#8203;END, onde o caminho para a falha exista em START. O comando <code>git blame --reverse START</code> é considerado como <code>git blame --reverse START..HEAD</code> por questão de conveniência.</p>
 </dd>
@@ -147,15 +147,15 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <dd>
 <p>Exiba o resultado incrementadamente num formado designado para o consumo de uma máquina.</p>
 </dd>
-<dt class="hdlist1" id="git-blame---encodingltcodificaogt"> <a class="anchor" href="#git-blame---encodingltcodificaogt"></a>--encoding=&lt;codificação&gt; </dt>
+<dt class="hdlist1" id="git-blame---encodingltcodificaogt"> <a class="anchor" href="#git-blame---encodingcodificao"></a> <a class="anchor" href="#git-blame---encodingltcodificaogt"></a>--encoding=&lt;codificação&gt; </dt>
 <dd>
 <p>Defina a codificação a ser utilizada para gerar os nomes dos autores e do resumo dos commits. Definindo como <code>none</code> torna a saída "blame" em dados sem conversão. Para mais informações, consulte a discussão sobre codificação na página do manual <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-blame---contentsltarquivogt"> <a class="anchor" href="#git-blame---contentsltarquivogt"></a>--contents &lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-blame---contentsltarquivogt"> <a class="anchor" href="#git-blame---contentsarquivo"></a> <a class="anchor" href="#git-blame---contentsltarquivogt"></a>--contents &lt;arquivo&gt; </dt>
 <dd>
 <p>Anote usando o conteúdo do arquivo nomeado, iniciando em &lt;rev&gt; caso seja definido, caso contrário, HEAD. Você pode usar <em>-</em> para fazer o comando ler a partir da entrada padrão para dentro do arquivo.</p>
 </dd>
-<dt class="hdlist1" id="git-blame---dateltformatogt"> <a class="anchor" href="#git-blame---dateltformatogt"></a>--date &lt;formato&gt; </dt>
+<dt class="hdlist1" id="git-blame---dateltformatogt"> <a class="anchor" href="#git-blame---dateformato"></a> <a class="anchor" href="#git-blame---dateltformatogt"></a>--date &lt;formato&gt; </dt>
 <dd>
 <p>Especifica o formato utilizado para gerar as datas. Caso --date não seja utilizado, o valor da variável de configuração <code>blame.date</code> será utilizado. Caso a variável de configuração <code>blame.date</code> também não esteja definida, o formato ISO será utilizado. Para ver quais são os valores compatíveis, consulte a discussão da opção <code>--date</code> em <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>.</p>
 </dd>
@@ -163,25 +163,25 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <dd>
 <p>É predefinido que a condição do progresso seja relatado no fluxo de erros padrão quando estiver conectado num terminal. Essa flag permite que os relatórios de progresso sejam feitos ainda que não estejam conectados num terminal. Não é possível usar <code>--progress</code> junto com <code>--porcelain</code> ou <code>--incremental</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-blame--Mltnumgt"> <a class="anchor" href="#git-blame--Mltnumgt"></a>-M[&lt;num&gt;] </dt>
+<dt class="hdlist1" id="git-blame--Mltnumgt"> <a class="anchor" href="#git-blame--Mnum"></a> <a class="anchor" href="#git-blame--Mltnumgt"></a>-M[&lt;num&gt;] </dt>
 <dd>
 <p>Detecta se as linhas foram movidas ou copiadas dentro de um arquivo. Quando um commit move ou copia um bloco de linhas (o arquivo original tem A e depois B, e o commit o altera para B e depois A por exemplo), o algoritmo tradicional de <em>blame</em> (flaha) percebe apenas metade do movimento e normalmente aponta as linhas que foram movidas para cima (ou seja, B) para o commit principal e atribui a falha às linhas que foram movidas para baixo (ou seja, A) no commit relacionado. Com esta opção, os dois grupos de linhas são apontados no commit principal através da execução de passes extras durante a inspeção.</p>
 <div class="paragraph">
 <p>A opção <code>&lt;num&gt;</code> é opcional porém é o limite inferior da quantidade de caracteres alfanuméricos que o Git deve detectar como mover/copiar dentro de um arquivo para associar essas linhas ao commit de origem. 20 é o valor predefinido.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-blame--Cltnumgt"> <a class="anchor" href="#git-blame--Cltnumgt"></a>-C[&lt;num&gt;] </dt>
+<dt class="hdlist1" id="git-blame--Cltnumgt"> <a class="anchor" href="#git-blame--Cnum"></a> <a class="anchor" href="#git-blame--Cltnumgt"></a>-C[&lt;num&gt;] </dt>
 <dd>
 <p>Além do <code>-M</code>, detecta as linhas que foram movidas ou que foram copiadas de outros arquivos que foram alterados no mesmo commit. Isso é útil quando você reorganiza o programa e move o código entre arquivos. Quando essa opção é usada duas vezes, o comando procura adicionalmente pela cópias de outros arquivos no commit que cria o arquivo. Quando essa opção é usada três vezes, o comando procura adicionalmente por cópias de outros arquivos em qualquer commit.</p>
 <div class="paragraph">
 <p>A opção <code>&lt;num&gt;</code> é opcional porém é o limite inferior da quantidade de caracteres alfanuméricos que o Git deve detectar como mover/copiar entre os arquivos para associar estas linhas ao commit de origem. 40 é o valor predefinido. Caso haja mais de uma opção <code>-C</code>, o argumento &lt;num&gt; do último <code>-C</code> entrará em vigor.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-blame---ignore-revltrevgt"> <a class="anchor" href="#git-blame---ignore-revltrevgt"></a>--ignore-rev &lt;rev&gt; </dt>
+<dt class="hdlist1" id="git-blame---ignore-revltrevgt"> <a class="anchor" href="#git-blame---ignore-revrev"></a> <a class="anchor" href="#git-blame---ignore-revltrevgt"></a>--ignore-rev &lt;rev&gt; </dt>
 <dd>
 <p>Ignora as alterações feitas pela revisão ao atribuir a <em>blame</em> (falha), como se a alteração nunca tivesse acontecido. As linhas que foram alteradas ou que foram adicionadas através de um commit que foi ignorado, serão atribuídos ao commit anterior que alterou esta linha ou as linhas próximas. Esta opção pode ser usada diversas vezes para ignorar mais de uma revisão. Se a opção de configuração <code>blame.markIgnoredLines</code> for definida, as linhas que foram alteradas por um commit ignorado e atribuídas a outro commit, serão marcadas com um <code>?</code> ao serem gerados pelo <em>blame</em>. Se a opção de configuração <code>blame.markUnblamableLines</code> for definida, as linhas tocadas por um commit ignorado e que não pudemos atribuir a outra revisão, serão marcadas com um <em>*</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-blame---ignore-revs-fileltarquivogt"> <a class="anchor" href="#git-blame---ignore-revs-fileltarquivogt"></a>--ignore-revs-file &lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-blame---ignore-revs-fileltarquivogt"> <a class="anchor" href="#git-blame---ignore-revs-filearquivo"></a> <a class="anchor" href="#git-blame---ignore-revs-fileltarquivogt"></a>--ignore-revs-file &lt;arquivo&gt; </dt>
 <dd>
 <p>Ignore as revisões listadas no <code>arquivo</code>, que deve estar no mesmo formato como em <code>fsck.skipList</code>. Essa opção pode ser repetida, e estes arquivos serão processados após quaisquer arquivos especificados com a opção de configuração <code>blame.ignoreRevsFile</code>. Um nome de arquivo vazio, <code>""</code>, limpará a lista das revisões dos arquivos que foram processados anteriormente.</p>
 </dd>
@@ -232,7 +232,7 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <dd>
 <p>Ignore os espaços durante a comparação da versão das origens e seus herdeiros para descobrir de onde vieram as linhas.</p>
 </dd>
-<dt class="hdlist1" id="git-blame---abbrevltngt"> <a class="anchor" href="#git-blame---abbrevltngt"></a>--abbrev=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-blame---abbrevltngt"> <a class="anchor" href="#git-blame---abbrevn"></a> <a class="anchor" href="#git-blame---abbrevltngt"></a>--abbrev=&lt;n&gt; </dt>
 <dd>
 <p>Em vez de usar os <em>7+1</em> dígitos hexadecimais predefinidos como o nome abreviado do objeto, use <em>&lt;m&gt;+1</em> dígitos, onde &lt;m&gt; é pelo menos <em>&lt;n&gt;</em>, mas garante que os nomes dos objetos do commit sejam exclusivos. Observe que uma coluna é utilizada como um cursor para marcar o limite do commit.</p>
 </dd>

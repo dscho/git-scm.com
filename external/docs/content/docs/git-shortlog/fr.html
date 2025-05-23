@@ -61,7 +61,7 @@ git log --pretty=short | <em>git shortlog</em> [&lt;options&gt;]</pre>
 <dd>
 <p>Afficher l&#8217;adresse courriel de chaque auteur.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---formatltformatgt"> <a class="anchor" href="#git-shortlog---formatltformatgt"></a>--format[=&lt;format&gt;] </dt>
+<dt class="hdlist1" id="git-shortlog---formatltformatgt"> <a class="anchor" href="#git-shortlog---formatformat"></a> <a class="anchor" href="#git-shortlog---formatltformatgt"></a>--format[=&lt;format&gt;] </dt>
 <dd>
 <p>Au lieu du sujet du commit, utiliser d&#8217;autres informations pour décrire chaque commit. &lt;format&gt;' peut être n&#8217;importe quelle chaîne acceptée par l&#8217;option <code>--format</code> de&#8217;git log', telle que'*[%h] %s'. (Voir la section "MISES EN FORME" de <a href='{{< relurl "docs/git-log/fr" >}}'>git-log[1]</a>.)</p>
 <div class="literalblock">
@@ -70,11 +70,11 @@ git log --pretty=short | <em>git shortlog</em> [&lt;options&gt;]</pre>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-shortlog---dateltformatgt"> <a class="anchor" href="#git-shortlog---dateltformatgt"></a>--date=&lt;format&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---dateltformatgt"> <a class="anchor" href="#git-shortlog---dateformat"></a> <a class="anchor" href="#git-shortlog---dateltformatgt"></a>--date=&lt;format&gt; </dt>
 <dd>
 <p>Affiche les dates formatées en fonction de la chaîne de date donnée. (Voir l&#8217;option <code>--date</code> dans la section "Formatage de commit" de <a href='{{< relurl "docs/git-log/fr" >}}'>git-log[1]</a>). Utile avec <code>--group=format:&lt;format&gt;</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---grouplttypegt"> <a class="anchor" href="#git-shortlog---grouplttypegt"></a>--group=&lt;type&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---grouplttypegt"> <a class="anchor" href="#git-shortlog---grouptype"></a> <a class="anchor" href="#git-shortlog---grouplttypegt"></a>--group=&lt;type&gt; </dt>
 <dd>
 <p>Grouper les commits basés sur <code>&lt;type&gt;</code>. Si aucune option <code>--group</code> n&#8217;est spécifiée, la valeur par défaut est <code>author</code>. <code>&lt;type&gt;</code> peut être :</p>
 <div class="openblock">
@@ -112,18 +112,18 @@ git log --pretty=short | <em>git shortlog</em> [&lt;options&gt;]</pre>
 <dd>
 <p>Il s&#8217;agit d&#8217;un alias pour <code>--group=committer</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog--wltlargeurgtltindent1gtltindent2gt"> <a class="anchor" href="#git-shortlog--wltlargeurgtltindent1gtltindent2gt"></a>-w[&lt;largeur&gt;[,&lt;indent1&gt;[,&lt;indent2&gt;]]] </dt>
+<dt class="hdlist1" id="git-shortlog--wltlargeurgtltindent1gtltindent2gt"> <a class="anchor" href="#git-shortlog--wlargeurindent1indent2"></a> <a class="anchor" href="#git-shortlog--wltlargeurgtltindent1gtltindent2gt"></a>-w[&lt;largeur&gt;[,&lt;indent1&gt;[,&lt;indent2&gt;]]] </dt>
 <dd>
 <p>Formater la sortie en coupant chaque ligne à la longueur <code>largeur</code>. La première ligne de chaque entrée est indentée à <code>indent1</code> espaces, et la deuxième ligne et les suivantes sont indentées à <code>indent2</code> espaces. <code>largeur</code>, <code>indent1</code> et <code>indent2</code> valent par défaut à 76, 6 et 9 respectivement.</p>
 <div class="paragraph">
 <p>Si la largeur est <code>0</code> (zéro) alors indenter les lignes de la sortie sans les recouper.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-shortlog-ltplage-de-rvisionsgt"> <a class="anchor" href="#git-shortlog-ltplage-de-rvisionsgt"></a>&lt;plage-de-révisions&gt; </dt>
+<dt class="hdlist1" id="git-shortlog-ltplage-de-rvisionsgt"> <a class="anchor" href="#git-shortlog-plage-de-rvisions"></a> <a class="anchor" href="#git-shortlog-ltplage-de-rvisionsgt"></a>&lt;plage-de-révisions&gt; </dt>
 <dd>
 <p>Afficher uniquement les commits dans la plage de révision spécifiée. Lorsqu&#8217;aucune &lt;plage-de-révision&gt; n&#8217;est spécifiée, elle vaut par défaut à <code>HEAD</code> (c&#8217;est-à-dire tout l&#8217;historique menant au commit actuel). <code>origin.. HEAD</code> spécifie tous les commits accessibles à partir du commit actuel (c&#8217;est-à-dire <code>HEAD</code>), mais pas de <code>origin</code>. Pour une liste complète des moyens d&#8217;épeler une &lt;plage-de-révision&gt;, consultez la section « Spécification de plage » de <a href='{{< relurl "docs/gitrevisions/fr" >}}'>gitrevisions[7]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---ltchemingt82308203"> <a class="anchor" href="#git-shortlog---ltchemingt82308203"></a>[--] &lt;chemin&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-shortlog---ltchemingt82308203"> <a class="anchor" href="#git-shortlog---chemin"></a> <a class="anchor" href="#git-shortlog---ltchemingt82308203"></a>[--] &lt;chemin&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Ne considérer que les commits qui sont suffisants pour expliquer comment les fichiers qui correspondent aux chemins spécifiés ont été créés.</p>
 <div class="paragraph">
@@ -145,40 +145,40 @@ git log --pretty=short | <em>git shortlog</em> [&lt;options&gt;]</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-shortlog--ltnombregt"> <a class="anchor" href="#git-shortlog--ltnombregt"></a>-&lt;nombre&gt; </dt>
-<dt class="hdlist1" id="git-shortlog--nltnombregt"> <a class="anchor" href="#git-shortlog--nltnombregt"></a>-n &lt;nombre&gt; </dt>
-<dt class="hdlist1" id="git-shortlog---max-countltnombregt"> <a class="anchor" href="#git-shortlog---max-countltnombregt"></a>--max-count==&lt;nombre&gt; </dt>
+<dt class="hdlist1" id="git-shortlog--ltnombregt"> <a class="anchor" href="#git-shortlog--nombre"></a> <a class="anchor" href="#git-shortlog--ltnombregt"></a>-&lt;nombre&gt; </dt>
+<dt class="hdlist1" id="git-shortlog--nltnombregt"> <a class="anchor" href="#git-shortlog--nnombre"></a> <a class="anchor" href="#git-shortlog--nltnombregt"></a>-n &lt;nombre&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---max-countltnombregt"> <a class="anchor" href="#git-shortlog---max-countnombre"></a> <a class="anchor" href="#git-shortlog---max-countltnombregt"></a>--max-count==&lt;nombre&gt; </dt>
 <dd>
 <p>Limite le nombre de commits dans la sortie.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---skipltnombregt"> <a class="anchor" href="#git-shortlog---skipltnombregt"></a>--skip=&lt;nombre&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---skipltnombregt"> <a class="anchor" href="#git-shortlog---skipnombre"></a> <a class="anchor" href="#git-shortlog---skipltnombregt"></a>--skip=&lt;nombre&gt; </dt>
 <dd>
 <p>Sauter&#8217;nombre' commits avant de commencer à afficher la sortie de journal.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---sinceltdategt"> <a class="anchor" href="#git-shortlog---sinceltdategt"></a>--since=&lt;date&gt; </dt>
-<dt class="hdlist1" id="git-shortlog---afterltdategt"> <a class="anchor" href="#git-shortlog---afterltdategt"></a>--after=&lt;date&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---sinceltdategt"> <a class="anchor" href="#git-shortlog---sincedate"></a> <a class="anchor" href="#git-shortlog---sinceltdategt"></a>--since=&lt;date&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---afterltdategt"> <a class="anchor" href="#git-shortlog---afterdate"></a> <a class="anchor" href="#git-shortlog---afterltdategt"></a>--after=&lt;date&gt; </dt>
 <dd>
 <p>Afficher les commits plus récents qu&#8217;une date spécifique.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---since-as-filterltdategt"> <a class="anchor" href="#git-shortlog---since-as-filterltdategt"></a>--since-as-filter=&lt;date&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---since-as-filterltdategt"> <a class="anchor" href="#git-shortlog---since-as-filterdate"></a> <a class="anchor" href="#git-shortlog---since-as-filterltdategt"></a>--since-as-filter=&lt;date&gt; </dt>
 <dd>
 <p>Afficher tous les commits plus récents qu&#8217;une date spécifique. Cela visite tous les commits dans la plage, plutôt que de s&#8217;arrêter au premier commit qui est plus ancien qu&#8217;une date spécifique.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---untilltdategt"> <a class="anchor" href="#git-shortlog---untilltdategt"></a>--until=&lt;date&gt; </dt>
-<dt class="hdlist1" id="git-shortlog---beforeltdategt"> <a class="anchor" href="#git-shortlog---beforeltdategt"></a>--before=&lt;date&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---untilltdategt"> <a class="anchor" href="#git-shortlog---untildate"></a> <a class="anchor" href="#git-shortlog---untilltdategt"></a>--until=&lt;date&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---beforeltdategt"> <a class="anchor" href="#git-shortlog---beforedate"></a> <a class="anchor" href="#git-shortlog---beforeltdategt"></a>--before=&lt;date&gt; </dt>
 <dd>
 <p>Afficher les commits plus anciens qu&#8217;une date spécifique.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---authorltmotifgt"> <a class="anchor" href="#git-shortlog---authorltmotifgt"></a>--author=&lt;motif&gt; </dt>
-<dt class="hdlist1" id="git-shortlog---committerltmotifgt"> <a class="anchor" href="#git-shortlog---committerltmotifgt"></a>--committer=&lt;motif&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---authorltmotifgt"> <a class="anchor" href="#git-shortlog---authormotif"></a> <a class="anchor" href="#git-shortlog---authorltmotifgt"></a>--author=&lt;motif&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---committerltmotifgt"> <a class="anchor" href="#git-shortlog---committermotif"></a> <a class="anchor" href="#git-shortlog---committerltmotifgt"></a>--committer=&lt;motif&gt; </dt>
 <dd>
 <p>Limiter la sortie des commits à ceux dont les lignes d&#8217;en-tête auteur/validateur correspondent au motif spécifié (expression régulière). Avec plus d&#8217;un <code>--author=&lt;motif&gt;</code>, les commits dont l&#8217;auteur correspond à l&#8217;un des motifs donnés sont choisis (de même pour plusieurs <code>--committer=&lt;motif&gt;</code>).</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---grep-reflogltmotifgt"> <a class="anchor" href="#git-shortlog---grep-reflogltmotifgt"></a>--grep-reflog=&lt;motif&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---grep-reflogltmotifgt"> <a class="anchor" href="#git-shortlog---grep-reflogmotif"></a> <a class="anchor" href="#git-shortlog---grep-reflogltmotifgt"></a>--grep-reflog=&lt;motif&gt; </dt>
 <dd>
 <p>Limiter la sortie des commits à ceux dont les entrées de reflog correspondent au motif spécifié (expression régulière). Avec plus d&#8217;un <code>--grep-reflog</code>, les commits dont le message de reflog correspond à l&#8217;un des modèles donnés sont choisis. C&#8217;est une erreur d&#8217;utiliser cette option à moins que <code>--walk-reflogs</code> ne soit utilisé.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---grepltmotifgt"> <a class="anchor" href="#git-shortlog---grepltmotifgt"></a>--grep=&lt;motif&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---grepltmotifgt"> <a class="anchor" href="#git-shortlog---grepmotif"></a> <a class="anchor" href="#git-shortlog---grepltmotifgt"></a>--grep=&lt;motif&gt; </dt>
 <dd>
 <p>Limiter la sortie des commits à ceux dont un message de validation correspond au motif spécifié (expression régulière). Avec plus d&#8217;un <code>--grep=&lt;motif&gt;</code>, les commits dont le message correspond à l&#8217;un des motifs donnés sont choisis (mais voir <code>--all-match</code>).</p>
 <div class="paragraph">
@@ -232,8 +232,8 @@ git log --pretty=short | <em>git shortlog</em> [&lt;options&gt;]</pre>
 <dd>
 <p>Ne pas afficher les commits avec plus d&#8217;un parent. C&#8217;est exactement la même chose que <code>--max-parents=1</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---min-parentsltnombregt"> <a class="anchor" href="#git-shortlog---min-parentsltnombregt"></a>--min-parents=&lt;nombre&gt; </dt>
-<dt class="hdlist1" id="git-shortlog---max-parentsltnombregt"> <a class="anchor" href="#git-shortlog---max-parentsltnombregt"></a>--max-parents=&lt;nombre&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---min-parentsltnombregt"> <a class="anchor" href="#git-shortlog---min-parentsnombre"></a> <a class="anchor" href="#git-shortlog---min-parentsltnombregt"></a>--min-parents=&lt;nombre&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---max-parentsltnombregt"> <a class="anchor" href="#git-shortlog---max-parentsnombre"></a> <a class="anchor" href="#git-shortlog---max-parentsltnombregt"></a>--max-parents=&lt;nombre&gt; </dt>
 <dt class="hdlist1" id="git-shortlog---no-min-parents"> <a class="anchor" href="#git-shortlog---no-min-parents"></a>--no-min-parents </dt>
 <dt class="hdlist1" id="git-shortlog---no-max-parents"> <a class="anchor" href="#git-shortlog---no-max-parents"></a>--no-max-parents </dt>
 <dd>
@@ -258,23 +258,23 @@ git log --pretty=short | <em>git shortlog</em> [&lt;options&gt;]</pre>
 <dd>
 <p>Faire comme si toutes les refs de <code>refs/</code>, ainsi que <code>HEAD</code>, étaient listées sur la ligne de commande comme'&lt;commit&gt;'.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---branchesltmotifgt"> <a class="anchor" href="#git-shortlog---branchesltmotifgt"></a>--branches[=&lt;motif&gt;] </dt>
+<dt class="hdlist1" id="git-shortlog---branchesltmotifgt"> <a class="anchor" href="#git-shortlog---branchesmotif"></a> <a class="anchor" href="#git-shortlog---branchesltmotifgt"></a>--branches[=&lt;motif&gt;] </dt>
 <dd>
 <p>Faire comme si toutes les refs de <code>refs/heads</code> étaient listées sur la ligne de commande comme'&lt;commit&gt;'. Si'&lt;motif&gt;' est fournir, limiter les branches à celles qui correspondent à un glob shell donné. Si le motif ne présente pas de <em>?</em>, <em>*</em>, ni <em>[</em>, <em>/*</em> à la fin est implicite.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---tagsltmotifgt"> <a class="anchor" href="#git-shortlog---tagsltmotifgt"></a>--tags[=&lt;motif&gt;] </dt>
+<dt class="hdlist1" id="git-shortlog---tagsltmotifgt"> <a class="anchor" href="#git-shortlog---tagsmotif"></a> <a class="anchor" href="#git-shortlog---tagsltmotifgt"></a>--tags[=&lt;motif&gt;] </dt>
 <dd>
 <p>Faire comme si toutes les refs de <code>refs/tags</code> étaient listées sur la ligne de commande comme'&lt;commit&gt;'. Si'&lt;motif&gt;' est fournir, limiter les étiquettes à celles qui correspondent à un glob shell donné. Si le motif ne présente pas de <em>?</em>, <em>*</em>, ni <em>[</em>, <em>/*</em> à la fin est implicite.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---remotesltmotifgt"> <a class="anchor" href="#git-shortlog---remotesltmotifgt"></a>--remotes[=&lt;motif&gt;] </dt>
+<dt class="hdlist1" id="git-shortlog---remotesltmotifgt"> <a class="anchor" href="#git-shortlog---remotesmotif"></a> <a class="anchor" href="#git-shortlog---remotesltmotifgt"></a>--remotes[=&lt;motif&gt;] </dt>
 <dd>
 <p>Faire comme si toutes les refs de &#8216;refs/remotes&#8217; étaient listées sur la ligne de commande comme'&lt;commit&gt;'. Si'&lt;motif&gt;' est donné, limiter les branches de suivi à distance à celles qui correspondent à un glob shell donné. Si le motif ne présent pas <em>?</em>, <em>*</em>, ni <em>[</em>, <em>/*</em> à la fin est implicite.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---globltmotif-globgt"> <a class="anchor" href="#git-shortlog---globltmotif-globgt"></a>--glob=&lt;motif-glob&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---globltmotif-globgt"> <a class="anchor" href="#git-shortlog---globmotif-glob"></a> <a class="anchor" href="#git-shortlog---globltmotif-globgt"></a>--glob=&lt;motif-glob&gt; </dt>
 <dd>
 <p>Faire comme si toutes les réfs correspondant au shell glob'&lt;motif-glob&gt;' étaient listées sur la ligne de commande comme'&lt;commit&gt;'. Le préfixe <em>refs/</em>, est automatiquement ajouté s&#8217;il n&#8217;y en a pas. Si le motif ne présente pas de <em>?</em>, <em>*</em>, ni <em>[</em>, <em>/*</em> à la fin est implicite.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---excludeltmotif-globgt"> <a class="anchor" href="#git-shortlog---excludeltmotif-globgt"></a>--exclude=&lt;motif-glob&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---excludeltmotif-globgt"> <a class="anchor" href="#git-shortlog---excludemotif-glob"></a> <a class="anchor" href="#git-shortlog---excludeltmotif-globgt"></a>--exclude=&lt;motif-glob&gt; </dt>
 <dd>
 <p>Ne pas inclure les références correspondant à'&lt;glob-pattern&gt;' que les <code>--all</code>, <code>--branches</code>, <code>--tags</code>, <code>--remotes</code>, ou <code>--glob</code> suivantes considéreraient autrement. Les répétitions de cette option accumulent les motifs d&#8217;exclusion jusqu&#8217;à la prochaine option <code>--all</code>, <code>--branches</code>, <code>--tags</code>, <code>--remotes</code> ou <code>--glob</code> (les autres options ou arguments n&#8217;éliminent pas les motifs accumulés).</p>
 <div class="paragraph">
@@ -387,7 +387,7 @@ git log --pretty=short | <em>git shortlog</em> [&lt;options&gt;]</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-shortlog-ltcheminsgt"> <a class="anchor" href="#git-shortlog-ltcheminsgt"></a>&lt;chemins&gt; </dt>
+<dt class="hdlist1" id="git-shortlog-ltcheminsgt"> <a class="anchor" href="#git-shortlog-chemins"></a> <a class="anchor" href="#git-shortlog-ltcheminsgt"></a>&lt;chemins&gt; </dt>
 <dd>
 <p>Les commits qui modifient les &lt;chemins&gt; donnés sont sélectionnés.</p>
 </dd>
@@ -429,7 +429,7 @@ git log --pretty=short | <em>git shortlog</em> [&lt;options&gt;]</pre>
 <dd>
 <p>Option supplémentaire à <code>--full-history</code> pour supprimer certaines fusions inutiles de l&#8217;historique résultant, car il n&#8217;y a pas de commits sélectionnés contribuant à cette fusion.</p>
 </dd>
-<dt class="hdlist1" id="git-shortlog---ancestry-pathltcommitgt"> <a class="anchor" href="#git-shortlog---ancestry-pathltcommitgt"></a>--ancestry-path[=&lt;commit&gt;] </dt>
+<dt class="hdlist1" id="git-shortlog---ancestry-pathltcommitgt"> <a class="anchor" href="#git-shortlog---ancestry-pathcommit"></a> <a class="anchor" href="#git-shortlog---ancestry-pathltcommitgt"></a>--ancestry-path[=&lt;commit&gt;] </dt>
 <dd>
 <p>Lorsque l&#8217;on donne une plage de commits à afficher (par exemple <em>commit1..commit2</em> ou <em>commit2 ^commit1</em>), n&#8217;afficher que les commits de cette plage qui sont des ancêtres de &lt;commit&gt;, des descendants de &lt;commit&gt;, ou &lt;commit&gt; lui-même. Si aucun commit n&#8217;est spécifié, utiliser <em>commit1</em> (la partie exclue de la plage) comme &lt;commit&gt;. Peut être passée plusieurs fois ; si c&#8217;est le cas, un commit est inclus s&#8217;il est l&#8217;un des commits donnés ou s&#8217;il est un ancêtre ou un descendant de l&#8217;un d&#8217;eux.</p>
 </dd>
@@ -621,7 +621,7 @@ git log --pretty=short | <em>git shortlog</em> [&lt;options&gt;]</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-shortlog---ancestry-pathltcommitgt-1"> <a class="anchor" href="#git-shortlog---ancestry-pathltcommitgt-1"></a>--ancestry-path[=&lt;commit&gt;] </dt>
+<dt class="hdlist1" id="git-shortlog---ancestry-pathltcommitgt-1"> <a class="anchor" href="#git-shortlog---ancestry-pathcommit-1"></a> <a class="anchor" href="#git-shortlog---ancestry-pathltcommitgt-1"></a>--ancestry-path[=&lt;commit&gt;] </dt>
 <dd>
 <p>Limiter les commits affichés à ceux qui sont un ancêtre de &lt;commit&gt;, ou qui sont un descendant de &lt;commit&gt;, ou sont &lt;commit&gt; lui-même.</p>
 <div class="paragraph">

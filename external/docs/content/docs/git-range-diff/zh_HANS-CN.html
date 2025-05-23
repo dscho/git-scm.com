@@ -79,7 +79,7 @@ aliases:
 <p>这在 <code>range-diff</code> 中被称为 "双重着色"。使用 <code>--no-dual-color</code> 可以还原为根据外部差异标记对所有线条着色（在着色时完全忽略内部差异）。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-range-diff---creation-factorltgt"> <a class="anchor" href="#git-range-diff---creation-factorltgt"></a>--creation-factor=&lt;百分比&gt; </dt>
+<dt class="hdlist1" id="git-range-diff---creation-factorltgt"> <a class="anchor" href="#git-range-diff---creation-factor"></a> <a class="anchor" href="#git-range-diff---creation-factorltgt"></a>--creation-factor=&lt;百分比&gt; </dt>
 <dd>
 <p>将创建/删除成本误差因子设置为 <code>&lt;百分比&gt;</code>。 默认为 60。如果 <code>git range-diff</code> 错误地认为一个大的改动是完全重写 (删除一个提交，增加另一个提交)，可以使用较大的值，反之则使用较小的值。 请参阅下面的 ``算法`` 部分以了解为什么需要这个值。</p>
 </dd>
@@ -91,7 +91,7 @@ aliases:
 <dd>
 <p>忽略第二个指定范围（或使用 <code>&lt;rev1&gt;...&lt;rev2&gt;</code> 格式时的 "右侧范围"）中丢失的提交。</p>
 </dd>
-<dt class="hdlist1" id="git-range-diff---diff-mergesltgt"> <a class="anchor" href="#git-range-diff---diff-mergesltgt"></a>--diff-merges=&lt;格式&gt; </dt>
+<dt class="hdlist1" id="git-range-diff---diff-mergesltgt"> <a class="anchor" href="#git-range-diff---diff-merges"></a> <a class="anchor" href="#git-range-diff---diff-mergesltgt"></a>--diff-merges=&lt;格式&gt; </dt>
 <dd>
 <p>Instead of ignoring merge commits, generate diffs for them using the corresponding <code>--diff-merges=&lt;format&gt;</code> option of <a href='{{< relurl "docs/git-log/zh_HANS-CN" >}}'>git-log[1]</a>, and include them in the comparison.</p>
 <div class="paragraph">
@@ -102,19 +102,19 @@ aliases:
 <dd>
 <p>Convenience option, equivalent to <code>--diff-merges=remerge</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-range-diff---no-notesltgt"> <a class="anchor" href="#git-range-diff---no-notesltgt"></a>--[no-]notes[=&lt;引用&gt;] </dt>
+<dt class="hdlist1" id="git-range-diff---no-notesltgt"> <a class="anchor" href="#git-range-diff---no-notes"></a> <a class="anchor" href="#git-range-diff---no-notesltgt"></a>--[no-]notes[=&lt;引用&gt;] </dt>
 <dd>
 <p>这个标志将传递给生成补丁的 <code>git log</code> 程序（参见 <a href='{{< relurl "docs/git-log/zh_HANS-CN" >}}'>git-log[1]</a>）。</p>
 </dd>
-<dt class="hdlist1" id="git-range-diff-lt1gtlt2gt"> <a class="anchor" href="#git-range-diff-lt1gtlt2gt"></a>&lt;范围1&gt; &lt;范围2&gt; </dt>
+<dt class="hdlist1" id="git-range-diff-lt1gtlt2gt"> <a class="anchor" href="#git-range-diff-12"></a> <a class="anchor" href="#git-range-diff-lt1gtlt2gt"></a>&lt;范围1&gt; &lt;范围2&gt; </dt>
 <dd>
 <p>比较两个范围指定的提交，其中 <code>&lt;range1&gt;</code> 被认为是 <code>&lt;range2&gt;</code> 的旧版本。</p>
 </dd>
-<dt class="hdlist1" id="git-range-diff-emlt1gtlt2gtem"> <a class="anchor" href="#git-range-diff-emlt1gtlt2gtem"></a><em>&lt;修订 1&gt;..&lt;修订 2&gt;</em> </dt>
+<dt class="hdlist1" id="git-range-diff-emlt1gtlt2gtem"> <a class="anchor" href="#git-range-diff-12-1"></a> <a class="anchor" href="#git-range-diff-emlt1gtlt2gtem"></a><em>&lt;修订 1&gt;..&lt;修订 2&gt;</em> </dt>
 <dd>
 <p>相当于传递 <code>&lt;rev2&gt;...&lt;rev1&gt;</code> 和 <code>&lt;rev1&gt;...&lt;rev2&gt;</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-range-diff-ltgtlt1gtlt2gt"> <a class="anchor" href="#git-range-diff-ltgtlt1gtlt2gt"></a>&lt;基础&gt; &lt;修订 1&gt; &lt;修订 2&gt; </dt>
+<dt class="hdlist1" id="git-range-diff-ltgtlt1gtlt2gt"> <a class="anchor" href="#git-range-diff-12-1-1"></a> <a class="anchor" href="#git-range-diff-ltgtlt1gtlt2gt"></a>&lt;基础&gt; &lt;修订 1&gt; &lt;修订 2&gt; </dt>
 <dd>
 <p>等同于传递 <code>&lt;base&gt;...&lt;rev1&gt;</code> 和 <code>&lt;base&gt;...&lt;rev2&gt;</code>。 注意 <code>&lt;base&gt;</code> 不需要是分支的确切分支点。例如： 在重定向分支 <code>my-topic</code> 之后， <code>git range-diff my-topic@{u} my-topic@{1} my-topic</code> 将显示重定向带来的差异。</p>
 </dd>

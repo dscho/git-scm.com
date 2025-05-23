@@ -70,14 +70,14 @@ aliases:
 <dd>
 <p>审核并编辑您即将发送的每个补丁。默认为 <code>sendemail.annotate</code> 的值。有关 <code>sendemail.multiEdit</code> 请参阅配置部分。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---bccltgt82308203"> <a class="anchor" href="#git-send-email---bccltgt82308203"></a>--bcc=&lt;地址&gt;,&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-send-email---bccltgt82308203"> <a class="anchor" href="#git-send-email---bcc"></a> <a class="anchor" href="#git-send-email---bccltgt82308203"></a>--bcc=&lt;地址&gt;,&#8230;&#8203; </dt>
 <dd>
 <p>为每封电子邮件指定一个 "Bcc："（密送）值。默认为 <code>sendemail.bcc</code> 的值。</p>
 <div class="paragraph">
 <p>该选项可指定多次。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-send-email---ccltgt82308203"> <a class="anchor" href="#git-send-email---ccltgt82308203"></a>--cc=&lt;地址&gt;,&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-send-email---ccltgt82308203"> <a class="anchor" href="#git-send-email---cc"></a> <a class="anchor" href="#git-send-email---ccltgt82308203"></a>--cc=&lt;地址&gt;,&#8230;&#8203; </dt>
 <dd>
 <p>为每封电子邮件指定一个起始 "Cc："（抄送）值。 默认值为 <code>sendemail.cc</code>。</p>
 <div class="paragraph">
@@ -97,15 +97,15 @@ aliases:
 <p>请参阅 <code>sendemail.multiEdit</code> 的配置部分。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-send-email---fromltgt"> <a class="anchor" href="#git-send-email---fromltgt"></a>--from=&lt;地址&gt; </dt>
+<dt class="hdlist1" id="git-send-email---fromltgt"> <a class="anchor" href="#git-send-email---from"></a> <a class="anchor" href="#git-send-email---fromltgt"></a>--from=&lt;地址&gt; </dt>
 <dd>
 <p>指定电子邮件的发件人。 如果未在命令行中指定，则使用配置选项 <code>sendemail.from</code> 的值。 如果命令行选项和 <code>sendemail.from</code> 均未设置，则会提示用户输入值。 提示的默认值是 GIT_AUTHOR_IDENT 的值，如果没有设置 GIT_COMMITTER_IDENT，则使用 "git var -l" 返回的值。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---reply-toltgt"> <a class="anchor" href="#git-send-email---reply-toltgt"></a>--reply-to=&lt;地址&gt; </dt>
+<dt class="hdlist1" id="git-send-email---reply-toltgt"> <a class="anchor" href="#git-send-email---reply-to"></a> <a class="anchor" href="#git-send-email---reply-toltgt"></a>--reply-to=&lt;地址&gt; </dt>
 <dd>
 <p>指定收件人回复的地址。 如果邮件的回复地址与 --from 参数指定的地址不同，请使用此参数。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---in-reply-toltgt"> <a class="anchor" href="#git-send-email---in-reply-toltgt"></a>--in-reply-to=&lt;标识符&gt; </dt>
+<dt class="hdlist1" id="git-send-email---in-reply-toltgt"> <a class="anchor" href="#git-send-email---in-reply-to"></a> <a class="anchor" href="#git-send-email---in-reply-toltgt"></a>--in-reply-to=&lt;标识符&gt; </dt>
 <dd>
 <p>使第一封邮件（或所有带有 <code>--no-thread</code>（无线程）的邮件）作为给定 Message-ID 的回复出现，从而避免为提供新的补丁系列而中断线程。 第二封及其后的邮件将根据 "--[no-]chain-reply-to "设置作为回复发送。</p>
 <div class="paragraph">
@@ -126,25 +126,25 @@ aliases:
 <p>只有同时设置了 --compose 时才有必要。 如果未设置 --compose，则会提示。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-send-email---subjectltgt"> <a class="anchor" href="#git-send-email---subjectltgt"></a>--subject=&lt;字符串&gt; </dt>
+<dt class="hdlist1" id="git-send-email---subjectltgt"> <a class="anchor" href="#git-send-email---subject"></a> <a class="anchor" href="#git-send-email---subjectltgt"></a>--subject=&lt;字符串&gt; </dt>
 <dd>
 <p>指定电子邮件线程的初始主题。 只有同时设置了 --compose 时才需要。 如果未设置 --compose，系统将提示输入。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---toltgt82308203"> <a class="anchor" href="#git-send-email---toltgt82308203"></a>--to=&lt;地址&gt;,&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-send-email---toltgt82308203"> <a class="anchor" href="#git-send-email---to"></a> <a class="anchor" href="#git-send-email---toltgt82308203"></a>--to=&lt;地址&gt;,&#8230;&#8203; </dt>
 <dd>
 <p>指定所生成电子邮件的主要收件人。一般来说，这将是相关项目的上游维护者。默认值是 <code>sendemail.to</code> 配置值的值，如果未指定该值，且未指定 --to-cmd 参数，则会提示该值。</p>
 <div class="paragraph">
 <p>该选项可指定多次。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-send-email---8bit-encodingltgt"> <a class="anchor" href="#git-send-email---8bit-encodingltgt"></a>--8bit-encoding=&lt;编码&gt; </dt>
+<dt class="hdlist1" id="git-send-email---8bit-encodingltgt"> <a class="anchor" href="#git-send-email---8bit-encoding"></a> <a class="anchor" href="#git-send-email---8bit-encodingltgt"></a>--8bit-encoding=&lt;编码&gt; </dt>
 <dd>
 <p>当遇到未声明其编码的非 ASCII 邮件或主题时，添加标头/引号以表明它是以 &lt;编码&gt; 编码的。 默认值是 'sendemail.assume8bitEncoding ' 的值；如果未指定该值，则在遇到任何非 ASCII 文件时会提示使用该值。</p>
 <div class="paragraph">
 <p>请注意，我们不会尝试验证编码。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-send-email---compose-encodingltgt"> <a class="anchor" href="#git-send-email---compose-encodingltgt"></a>--compose-encoding=&lt;编码&gt; </dt>
+<dt class="hdlist1" id="git-send-email---compose-encodingltgt"> <a class="anchor" href="#git-send-email---compose-encoding"></a> <a class="anchor" href="#git-send-email---compose-encodingltgt"></a>--compose-encoding=&lt;编码&gt; </dt>
 <dd>
 <p>Specify encoding of compose message. Default is the value of the <em>sendemail.composeEncoding</em>; if that is unspecified, UTF-8 is assumed.</p>
 </dd>
@@ -167,23 +167,23 @@ aliases:
 <h3 id="_发送中"><a class="anchor" href="#_发送中"></a>发送中</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-send-email---envelope-senderltgt"> <a class="anchor" href="#git-send-email---envelope-senderltgt"></a>--envelope-sender=&lt;地址&gt; </dt>
+<dt class="hdlist1" id="git-send-email---envelope-senderltgt"> <a class="anchor" href="#git-send-email---envelope-sender"></a> <a class="anchor" href="#git-send-email---envelope-senderltgt"></a>--envelope-sender=&lt;地址&gt; </dt>
 <dd>
 <p>指定用于发送电子邮件的信封发件人。 如果您的默认地址不是订阅列表的地址，这将非常有用。为了使用 <em>From</em>（发件人）地址，请将值设置为 "auto"。如果使用 sendmail 二进制文件，必须为 -f 参数设置适当的权限。 默认值是 <code>sendemail.envelopeSender</code> 配置变量的值；如果未指定，则由 MTA 选择信封发件人。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---sendmail-cmdltgt"> <a class="anchor" href="#git-send-email---sendmail-cmdltgt"></a>--sendmail-cmd=&lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-send-email---sendmail-cmdltgt"> <a class="anchor" href="#git-send-email---sendmail-cmd"></a> <a class="anchor" href="#git-send-email---sendmail-cmdltgt"></a>--sendmail-cmd=&lt;命令&gt; </dt>
 <dd>
 <p>Specify a command to run to send the email. The command should be sendmail-like; specifically, it must support the <code>-i</code> option. The command will be executed in the shell if necessary. Default is the value of <code>sendemail.sendmailCmd</code>. If unspecified, and if --smtp-server is also unspecified, git-send-email will search for <code>sendmail</code> in <code>/usr/sbin</code>, <code>/usr/lib</code> and $PATH.</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---smtp-encryptionltgt"> <a class="anchor" href="#git-send-email---smtp-encryptionltgt"></a>--smtp-encryption=&lt;加密&gt; </dt>
+<dt class="hdlist1" id="git-send-email---smtp-encryptionltgt"> <a class="anchor" href="#git-send-email---smtp-encryption"></a> <a class="anchor" href="#git-send-email---smtp-encryptionltgt"></a>--smtp-encryption=&lt;加密&gt; </dt>
 <dd>
 <p>指定 SMTP 连接的加密方式。 有效值为 <em>ssl</em> 和 <em>tls</em>。任何其他值都将恢复为普通（未加密）SMTP，默认端口为 25。 尽管名称不同，但这两个值都将使用相同的 TLS 更新版本，只是由于历史原因才使用了这些名称。<em>ssl</em> 指 “隐式” 加密（有时称为 SMTPS），默认使用 465 端口。 <em>tls</em> 指 “显式” 加密（通常称为 STARTTLS），默认使用 25 端口。SMTP 服务器还可能使用其他端口，但这些端口并非默认端口。常见的 <em>tls</em> 和未加密的替代端口是 587。您需要查看供应商的文档或服务器配置，以确定自己的情况。默认值为 <code>sendemail.smtpEncryption</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---smtp-domainltFQDNgt"> <a class="anchor" href="#git-send-email---smtp-domainltFQDNgt"></a>--smtp-domain=&lt;FQDN&gt; </dt>
+<dt class="hdlist1" id="git-send-email---smtp-domainltFQDNgt"> <a class="anchor" href="#git-send-email---smtp-domainFQDN"></a> <a class="anchor" href="#git-send-email---smtp-domainltFQDNgt"></a>--smtp-domain=&lt;FQDN&gt; </dt>
 <dd>
 <p>指定发送到 SMTP 服务器的 HELO/EHLO 命令中使用的完全限定域名 (FQDN)。 有些服务器要求 FQDN 与您的 IP 地址匹配。 如果未设置，git send-email 会尝试自动确定您的 FQDN。 默认值为 <code>sendemail.smtpDomain</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---smtp-authltgt"> <a class="anchor" href="#git-send-email---smtp-authltgt"></a>--smtp-auth=&lt;验证机制&gt; </dt>
+<dt class="hdlist1" id="git-send-email---smtp-authltgt"> <a class="anchor" href="#git-send-email---smtp-auth"></a> <a class="anchor" href="#git-send-email---smtp-authltgt"></a>--smtp-auth=&lt;验证机制&gt; </dt>
 <dd>
 <p>以空白分隔的允许 SMTP-AUTH 机制列表。此设置只强制使用列出的机制。例如：</p>
 <div class="listingblock">
@@ -195,7 +195,7 @@ aliases:
 <p>如果指定的机制中至少有一种与 SMTP 服务器公布的机制相匹配，且受所使用的 SASL 库支持，则该机制将用于身份验证。如果既未指定 <em>sendemail.smtpAuth</em>，也未指定 <code>--smtp-auth`参数，则可使用 SASL 库支持的所有机制。如果指定了特殊值 'none'，则可以完全禁用与 `--smtp-user</code> 参数无关的身份验证</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-send-email---smtp-passltgt"> <a class="anchor" href="#git-send-email---smtp-passltgt"></a>--smtp-pass[=&lt;密码&gt;] </dt>
+<dt class="hdlist1" id="git-send-email---smtp-passltgt"> <a class="anchor" href="#git-send-email---smtp-pass"></a> <a class="anchor" href="#git-send-email---smtp-passltgt"></a>--smtp-pass[=&lt;密码&gt;] </dt>
 <dd>
 <p>SMTP-AUTH 的密码。参数为可选参数：如果未指定参数，则使用空字符串作为密码。默认值是 <code>sendemail.smtpPass</code> 的值，但 <code>--smtp-pass</code> 始终会覆盖该值。</p>
 <div class="paragraph">
@@ -206,18 +206,18 @@ aliases:
 <dd>
 <p>禁用 SMTP 验证。<code>--smtp-auth=none</code> 的简称</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---smtp-serverltgt"> <a class="anchor" href="#git-send-email---smtp-serverltgt"></a>--smtp-server=&lt;主机&gt; </dt>
+<dt class="hdlist1" id="git-send-email---smtp-serverltgt"> <a class="anchor" href="#git-send-email---smtp-server"></a> <a class="anchor" href="#git-send-email---smtp-serverltgt"></a>--smtp-server=&lt;主机&gt; </dt>
 <dd>
 <p>如果设置，则指定要使用的外发 SMTP 服务器（例如 <code>smtp.example.com</code> 或原始 IP 地址）。 如果未指定，而且`--sendmail-cmd` 也未指定，默认情况下会在`/usr/sbin`、<code>/usr/lib</code> 和 $PATH 中搜索 <code>sendmail</code>（如果有），否则会返回到 <code>localhost</code>。</p>
 <div class="paragraph">
 <p>为了向后兼容，该选项也可以指定一个类似于 sendmail 的程序的完整路径名；该程序必须支持 <code>-i</code> 选项。 这种方法不支持传递参数或使用纯命令名。 在这些情况下，请考虑使用 <code>--sendmail-cmd</code>。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-send-email---smtp-server-portltgt"> <a class="anchor" href="#git-send-email---smtp-server-portltgt"></a>--smtp-server-port=&lt;端口&gt; </dt>
+<dt class="hdlist1" id="git-send-email---smtp-server-portltgt"> <a class="anchor" href="#git-send-email---smtp-server-port"></a> <a class="anchor" href="#git-send-email---smtp-server-portltgt"></a>--smtp-server-port=&lt;端口&gt; </dt>
 <dd>
 <p>指定一个不同于默认端口的端口（SMTP 服务器通常监听 smtp 端口 25，但也可能监听 submission 端口 587 或常用的 SSL smtp 端口 465）；也接受符号端口名称（如用 "submission" 代替 587）。端口也可以通过 <code>sendemail.smtpServerPort</code> 配置变量来设置。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---smtp-server-optionltgt"> <a class="anchor" href="#git-send-email---smtp-server-optionltgt"></a>--smtp-server-option=&lt;选项&gt; </dt>
+<dt class="hdlist1" id="git-send-email---smtp-server-optionltgt"> <a class="anchor" href="#git-send-email---smtp-server-option"></a> <a class="anchor" href="#git-send-email---smtp-server-optionltgt"></a>--smtp-server-option=&lt;选项&gt; </dt>
 <dd>
 <p>如果设置，则指定要使用的外发 SMTP 服务器选项。 默认值可由 <code>sendemail.smtpServerOption</code> 配置选项指定。</p>
 <div class="paragraph">
@@ -232,7 +232,7 @@ aliases:
 <dd>
 <p>Path to a store of trusted CA certificates for SMTP SSL/TLS certificate validation (either a directory that has been processed by <em>c_rehash</em>, or a single file containing one or more PEM format certificates concatenated together: see verify(1) -CAfile and -CApath for more information on these). Set it to an empty string to disable certificate verification. Defaults to the value of the <code>sendemail.smtpSSLCertPath</code> configuration variable, if set, or the backing SSL library&#8217;s compiled-in default otherwise (which should be the best choice on most platforms).</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---smtp-userltgt"> <a class="anchor" href="#git-send-email---smtp-userltgt"></a>--smtp-user=&lt;用户&gt; </dt>
+<dt class="hdlist1" id="git-send-email---smtp-userltgt"> <a class="anchor" href="#git-send-email---smtp-user"></a> <a class="anchor" href="#git-send-email---smtp-userltgt"></a>--smtp-user=&lt;用户&gt; </dt>
 <dd>
 <p>SMTP-AUTH 的用户名。默认值是 <code>sendemail.smtpUser</code> 的值；如果未指定用户名（使用 <code>--smtp-user</code> 或 <code>sendemail.smtpUser</code>），则不会尝试验证。</p>
 </dd>
@@ -240,11 +240,11 @@ aliases:
 <dd>
 <p>启用 (1) 或禁用 (0) 调试输出。如果启用，将打印 SMTP 命令和回复。用于调试 TLS 连接和身份验证问题。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---batch-sizeltgt"> <a class="anchor" href="#git-send-email---batch-sizeltgt"></a>--batch-size=&lt;数值&gt; </dt>
+<dt class="hdlist1" id="git-send-email---batch-sizeltgt"> <a class="anchor" href="#git-send-email---batch-size"></a> <a class="anchor" href="#git-send-email---batch-sizeltgt"></a>--batch-size=&lt;数值&gt; </dt>
 <dd>
 <p>某些邮件服务器（如 smtp.163.com）限制每次会话（连接）发送的邮件数量，这将导致发送大量邮件时出现故障。 有了这个选项，send-email 会在发送 $&lt;数值&gt; 邮件后断开连接，等待几秒钟（参见 --relogin-delay ），然后重新连接，以规避这种限制。 你可能需要使用某种形式的凭证助手，以避免每次都要重新输入密码。 默认为 <code>sendemail.smtpBatchSize</code> 配置变量。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---relogin-delayltgt"> <a class="anchor" href="#git-send-email---relogin-delayltgt"></a>--relogin-delay=&lt;整数&gt; </dt>
+<dt class="hdlist1" id="git-send-email---relogin-delayltgt"> <a class="anchor" href="#git-send-email---relogin-delay"></a> <a class="anchor" href="#git-send-email---relogin-delayltgt"></a>--relogin-delay=&lt;整数&gt; </dt>
 <dd>
 <p>重新连接 SMTP 服务器前等待 $&lt;整数&gt; 秒。与 --batch-size 选项一起使用。 默认为 <code>sendemail.smtpReloginDelay</code> 配置变量。</p>
 </dd>
@@ -265,15 +265,15 @@ aliases:
 <dd>
 <p>清除先前读取的通过配置设置的 <code>sendemail.identity</code> 值（如果有）。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---to-cmdltgt"> <a class="anchor" href="#git-send-email---to-cmdltgt"></a>--to-cmd=&lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-send-email---to-cmdltgt"> <a class="anchor" href="#git-send-email---to-cmd"></a> <a class="anchor" href="#git-send-email---to-cmdltgt"></a>--to-cmd=&lt;命令&gt; </dt>
 <dd>
 <p>Specify a command to execute once per patch file which should generate patch file specific "To:" entries. Output of this command must be single email address per line. Default is the value of <em>sendemail.toCmd</em> configuration value.</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---cc-cmdltgt"> <a class="anchor" href="#git-send-email---cc-cmdltgt"></a>--cc-cmd=&lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-send-email---cc-cmdltgt"> <a class="anchor" href="#git-send-email---cc-cmd"></a> <a class="anchor" href="#git-send-email---cc-cmdltgt"></a>--cc-cmd=&lt;命令&gt; </dt>
 <dd>
 <p>指定每个补丁文件执行一次的命令，该命令应生成补丁文件特定的 "Cc:"（抄送人）条目。 该命令的输出必须是每行一个电子邮件地址。 默认值为 <code>sendemail.ccCmd</code> 配置值。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---header-cmdltgt"> <a class="anchor" href="#git-send-email---header-cmdltgt"></a>--header-cmd=&lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-send-email---header-cmdltgt"> <a class="anchor" href="#git-send-email---header-cmd"></a> <a class="anchor" href="#git-send-email---header-cmdltgt"></a>--header-cmd=&lt;命令&gt; </dt>
 <dd>
 <p>指定一条命令，每封发送邮件执行一次，并输出 RFC 2822 样式的标题行插入其中。如果设置了 <code>sendemail.headerCmd</code> 配置变量，则始终使用其值。在命令行中提供 --header-cmd 参数时，其值优先于 <code>sendemail.headerCmd</code> 配置变量。</p>
 </dd>
@@ -285,7 +285,7 @@ aliases:
 <dd>
 <p>如果设置了此项，每封邮件都将作为对前一封邮件的回复发送。 如果使用 "--no-chain-reply-to" 禁用该选项，则第一封邮件之后的所有邮件都将作为对第一封邮件的回复发送。 使用此功能时，建议给出的第一个文件是整个补丁系列的概述。默认情况下已禁用，但可以使用 <code>sendemail.chainReplyTo</code> 配置变量启用它。</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---identityltgt"> <a class="anchor" href="#git-send-email---identityltgt"></a>--identity=&lt;身份&gt; </dt>
+<dt class="hdlist1" id="git-send-email---identityltgt"> <a class="anchor" href="#git-send-email---identity"></a> <a class="anchor" href="#git-send-email---identityltgt"></a>--identity=&lt;身份&gt; </dt>
 <dd>
 <p>配置标识。给定后，<em>sendemail.&lt;认证&gt;</em> 分节中的值将优先于 <em>sendemail</em> 部分中的值。默认身份是 <code>sendemail.identity</code> 的值。</p>
 </dd>
@@ -301,7 +301,7 @@ aliases:
 <dd>
 <p>If this is set, emails found in To: headers in the first patch of the series (typically the cover letter) are added to the to list for each email set. Default is the value of <em>sendemail.toCover</em> configuration value; if that is unspecified, default to --no-to-cover.</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---suppress-ccltgt"> <a class="anchor" href="#git-send-email---suppress-ccltgt"></a>--suppress-cc=&lt;类别&gt; </dt>
+<dt class="hdlist1" id="git-send-email---suppress-ccltgt"> <a class="anchor" href="#git-send-email---suppress-cc"></a> <a class="anchor" href="#git-send-email---suppress-ccltgt"></a>--suppress-cc=&lt;类别&gt; </dt>
 <dd>
 <p>指定一个额外的收件人类别，以禁止自动收件：</p>
 <div class="openblock">
@@ -368,7 +368,7 @@ aliases:
 <h3 id="_管理"><a class="anchor" href="#_管理"></a>管理</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-send-email---confirmltgt"> <a class="anchor" href="#git-send-email---confirmltgt"></a>--confirm=&lt;模式&gt; </dt>
+<dt class="hdlist1" id="git-send-email---confirmltgt"> <a class="anchor" href="#git-send-email---confirm"></a> <a class="anchor" href="#git-send-email---confirmltgt"></a>--confirm=&lt;模式&gt; </dt>
 <dd>
 <p>发送前确认：</p>
 <div class="openblock">

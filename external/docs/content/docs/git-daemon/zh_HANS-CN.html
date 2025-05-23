@@ -68,7 +68,7 @@ aliases:
 <dd>
 <p>准确匹配路径（即不允许 "/foo/repo"，而真正的路径是 "/foo/repo.git " 或 "/foo/repo/.git"），不做与用户相关的路径。 当这个选项被启用并且没有提供目录参数时，"git daemon" 将拒绝启动。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---base-pathltgt"> <a class="anchor" href="#git-daemon---base-pathltgt"></a>--base-path=&lt;路径&gt; </dt>
+<dt class="hdlist1" id="git-daemon---base-pathltgt"> <a class="anchor" href="#git-daemon---base-path"></a> <a class="anchor" href="#git-daemon---base-pathltgt"></a>--base-path=&lt;路径&gt; </dt>
 <dd>
 <p>将所有的路径请求重新映射为相对于给定路径的请求。 这有点像 "Git root"--如果你在 example.com 上用 <em>--base-path=/srv/git</em> 运行 <em>git daemon</em>，那么如果你以后试图拉 <em>git://example.com/hello.git</em>，<em>git daemon</em> 将把路径解释为 <code>/srv/git/hello.git</code>。</p>
 </dd>
@@ -76,7 +76,7 @@ aliases:
 <dd>
 <p>如果启用了 --base-path，并且 repo 查找失败，使用这个选项，<em>git daemon</em> 将尝试在不加前缀的基础路径下进行查找。 这对于切换到 --base-path 的使用很有用，同时仍然允许使用旧的路径。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---interpolated-pathltgt"> <a class="anchor" href="#git-daemon---interpolated-pathltgt"></a>--interpolated-path=&lt;路径模板&gt; </dt>
+<dt class="hdlist1" id="git-daemon---interpolated-pathltgt"> <a class="anchor" href="#git-daemon---interpolated-path"></a> <a class="anchor" href="#git-daemon---interpolated-pathltgt"></a>--interpolated-path=&lt;路径模板&gt; </dt>
 <dd>
 <p>为了支持虚拟主机，可以使用插值路径模板来动态地构建备用路径。 该模板支持由客户提供的目标主机名的 %H，但转换为小写字母；支持规范主机名的 %CH；支持服务器 IP 地址的 %IP；支持端口号的 %P；支持命名仓库的绝对路径的 %D。 在插值之后，该路径将根据目录列表进行验证。</p>
 </dd>
@@ -88,23 +88,23 @@ aliases:
 <dd>
 <p>让服务器作为一个 inetd 服务运行。暗示 --syslog（可以用 <code>--log-destination=</code> 重写）。 与 --detach、--port、--listen、--user 和 --group 选项不兼容。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---listenltIPgt"> <a class="anchor" href="#git-daemon---listenltIPgt"></a>--listen=&lt;主机或 IP 地址&gt; </dt>
+<dt class="hdlist1" id="git-daemon---listenltIPgt"> <a class="anchor" href="#git-daemon---listenIP"></a> <a class="anchor" href="#git-daemon---listenltIPgt"></a>--listen=&lt;主机或 IP 地址&gt; </dt>
 <dd>
 <p>在一个特定的 IP 地址或主机名上收听。 IP 地址可以是一个 IPv4 地址，也可以是一个 IPv6 地址（如果支持）。 如果不支持 IPv6，那么 --listen=hostname也不被支持，--listen 必须给出一个 IPv4 地址。 可以多次给出。 与 <code>--inetd</code> 选项不兼容。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---portltngt"> <a class="anchor" href="#git-daemon---portltngt"></a>--port=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-daemon---portltngt"> <a class="anchor" href="#git-daemon---portn"></a> <a class="anchor" href="#git-daemon---portltngt"></a>--port=&lt;n&gt; </dt>
 <dd>
 <p>在另一个端口上监听。 与 <code>--inetd</code> 选项不兼容。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---init-timeoutltngt"> <a class="anchor" href="#git-daemon---init-timeoutltngt"></a>--init-timeout=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-daemon---init-timeoutltngt"> <a class="anchor" href="#git-daemon---init-timeoutn"></a> <a class="anchor" href="#git-daemon---init-timeoutltngt"></a>--init-timeout=&lt;n&gt; </dt>
 <dd>
 <p>从建立连接到收到客户端请求之间的超时（以秒为单位）（通常是一个相当低的值，因为这基本上应该是即时的）。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---timeoutltngt"> <a class="anchor" href="#git-daemon---timeoutltngt"></a>--timeout=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-daemon---timeoutltngt"> <a class="anchor" href="#git-daemon---timeoutn"></a> <a class="anchor" href="#git-daemon---timeoutltngt"></a>--timeout=&lt;n&gt; </dt>
 <dd>
 <p>特定客户端子请求的超时（单位：秒）。这包括服务器处理子请求的时间和等待下一个客户端请求的时间。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---max-connectionsltngt"> <a class="anchor" href="#git-daemon---max-connectionsltngt"></a>--max-connections=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-daemon---max-connectionsltngt"> <a class="anchor" href="#git-daemon---max-connectionsn"></a> <a class="anchor" href="#git-daemon---max-connectionsltngt"></a>--max-connections=&lt;n&gt; </dt>
 <dd>
 <p>最大并发客户数，默认为 32。 设置为零表示没有限制。</p>
 </dd>
@@ -112,7 +112,7 @@ aliases:
 <dd>
 <p>是 <code>--log-destination=syslog</code> 的简称。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---log-destinationltgt"> <a class="anchor" href="#git-daemon---log-destinationltgt"></a>--log-destination=&lt;目的&gt; </dt>
+<dt class="hdlist1" id="git-daemon---log-destinationltgt"> <a class="anchor" href="#git-daemon---log-destination"></a> <a class="anchor" href="#git-daemon---log-destinationltgt"></a>--log-destination=&lt;目的&gt; </dt>
 <dd>
 <p>发送日志信息到指定的目的地。 注意，这个选项并不意味着 --verbose，因此默认情况下只有错误情况会被记录下来。 &lt;目的&gt; 必须是以下之一：</p>
 <div class="openblock">
@@ -140,7 +140,7 @@ aliases:
 </div>
 </dd>
 <dt class="hdlist1" id="git-daemon---user-path"> <a class="anchor" href="#git-daemon---user-path"></a>--user-path </dt>
-<dt class="hdlist1" id="git-daemon---user-pathltgt"> <a class="anchor" href="#git-daemon---user-pathltgt"></a>--user-path=&lt;路径&gt; </dt>
+<dt class="hdlist1" id="git-daemon---user-pathltgt"> <a class="anchor" href="#git-daemon---user-path-1"></a> <a class="anchor" href="#git-daemon---user-pathltgt"></a>--user-path=&lt;路径&gt; </dt>
 <dd>
 <p>允许在请求中使用 ~ 用户符号。 当没有指定参数时，对 git://host/~alice/foo 的请求会被视为访问用户 <code>alice</code> 的主目录下的 <em>foo</em> 仓库的请求。 如果指定了 <code>--user-path=path</code>，同样的请求将被视为访问用户 <code>alice</code> 的主目录下的 <code>path/foo</code> 仓库。</p>
 </dd>
@@ -156,12 +156,12 @@ aliases:
 <dd>
 <p>从 shell 中分离出来。这意味着 --syslog。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---pid-fileltgt"> <a class="anchor" href="#git-daemon---pid-fileltgt"></a>--pid-file=&lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-daemon---pid-fileltgt"> <a class="anchor" href="#git-daemon---pid-file"></a> <a class="anchor" href="#git-daemon---pid-fileltgt"></a>--pid-file=&lt;文件&gt; </dt>
 <dd>
 <p>在 <em>file</em> 中保存进程 ID。 当守护进程在 <code>--inetd</code> 下运行时被忽略。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---userltgt"> <a class="anchor" href="#git-daemon---userltgt"></a>--user=&lt;用户&gt; </dt>
-<dt class="hdlist1" id="git-daemon---groupltgt"> <a class="anchor" href="#git-daemon---groupltgt"></a>--group=&lt;组&gt; </dt>
+<dt class="hdlist1" id="git-daemon---userltgt"> <a class="anchor" href="#git-daemon---user"></a> <a class="anchor" href="#git-daemon---userltgt"></a>--user=&lt;用户&gt; </dt>
+<dt class="hdlist1" id="git-daemon---groupltgt"> <a class="anchor" href="#git-daemon---group"></a> <a class="anchor" href="#git-daemon---groupltgt"></a>--group=&lt;组&gt; </dt>
 <dd>
 <p>在进入服务循环之前，改变 daemon 的 uid 和 gid。 当只给出 <code>--user</code> 而没有 <code>--group</code> 时，将使用用户的主要组 ID。 该选项的值是给 <code>getpwnam(3)</code> 和 <code>getgrnam(3)</code> 的，不支持数字 ID。</p>
 <div class="paragraph">
@@ -171,13 +171,13 @@ aliases:
 <p>像许多切换用户 ID 的程序一样，守护进程在运行 git 程序（如 <code>upload-pack</code> 和 <code>receive-pack</code>）时，不会重置 <code>$HOME</code> 之类的环境变量。当使用这个选项时，你可能还想在启动守护进程之前设置并导出 <code>HOME</code> 指向 <code>&lt;user&gt;</code> 的主目录，并确保该目录下的任何 Git 配置文件是 <code>&lt;user&gt;</code> 可以读取的。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-daemon---enableltgt"> <a class="anchor" href="#git-daemon---enableltgt"></a>--enable=&lt;服务&gt; </dt>
-<dt class="hdlist1" id="git-daemon---disableltgt"> <a class="anchor" href="#git-daemon---disableltgt"></a>--disable=&lt;服务&gt; </dt>
+<dt class="hdlist1" id="git-daemon---enableltgt"> <a class="anchor" href="#git-daemon---enable"></a> <a class="anchor" href="#git-daemon---enableltgt"></a>--enable=&lt;服务&gt; </dt>
+<dt class="hdlist1" id="git-daemon---disableltgt"> <a class="anchor" href="#git-daemon---disable"></a> <a class="anchor" href="#git-daemon---disableltgt"></a>--disable=&lt;服务&gt; </dt>
 <dd>
 <p>在全站范围内默认启用/禁用该服务。 请注意，如果一个全站禁用的服务被标记为可重写，并且版本库用配置项启用了该服务，那么它仍然可以在每个版本库中启用。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---allow-overrideltgt"> <a class="anchor" href="#git-daemon---allow-overrideltgt"></a>--allow-override=&lt;服务&gt; </dt>
-<dt class="hdlist1" id="git-daemon---forbid-overrideltgt"> <a class="anchor" href="#git-daemon---forbid-overrideltgt"></a>--forbid-override=&lt;服务&gt; </dt>
+<dt class="hdlist1" id="git-daemon---allow-overrideltgt"> <a class="anchor" href="#git-daemon---allow-override"></a> <a class="anchor" href="#git-daemon---allow-overrideltgt"></a>--allow-override=&lt;服务&gt; </dt>
+<dt class="hdlist1" id="git-daemon---forbid-overrideltgt"> <a class="anchor" href="#git-daemon---forbid-override"></a> <a class="anchor" href="#git-daemon---forbid-overrideltgt"></a>--forbid-override=&lt;服务&gt; </dt>
 <dd>
 <p>允许/禁止用每个版本库的配置来覆盖全站的默认值。 默认情况下，所有的服务都可以被覆盖。</p>
 </dd>
@@ -185,14 +185,14 @@ aliases:
 <dd>
 <p>当信息性错误被打开时，git-daemon 会向客户端报告更多详细的错误，区分 "没有这样的仓库" 和 "仓库没有被导出" 这样的情况。这对客户端来说更方便，但可能会泄露未导出版本库的信息。 如果不启用信息性错误，所有错误都会向客户报告 "拒绝访问"。默认情况是 --no-informative-errors。</p>
 </dd>
-<dt class="hdlist1" id="git-daemon---access-hookltgt"> <a class="anchor" href="#git-daemon---access-hookltgt"></a>--access-hook=&lt;路径&gt; </dt>
+<dt class="hdlist1" id="git-daemon---access-hookltgt"> <a class="anchor" href="#git-daemon---access-hook"></a> <a class="anchor" href="#git-daemon---access-hookltgt"></a>--access-hook=&lt;路径&gt; </dt>
 <dd>
 <p>每次客户端连接时，首先运行 &lt;路径&gt; 指定的外部命令，以服务名称（如 "upload-pack"）、仓库的路径、主机名（%H）、规范主机名（%CH）、IP 地址（%IP）和 TCP 端口（%P）作为其命令行参数。外部命令可以通过以非零状态退出来决定拒绝该服务（或通过以零状态退出来允许它）。 在做出这个决定时，它还可以查看 $REMOTE_ADDR 和 <code>$REMOTE_PORT</code> 环境变量来了解请求者的情况。</p>
 <div class="paragraph">
 <p>外部命令可以选择在其标准输出中写入一行，在拒绝服务时作为错误信息发送给请求者。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-daemon-ltgt"> <a class="anchor" href="#git-daemon-ltgt"></a>&lt;目录&gt; </dt>
+<dt class="hdlist1" id="git-daemon-ltgt"> <a class="anchor" href="#git-daemon--1-1"></a> <a class="anchor" href="#git-daemon-ltgt"></a>&lt;目录&gt; </dt>
 <dd>
 <p>其余的参数提供了一个目录列表。如果指定了任何目录，那么 <code>git-daemon</code> 进程将只在所请求的目录包含在这些目录中时提供服务。如果指定了 <code>--strict-paths</code>，那么请求的目录必须与这些目录之一完全匹配。</p>
 </dd>
@@ -238,7 +238,7 @@ git		9418/tcp		# Git 版本控制系统</pre>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-daemon-emgitdaemoneminetd"> <a class="anchor" href="#git-daemon-emgitdaemoneminetd"></a><em>git daemon</em> 作为 inetd 服务器 </dt>
+<dt class="hdlist1" id="git-daemon-emgitdaemoneminetd"> <a class="anchor" href="#git-daemon-gitdaemoninetd"></a> <a class="anchor" href="#git-daemon-emgitdaemoneminetd"></a><em>git daemon</em> 作为 inetd 服务器 </dt>
 <dd>
 <p>要把 <em>git daemon</em> 设置为 inetd 服务，处理 <code>/pub/foo</code> 或 <code>/pub/bar</code> 内的任何仓库，在 <code>/etc/inetd</code> 中放入如下条目，全部放在一行：</p>
 <div class="listingblock">
@@ -249,7 +249,7 @@ git		9418/tcp		# Git 版本控制系统</pre>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-daemon-inetdemgitdaemonem"> <a class="anchor" href="#git-daemon-inetdemgitdaemonem"></a>作为虚拟主机的 inetd 服务器的 <em>git daemon</em> </dt>
+<dt class="hdlist1" id="git-daemon-inetdemgitdaemonem"> <a class="anchor" href="#git-daemon-inetdgitdaemon"></a> <a class="anchor" href="#git-daemon-inetdemgitdaemonem"></a>作为虚拟主机的 inetd 服务器的 <em>git daemon</em> </dt>
 <dd>
 <p>要将 <em>git daemon</em> 设置为 inetd 服务，处理不同的虚拟主机 <code>www.example.com</code> 和 <code>www.example.org</code> 的仓库，在 <code>/etc/inetd</code> 中放置如下条目，全部在一行：</p>
 <div class="listingblock">
@@ -266,7 +266,7 @@ git		9418/tcp		# Git 版本控制系统</pre>
 <p>在这个例子中，根级目录 <code>/pub</code> 将包含一个子目录，用于支持每个虚拟主机名。 此外，两台主机都简单地以 <code>git://www.example.com/software/repo.git</code> 的方式宣传仓库。 对于 1.4.0 之前的客户端，也可以从 <code>/software</code> 建立一个符号链接到相应的默认仓库。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-daemon-emgitdaemonem"> <a class="anchor" href="#git-daemon-emgitdaemonem"></a><em>git daemon</em> 作为虚拟主机的常规守护程序 </dt>
+<dt class="hdlist1" id="git-daemon-emgitdaemonem"> <a class="anchor" href="#git-daemon-gitdaemon"></a> <a class="anchor" href="#git-daemon-emgitdaemonem"></a><em>git daemon</em> 作为虚拟主机的常规守护程序 </dt>
 <dd>
 <p>要把 <em>git daemon</em> 设置成一个普通的、非 inetd 的服务，处理基于 IP 地址的多个虚拟主机的存储库，可以像这样启动 daemon：</p>
 <div class="listingblock">
@@ -281,7 +281,7 @@ git		9418/tcp		# Git 版本控制系统</pre>
 <p>在这个例子中，根级目录 <code>/pub</code> 将包含一个支持每个虚拟主机IP地址的子目录。 虽然仓库仍然可以通过主机名访问，但假设它们对应于这些 IP 地址。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-daemon--1-1"> <a class="anchor" href="#git-daemon--1-1"></a>选择性地启用/禁用每个仓库的服务 </dt>
+<dt class="hdlist1" id="git-daemon--1-1-1"> <a class="anchor" href="#git-daemon--1-1-1"></a>选择性地启用/禁用每个仓库的服务 </dt>
 <dd>
 <p>要启用 <em>git archive --remote</em> 并禁用 <em>git fetch</em>，在仓库的配置文件中要有以下内容（也就是在 <code>HEAD</code>、<em>refs</em> 和 <em>objects</em> 旁的 'config&#8217;文件）。</p>
 <div class="listingblock">

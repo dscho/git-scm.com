@@ -62,7 +62,7 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-worktree-ajouterltchemingtltcommit-esquegt"> <a class="anchor" href="#git-worktree-ajouterltchemingtltcommit-esquegt"></a>ajouter &lt;chemin&gt; [&lt;commit-esque&gt;] </dt>
+<dt class="hdlist1" id="git-worktree-ajouterltchemingtltcommit-esquegt"> <a class="anchor" href="#git-worktree-ajouterchemincommit-esque"></a> <a class="anchor" href="#git-worktree-ajouterltchemingtltcommit-esquegt"></a>ajouter &lt;chemin&gt; [&lt;commit-esque&gt;] </dt>
 <dd>
 <p>Créer un arbre-de-travail dans <code>&lt;chemin&gt;</code> et extraire <code>&lt;commit-esque&gt;</code> dans celui-ci. Le nouvel arbre-de-travail est lié au dépôt actuel, partageant tout sauf les fichiers spécifiques au répertoire-de-travail tels que <code>HEAD</code>, <code>index</code>, etc. Pour plus de commodité, <code>&lt;commit-esque&gt;</code> peut être un simple "<code>-</code>", qui est synonyme de <code>@{-1}</code>.</p>
 <div class="paragraph">
@@ -103,7 +103,7 @@ aliases:
 <dd>
 <p>Supprimer un arbre-de-travail. Seules les arbres-de-travail propres (pas de fichiers non suivis et pas de modification dans les fichiers suivis) peuvent être supprimés. Les arbres-de-travail non propres ou ceux qui comportent des sous-modules peuvent être supprimés avec <code>--force</code>. L&#8217;arbre-de-travail principal ne peut pas être supprimé.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree-reparirltchemingt82308203"> <a class="anchor" href="#git-worktree-reparirltchemingt82308203"></a>reparir [&lt;chemin&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-worktree-reparirltchemingt82308203"> <a class="anchor" href="#git-worktree-reparirchemin"></a> <a class="anchor" href="#git-worktree-reparirltchemingt82308203"></a>reparir [&lt;chemin&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Réparer les fichiers administratifs de l&#8217;arbre-de-travail, si possible, s&#8217;ils sont devenus corrompus ou obsolètes en raison de facteurs externes.</p>
 <div class="paragraph">
@@ -140,8 +140,8 @@ aliases:
 <p><code>remove</code> refuse de supprimer un arbre-de-travail sale à moins que <code>--force</code> ne soit utilisé. Pour supprimer un arbre-de-travail verrouillé, il faut spécifier deux fois <code>-- force</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-worktree--bltnouvelle-branchegt"> <a class="anchor" href="#git-worktree--bltnouvelle-branchegt"></a>-b &lt;nouvelle-branche&gt; </dt>
-<dt class="hdlist1" id="git-worktree--Bltnouvelle-branchegt"> <a class="anchor" href="#git-worktree--Bltnouvelle-branchegt"></a>-B &lt;nouvelle-branche&gt; </dt>
+<dt class="hdlist1" id="git-worktree--bltnouvelle-branchegt"> <a class="anchor" href="#git-worktree--bnouvelle-branche"></a> <a class="anchor" href="#git-worktree--bltnouvelle-branchegt"></a>-b &lt;nouvelle-branche&gt; </dt>
+<dt class="hdlist1" id="git-worktree--Bltnouvelle-branchegt"> <a class="anchor" href="#git-worktree--Bnouvelle-branche"></a> <a class="anchor" href="#git-worktree--Bltnouvelle-branchegt"></a>-B &lt;nouvelle-branche&gt; </dt>
 <dd>
 <p>Avec <code>add</code>, créer une nouvelle branche nommée <code>&lt;nouvelle-branche&gt;</code> commençant à <code>&lt;commit-esque&gt;</code>, et extraire <code>&lt;nouvelle-branche&gt;</code> dans le nouvel arbre-de-travail. Si <code>&lt;commit-esque&gt;</code> est omis, la valeur par défaut est <code>HEAD</code>. Par défaut, <code>-b</code> refuse de créer une nouvelle branche si elle existe déjà. <code>-B</code> annule cette protection, en remettant <code>&lt;nouvelle-branche&gt;</code> à <code>&lt;commit-esque&gt;</code>.</p>
 </dd>
@@ -206,18 +206,18 @@ aliases:
 <p>Avec <code>list</code>, afficher des informations supplémentaires sur les arbres de travail (voir ci-dessous).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-worktree---expireltdategt"> <a class="anchor" href="#git-worktree---expireltdategt"></a>--expire &lt;date&gt; </dt>
+<dt class="hdlist1" id="git-worktree---expireltdategt"> <a class="anchor" href="#git-worktree---expiredate"></a> <a class="anchor" href="#git-worktree---expireltdategt"></a>--expire &lt;date&gt; </dt>
 <dd>
 <p>Avec <code>prune</code>, n&#8217;expirer que les arbres-de-travail inutilisés plus vieux que <code>&lt;temps&gt;</code>.</p>
 <div class="paragraph">
 <p>Avec <code>list</code>, annoter les arbres-de-travail manquant comme élagable s&#8217;ils sont plus vieux que <code>&lt;temps&gt;</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-worktree---reasonltchanegt"> <a class="anchor" href="#git-worktree---reasonltchanegt"></a>--reason &lt;chaîne&gt; </dt>
+<dt class="hdlist1" id="git-worktree---reasonltchanegt"> <a class="anchor" href="#git-worktree---reasonchane"></a> <a class="anchor" href="#git-worktree---reasonltchanegt"></a>--reason &lt;chaîne&gt; </dt>
 <dd>
 <p>Avec <code>lock</code> ou <code>add--lock</code>, une explication de la raison pour laquelle l&#8217;arbre-de-travail est verrouillé.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree-ltarbre-de-travailgt"> <a class="anchor" href="#git-worktree-ltarbre-de-travailgt"></a>&lt;arbre-de-travail&gt; </dt>
+<dt class="hdlist1" id="git-worktree-ltarbre-de-travailgt"> <a class="anchor" href="#git-worktree-arbre-de-travail"></a> <a class="anchor" href="#git-worktree-ltarbre-de-travailgt"></a>&lt;arbre-de-travail&gt; </dt>
 <dd>
 <p>Les arbres-de-travail peuvent être identifiés par leur chemin, qu&#8217;il soit relatif ou absolu.</p>
 <div class="paragraph">

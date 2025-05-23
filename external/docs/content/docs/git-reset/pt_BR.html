@@ -37,8 +37,8 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-reset-emgitresetem-qltrvoregt--ltpathspecgt82308203"> <a class="anchor" href="#git-reset-emgitresetem-qltrvoregt--ltpathspecgt82308203"></a><em>git reset</em> [-q] [&lt;árvore&gt;] [--] &lt;pathspec&gt;&#8230;&#8203; </dt>
-<dt class="hdlist1" id="git-reset-emgitresetem-q--pathspec-from-fileltarquivogt--pathspec-file-nulltrvoregt"> <a class="anchor" href="#git-reset-emgitresetem-q--pathspec-from-fileltarquivogt--pathspec-file-nulltrvoregt"></a><em>git reset</em> [-q] [--pathspec-from-file=&lt;arquivo&gt; [--pathspec-file-nul]] [&lt;árvore&gt;] </dt>
+<dt class="hdlist1" id="git-reset-emgitresetem-qltrvoregt--ltpathspecgt82308203"> <a class="anchor" href="#git-reset-gitreset-qrvore--pathspec"></a> <a class="anchor" href="#git-reset-emgitresetem-qltrvoregt--ltpathspecgt82308203"></a><em>git reset</em> [-q] [&lt;árvore&gt;] [--] &lt;pathspec&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-reset-emgitresetem-q--pathspec-from-fileltarquivogt--pathspec-file-nulltrvoregt"> <a class="anchor" href="#git-reset-gitreset-q--pathspec-from-filearquivo--pathspec-file-nulrvore"></a> <a class="anchor" href="#git-reset-emgitresetem-q--pathspec-from-fileltarquivogt--pathspec-file-nulltrvoregt"></a><em>git reset</em> [-q] [--pathspec-from-file=&lt;arquivo&gt; [--pathspec-file-nul]] [&lt;árvore&gt;] </dt>
 <dd>
 <p>Esses formulários redefinem as entradas do índice para todos os caminhos correspondentes ao <code>&lt;pathspec&gt;</code> à sua condição na <code>&lt;tree-ish&gt;</code>. (Isso não afeta a árvore de trabalho ou a ramificação atual.)</p>
 <div class="paragraph">
@@ -48,14 +48,14 @@ aliases:
 <p>Depois de executar o <code>git reset &lt;pathspec&gt;</code> para atualizar a entrada do índice, você pode usar o <a href='{{< relurl "docs/git-restore/pt_BR" >}}'>git-restore[1]</a> para verificar o conteúdo do índice para a árvore de trabalho. Como alternativa, utilizando <a href='{{< relurl "docs/git-restore/pt_BR" >}}'>git-restore[1]</a> e especificando um commit com <code>--source</code>, você pode copiar o conteúdo de um caminho de um commit para o índice e a árvore de trabalho de uma vez só.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-emgitresetem--patch-pltrvoregt--ltpathspecgt82308203"> <a class="anchor" href="#git-reset-emgitresetem--patch-pltrvoregt--ltpathspecgt82308203"></a><em>git reset</em> (--patch | -p) [&lt;árvore&gt;] [--] [&lt;pathspec&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-reset-emgitresetem--patch-pltrvoregt--ltpathspecgt82308203"> <a class="anchor" href="#git-reset-gitreset--patch-prvore--pathspec"></a> <a class="anchor" href="#git-reset-emgitresetem--patch-pltrvoregt--ltpathspecgt82308203"></a><em>git reset</em> (--patch | -p) [&lt;árvore&gt;] [--] [&lt;pathspec&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Interativamente, selecione os pedaços na diferença entre o índice e a <code>&lt;árvore&gt;</code> (a predefinição retorna para <code>HEAD</code>). Os pedaços selecionados são aplicados no sentido inverso ao índice.</p>
 <div class="paragraph">
 <p>Isso significa que <code>git reset -p</code> é o oposto de <code>git add -p</code>, ou seja, você pode usá-lo para redefinir seletivamente os blocos. Consulte a seção &#8220;Modo Interativo&#8221; do <a href='{{< relurl "docs/git-add/pt_BR" >}}'>git-add[1]</a> para aprender como operar o modo <code>--patch</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-emgitresetemltmodogtltcommitgt"> <a class="anchor" href="#git-reset-emgitresetemltmodogtltcommitgt"></a><em>git reset</em> [&lt;modo&gt;] [&lt;commit&gt;] </dt>
+<dt class="hdlist1" id="git-reset-emgitresetemltmodogtltcommitgt"> <a class="anchor" href="#git-reset-gitresetmodocommit"></a> <a class="anchor" href="#git-reset-emgitresetemltmodogtltcommitgt"></a><em>git reset</em> [&lt;modo&gt;] [&lt;commit&gt;] </dt>
 <dd>
 <p>Esse formulário redefine o cabeçalho de ramificação atual para <code>&lt;commit&gt;</code> e possivelmente atualiza o índice (redefinindo-o para a árvore de <code>&lt;commit&gt;</code>) e a árvore de trabalho, dependendo do <code>&lt;modo&gt;</code>. Antes da operação, <code>ORIG_HEAD</code> é definido como o cume do ramo atual. Caso o <code>&lt;modo&gt;</code> seja omitido, a predefinição retorna para a opção <code>--mixed</code>. O <code>&lt;modo&gt;</code> deve ser um dos seguintes:</p>
 <div class="openblock">
@@ -119,7 +119,7 @@ aliases:
 <dd>
 <p>Atualize o índice após uma redefinição mista. Ativado por padrão.</p>
 </dd>
-<dt class="hdlist1" id="git-reset---pathspec-from-fileltarquivogt"> <a class="anchor" href="#git-reset---pathspec-from-fileltarquivogt"></a>--pathspec-from-file=&lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-reset---pathspec-from-fileltarquivogt"> <a class="anchor" href="#git-reset---pathspec-from-filearquivo"></a> <a class="anchor" href="#git-reset---pathspec-from-fileltarquivogt"></a>--pathspec-from-file=&lt;arquivo&gt; </dt>
 <dd>
 <p>O "pathspec" é passado com <code>&lt;arquivo&gt;</code> em vez dos argumentos da linha de comando. Caso o <code>&lt;arquivo&gt;</code> seja exatamente <code>-</code>, a entrada padrão será utilizada. Os elementos do "pathspec" são separados por caracteres de término de linha <code>LF</code> ou <code>CR/LF</code>. Os elementos do "pathspec" podem ser citados conforme explicado na variável de configuração <code>core.quotePath</code> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Consulte também opção <code>--pathspec-file-nul</code> e o global <code>--literal-pathspecs</code>.</p>
 </dd>
@@ -131,7 +131,7 @@ aliases:
 <dd>
 <p>Não interprete mais argumentos como opções.</p>
 </dd>
-<dt class="hdlist1" id="git-reset-ltpathspecgt82308203"> <a class="anchor" href="#git-reset-ltpathspecgt82308203"></a>&lt;pathspec&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-reset-ltpathspecgt82308203"> <a class="anchor" href="#git-reset-pathspec"></a> <a class="anchor" href="#git-reset-ltpathspecgt82308203"></a>&lt;pathspec&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Limita os caminhos afetados pela operação.</p>
 <div class="paragraph">
@@ -241,7 +241,7 @@ $ git reset --hard HEAD~3   <b class="conum">(1)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-Desfazendoumamesclagemoucodepullcode"> <a class="anchor" href="#git-reset-Desfazendoumamesclagemoucodepullcode"></a>Desfazendo uma mesclagem ou <code>pull</code> </dt>
+<dt class="hdlist1" id="git-reset-Desfazendoumamesclagemoucodepullcode"> <a class="anchor" href="#git-reset-Desfazendoumamesclagemoupull"></a> <a class="anchor" href="#git-reset-Desfazendoumamesclagemoucodepullcode"></a>Desfazendo uma mesclagem ou <code>pull</code> </dt>
 <dd>
 <div class="listingblock">
 <div class="content">
@@ -273,7 +273,7 @@ $ git reset --hard ORIG_HEAD       <b class="conum">(4)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-Desfaaumamesclagemoucodepullcodedentrodeumarvoredetrabalhosuja"> <a class="anchor" href="#git-reset-Desfaaumamesclagemoucodepullcodedentrodeumarvoredetrabalhosuja"></a>Desfaça uma mesclagem ou <code>pull</code> dentro de uma árvore de trabalho suja </dt>
+<dt class="hdlist1" id="git-reset-Desfaaumamesclagemoucodepullcodedentrodeumarvoredetrabalhosuja"> <a class="anchor" href="#git-reset-Desfaaumamesclagemoupulldentrodeumarvoredetrabalhosuja"></a> <a class="anchor" href="#git-reset-Desfaaumamesclagemoucodepullcodedentrodeumarvoredetrabalhosuja"></a>Desfaça uma mesclagem ou <code>pull</code> dentro de uma árvore de trabalho suja </dt>
 <dd>
 <div class="listingblock">
 <div class="content">

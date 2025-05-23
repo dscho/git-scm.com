@@ -126,7 +126,7 @@ Seulement utile lors de la fusion.</p>
 <p>Les scripts plus anciens peuvent dépendre du comportement historique de ne pas autoriser l&#8217;utilisateur à modifier le message du journal de fusion. Ils verront un éditeur ouvert lorsqu&#8217;ils exécuteront <code>git merge</code>. Pour faciliter l&#8217;ajustement de ces scripts au comportement mis à jour, la variable d&#8217;environnement <code>GIT_MERGE_AUTOEDIT</code> peut être définie sur <code>no</code> à leur début.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-pull---cleanupltmodegt"> <a class="anchor" href="#git-pull---cleanupltmodegt"></a>--cleanup=&lt;mode&gt; </dt>
+<dt class="hdlist1" id="git-pull---cleanupltmodegt"> <a class="anchor" href="#git-pull---cleanupmode"></a> <a class="anchor" href="#git-pull---cleanupltmodegt"></a>--cleanup=&lt;mode&gt; </dt>
 <dd>
 <p>Cette option détermine comment le message de fusion sera nettoyé avant d&#8217;être envoyé. Voir <a href='{{< relurl "docs/git-commit/fr" >}}'>git-commit[1]</a> pour plus de détails. De plus, si le <em>&lt;mode&gt;</em> a la valeur <code>scissors</code>, les ciseaux seront ajoutés à <em>MERGE_MSG</em> avant d&#8217;être transmis à la machinerie de commit dans le cas d&#8217;un conflit de fusion.</p>
 </dd>
@@ -145,13 +145,13 @@ Seulement utile lors de la fusion.</p>
 <p>Avec <code>--no-ff</code>, créer un commit de fusion dans tous les cas, même si la fusion peut être résolue en avance rapide.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-pull--Sltidclgt"> <a class="anchor" href="#git-pull--Sltidclgt"></a>-S[&lt;idclé&gt;] </dt>
-<dt class="hdlist1" id="git-pull---gpg-signltidclgt"> <a class="anchor" href="#git-pull---gpg-signltidclgt"></a>--gpg-sign[=&lt;idclé&gt;] </dt>
+<dt class="hdlist1" id="git-pull--Sltidclgt"> <a class="anchor" href="#git-pull--Sidcl"></a> <a class="anchor" href="#git-pull--Sltidclgt"></a>-S[&lt;idclé&gt;] </dt>
+<dt class="hdlist1" id="git-pull---gpg-signltidclgt"> <a class="anchor" href="#git-pull---gpg-signidcl"></a> <a class="anchor" href="#git-pull---gpg-signltidclgt"></a>--gpg-sign[=&lt;idclé&gt;] </dt>
 <dt class="hdlist1" id="git-pull---no-gpg-sign"> <a class="anchor" href="#git-pull---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
 <p>Signer le commit résultant de la fusion avec GPG. L&#8217;argument <code>idclé</code> est optionnel avec par défaut l&#8217;identité du validateur ; si spécifiée, elle doit être collée à l&#8217;option sans aucun espace. <code>--no-gpg-sign</code> est utile pour annuler l&#8217;effet de la variable de configuration <code>commit.gpgSign</code> ainsi que tout <code>--gpg-sign</code> précédent.</p>
 </dd>
-<dt class="hdlist1" id="git-pull---logltngt"> <a class="anchor" href="#git-pull---logltngt"></a>--log[=&lt;n&gt;] </dt>
+<dt class="hdlist1" id="git-pull---logltngt"> <a class="anchor" href="#git-pull---logn"></a> <a class="anchor" href="#git-pull---logltngt"></a>--log[=&lt;n&gt;] </dt>
 <dt class="hdlist1" id="git-pull---no-log"> <a class="anchor" href="#git-pull---no-log"></a>--no-log </dt>
 <dd>
 <p>En plus des noms de branches, remplir le message du journal avec les descriptions d&#8217;une ligne depuis au maximum &lt;n&gt; commits réels qui sont en train d&#8217;être fusionnés. Voir aussi <a href='{{< relurl "docs/git-fmt-merge-msg/fr" >}}'>git-fmt-merge-msg[1]</a>.
@@ -160,8 +160,8 @@ Seulement utile lors de la fusion.</p>
 <p>Avec --no-log, ne pas indiquer les descriptions d&#8217;une ligne des commits réels qui sont fusionnés.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-pull-code--signoffcode"> <a class="anchor" href="#git-pull-code--signoffcode"></a><code>--signoff</code> </dt>
-<dt class="hdlist1" id="git-pull-code--no-signoffcode"> <a class="anchor" href="#git-pull-code--no-signoffcode"></a><code>--no-signoff</code> </dt>
+<dt class="hdlist1" id="git-pull-code--signoffcode"> <a class="anchor" href="#git-pull---signoff"></a> <a class="anchor" href="#git-pull-code--signoffcode"></a><code>--signoff</code> </dt>
+<dt class="hdlist1" id="git-pull-code--no-signoffcode"> <a class="anchor" href="#git-pull---no-signoff"></a> <a class="anchor" href="#git-pull-code--no-signoffcode"></a><code>--no-signoff</code> </dt>
 <dd>
 <p>Ajouter une ligne finale <code>Signed-off-by</code> du validateur à la fin du message de validation. La signification de signoff dépend du projet sur lequel vous validez. Par exemple, cela peut certifier que le validateur a le droit de soumettre son travail sous la licence du projet ou accepte une certaine représentation du contributeur, tel qu&#8217;un Certificat d&#8217;Origine de Développeur. (Voir <a href="https://developercertificate.org/" class="bare">https://developercertificate.org/</a> pour celui utilisé par les projet du noyau Linux ou de Git). Consultez la documentation ou la direction du projet auquel vous contribuez pour comprendre comment les signatures sont utilisées dans ce projet.</p>
 <div class="paragraph">
@@ -200,13 +200,13 @@ Seulement utile lors de la fusion.</p>
 <p>Par défaut, les crochets pre-merge et commit-msg sont exécutés. Lorsque <code>--no-verify</code> est donné, ils sont contournés. Voir aussi <a href='{{< relurl "docs/githooks/fr" >}}'>githooks[5]</a>.
 Seulement utile lors de la fusion.</p>
 </dd>
-<dt class="hdlist1" id="git-pull--sltstratgiegt"> <a class="anchor" href="#git-pull--sltstratgiegt"></a>-s &lt;stratégie&gt; </dt>
-<dt class="hdlist1" id="git-pull---strategyltstrategiegt"> <a class="anchor" href="#git-pull---strategyltstrategiegt"></a>--strategy=&lt;strategie&gt; </dt>
+<dt class="hdlist1" id="git-pull--sltstratgiegt"> <a class="anchor" href="#git-pull--sstratgie"></a> <a class="anchor" href="#git-pull--sltstratgiegt"></a>-s &lt;stratégie&gt; </dt>
+<dt class="hdlist1" id="git-pull---strategyltstrategiegt"> <a class="anchor" href="#git-pull---strategystrategie"></a> <a class="anchor" href="#git-pull---strategyltstrategiegt"></a>--strategy=&lt;strategie&gt; </dt>
 <dd>
 <p>Utiliser la stratégie de fusion donnée ; peut être fourni plus d&#8217;une fois pour spécifier l&#8217;ordre dans lequel elles doivent être essayées. S&#8217;il n&#8217;y a pas d&#8217;option <code>-s</code>, une liste intégrée de stratégies est utilisée à la place (<code>ort</code> lors de la fusion d&#8217;une seule tête, <code>octopus</code> sinon).</p>
 </dd>
-<dt class="hdlist1" id="git-pull--Xltoptiongt"> <a class="anchor" href="#git-pull--Xltoptiongt"></a>-X &lt;option&gt; </dt>
-<dt class="hdlist1" id="git-pull---strategy-optionltoptiongt"> <a class="anchor" href="#git-pull---strategy-optionltoptiongt"></a>--strategy-option=&lt;option&gt; </dt>
+<dt class="hdlist1" id="git-pull--Xltoptiongt"> <a class="anchor" href="#git-pull--Xoption"></a> <a class="anchor" href="#git-pull--Xltoptiongt"></a>-X &lt;option&gt; </dt>
+<dt class="hdlist1" id="git-pull---strategy-optionltoptiongt"> <a class="anchor" href="#git-pull---strategy-optionoption"></a> <a class="anchor" href="#git-pull---strategy-optionltoptiongt"></a>--strategy-option=&lt;option&gt; </dt>
 <dd>
 <p>Faire passer l&#8217;option spécifique de la stratégie de fusion à la stratégie de fusion.</p>
 </dd>
@@ -292,19 +292,19 @@ C&#8217;est un mode de fonctionnement potentiellement <em>dangereux</em>. Il ré
 <dd>
 <p>Utiliser une transaction atomique pour mettre à jour les références locales. Soit toutes les références sont mises à jour, soit, en cas d&#8217;erreur, aucune référence n&#8217;est mise à jour.</p>
 </dd>
-<dt class="hdlist1" id="git-pull---depthltprofondeurgt"> <a class="anchor" href="#git-pull---depthltprofondeurgt"></a>--depth=&lt;profondeur&gt; </dt>
+<dt class="hdlist1" id="git-pull---depthltprofondeurgt"> <a class="anchor" href="#git-pull---depthprofondeur"></a> <a class="anchor" href="#git-pull---depthltprofondeurgt"></a>--depth=&lt;profondeur&gt; </dt>
 <dd>
 <p>Limiter la récupération au nombre spécifié de commits à partir du sommet de l&#8217;historique de chaque branche distante. Si vous allez chercher dans un dépôt "superficiel" créé par <code>git clone</code> avec l&#8217;option <code>--depth=&lt;profondeur&gt;</code> (voir <a href='{{< relurl "docs/git-clone/fr" >}}'>git-clone[1]</a>), approfondir ou raccourcir l&#8217;historique jusqu&#8217;au nombre spécifié de validations. Les étiquettes pour les commits approfondis ne sont pas récupérées.</p>
 </dd>
-<dt class="hdlist1" id="git-pull---deepenltprofondeurgt"> <a class="anchor" href="#git-pull---deepenltprofondeurgt"></a>--deepen=&lt;profondeur&gt; </dt>
+<dt class="hdlist1" id="git-pull---deepenltprofondeurgt"> <a class="anchor" href="#git-pull---deepenprofondeur"></a> <a class="anchor" href="#git-pull---deepenltprofondeurgt"></a>--deepen=&lt;profondeur&gt; </dt>
 <dd>
 <p>Semblable à --depth, sauf que cela précise le nombre de commits à partir de la limite actuelle superficielle au lieu du sommet de l&#8217;historique de chaque branche distante.</p>
 </dd>
-<dt class="hdlist1" id="git-pull---shallow-sinceltdategt"> <a class="anchor" href="#git-pull---shallow-sinceltdategt"></a>--shallow-since=&lt;date&gt; </dt>
+<dt class="hdlist1" id="git-pull---shallow-sinceltdategt"> <a class="anchor" href="#git-pull---shallow-sincedate"></a> <a class="anchor" href="#git-pull---shallow-sinceltdategt"></a>--shallow-since=&lt;date&gt; </dt>
 <dd>
 <p>Approfondir ou raccourcir l&#8217;historique d&#8217;un dépôt superficiel pour inclure tous les commits accessibles après &lt;date&gt;.</p>
 </dd>
-<dt class="hdlist1" id="git-pull-code--shallow-excludeltrfgtcode"> <a class="anchor" href="#git-pull-code--shallow-excludeltrfgtcode"></a><code>--shallow-exclude=&lt;réf&gt;</code> </dt>
+<dt class="hdlist1" id="git-pull-code--shallow-excludeltrfgtcode"> <a class="anchor" href="#git-pull---shallow-excluderf"></a> <a class="anchor" href="#git-pull-code--shallow-excludeltrfgtcode"></a><code>--shallow-exclude=&lt;réf&gt;</code> </dt>
 <dd>
 <p>Approfondir ou raccourcir l&#8217;historique d&#8217;un dépôt superficiel afin d&#8217;exclure les commits accessibles depuis une branche ou une étiquette distante spécifiée. Cette option peut être spécifiée plusieurs fois.</p>
 </dd>
@@ -319,7 +319,7 @@ C&#8217;est un mode de fonctionnement potentiellement <em>dangereux</em>. Il ré
 <dd>
 <p>Par défaut, lors de la récupération d&#8217;un dépôt superficiel, <code>git fetch</code> refuse les références qui nécessitent une mise à jour de .git/shallow. Cette option met à jour le fichier .git/shallow et accepte de telles références.</p>
 </dd>
-<dt class="hdlist1" id="git-pull---negotiation-tipltcommitglobgt"> <a class="anchor" href="#git-pull---negotiation-tipltcommitglobgt"></a>--negotiation-tip=&lt;commit|glob&gt; </dt>
+<dt class="hdlist1" id="git-pull---negotiation-tipltcommitglobgt"> <a class="anchor" href="#git-pull---negotiation-tipcommitglob"></a> <a class="anchor" href="#git-pull---negotiation-tipltcommitglobgt"></a>--negotiation-tip=&lt;commit|glob&gt; </dt>
 <dd>
 <p>Par défaut, Git signalera au serveur les commits accessibles à partir de toutes les références locales pour trouver les commits communs afin de réduire la taille du fichier de paquet à recevoir. Si ceci est spécifié, Git ne signalera que les commits accessibles à partir des sommets donnés. Ceci est utile pour accélérer les recherches lorsque l&#8217;utilisateur sait quelle réf locale est susceptible d&#8217;avoir des commits en commun avec la réf amont qui est recherchée.</p>
 <div class="paragraph">
@@ -376,7 +376,7 @@ Cette option permet de passer outre à ce contrôle.</p>
 <dd>
 <p>Par défaut, les étiquettes qui pointent sur des objets téléchargés à partir du dépôt distant sont récupérées et stockées localement. Cette option désactive le suivi automatique des étiquettes. Le comportement par défaut d&#8217;un distant peut être spécifié avec le paramètre remote.&lt;nom&gt;.tagOpt. Voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-pull---refmapltspcificateur-de-rfrencegt"> <a class="anchor" href="#git-pull---refmapltspcificateur-de-rfrencegt"></a>--refmap=&lt;spécificateur-de-référence&gt; </dt>
+<dt class="hdlist1" id="git-pull---refmapltspcificateur-de-rfrencegt"> <a class="anchor" href="#git-pull---refmapspcificateur-de-rfrence"></a> <a class="anchor" href="#git-pull---refmapltspcificateur-de-rfrencegt"></a>--refmap=&lt;spécificateur-de-référence&gt; </dt>
 <dd>
 <p>Lors de la récupération des références listées en ligne de commande, utiliser la spécification de référence (qui peut être donnée plusieurs fois) pour mapper les références sur les branches de suivi à distance, au lieu des valeurs des variables de configuration <code>remote.*.fetch</code> pour le dépôt distant. Fournir un <code>&lt;spécificateur-de-référence&gt;</code> vide à l&#8217;option <code>--refmap</code> fait que Git ignore les spécification de référence configurées et se fie entièrement aux spécifications de référence fournies comme arguments de la ligne de commande. Voir la section sur les "Branches de suivi à distance configurées" pour plus de détails.</p>
 </dd>
@@ -386,7 +386,7 @@ Cette option permet de passer outre à ce contrôle.</p>
 <p>Récupérer toutes les étiquettes à distance (c&#8217;est-à-dire, récupérer les étiquettes <code>refs/tags/*</code> dans les étiquettes locales avec le même nom), en plus de tout ce qui serait récupéré autrement. L&#8217;utilisation de cette seule option ne soumet pas les étiquettes à un élagage, même si --prune est utilisé (bien que les étiquettes puissent être élaguées de toute façon si elles sont aussi la destination d&#8217;une spécification de référence explicite ; voir <code>--prune</code>).</p>
 </dd>
 <dt class="hdlist1" id="git-pull--j"> <a class="anchor" href="#git-pull--j"></a>-j </dt>
-<dt class="hdlist1" id="git-pull---jobsltngt"> <a class="anchor" href="#git-pull---jobsltngt"></a>--jobs=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pull---jobsltngt"> <a class="anchor" href="#git-pull---jobsn"></a> <a class="anchor" href="#git-pull---jobsltngt"></a>--jobs=&lt;n&gt; </dt>
 <dd>
 <p>Nombre d&#8217;enfants parallèles à utiliser pour toutes les formes d&#8217;extraction.</p>
 <div class="paragraph">
@@ -400,7 +400,7 @@ Cette option permet de passer outre à ce contrôle.</p>
 <dd>
 <p>Si le distant est récupéré avec succès, ajouter la référence (de suivi) amont , utilisée par les commandes sans argument <a href='{{< relurl "docs/git-pull/fr" >}}'>git-pull[1]</a> et autres. Pour plus d&#8217;informations, voir <code>branch.&lt;nom&gt;.merge</code> et <code>branch.&lt;nom&gt;.remote</code> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-pull---upload-packltupload-packgt"> <a class="anchor" href="#git-pull---upload-packltupload-packgt"></a>--upload-pack &lt;upload-pack&gt; </dt>
+<dt class="hdlist1" id="git-pull---upload-packltupload-packgt"> <a class="anchor" href="#git-pull---upload-packupload-pack"></a> <a class="anchor" href="#git-pull---upload-packltupload-packgt"></a>--upload-pack &lt;upload-pack&gt; </dt>
 <dd>
 <p>Lorsqu&#8217;il est donné, et que le dépôt à récupérer est géré par <em>git fetch-pack</em>, <code>--exec=&lt;upload-pack&gt;</code> est passé à la commande pour spécifier le chemin par défaut pour la commande exécutée à l&#8217;autre bout.</p>
 </dd>
@@ -408,8 +408,8 @@ Cette option permet de passer outre à ce contrôle.</p>
 <dd>
 <p>L&#8217;état d&#8217;avancement est affiché sur la sortie d&#8217;erreur standard quand elle est attachée à un terminal, à moins que -q soit spécifié. Ce drapeau force l&#8217;état d&#8217;avancement même si le flux d&#8217;erreur standard n&#8217;est pas dirigé vers un terminal.</p>
 </dd>
-<dt class="hdlist1" id="git-pull--oltoptiongt"> <a class="anchor" href="#git-pull--oltoptiongt"></a>-o &lt;option&gt; </dt>
-<dt class="hdlist1" id="git-pull---server-optionltoptiongt"> <a class="anchor" href="#git-pull---server-optionltoptiongt"></a>--server-option=&lt;option&gt; </dt>
+<dt class="hdlist1" id="git-pull--oltoptiongt"> <a class="anchor" href="#git-pull--ooption"></a> <a class="anchor" href="#git-pull--oltoptiongt"></a>-o &lt;option&gt; </dt>
+<dt class="hdlist1" id="git-pull---server-optionltoptiongt"> <a class="anchor" href="#git-pull---server-optionoption"></a> <a class="anchor" href="#git-pull---server-optionltoptiongt"></a>--server-option=&lt;option&gt; </dt>
 <dd>
 <p>Transmettre la chaîne donnée au serveur lors d&#8217;une communication utilisant la version 2 du protocole. La chaîne donnée ne doit pas contenir de caractère NUL ou LF. La gestion par le serveur des options du serveur, y compris les options inconnues, est spécifique au serveur. Lorsque plusieurs <code>--server-option=&lt;option&gt;</code> sont donnés, ils sont tous envoyés à l&#8217;autre côté dans l&#8217;ordre indiqué sur la ligne de commande. Quand aucun <code>--server-option=&lt;option&gt;`est fourni sur la ligne de commande, les valeurs de la variable de configuration `remote.&lt;nom&gt;.serverOption</code> sont utilisées à la place.</p>
 </dd>
@@ -435,11 +435,11 @@ Cette option permet de passer outre à ce contrôle.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-pull-ltdptgt"> <a class="anchor" href="#git-pull-ltdptgt"></a>&lt;dépôt&gt; </dt>
+<dt class="hdlist1" id="git-pull-ltdptgt"> <a class="anchor" href="#git-pull-dpt"></a> <a class="anchor" href="#git-pull-ltdptgt"></a>&lt;dépôt&gt; </dt>
 <dd>
 <p>Le dépôt "distant" qui est la source d&#8217;une opération de récupération ou de tirage. Ce paramètre peut être soit une URL (voir la section <a href="#URLS">URLS GIT</a> ci-dessous) soit le nom d&#8217;un remote (voir la section <a href="#REMOTES">DISTANTS</a> ci-dessous).</p>
 </dd>
-<dt class="hdlist1" id="git-pull-ltspcificateur-de-rfrencegt"> <a class="anchor" href="#git-pull-ltspcificateur-de-rfrencegt"></a>&lt;spécificateur-de-référence&gt; </dt>
+<dt class="hdlist1" id="git-pull-ltspcificateur-de-rfrencegt"> <a class="anchor" href="#git-pull-spcificateur-de-rfrence"></a> <a class="anchor" href="#git-pull-ltspcificateur-de-rfrencegt"></a>&lt;spécificateur-de-référence&gt; </dt>
 <dd>
 <p>Préciser les références à récupérer et les références locales à mettre à jour. Lorsqu&#8217;aucun &lt;spéc-de-réf&gt; n&#8217;apparaît sur la ligne de commande, les références à récupérer sont lues à partir des variables <code>remote.&lt;dépôt&gt;.fetch</code> à la place
 (voir la section "<a href="#BRANCHES DE SUIVI À DISTANCE CONFIGURÉES">[BRANCHES DE SUIVI À DISTANCE CONFIGURÉES]</a>"
@@ -783,15 +783,15 @@ Il y a une différence entre le fait de lister plusieurs &lt;spéc-de-réf&gt; d
 <dd>
 <p>Désactiver l&#8217;option <code>renormalize</code>. Cela surcharge la variable de configuration <code>merge.renormalize</code> .</p>
 </dd>
-<dt class="hdlist1" id="git-pull-find-renamesltngt"> <a class="anchor" href="#git-pull-find-renamesltngt"></a>find-renames[=&lt;n&gt;] </dt>
+<dt class="hdlist1" id="git-pull-find-renamesltngt"> <a class="anchor" href="#git-pull-find-renamesn"></a> <a class="anchor" href="#git-pull-find-renamesltngt"></a>find-renames[=&lt;n&gt;] </dt>
 <dd>
 <p>Activer la détection de renommage, en fixant éventuellement le seuil de similarité. C&#8217;est la valeur par défaut. Cela surcharge la variable de configuration <code>merge.renames</code>. Voir aussi <a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a> <code>--find-renames</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-pull-rename-thresholdltngt"> <a class="anchor" href="#git-pull-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pull-rename-thresholdltngt"> <a class="anchor" href="#git-pull-rename-thresholdn"></a> <a class="anchor" href="#git-pull-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
 <dd>
 <p>Synonyme obsolète pour <code>find-renames=&lt;n&gt;</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-pull-subtreeltchemingt"> <a class="anchor" href="#git-pull-subtreeltchemingt"></a>subtree[=&lt;chemin&gt;] </dt>
+<dt class="hdlist1" id="git-pull-subtreeltchemingt"> <a class="anchor" href="#git-pull-subtreechemin"></a> <a class="anchor" href="#git-pull-subtreeltchemingt"></a>subtree[=&lt;chemin&gt;] </dt>
 <dd>
 <p>Cette option est une forme plus avancée de stratégie <em>subtree</em>, où la stratégie fait une estimation de la façon dont deux arbres doivent être déplacés pour correspondre l&#8217;un à l&#8217;autre lors de la fusion. Au lieu de cela, le chemin spécifié est préfixé (ou tronqué au debut) pour faire correspondre la forme de deux arbres.</p>
 </dd>

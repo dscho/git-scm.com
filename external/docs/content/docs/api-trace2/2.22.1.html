@@ -289,13 +289,13 @@ purposes.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2initializeclockcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2initializeclockcode"></a><code>void trace2_initialize_clock()</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2initializeclockcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2initializeclock"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2initializeclockcode"></a><code>void trace2_initialize_clock()</code> </dt>
 <dd>
 <p>Initialize the Trace2 start clock and nothing else.  This should
 be called at the very top of main() to capture the process start
 time and reduce startup order dependencies.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2initializecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2initializecode"></a><code>void trace2_initialize()</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2initializecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2initialize"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2initializecode"></a><code>void trace2_initialize()</code> </dt>
 <dd>
 <p>Determines if any Trace2 Targets should be enabled and
 initializes the Trace2 facility.  This includes setting up the
@@ -309,17 +309,17 @@ and the Trace2 protocol.</p>
 the life of the process after essential process initialization.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeinttrace2isenabledcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeinttrace2isenabledcode"></a><code>int trace2_is_enabled()</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeinttrace2isenabledcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-inttrace2isenabled"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeinttrace2isenabledcode"></a><code>int trace2_is_enabled()</code> </dt>
 <dd>
 <p>Returns 1 if Trace2 is enabled (at least one target is
 active).</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdstartintargcconstcharargvcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdstartintargcconstcharargvcode"></a><code>void trace2_cmd_start(int argc, const char **argv)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdstartintargcconstcharargvcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2cmdstartintargcconstcharargv"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdstartintargcconstcharargvcode"></a><code>void trace2_cmd_start(int argc, const char **argv)</code> </dt>
 <dd>
 <p>Emits a "start" message containing the process command line
 arguments.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeinttrace2cmdexitintexitcodecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeinttrace2cmdexitintexitcodecode"></a><code>int trace2_cmd_exit(int exit_code)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeinttrace2cmdexitintexitcodecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-inttrace2cmdexitintexitcode"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeinttrace2cmdexitintexitcodecode"></a><code>int trace2_cmd_exit(int exit_code)</code> </dt>
 <dd>
 <p>Emits an "exit" message containing the process exit-code and
 elapsed time.</p>
@@ -327,11 +327,11 @@ elapsed time.</p>
 <p>Returns the exit-code.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmderrorconstcharfmtvalistapcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmderrorconstcharfmtvalistapcode"></a><code>void trace2_cmd_error(const char *fmt, va_list ap)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmderrorconstcharfmtvalistapcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2cmderrorconstcharfmtvalistap"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmderrorconstcharfmtvalistapcode"></a><code>void trace2_cmd_error(const char *fmt, va_list ap)</code> </dt>
 <dd>
 <p>Emits an "error" message containing a formatted error message.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdpathconstcharpathnamecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdpathconstcharpathnamecode"></a><code>void trace2_cmd_path(const char *pathname)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdpathconstcharpathnamecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2cmdpathconstcharpathname"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdpathconstcharpathnamecode"></a><code>void trace2_cmd_path(const char *pathname)</code> </dt>
 <dd>
 <p>Emits a "cmd_path" message with the full pathname of the
 current process.</p>
@@ -347,12 +347,12 @@ after the command line, config, and environment are inspected.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdnameconstcharnamecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdnameconstcharnamecode"></a><code>void trace2_cmd_name(const char *name)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdnameconstcharnamecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2cmdnameconstcharname"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdnameconstcharnamecode"></a><code>void trace2_cmd_name(const char *name)</code> </dt>
 <dd>
 <p>Emits a "cmd_name" message with the canonical name of the
 command, for example "status" or "checkout".</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdmodeconstcharmodecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdmodeconstcharmodecode"></a><code>void trace2_cmd_mode(const char *mode)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdmodeconstcharmodecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2cmdmodeconstcharmode"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdmodeconstcharmodecode"></a><code>void trace2_cmd_mode(const char *mode)</code> </dt>
 <dd>
 <p>Emits a "cmd_mode" message with a qualifier name to further
 describe the current git command.</p>
@@ -363,12 +363,12 @@ branch or it can checkout a single file, so the checkout code could
 emit a cmd_mode message of "branch" or "file".</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdaliasconstcharaliasconstcharargvexpansioncode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdaliasconstcharaliasconstcharargvexpansioncode"></a><code>void trace2_cmd_alias(const char *alias, const char **argv_expansion)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdaliasconstcharaliasconstcharargvexpansioncode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2cmdaliasconstcharaliasconstcharargvexpansion"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdaliasconstcharaliasconstcharargvexpansioncode"></a><code>void trace2_cmd_alias(const char *alias, const char **argv_expansion)</code> </dt>
 <dd>
 <p>Emits an "alias" message containing the alias used and the
 argument expansion.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2defparamconstcharparameterconstcharvaluecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2defparamconstcharparameterconstcharvaluecode"></a><code>void trace2_def_param(const char *parameter, const char *value)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2defparamconstcharparameterconstcharvaluecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2defparamconstcharparameterconstcharvalue"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2defparamconstcharparameterconstcharvaluecode"></a><code>void trace2_def_param(const char *parameter, const char *value)</code> </dt>
 <dd>
 <p>Emits a "def_param" message containing a key/value pair.</p>
 <div class="paragraph">
@@ -378,7 +378,7 @@ significantly affects program performance or behavior, such as
 <code>core.abbrev</code>, <code>status.showUntrackedFiles</code>, or <code>--no-ahead-behind</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdlistconfigcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdlistconfigcode"></a><code>void trace2_cmd_list_config()</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdlistconfigcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2cmdlistconfig"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdlistconfigcode"></a><code>void trace2_cmd_list_config()</code> </dt>
 <dd>
 <p>Emits a "def_param" messages for "important" configuration
 settings.</p>
@@ -390,7 +390,7 @@ list of patterns of important configuration settings, for example:
 settings and emit a "def_param" message for each match.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdsetconfigconstcharkeyconstcharvaluecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdsetconfigconstcharkeyconstcharvaluecode"></a><code>void trace2_cmd_set_config(const char *key, const char *value)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2cmdsetconfigconstcharkeyconstcharvaluecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2cmdsetconfigconstcharkeyconstcharvalue"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2cmdsetconfigconstcharkeyconstcharvaluecode"></a><code>void trace2_cmd_set_config(const char *key, const char *value)</code> </dt>
 <dd>
 <p>Emits a "def_param" message for a new or updated key/value
 pair IF <code>key</code> is considered important.</p>
@@ -400,7 +400,7 @@ configuration changes and update a value previously reported by
 <code>trace2_cmd_list_config()</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2defrepostructrepositoryrepocode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2defrepostructrepositoryrepocode"></a><code>void trace2_def_repo(struct repository *repo)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2defrepostructrepositoryrepocode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2defrepostructrepositoryrepo"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2defrepostructrepositoryrepocode"></a><code>void trace2_def_repo(struct repository *repo)</code> </dt>
 <dd>
 <p>Registers a repository with the Trace2 layer.  Assigns a
 unique "repo-id" to <code>repo-&gt;trace2_repo_id</code>.</p>
@@ -430,7 +430,7 @@ including shell scripts, git commands, editors, pagers, and hooks.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2childstartstructchildprocesscmdcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2childstartstructchildprocesscmdcode"></a><code>void trace2_child_start(struct child_process *cmd)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2childstartstructchildprocesscmdcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2childstartstructchildprocesscmd"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2childstartstructchildprocesscmdcode"></a><code>void trace2_child_start(struct child_process *cmd)</code> </dt>
 <dd>
 <p>Emits a "child_start" message containing the "child-id",
 "child-argv", and "child-classification".</p>
@@ -447,7 +447,7 @@ it with the "child_start" message.</p>
 <p>This function should be called before spawning the child process.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2childexitstructchildproesscmdintchildexitcodecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2childexitstructchildproesscmdintchildexitcodecode"></a><code>void trace2_child_exit(struct child_proess *cmd, int child_exit_code)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2childexitstructchildproesscmdintchildexitcodecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2childexitstructchildproesscmdintchildexitcode"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2childexitstructchildproesscmdintchildexitcodecode"></a><code>void trace2_child_exit(struct child_proess *cmd, int child_exit_code)</code> </dt>
 <dd>
 <p>Emits a "child_exit" message containing the "child-id",
 the child&#8217;s elapsed time and exit-code.</p>
@@ -460,7 +460,7 @@ the time reported by the child itself.</p>
 <p>This function should be called after reaping the child process.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeinttrace2execconstcharexeconstcharargvcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeinttrace2execconstcharexeconstcharargvcode"></a><code>int trace2_exec(const char *exe, const char **argv)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeinttrace2execconstcharexeconstcharargvcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-inttrace2execconstcharexeconstcharargv"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeinttrace2execconstcharexeconstcharargvcode"></a><code>int trace2_exec(const char *exe, const char **argv)</code> </dt>
 <dd>
 <p>Emits a "exec" message containing the "exec-id" and the
 argv of the new process.</p>
@@ -473,7 +473,7 @@ variants, such as <code>execvp()</code>.</p>
 if the exec() fails and a "exec-result" message is necessary.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2execresultintexecidinterrorcodecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2execresultintexecidinterrorcodecode"></a><code>void trace2_exec_result(int exec_id, int error_code)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2execresultintexecidinterrorcodecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2execresultintexecidinterrorcode"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2execresultintexecidinterrorcodecode"></a><code>void trace2_exec_result(int exec_id, int error_code)</code> </dt>
 <dd>
 <p>Emits a "exec_result" message containing the "exec-id"
 and the error code.</p>
@@ -493,7 +493,7 @@ that the current program is continuing.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2threadstartconstcharthreadnamecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2threadstartconstcharthreadnamecode"></a><code>void trace2_thread_start(const char *thread_name)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2threadstartconstcharthreadnamecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2threadstartconstcharthreadname"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2threadstartconstcharthreadnamecode"></a><code>void trace2_thread_start(const char *thread_name)</code> </dt>
 <dd>
 <p>Emits a "thread_start" message.</p>
 <div class="paragraph">
@@ -511,7 +511,7 @@ name.</p>
 of <code>pthread_create()</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2threadexitcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2threadexitcode"></a><code>void trace2_thread_exit()</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2threadexitcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2threadexit"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2threadexitcode"></a><code>void trace2_thread_exit()</code> </dt>
 <dd>
 <p>Emits a "thread_exit" message containing the thread name
 and the thread elapsed time.</p>
@@ -532,9 +532,9 @@ over regions or spans of code.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionenterconstcharcategoryconstcharlabelconststructrepositoryrepocode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionenterconstcharcategoryconstcharlabelconststructrepositoryrepocode"></a><code>void trace2_region_enter(const char *category, const char *label, const struct repository *repo)</code> </dt>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionenterprintfconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionenterprintfconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtcode"></a><code>void trace2_region_enter_printf(const char *category, const char *label, const struct repository *repo, const char *fmt, ...)</code> </dt>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionenterprintfvaconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtvalistapcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionenterprintfvaconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtvalistapcode"></a><code>void trace2_region_enter_printf_va(const char *category, const char *label, const struct repository *repo, const char *fmt, va_list ap)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionenterconstcharcategoryconstcharlabelconststructrepositoryrepocode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2regionenterconstcharcategoryconstcharlabelconststructrepositoryrepo"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionenterconstcharcategoryconstcharlabelconststructrepositoryrepocode"></a><code>void trace2_region_enter(const char *category, const char *label, const struct repository *repo)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionenterprintfconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2regionenterprintfconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmt"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionenterprintfconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtcode"></a><code>void trace2_region_enter_printf(const char *category, const char *label, const struct repository *repo, const char *fmt, ...)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionenterprintfvaconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtvalistapcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2regionenterprintfvaconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtvalistap"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionenterprintfvaconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtvalistapcode"></a><code>void trace2_region_enter_printf_va(const char *category, const char *label, const struct repository *repo, const char *fmt, va_list ap)</code> </dt>
 <dd>
 <p>Emits a thread-relative "region_enter" message with optional
 printf string.</p>
@@ -557,9 +557,9 @@ being started, such as "read_recursive" or "do_read_index".</p>
 recursive oerations can be attributed to the correct repository.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveconstcharcategoryconstcharlabelconststructrepositoryrepocode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveconstcharcategoryconstcharlabelconststructrepositoryrepocode"></a><code>void trace2_region_leave(const char *category, const char *label, const struct repository *repo)</code> </dt>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveprintfconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveprintfconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtcode"></a><code>void trace2_region_leave_printf(const char *category, const char *label, const struct repository *repo, const char *fmt, ...)</code> </dt>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveprintfvaconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtvalistapcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveprintfvaconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtvalistapcode"></a><code>void trace2_region_leave_printf_va(const char *category, const char *label, const struct repository *repo, const char *fmt, va_list ap)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveconstcharcategoryconstcharlabelconststructrepositoryrepocode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2regionleaveconstcharcategoryconstcharlabelconststructrepositoryrepo"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveconstcharcategoryconstcharlabelconststructrepositoryrepocode"></a><code>void trace2_region_leave(const char *category, const char *label, const struct repository *repo)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveprintfconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2regionleaveprintfconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmt"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveprintfconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtcode"></a><code>void trace2_region_leave_printf(const char *category, const char *label, const struct repository *repo, const char *fmt, ...)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveprintfvaconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtvalistapcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2regionleaveprintfvaconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtvalistap"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2regionleaveprintfvaconstcharcategoryconstcharlabelconststructrepositoryrepoconstcharfmtvalistapcode"></a><code>void trace2_region_leave_printf_va(const char *category, const char *label, const struct repository *repo, const char *fmt, va_list ap)</code> </dt>
 <dd>
 <p>Emits a thread-relative "region_leave" message with optional
 printf string.</p>
@@ -574,9 +574,9 @@ The <code>category</code> and <code>label</code> do not need to match the correp
 understand.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2datastringconstcharcategoryconststructrepositoryrepoconstcharkeyconstcharvaluecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2datastringconstcharcategoryconststructrepositoryrepoconstcharkeyconstcharvaluecode"></a><code>void trace2_data_string(const char *category, const struct repository *repo, const char *key, const char * value)</code> </dt>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2dataintmaxconstcharcategoryconststructrepositoryrepoconstcharkeyintmaxvaluecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2dataintmaxconstcharcategoryconststructrepositoryrepoconstcharkeyintmaxvaluecode"></a><code>void trace2_data_intmax(const char *category, const struct repository *repo, const char *key, intmax value)</code> </dt>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2datajsonconstcharcategoryconststructrepositoryrepoconstcharkeyconststructjsonwriterjwcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2datajsonconstcharcategoryconststructrepositoryrepoconstcharkeyconststructjsonwriterjwcode"></a><code>void trace2_data_json(const char *category, const struct repository *repo, const char *key, const struct json_writer *jw)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2datastringconstcharcategoryconststructrepositoryrepoconstcharkeyconstcharvaluecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2datastringconstcharcategoryconststructrepositoryrepoconstcharkeyconstcharvalue"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2datastringconstcharcategoryconststructrepositoryrepoconstcharkeyconstcharvaluecode"></a><code>void trace2_data_string(const char *category, const struct repository *repo, const char *key, const char * value)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2dataintmaxconstcharcategoryconststructrepositoryrepoconstcharkeyintmaxvaluecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2dataintmaxconstcharcategoryconststructrepositoryrepoconstcharkeyintmaxvalue"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2dataintmaxconstcharcategoryconststructrepositoryrepoconstcharkeyintmaxvaluecode"></a><code>void trace2_data_intmax(const char *category, const struct repository *repo, const char *key, intmax value)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2datajsonconstcharcategoryconststructrepositoryrepoconstcharkeyconststructjsonwriterjwcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2datajsonconstcharcategoryconststructrepositoryrepoconstcharkeyconststructjsonwriterjw"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2datajsonconstcharcategoryconststructrepositoryrepoconstcharkeyconststructjsonwriterjwcode"></a><code>void trace2_data_json(const char *category, const struct repository *repo, const char *key, const struct json_writer *jw)</code> </dt>
 <dd>
 <p>Emits a region- and thread-relative "data" or "data_json" message.</p>
 <div class="paragraph">
@@ -586,8 +586,8 @@ to print the number of files in a directory during a multi-threaded
 recursive tree walk.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2printfconstcharfmtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2printfconstcharfmtcode"></a><code>void trace2_printf(const char *fmt, ...)</code> </dt>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2printfvaconstcharfmtvalistapcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2printfvaconstcharfmtvalistapcode"></a><code>void trace2_printf_va(const char *fmt, va_list ap)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2printfconstcharfmtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2printfconstcharfmt"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2printfconstcharfmtcode"></a><code>void trace2_printf(const char *fmt, ...)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codevoidtrace2printfvaconstcharfmtvalistapcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-voidtrace2printfvaconstcharfmtvalistap"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codevoidtrace2printfvaconstcharfmtvalistapcode"></a><code>void trace2_printf_va(const char *fmt, va_list ap)</code> </dt>
 <dd>
 <p>Emits a region- and thread-relative "printf" message.</p>
 </dd>
@@ -611,11 +611,11 @@ recursive tree walk.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltevent-namegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltevent-namegtcode"></a><code>&lt;event-name&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltevent-namegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-event-name"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltevent-namegtcode"></a><code>&lt;event-name&gt;</code> </dt>
 <dd>
 <p>is the event name.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltevent-messagegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltevent-messagegtcode"></a><code>&lt;event-message&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltevent-messagegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-event-message"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltevent-messagegtcode"></a><code>&lt;event-message&gt;</code> </dt>
 <dd>
 <p>is a free-form printf message intended for human consumption.</p>
 <div class="paragraph">
@@ -656,24 +656,24 @@ data messages, for example.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltdepthgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltdepthgtcode"></a><code>&lt;depth&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltdepthgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-depth"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltdepthgtcode"></a><code>&lt;depth&gt;</code> </dt>
 <dd>
 <p>is the git process depth.  This is the number of parent
 git processes.  A top-level git command has depth value "d0".
 A child of it has depth value "d1".  A second level child
 has depth value "d2" and so on.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltthread-namegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltthread-namegtcode"></a><code>&lt;thread-name&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltthread-namegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-thread-name"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltthread-namegtcode"></a><code>&lt;thread-name&gt;</code> </dt>
 <dd>
 <p>is a unique name for the thread.  The primary thread
 is called "main".  Other thread names are of the form "th%d:%s"
 and include a unique number and the name of the thread-proc.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltevent-namegtcode-1"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltevent-namegtcode-1"></a><code>&lt;event-name&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltevent-namegtcode-1"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-event-name-1"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltevent-namegtcode-1"></a><code>&lt;event-name&gt;</code> </dt>
 <dd>
 <p>is the event name.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltrepo-idgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltrepo-idgtcode"></a><code>&lt;repo-id&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltrepo-idgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-repo-id"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltrepo-idgtcode"></a><code>&lt;repo-id&gt;</code> </dt>
 <dd>
 <p>when present, is a number indicating the repository
 in use.  A <code>def_repo</code> event is emitted when a repository is
@@ -684,23 +684,23 @@ Subsequent repo-specific events will reference this repo-id.</p>
 This field is in anticipation of in-proc submodules in the future.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codelttabsgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codelttabsgtcode"></a><code>&lt;t_abs&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codelttabsgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-tabs"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codelttabsgtcode"></a><code>&lt;t_abs&gt;</code> </dt>
 <dd>
 <p>when present, is the absolute time in seconds since the
 program started.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codelttrelgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codelttrelgtcode"></a><code>&lt;t_rel&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codelttrelgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-trel"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codelttrelgtcode"></a><code>&lt;t_rel&gt;</code> </dt>
 <dd>
 <p>when present, is time in seconds relative to the start of
 the current region.  For a thread-exit event, it is the elapsed
 time of the thread.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltcategorygtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltcategorygtcode"></a><code>&lt;category&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltcategorygtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-category"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltcategorygtcode"></a><code>&lt;category&gt;</code> </dt>
 <dd>
 <p>is present on region and data events and is used to
 indicate a broad category, such as "index" or "status".</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltperf-event-messagegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltperf-event-messagegtcode"></a><code>&lt;perf-event-message&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeltperf-event-messagegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-perf-event-message"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeltperf-event-messagegtcode"></a><code>&lt;perf-event-message&gt;</code> </dt>
 <dd>
 <p>is a free-form printf message intended for human consumption.</p>
 </dd>
@@ -761,11 +761,11 @@ event-specific.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeeventlteventgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeeventlteventgtcode"></a><code>"event":&lt;event&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeeventlteventgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-eventevent"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeeventlteventgtcode"></a><code>"event":&lt;event&gt;</code> </dt>
 <dd>
 <p>is the event name.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codesidltsidgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codesidltsidgtcode"></a><code>"sid":&lt;sid&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codesidltsidgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-sidsid"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codesidltsidgtcode"></a><code>"sid":&lt;sid&gt;</code> </dt>
 <dd>
 <p>is the session-id.  This is a unique string to identify the
 process instance to allow all events emitted by a process to
@@ -775,23 +775,23 @@ session-id is prepended with the session-id of the parent git
 process to allow parent-child relationships to be identified
 during post-processing.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codethreadltthreadgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codethreadltthreadgtcode"></a><code>"thread":&lt;thread&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codethreadltthreadgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-threadthread"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codethreadltthreadgtcode"></a><code>"thread":&lt;thread&gt;</code> </dt>
 <dd>
 <p>is the thread name.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codetimelttimegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codetimelttimegtcode"></a><code>"time":&lt;time&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codetimelttimegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-timetime"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codetimelttimegtcode"></a><code>"time":&lt;time&gt;</code> </dt>
 <dd>
 <p>is the UTC time of the event.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codefileltfilenamegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codefileltfilenamegtcode"></a><code>"file":&lt;filename&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codefileltfilenamegtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-filefilename"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codefileltfilenamegtcode"></a><code>"file":&lt;filename&gt;</code> </dt>
 <dd>
 <p>is source file generating the event.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codelineltline-numbergtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codelineltline-numbergtcode"></a><code>"line":&lt;line-number&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codelineltline-numbergtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-lineline-number"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codelineltline-numbergtcode"></a><code>"line":&lt;line-number&gt;</code> </dt>
 <dd>
 <p>is the integer source line number generating the event.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-coderepoltrepo-idgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-coderepoltrepo-idgtcode"></a><code>"repo":&lt;repo-id&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-coderepoltrepo-idgtcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-reporepo-id"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-coderepoltrepo-idgtcode"></a><code>"repo":&lt;repo-id&gt;</code> </dt>
 <dd>
 <p>when present, is the integer repo-id as described previously.</p>
 </dd>
@@ -807,7 +807,7 @@ only present on the "start" and "atexit" events.</p>
 <h4 id="_event_specific_keyvalue_pairs"><a class="anchor" href="#_event_specific_keyvalue_pairs"></a>Event-Specific Key/Value Pairs</h4>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeversioncode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeversioncode"></a><code>"version"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeversioncode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-version"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeversioncode"></a><code>"version"</code> </dt>
 <dd>
 <p>This event gives the version of the executable and the EVENT format.</p>
 <div class="listingblock">
@@ -821,7 +821,7 @@ only present on the "start" and "atexit" events.</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codestartcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codestartcode"></a><code>"start"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codestartcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-start"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codestartcode"></a><code>"start"</code> </dt>
 <dd>
 <p>This event contains the complete argv received by main().</p>
 <div class="listingblock">
@@ -835,7 +835,7 @@ only present on the "start" and "atexit" events.</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeexitcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeexitcode"></a><code>"exit"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeexitcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-exit"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeexitcode"></a><code>"exit"</code> </dt>
 <dd>
 <p>This event is emitted when git calls <code>exit()</code>.</p>
 <div class="listingblock">
@@ -849,7 +849,7 @@ only present on the "start" and "atexit" events.</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeatexitcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeatexitcode"></a><code>"atexit"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeatexitcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-atexit"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeatexitcode"></a><code>"atexit"</code> </dt>
 <dd>
 <p>This event is emitted by the Trace2 <code>atexit</code> routine during
 final shutdown.  It should be the last event emitted by the
@@ -870,7 +870,7 @@ completed.)</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codesignalcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codesignalcode"></a><code>"signal"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codesignalcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-signal"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codesignalcode"></a><code>"signal"</code> </dt>
 <dd>
 <p>This event is emitted when the program is terminated by a user
 signal.  Depending on the platform, the signal event may
@@ -886,7 +886,7 @@ prevent the "atexit" event from being generated.</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeerrorcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeerrorcode"></a><code>"error"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeerrorcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-error"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeerrorcode"></a><code>"error"</code> </dt>
 <dd>
 <p>This event is emitted when one of the <code>error()</code>, <code>die()</code>,
 or <code>usage()</code> functions are called.</p>
@@ -906,7 +906,7 @@ allows post-processors to group errors by type without worrying
 about specific error arguments.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codecmdpathcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codecmdpathcode"></a><code>"cmd_path"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codecmdpathcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-cmdpath"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codecmdpathcode"></a><code>"cmd_path"</code> </dt>
 <dd>
 <p>This event contains the discovered full path of the git
 executable (on platforms that are configured to resolve it).</p>
@@ -920,7 +920,7 @@ executable (on platforms that are configured to resolve it).</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codecmdnamecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codecmdnamecode"></a><code>"cmd_name"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codecmdnamecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-cmdname"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codecmdnamecode"></a><code>"cmd_name"</code> </dt>
 <dd>
 <p>This event contains the command name for this git process
 and the hierarchy of commands from parent git processes.</p>
@@ -949,7 +949,7 @@ these special values are used:</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codecmdmodecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codecmdmodecode"></a><code>"cmd_mode"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codecmdmodecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-cmdmode"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codecmdmodecode"></a><code>"cmd_mode"</code> </dt>
 <dd>
 <p>This event, when present, describes the command variant This
 event may be emitted more than once.</p>
@@ -969,7 +969,7 @@ And these variations typically have different performance
 characteristics that are not comparable.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codealiascode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codealiascode"></a><code>"alias"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codealiascode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-alias"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codealiascode"></a><code>"alias"</code> </dt>
 <dd>
 <p>This event is present when an alias is expanded.</p>
 <div class="listingblock">
@@ -983,7 +983,7 @@ characteristics that are not comparable.</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codechildstartcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codechildstartcode"></a><code>"child_start"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codechildstartcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-childstart"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codechildstartcode"></a><code>"child_start"</code> </dt>
 <dd>
 <p>This event describes a child process that is about to be
 spawned.</p>
@@ -1012,7 +1012,7 @@ corresponding child_exit event.</p>
 with "?".</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codechildexitcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codechildexitcode"></a><code>"child_exit"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codechildexitcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-childexit"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codechildexitcode"></a><code>"child_exit"</code> </dt>
 <dd>
 <p>This event is generated after the current process has returned
 from the waitpid() and collected the exit information from the
@@ -1043,7 +1043,7 @@ So this time will be slightly larger than the atexit time reported by
 the child process itself.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeexeccode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeexeccode"></a><code>"exec"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeexeccode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-exec"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeexeccode"></a><code>"exec"</code> </dt>
 <dd>
 <p>This event is generated before git attempts to <code>exec()</code>
 another command rather than starting a child process.</p>
@@ -1063,7 +1063,7 @@ another command rather than starting a child process.</p>
 <code>exec()</code> fails and a corresponding exec_result event is generated.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeexecresultcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeexecresultcode"></a><code>"exec_result"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codeexecresultcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-execresult"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codeexecresultcode"></a><code>"exec_result"</code> </dt>
 <dd>
 <p>This event is generated if the <code>exec()</code> fails and control
 returns to the current git command.</p>
@@ -1078,7 +1078,7 @@ returns to the current git command.</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codethreadstartcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codethreadstartcode"></a><code>"thread_start"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codethreadstartcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-threadstart"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codethreadstartcode"></a><code>"thread_start"</code> </dt>
 <dd>
 <p>This event is generated when a thread is started.  It is
 generated from <strong>within</strong> the new thread&#8217;s thread-proc (for TLS
@@ -1093,7 +1093,7 @@ reasons).</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codethreadexitcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codethreadexitcode"></a><code>"thread_exit"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codethreadexitcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-threadexit"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codethreadexitcode"></a><code>"thread_exit"</code> </dt>
 <dd>
 <p>This event is generated when a thread exits.  It is generated
 from <strong>within</strong> the thread&#8217;s thread-proc (for TLS reasons).</p>
@@ -1108,7 +1108,7 @@ from <strong>within</strong> the thread&#8217;s thread-proc (for TLS reasons).</
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codedefparamcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codedefparamcode"></a><code>"def_param"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codedefparamcode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-defparam"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codedefparamcode"></a><code>"def_param"</code> </dt>
 <dd>
 <p>This event is generated to log a global parameter.</p>
 <div class="listingblock">
@@ -1122,7 +1122,7 @@ from <strong>within</strong> the thread&#8217;s thread-proc (for TLS reasons).</
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codedefrepocode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codedefrepocode"></a><code>"def_repo"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codedefrepocode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-defrepo"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codedefrepocode"></a><code>"def_repo"</code> </dt>
 <dd>
 <p>This event defines a repo-id and associates it with the root
 of the worktree.</p>
@@ -1143,7 +1143,7 @@ supported, a def_repo event should be emitted for each submodule
 visited.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-coderegionentercode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-coderegionentercode"></a><code>"region_enter"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-coderegionentercode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-regionenter"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-coderegionentercode"></a><code>"region_enter"</code> </dt>
 <dd>
 <p>This event is generated when entering a region.</p>
 <div class="listingblock">
@@ -1168,7 +1168,7 @@ do category-based filtering.</p>
 filter deeply nested regions and data events.  It defaults to "2".</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-coderegionleavecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-coderegionleavecode"></a><code>"region_leave"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-coderegionleavecode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-regionleave"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-coderegionleavecode"></a><code>"region_leave"</code> </dt>
 <dd>
 <p>This event is generated when leaving a region.</p>
 <div class="listingblock">
@@ -1186,7 +1186,7 @@ filter deeply nested regions and data events.  It defaults to "2".</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codedatacode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codedatacode"></a><code>"data"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codedatacode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-data"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codedatacode"></a><code>"data"</code> </dt>
 <dd>
 <p>This event is generated to log a thread- and region-local
 key/value pair.</p>
@@ -1209,7 +1209,7 @@ key/value pair.</p>
 <p>The "value" field may be an integer or a string.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codedata-jsoncode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codedata-jsoncode"></a><code>"data-json"</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace2.txt-codedata-jsoncode"> <a class="anchor" href="#Documentation/technical/api-trace2.txt-data-json"></a> <a class="anchor" href="#Documentation/technical/api-trace2.txt-codedata-jsoncode"></a><code>"data-json"</code> </dt>
 <dd>
 <p>This event is generated to log a pre-formatted JSON string
 containing structured data.</p>

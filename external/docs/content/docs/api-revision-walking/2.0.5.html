@@ -70,7 +70,7 @@ revision list.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-codeinitrevisionscode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-codeinitrevisionscode"></a><code>init_revisions</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-codeinitrevisionscode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-initrevisions"></a> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-codeinitrevisionscode"></a><code>init_revisions</code> </dt>
 <dd>
 <p>Initialize a rev_info structure with default values. The second
 parameter may be NULL or can be prefix path, and then the <code>.prefix</code>
@@ -80,7 +80,7 @@ this function, you are free to customize options, like set
 <code>.ignore_merges</code> to 0 if you don&#8217;t want to ignore merges, and so on. See
 <code>revision.h</code> for a complete list of available options.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-codeaddpendingobjectcode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-codeaddpendingobjectcode"></a><code>add_pending_object</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-codeaddpendingobjectcode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-addpendingobject"></a> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-codeaddpendingobjectcode"></a><code>add_pending_object</code> </dt>
 <dd>
 <p>This function can be used if you want to add commit objects as revision
 information. You can use the <code>UNINTERESTING</code> object flag to indicate if
@@ -101,7 +101,7 @@ function.
 </table>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-codesetuprevisionscode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-codesetuprevisionscode"></a><code>setup_revisions</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-codesetuprevisionscode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-setuprevisions"></a> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-codesetuprevisionscode"></a><code>setup_revisions</code> </dt>
 <dd>
 <p>Parse revision information, filling in the <code>rev_info</code> structure, and
 removing the used arguments from the argument list. Returns the number
@@ -109,19 +109,19 @@ of arguments left that weren&#8217;t recognized, which are also moved to the
 head of the argument list. The last parameter is used in case no
 parameter given by the first two arguments.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-codepreparerevisionwalkcode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-codepreparerevisionwalkcode"></a><code>prepare_revision_walk</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-codepreparerevisionwalkcode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-preparerevisionwalk"></a> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-codepreparerevisionwalkcode"></a><code>prepare_revision_walk</code> </dt>
 <dd>
 <p>Prepares the rev_info structure for a walk. You should check if it
 returns any error (non-zero return code) and if it does not, you can
 start using get_revision() to do the iteration.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-codegetrevisioncode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-codegetrevisioncode"></a><code>get_revision</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-codegetrevisioncode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-getrevision"></a> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-codegetrevisioncode"></a><code>get_revision</code> </dt>
 <dd>
 <p>Takes a pointer to a <code>rev_info</code> structure and iterates over it,
 returning a <code>struct commit *</code> each time you call it. The end of the
 revision list is indicated by returning a NULL pointer.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-coderesetrevisionwalkcode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-coderesetrevisionwalkcode"></a><code>reset_revision_walk</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-revision-walking.txt-coderesetrevisionwalkcode"> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-resetrevisionwalk"></a> <a class="anchor" href="#Documentation/technical/api-revision-walking.txt-coderesetrevisionwalkcode"></a><code>reset_revision_walk</code> </dt>
 <dd>
 <p>Reset the flags used by the revision walking api. You can use
 this to do multiple sequential revision walks.</p>

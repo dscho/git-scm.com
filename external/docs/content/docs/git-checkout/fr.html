@@ -42,7 +42,7 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutemltbranchegt"> <a class="anchor" href="#git-checkout-emgitcheckoutemltbranchegt"></a><em>git checkout</em> [&lt;branche&gt;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutemltbranchegt"> <a class="anchor" href="#git-checkout-gitcheckoutbranche"></a> <a class="anchor" href="#git-checkout-emgitcheckoutemltbranchegt"></a><em>git checkout</em> [&lt;branche&gt;] </dt>
 <dd>
 <p>Pour se préparer à travailler sur <code>&lt;branche&gt;</code>, basculer dessus en mettant l&#8217;index et les fichiers de l&#8217;arbre de travail à jour, et en pointant <code>HEAD</code> sur cette branche. Les modifications locales aux fichiers de l&#8217;arbre de travail sont conservées, de sorte qu&#8217;elles peuvent être validées sur la <code>&lt;branche&gt;</code>.</p>
 <div class="paragraph">
@@ -57,7 +57,7 @@ aliases:
 <p>Vous pourriez omettre <code>&lt;branche&gt;</code>, auquel cas la commande dégénère en « extraire la branche actuelle », qui est une opération nulle de luxe avec des effets de bord plutôt chers de ne montrer que l&#8217;information de suivi, si elle existe, pour la branche actuelle.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-b-Bltnouvelle-branchegtltpoint-de-dpartgt"> <a class="anchor" href="#git-checkout-emgitcheckoutem-b-Bltnouvelle-branchegtltpoint-de-dpartgt"></a><em>git checkout</em> -b|-B &lt;nouvelle-branche&gt; [&lt;point-de-départ&gt;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-b-Bltnouvelle-branchegtltpoint-de-dpartgt"> <a class="anchor" href="#git-checkout-gitcheckout-b-Bnouvelle-branchepoint-de-dpart"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-b-Bltnouvelle-branchegtltpoint-de-dpartgt"></a><em>git checkout</em> -b|-B &lt;nouvelle-branche&gt; [&lt;point-de-départ&gt;] </dt>
 <dd>
 <p>Spécifier <code>-b</code> provoque la création d&#8217;une nouvelle branche comme si <a href='{{< relurl "docs/git-branch/fr" >}}'>git-branch[1]</a> était lancé puis la branche extraite. Dans ce cas, vous pouvez utiliser les options <code>--track</code> ou <code>--no-track</code>, qui seront passées à <em>git branch</em>. Pour plus de confort, <code>--track</code> sans <code>-b</code> implique la création d&#8217;une branche ; voir la description de <code>--track</code> ci-dessous.</p>
 <div class="paragraph">
@@ -73,8 +73,8 @@ $ git checkout &lt;branche&gt;</pre>
 <p>c&#8217;est-à-dire que la branche n&#8217;est pas réinitialisée/créée à moins que "git checkout" soit réussi (par exemple, lorsque la branche est utilisée dans un autre arbre de travail, pas seulement que la branche actuelle reste la même, mais la branche n&#8217;est pas réinitialisée au point de départ non plus).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltbranchegt"> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltbranchegt"></a><em>git checkout</em> --detach [&lt;branche&gt;] </dt>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltcommitgt"> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltcommitgt"></a><em>git checkout</em> [--detach] &lt;commit&gt; </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltbranchegt"> <a class="anchor" href="#git-checkout-gitcheckout--detachbranche"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltbranchegt"></a><em>git checkout</em> --detach [&lt;branche&gt;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltcommitgt"> <a class="anchor" href="#git-checkout-gitcheckout--detachcommit"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltcommitgt"></a><em>git checkout</em> [--detach] &lt;commit&gt; </dt>
 <dd>
 <p>Prépare à travailler par-dessus <code>&lt;commit&gt;</code>, en détachant <code>HEAD</code> dessus (voir la section « HEAD DÉTACHÉE »), et en mettant l&#8217;index et les fichiers de l&#8217;arbre de travail à jour. Les modifications locales des fichiers dans l&#8217;arbre de travail sont conservées, de sorte que l&#8217;arbre de travail sera le résultat du commit plus les modifications locales.</p>
 <div class="paragraph">
@@ -84,15 +84,15 @@ $ git checkout &lt;branche&gt;</pre>
 <p>Omettre <code>&lt;branche&gt;</code> détache <code>HEAD</code> au sommet de la branche actuelle.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltstylegtltarbre-esquegt--ltspcdechemingt82308203"> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltstylegtltarbre-esquegt--ltspcdechemingt82308203"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;style&gt;] [&lt;arbre-esque&gt;] [--] &lt;spéc. de chemin&gt;&#8230;&#8203; </dt>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltstylegtltarbre-esquegt--pathspec-from-fileltfichiergt--pathspec-file-nul"> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltstylegtltarbre-esquegt--pathspec-from-fileltfichiergt--pathspec-file-nul"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;style&gt;] [&lt;arbre-esque&gt;] --pathspec-from-file=&lt;fichier&gt; [--pathspec-file-nul] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltstylegtltarbre-esquegt--ltspcdechemingt82308203"> <a class="anchor" href="#git-checkout-gitcheckout-f--ours--theirs-m--conflictstylearbre-esque--spcdechemin"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltstylegtltarbre-esquegt--ltspcdechemingt82308203"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;style&gt;] [&lt;arbre-esque&gt;] [--] &lt;spéc. de chemin&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltstylegtltarbre-esquegt--pathspec-from-fileltfichiergt--pathspec-file-nul"> <a class="anchor" href="#git-checkout-gitcheckout-f--ours--theirs-m--conflictstylearbre-esque--pathspec-from-filefichier--pathspec-file-nul"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltstylegtltarbre-esquegt--pathspec-from-fileltfichiergt--pathspec-file-nul"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;style&gt;] [&lt;arbre-esque&gt;] --pathspec-from-file=&lt;fichier&gt; [--pathspec-file-nul] </dt>
 <dd>
 <p>Écraser le contenu des fichiers qui correspondent au spécificateur-de-chemin. Lorsque le <code>&lt;arbre-esque&gt;</code> (le plus souvent un commit) n&#8217;est pas donné, écraser l&#8217;arbre de travail avec le contenu de l&#8217;index. Lorsque le <code>&lt;arbre-esque&gt;</code> est donné, écraser à la fois l&#8217;index et l&#8217;arbre de travail avec le contenu du <code>&lt;arbre-esque&gt;</code>.</p>
 <div class="paragraph">
 <p>L&#8217;index peut contenir des entrées non fusionnées à cause d&#8217;un échec précédent de fusion. Par défaut, si vous essayez d&#8217;extraire une telle entrée depuis l&#8217;index, l&#8217;opération d&#8217;extraction échouera et rien ne sera extrait. L&#8217;utilisation de <code>-f</code> forcera à ignorer ces entrées non fusionnées. Le contenu depuis un côté donné de la fusion peut être extrait de l&#8217;index en utilisant <code>--ours</code> (notre côté) ou <code>--theirs</code> (l&#8217;autre côté). Avec <code>-m</code>, les modifications opérées sur le fichier de l&#8217;arbre de travail peuvent être jetées pour récréer le résultat originel de conflit de fusion.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-p--patchltarbre-esquegt--ltspcdechemingt82308203"> <a class="anchor" href="#git-checkout-emgitcheckoutem-p--patchltarbre-esquegt--ltspcdechemingt82308203"></a><em>git checkout</em> (-p|--patch) [&lt;arbre-esque&gt;] [--] [&lt;spéc. de chemin&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-p--patchltarbre-esquegt--ltspcdechemingt82308203"> <a class="anchor" href="#git-checkout-gitcheckout-p--patcharbre-esque--spcdechemin"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-p--patchltarbre-esquegt--ltspcdechemingt82308203"></a><em>git checkout</em> (-p|--patch) [&lt;arbre-esque&gt;] [--] [&lt;spéc. de chemin&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>C&#8217;est similaire au mode précédent, mais vous laisse utiliser l&#8217;interface interactive pour afficher la sortie « diff » et choisir quelles sections utiliser dans le résultat. Voir plus bas la description de l&#8217;option <code>--patch</code>.</p>
 </dd>
@@ -134,11 +134,11 @@ $ git checkout &lt;branche&gt;</pre>
 <p>C&#8217;est parce que <code>rebase</code> est utilisé dans une approche qui traite l&#8217;historique distant comme la référence canonique partagée, et traite le travail sur la branche que vous rebasez comme un travail tiers à intégrer, et vous endossez temporairement le rôle du gardien de l&#8217;historique canonique quand vous rebasez. En tant que gardien de l&#8217;historique canonique, vous devez voir l&#8217;historique distant comme le vôtre (<em>ours</em>, c&#8217;est-à-dire « notre historique partagé canonique »), tandis que votre travail sur l&#8217;autre branche devient le tiers (<em>theirs</em>, c&#8217;est-à-dire « le travail d&#8217;un contributeur sur le canonique »).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout--bltnouvelle-branchegt"> <a class="anchor" href="#git-checkout--bltnouvelle-branchegt"></a>-b &lt;nouvelle-branche&gt; </dt>
+<dt class="hdlist1" id="git-checkout--bltnouvelle-branchegt"> <a class="anchor" href="#git-checkout--bnouvelle-branche"></a> <a class="anchor" href="#git-checkout--bltnouvelle-branchegt"></a>-b &lt;nouvelle-branche&gt; </dt>
 <dd>
 <p>Créer une nouvelle branche nommée <code>&lt;nouvelle-branche&gt;</code>, la commencer à <code>&lt;point-de-départ&gt;</code> et extraire la branche résultante ; voir <a href='{{< relurl "docs/git-branch/fr" >}}'>git-branch[1]</a> pour plus de détails.</p>
 </dd>
-<dt class="hdlist1" id="git-checkout--Bltnouvelle-branchegt"> <a class="anchor" href="#git-checkout--Bltnouvelle-branchegt"></a>-B &lt;nouvelle-branche&gt; </dt>
+<dt class="hdlist1" id="git-checkout--Bltnouvelle-branchegt"> <a class="anchor" href="#git-checkout--Bnouvelle-branche"></a> <a class="anchor" href="#git-checkout--Bltnouvelle-branchegt"></a>-B &lt;nouvelle-branche&gt; </dt>
 <dd>
 <p>Créer la branche <code>&lt;nouvelle-branche&gt;</code>, la commencer à <code>&lt;point-de-départ&gt;</code> et l&#8217;extraire ; si elle existe déjà, alors la réinitialise à <code>&lt;point-de-départ&gt;</code>. C&#8217;est équivalent à lancer <em>git branch</em> avec <code>-f</code> suivi de <em>git checkout</em> de cette branche ; voir <a href='{{< relurl "docs/git-branch/fr" >}}'>git-branch[1]</a> pour plus de détails.</p>
 </dd>
@@ -182,7 +182,7 @@ $ git checkout &lt;branche&gt;</pre>
 <dd>
 <p>Plutôt que d&#8217;extraire une branche pour travailler dessus, extraire un commit pour l&#8217;inspecter et faire des expériences jetables. C&#8217;est le comportement par défaut de <code>git checkout &lt;commit&gt;</code> quand <code>&lt;commit&gt;</code> n&#8217;est pas un nom de branche. Voir la section « HEAD DÉTACHÉE » plus bas pour plus de détails.</p>
 </dd>
-<dt class="hdlist1" id="git-checkout---orphanltnouvelle-branchegt"> <a class="anchor" href="#git-checkout---orphanltnouvelle-branchegt"></a>--orphan &lt;nouvelle-branche&gt; </dt>
+<dt class="hdlist1" id="git-checkout---orphanltnouvelle-branchegt"> <a class="anchor" href="#git-checkout---orphannouvelle-branche"></a> <a class="anchor" href="#git-checkout---orphanltnouvelle-branchegt"></a>--orphan &lt;nouvelle-branche&gt; </dt>
 <dd>
 <p>Créer une nouvelle branche non née, nommée <code>&lt;nouvelle-branche&gt;</code>, commençant depuis <code>&lt;point-de-départ&gt;</code> et basculer dessus. Le premier commit réalisé sur cette branche n&#8217;aura pas de parent et il sera la racine du nouvel historique totalement déconnecté de toutes les autres branches et des autres commits.</p>
 <div class="paragraph">
@@ -213,7 +213,7 @@ $ git checkout &lt;branche&gt;</pre>
 <p>Lors du basculement de branche avec <code>--merge</code>, les modifications indexées peuvent être perdues.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout---conflictltstylegt"> <a class="anchor" href="#git-checkout---conflictltstylegt"></a>--conflict=&lt;style&gt; </dt>
+<dt class="hdlist1" id="git-checkout---conflictltstylegt"> <a class="anchor" href="#git-checkout---conflictstyle"></a> <a class="anchor" href="#git-checkout---conflictltstylegt"></a>--conflict=&lt;style&gt; </dt>
 <dd>
 <p>Identique à l&#8217;option <code>--merge</code> ci-dessus, mais la manière dont les sections en conflits sont présentées est modifiée, en surchargeant la variable de configuration <code>merge.conflictStyle</code>. Les valeurs possibles sont <code>merge</code> (fusion, par défaut), <code>diff3</code> et <code>zdiff3</code>.</p>
 </dd>
@@ -247,7 +247,7 @@ $ git checkout &lt;branche&gt;</pre>
 <dd>
 <p>Dans le mode de superposition par défaut, <code>git checkout</code> ne supprime jamais les fichiers de l’index ou de l’arbre de travail. Lorsque vous spécifiez <code>--no-overlay</code>, les fichiers qui apparaissent dans l’index et l’arbre de travail, mais pas dans «&lt;arbre-esque&gt;» sont supprimés, pour les faire correspondre à <code>&lt;arbre-esque&gt;</code> exactement.</p>
 </dd>
-<dt class="hdlist1" id="git-checkout---pathspec-from-fileltfichiergt"> <a class="anchor" href="#git-checkout---pathspec-from-fileltfichiergt"></a>--pathspec-from-file=&lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-checkout---pathspec-from-fileltfichiergt"> <a class="anchor" href="#git-checkout---pathspec-from-filefichier"></a> <a class="anchor" href="#git-checkout---pathspec-from-fileltfichiergt"></a>--pathspec-from-file=&lt;fichier&gt; </dt>
 <dd>
 <p>Le spécificateur de chemin est passé dans <code>&lt;fichier&gt;</code> au lieu des arguments de la ligne de commande. Si <code>&lt;fichier&gt;</code> vaut <code>-</code> alors l&#8217;entrée standard est utilisée. Les éléments du spécificateur de chemin sont séparés par LF ou CR/LF. Les éléments du spécificateur de chemin peuvent être cités comme expliqué pour la variable de configuration <code>core.quotePath</code> (voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>). Voir aussi l&#8217;option <code>--pathspec-file-nul</code> et l&#8217;option globale <code>--literal-pathspecs</code>.</p>
 </dd>
@@ -255,7 +255,7 @@ $ git checkout &lt;branche&gt;</pre>
 <dd>
 <p>Uniquement significatif avec <code>--pathspec-from-file</code>. Les éléments du spécificateur de chemin sont séparés par le caractère NUL et tous les autres caractères sont utilisés littéralement (y compris les retours à la ligne et les guillemets).</p>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltbranchegt"> <a class="anchor" href="#git-checkout-ltbranchegt"></a>&lt;branche&gt; </dt>
+<dt class="hdlist1" id="git-checkout-ltbranchegt"> <a class="anchor" href="#git-checkout-branche"></a> <a class="anchor" href="#git-checkout-ltbranchegt"></a>&lt;branche&gt; </dt>
 <dd>
 <p>Branche à extraire ; si c&#8217;est une référence à une branche (c&#8217;est-à-dire un nom qui, préfixé par « refs/heads/ » est une référence valide), alors cette branche est extraite. Sinon, si c&#8217;est une référence à un commit valide, votre <code>HEAD</code> devient « détachée » et vous n&#8217;êtes plus sur aucune branche (voir plus bas pour plus de détails).</p>
 <div class="paragraph">
@@ -265,18 +265,18 @@ $ git checkout &lt;branche&gt;</pre>
 <p>Autre cas spécial supplémentaire, vous pouvez utiliser <code>A...B</code> comme raccourci pour la base de fusion de <code>A</code> et <code>B</code> s&#8217;il y a exactement une seule base de fusion. Vous pouvez ne pas spécifier <code>A</code> ou <code>B</code>, auquel cas ce sera <code>HEAD</code> par défaut.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltnouvelle-branchegt"> <a class="anchor" href="#git-checkout-ltnouvelle-branchegt"></a>&lt;nouvelle-branche&gt; </dt>
+<dt class="hdlist1" id="git-checkout-ltnouvelle-branchegt"> <a class="anchor" href="#git-checkout-nouvelle-branche"></a> <a class="anchor" href="#git-checkout-ltnouvelle-branchegt"></a>&lt;nouvelle-branche&gt; </dt>
 <dd>
 <p>Nom pour une nouvelle branche.</p>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltpointdedpartgt"> <a class="anchor" href="#git-checkout-ltpointdedpartgt"></a>&lt;point_de_départ&gt; </dt>
+<dt class="hdlist1" id="git-checkout-ltpointdedpartgt"> <a class="anchor" href="#git-checkout-pointdedpart"></a> <a class="anchor" href="#git-checkout-ltpointdedpartgt"></a>&lt;point_de_départ&gt; </dt>
 <dd>
 <p>Le nom du commit auquel démarrer la nouvelle branche ; voir <a href='{{< relurl "docs/git-branch/fr" >}}'>git-branch[1]</a> pour plus de détails. <code>HEAD</code> par défaut.</p>
 <div class="paragraph">
 <p>Autre cas spécial supplémentaire, vous pouvez utiliser « A&#8230;&#8203;B » comme raccourci pour la base de fusion de <code>A</code> et <code>B</code> s&#8217;il y a exactement une seule base de fusion. Vous pouvez ne pas spécifier <code>A</code> ou <code>B</code>, auquel cas ce sera <code>HEAD</code> par défaut.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltarbre-esquegt"> <a class="anchor" href="#git-checkout-ltarbre-esquegt"></a>&lt;arbre-esque&gt; </dt>
+<dt class="hdlist1" id="git-checkout-ltarbre-esquegt"> <a class="anchor" href="#git-checkout-arbre-esque"></a> <a class="anchor" href="#git-checkout-ltarbre-esquegt"></a>&lt;arbre-esque&gt; </dt>
 <dd>
 <p>Arbre depuis lequel extraire (quand des chemins sont indiqués). Si non spécifié, l&#8217;index est utilisé.</p>
 <div class="paragraph">
@@ -287,7 +287,7 @@ $ git checkout &lt;branche&gt;</pre>
 <dd>
 <p>Ne pas interpréter les arguments qui suivent comme options.</p>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltspcificateurdechemingt82308203"> <a class="anchor" href="#git-checkout-ltspcificateurdechemingt82308203"></a>&lt;spécificateur de chemin&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-checkout-ltspcificateurdechemingt82308203"> <a class="anchor" href="#git-checkout-spcificateurdechemin"></a> <a class="anchor" href="#git-checkout-ltspcificateurdechemingt82308203"></a>&lt;spécificateur de chemin&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Limite les chemins affectés par l&#8217;opération.</p>
 <div class="paragraph">

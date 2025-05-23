@@ -117,12 +117,12 @@ because the complexity would be quadratic again (but with a worse factor).</p>
 <p>General ones (works with sorted and unsorted lists as well)</p>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistinitcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistinitcode"></a><code>string_list_init</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistinitcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-stringlistinit"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistinitcode"></a><code>string_list_init</code> </dt>
 <dd>
 <p>Initialize the members of the string_list, set <code>strdup_strings</code>
 member according to the value of the second parameter.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codefilterstringlistcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codefilterstringlistcode"></a><code>filter_string_list</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codefilterstringlistcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-filterstringlist"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codefilterstringlistcode"></a><code>filter_string_list</code> </dt>
 <dd>
 <p>Apply a function to each item in a list, retaining only the
 items for which the function returns true.  If free_util is
@@ -130,19 +130,19 @@ true, call free() on the util members of any items that have
 to be deleted.  Preserve the order of the items that are
 retained.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistremoveemptyitemscode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistremoveemptyitemscode"></a><code>string_list_remove_empty_items</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistremoveemptyitemscode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-stringlistremoveemptyitems"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistremoveemptyitemscode"></a><code>string_list_remove_empty_items</code> </dt>
 <dd>
 <p>Remove any empty strings from the list.  If free_util is true,
 call free() on the util members of any items that have to be
 deleted.  Preserve the order of the items that are retained.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codeprintstringlistcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codeprintstringlistcode"></a><code>print_string_list</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codeprintstringlistcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-printstringlist"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codeprintstringlistcode"></a><code>print_string_list</code> </dt>
 <dd>
 <p>Dump a string_list to stdout, useful mainly for debugging purposes. It
 can take an optional header argument and it writes out the
 string-pointer pairs of the string_list, each one in its own line.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistclearcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistclearcode"></a><code>string_list_clear</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistclearcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-stringlistclear"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistclearcode"></a><code>string_list_clear</code> </dt>
 <dd>
 <p>Free a string_list. The <code>string</code> pointer of the items will be freed in
 case the <code>strdup_strings</code> member of the string_list is set. The second
@@ -156,11 +156,11 @@ or not.</p>
 <p>Functions for sorted lists only</p>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlisthasstringcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlisthasstringcode"></a><code>string_list_has_string</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlisthasstringcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-stringlisthasstring"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlisthasstringcode"></a><code>string_list_has_string</code> </dt>
 <dd>
 <p>Determine if the string_list has a given string or not.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistinsertcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistinsertcode"></a><code>string_list_insert</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistinsertcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-stringlistinsert"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistinsertcode"></a><code>string_list_insert</code> </dt>
 <dd>
 <p>Insert a new element to the string_list. The returned pointer can be
 handy if you want to write something to the <code>util</code> pointer of the
@@ -173,12 +173,12 @@ list needs to grow, it is safe not to check the pointer. I.e. you may
 write <code>string_list_insert(...)-&gt;util = ...;</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistlookupcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistlookupcode"></a><code>string_list_lookup</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistlookupcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-stringlistlookup"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistlookupcode"></a><code>string_list_lookup</code> </dt>
 <dd>
 <p>Look up a given string in the string_list, returning the containing
 string_list_item. If the string is not found, NULL is returned.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistremoveduplicatescode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistremoveduplicatescode"></a><code>string_list_remove_duplicates</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistremoveduplicatescode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-stringlistremoveduplicates"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistremoveduplicatescode"></a><code>string_list_remove_duplicates</code> </dt>
 <dd>
 <p>Remove all but the first of consecutive entries that have the
 same string value.  If free_util is true, call free() on the
@@ -191,14 +191,14 @@ util members of any items that have to be deleted.</p>
 <p>Functions for unsorted lists only</p>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistappendcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistappendcode"></a><code>string_list_append</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistappendcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-stringlistappend"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistappendcode"></a><code>string_list_append</code> </dt>
 <dd>
 <p>Append a new string to the end of the string_list.  If
 <code>strdup_string</code> is set, then the string argument is copied;
 otherwise the new <code>string_list_entry</code> refers to the input
 string.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistappendnodupcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistappendnodupcode"></a><code>string_list_append_nodup</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistappendnodupcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-stringlistappendnodup"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistappendnodupcode"></a><code>string_list_append_nodup</code> </dt>
 <dd>
 <p>Append a new string to the end of the string_list.  The new
 <code>string_list_entry</code> always refers to the input string, even if
@@ -206,15 +206,15 @@ string.</p>
 ownership of a malloc()ed string to a <code>string_list</code> that has
 <code>strdup_string</code> set.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codesortstringlistcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codesortstringlistcode"></a><code>sort_string_list</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codesortstringlistcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-sortstringlist"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codesortstringlistcode"></a><code>sort_string_list</code> </dt>
 <dd>
 <p>Sort the list&#8217;s entries by string value in <code>strcmp()</code> order.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codeunsortedstringlisthasstringcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codeunsortedstringlisthasstringcode"></a><code>unsorted_string_list_has_string</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codeunsortedstringlisthasstringcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-unsortedstringlisthasstring"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codeunsortedstringlisthasstringcode"></a><code>unsorted_string_list_has_string</code> </dt>
 <dd>
 <p>It&#8217;s like <code>string_list_has_string()</code> but for unsorted lists.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codeunsortedstringlistlookupcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codeunsortedstringlistlookupcode"></a><code>unsorted_string_list_lookup</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codeunsortedstringlistlookupcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-unsortedstringlistlookup"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codeunsortedstringlistlookupcode"></a><code>unsorted_string_list_lookup</code> </dt>
 <dd>
 <p>It&#8217;s like <code>string_list_lookup()</code> but for unsorted lists.</p>
 <div class="paragraph">
@@ -222,15 +222,15 @@ ownership of a malloc()ed string to a <code>string_list</code> that has
 counterpart for sorted lists, which performs a binary search.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codeunsortedstringlistdeleteitemcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codeunsortedstringlistdeleteitemcode"></a><code>unsorted_string_list_delete_item</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codeunsortedstringlistdeleteitemcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-unsortedstringlistdeleteitem"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codeunsortedstringlistdeleteitemcode"></a><code>unsorted_string_list_delete_item</code> </dt>
 <dd>
 <p>Remove an item from a string_list. The <code>string</code> pointer of the items
 will be freed in case the <code>strdup_strings</code> member of the string_list
 is set. The third parameter controls if the <code>util</code> pointer of the
 items should be freed or not.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistsplitcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistsplitcode"></a><code>string_list_split</code> </dt>
-<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistsplitinplacecode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistsplitinplacecode"></a><code>string_list_split_in_place</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistsplitcode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-stringlistsplit"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistsplitcode"></a><code>string_list_split</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-string-list.txt-codestringlistsplitinplacecode"> <a class="anchor" href="#Documentation/technical/api-string-list.txt-stringlistsplitinplace"></a> <a class="anchor" href="#Documentation/technical/api-string-list.txt-codestringlistsplitinplacecode"></a><code>string_list_split_in_place</code> </dt>
 <dd>
 <p>Split a string into substrings on a delimiter character and
 append the substrings to a <code>string_list</code>.  If <code>maxsplit</code> is

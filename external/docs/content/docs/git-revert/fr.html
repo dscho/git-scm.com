@@ -46,7 +46,7 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-revert-ltcommitgt82308203"> <a class="anchor" href="#git-revert-ltcommitgt82308203"></a>&lt;commit&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-revert-ltcommitgt82308203"> <a class="anchor" href="#git-revert-commit"></a> <a class="anchor" href="#git-revert-ltcommitgt82308203"></a>&lt;commit&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Les commits à inverser. Pour une liste plus complète des façons d&#8217;épeler les noms des commits, voir <a href='{{< relurl "docs/gitrevisions/fr" >}}'>gitrevisions[7]</a>. Des ensembles de commits peuvent aussi être passés mais aucune traversée n&#8217;est faite par défaut, voir <a href='{{< relurl "docs/git-rev-list/fr" >}}'>git-rev-list[1]</a> et sont option <code>--no-walk</code>.</p>
 </dd>
@@ -70,7 +70,7 @@ aliases:
 <dd>
 <p>Avec cette option, <em>git revert</em> ne démarre pas l&#8217;éditeur de message de validation.</p>
 </dd>
-<dt class="hdlist1" id="git-revert---cleanupltmodegt"> <a class="anchor" href="#git-revert---cleanupltmodegt"></a>--cleanup=&lt;mode&gt; </dt>
+<dt class="hdlist1" id="git-revert---cleanupltmodegt"> <a class="anchor" href="#git-revert---cleanupmode"></a> <a class="anchor" href="#git-revert---cleanupltmodegt"></a>--cleanup=&lt;mode&gt; </dt>
 <dd>
 <p>Cette option détermine comment le message de valiation sera nettoyé avant d&#8217;être transmis à la machine de commit. Voir <a href='{{< relurl "docs/git-commit/fr" >}}'>git-commit[1]</a> pour plus de détails. En particulier, si la valeur de <em>&lt;mode&gt;</em> est <code>scissors</code>, les ciseaux seront ajoutés à <code>MERGE_MSG</code> avant d&#8217;être transmis dans le cas d&#8217;un conflit.</p>
 </dd>
@@ -82,8 +82,8 @@ aliases:
 <p>Ceci est utile pour inverser l&#8217;effet de plusieurs commits à la suite sur votre index.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-revert--Sltidclgt"> <a class="anchor" href="#git-revert--Sltidclgt"></a>-S[&lt;idclé&gt;] </dt>
-<dt class="hdlist1" id="git-revert---gpg-signltidclgt"> <a class="anchor" href="#git-revert---gpg-signltidclgt"></a>--gpg-sign[=&lt;idclé&gt;] </dt>
+<dt class="hdlist1" id="git-revert--Sltidclgt"> <a class="anchor" href="#git-revert--Sidcl"></a> <a class="anchor" href="#git-revert--Sltidclgt"></a>-S[&lt;idclé&gt;] </dt>
+<dt class="hdlist1" id="git-revert---gpg-signltidclgt"> <a class="anchor" href="#git-revert---gpg-signidcl"></a> <a class="anchor" href="#git-revert---gpg-signltidclgt"></a>--gpg-sign[=&lt;idclé&gt;] </dt>
 <dt class="hdlist1" id="git-revert---no-gpg-sign"> <a class="anchor" href="#git-revert---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
 <p>Signer les commits avec GPG. L&#8217;argument <code>idclé</code> est optionnel avec par défaut l&#8217;identité du validateur ; si spécifiée, elle doit être collée à l&#8217;option sans aucun espace. <code>--no-gpg-sign</code> est utile pour annuler l&#8217;effet de la variable de configuration <code>commit.gpgSign</code> ainsi que tout <code>--gpg-sign</code> précédent.</p>
@@ -93,12 +93,12 @@ aliases:
 <dd>
 <p>Ajouter une ligne terminale <code>Signed-off-by</code> au message de commit. Référez-vous à l&#8217;option de contre-signature dans <a href='{{< relurl "docs/git-commit/fr" >}}'>git-commit[1]</a> pour plus d&#8217;information.</p>
 </dd>
-<dt class="hdlist1" id="git-revert---strategyltstrategiegt"> <a class="anchor" href="#git-revert---strategyltstrategiegt"></a>--strategy=&lt;strategie&gt; </dt>
+<dt class="hdlist1" id="git-revert---strategyltstrategiegt"> <a class="anchor" href="#git-revert---strategystrategie"></a> <a class="anchor" href="#git-revert---strategyltstrategiegt"></a>--strategy=&lt;strategie&gt; </dt>
 <dd>
 <p>Utilise la stratégie de fusion donnée. Ne devrait être utilisée qu&#8217;une seule fois. Voir la section STRATÉGIES DE FUSION dans <a href='{{< relurl "docs/git-merge/fr" >}}'>git-merge[1]</a> pour plus de détails.</p>
 </dd>
-<dt class="hdlist1" id="git-revert--Xltoptiongt"> <a class="anchor" href="#git-revert--Xltoptiongt"></a>-X&lt;option&gt; </dt>
-<dt class="hdlist1" id="git-revert---strategy-optionltoptiongt"> <a class="anchor" href="#git-revert---strategy-optionltoptiongt"></a>--strategy-option=&lt;option&gt; </dt>
+<dt class="hdlist1" id="git-revert--Xltoptiongt"> <a class="anchor" href="#git-revert--Xoption"></a> <a class="anchor" href="#git-revert--Xltoptiongt"></a>-X&lt;option&gt; </dt>
+<dt class="hdlist1" id="git-revert---strategy-optionltoptiongt"> <a class="anchor" href="#git-revert---strategy-optionoption"></a> <a class="anchor" href="#git-revert---strategy-optionltoptiongt"></a>--strategy-option=&lt;option&gt; </dt>
 <dd>
 <p>Passer l&#8217;option spécifique de stratégie de fusion à la stratégie de fusion. Voir <a href='{{< relurl "docs/git-merge/fr" >}}'>git-merge[1]</a> pour plus de détails.</p>
 </dd>
@@ -146,11 +146,11 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-revert-codegitrevertHEAD3code"> <a class="anchor" href="#git-revert-codegitrevertHEAD3code"></a><code>git revert HEAD~3</code> </dt>
+<dt class="hdlist1" id="git-revert-codegitrevertHEAD3code"> <a class="anchor" href="#git-revert-gitrevertHEAD3"></a> <a class="anchor" href="#git-revert-codegitrevertHEAD3code"></a><code>git revert HEAD~3</code> </dt>
 <dd>
 <p>Inverse les modifications spécifiées par le quatrième dernier commit de <code>HEAD</code> et crée un nouveau commit avec les modifications retournées.</p>
 </dd>
-<dt class="hdlist1" id="git-revert-codegitrevert-nmaster5master2code"> <a class="anchor" href="#git-revert-codegitrevert-nmaster5master2code"></a><code>git revert -n master~5..master~2</code> </dt>
+<dt class="hdlist1" id="git-revert-codegitrevert-nmaster5master2code"> <a class="anchor" href="#git-revert-gitrevert-nmaster5master2"></a> <a class="anchor" href="#git-revert-codegitrevert-nmaster5master2code"></a><code>git revert -n master~5..master~2</code> </dt>
 <dd>
 <p>Inverse les changements effectués par les commits du cinquième dernier commit de master (inclus) au troisième dernier commit de master (inclus), mais ne crée aucun commit avec les modifications retournées. L&#8217;inversion ne modifie que l&#8217;arbre de travail et l&#8217;index.</p>
 </dd>

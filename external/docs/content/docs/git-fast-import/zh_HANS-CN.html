@@ -72,11 +72,11 @@ aliases:
 <h3 id="_前端的选项"><a class="anchor" href="#_前端的选项"></a>前端的选项</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import---cat-blob-fdltfdgt"> <a class="anchor" href="#git-fast-import---cat-blob-fdltfdgt"></a>--cat-blob-fd=&lt;fd&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---cat-blob-fdltfdgt"> <a class="anchor" href="#git-fast-import---cat-blob-fdfd"></a> <a class="anchor" href="#git-fast-import---cat-blob-fdltfdgt"></a>--cat-blob-fd=&lt;fd&gt; </dt>
 <dd>
 <p>将对 <code>get-mark</code>、<code>cat-blob</code> 和 <code>ls</code> 查询的响应写入文件描述符 &lt;fd&gt; 而不是 <code>stdout</code>。 允许将面向最终用户的 <code>progress</code> 输出与其他输出分开。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---date-formatltgt"> <a class="anchor" href="#git-fast-import---date-formatltgt"></a>--date-format=&lt;格式&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---date-formatltgt"> <a class="anchor" href="#git-fast-import---date-format"></a> <a class="anchor" href="#git-fast-import---date-formatltgt"></a>--date-format=&lt;格式&gt; </dt>
 <dd>
 <p>指定前台在 <code>author</code>, <code>committer</code> 和 <code>tagger</code> 命令中提供给快速导入的日期类型。 有关支持的格式及其语法的详细信息，请参阅下面的 "日期格式"。</p>
 </dd>
@@ -91,15 +91,15 @@ aliases:
 <h3 id="_标记文件的位置"><a class="anchor" href="#_标记文件的位置"></a>标记文件的位置</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import---export-marksltgt"> <a class="anchor" href="#git-fast-import---export-marksltgt"></a>--export-marks=&lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---export-marksltgt"> <a class="anchor" href="#git-fast-import---export-marks"></a> <a class="anchor" href="#git-fast-import---export-marksltgt"></a>--export-marks=&lt;文件&gt; </dt>
 <dd>
 <p>完成后将内部标记表转存到 &lt;文件&gt; 中。 标记以 <code>:markid SHA-1</code> 的形式每行写一个。 前端可在导入完成后使用此文件验证导入，或在增量运行时保存标记表。 由于 &lt;文件&gt; 只在检查点（或完成时）打开和截断，因此同样的路径也可以安全地提供给 --import-marks 文件。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---import-marksltgt"> <a class="anchor" href="#git-fast-import---import-marksltgt"></a>--import-marks=&lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---import-marksltgt"> <a class="anchor" href="#git-fast-import---import-marks"></a> <a class="anchor" href="#git-fast-import---import-marksltgt"></a>--import-marks=&lt;文件&gt; </dt>
 <dd>
 <p>在处理任何输入之前，加载 &lt;文件&gt; 中指定的标记。 输入文件必须存在，必须可读，必须使用与 --export-marks 生成的相同格式。 可以提供多个选项来导入多组标记。 如果一个标记被定义为不同的值，则以最后一个文件为准。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---import-marks-if-existsltgt"> <a class="anchor" href="#git-fast-import---import-marks-if-existsltgt"></a>--import-marks-if-exists=&lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---import-marks-if-existsltgt"> <a class="anchor" href="#git-fast-import---import-marks-if-exists"></a> <a class="anchor" href="#git-fast-import---import-marks-if-existsltgt"></a>--import-marks-if-exists=&lt;文件&gt; </dt>
 <dd>
 <p>与 --import-marks 类似，但不会出错，而是在文件不存在时自动跳过。</p>
 </dd>
@@ -117,8 +117,8 @@ aliases:
 <h3 id="_重写子模块"><a class="anchor" href="#_重写子模块"></a>重写子模块</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import---rewrite-submodules-fromltgtltgt"> <a class="anchor" href="#git-fast-import---rewrite-submodules-fromltgtltgt"></a>--rewrite-submodules-from=&lt;名称&gt;:&lt;文件&gt; </dt>
-<dt class="hdlist1" id="git-fast-import---rewrite-submodules-toltgtltgt"> <a class="anchor" href="#git-fast-import---rewrite-submodules-toltgtltgt"></a>--rewrite-submodules-to=&lt;名称&gt;:&lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---rewrite-submodules-fromltgtltgt"> <a class="anchor" href="#git-fast-import---rewrite-submodules-from"></a> <a class="anchor" href="#git-fast-import---rewrite-submodules-fromltgtltgt"></a>--rewrite-submodules-from=&lt;名称&gt;:&lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---rewrite-submodules-toltgtltgt"> <a class="anchor" href="#git-fast-import---rewrite-submodules-to"></a> <a class="anchor" href="#git-fast-import---rewrite-submodules-toltgtltgt"></a>--rewrite-submodules-to=&lt;名称&gt;:&lt;文件&gt; </dt>
 <dd>
 <p>将 &lt;名称&gt; 指定的子模块的对象 ID 从 from &lt;文件&gt; 中使用的值重写为 to &lt;文件&gt; 中使用的值。from 标记应由 <code>git fast-export</code> 创建，而 to 标记应在导入同一子模块时由 <code>git fast-import</code> 创建。</p>
 <div class="paragraph">
@@ -135,23 +135,23 @@ aliases:
 <h3 id="_性能和压缩调整"><a class="anchor" href="#_性能和压缩调整"></a>性能和压缩调整</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import---active-branchesltngt"> <a class="anchor" href="#git-fast-import---active-branchesltngt"></a>--active-branches=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---active-branchesltngt"> <a class="anchor" href="#git-fast-import---active-branchesn"></a> <a class="anchor" href="#git-fast-import---active-branchesltngt"></a>--active-branches=&lt;n&gt; </dt>
 <dd>
 <p>同时激活的最大分支数。 详情请参阅下文的 "内存利用率"。 默认为 5。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---big-file-thresholdltngt"> <a class="anchor" href="#git-fast-import---big-file-thresholdltngt"></a>--big-file-threshold=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---big-file-thresholdltngt"> <a class="anchor" href="#git-fast-import---big-file-thresholdn"></a> <a class="anchor" href="#git-fast-import---big-file-thresholdltngt"></a>--big-file-threshold=&lt;n&gt; </dt>
 <dd>
 <p>fast-import 将尝试创建 delta 的 blob 的最大大小，以字节为单位。 默认值为 512m（512MB）。 有些导入者可能希望在内存有限的系统上降低该值。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---depthltngt"> <a class="anchor" href="#git-fast-import---depthltngt"></a>--depth=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---depthltngt"> <a class="anchor" href="#git-fast-import---depthn"></a> <a class="anchor" href="#git-fast-import---depthltngt"></a>--depth=&lt;n&gt; </dt>
 <dd>
 <p>用于 blob 和树形脱模的最大脱模深度。 默认值为 50。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---export-pack-edgesltgt"> <a class="anchor" href="#git-fast-import---export-pack-edgesltgt"></a>--export-pack-edges=&lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---export-pack-edgesltgt"> <a class="anchor" href="#git-fast-import---export-pack-edges"></a> <a class="anchor" href="#git-fast-import---export-pack-edgesltgt"></a>--export-pack-edges=&lt;文件&gt; </dt>
 <dd>
 <p>创建 packfile 后，向 &lt;文件&gt; 打印一行数据，列出 packfile 的文件名和写入该 packfile 的每个分支的最后一次提交。 在导入总对象集超过 4 GiB packfile 限制的项目后，这些信息可能会很有用，因为在调用 <em>git pack-objects</em> 时，这些提交可以用作边缘点。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---max-pack-sizeltngt"> <a class="anchor" href="#git-fast-import---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---max-pack-sizeltngt"> <a class="anchor" href="#git-fast-import---max-pack-sizen"></a> <a class="anchor" href="#git-fast-import---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
 <dd>
 <p>每个输出包文件的最大大小。 默认为无限大。</p>
 </dd>
@@ -230,7 +230,7 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import-coderawcode"> <a class="anchor" href="#git-fast-import-coderawcode"></a><code>raw</code> </dt>
+<dt class="hdlist1" id="git-fast-import-coderawcode"> <a class="anchor" href="#git-fast-import-raw"></a> <a class="anchor" href="#git-fast-import-coderawcode"></a><code>raw</code> </dt>
 <dd>
 <p>这是 Git 的本地格式，为 <code>&lt;time&gt; SP &lt;offutc&gt;</code>。 如果没有指定 --date-format 格式，它也是 fast-import 的默认格式。</p>
 <div class="paragraph">
@@ -246,11 +246,11 @@ aliases:
 <p>与 <code>rfc2822</code> 格式不同，该格式非常严格。 格式上的任何变化都会导致 fast-import 拒绝该值，同时也会对数值进行一些正确性检查。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fast-import-coderaw-permissivecode"> <a class="anchor" href="#git-fast-import-coderaw-permissivecode"></a><code>raw-permissive</code> </dt>
+<dt class="hdlist1" id="git-fast-import-coderaw-permissivecode"> <a class="anchor" href="#git-fast-import-raw-permissive"></a> <a class="anchor" href="#git-fast-import-coderaw-permissivecode"></a><code>raw-permissive</code> </dt>
 <dd>
 <p>这与 <code>raw</code> 相同，只是不对数字纪元和本地偏移进行正确性检查。 这在过滤或导入包含错误时区值等内容的现有历史记录时非常有用。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-coderfc2822code"> <a class="anchor" href="#git-fast-import-coderfc2822code"></a><code>rfc2822</code> </dt>
+<dt class="hdlist1" id="git-fast-import-coderfc2822code"> <a class="anchor" href="#git-fast-import-rfc2822"></a> <a class="anchor" href="#git-fast-import-coderfc2822code"></a><code>rfc2822</code> </dt>
 <dd>
 <p>This is the standard date format as described by RFC 2822.</p>
 <div class="paragraph">
@@ -269,7 +269,7 @@ aliases:
 <p>如果源材料已经使用了 UNIX-epoch 格式，或者可以哄骗源材料以该格式提供日期，或者源材料的格式很容易转换成该格式（因为在解析时不会产生歧义），那么前端程序应优先使用 <code>raw</code> 格式。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codenowcode"> <a class="anchor" href="#git-fast-import-codenowcode"></a><code>now</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codenowcode"> <a class="anchor" href="#git-fast-import-now"></a> <a class="anchor" href="#git-fast-import-codenowcode"></a><code>now</code> </dt>
 <dd>
 <p>始终使用当前时间和时区。 必须始终为 <code>&lt;when&gt;</code> 提供字面意义上的 <code>now</code>。</p>
 <div class="paragraph">
@@ -292,55 +292,55 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import-codecommitcode"> <a class="anchor" href="#git-fast-import-codecommitcode"></a><code>commit</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codecommitcode"> <a class="anchor" href="#git-fast-import-commit"></a> <a class="anchor" href="#git-fast-import-codecommitcode"></a><code>commit</code> </dt>
 <dd>
 <p>通过创建新提交并更新分支以指向新创建的提交，创建新分支或更新现有分支。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codetagcode"> <a class="anchor" href="#git-fast-import-codetagcode"></a><code>tag</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codetagcode"> <a class="anchor" href="#git-fast-import-tag"></a> <a class="anchor" href="#git-fast-import-codetagcode"></a><code>tag</code> </dt>
 <dd>
 <p>从现有提交或分支创建注释标签对象。 此命令不支持轻量级标记，因为不建议用它们来记录有意义的时间点。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-coderesetcode"> <a class="anchor" href="#git-fast-import-coderesetcode"></a><code>reset</code> </dt>
+<dt class="hdlist1" id="git-fast-import-coderesetcode"> <a class="anchor" href="#git-fast-import-reset"></a> <a class="anchor" href="#git-fast-import-coderesetcode"></a><code>reset</code> </dt>
 <dd>
 <p>将现有分支（或新分支）重置为特定版本。 必须使用这条命令，才能在不提交的情况下，将分支更改为特定版本。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeblobcode"> <a class="anchor" href="#git-fast-import-codeblobcode"></a><code>blob</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codeblobcode"> <a class="anchor" href="#git-fast-import-blob"></a> <a class="anchor" href="#git-fast-import-codeblobcode"></a><code>blob</code> </dt>
 <dd>
 <p>将原始文件数据转换为 blob，以便将来在 <code>commit</code> 命令中使用。 该命令是可选的，执行导入时不需要。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codealiascode"> <a class="anchor" href="#git-fast-import-codealiascode"></a><code>alias</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codealiascode"> <a class="anchor" href="#git-fast-import-alias"></a> <a class="anchor" href="#git-fast-import-codealiascode"></a><code>alias</code> </dt>
 <dd>
 <p>在不创建任何新对象的情况下，记录一个标记指向一个给定对象。 使用 --import-marks 并引用缺失的标记会导致 fast-import 失败，因此别名可以提供一种方法，将原本已剪枝的提交设置为有效值（例如最近的未剪枝祖先）。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codecheckpointcode"> <a class="anchor" href="#git-fast-import-codecheckpointcode"></a><code>checkpoint</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codecheckpointcode"> <a class="anchor" href="#git-fast-import-checkpoint"></a> <a class="anchor" href="#git-fast-import-codecheckpointcode"></a><code>checkpoint</code> </dt>
 <dd>
 <p>强制 fast-import 关闭当前包文件，生成其唯一的 SHA-1 校验和和索引，并启动一个新的包文件。 此命令为可选命令，执行导入时无需使用。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeprogresscode"> <a class="anchor" href="#git-fast-import-codeprogresscode"></a><code>progress</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codeprogresscode"> <a class="anchor" href="#git-fast-import-progress"></a> <a class="anchor" href="#git-fast-import-codeprogresscode"></a><code>progress</code> </dt>
 <dd>
 <p>使 fast-import 将整行内容回传至自己的标准输出。 该命令是可选的，执行导入时不需要它。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codedonecode"> <a class="anchor" href="#git-fast-import-codedonecode"></a><code>done</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codedonecode"> <a class="anchor" href="#git-fast-import-done"></a> <a class="anchor" href="#git-fast-import-codedonecode"></a><code>done</code> </dt>
 <dd>
 <p>标记数据流的结束。除非使用 <code>--done</code> 命令行选项或 <code>feature done</code> 命令要求使用 <code>done</code> 功能，否则该命令是可选的。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeget-markcode"> <a class="anchor" href="#git-fast-import-codeget-markcode"></a><code>get-mark</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codeget-markcode"> <a class="anchor" href="#git-fast-import-get-mark"></a> <a class="anchor" href="#git-fast-import-codeget-markcode"></a><code>get-mark</code> </dt>
 <dd>
 <p>使 fast-import 向使用 <code>--cat-blob-fd</code> 设置的文件描述符打印标记对应的 SHA-1 值，如果未指定，则打印 <code>stdout</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codecat-blobcode"> <a class="anchor" href="#git-fast-import-codecat-blobcode"></a><code>cat-blob</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codecat-blobcode"> <a class="anchor" href="#git-fast-import-cat-blob"></a> <a class="anchor" href="#git-fast-import-codecat-blobcode"></a><code>cat-blob</code> </dt>
 <dd>
 <p>使 fast-import 以 <em>cat-file --batch</em> 格式向使用 <code>--cat-blob-fd</code> 或 <code>stdout</code> 设置的文件描述符打印 blob。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codelscode"> <a class="anchor" href="#git-fast-import-codelscode"></a><code>ls</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codelscode"> <a class="anchor" href="#git-fast-import-ls"></a> <a class="anchor" href="#git-fast-import-codelscode"></a><code>ls</code> </dt>
 <dd>
 <p>使 fast-import 以 <em>ls-tree</em> 格式向使用 <code>--cat-blob-fd</code> 或 <code>stdout</code> 设置的文件描述符打印描述目录条目的行。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codefeaturecode"> <a class="anchor" href="#git-fast-import-codefeaturecode"></a><code>feature</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codefeaturecode"> <a class="anchor" href="#git-fast-import-feature"></a> <a class="anchor" href="#git-fast-import-codefeaturecode"></a><code>feature</code> </dt>
 <dd>
 <p>启用指定功能。这要求 fast-import 支持指定的功能，如果不支持则会终止。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeoptioncode"> <a class="anchor" href="#git-fast-import-codeoptioncode"></a><code>option</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codeoptioncode"> <a class="anchor" href="#git-fast-import-option"></a> <a class="anchor" href="#git-fast-import-codeoptioncode"></a><code>option</code> </dt>
 <dd>
 <p>指定 "选项"（OPTIONS）中列出的任何选项，这些选项不会改变流语义以适应前台的需要。此命令为可选项，执行导入时不需要。</p>
 </dd>
@@ -1041,9 +1041,9 @@ from :938</pre>
 <dd>
 <p>与 --import-marks 类似，但有两点不同：第一，每个数据流只允许一条 "feature import-marks" 或 "feature import-marks-if-exists" 命令；第二，命令行选项 --import-marks= 或 --import-marks-if-exists 会覆盖数据流中的任何这些 "feature" 命令；第三，"feature import-marks-if-exists" 与相应的命令行选项一样，会静默地跳过一个不存在的文件。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-get-mark"> <a class="anchor" href="#git-fast-import-get-mark"></a>get-mark </dt>
-<dt class="hdlist1" id="git-fast-import-cat-blob"> <a class="anchor" href="#git-fast-import-cat-blob"></a>cat-blob </dt>
-<dt class="hdlist1" id="git-fast-import-ls"> <a class="anchor" href="#git-fast-import-ls"></a>ls </dt>
+<dt class="hdlist1" id="git-fast-import-get-mark-1"> <a class="anchor" href="#git-fast-import-get-mark-1"></a>get-mark </dt>
+<dt class="hdlist1" id="git-fast-import-cat-blob-1"> <a class="anchor" href="#git-fast-import-cat-blob-1"></a>cat-blob </dt>
+<dt class="hdlist1" id="git-fast-import-ls-1"> <a class="anchor" href="#git-fast-import-ls-1"></a>ls </dt>
 <dd>
 <p>要求后端分别支持 <em>get-mark</em>、<em>cat-blob</em> 或 <em>ls</em> 命令。 不支持指定命令的 fast-import 版本在退出时会给出提示信息。 这样，导入过程中就不会在检测到不支持的命令之前浪费时间，而会在早期就出现明确的错误信息。</p>
 </dd>

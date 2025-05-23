@@ -67,19 +67,19 @@ aliases:
 <dd>
 <p>使用一个原子事务来更新本地索引。要么所有的引用都被更新，要么在出错时，没有引用被更新。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---depthltgt"> <a class="anchor" href="#git-fetch---depthltgt"></a>--depth=&lt;深度&gt; </dt>
+<dt class="hdlist1" id="git-fetch---depthltgt"> <a class="anchor" href="#git-fetch---depth"></a> <a class="anchor" href="#git-fetch---depthltgt"></a>--depth=&lt;深度&gt; </dt>
 <dd>
 <p>限制从每个远程分支历史的顶端获取指定数量的提交。如果获取的是由 <code>git clone</code> 创建的 <em>浅层</em> 仓库，并使用 <code>--depth=&lt;depth&gt;</code> 选项（见 <a href='{{< relurl "docs/git-clone/zh_HANS-CN" >}}'>git-clone[1]</a>），则加深或缩短历史，达到指定数量的提交。深化后的提交的标签不会被获取。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---deepenltgt"> <a class="anchor" href="#git-fetch---deepenltgt"></a>--deepen=&lt;深度&gt; </dt>
+<dt class="hdlist1" id="git-fetch---deepenltgt"> <a class="anchor" href="#git-fetch---deepen"></a> <a class="anchor" href="#git-fetch---deepenltgt"></a>--deepen=&lt;深度&gt; </dt>
 <dd>
 <p>与&#8212;&#8203;depth类似，只是它指定了从当前浅层边界开始的提交数量，而不是从每个远程分支历史的顶端开始。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---shallow-sinceltgt"> <a class="anchor" href="#git-fetch---shallow-sinceltgt"></a>--shallow-since=&lt;日期&gt; </dt>
+<dt class="hdlist1" id="git-fetch---shallow-sinceltgt"> <a class="anchor" href="#git-fetch---shallow-since"></a> <a class="anchor" href="#git-fetch---shallow-sinceltgt"></a>--shallow-since=&lt;日期&gt; </dt>
 <dd>
 <p>加深或缩短浅层仓库的历史，包括&lt;日期&gt;之后所有可触及的提交。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---shallow-excludeltrefgt"> <a class="anchor" href="#git-fetch---shallow-excludeltrefgt"></a>--shallow-exclude=&lt;ref&gt; </dt>
+<dt class="hdlist1" id="git-fetch---shallow-excludeltrefgt"> <a class="anchor" href="#git-fetch---shallow-excluderef"></a> <a class="anchor" href="#git-fetch---shallow-excludeltrefgt"></a>--shallow-exclude=&lt;ref&gt; </dt>
 <dd>
 <p>深化或缩短浅层版本库的历史，以排除从指定的远程分支或标记中可以到达的提交。 这个选项可以指定多次。</p>
 </dd>
@@ -94,7 +94,7 @@ aliases:
 <dd>
 <p>默认情况下，当从浅层仓库获取时，<code>git fetch</code> 会拒绝需要更新 .git/shallow 的引用。这个选项更新了 .git/shallow 并接受这样的引用。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---negotiation-tipltgt"> <a class="anchor" href="#git-fetch---negotiation-tipltgt"></a>--negotiation-tip=&lt;提交|通配符&gt; </dt>
+<dt class="hdlist1" id="git-fetch---negotiation-tipltgt"> <a class="anchor" href="#git-fetch---negotiation-tip"></a> <a class="anchor" href="#git-fetch---negotiation-tipltgt"></a>--negotiation-tip=&lt;提交|通配符&gt; </dt>
 <dd>
 <p>默认情况下，Git 会向服务器报告从所有本地引用中可触及的提交，以寻找共同的提交，试图减少待接收的打包文件的大小。如果指定的话，Git将只报告从给定提示中的可达提交。 当用户知道哪个本地引用可能与被获取的上游引用有共同的提交时，这会加快抓取文件的速度。</p>
 <div class="paragraph">
@@ -183,7 +183,7 @@ aliases:
 <dd>
 <p>这个选项不是与服务器协商以避免传输本地已经存在的提交和相关对象，而是像一个新的克隆那样获取所有对象。当过滤器定义发生变化时，使用此选项重新应用配置中的部分克隆过滤器或使用 <code>--filter=</code>。自动获取后的维护将执行对象数据库包的整合，以删除任何重复的对象。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---refmapltgt"> <a class="anchor" href="#git-fetch---refmapltgt"></a>--refmap=&lt;引用规范&gt; </dt>
+<dt class="hdlist1" id="git-fetch---refmapltgt"> <a class="anchor" href="#git-fetch---refmap"></a> <a class="anchor" href="#git-fetch---refmapltgt"></a>--refmap=&lt;引用规范&gt; </dt>
 <dd>
 <p>当获取命令行上列出的引用时，使用指定的引用规范（可以是多个）来映射引用到远程跟踪分支，而不是远程仓库的 <code>remote.*.fetch</code> 配置变量的值。 为 <code>--refmap</code> 选项提供一个空的 <code>&lt;引用规范&gt;</code> 会导致Git忽略配置的引用规范，而完全依赖作为命令行参数提供的引用规范。详见 "配置的远程跟踪分支" 一节。</p>
 </dd>
@@ -203,7 +203,7 @@ aliases:
 </div>
 </dd>
 <dt class="hdlist1" id="git-fetch--j"> <a class="anchor" href="#git-fetch--j"></a>-j </dt>
-<dt class="hdlist1" id="git-fetch---jobsltngt"> <a class="anchor" href="#git-fetch---jobsltngt"></a>--jobs=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fetch---jobsltngt"> <a class="anchor" href="#git-fetch---jobsn"></a> <a class="anchor" href="#git-fetch---jobsltngt"></a>--jobs=&lt;n&gt; </dt>
 <dd>
 <p>用于所有形式的获取的并行子进程的数量。</p>
 <div class="paragraph">
@@ -221,7 +221,7 @@ aliases:
 <dd>
 <p>如果远程被成功获取，添加上游（跟踪）引用，由无参数的 <a href='{{< relurl "docs/git-pull/zh_HANS-CN" >}}'>git-pull[1]</a> 和其他命令使用。更多信息，见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <code>branch.&lt;名称&gt;.merge</code> 和 <code>branch.&lt;名称&gt;.remote</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---submodule-prefixltgt"> <a class="anchor" href="#git-fetch---submodule-prefixltgt"></a>--submodule-prefix=&lt;路径&gt; </dt>
+<dt class="hdlist1" id="git-fetch---submodule-prefixltgt"> <a class="anchor" href="#git-fetch---submodule-prefix"></a> <a class="anchor" href="#git-fetch---submodule-prefixltgt"></a>--submodule-prefix=&lt;路径&gt; </dt>
 <dd>
 <p>将 &lt;路径&gt; 添加到信息性消息中打印的路径，例如“获取子模块 foo”。递归子模块时在内部使用此选项。</p>
 </dd>
@@ -234,7 +234,7 @@ aliases:
 <dd>
 <p>默认情况下，"git fetch" 拒绝更新与当前分支相对应的头部。 这个标志禁用了这种检查。 这纯粹是为了让 <em>git pull</em> 与 <em>git fetch</em> 沟通的内部使用，除非你正在实现你自己的上层命令，否则你不应该使用它。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---upload-packltupload-packgt"> <a class="anchor" href="#git-fetch---upload-packltupload-packgt"></a>--upload-pack &lt;upload-pack&gt; </dt>
+<dt class="hdlist1" id="git-fetch---upload-packltupload-packgt"> <a class="anchor" href="#git-fetch---upload-packupload-pack"></a> <a class="anchor" href="#git-fetch---upload-packltupload-packgt"></a>--upload-pack &lt;upload-pack&gt; </dt>
 <dd>
 <p>当给出时，并且要获取的仓库是由 <em>git fetch-pack</em> 处理的，<code>--exec=&lt;upload-pack&gt;</code> 被传递到命令中，为另一端运行的命令指定非默认路径。</p>
 </dd>
@@ -252,8 +252,8 @@ aliases:
 <dd>
 <p>当标准错误流连接到终端时，除非指定了 -q，否则默认情况下会在标准错误流上报告进展状态。即使标准错误流没有指向终端，这个标志也会强制显示进度状态。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--oltgt"> <a class="anchor" href="#git-fetch--oltgt"></a>-o &lt;选项&gt; </dt>
-<dt class="hdlist1" id="git-fetch---server-optionltgt"> <a class="anchor" href="#git-fetch---server-optionltgt"></a>--server-option=&lt;选项&gt; </dt>
+<dt class="hdlist1" id="git-fetch--oltgt"> <a class="anchor" href="#git-fetch--o"></a> <a class="anchor" href="#git-fetch--oltgt"></a>-o &lt;选项&gt; </dt>
+<dt class="hdlist1" id="git-fetch---server-optionltgt"> <a class="anchor" href="#git-fetch---server-option"></a> <a class="anchor" href="#git-fetch---server-optionltgt"></a>--server-option=&lt;选项&gt; </dt>
 <dd>
 <p>Transmit the given string to the server when communicating using protocol version 2. The given string must not contain a NUL or LF character. The server&#8217;s handling of server options, including unknown ones, is server-specific. When multiple <code>--server-option=&lt;option&gt;</code> are given, they are all sent to the other side in the order listed on the command line. When no <code>--server-option=&lt;option&gt;</code> is given from the command line, the values of configuration variable <code>remote.&lt;name&gt;.serverOption</code> are used instead.</p>
 </dd>
@@ -279,15 +279,15 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fetch-ltgt"> <a class="anchor" href="#git-fetch-ltgt"></a>&lt;仓库&gt; </dt>
+<dt class="hdlist1" id="git-fetch-ltgt"> <a class="anchor" href="#git-fetch-"></a> <a class="anchor" href="#git-fetch-ltgt"></a>&lt;仓库&gt; </dt>
 <dd>
 <p>作为获取或拉动操作的来源的 "remote" 仓库。 这个参数可以是一个 URL（见下面 <a href="#URLS">GIT URLS</a> 一节），也可以是一个远程仓库的名称（见下面 <a href="#REMOTES">远程</a> 一节）。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-ltgt-1"> <a class="anchor" href="#git-fetch-ltgt-1"></a>&lt;组&gt; </dt>
+<dt class="hdlist1" id="git-fetch-ltgt-1"> <a class="anchor" href="#git-fetch--1"></a> <a class="anchor" href="#git-fetch-ltgt-1"></a>&lt;组&gt; </dt>
 <dd>
 <p>指向仓库列表的名称，作为配置文件中 remotes.&lt;组&gt; 的值。 (参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-ltgt-1-1"> <a class="anchor" href="#git-fetch-ltgt-1-1"></a>&lt;引用规范&gt; </dt>
+<dt class="hdlist1" id="git-fetch-ltgt-1-1"> <a class="anchor" href="#git-fetch--1-1"></a> <a class="anchor" href="#git-fetch-ltgt-1-1"></a>&lt;引用规范&gt; </dt>
 <dd>
 <p>指定要获取哪些引用，以及要更新哪些本地引用。 当命令行上没有出现 &lt;引用规范&gt; 时，将从`remote.&lt;仓库&gt;.fetch` 变量中读取要获取的引用
 (参见下文 <a href="#CRTB">配置的远程跟踪分支机构</a> )。</p>
@@ -701,55 +701,55 @@ $ git fetch &lt;origin 的 地址&gt; --prune 'refs/tags/*:refs/tags/*'</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fetch-"> <a class="anchor" href="#git-fetch-"></a>标志 </dt>
+<dt class="hdlist1" id="git-fetch--1-1-1"> <a class="anchor" href="#git-fetch--1-1-1"></a>标志 </dt>
 <dd>
 <p>表示引用状态的单个字符：</p>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fetch--1"> <a class="anchor" href="#git-fetch--1"></a>（空格） </dt>
+<dt class="hdlist1" id="git-fetch--1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1"></a>（空格） </dt>
 <dd>
 <p>表示成功的快速合并；</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-codecode"> <a class="anchor" href="#git-fetch-codecode"></a><code>+</code> </dt>
+<dt class="hdlist1" id="git-fetch-codecode"> <a class="anchor" href="#git-fetch--1-1-1-1-1"></a> <a class="anchor" href="#git-fetch-codecode"></a><code>+</code> </dt>
 <dd>
 <p>表示一个成功的强制更新；</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-code-code"> <a class="anchor" href="#git-fetch-code-code"></a><code>-</code> </dt>
+<dt class="hdlist1" id="git-fetch-code-code"> <a class="anchor" href="#git-fetch--"></a> <a class="anchor" href="#git-fetch-code-code"></a><code>-</code> </dt>
 <dd>
 <p>表示成功修剪引用；</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-codetcode"> <a class="anchor" href="#git-fetch-codetcode"></a><code>t</code> </dt>
+<dt class="hdlist1" id="git-fetch-codetcode"> <a class="anchor" href="#git-fetch-t"></a> <a class="anchor" href="#git-fetch-codetcode"></a><code>t</code> </dt>
 <dd>
 <p>表示成功更新标签；</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-codecode-1"> <a class="anchor" href="#git-fetch-codecode-1"></a><code>*</code> </dt>
+<dt class="hdlist1" id="git-fetch-codecode-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1"></a> <a class="anchor" href="#git-fetch-codecode-1"></a><code>*</code> </dt>
 <dd>
 <p>表示成功获取新引用；</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-codecode-1-1"> <a class="anchor" href="#git-fetch-codecode-1-1"></a><code>!</code> </dt>
+<dt class="hdlist1" id="git-fetch-codecode-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1"></a> <a class="anchor" href="#git-fetch-codecode-1-1"></a><code>!</code> </dt>
 <dd>
 <p>表示被拒绝或更新失败的引用；以及</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-codecode-1-1-1"> <a class="anchor" href="#git-fetch-codecode-1-1-1"></a><code>=</code> </dt>
+<dt class="hdlist1" id="git-fetch-codecode-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1-1"></a> <a class="anchor" href="#git-fetch-codecode-1-1-1"></a><code>=</code> </dt>
 <dd>
 <p>表示一个最新的、不需要获取的引用。</p>
 </dd>
 </dl>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fetch--1-1"> <a class="anchor" href="#git-fetch--1-1"></a>概述 </dt>
+<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1-1-1"></a>概述 </dt>
 <dd>
 <p>对于一个成功获取的引用，摘要以适合作为 <code>git log</code> 参数的形式显示该引用的新旧值（在大多数情况下是 <code>&lt;旧&gt;..&lt;新&gt;</code>，对于强制非快速合并是 <code>&lt;旧&gt;...&lt;新&gt;</code>）。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--1-1-1"> <a class="anchor" href="#git-fetch--1-1-1"></a>起始 </dt>
+<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1-1-1-1"></a>起始 </dt>
 <dd>
 <p>被获取的远程引用的名称，减去其`refs/&lt;类型&gt;/`前缀。在删除的情况下，远程引用的名称是 "(none)"。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1"></a>结束 </dt>
+<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1-1-1-1-1"></a>结束 </dt>
 <dd>
 <p>被更新的本地引用的名称，去掉其 <code>refs/&lt;类型&gt;/</code> 前缀。</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1"></a>原因 </dt>
+<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1-1-1-1-1-1"></a>原因 </dt>
 <dd>
 <p>一个人类可读的解释。如果是成功获取的引用，不需要解释。对于失败的引用，将描述失败的原因。</p>
 </dd>

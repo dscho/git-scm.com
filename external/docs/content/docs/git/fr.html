@@ -69,7 +69,7 @@ aliases:
 <p>Les autres options sont disponibles pour contrôler comment la page de manuel est affichée. Voir <a href='{{< relurl "docs/git-help/fr" >}}'>git-help[1]</a> pour plus d&#8217;information, parce que <code>git --help ...</code> est convertie en interne en <code>git help ...</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git--Cltchemingt"> <a class="anchor" href="#git--Cltchemingt"></a>-C &lt;chemin&gt; </dt>
+<dt class="hdlist1" id="git--Cltchemingt"> <a class="anchor" href="#git--Cchemin"></a> <a class="anchor" href="#git--Cltchemingt"></a>-C &lt;chemin&gt; </dt>
 <dd>
 <p>Démarrer comme si git était lancé depuis <em>&lt;chemin&gt;</em> au lieu du répertoire de travail actuel. Quand plusieurs options <code>-C</code> sont fournies, chaque <code>-C &lt;chemin&gt;</code> non-absolu supplémentaire est interprété relativement au <code>-C &lt;chemin&gt;</code> précédent. Si <em>&lt;chemin&gt;</em> est présent mais vide, c-à-d <code>-C ""</code>, alors le répertoire de travail courant est laissé inchangé.</p>
 <div class="paragraph">
@@ -82,14 +82,14 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git--cltnomgtltvaleurgt"> <a class="anchor" href="#git--cltnomgtltvaleurgt"></a>-c &lt;nom&gt;=&lt;valeur&gt; </dt>
+<dt class="hdlist1" id="git--cltnomgtltvaleurgt"> <a class="anchor" href="#git--cnomvaleur"></a> <a class="anchor" href="#git--cltnomgtltvaleurgt"></a>-c &lt;nom&gt;=&lt;valeur&gt; </dt>
 <dd>
 <p>Passer un paramètre de configuration à la commande. La valeur fournie surchargera la valeur des fichiers des configuration. Le &lt;nom&gt; a le même format que listé par &#8216;git config&#8217; (sous-clés séparées par des points).</p>
 <div class="paragraph">
 <p>Notez qu&#8217;omettre le <code>=</code> dans <code>git -c foo.bar ...</code> est permis et positionne <code>foo.bar</code> à la valeur booléenne true (de la même manière que le ferait <code>[foo]bar</code> dans un fichier de configuration). Si le <code>=</code> est inclus mais avec une valeur vide (comme <code>git -c foo.bar= ...</code>), cela positionne <code>foo.bar</code> à la chaîne vide que <code>git config --type=bool</code> convertira en <code>false</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git---config-envltnomgtltvar-envgt"> <a class="anchor" href="#git---config-envltnomgtltvar-envgt"></a>--config-env=&lt;nom&gt;=&lt;var-env&gt; </dt>
+<dt class="hdlist1" id="git---config-envltnomgtltvar-envgt"> <a class="anchor" href="#git---config-envnomvar-env"></a> <a class="anchor" href="#git---config-envltnomgtltvar-envgt"></a>--config-env=&lt;nom&gt;=&lt;var-env&gt; </dt>
 <dd>
 <p>À l&#8217;instar de <code>-c &lt;nom&gt;=&lt;valeur&gt;</code>, donner une valeur à la variable de configuration <em>&lt;nom&gt;</em>, où &lt;envvar&gt; est le nom d&#8217;une variable d&#8217;environnement depuis laquelle récupérer la valeur. Contrairement à <code>-c</code> il n&#8217;y a pas de raccourci pour définir directement la valeur à une chaîne vide, la variable d&#8217;environnement elle-même doit être définie à la chaîne vide. Il s&#8217;agit d&#8217;une erreur si le <code>envvar</code> n&#8217;existe pas dans l&#8217;environnement. <code>&lt;envvar&gt;</code> ne peut pas contenir un signe égal pour éviter toute ambiguïté avec <code>&lt;nom&gt;</code> en contenant un.</p>
 <div class="paragraph">
@@ -99,7 +99,7 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>Notez que cela pourrait ajouter de la sécurité pour des variables telles que <code>http.extraHeader</code> où les informations sensibles font partie de la valeur, mais pas par exemple <code>url. &lt;base&gt;.insteadOf</code> où les informations sensibles peuvent faire partie de la clé.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git---exec-pathltchemingt"> <a class="anchor" href="#git---exec-pathltchemingt"></a>--exec-path[=&lt;chemin&gt;] </dt>
+<dt class="hdlist1" id="git---exec-pathltchemingt"> <a class="anchor" href="#git---exec-pathchemin"></a> <a class="anchor" href="#git---exec-pathltchemingt"></a>--exec-path[=&lt;chemin&gt;] </dt>
 <dd>
 <p>Chemin dans lequel les programmes de base de Git sont installés. Cela peut aussie être géré en positionnant la variable d&#8217;environnement GIT_EXEC_PATH. Si aucun chemin n&#8217;est spécifié, <em>git</em> affichera la valeur actuelle, puis sortira.</p>
 </dd>
@@ -125,7 +125,7 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <dd>
 <p>Ne pas rediriger la sortie de Git dans un pageur.</p>
 </dd>
-<dt class="hdlist1" id="git---git-dirltchemingt"> <a class="anchor" href="#git---git-dirltchemingt"></a>--git-dir=&lt;chemin&gt; </dt>
+<dt class="hdlist1" id="git---git-dirltchemingt"> <a class="anchor" href="#git---git-dirchemin"></a> <a class="anchor" href="#git---git-dirltchemingt"></a>--git-dir=&lt;chemin&gt; </dt>
 <dd>
 <p>Règle le chemin vers le dépôt (répertoire ".git"). Ceci peut aussi être contrôlé en réglant la variable d&#8217;environnement <code>GIT_DIR</code>. Ce peut être un chemin absolu ou relatif au répertoire de travail actuel.</p>
 <div class="paragraph">
@@ -135,11 +135,11 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>Si vous voulez juste lancer git comme s&#8217;il était démarré dans <code>&lt;chemin&gt;</code>, utilisez <code>git -C &lt;chemin&gt;</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git---work-treeltchemingt"> <a class="anchor" href="#git---work-treeltchemingt"></a>--work-tree=&lt;chemin&gt; </dt>
+<dt class="hdlist1" id="git---work-treeltchemingt"> <a class="anchor" href="#git---work-treechemin"></a> <a class="anchor" href="#git---work-treeltchemingt"></a>--work-tree=&lt;chemin&gt; </dt>
 <dd>
 <p>Régler le chemin du répertoire de travail. Ce peut être un chemin absolu ou un chemin relatif au répertoire de travail actuel. Ceci peut aussi être contrôlé en réglant la variable d&#8217;environnement GIT_WORK_TREE et la variable de configuration core.worktree (voir core.worktree dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a> pour une discussion plus détaillée).</p>
 </dd>
-<dt class="hdlist1" id="git---namespaceltchemingt"> <a class="anchor" href="#git---namespaceltchemingt"></a>--namespace=&lt;chemin&gt; </dt>
+<dt class="hdlist1" id="git---namespaceltchemingt"> <a class="anchor" href="#git---namespacechemin"></a> <a class="anchor" href="#git---namespaceltchemingt"></a>--namespace=&lt;chemin&gt; </dt>
 <dd>
 <p>Régler l&#8217;espace de nommage Git. Voir <a href='{{< relurl "docs/gitnamespaces/fr" >}}'>gitnamespaces[7]</a> pour plus de détails. Équivalent à régler la variable d&#8217;environnement <code>GIT_NAMESPACE</code>.</p>
 </dd>
@@ -179,11 +179,11 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <dd>
 <p>Ajouter la magie « icase » à tous les spécificateurs de chemin. C&#8217;est équivalent à régler la variable d&#8217;environnement <code>GIT_ICASE_PATHSPECS</code> à <code>1</code>.</p>
 </dd>
-<dt class="hdlist1" id="git---list-cmdsltgroupegtltgroupegt82308203"> <a class="anchor" href="#git---list-cmdsltgroupegtltgroupegt82308203"></a>--list-cmds=&lt;groupe&gt;[,&lt;groupe&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git---list-cmdsltgroupegtltgroupegt82308203"> <a class="anchor" href="#git---list-cmdsgroupegroupe"></a> <a class="anchor" href="#git---list-cmdsltgroupegtltgroupegt82308203"></a>--list-cmds=&lt;groupe&gt;[,&lt;groupe&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Liste les commandes par groupe. Il s&#8217;agit d&#8217;une option interne/expérimentale et peut changer ou être retirée à l&#8217;avenir. Les groupes pris en charge sont les suivants : builtins, parseopt (commandes intégrées qui utilisent parse-options), main (toutes commandes dans le répertoire libexec), autres (toutes autres commandes dans <code>$PATH</code> qui ont un préfixe git), list-&lt;catégorie&gt; (voir les catégories dans command-list.txt), nohelpers (exclure les commandes assistantes), alias et config (récupère la liste de commandes depuis la variable de configuration completion.commands)</p>
 </dd>
-<dt class="hdlist1" id="git---attr-sourceltarbre-esquegt"> <a class="anchor" href="#git---attr-sourceltarbre-esquegt"></a>--attr-source=&lt;arbre-esque&gt; </dt>
+<dt class="hdlist1" id="git---attr-sourceltarbre-esquegt"> <a class="anchor" href="#git---attr-sourcearbre-esque"></a> <a class="anchor" href="#git---attr-sourceltarbre-esquegt"></a>--attr-source=&lt;arbre-esque&gt; </dt>
 <dd>
 <p>Lire les gitattributs depuis &lt;arbre-esque&gt; au lieu de l&#8217;arbre-de-travail. Voir <a href='{{< relurl "docs/gitattributes/fr" >}}'>gitattributes[5]</a>. C&#8217;est équivalent à régler la variable d&#8217;environnement <code>GIT_ATTR_SOURCE</code>.</p>
 </dd>
@@ -543,35 +543,35 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-ltobjetgt"> <a class="anchor" href="#git-ltobjetgt"></a>&lt;objet&gt; </dt>
+<dt class="hdlist1" id="git-ltobjetgt"> <a class="anchor" href="#git-objet"></a> <a class="anchor" href="#git-ltobjetgt"></a>&lt;objet&gt; </dt>
 <dd>
 <p>Indique le nom de l&#8217;objet pour tout type d&#8217;objet.</p>
 </dd>
-<dt class="hdlist1" id="git-ltblobgt"> <a class="anchor" href="#git-ltblobgt"></a>&lt;blob&gt; </dt>
+<dt class="hdlist1" id="git-ltblobgt"> <a class="anchor" href="#git-blob"></a> <a class="anchor" href="#git-ltblobgt"></a>&lt;blob&gt; </dt>
 <dd>
 <p>Indique un nom d&#8217;objet blob.</p>
 </dd>
-<dt class="hdlist1" id="git-ltarbregt"> <a class="anchor" href="#git-ltarbregt"></a>&lt;arbre&gt; </dt>
+<dt class="hdlist1" id="git-ltarbregt"> <a class="anchor" href="#git-arbre"></a> <a class="anchor" href="#git-ltarbregt"></a>&lt;arbre&gt; </dt>
 <dd>
 <p>Indique un nom d&#8217;objet d&#8217;arbre.</p>
 </dd>
-<dt class="hdlist1" id="git-ltcommitgt"> <a class="anchor" href="#git-ltcommitgt"></a>&lt;commit&gt; </dt>
+<dt class="hdlist1" id="git-ltcommitgt"> <a class="anchor" href="#git-commit"></a> <a class="anchor" href="#git-ltcommitgt"></a>&lt;commit&gt; </dt>
 <dd>
 <p>Indique un nom d&#8217;objet commit.</p>
 </dd>
-<dt class="hdlist1" id="git-ltarbre-esquegt"> <a class="anchor" href="#git-ltarbre-esquegt"></a>&lt;arbre-esque&gt; </dt>
+<dt class="hdlist1" id="git-ltarbre-esquegt"> <a class="anchor" href="#git-arbre-esque"></a> <a class="anchor" href="#git-ltarbre-esquegt"></a>&lt;arbre-esque&gt; </dt>
 <dd>
 <p>Indique un nom d&#8217;objet arbre, commit ou étiquette. Une commande qui prend un argument &lt;arbre-esque&gt; veut finalement opérer sur un objet &lt;arbre&gt; mais déréférences automatiquement les objets &lt;commit&gt; et &lt;étiquette&gt; qui pointent sur un &lt;arbre&gt;.</p>
 </dd>
-<dt class="hdlist1" id="git-ltcommit-esquegt"> <a class="anchor" href="#git-ltcommit-esquegt"></a>&lt;commit-esque&gt; </dt>
+<dt class="hdlist1" id="git-ltcommit-esquegt"> <a class="anchor" href="#git-commit-esque"></a> <a class="anchor" href="#git-ltcommit-esquegt"></a>&lt;commit-esque&gt; </dt>
 <dd>
 <p>Indique un nom d&#8217;objet commit ou étiquette. Une commande qui prend un argument &lt;commit-esque&gt; veut ultimement opérer sur un objet &lt;commit&gt;, mais déréférence automatiquement des objets &lt;étiquette&gt; qui pointent sur un &lt;commit&gt;.</p>
 </dd>
-<dt class="hdlist1" id="git-lttypegt"> <a class="anchor" href="#git-lttypegt"></a>&lt;type&gt; </dt>
+<dt class="hdlist1" id="git-lttypegt"> <a class="anchor" href="#git-type"></a> <a class="anchor" href="#git-lttypegt"></a>&lt;type&gt; </dt>
 <dd>
 <p>Indique qu&#8217;un type d&#8217;objet est requis. Actuellement, soit`blob`, <code>arbre</code>, <code>commit</code>, ou <code>étiquette</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-ltfichiergt"> <a class="anchor" href="#git-ltfichiergt"></a>&lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-ltfichiergt"> <a class="anchor" href="#git-fichier"></a> <a class="anchor" href="#git-ltfichiergt"></a>&lt;fichier&gt; </dt>
 <dd>
 <p>Indique un nom de fichier - presque toujours relatif à la racine de la structure de l&#8217;arbre que`GIT_INDEX_FILE` décrit.</p>
 </dd>
@@ -591,11 +591,11 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <dd>
 <p>indique la tête de la branche actuelle.</p>
 </dd>
-<dt class="hdlist1" id="git-lttiquettegt"> <a class="anchor" href="#git-lttiquettegt"></a>&lt;étiquette&gt; </dt>
+<dt class="hdlist1" id="git-lttiquettegt"> <a class="anchor" href="#git-tiquette"></a> <a class="anchor" href="#git-lttiquettegt"></a>&lt;étiquette&gt; </dt>
 <dd>
 <p>un <em>nom</em> valide d&#8217;étiquette (c.-à-d. une référence <code>refs/tags/&lt;étiquette&gt;</code>).</p>
 </dd>
-<dt class="hdlist1" id="git-ltttegt"> <a class="anchor" href="#git-ltttegt"></a>&lt;tête&gt; </dt>
+<dt class="hdlist1" id="git-ltttegt"> <a class="anchor" href="#git-tte"></a> <a class="anchor" href="#git-ltttegt"></a>&lt;tête&gt; </dt>
 <dd>
 <p>un <em>nom</em> valide de tête (c.-à-d. une référence <code>refs/heads/&lt;tête&gt;</code>).</p>
 </dd>
@@ -641,7 +641,7 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <h3 id="_système"><a class="anchor" href="#_système"></a>Système</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-codeHOMEcode"> <a class="anchor" href="#git-codeHOMEcode"></a><code>HOME</code> </dt>
+<dt class="hdlist1" id="git-codeHOMEcode"> <a class="anchor" href="#git-HOME"></a> <a class="anchor" href="#git-codeHOMEcode"></a><code>HOME</code> </dt>
 <dd>
 <p>Specifies the path to the user&#8217;s home directory. On Windows, if unset, Git will set a process environment variable equal to: <code>$HOMEDRIVE$HOMEPATH</code> if both <code>$HOMEDRIVE</code> and <code>$HOMEPATH</code> exist; otherwise <code>$USERPROFILE</code> if <code>$USERPROFILE</code> exists.</p>
 </dd>
@@ -655,54 +655,54 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-codeGITINDEXFILEcode"> <a class="anchor" href="#git-codeGITINDEXFILEcode"></a><code>GIT_INDEX_FILE</code> </dt>
+<dt class="hdlist1" id="git-codeGITINDEXFILEcode"> <a class="anchor" href="#git-GITINDEXFILE"></a> <a class="anchor" href="#git-codeGITINDEXFILEcode"></a><code>GIT_INDEX_FILE</code> </dt>
 <dd>
 <p>Cette variable d&#8217;environnement spécifie un fichier d&#8217;index alternatif. Si elle n&#8217;est pas spécifiée, la valeur par défaut <code>$GIT_DIR/index</code> est utilisée.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITINDEXVERSIONcode"> <a class="anchor" href="#git-codeGITINDEXVERSIONcode"></a><code>GIT_INDEX_VERSION</code> </dt>
+<dt class="hdlist1" id="git-codeGITINDEXVERSIONcode"> <a class="anchor" href="#git-GITINDEXVERSION"></a> <a class="anchor" href="#git-codeGITINDEXVERSIONcode"></a><code>GIT_INDEX_VERSION</code> </dt>
 <dd>
 <p>Cette variable d&#8217;environnement spécifie quelle version index est utilisée lors de l&#8217;écriture du fichier index. Il n&#8217;affectera pas les fichiers d&#8217;index existants. Par défaut index version 2 ou 3 est utilisé. Voir <a href='{{< relurl "docs/git-update-index/fr" >}}'>git-update-index[1]</a> pour plus d&#8217;informations.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITOBJECTDIRECTORYcode"> <a class="anchor" href="#git-codeGITOBJECTDIRECTORYcode"></a><code>GIT_OBJECT_DIRECTORY</code> </dt>
+<dt class="hdlist1" id="git-codeGITOBJECTDIRECTORYcode"> <a class="anchor" href="#git-GITOBJECTDIRECTORY"></a> <a class="anchor" href="#git-codeGITOBJECTDIRECTORYcode"></a><code>GIT_OBJECT_DIRECTORY</code> </dt>
 <dd>
 <p>Si le répertoire de stockage d&#8217;objets est spécifié via cette variable d&#8217;environnement, alors les répertoires sha1 sont créés dedans - sinon le répertoire par défaut <code>$GIT_DIR/objects</code> est utilisé.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITALTERNATEOBJECTDIRECTORIEScode"> <a class="anchor" href="#git-codeGITALTERNATEOBJECTDIRECTORIEScode"></a><code>GIT_ALTERNATE_OBJECT_DIRECTORIES</code> </dt>
+<dt class="hdlist1" id="git-codeGITALTERNATEOBJECTDIRECTORIEScode"> <a class="anchor" href="#git-GITALTERNATEOBJECTDIRECTORIES"></a> <a class="anchor" href="#git-codeGITALTERNATEOBJECTDIRECTORIEScode"></a><code>GIT_ALTERNATE_OBJECT_DIRECTORIES</code> </dt>
 <dd>
 <p>En raison de la nature immuable des objets Git, de vieux objets peuvent être archivés dans des répertoires partagés en lecture seule. Cette variable spécifie une liste avec ":" pour séparateur (";" sur Windows) des répertoires d&#8217;objets Git qui peuvent être utilisés pour rechercher des objets Git. Aucun nouvel objet ne sera écrit dans ces répertoires.</p>
 <div class="paragraph">
 <p>Les entrées qui commencent par <code>"</code> (double-guillemets) seront interprétées comme des chemins cités de type C, en éliminant les guillemets et les doubles guillemets et en respectant les échappements par barre oblique inverse. Par exemple, la valeur <code>"chemin-avec-\"-et-:-a-l-interieur":chemin-simple</code> a deux chemins : <code>chemin-avec-"-et-:-a-l-interieur</code> et <code>chemin-simple</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITDIRcode"> <a class="anchor" href="#git-codeGITDIRcode"></a><code>GIT_DIR</code> </dt>
+<dt class="hdlist1" id="git-codeGITDIRcode"> <a class="anchor" href="#git-GITDIR"></a> <a class="anchor" href="#git-codeGITDIRcode"></a><code>GIT_DIR</code> </dt>
 <dd>
 <p>Si la variable d&#8217;environnement <code>GIT_DIR' est définie, elle spécifie un chemin à utiliser au lieu de `.git</code> par défaut pour la base du dépôt. L&#8217;option de ligne de commande <code>--git-dir</code> définit également cette valeur.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITWORKTREEcode"> <a class="anchor" href="#git-codeGITWORKTREEcode"></a><code>GIT_WORK_TREE</code> </dt>
+<dt class="hdlist1" id="git-codeGITWORKTREEcode"> <a class="anchor" href="#git-GITWORKTREE"></a> <a class="anchor" href="#git-codeGITWORKTREEcode"></a><code>GIT_WORK_TREE</code> </dt>
 <dd>
 <p>Régler le chemin vers la racine de l&#8217;arbre de travail. Cela peut également être contrôlé par l&#8217;option de ligne de commande <code>--work-tree</code> et la variable de configuration de core.worktree.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITNAMESPACEcode"> <a class="anchor" href="#git-codeGITNAMESPACEcode"></a><code>GIT_NAMESPACE</code> </dt>
+<dt class="hdlist1" id="git-codeGITNAMESPACEcode"> <a class="anchor" href="#git-GITNAMESPACE"></a> <a class="anchor" href="#git-codeGITNAMESPACEcode"></a><code>GIT_NAMESPACE</code> </dt>
 <dd>
 <p>Définir l&#8217;espace de nom Git ; voir <a href='{{< relurl "docs/gitnamespaces/fr" >}}'>gitnamespaces[7]</a> pour plus de détails. L&#8217;option de ligne de commande <code>--namespace</code> définit également cette valeur.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCEILINGDIRECTORIEScode"> <a class="anchor" href="#git-codeGITCEILINGDIRECTORIEScode"></a><code>GIT_CEILING_DIRECTORIES</code> </dt>
+<dt class="hdlist1" id="git-codeGITCEILINGDIRECTORIEScode"> <a class="anchor" href="#git-GITCEILINGDIRECTORIES"></a> <a class="anchor" href="#git-codeGITCEILINGDIRECTORIEScode"></a><code>GIT_CEILING_DIRECTORIES</code> </dt>
 <dd>
 <p>Cela devrait être une liste des chemins absolus séparés par des caractères deux point. Si elle est définie, il s&#8217;agit d&#8217;une liste de répertoires que Git ne devrait pas visiter pendant la recherche d&#8217;un répertoire de dépôt (utile pour exclure les répertoires sur réseau lents). Elle n&#8217;exclura pas le répertoire de travail actuel ou un GIT_DIR indiqué sur la ligne de commande ou dans l&#8217;environnement. Normalement, Git doit lire les entrées dans cette liste et résoudre tout lien symbolique qui pourrait être présent pour les comparer avec le répertoire courant. Cependant, si même cet accès est lent, vous pouvez ajouter une entrée vide à la liste pour dire à Git que les entrées subséquentes ne sont pas des liens symboliques et ne doivent pas être résolues ; par exemple, <code>GIT_CEILING_DIRECTORIES=/peutetre/symlink://non/symlink/mais/lent</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITDISCOVERYACROSSFILESYSTEMcode"> <a class="anchor" href="#git-codeGITDISCOVERYACROSSFILESYSTEMcode"></a><code>GIT_DISCOVERY_ACROSS_FILESYSTEM</code> </dt>
+<dt class="hdlist1" id="git-codeGITDISCOVERYACROSSFILESYSTEMcode"> <a class="anchor" href="#git-GITDISCOVERYACROSSFILESYSTEM"></a> <a class="anchor" href="#git-codeGITDISCOVERYACROSSFILESYSTEMcode"></a><code>GIT_DISCOVERY_ACROSS_FILESYSTEM</code> </dt>
 <dd>
 <p>Lorsque Git se trouve dans un répertoire qui n&#8217;a pas de répertoire ".git", Git tente de trouver un tel répertoire dans les répertoires parent pour trouver le sommet de l&#8217;arbre de travail, mais par défaut il ne dépasse pas les limites du système de fichiers actuel. Cette variable d&#8217;environnement Booléenne peut être définie à true pour dire à Git de ne pas s&#8217;arrêter aux limites des systèmes de fichiers. Comme <code>GIT_CEILING_DIRECTORIES</code>, cela n&#8217;affectera pas un répertoire de dépôt explicite indiqué via <code>GIT_DIR</code> ou sur la ligne de commande.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCOMMONDIRcode"> <a class="anchor" href="#git-codeGITCOMMONDIRcode"></a><code>GIT_COMMON_DIR</code> </dt>
+<dt class="hdlist1" id="git-codeGITCOMMONDIRcode"> <a class="anchor" href="#git-GITCOMMONDIR"></a> <a class="anchor" href="#git-codeGITCOMMONDIRcode"></a><code>GIT_COMMON_DIR</code> </dt>
 <dd>
 <p>Si cette variable est définie comme un chemin, les fichiers hos de l&#8217;arbre-de-travail qui sont normalement dans $GIT_DIR seront pris depuis ce chemin à la place. Les fichiers spécifiques à des arbres-de-travail tels que HEAD ou index sont extraits de $GIT_DIR. Voir <a href='{{< relurl "docs/gitrepository-layout/fr" >}}'>gitrepository-layout[5]</a> et <a href='{{< relurl "docs/git-worktree/fr" >}}'>git-worktree[1]</a> pour plus de détails. Cette variable a une préséance inférieure à d&#8217;autres variables de chemin comme GIT_INDEX_FILE, GIT_OBJECT_DIRECTORY&#8230;&#8203;</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITDEFAULTHASHcode"> <a class="anchor" href="#git-codeGITDEFAULTHASHcode"></a><code>GIT_DEFAULT_HASH</code> </dt>
+<dt class="hdlist1" id="git-codeGITDEFAULTHASHcode"> <a class="anchor" href="#git-GITDEFAULTHASH"></a> <a class="anchor" href="#git-codeGITDEFAULTHASHcode"></a><code>GIT_DEFAULT_HASH</code> </dt>
 <dd>
 <p>Si cette variable est définie, l&#8217;algorithme d&#8217;empreinte par défaut pour les nouveaux dépôts sera défini à cette valeur. Cette valeur est ignorée lors du clonage et le réglage du dépôt distant est toujours utilisé. La valeur par défaut est "sha1". Voir <code>--object-format</code> dans <a href='{{< relurl "docs/git-init/fr" >}}'>git-init[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITDEFAULTREFFORMATcode"> <a class="anchor" href="#git-codeGITDEFAULTREFFORMATcode"></a><code>GIT_DEFAULT_REF_FORMAT</code> </dt>
+<dt class="hdlist1" id="git-codeGITDEFAULTREFFORMATcode"> <a class="anchor" href="#git-GITDEFAULTREFFORMAT"></a> <a class="anchor" href="#git-codeGITDEFAULTREFFORMATcode"></a><code>GIT_DEFAULT_REF_FORMAT</code> </dt>
 <dd>
 <p>Si cette variable est définie, le format du moteur de réferences par défaut pour les nouveaux dépôts sera défini à cette valeur. La valeur par défaut est "files". Voir <code>--ref-format</code> dans <a href='{{< relurl "docs/git-init/fr" >}}'>git-init[1]</a>.</p>
 </dd>
@@ -713,31 +713,31 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <h3 id="_commits_git"><a class="anchor" href="#_commits_git"></a>Commits Git</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-codeGITAUTHORNAMEcode"> <a class="anchor" href="#git-codeGITAUTHORNAMEcode"></a><code>GIT_AUTHOR_NAME</code> </dt>
+<dt class="hdlist1" id="git-codeGITAUTHORNAMEcode"> <a class="anchor" href="#git-GITAUTHORNAME"></a> <a class="anchor" href="#git-codeGITAUTHORNAMEcode"></a><code>GIT_AUTHOR_NAME</code> </dt>
 <dd>
 <p>Le nom lisible utilisé dans l&#8217;identité de l&#8217;auteur lors de la création d&#8217;objets de commit ou d&#8217;étiquette, ou lors de l&#8217;écriture des reflogs. Surcharge les paramètres de configuration <code>user.name</code> et <code>author.name</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITAUTHOREMAILcode"> <a class="anchor" href="#git-codeGITAUTHOREMAILcode"></a><code>GIT_AUTHOR_EMAIL</code> </dt>
+<dt class="hdlist1" id="git-codeGITAUTHOREMAILcode"> <a class="anchor" href="#git-GITAUTHOREMAIL"></a> <a class="anchor" href="#git-codeGITAUTHOREMAILcode"></a><code>GIT_AUTHOR_EMAIL</code> </dt>
 <dd>
 <p>L&#8217;adresse courriel utilisée dans l&#8217;identité de l&#8217;auteur lors de la création d&#8217;objets commit ou étiquette, ou lors de l&#8217;écriture de reflogs. Surcharge les paramètres de configuration <code>user.email</code> et <code>author.email</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITAUTHORDATEcode"> <a class="anchor" href="#git-codeGITAUTHORDATEcode"></a><code>GIT_AUTHOR_DATE</code> </dt>
+<dt class="hdlist1" id="git-codeGITAUTHORDATEcode"> <a class="anchor" href="#git-GITAUTHORDATE"></a> <a class="anchor" href="#git-codeGITAUTHORDATEcode"></a><code>GIT_AUTHOR_DATE</code> </dt>
 <dd>
 <p>La date utilisée pour l&#8217;identité de l&#8217;auteur lors de la création d&#8217;objets commit ou étiquette, ou lors de l&#8217;écriture de reflogs. Voir <a href='{{< relurl "docs/git-commit/fr" >}}'>git-commit[1]</a> pour les formats valides.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCOMMITTERNAMEcode"> <a class="anchor" href="#git-codeGITCOMMITTERNAMEcode"></a><code>GIT_COMMITTER_NAME</code> </dt>
+<dt class="hdlist1" id="git-codeGITCOMMITTERNAMEcode"> <a class="anchor" href="#git-GITCOMMITTERNAME"></a> <a class="anchor" href="#git-codeGITCOMMITTERNAMEcode"></a><code>GIT_COMMITTER_NAME</code> </dt>
 <dd>
 <p>Le nom lisible utilisé dans l&#8217;identité du validateur lors de la création d&#8217;objets commit ou étiquette, ou lors de l&#8217;écriture de reflogs. Surcharge les paramètres de configuration <code>user.name</code> et <code>committer.name</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCOMMITTEREMAILcode"> <a class="anchor" href="#git-codeGITCOMMITTEREMAILcode"></a><code>GIT_COMMITTER_EMAIL</code> </dt>
+<dt class="hdlist1" id="git-codeGITCOMMITTEREMAILcode"> <a class="anchor" href="#git-GITCOMMITTEREMAIL"></a> <a class="anchor" href="#git-codeGITCOMMITTEREMAILcode"></a><code>GIT_COMMITTER_EMAIL</code> </dt>
 <dd>
 <p>L&#8217;adresse courriel utilisée dans l&#8217;identité de l&#8217;auteur lors de la création d&#8217;objets commit ou étiquette, ou lors de l&#8217;écriture de reflogs. Surcharge les paramètres de configuration <code>user.email</code> et <code>committer.email</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCOMMITTERDATEcode"> <a class="anchor" href="#git-codeGITCOMMITTERDATEcode"></a><code>GIT_COMMITTER_DATE</code> </dt>
+<dt class="hdlist1" id="git-codeGITCOMMITTERDATEcode"> <a class="anchor" href="#git-GITCOMMITTERDATE"></a> <a class="anchor" href="#git-codeGITCOMMITTERDATEcode"></a><code>GIT_COMMITTER_DATE</code> </dt>
 <dd>
 <p>La date utilisée pour l&#8217;identité du validateur lors de la création d&#8217;objets commit ou étiquette, ou lors de l&#8217;écriture de reflogs. Voir <a href='{{< relurl "docs/git-commit/fr" >}}'>git-commit[1]</a> pour les formats valides.</p>
 </dd>
-<dt class="hdlist1" id="git-codeEMAILcode"> <a class="anchor" href="#git-codeEMAILcode"></a><code>EMAIL</code> </dt>
+<dt class="hdlist1" id="git-codeEMAILcode"> <a class="anchor" href="#git-EMAIL"></a> <a class="anchor" href="#git-codeEMAILcode"></a><code>EMAIL</code> </dt>
 <dd>
 <p>L&#8217;adresse de courriel utilisée dans les identités de l&#8217;auteur et du validateur si aucune autre variable d&#8217;environnement ou configuration pertinente n&#8217;a été définie.</p>
 </dd>
@@ -748,11 +748,11 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <h3 id="_diffs_git"><a class="anchor" href="#_diffs_git"></a>Diffs Git</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-codeGITDIFFOPTScode"> <a class="anchor" href="#git-codeGITDIFFOPTScode"></a><code>GIT_DIFF_OPTS</code> </dt>
+<dt class="hdlist1" id="git-codeGITDIFFOPTScode"> <a class="anchor" href="#git-GITDIFFOPTS"></a> <a class="anchor" href="#git-codeGITDIFFOPTScode"></a><code>GIT_DIFF_OPTS</code> </dt>
 <dd>
 <p>Seul le paramètre valide est "--unified=??" ou "-u??" pour définir le nombre de lignes de contexte affichées lors de la création d&#8217;une diff unifiée. Cela a préséance sur toute valeur d&#8217;option "-U" ou "--unified" passée sur la ligne de commande Git diff.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITEXTERNALDIFFcode"> <a class="anchor" href="#git-codeGITEXTERNALDIFFcode"></a><code>GIT_EXTERNAL_DIFF</code> </dt>
+<dt class="hdlist1" id="git-codeGITEXTERNALDIFFcode"> <a class="anchor" href="#git-GITEXTERNALDIFF"></a> <a class="anchor" href="#git-codeGITEXTERNALDIFFcode"></a><code>GIT_EXTERNAL_DIFF</code> </dt>
 <dd>
 <p>Lorsque la variable d&#8217;environnement <code>GIT_EXTERNAL_DIFF</code> est définie, le programme nommé par elle est appelé pour générer des diffs, et Git n&#8217;utilise pas sa machinerie de diff intégrée. Pour un chemin qui est ajouté, enlevé ou modifié, <code>GIT_EXTERNAL_DIFF</code> est appelé avec 7 paramètres :</p>
 <div class="literalblock">
@@ -785,15 +785,15 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>Pour chaque chemin <code>GIT_EXTERNAL_DIFF</code> appelé, deux variables d`environnement, <code>GIT_DIFF_PATH_COUNTER</code> et <code>GIT_DIFF_PATH_TOTAL</code> sont définies.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITEXTERNALDIFFTRUSTEXITCODEcode"> <a class="anchor" href="#git-codeGITEXTERNALDIFFTRUSTEXITCODEcode"></a><code>GIT_EXTERNAL_DIFF_TRUST_EXIT_CODE</code> </dt>
+<dt class="hdlist1" id="git-codeGITEXTERNALDIFFTRUSTEXITCODEcode"> <a class="anchor" href="#git-GITEXTERNALDIFFTRUSTEXITCODE"></a> <a class="anchor" href="#git-codeGITEXTERNALDIFFTRUSTEXITCODEcode"></a><code>GIT_EXTERNAL_DIFF_TRUST_EXIT_CODE</code> </dt>
 <dd>
 <p>If this Boolean environment variable is set to true then the <code>GIT_EXTERNAL_DIFF</code> command is expected to return exit code 0 if it considers the input files to be equal or 1 if it considers them to be different, like <code>diff(1)</code>. If it is set to false, which is the default, then the command is expected to return exit code 0 regardless of equality. Any other exit code causes Git to report a fatal error.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITDIFFPATHCOUNTERcode"> <a class="anchor" href="#git-codeGITDIFFPATHCOUNTERcode"></a><code>GIT_DIFF_PATH_COUNTER</code> </dt>
+<dt class="hdlist1" id="git-codeGITDIFFPATHCOUNTERcode"> <a class="anchor" href="#git-GITDIFFPATHCOUNTER"></a> <a class="anchor" href="#git-codeGITDIFFPATHCOUNTERcode"></a><code>GIT_DIFF_PATH_COUNTER</code> </dt>
 <dd>
 <p>Un compteur basé sur 1 incrémenté d&#8217;un pour chaque chemin.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITDIFFPATHTOTALcode"> <a class="anchor" href="#git-codeGITDIFFPATHTOTALcode"></a><code>GIT_DIFF_PATH_TOTAL</code> </dt>
+<dt class="hdlist1" id="git-codeGITDIFFPATHTOTALcode"> <a class="anchor" href="#git-GITDIFFPATHTOTAL"></a> <a class="anchor" href="#git-codeGITDIFFPATHTOTALcode"></a><code>GIT_DIFF_PATH_TOTAL</code> </dt>
 <dd>
 <p>Le nombre total de chemins.</p>
 </dd>
@@ -804,28 +804,28 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <h3 id="_autre"><a class="anchor" href="#_autre"></a>autre</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-codeGITMERGEVERBOSITYcode"> <a class="anchor" href="#git-codeGITMERGEVERBOSITYcode"></a><code>GIT_MERGE_VERBOSITY</code> </dt>
+<dt class="hdlist1" id="git-codeGITMERGEVERBOSITYcode"> <a class="anchor" href="#git-GITMERGEVERBOSITY"></a> <a class="anchor" href="#git-codeGITMERGEVERBOSITYcode"></a><code>GIT_MERGE_VERBOSITY</code> </dt>
 <dd>
 <p>Un nombre contrôlant la quantité de production affichée par la stratégie de fusion récursive. Surcharge merge.verbosity. Voir <a href='{{< relurl "docs/git-merge/fr" >}}'>git-merge[1]</a></p>
 </dd>
-<dt class="hdlist1" id="git-codeGITPAGERcode"> <a class="anchor" href="#git-codeGITPAGERcode"></a><code>GIT_PAGER</code> </dt>
+<dt class="hdlist1" id="git-codeGITPAGERcode"> <a class="anchor" href="#git-GITPAGER"></a> <a class="anchor" href="#git-codeGITPAGERcode"></a><code>GIT_PAGER</code> </dt>
 <dd>
 <p>Cette variable d&#8217;environnement remplace <code>$PAGER</code>. Si elle est définie à une chaîne vide ou à la valeur "cat", Git ne lancera pas de pager. Voir aussi l&#8217;option <code>core.pager</code> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITPROGRESSDELAYcode"> <a class="anchor" href="#git-codeGITPROGRESSDELAYcode"></a><code>GIT_PROGRESS_DELAY</code> </dt>
+<dt class="hdlist1" id="git-codeGITPROGRESSDELAYcode"> <a class="anchor" href="#git-GITPROGRESSDELAY"></a> <a class="anchor" href="#git-codeGITPROGRESSDELAYcode"></a><code>GIT_PROGRESS_DELAY</code> </dt>
 <dd>
 <p>Un nombre qui contrôle le nombre de secondes à retarder avant d&#8217;afficher des indicateurs de progrès optionnels. Valeur par défaut à 2.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITEDITORcode"> <a class="anchor" href="#git-codeGITEDITORcode"></a><code>GIT_EDITOR</code> </dt>
+<dt class="hdlist1" id="git-codeGITEDITORcode"> <a class="anchor" href="#git-GITEDITOR"></a> <a class="anchor" href="#git-codeGITEDITORcode"></a><code>GIT_EDITOR</code> </dt>
 <dd>
 <p>Cette variable d&#8217;environnement remplace <code>$EDITOR</code> et <code>$VISUAL</code>. Elle est utilisée par plusieurs commandes Git lorsque, en mode interactif, un éditeur doit être lancé. Voir aussi <a href='{{< relurl "docs/git-var/fr" >}}'>git-var[1]</a> et l&#8217;option <code>core.editor</code> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITSEQUENCEEDITORcode"> <a class="anchor" href="#git-codeGITSEQUENCEEDITORcode"></a><code>GIT_SEQUENCE_EDITOR</code> </dt>
+<dt class="hdlist1" id="git-codeGITSEQUENCEEDITORcode"> <a class="anchor" href="#git-GITSEQUENCEEDITOR"></a> <a class="anchor" href="#git-codeGITSEQUENCEEDITORcode"></a><code>GIT_SEQUENCE_EDITOR</code> </dt>
 <dd>
 <p>Cette variable d&#8217;environnement remplace l&#8217;éditeur Git configuré lors de l&#8217;édition de la liste de todo d&#8217;un rebasage interactif. Voir aussi <a href='{{< relurl "docs/git-rebase/fr" >}}'>git-rebase[1]</a> et l&#8217;option <code>sequence.editor</code> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITSSHcode"> <a class="anchor" href="#git-codeGITSSHcode"></a><code>GIT_SSH</code> </dt>
-<dt class="hdlist1" id="git-codeGITSSHCOMMANDcode"> <a class="anchor" href="#git-codeGITSSHCOMMANDcode"></a><code>GIT_SSH_COMMAND</code> </dt>
+<dt class="hdlist1" id="git-codeGITSSHcode"> <a class="anchor" href="#git-GITSSH"></a> <a class="anchor" href="#git-codeGITSSHcode"></a><code>GIT_SSH</code> </dt>
+<dt class="hdlist1" id="git-codeGITSSHCOMMANDcode"> <a class="anchor" href="#git-GITSSHCOMMAND"></a> <a class="anchor" href="#git-codeGITSSHCOMMANDcode"></a><code>GIT_SSH_COMMAND</code> </dt>
 <dd>
 <p>Si l&#8217;une de ces variables d&#8217;environnement est définie, <em>git fetch</em> et <em>git push</em> utiliseront la commande spécifiée au lieu de <em>ssh</em> lorsqu&#8217;elles doivent se connecter à un système distant. Les paramètres de ligne de commande passés à la commande configurée sont déterminés par la variante de ssh. Voir l&#8217;option <code>ssh.variant</code> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a> pour plus de détails.</p>
 <div class="paragraph">
@@ -835,40 +835,40 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>Habituellement, il est plus facile de configurer toutes les options souhaitées à travers votre fichier <code>.ssh/config</code> personnel. Veuillez consulter votre documentation pour plus de détails.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITSSHVARIANTcode"> <a class="anchor" href="#git-codeGITSSHVARIANTcode"></a><code>GIT_SSH_VARIANT</code> </dt>
+<dt class="hdlist1" id="git-codeGITSSHVARIANTcode"> <a class="anchor" href="#git-GITSSHVARIANT"></a> <a class="anchor" href="#git-codeGITSSHVARIANTcode"></a><code>GIT_SSH_VARIANT</code> </dt>
 <dd>
 <p>Si cette variable d&#8217;environnement est définie, elle remplace l&#8217;autodétection de Git pour définir si <code>GIT_SSH</code>/<code>GIT_SSH_COMMAND</code>/<code>core.sshCommand</code> se réfère à OpenSSH, plink ou tortoiseplink. Cette variable remplace le paramètre de configuration <code>ssh.variant</code> qui sert le même but.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITSSLNOVERIFYcode"> <a class="anchor" href="#git-codeGITSSLNOVERIFYcode"></a><code>GIT_SSL_NO_VERIFY</code> </dt>
+<dt class="hdlist1" id="git-codeGITSSLNOVERIFYcode"> <a class="anchor" href="#git-GITSSLNOVERIFY"></a> <a class="anchor" href="#git-codeGITSSLNOVERIFYcode"></a><code>GIT_SSL_NO_VERIFY</code> </dt>
 <dd>
 <p>Régler et exporter de cette variable d&#8217;environnement avec n&#8217;importe quelle valeur indique à Git de ne pas vérifier le certificat SSL lors de la récupération ou de la poussée sur HTTPS.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITATTRSOURCEcode"> <a class="anchor" href="#git-codeGITATTRSOURCEcode"></a><code>GIT_ATTR_SOURCE</code> </dt>
+<dt class="hdlist1" id="git-codeGITATTRSOURCEcode"> <a class="anchor" href="#git-GITATTRSOURCE"></a> <a class="anchor" href="#git-codeGITATTRSOURCEcode"></a><code>GIT_ATTR_SOURCE</code> </dt>
 <dd>
 <p>Définit l&#8217;arbre-esque dont gitattributes sera lu.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITASKPASScode"> <a class="anchor" href="#git-codeGITASKPASScode"></a><code>GIT_ASKPASS</code> </dt>
+<dt class="hdlist1" id="git-codeGITASKPASScode"> <a class="anchor" href="#git-GITASKPASS"></a> <a class="anchor" href="#git-codeGITASKPASScode"></a><code>GIT_ASKPASS</code> </dt>
 <dd>
 <p>Si cette variable d&#8217;environnement est définie, les commandes Git qui doivent acquérir des mots de passe ou des phrases de passe (p. ex. pour l&#8217;authentification HTTP ou IMAP) appellent ce programme avec un prompt approprié comme argument de ligne de commande et lisent le mot de passe de son STDOUT. Voir aussi l&#8217;option <code>core.askPass</code> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTERMINALPROMPTcode"> <a class="anchor" href="#git-codeGITTERMINALPROMPTcode"></a><code>GIT_TERMINAL_PROMPT</code> </dt>
+<dt class="hdlist1" id="git-codeGITTERMINALPROMPTcode"> <a class="anchor" href="#git-GITTERMINALPROMPT"></a> <a class="anchor" href="#git-codeGITTERMINALPROMPTcode"></a><code>GIT_TERMINAL_PROMPT</code> </dt>
 <dd>
 <p>Si cette variable d&#8217;environnement booléenne est définie à false, git ne posera pas de questions sur le terminal (p. ex., lors de la demande d&#8217;authentification HTTP).</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCONFIGGLOBALcode"> <a class="anchor" href="#git-codeGITCONFIGGLOBALcode"></a><code>GIT_CONFIG_GLOBAL</code> </dt>
-<dt class="hdlist1" id="git-codeGITCONFIGSYSTEMcode"> <a class="anchor" href="#git-codeGITCONFIGSYSTEMcode"></a><code>GIT_CONFIG_SYSTEM</code> </dt>
+<dt class="hdlist1" id="git-codeGITCONFIGGLOBALcode"> <a class="anchor" href="#git-GITCONFIGGLOBAL"></a> <a class="anchor" href="#git-codeGITCONFIGGLOBALcode"></a><code>GIT_CONFIG_GLOBAL</code> </dt>
+<dt class="hdlist1" id="git-codeGITCONFIGSYSTEMcode"> <a class="anchor" href="#git-GITCONFIGSYSTEM"></a> <a class="anchor" href="#git-codeGITCONFIGSYSTEMcode"></a><code>GIT_CONFIG_SYSTEM</code> </dt>
 <dd>
 <p>Prendre la configuration à partir des fichiers donnés au lieu des fichiers de configuration globaux ou au niveau système. Si <code>GIT_CONFIG_SYSTEM</code> est défini, le fichier de configuration du système défini au moment de la compilation (généralement <code>/etc/gitconfig</code>) ne sera pas lu. De même, si <code>GIT_CONFIG_GLOBAL</code> est défini, ni <code>$HOME/.gitconfig</code> ni <code>$XDG_CONFIG_HOME/git/config</code> ne seront pas lus. Peut être défini à <code>/dev/null</code> pour sauter les fichiers de configuration du niveau correspondant.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCONFIGNOSYSTEMcode"> <a class="anchor" href="#git-codeGITCONFIGNOSYSTEMcode"></a><code>GIT_CONFIG_NOSYSTEM</code> </dt>
+<dt class="hdlist1" id="git-codeGITCONFIGNOSYSTEMcode"> <a class="anchor" href="#git-GITCONFIGNOSYSTEM"></a> <a class="anchor" href="#git-codeGITCONFIGNOSYSTEMcode"></a><code>GIT_CONFIG_NOSYSTEM</code> </dt>
 <dd>
 <p>Indique qu&#8217;il faut sauter la lecture des paramètres du fichier au niveau système <code>$(prefix)/etc/gitconfig</code> . Cette variable d&#8217;environnement booléenne peut être utilisée avec <code>$HOME</code> et <code>$XDG_CONFIG_HOME</code> pour créer un environnement prévisible pour un script pointilleux, ou vous pouvez la définir à true pour éviter temporairement d&#8217;utiliser un fichier <code>/etc/gitconfig</code> buggé en attendant que quelqu&#8217;un avec suffisamment de permissions puisse le réparer.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITFLUSHcode"> <a class="anchor" href="#git-codeGITFLUSHcode"></a><code>GIT_FLUSH</code> </dt>
+<dt class="hdlist1" id="git-codeGITFLUSHcode"> <a class="anchor" href="#git-GITFLUSH"></a> <a class="anchor" href="#git-codeGITFLUSHcode"></a><code>GIT_FLUSH</code> </dt>
 <dd>
 <p>Si cette variable d&#8217;environnement est définie à "1", alors les commande telles que <em>git blame</em> (en mode différentiel), <em>git rev-list</em>, <em>git log</em>, <em>git check-attr</em> et <em>git check-ignore</em> forceront un vidage du flux de sortie après que chaque enregistrement a été écrit. Si cette variable est définie à "0", la sortie de ces commandes sera faite en utilisant des E/S complètement tamponnés. Si cette variable d&#8217;environnement n&#8217;est pas réglée, Git choisira un vidage à chaque tampon ou à chaque enregistrement selon que stdout semble être redirigé vers un fichier ou non.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEcode"> <a class="anchor" href="#git-codeGITTRACEcode"></a><code>GIT_TRACE</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEcode"> <a class="anchor" href="#git-GITTRACE"></a> <a class="anchor" href="#git-codeGITTRACEcode"></a><code>GIT_TRACE</code> </dt>
 <dd>
 <p>Active des messages généraux de trace, comme par exemple l&#8217;expansion d&#8217;alias, l&#8217;exécution de commandes intégrées et l&#8217;exécution de commandes externes.</p>
 <div class="paragraph">
@@ -884,50 +884,50 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>Désinitialiser la variable, ou la définir à vide, "0" ou "false" (casse insensible) désactive les messages de trace.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEFSMONITORcode"> <a class="anchor" href="#git-codeGITTRACEFSMONITORcode"></a><code>GIT_TRACE_FSMONITOR</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEFSMONITORcode"> <a class="anchor" href="#git-GITTRACEFSMONITOR"></a> <a class="anchor" href="#git-codeGITTRACEFSMONITORcode"></a><code>GIT_TRACE_FSMONITOR</code> </dt>
 <dd>
 <p>Permet de tracer des messages pour l&#8217;extension de moniteur du système de fichiers. Voir <code>GIT_TRACE</code> pour les options de sortie de trace disponibles.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEPACKACCESScode"> <a class="anchor" href="#git-codeGITTRACEPACKACCESScode"></a><code>GIT_TRACE_PACK_ACCESS</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEPACKACCESScode"> <a class="anchor" href="#git-GITTRACEPACKACCESS"></a> <a class="anchor" href="#git-codeGITTRACEPACKACCESScode"></a><code>GIT_TRACE_PACK_ACCESS</code> </dt>
 <dd>
 <p>Active la trace des messages pour tous les accès aux paquets. Pour chaque accès, le nom du fichier paquet et un décalage dans le paquet sont enregistrés. Cela peut être utile pour résoudre certains problèmes de performance liés aux paquets. Voir <code>GIT_TRACE</code> pour les options de sortie de trace disponibles.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEPACKETcode"> <a class="anchor" href="#git-codeGITTRACEPACKETcode"></a><code>GIT_TRACE_PACKET</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEPACKETcode"> <a class="anchor" href="#git-GITTRACEPACKET"></a> <a class="anchor" href="#git-codeGITTRACEPACKETcode"></a><code>GIT_TRACE_PACKET</code> </dt>
 <dd>
 <p>Active les messages de trace pour tous les paquets entrant ou sortant d&#8217;un programme donné. Cela peut aider à déboguer la négociation d&#8217;objets ou d&#8217;autres questions de protocole. Le traçage est désactivé dans un paquet commençant par "PACK" (mais voir <code>GIT_TRACE_PACKFILE</code> ci-dessous). Voir <code>GIT_TRACE</code> pour les options de sortie de trace disponibles.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEPACKFILEcode"> <a class="anchor" href="#git-codeGITTRACEPACKFILEcode"></a><code>GIT_TRACE_PACKFILE</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEPACKFILEcode"> <a class="anchor" href="#git-GITTRACEPACKFILE"></a> <a class="anchor" href="#git-codeGITTRACEPACKFILEcode"></a><code>GIT_TRACE_PACKFILE</code> </dt>
 <dd>
 <p>Active la trace des paquets envoyés ou reçus par un programme donné. Contrairement à d&#8217;autres sorties de trace, cette trace est verbatim : pas d&#8217;en-têtes, et pas de citation de données binaires. Vous voulez presque certainement diriger cette sortie dans un fichier (par exemple, <code>GIT_TRACE_PACKFILE=/tmp/mon.pack</code>) plutôt que de l&#8217;afficher sur le terminal ou de le mélanger avec d&#8217;autres sorties de trace.</p>
 <div class="paragraph">
 <p>Notez que ce n&#8217;est actuellement mis en œuvre que pour le côté client des clonages et des récupurations.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEPERFORMANCEcode"> <a class="anchor" href="#git-codeGITTRACEPERFORMANCEcode"></a><code>GIT_TRACE_PERFORMANCE</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEPERFORMANCEcode"> <a class="anchor" href="#git-GITTRACEPERFORMANCE"></a> <a class="anchor" href="#git-codeGITTRACEPERFORMANCEcode"></a><code>GIT_TRACE_PERFORMANCE</code> </dt>
 <dd>
 <p>Active les messages de trace liés à la performance, par exemple le temps d&#8217;exécution total de chaque commande Git. Voir <code>GIT_TRACE</code> pour les options de sortie de trace disponibles.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEREFScode"> <a class="anchor" href="#git-codeGITTRACEREFScode"></a><code>GIT_TRACE_REFS</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEREFScode"> <a class="anchor" href="#git-GITTRACEREFS"></a> <a class="anchor" href="#git-codeGITTRACEREFScode"></a><code>GIT_TRACE_REFS</code> </dt>
 <dd>
 <p>Active les messages de trace pour les opérations sur la base de données de références. Voir <code>GIT_TRACE</code> pour les options de sortie de trace disponibles.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACESETUPcode"> <a class="anchor" href="#git-codeGITTRACESETUPcode"></a><code>GIT_TRACE_SETUP</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACESETUPcode"> <a class="anchor" href="#git-GITTRACESETUP"></a> <a class="anchor" href="#git-codeGITTRACESETUPcode"></a><code>GIT_TRACE_SETUP</code> </dt>
 <dd>
 <p>Active les messages de trace .git, l&#8217;arbre de travail et le répertoire de travail courant après que Git a terminé sa phase de configuration. Voir <code>GIT_TRACE</code> pour les options de sortie de trace disponibles.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACESHALLOWcode"> <a class="anchor" href="#git-codeGITTRACESHALLOWcode"></a><code>GIT_TRACE_SHALLOW</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACESHALLOWcode"> <a class="anchor" href="#git-GITTRACESHALLOW"></a> <a class="anchor" href="#git-codeGITTRACESHALLOWcode"></a><code>GIT_TRACE_SHALLOW</code> </dt>
 <dd>
 <p>Active les messages de trace qui peuvent aider à déboguer des récupérations / clonage de dépôts superficiels. Voir <code>GIT_TRACE</code> pour les options de sortie de trace disponibles.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACECURLcode"> <a class="anchor" href="#git-codeGITTRACECURLcode"></a><code>GIT_TRACE_CURL</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACECURLcode"> <a class="anchor" href="#git-GITTRACECURL"></a> <a class="anchor" href="#git-codeGITTRACECURLcode"></a><code>GIT_TRACE_CURL</code> </dt>
 <dd>
 <p>Permet un traçage complet par curl de toutes les données entrantes et sortantes, y compris les informations descriptives, du protocole de transport git. Ceci est similaire à faire du curl <code>--trace-ascii</code> sur la ligne de commande. Voir <code>GIT_TRACE</code> pour les options de sortie de trace disponibles.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACECURLNODATAcode"> <a class="anchor" href="#git-codeGITTRACECURLNODATAcode"></a><code>GIT_TRACE_CURL_NO_DATA</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACECURLNODATAcode"> <a class="anchor" href="#git-GITTRACECURLNODATA"></a> <a class="anchor" href="#git-codeGITTRACECURLNODATAcode"></a><code>GIT_TRACE_CURL_NO_DATA</code> </dt>
 <dd>
 <p>Lorsqu&#8217;une trace de curl est activée (voir <code>GIT_TRACE_CURL</code> ci-dessus), ne pas décharger les données (c&#8217;est-à-dire que seules les lignes d&#8217;info et les en-têtes sont tracés).</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACE2code"> <a class="anchor" href="#git-codeGITTRACE2code"></a><code>GIT_TRACE2</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACE2code"> <a class="anchor" href="#git-GITTRACE2"></a> <a class="anchor" href="#git-codeGITTRACE2code"></a><code>GIT_TRACE2</code> </dt>
 <dd>
 <p>Active des messages de trace plus détaillés par la bibliothèque "trace2". La sortie de <code>GIT_TRACE2</code> est un simple format texte pour consommation humaine.</p>
 <div class="paragraph">
@@ -949,66 +949,66 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>Voir la <a href="{{< relurl "docs/api-trace2/fr" >}}"> documentation de Trace2</a> pour tous les détails.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACE2EVENTcode"> <a class="anchor" href="#git-codeGITTRACE2EVENTcode"></a><code>GIT_TRACE2_EVENT</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACE2EVENTcode"> <a class="anchor" href="#git-GITTRACE2EVENT"></a> <a class="anchor" href="#git-codeGITTRACE2EVENTcode"></a><code>GIT_TRACE2_EVENT</code> </dt>
 <dd>
 <p>Ce réglage écrit un format JSON adapté à l&#8217;interprétation automatique. Voir <code>GIT_TRACE2</code> pour les options de sortie de trace disponibles et la <a href="{{< relurl "docs/api-trace2/fr" >}}">documentation de Trace2</a> pour tous les détails.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACE2PERFcode"> <a class="anchor" href="#git-codeGITTRACE2PERFcode"></a><code>GIT_TRACE2_PERF</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACE2PERFcode"> <a class="anchor" href="#git-GITTRACE2PERF"></a> <a class="anchor" href="#git-codeGITTRACE2PERFcode"></a><code>GIT_TRACE2_PERF</code> </dt>
 <dd>
 <p>En plus des messages texte disponibles dans <code>GIT_TRACE2</code>, ce paramètre écrit un format à colonne pour comprendre les régions de nidification. Voir <code>GIT_TRACE2</code> pour les options de sortie de trace disponibles et la <a href="{{< relurl "docs/api-trace2/fr" >}}">documentation de Trace2</a> pour tous les détails.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEREDACTcode"> <a class="anchor" href="#git-codeGITTRACEREDACTcode"></a><code>GIT_TRACE_REDACT</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEREDACTcode"> <a class="anchor" href="#git-GITTRACEREDACT"></a> <a class="anchor" href="#git-codeGITTRACEREDACTcode"></a><code>GIT_TRACE_REDACT</code> </dt>
 <dd>
 <p>Par défaut, lorsque le traçage est activé, Git caviarde les valeurs des cookies, l&#8217;en-tête "Authorization:", l&#8217;en-tête "Proxy-Authorization:" et les URIs de paquets. Définissez cette variable d&#8217;environnement booléenne à false pour empêcher ce caviardage.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITNOREPLACEOBJECTScode"> <a class="anchor" href="#git-codeGITNOREPLACEOBJECTScode"></a><code>GIT_NO_REPLACE_OBJECTS</code> </dt>
+<dt class="hdlist1" id="git-codeGITNOREPLACEOBJECTScode"> <a class="anchor" href="#git-GITNOREPLACEOBJECTS"></a> <a class="anchor" href="#git-codeGITNOREPLACEOBJECTScode"></a><code>GIT_NO_REPLACE_OBJECTS</code> </dt>
 <dd>
 <p>Régler et exporter cette variable d&#8217;environnement indique à Git d&#8217;ignorer les réfs de remplacement et de ne pas remplacer les objets Git.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITLITERALPATHSPECScode"> <a class="anchor" href="#git-codeGITLITERALPATHSPECScode"></a><code>GIT_LITERAL_PATHSPECS</code> </dt>
+<dt class="hdlist1" id="git-codeGITLITERALPATHSPECScode"> <a class="anchor" href="#git-GITLITERALPATHSPECS"></a> <a class="anchor" href="#git-codeGITLITERALPATHSPECScode"></a><code>GIT_LITERAL_PATHSPECS</code> </dt>
 <dd>
 <p>Régler cette variable d&#8217;environnement booléenne à true va forcer Git à traiter tous les spécificateurs de chemin littéralement, plutôt que comme des motifs glob. Par exemple, exécuter <code>GIT_LITERAL_PATHSPECS=1 git log -- `\*.c</code> cherchera des commits qui touchent le chemin <code>*.c</code>, pas des chemins auquels le glob <code>*.c</code> correspond. Vous pourriez vouloir cela si vous fournissez des chemins littéraux vers Git (p. ex., des chemins précédemment donnés par <code>git ls-tree</code>, <code>--raw</code> sortie diff, etc.).</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITGLOBPATHSPECScode"> <a class="anchor" href="#git-codeGITGLOBPATHSPECScode"></a><code>GIT_GLOB_PATHSPECS</code> </dt>
+<dt class="hdlist1" id="git-codeGITGLOBPATHSPECScode"> <a class="anchor" href="#git-GITGLOBPATHSPECS"></a> <a class="anchor" href="#git-codeGITGLOBPATHSPECScode"></a><code>GIT_GLOB_PATHSPECS</code> </dt>
 <dd>
 <p>Régler cette variable d&#8217;environnement booléenne à true va indiquer à Git de traiter tous les spécificateurs de chemin comme des motifs glob (aka magie "glob").</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITNOGLOBPATHSPECScode"> <a class="anchor" href="#git-codeGITNOGLOBPATHSPECScode"></a><code>GIT_NOGLOB_PATHSPECS</code> </dt>
+<dt class="hdlist1" id="git-codeGITNOGLOBPATHSPECScode"> <a class="anchor" href="#git-GITNOGLOBPATHSPECS"></a> <a class="anchor" href="#git-codeGITNOGLOBPATHSPECScode"></a><code>GIT_NOGLOB_PATHSPECS</code> </dt>
 <dd>
 <p>Régler cette variable d&#8217;environnement booléenne à vrai indique à Git de traiter tous les spécificateurs de chemin comme littéral (aka magie "littérale").</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITICASEPATHSPECScode"> <a class="anchor" href="#git-codeGITICASEPATHSPECScode"></a><code>GIT_ICASE_PATHSPECS</code> </dt>
+<dt class="hdlist1" id="git-codeGITICASEPATHSPECScode"> <a class="anchor" href="#git-GITICASEPATHSPECS"></a> <a class="anchor" href="#git-codeGITICASEPATHSPECScode"></a><code>GIT_ICASE_PATHSPECS</code> </dt>
 <dd>
 <p>Régler cette variable d&#8217;environnement booléenne à true va indiquer à Git de traiter tous les spécificateurs de chemins comme insensibles à la casse.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITNOLAZYFETCHcode"> <a class="anchor" href="#git-codeGITNOLAZYFETCHcode"></a><code>GIT_NO_LAZY_FETCH</code> </dt>
+<dt class="hdlist1" id="git-codeGITNOLAZYFETCHcode"> <a class="anchor" href="#git-GITNOLAZYFETCH"></a> <a class="anchor" href="#git-codeGITNOLAZYFETCHcode"></a><code>GIT_NO_LAZY_FETCH</code> </dt>
 <dd>
 <p>Régler cette variable d&#8217;environnement booléenne à true va indiquer à Git de ne pas récupérer à la demande les objets manquants depuis le distant prometteur.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITREFLOGACTIONcode"> <a class="anchor" href="#git-codeGITREFLOGACTIONcode"></a><code>GIT_REFLOG_ACTION</code> </dt>
+<dt class="hdlist1" id="git-codeGITREFLOGACTIONcode"> <a class="anchor" href="#git-GITREFLOGACTION"></a> <a class="anchor" href="#git-codeGITREFLOGACTIONcode"></a><code>GIT_REFLOG_ACTION</code> </dt>
 <dd>
 <p>Lorsqu&#8217;une réf est mis à jour, des entrées de reflog sont créées pour suivre la raison pour laquelle la réf a été mise à jour (ce qui est généralement le nom de la commande de haut niveau qui a mis à jour la réf), en plus des anciennes et nouvelles valeurs de la réf. Une commande scriptée de porcelaine peut utiliser la fonction set_reflog_action helper dans <code>git-sh-setup</code> pour définir son nom à cette variable lorsqu&#8217;elle est invoquée comme commande de niveau supérieur par l&#8217;utilisateur final, pour l&#8217;enregistrer dans le corps du reflog.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITREFPARANOIAcode"> <a class="anchor" href="#git-codeGITREFPARANOIAcode"></a><code>GIT_REF_PARANOIA</code> </dt>
+<dt class="hdlist1" id="git-codeGITREFPARANOIAcode"> <a class="anchor" href="#git-GITREFPARANOIA"></a> <a class="anchor" href="#git-codeGITREFPARANOIAcode"></a><code>GIT_REF_PARANOIA</code> </dt>
 <dd>
 <p>Si cette variable d&#8217;environnement booléenne est définie à false, ignorer les réfs cassées ou mal nommées lors de l&#8217;itération sur les listes de réfs. Habituellement, Git tentera d&#8217;inclure tous ces réfs, ce qui peut entraîner l&#8217;échec de certaines opérations. Cela est généralement préférable, car il vaut mieux abandonner les opérations potentiellement destructrices (par exemple, <a href='{{< relurl "docs/git-prune/fr" >}}'>git-prune[1]</a>) plutôt que d&#8217;ignorer les réfs cassées (et donc considérer l&#8217;histoire qu&#8217;elles pointent comme inutiles à sauver). La valeur par défaut est <code>1</code> (c&#8217;est-à-dire être paranoïaque sur la détection et abandon de toutes les opérations). Vous ne devriez normalement pas avoir besoin de définir ceci à <code>0</code>, mais ceci peut être utile quand vous essayez de sauver des données d&#8217;un dépôt corrompu.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCOMMITGRAPHPARANOIAcode"> <a class="anchor" href="#git-codeGITCOMMITGRAPHPARANOIAcode"></a><code>GIT_COMMIT_GRAPH_PARANOIA</code> </dt>
+<dt class="hdlist1" id="git-codeGITCOMMITGRAPHPARANOIAcode"> <a class="anchor" href="#git-GITCOMMITGRAPHPARANOIA"></a> <a class="anchor" href="#git-codeGITCOMMITGRAPHPARANOIAcode"></a><code>GIT_COMMIT_GRAPH_PARANOIA</code> </dt>
 <dd>
 <p>When loading a commit object from the commit-graph, Git performs an existence check on the object in the object database. This is done to avoid issues with stale commit-graphs that contain references to already-deleted commits, but comes with a performance penalty.</p>
 <div class="paragraph">
 <p>The default is "false", which disables the aforementioned behavior. Setting this to "true" enables the existence check so that stale commits will never be returned from the commit-graph at the cost of performance.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITALLOWPROTOCOLcode"> <a class="anchor" href="#git-codeGITALLOWPROTOCOLcode"></a><code>GIT_ALLOW_PROTOCOL</code> </dt>
+<dt class="hdlist1" id="git-codeGITALLOWPROTOCOLcode"> <a class="anchor" href="#git-GITALLOWPROTOCOL"></a> <a class="anchor" href="#git-codeGITALLOWPROTOCOLcode"></a><code>GIT_ALLOW_PROTOCOL</code> </dt>
 <dd>
 <p>Si elle est définie comme une liste de protocoles séparés par des deux-points, se comporter comme si <code>protocol.allow</code> est défini à <code>never</code> , et définit <code>protocol.&lt;nom&gt;.allow</code> de chacun des protocoles énumérés à <code>always</code>(ce qui surcharge toute configuration existante). Voir la description de <code>protocol.allow</code> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a> pour plus de détails.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITPROTOCOLFROMUSERcode"> <a class="anchor" href="#git-codeGITPROTOCOLFROMUSERcode"></a><code>GIT_PROTOCOL_FROM_USER</code> </dt>
+<dt class="hdlist1" id="git-codeGITPROTOCOLFROMUSERcode"> <a class="anchor" href="#git-GITPROTOCOLFROMUSER"></a> <a class="anchor" href="#git-codeGITPROTOCOLFROMUSERcode"></a><code>GIT_PROTOCOL_FROM_USER</code> </dt>
 <dd>
 <p>Définir cette variable d&#8217;environnement booléenne à false pour empêcher les protocoles utilisés par fetch/push/clone qui sont configurés à l&#8217;état <code>utilisateur</code>. Ceci est utile pour limiter l&#8217;initialisation récursive des sous-modules à partir d&#8217;un dépôt non fiable ou pour des programmes qui fournissentdes URLS potentiellement non fiables aux commandes git. Voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a> pour plus de détails.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITPROTOCOLcode"> <a class="anchor" href="#git-codeGITPROTOCOLcode"></a><code>GIT_PROTOCOL</code> </dt>
+<dt class="hdlist1" id="git-codeGITPROTOCOLcode"> <a class="anchor" href="#git-GITPROTOCOL"></a> <a class="anchor" href="#git-codeGITPROTOCOLcode"></a><code>GIT_PROTOCOL</code> </dt>
 <dd>
 <p>Pour usage interne seulement. Utilisé pour établir la liaison en protocole filaire. Contient une liste séparée par deux-point <em>:</em> des clés avec des valeurs facultatives <em>&lt;clé&gt;[=&lt;valeur&gt;]</em>. La présence de clés et de valeurs inconnues doit être ignorée.</p>
 <div class="paragraph">
@@ -1018,24 +1018,24 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>Cette configuration est facultative. Si la variable n&#8217;est pas propagée, les clients retomberont sur le protocole original "v0" (mais ils peuvent manquer certaines améliorations ou caractéristiques de performance). Cette variable n&#8217;affecte actuellement que les clonages et les récupérations ; elle n&#8217;est pas encore utilisée pour les poussées (mais peut-être à l&#8217;avenir).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITOPTIONALLOCKScode"> <a class="anchor" href="#git-codeGITOPTIONALLOCKScode"></a><code>GIT_OPTIONAL_LOCKS</code> </dt>
+<dt class="hdlist1" id="git-codeGITOPTIONALLOCKScode"> <a class="anchor" href="#git-GITOPTIONALLOCKS"></a> <a class="anchor" href="#git-codeGITOPTIONALLOCKScode"></a><code>GIT_OPTIONAL_LOCKS</code> </dt>
 <dd>
 <p>Si cette variable d&#8217;environnement booléenne est définie à false, Git effectuera toute opération demandée sans effectuer de sous-opérations facultatives qui nécessitent un verrouillage. Par exemple, cela empêchera <code>git status</code> de rafraîchir l&#8217;index comme effet secondaire. Ceci est utile pour les processus fonctionnant en arrière-plan qui ne veulent pas provoquer la contention de verrouillage avec d&#8217;autres opérations sur le dépôt. Par défaut à <code>1</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITREDIRECTSTDINcode"> <a class="anchor" href="#git-codeGITREDIRECTSTDINcode"></a><code>GIT_REDIRECT_STDIN</code> </dt>
-<dt class="hdlist1" id="git-codeGITREDIRECTSTDOUTcode"> <a class="anchor" href="#git-codeGITREDIRECTSTDOUTcode"></a><code>GIT_REDIRECT_STDOUT</code> </dt>
-<dt class="hdlist1" id="git-codeGITREDIRECTSTDERRcode"> <a class="anchor" href="#git-codeGITREDIRECTSTDERRcode"></a><code>GIT_REDIRECT_STDERR</code> </dt>
+<dt class="hdlist1" id="git-codeGITREDIRECTSTDINcode"> <a class="anchor" href="#git-GITREDIRECTSTDIN"></a> <a class="anchor" href="#git-codeGITREDIRECTSTDINcode"></a><code>GIT_REDIRECT_STDIN</code> </dt>
+<dt class="hdlist1" id="git-codeGITREDIRECTSTDOUTcode"> <a class="anchor" href="#git-GITREDIRECTSTDOUT"></a> <a class="anchor" href="#git-codeGITREDIRECTSTDOUTcode"></a><code>GIT_REDIRECT_STDOUT</code> </dt>
+<dt class="hdlist1" id="git-codeGITREDIRECTSTDERRcode"> <a class="anchor" href="#git-GITREDIRECTSTDERR"></a> <a class="anchor" href="#git-codeGITREDIRECTSTDERRcode"></a><code>GIT_REDIRECT_STDERR</code> </dt>
 <dd>
 <p>Windows seulement : permettre de rediriger les sockets standard d&#8217;entrée/sortie/erreur sur les chemins spécifiés par les variables d&#8217;environnement. Ceci est particulièrement utile dans les applications multithread où le moyen canonique de passer les poignées standard via <code>CreateProcess()</code> n&#8217;est pas possible parce qu&#8217;il exigerait que les poignées soient héritées (et par conséquent *chaque processus démarré en hériterait, en bloquant éventuellement les opérations régulières de Git). Le principal cas d&#8217;utilisation prévu est d&#8217;utiliser des tuyaux nommés pour la communication (par exemple <code>\\.\pipe\mon-git-stdin-123</code>).</p>
 <div class="paragraph">
 <p>Deux valeurs spéciales sont supportées : <code>off</code> va tout simplement fermer la poignée standard correspondante, et si <code>GIT_REDIRECT_STDERR</code> est <code>2&gt;&amp;1</code>, l&#8217;erreur standard sera redirigée vers la même poignée que la sortie standard.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITPRINTSHA1ELLIPSIScodeobsolte"> <a class="anchor" href="#git-codeGITPRINTSHA1ELLIPSIScodeobsolte"></a><code>GIT_PRINT_SHA1_ELLIPSIS</code> (obsolète) </dt>
+<dt class="hdlist1" id="git-codeGITPRINTSHA1ELLIPSIScodeobsolte"> <a class="anchor" href="#git-GITPRINTSHA1ELLIPSISobsolte"></a> <a class="anchor" href="#git-codeGITPRINTSHA1ELLIPSIScodeobsolte"></a><code>GIT_PRINT_SHA1_ELLIPSIS</code> (obsolète) </dt>
 <dd>
 <p>Si elle est définie à <code>oui</code>, afficher une ellipse suivant une valeur SHA-1 (abrégée). Cela affecte les indications des HEAD détachées (<a href='{{< relurl "docs/git-checkout/fr" >}}'>git-checkout[1]</a>) et la sortie diff brute (<a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a>). L&#8217;impression d&#8217;une ellipse dans les cas mentionnés n&#8217;est plus considérée comme adéquate et la gestion est susceptible d&#8217;être retirée dans un avenir prévisible (ainsi que la variable).</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITADVICEcode"> <a class="anchor" href="#git-codeGITADVICEcode"></a><code>GIT_ADVICE</code> </dt>
+<dt class="hdlist1" id="git-codeGITADVICEcode"> <a class="anchor" href="#git-GITADVICE"></a> <a class="anchor" href="#git-codeGITADVICEcode"></a><code>GIT_ADVICE</code> </dt>
 <dd>
 <p>If set to <code>0</code>, then disable all advice messages. These messages are intended to provide hints to human users that may help them get out of problematic situations or take advantage of new features. Users can disable individual messages using the <code>advice.*</code> config keys. These messages may be disruptive to tools that execute Git processes, so this variable is available to disable the messages. (The <code>--no-advice</code> global option is also available, but old Git versions may fail when this option is not understood. The environment variable will be ignored by Git versions that do not understand it.)</p>
 </dd>

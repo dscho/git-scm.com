@@ -54,8 +54,8 @@ aliases:
 <dd>
 <p>Inclure des statistiques supplémentaires à la fin de la sortie de blame.</p>
 </dd>
-<dt class="hdlist1" id="git-annotate--Lltdbutgtltfingt"> <a class="anchor" href="#git-annotate--Lltdbutgtltfingt"></a>-L &lt;début&gt;,&lt;fin&gt; </dt>
-<dt class="hdlist1" id="git-annotate--Lltnomfoncgt"> <a class="anchor" href="#git-annotate--Lltnomfoncgt"></a>-L: &lt;nomfonc&gt; </dt>
+<dt class="hdlist1" id="git-annotate--Lltdbutgtltfingt"> <a class="anchor" href="#git-annotate--Ldbutfin"></a> <a class="anchor" href="#git-annotate--Lltdbutgtltfingt"></a>-L &lt;début&gt;,&lt;fin&gt; </dt>
+<dt class="hdlist1" id="git-annotate--Lltnomfoncgt"> <a class="anchor" href="#git-annotate--Lnomfonc"></a> <a class="anchor" href="#git-annotate--Lltnomfoncgt"></a>-L: &lt;nomfonc&gt; </dt>
 <dd>
 <p>N&#8217;annoter que la plage de lignes donnée par <em>&lt;début&gt;,&lt;fin&gt;</em> ou par la regex du nom de la fonction <em>&lt;nom-de-fonction&gt;</em>. Peut être spécifié plusieurs fois. Les intervalles qui se chevauchent sont autorisés.</p>
 <div class="paragraph">
@@ -102,11 +102,11 @@ aliases:
 <dd>
 <p>Afficher les horodatages bruts (Défaut : désactivé).</p>
 </dd>
-<dt class="hdlist1" id="git-annotate--Sltfichier-des-rvsgt"> <a class="anchor" href="#git-annotate--Sltfichier-des-rvsgt"></a>-S &lt;fichier-des-révs&gt; </dt>
+<dt class="hdlist1" id="git-annotate--Sltfichier-des-rvsgt"> <a class="anchor" href="#git-annotate--Sfichier-des-rvs"></a> <a class="anchor" href="#git-annotate--Sltfichier-des-rvsgt"></a>-S &lt;fichier-des-révs&gt; </dt>
 <dd>
 <p>Utiliser les révisions depuis le fichier-des-révisions au lieu d&#8217;appeler <a href='{{< relurl "docs/git-rev-list/fr" >}}'>git-rev-list[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-annotate---reverseltrvgtltrvgt"> <a class="anchor" href="#git-annotate---reverseltrvgtltrvgt"></a>--reverse &lt;rév&gt;..&lt;rév&gt; </dt>
+<dt class="hdlist1" id="git-annotate---reverseltrvgtltrvgt"> <a class="anchor" href="#git-annotate---reverservrv"></a> <a class="anchor" href="#git-annotate---reverseltrvgtltrvgt"></a>--reverse &lt;rév&gt;..&lt;rév&gt; </dt>
 <dd>
 <p>Parcourir l&#8217;historique en avant au lieu d&#8217;en arrière. Au lieu de montrer la révision dans laquelle une ligne est apparue, ceci montre la dernière révision dans laquelle une ligne a existé. Cela nécessite une gamme de révisions comme DÉBUT..FIN où le chemin de blâme existe dans DÉBUT. Pour plus de commodité, <code>git blame --reverse DÉBUT</code> est pris comme <code>git blame --reverse DÉBUT..HEAD</code>.</p>
 </dd>
@@ -127,15 +127,15 @@ aliases:
 <dd>
 <p>Afficher le résultat progressivement dans un format conçu pour la consommation par une machine.</p>
 </dd>
-<dt class="hdlist1" id="git-annotate---encodingltcodagegt"> <a class="anchor" href="#git-annotate---encodingltcodagegt"></a>--encoding=&lt;codage&gt; </dt>
+<dt class="hdlist1" id="git-annotate---encodingltcodagegt"> <a class="anchor" href="#git-annotate---encodingcodage"></a> <a class="anchor" href="#git-annotate---encodingltcodagegt"></a>--encoding=&lt;codage&gt; </dt>
 <dd>
 <p>Spécifier l’encodage utilisé pour produire les des noms d’auteurs et les résumés des commits. Le définir sur <code>none</code> rend la sortie de blâme des données non converties. Pour plus d’informations, voir la discussion sur l’encodage dans la page manuelle <a href='{{< relurl "docs/git-log/fr" >}}'>git-log[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-annotate---contentsltfichiergt"> <a class="anchor" href="#git-annotate---contentsltfichiergt"></a>--contents &lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-annotate---contentsltfichiergt"> <a class="anchor" href="#git-annotate---contentsfichier"></a> <a class="anchor" href="#git-annotate---contentsltfichiergt"></a>--contents &lt;fichier&gt; </dt>
 <dd>
 <p>Annoter en utilisant le contenu du fichier nommé, en commençant par &lt;rév&gt; si elle est spécifiée, et HEAD sinon. Vous pouvez spécifier <em>-</em> pour que la commande lise le contenu du fichier à partir de l&#8217;entrée standard.</p>
 </dd>
-<dt class="hdlist1" id="git-annotate---dateltformatgt"> <a class="anchor" href="#git-annotate---dateltformatgt"></a>--date &lt;format&gt; </dt>
+<dt class="hdlist1" id="git-annotate---dateltformatgt"> <a class="anchor" href="#git-annotate---dateformat"></a> <a class="anchor" href="#git-annotate---dateltformatgt"></a>--date &lt;format&gt; </dt>
 <dd>
 <p>Spécifie le format utilisé pour les dates sur la sortie. Si --date n’est pas fourni, la valeur de la variable de configuration blame.date est utilisée. Si la variable de configuration blame.date n’est pas non plus définie, le format iso est utilisé. Pour les valeurs prises en charge, voir la discussion de l’option --date à <a href='{{< relurl "docs/git-log/fr" >}}'>git-log[1]</a>.</p>
 </dd>
@@ -143,25 +143,25 @@ aliases:
 <dd>
 <p>L&#8217;état d&#8217;avancement est indiqué par défaut sur le flux d&#8217;erreurs standard lorsqu&#8217;il est connecté à un terminal. Ce drapeau permet de signaler l&#8217;état d&#8217;avancement même s&#8217;il n&#8217;est pas attaché à un terminal. On ne peut pas utiliser <code>--progress</code> avec <code>--porcelain</code> ou <code>--incremental</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-annotate--Mltnumgt"> <a class="anchor" href="#git-annotate--Mltnumgt"></a>-M[&lt;num&gt;] </dt>
+<dt class="hdlist1" id="git-annotate--Mltnumgt"> <a class="anchor" href="#git-annotate--Mnum"></a> <a class="anchor" href="#git-annotate--Mltnumgt"></a>-M[&lt;num&gt;] </dt>
 <dd>
 <p>Détecter les lignes déplacées ou copiées dans un fichier. Lorsqu&#8217;un commit déplace ou copie un bloc de lignes (par exemple, le fichier original a A puis B, et le commit le change en B puis A), l&#8217;algorithme traditionnel de <em>blame</em> ne remarque que la moitié du mouvement et blâme généralement les lignes qui ont été déplacées vers le haut (c&#8217;est-à-dire B) au parent et attribue le blâme aux lignes qui ont été déplacées vers le bas (c&#8217;est-à-dire A) au commit enfant. Avec cette option, les deux groupes de lignes sont blâmés sur le parent en effectuant des passes d&#8217;inspection supplémentaires.</p>
 <div class="paragraph">
 <p>&lt;num&gt;est facultatif, mais c’est la limite inférieure sur le nombre de caractères alphanumériques que Git doit détecter comme déplacées/copiées dans un fichier pour qu’il associe ces lignes avec le commit parent. La valeur par défaut est 20.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-annotate--Cltnumgt"> <a class="anchor" href="#git-annotate--Cltnumgt"></a>-C[&lt;num&gt;] </dt>
+<dt class="hdlist1" id="git-annotate--Cltnumgt"> <a class="anchor" href="#git-annotate--Cnum"></a> <a class="anchor" href="#git-annotate--Cltnumgt"></a>-C[&lt;num&gt;] </dt>
 <dd>
 <p>En plus de <code>-M</code>, détecter les lignes déplacées ou copiées à partir d&#8217;autres fichiers qui ont été modifiés dans le même commit. Ceci est utile lorsque vous réorganisez votre programme et que vous déplacez du code d&#8217;un fichier à l&#8217;autre. Lorsque cette option est donnée deux fois, la commande recherche en plus les copies depuis d&#8217;autres fichiers dans le commit qui crée le fichier. Lorsque cette option est donnée trois fois, la commande recherche également des copies d&#8217;autres fichiers dans n&#8217;importe quel commit.</p>
 <div class="paragraph">
 <p>&lt;num&gt; est optionnel mais c&#8217;est la limite inférieure du nombre de caractères alphanumériques que Git doit détecter comme étant des déplacements/copies entre fichiers pour qu&#8217;il puisse associer ces lignes au commit parent. Et la valeur par défaut est 40. S&#8217;il y a plus d&#8217;une option <code>-C</code> donnée, l&#8217;argument &lt;num&gt; du dernier <code>-C</code> prendra effet.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-annotate---ignore-revltrvgt"> <a class="anchor" href="#git-annotate---ignore-revltrvgt"></a>--ignore-rev &lt;rév&gt; </dt>
+<dt class="hdlist1" id="git-annotate---ignore-revltrvgt"> <a class="anchor" href="#git-annotate---ignore-revrv"></a> <a class="anchor" href="#git-annotate---ignore-revltrvgt"></a>--ignore-rev &lt;rév&gt; </dt>
 <dd>
 <p>Ignorer les modifications apportées par la révision lors de l&#8217;attribution de la responsabilité, comme si la modification ne s&#8217;était jamais produite. Les lignes qui ont été modifiées ou ajoutées par un commit ignoré seront blâmées sur le commit précédent qui a modifié cette ligne ou les lignes voisines. Cette option peut être spécifiée plusieurs fois pour ignorer plus d&#8217;une révision. Si l&#8217;option de configuration <code>blame.markIgnoredLines</code> est activée, alors les lignes qui ont été modifiées par un commit ignoré et attribuées à un autre commit seront marquées avec un <code>?</code> dans la sortie de blame. Si l&#8217;option de configuration <code>blame.markUnblamableLines</code> est définie, alors les lignes touchées par un commit ignoré que nous n&#8217;avons pas pu attribuer à une autre révision sont marquées d&#8217;un <em>*</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-annotate---ignore-revs-fileltfichiergt"> <a class="anchor" href="#git-annotate---ignore-revs-fileltfichiergt"></a>--ignore-revs-file &lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-annotate---ignore-revs-fileltfichiergt"> <a class="anchor" href="#git-annotate---ignore-revs-filefichier"></a> <a class="anchor" href="#git-annotate---ignore-revs-fileltfichiergt"></a>--ignore-revs-file &lt;fichier&gt; </dt>
 <dd>
 <p>Ignorer les révisions listées dans le <code>fichier</code>, qui doit être au même format qu&#8217;un <code>fsck.skipList</code>. Cette option peut être répétée, et ces fichiers seront traités après tous les fichiers spécifiés avec l&#8217;option de configuration <code>blame.ignoreRevsFile</code>. Un nom de fichier vide, <code>""</code>, effacera la liste des révisions des fichiers précédemment traités.</p>
 </dd>

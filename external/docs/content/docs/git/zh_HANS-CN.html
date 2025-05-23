@@ -69,7 +69,7 @@ aliases:
 <p>因为 <code>git --help ...</code> 会在内部转换为 <code>git help ...</code>，所以有关其他可以控制手册页面显示方式的选项可以参阅 <a href='{{< relurl "docs/git-help/zh_HANS-CN" >}}'>git-help[1]</a> 来获得更详细的信息。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git--Cltgt"> <a class="anchor" href="#git--Cltgt"></a>-C &lt;启动路径&gt; </dt>
+<dt class="hdlist1" id="git--Cltgt"> <a class="anchor" href="#git--C"></a> <a class="anchor" href="#git--Cltgt"></a>-C &lt;启动路径&gt; </dt>
 <dd>
 <p>运行时就像 git 命令在 <em>&lt;启动路径&gt;</em> 而不是在当前工作目录下启动一样。 当给出多个 <code>-C</code> 选项时，每个后续的非绝对的 <code>-C &lt;启动路径&gt;</code> 都是相对于前一个 <code>-C &lt;启动路径&gt;</code> 解释的。 如果 <em>&lt;启动路径&gt;</em> 存在但为空，例如 <code>-C ""</code>，那么命令就在当前工作目录启动。</p>
 <div class="paragraph">
@@ -82,14 +82,14 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git--cltgtltgt"> <a class="anchor" href="#git--cltgtltgt"></a>-c &lt;配置名&gt;=&lt;配置值&gt; </dt>
+<dt class="hdlist1" id="git--cltgtltgt"> <a class="anchor" href="#git--c"></a> <a class="anchor" href="#git--cltgtltgt"></a>-c &lt;配置名&gt;=&lt;配置值&gt; </dt>
 <dd>
 <p>向命令传递一个配置参数。给出的值将覆盖配置文件的值。 &lt;配置名&gt; 的格式应与 <em>git config</em> 列出的格式相同（子键由 <code>.</code> 分隔）。</p>
 <div class="paragraph">
 <p>注意在 <code>git -c foo.bar ...</code> 中省略 <code>=</code> 是允许的，并会将 <code>foo.bar</code> 设置为布尔值 true（就像配置文件中的 <code>[foo]bar</code> 一样）。包括等号但有一个空值（如 <code>git -c foo.bar= ...</code> ）会将 <code>foo.bar</code> 设置为空字符串，如果 <code>git config --type=bool</code> 空值会转换为 <code>false</code>。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git---config-envltgtltgt"> <a class="anchor" href="#git---config-envltgtltgt"></a>--config-env=&lt;配置名&gt;=&lt;环境变量&gt; </dt>
+<dt class="hdlist1" id="git---config-envltgtltgt"> <a class="anchor" href="#git---config-env"></a> <a class="anchor" href="#git---config-envltgtltgt"></a>--config-env=&lt;配置名&gt;=&lt;环境变量&gt; </dt>
 <dd>
 <p>像 <code>-c &lt;配置名&gt;=&lt;配置值&gt;</code> 一样，给配置变量 <em>&lt;配置名&gt;</em> 一个值，其中 &lt;环境变量&gt; 是一个环境变量的名字，可以从中获取该环境变量的值。与 <code>-c</code> 选项不同的是，没有直接将值设置为空字符串的快捷方式，除非环境变量本身就设置为空字符串。 如果 <code>&lt;环境变量&gt;</code> 在环境变量中不存在，则会报错。<code>&lt;环境变量&gt;</code> 不应当包含等号，以避免与包含等号的 <code>&lt;配置名&gt;</code> 产生歧义。</p>
 <div class="paragraph">
@@ -99,7 +99,7 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>请注意，这可能会增加变量的安全性，例如 <code>http.extraHeader</code>，因为他的敏感信息包含在值中，但并不会增加例如 <code>url.&lt;原始 URL 前缀&gt;.insteadOf</code> 这种变量的安全性，因为其敏感信息可能会包含在部分键中。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git---exec-pathltgt"> <a class="anchor" href="#git---exec-pathltgt"></a>--exec-path[=&lt;核心程序路径&gt;] </dt>
+<dt class="hdlist1" id="git---exec-pathltgt"> <a class="anchor" href="#git---exec-path"></a> <a class="anchor" href="#git---exec-pathltgt"></a>--exec-path[=&lt;核心程序路径&gt;] </dt>
 <dd>
 <p>安装 Git 核心程序的路径。 这也可以通过设置 GIT_EXEC_PATH 环境变量来控制。如果没有给出路径，<em>git</em> 会打印当前的设置，然后退出。</p>
 </dd>
@@ -125,7 +125,7 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <dd>
 <p>不使用分页器进行 Git 的输出。</p>
 </dd>
-<dt class="hdlist1" id="git---git-dirltgt"> <a class="anchor" href="#git---git-dirltgt"></a>--git-dir=&lt;仓库路径&gt; </dt>
+<dt class="hdlist1" id="git---git-dirltgt"> <a class="anchor" href="#git---git-dir"></a> <a class="anchor" href="#git---git-dirltgt"></a>--git-dir=&lt;仓库路径&gt; </dt>
 <dd>
 <p>设置仓库的路径（".git" 目录）。这也可以通过设置 <code>GIT_DIR</code> 环境变量来控制。&lt;仓库路径&gt; 可以是绝对路径或是当前工作目录的相对路径。</p>
 <div class="paragraph">
@@ -135,11 +135,11 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>如果你只是想在 <code>&lt;启动路径&gt;</code> 中运行 Git，可以使用 <code>git -C &lt;启动路径&gt;</code>。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git---work-treeltgt"> <a class="anchor" href="#git---work-treeltgt"></a>--work-tree=&lt;工作区路径&gt; </dt>
+<dt class="hdlist1" id="git---work-treeltgt"> <a class="anchor" href="#git---work-tree"></a> <a class="anchor" href="#git---work-treeltgt"></a>--work-tree=&lt;工作区路径&gt; </dt>
 <dd>
 <p>设置工作树的路径。&lt;工作区路径&gt; 可以是一个绝对路径或与当前工作目录相对的路径。 这也可以通过设置 GIT_WORK_TREE 环境变量和 core.worktree 配置变量来控制（参阅 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 core.worktree 获取更为详细的论述）。</p>
 </dd>
-<dt class="hdlist1" id="git---namespaceltgt"> <a class="anchor" href="#git---namespaceltgt"></a>--namespace=&lt;路径&gt; </dt>
+<dt class="hdlist1" id="git---namespaceltgt"> <a class="anchor" href="#git---namespace"></a> <a class="anchor" href="#git---namespaceltgt"></a>--namespace=&lt;路径&gt; </dt>
 <dd>
 <p>设置 Git 命名空间。 参阅 <a href='{{< relurl "docs/gitnamespaces/zh_HANS-CN" >}}'>gitnamespaces[7]</a> 以了解更多细节。 这相当于设置 <code>GIT_NAMESPACE</code> 环境变量。</p>
 </dd>
@@ -179,11 +179,11 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <dd>
 <p>在所有的路径规范中添加 "icase" 模式匹配功能。这相当于将 <code>GIT_ICASE_PATHSPECS</code> 环境变量设置为 <code>1</code>。</p>
 </dd>
-<dt class="hdlist1" id="git---list-cmdsltgtltgt82308203"> <a class="anchor" href="#git---list-cmdsltgtltgt82308203"></a>--list-cmds=&lt;命令组&gt;[,&lt;命令组&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git---list-cmdsltgtltgt82308203"> <a class="anchor" href="#git---list-cmds"></a> <a class="anchor" href="#git---list-cmdsltgtltgt82308203"></a>--list-cmds=&lt;命令组&gt;[,&lt;命令组&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>按组列出命令。这是一个内部/实验性的选项，将来可能会改变或删除。支持的组有：buildins、parseopt（使用 parse-options 的内置命令）、main（libexec 目录下的所有命令）、others（ <code>$PATH</code> 中其他带有 git- 前缀的命令）、list-&lt;目录&gt;（参阅 command-list.txt 中的目录【原文是这么说的，但是下面那个 Git 命令章节已经列出了所有命令列表】）、nohelpers（排除辅助命令）、alias 和 config（在配置 completion.commands 中检索命令列表）</p>
 </dd>
-<dt class="hdlist1" id="git---attr-sourceltgt"> <a class="anchor" href="#git---attr-sourceltgt"></a>--attr-source=&lt;树对象&gt; </dt>
+<dt class="hdlist1" id="git---attr-sourceltgt"> <a class="anchor" href="#git---attr-source"></a> <a class="anchor" href="#git---attr-sourceltgt"></a>--attr-source=&lt;树对象&gt; </dt>
 <dd>
 <p>从 &lt;树对象&gt; 而不是工作区中读取 gitattributes。参见 <a href='{{< relurl "docs/gitattributes/zh_HANS-CN" >}}'>gitattributes[5]</a>。这相当于设置 <code>GIT_ATTR_SOURCE</code> 环境变量。</p>
 </dd>
@@ -543,35 +543,35 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-ltgt"> <a class="anchor" href="#git-ltgt"></a>&lt;对象&gt; </dt>
+<dt class="hdlist1" id="git-ltgt"> <a class="anchor" href="#git-"></a> <a class="anchor" href="#git-ltgt"></a>&lt;对象&gt; </dt>
 <dd>
 <p>表示任何类型的对象的名称。</p>
 </dd>
-<dt class="hdlist1" id="git-ltblobgt"> <a class="anchor" href="#git-ltblobgt"></a>&lt;blob&gt; </dt>
+<dt class="hdlist1" id="git-ltblobgt"> <a class="anchor" href="#git-blob"></a> <a class="anchor" href="#git-ltblobgt"></a>&lt;blob&gt; </dt>
 <dd>
 <p>表示一个数据对象的名称。</p>
 </dd>
-<dt class="hdlist1" id="git-ltgt-1"> <a class="anchor" href="#git-ltgt-1"></a>&lt;目录树&gt; </dt>
+<dt class="hdlist1" id="git-ltgt-1"> <a class="anchor" href="#git--1"></a> <a class="anchor" href="#git-ltgt-1"></a>&lt;目录树&gt; </dt>
 <dd>
 <p>表示一个树对象名称。</p>
 </dd>
-<dt class="hdlist1" id="git-ltgt-1-1"> <a class="anchor" href="#git-ltgt-1-1"></a>&lt;提交&gt; </dt>
+<dt class="hdlist1" id="git-ltgt-1-1"> <a class="anchor" href="#git--1-1"></a> <a class="anchor" href="#git-ltgt-1-1"></a>&lt;提交&gt; </dt>
 <dd>
 <p>表示一个提交对象名称。</p>
 </dd>
-<dt class="hdlist1" id="git-lttree-ishgt"> <a class="anchor" href="#git-lttree-ishgt"></a>&lt;tree-ish&gt; </dt>
+<dt class="hdlist1" id="git-lttree-ishgt"> <a class="anchor" href="#git-tree-ish"></a> <a class="anchor" href="#git-lttree-ishgt"></a>&lt;tree-ish&gt; </dt>
 <dd>
 <p>表示一个树、提交或标签对象的名称。 一个需要 &lt;树对象&gt; 参数的命令最终会对 &lt;树&gt; 对象进行操作，但会自动解除对指向 &lt;树&gt; 对象的 &lt;提交&gt; 和 &lt;标签&gt; 对象的引用。</p>
 </dd>
-<dt class="hdlist1" id="git-ltgt-1-1-1"> <a class="anchor" href="#git-ltgt-1-1-1"></a>&lt;提交号&gt; </dt>
+<dt class="hdlist1" id="git-ltgt-1-1-1"> <a class="anchor" href="#git--1-1-1"></a> <a class="anchor" href="#git-ltgt-1-1-1"></a>&lt;提交号&gt; </dt>
 <dd>
 <p>表示一个提交或标记对象的名称。 一个需要 &lt;提交号&gt; 参数的命令最终要对 &lt;提交&gt; 对象进行操作，但会自动解除对指向 &lt;提交&gt; 的 &lt;标签&gt; 对象的引用。</p>
 </dd>
-<dt class="hdlist1" id="git-ltgt-1-1-1-1"> <a class="anchor" href="#git-ltgt-1-1-1-1"></a>&lt;类型&gt; </dt>
+<dt class="hdlist1" id="git-ltgt-1-1-1-1"> <a class="anchor" href="#git--1-1-1-1"></a> <a class="anchor" href="#git-ltgt-1-1-1-1"></a>&lt;类型&gt; </dt>
 <dd>
 <p>表示需要一个对象类型。 目前是其中之一：<code>blob</code>、<code>tree</code>、<code>commit</code> 或 <code>tag</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-ltgt-1-1-1-1-1"> <a class="anchor" href="#git-ltgt-1-1-1-1-1"></a>&lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-ltgt-1-1-1-1-1"> <a class="anchor" href="#git--1-1-1-1-1"></a> <a class="anchor" href="#git-ltgt-1-1-1-1-1"></a>&lt;文件&gt; </dt>
 <dd>
 <p>表示一个文件名——几乎总是相对于 <code>GIT_INDEX_FILE</code> 描述的树状结构的根部文件。</p>
 </dd>
@@ -591,11 +591,11 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <dd>
 <p>表示当前分支。</p>
 </dd>
-<dt class="hdlist1" id="git-ltgt-1-1-1-1-1-1"> <a class="anchor" href="#git-ltgt-1-1-1-1-1-1"></a>&lt;标签&gt; </dt>
+<dt class="hdlist1" id="git-ltgt-1-1-1-1-1-1"> <a class="anchor" href="#git--1-1-1-1-1-1"></a> <a class="anchor" href="#git-ltgt-1-1-1-1-1-1"></a>&lt;标签&gt; </dt>
 <dd>
 <p>一个有效的标签 ‘名称’（即一个 <code>refs/tags/&lt;标签&gt;</code> 引用）。</p>
 </dd>
-<dt class="hdlist1" id="git-ltheadgt"> <a class="anchor" href="#git-ltheadgt"></a>&lt;head&gt; </dt>
+<dt class="hdlist1" id="git-ltheadgt"> <a class="anchor" href="#git-head"></a> <a class="anchor" href="#git-ltheadgt"></a>&lt;head&gt; </dt>
 <dd>
 <p>一个有效的分支 ‘名称’（即一个 <code>refs/heads/&lt;head&gt;</code> 引用）。</p>
 </dd>
@@ -641,7 +641,7 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <h3 id="_system"><a class="anchor" href="#_system"></a>System</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-codeHOMEcode"> <a class="anchor" href="#git-codeHOMEcode"></a><code>HOME</code> </dt>
+<dt class="hdlist1" id="git-codeHOMEcode"> <a class="anchor" href="#git-HOME"></a> <a class="anchor" href="#git-codeHOMEcode"></a><code>HOME</code> </dt>
 <dd>
 <p>Specifies the path to the user&#8217;s home directory. On Windows, if unset, Git will set a process environment variable equal to: <code>$HOMEDRIVE$HOMEPATH</code> if both <code>$HOMEDRIVE</code> and <code>$HOMEPATH</code> exist; otherwise <code>$USERPROFILE</code> if <code>$USERPROFILE</code> exists.</p>
 </dd>
@@ -655,54 +655,54 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-codeGITINDEXFILEcode"> <a class="anchor" href="#git-codeGITINDEXFILEcode"></a><code>GIT_INDEX_FILE</code> </dt>
+<dt class="hdlist1" id="git-codeGITINDEXFILEcode"> <a class="anchor" href="#git-GITINDEXFILE"></a> <a class="anchor" href="#git-codeGITINDEXFILEcode"></a><code>GIT_INDEX_FILE</code> </dt>
 <dd>
 <p>这个环境变量指定了一个备用的索引文件。如果没有指定，则默认使用 <code>$GIT_DIR/index</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITINDEXVERSIONcode"> <a class="anchor" href="#git-codeGITINDEXVERSIONcode"></a><code>GIT_INDEX_VERSION</code> </dt>
+<dt class="hdlist1" id="git-codeGITINDEXVERSIONcode"> <a class="anchor" href="#git-GITINDEXVERSION"></a> <a class="anchor" href="#git-codeGITINDEXVERSIONcode"></a><code>GIT_INDEX_VERSION</code> </dt>
 <dd>
 <p>这个环境变量指定在写出索引文件时使用什么版本。 它不会影响现有的索引文件。 默认情况下，索引文件的版本为 2 或 3。参见 <a href='{{< relurl "docs/git-update-index/zh_HANS-CN" >}}'>git-update-index[1]</a> 获取更多信息。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITOBJECTDIRECTORYcode"> <a class="anchor" href="#git-codeGITOBJECTDIRECTORYcode"></a><code>GIT_OBJECT_DIRECTORY</code> </dt>
+<dt class="hdlist1" id="git-codeGITOBJECTDIRECTORYcode"> <a class="anchor" href="#git-GITOBJECTDIRECTORY"></a> <a class="anchor" href="#git-codeGITOBJECTDIRECTORYcode"></a><code>GIT_OBJECT_DIRECTORY</code> </dt>
 <dd>
 <p>如果对象存储目录是通过这个环境变量指定的，那么 sha1 目录将在该目录下创建 ， 否则将使用默认的 <code>$GIT_DIR/objects</code> 目录。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITALTERNATEOBJECTDIRECTORIEScode"> <a class="anchor" href="#git-codeGITALTERNATEOBJECTDIRECTORIEScode"></a><code>GIT_ALTERNATE_OBJECT_DIRECTORIES</code> </dt>
+<dt class="hdlist1" id="git-codeGITALTERNATEOBJECTDIRECTORIEScode"> <a class="anchor" href="#git-GITALTERNATEOBJECTDIRECTORIES"></a> <a class="anchor" href="#git-codeGITALTERNATEOBJECTDIRECTORIEScode"></a><code>GIT_ALTERNATE_OBJECT_DIRECTORIES</code> </dt>
 <dd>
 <p>由于 Git 对象的不可改变性，旧的对象可以被归档到共享的只读目录中。这个变量指定了一个由 ":" 分隔（在 Windows 下为 ";" 分隔）的 Git 对象目录列表，可以用来搜索 Git 对象。新的对象将不会写入这些目录中。</p>
 <div class="paragraph">
 <p>以 <code>"</code>（双引号）开头的条目将被解释为 C 语言风格字符串路径，去掉前导和后导的双引号，并支持反斜杠转义。例如，<code>"path-with-\"-and-:-in-it":vanilla-path</code> 有两个路径：<code>path-with-"-and-:-in-it</code> 和 <code>vanilla-path</code>。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITDIRcode"> <a class="anchor" href="#git-codeGITDIRcode"></a><code>GIT_DIR</code> </dt>
+<dt class="hdlist1" id="git-codeGITDIRcode"> <a class="anchor" href="#git-GITDIR"></a> <a class="anchor" href="#git-codeGITDIRcode"></a><code>GIT_DIR</code> </dt>
 <dd>
 <p>如果设置了 <code>GIT_DIR</code> 环境变量，那么它会指定一个路径来代替默认的 <code>.git</code> 作为仓库的基础目录。 <code>--git-dir</code> 命令行选项也能够设置这个值。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITWORKTREEcode"> <a class="anchor" href="#git-codeGITWORKTREEcode"></a><code>GIT_WORK_TREE</code> </dt>
+<dt class="hdlist1" id="git-codeGITWORKTREEcode"> <a class="anchor" href="#git-GITWORKTREE"></a> <a class="anchor" href="#git-codeGITWORKTREEcode"></a><code>GIT_WORK_TREE</code> </dt>
 <dd>
 <p>设置到工作区的根路径。 这也可以由 <code>--work-tree</code> 命令行选项和 core.worktree 配置变量设置。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITNAMESPACEcode"> <a class="anchor" href="#git-codeGITNAMESPACEcode"></a><code>GIT_NAMESPACE</code> </dt>
+<dt class="hdlist1" id="git-codeGITNAMESPACEcode"> <a class="anchor" href="#git-GITNAMESPACE"></a> <a class="anchor" href="#git-codeGITNAMESPACEcode"></a><code>GIT_NAMESPACE</code> </dt>
 <dd>
 <p>设置 Git 命名空间；详见 <a href='{{< relurl "docs/gitnamespaces/zh_HANS-CN" >}}'>gitnamespaces[7]</a>。 <code>--namespace</code> 命令行选项也可以设置这个值。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCEILINGDIRECTORIEScode"> <a class="anchor" href="#git-codeGITCEILINGDIRECTORIEScode"></a><code>GIT_CEILING_DIRECTORIES</code> </dt>
+<dt class="hdlist1" id="git-codeGITCEILINGDIRECTORIEScode"> <a class="anchor" href="#git-GITCEILINGDIRECTORIES"></a> <a class="anchor" href="#git-codeGITCEILINGDIRECTORIEScode"></a><code>GIT_CEILING_DIRECTORIES</code> </dt>
 <dd>
 <p>这个变量值应该是一个用冒号分隔的绝对路径列表。 如果设置了这个变量，它是一个 Git 在寻找仓库目录时不会检查的目录列表（对于排除缓慢加载的网络目录很有用）。 它不会排除当前工作目录或在命令行或环境中设置的 GIT_DIR。 通常情况下，Git 需要读取这个列表中的条目，并解析任何可能存在的符号链接，以便将它们与当前目录进行比较。 然而，如果连这个访问都很慢，你可以在列表中添加一个空条目，告诉 Git 后面的条目不是符号链接，不需要解析；例如，<code>GIT_CEILING_DIRECTORIES=/maybe/symlink::/very/slow/non/symlink</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITDISCOVERYACROSSFILESYSTEMcode"> <a class="anchor" href="#git-codeGITDISCOVERYACROSSFILESYSTEMcode"></a><code>GIT_DISCOVERY_ACROSS_FILESYSTEM</code> </dt>
+<dt class="hdlist1" id="git-codeGITDISCOVERYACROSSFILESYSTEMcode"> <a class="anchor" href="#git-GITDISCOVERYACROSSFILESYSTEM"></a> <a class="anchor" href="#git-codeGITDISCOVERYACROSSFILESYSTEMcode"></a><code>GIT_DISCOVERY_ACROSS_FILESYSTEM</code> </dt>
 <dd>
 <p>当在一个没有 ".git " 仓库目录的目录下运行时，Git 会尝试在父目录中找到这样的目录来寻找工作区的顶端，但默认情况下它不会跨越文件系统的边界。 这个布尔环境变量可以被设置为 "true"，以告诉 Git 不要在文件系统边界处停止。 和 <code>GIT_CEILING_DIRECTORIES</code> 一样，这不会影响通过 <code>GIT_DIR</code> 或在命令行中设置的明确的仓库目录。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCOMMONDIRcode"> <a class="anchor" href="#git-codeGITCOMMONDIRcode"></a><code>GIT_COMMON_DIR</code> </dt>
+<dt class="hdlist1" id="git-codeGITCOMMONDIRcode"> <a class="anchor" href="#git-GITCOMMONDIR"></a> <a class="anchor" href="#git-codeGITCOMMONDIRcode"></a><code>GIT_COMMON_DIR</code> </dt>
 <dd>
 <p>如果这个变量被设置为一个路径，通常在 $GIT_DIR 中的非工作区文件将被从这个路径中取出。工作区中特定的文件，如 HEAD 或 index，则从 $GIT_DIR 取出。详情见 <a href='{{< relurl "docs/gitrepository-layout/zh_HANS-CN" >}}'>gitrepository-layout[5]</a> 和 <a href='{{< relurl "docs/git-worktree/zh_HANS-CN" >}}'>git-worktree[1]</a>。这个变量的优先级低于其他路径变量，如 GIT_INDEX_FILE、GIT_OBJECT_DIRECTORY&#8230;&#8203;</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITDEFAULTHASHcode"> <a class="anchor" href="#git-codeGITDEFAULTHASHcode"></a><code>GIT_DEFAULT_HASH</code> </dt>
+<dt class="hdlist1" id="git-codeGITDEFAULTHASHcode"> <a class="anchor" href="#git-GITDEFAULTHASH"></a> <a class="anchor" href="#git-codeGITDEFAULTHASHcode"></a><code>GIT_DEFAULT_HASH</code> </dt>
 <dd>
 <p>如果设置了该变量，新仓库的默认哈希算法将设置为该值。克隆时将忽略此值，始终使用远程仓库的设置。默认值为 "sha1"。 参见 <a href='{{< relurl "docs/git-init/zh_HANS-CN" >}}'>git-init[1]</a> 中的 <code>--object-format</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITDEFAULTREFFORMATcode"> <a class="anchor" href="#git-codeGITDEFAULTREFFORMATcode"></a><code>GIT_DEFAULT_REF_FORMAT</code> </dt>
+<dt class="hdlist1" id="git-codeGITDEFAULTREFFORMATcode"> <a class="anchor" href="#git-GITDEFAULTREFFORMAT"></a> <a class="anchor" href="#git-codeGITDEFAULTREFFORMATcode"></a><code>GIT_DEFAULT_REF_FORMAT</code> </dt>
 <dd>
 <p>如果设置了该变量，新仓库的默认引用后端格式将设置为该值。默认为 "files"。参见 <a href='{{< relurl "docs/git-init/zh_HANS-CN" >}}'>git-init[1]</a> 中的 <code>--ref-format</code>。</p>
 </dd>
@@ -713,31 +713,31 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <h3 id="_git_提交"><a class="anchor" href="#_git_提交"></a>Git 提交</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-codeGITAUTHORNAMEcode"> <a class="anchor" href="#git-codeGITAUTHORNAMEcode"></a><code>GIT_AUTHOR_NAME</code> </dt>
+<dt class="hdlist1" id="git-codeGITAUTHORNAMEcode"> <a class="anchor" href="#git-GITAUTHORNAME"></a> <a class="anchor" href="#git-codeGITAUTHORNAMEcode"></a><code>GIT_AUTHOR_NAME</code> </dt>
 <dd>
 <p>在创建提交、标签对象或在编写日志时，作者身份中使用的可读名称。这会覆盖 <code>user.name</code> 和 <code>author.name</code> 配置的值。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITAUTHOREMAILcode"> <a class="anchor" href="#git-codeGITAUTHOREMAILcode"></a><code>GIT_AUTHOR_EMAIL</code> </dt>
+<dt class="hdlist1" id="git-codeGITAUTHOREMAILcode"> <a class="anchor" href="#git-GITAUTHOREMAIL"></a> <a class="anchor" href="#git-codeGITAUTHOREMAILcode"></a><code>GIT_AUTHOR_EMAIL</code> </dt>
 <dd>
 <p>在创建提交、标签对象或在编写引用日志时，用以表明作者身份所使用的电子邮件地址。这会覆盖 <code>user.email</code> 和 <code>author.email</code> 的配置值。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITAUTHORDATEcode"> <a class="anchor" href="#git-codeGITAUTHORDATEcode"></a><code>GIT_AUTHOR_DATE</code> </dt>
+<dt class="hdlist1" id="git-codeGITAUTHORDATEcode"> <a class="anchor" href="#git-GITAUTHORDATE"></a> <a class="anchor" href="#git-codeGITAUTHORDATEcode"></a><code>GIT_AUTHOR_DATE</code> </dt>
 <dd>
 <p>在创建提交、标签对象或在编写引用日志时，用于标注作者修改的日期。有效格式见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCOMMITTERNAMEcode"> <a class="anchor" href="#git-codeGITCOMMITTERNAMEcode"></a><code>GIT_COMMITTER_NAME</code> </dt>
+<dt class="hdlist1" id="git-codeGITCOMMITTERNAMEcode"> <a class="anchor" href="#git-GITCOMMITTERNAME"></a> <a class="anchor" href="#git-codeGITCOMMITTERNAMEcode"></a><code>GIT_COMMITTER_NAME</code> </dt>
 <dd>
 <p>在创建提交、标签对象或在编写引用日志时，提交者身份中使用的可读名称。这会覆盖 <code>user.name</code> 和 <code>committer.name</code> 的配置值。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCOMMITTEREMAILcode"> <a class="anchor" href="#git-codeGITCOMMITTEREMAILcode"></a><code>GIT_COMMITTER_EMAIL</code> </dt>
+<dt class="hdlist1" id="git-codeGITCOMMITTEREMAILcode"> <a class="anchor" href="#git-GITCOMMITTEREMAIL"></a> <a class="anchor" href="#git-codeGITCOMMITTEREMAILcode"></a><code>GIT_COMMITTER_EMAIL</code> </dt>
 <dd>
 <p>在创建提交、标签对象或在编写引用日志时，用以表明提交者所使用的电子邮件地址。这会覆盖 <code>user.email</code> 和 <code>committer.email</code> 的配置值。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCOMMITTERDATEcode"> <a class="anchor" href="#git-codeGITCOMMITTERDATEcode"></a><code>GIT_COMMITTER_DATE</code> </dt>
+<dt class="hdlist1" id="git-codeGITCOMMITTERDATEcode"> <a class="anchor" href="#git-GITCOMMITTERDATE"></a> <a class="anchor" href="#git-codeGITCOMMITTERDATEcode"></a><code>GIT_COMMITTER_DATE</code> </dt>
 <dd>
 <p>在创建提交、标签对象或在编写 reflogs 时，用于标注提交者所作修改的日期。有效格式见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeEMAILcode"> <a class="anchor" href="#git-codeEMAILcode"></a><code>EMAIL</code> </dt>
+<dt class="hdlist1" id="git-codeEMAILcode"> <a class="anchor" href="#git-EMAIL"></a> <a class="anchor" href="#git-codeEMAILcode"></a><code>EMAIL</code> </dt>
 <dd>
 <p>如果没有设置其他相关的环境变量或配置设置，作者和提交者的电子邮件地址会参考该值。</p>
 </dd>
@@ -748,11 +748,11 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <h3 id="_git_差异比较diffs"><a class="anchor" href="#_git_差异比较diffs"></a>Git 差异比较（Diffs）</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-codeGITDIFFOPTScode"> <a class="anchor" href="#git-codeGITDIFFOPTScode"></a><code>GIT_DIFF_OPTS</code> </dt>
+<dt class="hdlist1" id="git-codeGITDIFFOPTScode"> <a class="anchor" href="#git-GITDIFFOPTS"></a> <a class="anchor" href="#git-codeGITDIFFOPTScode"></a><code>GIT_DIFF_OPTS</code> </dt>
 <dd>
 <p>唯一有效的设置是 "--unified=??" 或 "-u??"，用于设置创建统一的差异时显示的文本行数。 这优先于 Git diff 命令行中传递的任何 "-U" 或 "--unified" 选项值。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITEXTERNALDIFFcode"> <a class="anchor" href="#git-codeGITEXTERNALDIFFcode"></a><code>GIT_EXTERNAL_DIFF</code> </dt>
+<dt class="hdlist1" id="git-codeGITEXTERNALDIFFcode"> <a class="anchor" href="#git-GITEXTERNALDIFF"></a> <a class="anchor" href="#git-codeGITEXTERNALDIFFcode"></a><code>GIT_EXTERNAL_DIFF</code> </dt>
 <dd>
 <p>当环境变量 <code>GIT_EXTERNAL_DIFF</code> 被设置时，由它命名的程序被调用来生成差异文本，而不使用 Git 内置的差异比较工具。 对于一个被添加、删除或修改的操作， <code>GIT_EXTERNAL_DIFF</code> 会被调用，一共接收 7 个参数：</p>
 <div class="literalblock">
@@ -764,15 +764,15 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>使用：</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-ltoldnewgt-file"> <a class="anchor" href="#git-ltoldnewgt-file"></a>&lt;old|new&gt;-file </dt>
+<dt class="hdlist1" id="git-ltoldnewgt-file"> <a class="anchor" href="#git-oldnew-file"></a> <a class="anchor" href="#git-ltoldnewgt-file"></a>&lt;old|new&gt;-file </dt>
 <dd>
 <p>是 GIT_EXTERNAL_DIFF 用来读取 &lt;old|new&gt; 内容的文件，</p>
 </dd>
-<dt class="hdlist1" id="git-ltoldnewgt-hex"> <a class="anchor" href="#git-ltoldnewgt-hex"></a>&lt;old|new&gt;-hex </dt>
+<dt class="hdlist1" id="git-ltoldnewgt-hex"> <a class="anchor" href="#git-oldnew-hex"></a> <a class="anchor" href="#git-ltoldnewgt-hex"></a>&lt;old|new&gt;-hex </dt>
 <dd>
 <p>是 40 个十六进制的 SHA-1 哈希值，</p>
 </dd>
-<dt class="hdlist1" id="git-ltoldnewgt-mode"> <a class="anchor" href="#git-ltoldnewgt-mode"></a>&lt;old|new&gt;-mode </dt>
+<dt class="hdlist1" id="git-ltoldnewgt-mode"> <a class="anchor" href="#git-oldnew-mode"></a> <a class="anchor" href="#git-ltoldnewgt-mode"></a>&lt;old|new&gt;-mode </dt>
 <dd>
 <p>是文件模式的八进制表示法。</p>
 <div class="paragraph">
@@ -785,15 +785,15 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>在调用每个路径 <code>GIT_EXTERNAL_DIFF</code> 时，都会设置两个环境变量 <code>GIT_DIFF_PATH_COUNTER</code> 和 <code>GIT_DIFF_PATH_TOTAL</code>。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITEXTERNALDIFFTRUSTEXITCODEcode"> <a class="anchor" href="#git-codeGITEXTERNALDIFFTRUSTEXITCODEcode"></a><code>GIT_EXTERNAL_DIFF_TRUST_EXIT_CODE</code> </dt>
+<dt class="hdlist1" id="git-codeGITEXTERNALDIFFTRUSTEXITCODEcode"> <a class="anchor" href="#git-GITEXTERNALDIFFTRUSTEXITCODE"></a> <a class="anchor" href="#git-codeGITEXTERNALDIFFTRUSTEXITCODEcode"></a><code>GIT_EXTERNAL_DIFF_TRUST_EXIT_CODE</code> </dt>
 <dd>
 <p>如果这个布尔环境变量设置为 true，那么期望 <code>GIT_EXTERNAL_DIFF</code> 命令在认为输入文件相等时返回退出码 0，在认为它们不相等时返回退出码 1，类似于 <code>diff(1)</code>。如果它设置为 false，这是默认值，那么期望该命令无论文件是否相等都返回退出码 0。任何其他的退出码都会导致 Git 报告一个致命错误。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITDIFFPATHCOUNTERcode"> <a class="anchor" href="#git-codeGITDIFFPATHCOUNTERcode"></a><code>GIT_DIFF_PATH_COUNTER</code> </dt>
+<dt class="hdlist1" id="git-codeGITDIFFPATHCOUNTERcode"> <a class="anchor" href="#git-GITDIFFPATHCOUNTER"></a> <a class="anchor" href="#git-codeGITDIFFPATHCOUNTERcode"></a><code>GIT_DIFF_PATH_COUNTER</code> </dt>
 <dd>
 <p>以 1 为单位的计数器，每条路径递增 1。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITDIFFPATHTOTALcode"> <a class="anchor" href="#git-codeGITDIFFPATHTOTALcode"></a><code>GIT_DIFF_PATH_TOTAL</code> </dt>
+<dt class="hdlist1" id="git-codeGITDIFFPATHTOTALcode"> <a class="anchor" href="#git-GITDIFFPATHTOTAL"></a> <a class="anchor" href="#git-codeGITDIFFPATHTOTALcode"></a><code>GIT_DIFF_PATH_TOTAL</code> </dt>
 <dd>
 <p>路径总数。</p>
 </dd>
@@ -804,28 +804,28 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <h3 id="_其他"><a class="anchor" href="#_其他"></a>其他</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-codeGITMERGEVERBOSITYcode"> <a class="anchor" href="#git-codeGITMERGEVERBOSITYcode"></a><code>GIT_MERGE_VERBOSITY</code> </dt>
+<dt class="hdlist1" id="git-codeGITMERGEVERBOSITYcode"> <a class="anchor" href="#git-GITMERGEVERBOSITY"></a> <a class="anchor" href="#git-codeGITMERGEVERBOSITYcode"></a><code>GIT_MERGE_VERBOSITY</code> </dt>
 <dd>
 <p>一个用于控制递归合并策略输出量的数字。 会覆盖 merge.verbosity 设置。 参见 <a href='{{< relurl "docs/git-merge/zh_HANS-CN" >}}'>git-merge[1]</a></p>
 </dd>
-<dt class="hdlist1" id="git-codeGITPAGERcode"> <a class="anchor" href="#git-codeGITPAGERcode"></a><code>GIT_PAGER</code> </dt>
+<dt class="hdlist1" id="git-codeGITPAGERcode"> <a class="anchor" href="#git-GITPAGER"></a> <a class="anchor" href="#git-codeGITPAGERcode"></a><code>GIT_PAGER</code> </dt>
 <dd>
 <p>该环境变量优先于 <code>$PAGER</code>。如果设置为空字符串或 "cat"，Git 将不会启动分页器。 参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <code>core.pager</code> 选项。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITPROGRESSDELAYcode"> <a class="anchor" href="#git-codeGITPROGRESSDELAYcode"></a><code>GIT_PROGRESS_DELAY</code> </dt>
+<dt class="hdlist1" id="git-codeGITPROGRESSDELAYcode"> <a class="anchor" href="#git-GITPROGRESSDELAY"></a> <a class="anchor" href="#git-codeGITPROGRESSDELAYcode"></a><code>GIT_PROGRESS_DELAY</code> </dt>
 <dd>
 <p>一个数字，用于控制延迟多少秒后才显示可选的进度指示器。默认为 2。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITEDITORcode"> <a class="anchor" href="#git-codeGITEDITORcode"></a><code>GIT_EDITOR</code> </dt>
+<dt class="hdlist1" id="git-codeGITEDITORcode"> <a class="anchor" href="#git-GITEDITOR"></a> <a class="anchor" href="#git-codeGITEDITORcode"></a><code>GIT_EDITOR</code> </dt>
 <dd>
 <p>该环境变量覆盖 <code>$EDITOR</code> 和 <code>$VISUAL</code>。 有几条 Git 命令在交互模式下启动编辑器时会用到它。参见 <a href='{{< relurl "docs/git-var/zh_HANS-CN" >}}'>git-var[1]</a> 和 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <code>core.editor</code> 选项。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITSEQUENCEEDITORcode"> <a class="anchor" href="#git-codeGITSEQUENCEEDITORcode"></a><code>GIT_SEQUENCE_EDITOR</code> </dt>
+<dt class="hdlist1" id="git-codeGITSEQUENCEEDITORcode"> <a class="anchor" href="#git-GITSEQUENCEEDITOR"></a> <a class="anchor" href="#git-codeGITSEQUENCEEDITORcode"></a><code>GIT_SEQUENCE_EDITOR</code> </dt>
 <dd>
 <p>在编辑交互式变基的待办事项列表时，该环境变量会覆盖配置的 Git 编辑器。参见 <a href='{{< relurl "docs/git-rebase/zh_HANS-CN" >}}'>git-rebase[1]</a> 和 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <code>sequence.editor</code> 选项。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITSSHcode"> <a class="anchor" href="#git-codeGITSSHcode"></a><code>GIT_SSH</code> </dt>
-<dt class="hdlist1" id="git-codeGITSSHCOMMANDcode"> <a class="anchor" href="#git-codeGITSSHCOMMANDcode"></a><code>GIT_SSH_COMMAND</code> </dt>
+<dt class="hdlist1" id="git-codeGITSSHcode"> <a class="anchor" href="#git-GITSSH"></a> <a class="anchor" href="#git-codeGITSSHcode"></a><code>GIT_SSH</code> </dt>
+<dt class="hdlist1" id="git-codeGITSSHCOMMANDcode"> <a class="anchor" href="#git-GITSSHCOMMAND"></a> <a class="anchor" href="#git-codeGITSSHCOMMANDcode"></a><code>GIT_SSH_COMMAND</code> </dt>
 <dd>
 <p>如果设置了这两个环境变量中的任何一个，<em>git fetch</em> 和 <em>git push</em> 在连接远程系统时就会使用指定的命令而不是 <em>ssh</em>。 传递给配置命令的命令行参数由 ssh 变量决定。 详见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <code>ssh.variant</code> 选项。</p>
 <div class="paragraph">
@@ -835,40 +835,40 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>通常，通过个人的 <code>.ssh/config</code> 文件配置任何所需的选项会更容易。 详情请查阅 ssh 文档。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITSSHVARIANTcode"> <a class="anchor" href="#git-codeGITSSHVARIANTcode"></a><code>GIT_SSH_VARIANT</code> </dt>
+<dt class="hdlist1" id="git-codeGITSSHVARIANTcode"> <a class="anchor" href="#git-GITSSHVARIANT"></a> <a class="anchor" href="#git-codeGITSSHVARIANTcode"></a><code>GIT_SSH_VARIANT</code> </dt>
 <dd>
 <p>如果设置了这个环境变量，Git 会自动检测 <code>GIT_SSH</code>/<code>GIT_SSH_COMMAND</code>/<code>core.sshCommand</code> 是否指向 OpenSSH、plink 或 tortoiseplink。该变量覆盖了具有相同作用的配置设置 <code>ssh.variant</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITSSLNOVERIFYcode"> <a class="anchor" href="#git-codeGITSSLNOVERIFYcode"></a><code>GIT_SSL_NO_VERIFY</code> </dt>
+<dt class="hdlist1" id="git-codeGITSSLNOVERIFYcode"> <a class="anchor" href="#git-GITSSLNOVERIFY"></a> <a class="anchor" href="#git-codeGITSSLNOVERIFYcode"></a><code>GIT_SSL_NO_VERIFY</code> </dt>
 <dd>
 <p>将此环境变量设置并导出为任意值，Git 就不会在通过 HTTPS 获取或推送数据时验证 SSL 证书。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITATTRSOURCEcode"> <a class="anchor" href="#git-codeGITATTRSOURCEcode"></a><code>GIT_ATTR_SOURCE</code> </dt>
+<dt class="hdlist1" id="git-codeGITATTRSOURCEcode"> <a class="anchor" href="#git-GITATTRSOURCE"></a> <a class="anchor" href="#git-codeGITATTRSOURCEcode"></a><code>GIT_ATTR_SOURCE</code> </dt>
 <dd>
 <p>设置读取 gitattributes 的树状对象。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITASKPASScode"> <a class="anchor" href="#git-codeGITASKPASScode"></a><code>GIT_ASKPASS</code> </dt>
+<dt class="hdlist1" id="git-codeGITASKPASScode"> <a class="anchor" href="#git-GITASKPASS"></a> <a class="anchor" href="#git-codeGITASKPASScode"></a><code>GIT_ASKPASS</code> </dt>
 <dd>
 <p>如果设置了这个环境变量，那么需要获取密码或口令的 Git 命令（例如用于 HTTP 或 IMAP 身份验证）就会调用这个程序，并将合适的提示符作为命令行参数，然后从其 STDOUT 中读取密码。参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <code>core.askPass</code> 选项。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTERMINALPROMPTcode"> <a class="anchor" href="#git-codeGITTERMINALPROMPTcode"></a><code>GIT_TERMINAL_PROMPT</code> </dt>
+<dt class="hdlist1" id="git-codeGITTERMINALPROMPTcode"> <a class="anchor" href="#git-GITTERMINALPROMPT"></a> <a class="anchor" href="#git-codeGITTERMINALPROMPTcode"></a><code>GIT_TERMINAL_PROMPT</code> </dt>
 <dd>
 <p>如果将此布尔环境变量设为 false，git 将不会在终端上提示（例如，要求 HTTP 认证时）。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCONFIGGLOBALcode"> <a class="anchor" href="#git-codeGITCONFIGGLOBALcode"></a><code>GIT_CONFIG_GLOBAL</code> </dt>
-<dt class="hdlist1" id="git-codeGITCONFIGSYSTEMcode"> <a class="anchor" href="#git-codeGITCONFIGSYSTEMcode"></a><code>GIT_CONFIG_SYSTEM</code> </dt>
+<dt class="hdlist1" id="git-codeGITCONFIGGLOBALcode"> <a class="anchor" href="#git-GITCONFIGGLOBAL"></a> <a class="anchor" href="#git-codeGITCONFIGGLOBALcode"></a><code>GIT_CONFIG_GLOBAL</code> </dt>
+<dt class="hdlist1" id="git-codeGITCONFIGSYSTEMcode"> <a class="anchor" href="#git-GITCONFIGSYSTEM"></a> <a class="anchor" href="#git-codeGITCONFIGSYSTEMcode"></a><code>GIT_CONFIG_SYSTEM</code> </dt>
 <dd>
 <p>从给定文件中获取配置，而不是从全局或系统级配置文件中获取。如果设置了 <code>GIT_CONFIG_SYSTEM</code>，则不会读取构建时定义的系统配置文件（通常是 <code>/etc/gitconfig</code>）。同样，如果设置了 <code>GIT_CONFIG_GLOBAL</code>，则既不会读取 <code>$HOME/.gitconfig</code> 也不会读取 <code>$XDG_CONFIG_HOME/git/config</code>。可以设置为 <code>/dev/null</code>，以跳过读取相应级别的配置文件。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCONFIGNOSYSTEMcode"> <a class="anchor" href="#git-codeGITCONFIGNOSYSTEMcode"></a><code>GIT_CONFIG_NOSYSTEM</code> </dt>
+<dt class="hdlist1" id="git-codeGITCONFIGNOSYSTEMcode"> <a class="anchor" href="#git-GITCONFIGNOSYSTEM"></a> <a class="anchor" href="#git-codeGITCONFIGNOSYSTEMcode"></a><code>GIT_CONFIG_NOSYSTEM</code> </dt>
 <dd>
 <p>是否跳过从系统范围内的 <code>$(prefix)/etc/gitconfig</code> 文件读取设置。 这个布尔环境变量可以与 <code>$HOME</code> 和 <code>$XDG_CONFIG_HOME</code> 一起使用，为挑剔的脚本创建一个可预测的环境，也可以设为 true 以暂时避免使用有错误的 <code>/etc/gitconfig</code> 文件，等待有足够权限的人来修复它。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITFLUSHcode"> <a class="anchor" href="#git-codeGITFLUSHcode"></a><code>GIT_FLUSH</code> </dt>
+<dt class="hdlist1" id="git-codeGITFLUSHcode"> <a class="anchor" href="#git-GITFLUSH"></a> <a class="anchor" href="#git-codeGITFLUSHcode"></a><code>GIT_FLUSH</code> </dt>
 <dd>
 <p>如果该布尔环境变量设置为 true，那么诸如 <em>git blame</em>（增量模式）、<em>git rev-list</em>、<em>git log</em>、<em>git check-attr</em> 和 <em>git check-ignore</em> 等命令将会在每条记录被刷新后强制刷新输出流。强制刷新输出流。如果该变量设置为 false，这些命令的输出将使用完全缓冲的 I/O 方式进行使用完全缓冲的 I/O 输出。 如果不设置这个环境变量不设置，Git 将根据标准输出流是否重定向到文件，选择缓冲或面向记录的刷新方式根据标准输出流是否被重定向到文件。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEcode"> <a class="anchor" href="#git-codeGITTRACEcode"></a><code>GIT_TRACE</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEcode"> <a class="anchor" href="#git-GITTRACE"></a> <a class="anchor" href="#git-codeGITTRACEcode"></a><code>GIT_TRACE</code> </dt>
 <dd>
 <p>启用一般跟踪信息，如别名扩展、内置命令执行和外部命令执行。</p>
 <div class="paragraph">
@@ -884,50 +884,50 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>取消对变量的设置，或将其设置为空、"0" 或 "false"（不区分大小写），将禁用跟踪信息。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEFSMONITORcode"> <a class="anchor" href="#git-codeGITTRACEFSMONITORcode"></a><code>GIT_TRACE_FSMONITOR</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEFSMONITORcode"> <a class="anchor" href="#git-GITTRACEFSMONITOR"></a> <a class="anchor" href="#git-codeGITTRACEFSMONITORcode"></a><code>GIT_TRACE_FSMONITOR</code> </dt>
 <dd>
 <p>启用文件系统监视器扩展的跟踪信息。 有关可用的跟踪输出选项，请参阅 <code>GIT_TRACE</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEPACKACCESScode"> <a class="anchor" href="#git-codeGITTRACEPACKACCESScode"></a><code>GIT_TRACE_PACK_ACCESS</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEPACKACCESScode"> <a class="anchor" href="#git-GITTRACEPACKACCESS"></a> <a class="anchor" href="#git-codeGITTRACEPACKACCESScode"></a><code>GIT_TRACE_PACK_ACCESS</code> </dt>
 <dd>
 <p>启用对所有数据包访问的跟踪信息。每次访问都会记录包文件名和包中的偏移量。这可能有助于排除一些与包相关的性能问题。 有关可用的跟踪输出选项，请参阅 <code>GIT_TRACE</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEPACKETcode"> <a class="anchor" href="#git-codeGITTRACEPACKETcode"></a><code>GIT_TRACE_PACKET</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEPACKETcode"> <a class="anchor" href="#git-GITTRACEPACKET"></a> <a class="anchor" href="#git-codeGITTRACEPACKETcode"></a><code>GIT_TRACE_PACKET</code> </dt>
 <dd>
 <p>启用对进出指定程序的所有数据包的跟踪信息。这有助于调试对象协商或其他协议问题。以 "PACK" 开头的数据包会关闭跟踪（但请参阅下文的 <code>GIT_TRACE_PACKFILE</code>）。 有关可用的跟踪输出选项，请参见 <code>GIT_TRACE</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEPACKFILEcode"> <a class="anchor" href="#git-codeGITTRACEPACKFILEcode"></a><code>GIT_TRACE_PACKFILE</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEPACKFILEcode"> <a class="anchor" href="#git-GITTRACEPACKFILE"></a> <a class="anchor" href="#git-codeGITTRACEPACKFILEcode"></a><code>GIT_TRACE_PACKFILE</code> </dt>
 <dd>
 <p>可跟踪指定程序发送或接收的打包文件。与其他跟踪输出不同，这种跟踪是逐字的：没有标题，也不引用二进制数据。你几乎肯定希望将其直接存入一个文件（例如 <code>GIT_TRACE_PACKFILE=/tmp/my.pack</code>），而不是显示在终端上或与其他跟踪输出混在一起。</p>
 <div class="paragraph">
 <p>请注意，目前仅在克隆和获取的客户端实施了这一功能。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEPERFORMANCEcode"> <a class="anchor" href="#git-codeGITTRACEPERFORMANCEcode"></a><code>GIT_TRACE_PERFORMANCE</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEPERFORMANCEcode"> <a class="anchor" href="#git-GITTRACEPERFORMANCE"></a> <a class="anchor" href="#git-codeGITTRACEPERFORMANCEcode"></a><code>GIT_TRACE_PERFORMANCE</code> </dt>
 <dd>
 <p>启用与性能相关的跟踪信息，例如每条 Git 命令的总执行时间。 有关可用的跟踪输出选项，请参见 <code>GIT_TRACE</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEREFScode"> <a class="anchor" href="#git-codeGITTRACEREFScode"></a><code>GIT_TRACE_REFS</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEREFScode"> <a class="anchor" href="#git-GITTRACEREFS"></a> <a class="anchor" href="#git-codeGITTRACEREFScode"></a><code>GIT_TRACE_REFS</code> </dt>
 <dd>
 <p>启用引用数据库操作的跟踪信息。 有关可用的跟踪输出选项，请参见 <code>GIT_TRACE</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACESETUPcode"> <a class="anchor" href="#git-codeGITTRACESETUPcode"></a><code>GIT_TRACE_SETUP</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACESETUPcode"> <a class="anchor" href="#git-GITTRACESETUP"></a> <a class="anchor" href="#git-codeGITTRACESETUPcode"></a><code>GIT_TRACE_SETUP</code> </dt>
 <dd>
 <p>在 Git 完成设置阶段后，启用打印 .git、工作树和当前工作目录的跟踪信息。 有关可用的跟踪输出选项，请参见 <code>GIT_TRACE</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACESHALLOWcode"> <a class="anchor" href="#git-codeGITTRACESHALLOWcode"></a><code>GIT_TRACE_SHALLOW</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACESHALLOWcode"> <a class="anchor" href="#git-GITTRACESHALLOW"></a> <a class="anchor" href="#git-codeGITTRACESHALLOWcode"></a><code>GIT_TRACE_SHALLOW</code> </dt>
 <dd>
 <p>启用可帮助调试获取/克隆浅仓库的跟踪信息。 有关可用的跟踪输出选项，请参见 <code>GIT_TRACE</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACECURLcode"> <a class="anchor" href="#git-codeGITTRACECURLcode"></a><code>GIT_TRACE_CURL</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACECURLcode"> <a class="anchor" href="#git-GITTRACECURL"></a> <a class="anchor" href="#git-codeGITTRACECURLcode"></a><code>GIT_TRACE_CURL</code> </dt>
 <dd>
 <p>启用对 git 传输协议所有传入和传出数据（包括描述性信息）的 curl 完整跟踪转储。 这类似于在命令行上执行 curl <code>--trace-ascii</code>。 有关可用的跟踪输出选项，请参阅 <code>GIT_TRACE</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACECURLNODATAcode"> <a class="anchor" href="#git-codeGITTRACECURLNODATAcode"></a><code>GIT_TRACE_CURL_NO_DATA</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACECURLNODATAcode"> <a class="anchor" href="#git-GITTRACECURLNODATA"></a> <a class="anchor" href="#git-codeGITTRACECURLNODATAcode"></a><code>GIT_TRACE_CURL_NO_DATA</code> </dt>
 <dd>
 <p>启用 curl 跟踪时（见上文 <code>GIT_TRACE_CURL</code>），不要转储数据（即只转储信息行和头文件）。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACE2code"> <a class="anchor" href="#git-codeGITTRACE2code"></a><code>GIT_TRACE2</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACE2code"> <a class="anchor" href="#git-GITTRACE2"></a> <a class="anchor" href="#git-codeGITTRACE2code"></a><code>GIT_TRACE2</code> </dt>
 <dd>
 <p>启用来自 "trace2" 库的更详细的跟踪信息。 <code>GIT_TRACE2</code> 的输出是一种简单的文本格式，可读性高。</p>
 <div class="paragraph">
@@ -949,66 +949,66 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>详见 <a href="{{< relurl "docs/api-trace2/zh_HANS-CN" >}}">Trace2 文档</a>。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACE2EVENTcode"> <a class="anchor" href="#git-codeGITTRACE2EVENTcode"></a><code>GIT_TRACE2_EVENT</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACE2EVENTcode"> <a class="anchor" href="#git-GITTRACE2EVENT"></a> <a class="anchor" href="#git-codeGITTRACE2EVENTcode"></a><code>GIT_TRACE2_EVENT</code> </dt>
 <dd>
 <p>此设置会写入适合机器解释的基于 JSON 的格式。 有关可用的跟踪输出选项，请参阅 <code>GIT_TRACE2</code>，以及 <a href="{{< relurl "docs/api-trace2/zh_HANS-CN" >}}">Trace2 文档</a> 了解更多详情。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACE2PERFcode"> <a class="anchor" href="#git-codeGITTRACE2PERFcode"></a><code>GIT_TRACE2_PERF</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACE2PERFcode"> <a class="anchor" href="#git-GITTRACE2PERF"></a> <a class="anchor" href="#git-codeGITTRACE2PERFcode"></a><code>GIT_TRACE2_PERF</code> </dt>
 <dd>
 <p>除了 <code>GIT_TRACE2</code> 中可用的基于文本的信息外，此设置还可写入基于列的格式，以了解嵌套区域。 有关可用的跟踪输出选项，请参阅 <code>GIT_TRACE2</code>，以及 <a href="{{< relurl "docs/api-trace2/zh_HANS-CN" >}}">Trace2 文档</a> 了解更多详情。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITTRACEREDACTcode"> <a class="anchor" href="#git-codeGITTRACEREDACTcode"></a><code>GIT_TRACE_REDACT</code> </dt>
+<dt class="hdlist1" id="git-codeGITTRACEREDACTcode"> <a class="anchor" href="#git-GITTRACEREDACT"></a> <a class="anchor" href="#git-codeGITTRACEREDACTcode"></a><code>GIT_TRACE_REDACT</code> </dt>
 <dd>
 <p>默认情况下，启动跟踪后，Git 会编辑 cookie、"Authorization:"（授权：）标头、"Proxy-Authorization:"（代理授权：）标头和 packfile URI 的值。将此布尔环境变量设为 false，可阻止这种编辑。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITNOREPLACEOBJECTScode"> <a class="anchor" href="#git-codeGITNOREPLACEOBJECTScode"></a><code>GIT_NO_REPLACE_OBJECTS</code> </dt>
+<dt class="hdlist1" id="git-codeGITNOREPLACEOBJECTScode"> <a class="anchor" href="#git-GITNOREPLACEOBJECTS"></a> <a class="anchor" href="#git-codeGITNOREPLACEOBJECTScode"></a><code>GIT_NO_REPLACE_OBJECTS</code> </dt>
 <dd>
 <p>Setting and exporting this environment variable tells Git to ignore replacement refs and do not replace Git objects.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITLITERALPATHSPECScode"> <a class="anchor" href="#git-codeGITLITERALPATHSPECScode"></a><code>GIT_LITERAL_PATHSPECS</code> </dt>
+<dt class="hdlist1" id="git-codeGITLITERALPATHSPECScode"> <a class="anchor" href="#git-GITLITERALPATHSPECS"></a> <a class="anchor" href="#git-codeGITLITERALPATHSPECScode"></a><code>GIT_LITERAL_PATHSPECS</code> </dt>
 <dd>
 <p>将这个布尔环境变量设为 true 会导致 Git 按字面意思而非通配符模式来处理所有路径规范。例如，运行 <code>GIT_LITERAL_PATHSPECS=1 git log -- '*.c'</code> 将搜索涉及路径 <code>*.c</code> 的提交，而不是任何与通配符 <code>*.c</code> 匹配的路径。如果你正在向 Git 输入字面路径（例如，之前由 <code>git ls-tree</code>、<code>--raw</code> 差异输出等提供的路径），你可能需要这样做。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITGLOBPATHSPECScode"> <a class="anchor" href="#git-codeGITGLOBPATHSPECScode"></a><code>GIT_GLOB_PATHSPECS</code> </dt>
+<dt class="hdlist1" id="git-codeGITGLOBPATHSPECScode"> <a class="anchor" href="#git-GITGLOBPATHSPECS"></a> <a class="anchor" href="#git-codeGITGLOBPATHSPECScode"></a><code>GIT_GLOB_PATHSPECS</code> </dt>
 <dd>
 <p>将这个布尔环境变量设置为 true 会导致 Git 将所有路径规范视为通配符模式（又称 "glob" 魔法）。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITNOGLOBPATHSPECScode"> <a class="anchor" href="#git-codeGITNOGLOBPATHSPECScode"></a><code>GIT_NOGLOB_PATHSPECS</code> </dt>
+<dt class="hdlist1" id="git-codeGITNOGLOBPATHSPECScode"> <a class="anchor" href="#git-GITNOGLOBPATHSPECS"></a> <a class="anchor" href="#git-codeGITNOGLOBPATHSPECScode"></a><code>GIT_NOGLOB_PATHSPECS</code> </dt>
 <dd>
 <p>将这个布尔环境变量设置为 true，Git 就会将所有路径规范都视为字面意思（又称 "literal"（字面）魔法）。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITICASEPATHSPECScode"> <a class="anchor" href="#git-codeGITICASEPATHSPECScode"></a><code>GIT_ICASE_PATHSPECS</code> </dt>
+<dt class="hdlist1" id="git-codeGITICASEPATHSPECScode"> <a class="anchor" href="#git-GITICASEPATHSPECS"></a> <a class="anchor" href="#git-codeGITICASEPATHSPECScode"></a><code>GIT_ICASE_PATHSPECS</code> </dt>
 <dd>
 <p>将此布尔环境变量设置为 true 会导致 Git 将所有路径规范视为不区分大小写。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITNOLAZYFETCHcode"> <a class="anchor" href="#git-codeGITNOLAZYFETCHcode"></a><code>GIT_NO_LAZY_FETCH</code> </dt>
+<dt class="hdlist1" id="git-codeGITNOLAZYFETCHcode"> <a class="anchor" href="#git-GITNOLAZYFETCH"></a> <a class="anchor" href="#git-codeGITNOLAZYFETCHcode"></a><code>GIT_NO_LAZY_FETCH</code> </dt>
 <dd>
 <p>Setting this Boolean environment variable to true tells Git not to lazily fetch missing objects from the promisor remote on demand.</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITREFLOGACTIONcode"> <a class="anchor" href="#git-codeGITREFLOGACTIONcode"></a><code>GIT_REFLOG_ACTION</code> </dt>
+<dt class="hdlist1" id="git-codeGITREFLOGACTIONcode"> <a class="anchor" href="#git-GITREFLOGACTION"></a> <a class="anchor" href="#git-codeGITREFLOGACTIONcode"></a><code>GIT_REFLOG_ACTION</code> </dt>
 <dd>
 <p>更新引用时，会创建引用日志条目来记录更新引用的原因（通常是更新引用的高级命令的名称），以及引用的新旧值。 脚本化的上层命令可以使用 <code>git-sh-setup</code> 中的 set_reflog_action 辅助函数，在被最终用户作为顶级命令调用时将其名称设置为该变量，并记录在引用日志的正文中。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITREFPARANOIAcode"> <a class="anchor" href="#git-codeGITREFPARANOIAcode"></a><code>GIT_REF_PARANOIA</code> </dt>
+<dt class="hdlist1" id="git-codeGITREFPARANOIAcode"> <a class="anchor" href="#git-GITREFPARANOIA"></a> <a class="anchor" href="#git-codeGITREFPARANOIAcode"></a><code>GIT_REF_PARANOIA</code> </dt>
 <dd>
 <p>如果将此布尔环境变量设置为 false，则在遍历引用列表时会忽略已损坏或命名不正确的引用。通常情况下，Git 会尝试包含任何此类引用，这可能会导致某些操作失败。这通常是可取的，因为潜在的破坏性操作（例如 <a href='{{< relurl "docs/git-prune/zh_HANS-CN" >}}'>git-prune[1]</a>）最好是中止，而不是忽略破损的引用（从而认为它们指向的历史不值得保存）。默认值是 <code>1</code>（即偏执地检测并终止所有操作）。通常不需要将其设置为 <code>0</code>，但在试图从损坏的版本库中挽救数据时可能会有用。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITCOMMITGRAPHPARANOIAcode"> <a class="anchor" href="#git-codeGITCOMMITGRAPHPARANOIAcode"></a><code>GIT_COMMIT_GRAPH_PARANOIA</code> </dt>
+<dt class="hdlist1" id="git-codeGITCOMMITGRAPHPARANOIAcode"> <a class="anchor" href="#git-GITCOMMITGRAPHPARANOIA"></a> <a class="anchor" href="#git-codeGITCOMMITGRAPHPARANOIAcode"></a><code>GIT_COMMIT_GRAPH_PARANOIA</code> </dt>
 <dd>
 <p>从提交图加载提交对象时，Git 会对对象数据库中的对象执行存在性检查。这样做是为了避免出现陈旧的提交图（其中包含对已删除提交的引用），但同时也会影响性能。</p>
 <div class="paragraph">
 <p>默认值为 "false"，即禁用上述行为。将其设置为 "true" 可启用存在性检查，这样就不会从提交图中返回过时的提交，但这也会影响性能。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITALLOWPROTOCOLcode"> <a class="anchor" href="#git-codeGITALLOWPROTOCOLcode"></a><code>GIT_ALLOW_PROTOCOL</code> </dt>
+<dt class="hdlist1" id="git-codeGITALLOWPROTOCOLcode"> <a class="anchor" href="#git-GITALLOWPROTOCOL"></a> <a class="anchor" href="#git-codeGITALLOWPROTOCOLcode"></a><code>GIT_ALLOW_PROTOCOL</code> </dt>
 <dd>
 <p>如果设置为以冒号分隔的协议列表，其行为就好像 <code>protocol.allow</code> 被设置为 <code>never</code> 而每个列出的协议都被 <code>protocol.&lt;名称&gt;.allow</code> 设置为 <code>always</code>（覆盖任何现有配置）。详见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中关于 <code>protocol.allow</code> 的描述。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITPROTOCOLFROMUSERcode"> <a class="anchor" href="#git-codeGITPROTOCOLFROMUSERcode"></a><code>GIT_PROTOCOL_FROM_USER</code> </dt>
+<dt class="hdlist1" id="git-codeGITPROTOCOLFROMUSERcode"> <a class="anchor" href="#git-GITPROTOCOLFROMUSER"></a> <a class="anchor" href="#git-codeGITPROTOCOLFROMUSERcode"></a><code>GIT_PROTOCOL_FROM_USER</code> </dt>
 <dd>
 <p>将此布尔环境变量设为 false，以防止 fetch/push/clone 使用配置为 <code>user</code> 状态的协议。 这对于限制从不可信任的仓库或向 git 命令提供可能不可信任的 URLS 的程序递归初始化子模块非常有用。 详见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITPROTOCOLcode"> <a class="anchor" href="#git-codeGITPROTOCOLcode"></a><code>GIT_PROTOCOL</code> </dt>
+<dt class="hdlist1" id="git-codeGITPROTOCOLcode"> <a class="anchor" href="#git-GITPROTOCOL"></a> <a class="anchor" href="#git-codeGITPROTOCOLcode"></a><code>GIT_PROTOCOL</code> </dt>
 <dd>
 <p>For internal use only. Used in handshaking the wire protocol. Contains a colon <em>:</em> separated list of keys with optional values <em>&lt;key&gt;[=&lt;value&gt;]</em>. Presence of unknown keys and values must be ignored.</p>
 <div class="paragraph">
@@ -1018,13 +1018,13 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <p>此配置为可选配置。如果不传播该变量，客户端将退回到原始的 "v0" 协议（但可能会错过某些性能改进或功能）。该变量目前只影响克隆和获取，尚未用于推送（但将来可能会）。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-codeGITOPTIONALLOCKScode"> <a class="anchor" href="#git-codeGITOPTIONALLOCKScode"></a><code>GIT_OPTIONAL_LOCKS</code> </dt>
+<dt class="hdlist1" id="git-codeGITOPTIONALLOCKScode"> <a class="anchor" href="#git-GITOPTIONALLOCKS"></a> <a class="anchor" href="#git-codeGITOPTIONALLOCKScode"></a><code>GIT_OPTIONAL_LOCKS</code> </dt>
 <dd>
 <p>如果把这个布尔环境变量设置为 false，Git 将在不执行任何需要加锁的可选子操作的情况下完成任何请求的操作。 例如，这将防止 <code>git status</code> 刷新索引的副作用。这对后台运行的进程非常有用，因为它们不希望与仓库中的其他操作造成锁争用。 默认值为 <code>1</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITREDIRECTSTDINcode"> <a class="anchor" href="#git-codeGITREDIRECTSTDINcode"></a><code>GIT_REDIRECT_STDIN</code> </dt>
-<dt class="hdlist1" id="git-codeGITREDIRECTSTDOUTcode"> <a class="anchor" href="#git-codeGITREDIRECTSTDOUTcode"></a><code>GIT_REDIRECT_STDOUT</code> </dt>
-<dt class="hdlist1" id="git-codeGITREDIRECTSTDERRcode"> <a class="anchor" href="#git-codeGITREDIRECTSTDERRcode"></a><code>GIT_REDIRECT_STDERR</code> </dt>
+<dt class="hdlist1" id="git-codeGITREDIRECTSTDINcode"> <a class="anchor" href="#git-GITREDIRECTSTDIN"></a> <a class="anchor" href="#git-codeGITREDIRECTSTDINcode"></a><code>GIT_REDIRECT_STDIN</code> </dt>
+<dt class="hdlist1" id="git-codeGITREDIRECTSTDOUTcode"> <a class="anchor" href="#git-GITREDIRECTSTDOUT"></a> <a class="anchor" href="#git-codeGITREDIRECTSTDOUTcode"></a><code>GIT_REDIRECT_STDOUT</code> </dt>
+<dt class="hdlist1" id="git-codeGITREDIRECTSTDERRcode"> <a class="anchor" href="#git-GITREDIRECTSTDERR"></a> <a class="anchor" href="#git-codeGITREDIRECTSTDERRcode"></a><code>GIT_REDIRECT_STDERR</code> </dt>
 <dd>
 <p>仅限 Windows：允许将标准输入/输出/错误句柄重定向到环境变量指定的路径。这在多线程应用程序中特别有用，因为通过 <code>CreateProcess()</code> 传递标准句柄的标准方式并不可行，因为这需要将句柄标记为可继承（因此 <strong>每个</strong> 生成的进程都会继承它们，可能会阻塞常规的 Git 操作）。主要的预期用例是使用命名管道进行通信（例如 <code>\\.\pipe\my-git-stdin-123</code>）。</p>
 <div class="paragraph">
@@ -1035,7 +1035,7 @@ git --git-dir=c/a.git --work-tree=c/b status</pre>
 <dd>
 <p>如果设置为 <code>yes</code>，会在 SHA-1 值（缩写）后打印省略号。 这会影响分离 HEAD 的指示（<a href='{{< relurl "docs/git-checkout/zh_HANS-CN" >}}'>git-checkout[1]</a>）和原始差异输出（<a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a>）。 在上述情况下打印省略号不再被认为是适当的，在可预见的将来，对它的支持可能会被移除（连同变量）。</p>
 </dd>
-<dt class="hdlist1" id="git-codeGITADVICEcode"> <a class="anchor" href="#git-codeGITADVICEcode"></a><code>GIT_ADVICE</code> </dt>
+<dt class="hdlist1" id="git-codeGITADVICEcode"> <a class="anchor" href="#git-GITADVICE"></a> <a class="anchor" href="#git-codeGITADVICEcode"></a><code>GIT_ADVICE</code> </dt>
 <dd>
 <p>如果设置为 <code>0</code>，则禁用所有建议信息。这些信息旨在为用户提供提示，帮助他们摆脱困境或利用新功能。用户可以使用 <code>advice.*</code> 配置键禁用单个信息。这些信息可能会对执行 Git 进程的工具造成干扰，因此可以使用此变量来禁用这些信息。(<code>--no-advice</code> 全局选项也可使用，但旧版本的 Git 可能会因为无法理解该选项而失效。不理解该环境变量版本的 Git 会忽略它。）</p>
 </dd>

@@ -69,27 +69,27 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-bundle-createoptionsltgtltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-createoptionsltgtltgit-rev-list-argsgt"></a>create [options] &lt;文件&gt; &lt;git-rev-list-args&gt; </dt>
+<dt class="hdlist1" id="git-bundle-createoptionsltgtltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-createoptionsgit-rev-list-args"></a> <a class="anchor" href="#git-bundle-createoptionsltgtltgit-rev-list-argsgt"></a>create [options] &lt;文件&gt; &lt;git-rev-list-args&gt; </dt>
 <dd>
 <p>用来创建一个名为 <em>&lt;文件&gt;</em> 的捆绑包。 这需要 <em>&lt;git-rev-list-args&gt;</em> 参数来定义包的内容。 <em>选项</em> 包含 <em>git bundle create</em> 子命令的特定选项。如果 <em>file</em> 是 <em>-</em>，捆绑内容将被写入标准输出流。</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-verifyltgt"> <a class="anchor" href="#git-bundle-verifyltgt"></a>verify &lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-bundle-verifyltgt"> <a class="anchor" href="#git-bundle-verify"></a> <a class="anchor" href="#git-bundle-verifyltgt"></a>verify &lt;文件&gt; </dt>
 <dd>
 <p>用于检查捆绑包文件是否有效，是否能干净地应用到当前仓库。 这包括对捆绑包格式本身的检查，以及检查前提提交是否存在，并在当前版本库中被完全链接。 然后，<em>git bundle</em> 会打印出一个缺失提交的列表，如果有的话。 最后，打印出关于额外能力的信息，比如 “对象过滤器”。更多信息见 <a href='{{< relurl "docs/gitformat-bundle/zh_HANS-CN" >}}'>gitformat-bundle[5]</a> 中的 “能力”。成功时退出代码为零，但如果捆绑包文件无效，退出代码将为非零。如果 <em>file</em> 是 <code>-</code>，则从标准输入流读取捆绑包文件。</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-list-headsltgt"> <a class="anchor" href="#git-bundle-list-headsltgt"></a>list-heads &lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-bundle-list-headsltgt"> <a class="anchor" href="#git-bundle-list-heads"></a> <a class="anchor" href="#git-bundle-list-headsltgt"></a>list-heads &lt;文件&gt; </dt>
 <dd>
 <p>列出捆绑中定义的引用。 如果后面是引用列表，则只打印出与之匹配的引用。如果 <em>file</em> 是 <code>-</code>，则从标准输入流中读取捆绑包文件。</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-unbundleltgt"> <a class="anchor" href="#git-bundle-unbundleltgt"></a>unbundle &lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-bundle-unbundleltgt"> <a class="anchor" href="#git-bundle-unbundle"></a> <a class="anchor" href="#git-bundle-unbundleltgt"></a>unbundle &lt;文件&gt; </dt>
 <dd>
 <p>将捆绑包中的对象传递给 <em>git index-pack</em> 以存储在仓库中，然后打印出所有定义的引用的名称。如果给了一个引用列表，则只打印列表中匹配的引用。这个命令是真正的管道，只打算由 <em>git fetch</em> 调用。 如果 <em>file</em> 是 <code>-</code>，则从标准输入流读取捆绑包文件。</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-ltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-ltgit-rev-list-argsgt"></a>&lt;git-rev-list-args&gt; </dt>
+<dt class="hdlist1" id="git-bundle-ltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-git-rev-list-args"></a> <a class="anchor" href="#git-bundle-ltgit-rev-list-argsgt"></a>&lt;git-rev-list-args&gt; </dt>
 <dd>
 <p>一个参数列表，可以被 <em>git rev-parse</em> 和 <em>git rev-list</em> 接受（并包含一个命名的引用，见下面的 指定引用），它指定了要传送的特定对象和引用。 例如，<code>master~10...master</code> 会导致当前的主引用与自其第 10 次祖先提交后添加的所有对象一起被打包。 对于可以打包的引用和对象的数量没有明确的限制。</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-ltgt82308203"> <a class="anchor" href="#git-bundle-ltgt82308203"></a>[&lt;引用名&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-bundle-ltgt82308203"> <a class="anchor" href="#git-bundle-"></a> <a class="anchor" href="#git-bundle-ltgt82308203"></a>[&lt;引用名&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>用于限制报告的可用引用的列表。这主要是对 <em>git fetch</em> 有用，它希望只收到那些要求的引用，而不一定是包中的所有内容（在这种情况下， <em>git bundle</em> 就像 <em>git fetch-pack</em>）。</p>
 </dd>
@@ -97,7 +97,7 @@ aliases:
 <dd>
 <p>当标准错误流连接到终端时，除非指定了 -q，否则默认情况下会在标准错误流上报告进展状态。即使标准错误流没有指向终端，这个标志也会强制显示进度状态。</p>
 </dd>
-<dt class="hdlist1" id="git-bundle---versionltgt"> <a class="anchor" href="#git-bundle---versionltgt"></a>--version=&lt;版本&gt; </dt>
+<dt class="hdlist1" id="git-bundle---versionltgt"> <a class="anchor" href="#git-bundle---version"></a> <a class="anchor" href="#git-bundle---versionltgt"></a>--version=&lt;版本&gt; </dt>
 <dd>
 <p>指定捆绑包的版本。 版本 2 是较老的格式，只能用于 SHA-1 仓库；较新的版本 3 包含允许扩展的功能。默认是最古老的支持格式，基于使用中的哈希算法。</p>
 </dd>

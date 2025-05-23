@@ -154,21 +154,21 @@ This directory is ignored (except refs/bisect and
 refs/worktree) if $GIT_COMMON_DIR is set and
 "$GIT_COMMON_DIR/refs" will be used instead.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-refsheadscodenamecode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refsheadscodenamecode"></a>refs/heads/<code>name</code> </dt>
+<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-refsheadscodenamecode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refsheadsname"></a> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refsheadscodenamecode"></a>refs/heads/<code>name</code> </dt>
 <dd>
 <p>records tip-of-the-tree commit objects of branch <code>name</code></p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-refstagscodenamecode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refstagscodenamecode"></a>refs/tags/<code>name</code> </dt>
+<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-refstagscodenamecode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refstagsname"></a> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refstagscodenamecode"></a>refs/tags/<code>name</code> </dt>
 <dd>
 <p>records any object name (not necessarily a commit
 object, or a tag object that points at a commit object).</p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-refsremotescodenamecode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refsremotescodenamecode"></a>refs/remotes/<code>name</code> </dt>
+<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-refsremotescodenamecode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refsremotesname"></a> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refsremotescodenamecode"></a>refs/remotes/<code>name</code> </dt>
 <dd>
 <p>records tip-of-the-tree commit objects of branches copied
 from a remote repository.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-refsreplacecodeltobj-sha1gtcode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refsreplacecodeltobj-sha1gtcode"></a>refs/replace/<code>&lt;obj-sha1&gt;</code> </dt>
+<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-refsreplacecodeltobj-sha1gtcode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refsreplaceobj-sha1"></a> <a class="anchor" href="#Documentation/gitrepository-layout.txt-refsreplacecodeltobj-sha1gtcode"></a>refs/replace/<code>&lt;obj-sha1&gt;</code> </dt>
 <dd>
 <p>records the SHA-1 of the object that replaces <code>&lt;obj-sha1&gt;</code>.
 This is similar to info/grafts and is internally used and
@@ -248,7 +248,7 @@ working trees.</p>
 <p>The current index file for the repository.  It is
 usually not found in a bare repository.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-sharedindexltSHA-1gt"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-sharedindexltSHA-1gt"></a>sharedindex.&lt;SHA-1&gt; </dt>
+<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-sharedindexltSHA-1gt"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-sharedindexSHA-1"></a> <a class="anchor" href="#Documentation/gitrepository-layout.txt-sharedindexltSHA-1gt"></a>sharedindex.&lt;SHA-1&gt; </dt>
 <dd>
 <p>The shared index part, to be referenced by $GIT_DIR/index and
 other temporary index files. Only valid in split index mode.</p>
@@ -319,11 +319,11 @@ See <a href='{{< relurl "docs/git-update-ref" >}}'>git-update-ref[1]</a> for mor
 directory is ignored if $GIT_COMMON_DIR is set and
 "$GIT_COMMON_DIR/logs" will be used instead.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-logsrefsheadscodenamecode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-logsrefsheadscodenamecode"></a>logs/refs/heads/<code>name</code> </dt>
+<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-logsrefsheadscodenamecode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-logsrefsheadsname"></a> <a class="anchor" href="#Documentation/gitrepository-layout.txt-logsrefsheadscodenamecode"></a>logs/refs/heads/<code>name</code> </dt>
 <dd>
 <p>Records all changes made to the branch tip named <code>name</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-logsrefstagscodenamecode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-logsrefstagscodenamecode"></a>logs/refs/tags/<code>name</code> </dt>
+<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-logsrefstagscodenamecode"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-logsrefstagsname"></a> <a class="anchor" href="#Documentation/gitrepository-layout.txt-logsrefstagscodenamecode"></a>logs/refs/tags/<code>name</code> </dt>
 <dd>
 <p>Records all changes made to the tag named <code>name</code>.</p>
 </dd>
@@ -355,7 +355,7 @@ part of a linked working tree. This directory is ignored if
 $GIT_COMMON_DIR is set, in which case
 "$GIT_COMMON_DIR/worktrees" will be used instead.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-worktreesltidgtgitdir"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-worktreesltidgtgitdir"></a>worktrees/&lt;id&gt;/gitdir </dt>
+<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-worktreesltidgtgitdir"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-worktreesidgitdir"></a> <a class="anchor" href="#Documentation/gitrepository-layout.txt-worktreesltidgtgitdir"></a>worktrees/&lt;id&gt;/gitdir </dt>
 <dd>
 <p>A text file containing the absolute path back to the .git file
 that points to here. This is used to check if the linked
@@ -363,7 +363,7 @@ repository has been manually removed and there is no need to
 keep this directory any more. The mtime of this file should be
 updated every time the linked repository is accessed.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-worktreesltidgtlocked"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-worktreesltidgtlocked"></a>worktrees/&lt;id&gt;/locked </dt>
+<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-worktreesltidgtlocked"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-worktreesidlocked"></a> <a class="anchor" href="#Documentation/gitrepository-layout.txt-worktreesltidgtlocked"></a>worktrees/&lt;id&gt;/locked </dt>
 <dd>
 <p>If this file exists, the linked working tree may be on a
 portable device and not available. The presence of this file
@@ -371,7 +371,7 @@ prevents <code>worktrees/&lt;id&gt;</code> from being pruned either automaticall
 or manually by <code>git worktree prune</code>. The file may contain a string
 explaining why the repository is locked.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-worktreesltidgtconfigworktree"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-worktreesltidgtconfigworktree"></a>worktrees/&lt;id&gt;/config.worktree </dt>
+<dt class="hdlist1" id="Documentation/gitrepository-layout.txt-worktreesltidgtconfigworktree"> <a class="anchor" href="#Documentation/gitrepository-layout.txt-worktreesidconfigworktree"></a> <a class="anchor" href="#Documentation/gitrepository-layout.txt-worktreesltidgtconfigworktree"></a>worktrees/&lt;id&gt;/config.worktree </dt>
 <dd>
 <p>Working directory specific configuration file.</p>
 </dd>

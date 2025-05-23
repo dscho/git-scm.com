@@ -216,7 +216,7 @@ the "Pseudo-merge bitmaps" section of <a href='{{< relurl "docs/gitpacking" >}}'
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtpattern"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtpattern"></a>bitmapPseudoMerge.&lt;name&gt;.pattern </dt>
+<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtpattern"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergenamepattern"></a> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtpattern"></a>bitmapPseudoMerge.&lt;name&gt;.pattern </dt>
 <dd>
 <p>Regular expression used to match reference names. Commits
 pointed to by references matching this pattern (and meeting
@@ -244,7 +244,7 @@ be grouped into separate pseudo-merge groups, based on the remote
 number.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtdecay"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtdecay"></a>bitmapPseudoMerge.&lt;name&gt;.decay </dt>
+<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtdecay"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergenamedecay"></a> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtdecay"></a>bitmapPseudoMerge.&lt;name&gt;.decay </dt>
 <dd>
 <p>Determines the rate at which consecutive pseudo-merge bitmap
 groups decrease in size. Must be non-negative. This parameter
@@ -264,21 +264,21 @@ since it is more likely that the references pointing at newer commits
 will be updated more often than a reference pointing at an old commit.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtsampleRate"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtsampleRate"></a>bitmapPseudoMerge.&lt;name&gt;.sampleRate </dt>
+<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtsampleRate"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergenamesampleRate"></a> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtsampleRate"></a>bitmapPseudoMerge.&lt;name&gt;.sampleRate </dt>
 <dd>
 <p>Determines the proportion of non-bitmapped commits (among
 reference tips) which are selected for inclusion in an
 unstable pseudo-merge bitmap. Must be between <code>0</code> and <code>1</code>
 (inclusive). The default is <code>1</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtthreshold"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtthreshold"></a>bitmapPseudoMerge.&lt;name&gt;.threshold </dt>
+<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtthreshold"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergenamethreshold"></a> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtthreshold"></a>bitmapPseudoMerge.&lt;name&gt;.threshold </dt>
 <dd>
 <p>Determines the minimum age of non-bitmapped commits (among
 reference tips, as above) which are candidates for inclusion
 in an unstable pseudo-merge bitmap. The default is
 <code>1.week.ago</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtmaxMerges"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtmaxMerges"></a>bitmapPseudoMerge.&lt;name&gt;.maxMerges </dt>
+<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtmaxMerges"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergenamemaxMerges"></a> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtmaxMerges"></a>bitmapPseudoMerge.&lt;name&gt;.maxMerges </dt>
 <dd>
 <p>Determines the maximum number of pseudo-merge commits among
 which commits may be distributed.</p>
@@ -299,7 +299,7 @@ each remote&#8217;s set of tags individually.</p>
 <p>Must be non-negative. The default value is 64.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtstableThreshold"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtstableThreshold"></a>bitmapPseudoMerge.&lt;name&gt;.stableThreshold </dt>
+<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtstableThreshold"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergenamestableThreshold"></a> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtstableThreshold"></a>bitmapPseudoMerge.&lt;name&gt;.stableThreshold </dt>
 <dd>
 <p>Determines the minimum age of commits (among reference tips,
 as above, however stable commits are still considered
@@ -314,7 +314,7 @@ larger value incurs the opposite penalty (fewer stable groups which are
 more useful).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtstableSize"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtstableSize"></a>bitmapPseudoMerge.&lt;name&gt;.stableSize </dt>
+<dt class="hdlist1" id="Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtstableSize"> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergenamestableSize"></a> <a class="anchor" href="#Documentation/gitpacking.txt-bitmapPseudoMergeltnamegtstableSize"></a>bitmapPseudoMerge.&lt;name&gt;.stableSize </dt>
 <dd>
 <p>Determines the size (in number of commits) of a stable
 psuedo-merge bitmap. The default is <code>512</code>.</p>

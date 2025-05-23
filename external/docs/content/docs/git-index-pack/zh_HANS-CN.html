@@ -45,7 +45,7 @@ aliases:
 <dd>
 <p>对正在发生的事情要言之有物，包括进度状态。</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack--oltindex-filegt"> <a class="anchor" href="#git-index-pack--oltindex-filegt"></a>-o &lt;index-file&gt; </dt>
+<dt class="hdlist1" id="git-index-pack--oltindex-filegt"> <a class="anchor" href="#git-index-pack--oindex-file"></a> <a class="anchor" href="#git-index-pack--oltindex-filegt"></a>-o &lt;index-file&gt; </dt>
 <dd>
 <p>将生成的数据包索引写入指定的文件中。 如果没有这个选项，打包索引文件的名称是根据打包档案文件的名称构建的，将 .pack 替换为 .idx（如果打包档案的名称不是以 .pack 结尾，程序将失败）。</p>
 </dd>
@@ -65,15 +65,15 @@ aliases:
 <dd>
 <p>在将索引移到其最终目的地之前，为相关的包文件创建一个空的 .keep 文件。 这个选项通常需要和 --stdin一起使用，以防止同时进行的 "git repack" 进程在更新引用以使用 pack 中包含的对象之前删除新建的 pack 和 index。</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---keepltgt"> <a class="anchor" href="#git-index-pack---keepltgt"></a>--keep=&lt;消息&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---keepltgt"> <a class="anchor" href="#git-index-pack---keep-1"></a> <a class="anchor" href="#git-index-pack---keepltgt"></a>--keep=&lt;消息&gt; </dt>
 <dd>
 <p>像 --keep 一样，在将索引移到最终目的地之前创建一个 .keep 文件，但不是创建一个空文件，而是在 .keep 文件中放入 <em>&lt;消息&gt;</em> 和一个 LF。 以后可以在所有的 .keep 文件中搜索 <em>&lt;消息&gt;</em> 信息，以找到任何已经失去作用的文件。</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---index-versionltgtltgt"> <a class="anchor" href="#git-index-pack---index-versionltgtltgt"></a>--index-version=&lt;版本&gt;[,&lt;偏移&gt;] </dt>
+<dt class="hdlist1" id="git-index-pack---index-versionltgtltgt"> <a class="anchor" href="#git-index-pack---index-version"></a> <a class="anchor" href="#git-index-pack---index-versionltgtltgt"></a>--index-version=&lt;版本&gt;[,&lt;偏移&gt;] </dt>
 <dd>
 <p>这是为测试套件准备的。它允许为生成的数据包索引强制选择版本，并对位于给定偏移量以上的对象强制选择 64 位索引条目。</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---strictltmsg-idgtltseveritygt82308203"> <a class="anchor" href="#git-index-pack---strictltmsg-idgtltseveritygt82308203"></a>--strict[=&lt;msg-id&gt;=&lt;severity&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-index-pack---strictltmsg-idgtltseveritygt82308203"> <a class="anchor" href="#git-index-pack---strictmsg-idseverity"></a> <a class="anchor" href="#git-index-pack---strictltmsg-idgtltseveritygt82308203"></a>--strict[=&lt;msg-id&gt;=&lt;severity&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>如果数据包包含损坏的对象或链接，则 "死"。可选的逗号分隔列表 <code>&lt;msg-id&gt;=&lt;severity&gt;</code> 可用于改变某些可能问题的严重程度，例如 <code>--strict="missingEmail=ignore,badTagName=error"</code>。关于 <code>&lt;msg-id&gt;</code> 和 <code>&lt;severity&gt;</code> 的可能值，请参阅 <a href='{{< relurl "docs/git-fsck/zh_HANS-CN" >}}'>git-fsck[1]</a> 中的 <code>fsck.&lt;msg-id&gt;</code> 配置选项。</p>
 </dd>
@@ -88,22 +88,22 @@ aliases:
 <dd>
 <p>如果数据包中包含无法链接的链接则死亡。仅供内部使用。</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---fsck-objectsltmsg-idgtltseveritygt82308203"> <a class="anchor" href="#git-index-pack---fsck-objectsltmsg-idgtltseveritygt82308203"></a>--fsck-objects[=&lt;msg-id&gt;=&lt;severity&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-index-pack---fsck-objectsltmsg-idgtltseveritygt82308203"> <a class="anchor" href="#git-index-pack---fsck-objectsmsg-idseverity"></a> <a class="anchor" href="#git-index-pack---fsck-objectsltmsg-idgtltseveritygt82308203"></a>--fsck-objects[=&lt;msg-id&gt;=&lt;severity&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>如果数据包中包含破损的对象进程会死亡，与 <code>--strict</code> 选项不同的是，不会因为断掉的链接而阻塞。如果数据包包含一个指向不存在的 .gitmodules blob 的树，则在进入数据包 /idx 文件名的哈希值之后打印该 blob 的哈希值（供调用者检查）（见 “注意事项”）。</p>
 <div class="paragraph">
 <p>可选的逗号分隔列表"&lt;msg-id&gt;=&lt;severity&gt;"可用于改变某些可能问题的严重程度，例如 <code>--fsck-objects="missingEmail=ignore,badTagName=ignore"</code>。关于 <code>&lt;msg-id&gt;</code> 和 <code>&lt;severity&gt;</code> 的可能值，请参阅 <a href='{{< relurl "docs/git-fsck/zh_HANS-CN" >}}'>git-fsck[1]</a> 中的 <code>fsck.&lt;msg-id&gt;</code> 配置选项。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-index-pack---threadsltngt"> <a class="anchor" href="#git-index-pack---threadsltngt"></a>--threads=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---threadsltngt"> <a class="anchor" href="#git-index-pack---threadsn"></a> <a class="anchor" href="#git-index-pack---threadsltngt"></a>--threads=&lt;n&gt; </dt>
 <dd>
 <p>指定解析 deltas 时产生的线程数量。这要求 index-pack 在编译时使用 pthreads，否则这个选项会被忽略并发出警告。 这是为了减少多处理器机器上的打包时间。然而，delta 搜索窗口所需的内存量要乘以线程的数量。 指定为 0 将导致 Git 自动检测 CPU 的数量并使用最多 3 个线程。</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---max-input-sizeltgt"> <a class="anchor" href="#git-index-pack---max-input-sizeltgt"></a>--max-input-size=&lt;尺寸&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---max-input-sizeltgt"> <a class="anchor" href="#git-index-pack---max-input-size"></a> <a class="anchor" href="#git-index-pack---max-input-sizeltgt"></a>--max-input-size=&lt;尺寸&gt; </dt>
 <dd>
 <p>如果数据包大于 &lt;size&gt;，则死亡。</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---object-formatltgt"> <a class="anchor" href="#git-index-pack---object-formatltgt"></a>--object-format=&lt;哈希算法&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---object-formatltgt"> <a class="anchor" href="#git-index-pack---object-format"></a> <a class="anchor" href="#git-index-pack---object-formatltgt"></a>--object-format=&lt;哈希算法&gt; </dt>
 <dd>
 <p>为数据包指定给定的对象格式（哈希算法）。 有效值为 <em>sha1</em> 和（如果启用）<em>sha256</em>。 默认值是当前仓库的算法（由 <code>extensions.objectFormat</code> 设置），如果没有设置值或在仓库之外，则为 <em>sha1</em>。</p>
 <div class="paragraph">
@@ -120,7 +120,7 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-index-pack---promisorltgt"> <a class="anchor" href="#git-index-pack---promisorltgt"></a>--promisor[=&lt;信息&gt;] </dt>
+<dt class="hdlist1" id="git-index-pack---promisorltgt"> <a class="anchor" href="#git-index-pack---promisor"></a> <a class="anchor" href="#git-index-pack---promisorltgt"></a>--promisor[=&lt;信息&gt;] </dt>
 <dd>
 <p>在提交 pack-index 之前，为这个 pack 创建一个 .promosor 文件。在用 --fix-thin 编写 pack 时特别有帮助，因为在完全编写完 pack 之前，pack 的名字还不是最终的。如果提供了 <code>&lt;message&gt;</code>，那么该内容将被写入 .promosor 文件，供将来参考。参见 <a href="{{< relurl "docs/partial-clone/zh_HANS-CN" >}}">partial clone</a> 以了解更多信息。</p>
 <div class="paragraph">

@@ -45,7 +45,7 @@ aliases:
 <dd>
 <p>Mode loquace sur ce qui se passe, y compris sur l&#8217;état d&#8217;avancement.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack--oltfichier-indexgt"> <a class="anchor" href="#git-index-pack--oltfichier-indexgt"></a>-o &lt;fichier-index&gt; </dt>
+<dt class="hdlist1" id="git-index-pack--oltfichier-indexgt"> <a class="anchor" href="#git-index-pack--ofichier-index"></a> <a class="anchor" href="#git-index-pack--oltfichier-indexgt"></a>-o &lt;fichier-index&gt; </dt>
 <dd>
 <p>Écrit l&#8217;index de paquet généré dans le fichier spécifié. Sans cette option, le nom du fichier d&#8217;index des paquet est construit à partir du nom du fichier d&#8217;archive paquet en remplaçant .pack par .idx (et le programme échoue si le nom de l&#8217;archive paquet ne se termine pas par .pack).</p>
 </dd>
@@ -65,15 +65,15 @@ aliases:
 <dd>
 <p>Avant de déplacer l&#8217;index vers sa destination finale, créer un fichier .keep vide pour le fichier paquet associé. Cette option est généralement nécessaire avec --stdin pour éviter qu&#8217;un processus <em>git repack</em> simultané ne supprime le paquet et l&#8217;index nouvellement construits avant que les refs ne puissent être mis à jour pour utiliser les objets contenus dans le paquet.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---keepltmessagegt"> <a class="anchor" href="#git-index-pack---keepltmessagegt"></a>--keep=&lt;message&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---keepltmessagegt"> <a class="anchor" href="#git-index-pack---keepmessage"></a> <a class="anchor" href="#git-index-pack---keepltmessagegt"></a>--keep=&lt;message&gt; </dt>
 <dd>
 <p>Comme --keep, créer un fichier .keep avant de déplacer l&#8217;index vers sa destination finale. Cependant, au lieu de créer un fichier vide, placer <em>&lt;message&gt;</em> suivi d&#8217;un LF dans le fichier .keep. Le message <em>&lt;message&gt;</em> peut ensuite être recherché dans tous les fichiers .keep pour localiser ceux qui n&#8217;ont plus d&#8217;utilité.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---index-versionltversiongtltdcalagegt"> <a class="anchor" href="#git-index-pack---index-versionltversiongtltdcalagegt"></a>--index-version=&lt;version&gt;[,&lt;décalage&gt;] </dt>
+<dt class="hdlist1" id="git-index-pack---index-versionltversiongtltdcalagegt"> <a class="anchor" href="#git-index-pack---index-versionversiondcalage"></a> <a class="anchor" href="#git-index-pack---index-versionltversiongtltdcalagegt"></a>--index-version=&lt;version&gt;[,&lt;décalage&gt;] </dt>
 <dd>
 <p>Ceci est destiné à être utilisée uniquement par la suite de tests. Permet de forcer la version de l&#8217;index de paquet généré, et de forcer les entrées d&#8217;index 64 bits sur les objets situés avant le décalage donné.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---strictltid-msggtltsvritgt82308203"> <a class="anchor" href="#git-index-pack---strictltid-msggtltsvritgt82308203"></a>--strict[=&lt;id-msg&gt;=&lt;sévérité&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-index-pack---strictltid-msggtltsvritgt82308203"> <a class="anchor" href="#git-index-pack---strictid-msgsvrit"></a> <a class="anchor" href="#git-index-pack---strictltid-msggtltsvritgt82308203"></a>--strict[=&lt;id-msg&gt;=&lt;sévérité&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Se terminer, si le paquet contient des objets ou des liens rompus. Une liste optionnelle d&#8217;éléments séparés par des virgule de <code>&lt;id-msg&gt;=&lt;sévérité&gt;</code> peut être transmise pour modifier la gravité de certains problèmes possibles, par exemple <code>--strict="missingEmail=ignore,badTagName=error"</code>. Voir l&#8217;entrée pour les options de configuration <code>fsck.&lt;id-msg&gt;</code> dans <a href='{{< relurl "docs/git-fsck/fr" >}}'>git-fsck[1]</a> pour plus d&#8217;informations sur les valeurs possibles de <code>&lt;id-msg&gt;</code> et <code>&lt;sévérité&gt;</code>.</p>
 </dd>
@@ -88,22 +88,22 @@ aliases:
 <dd>
 <p>Mourir si le paquet contient des liens brisés. A usage interne uniquement.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---fsck-objectsltid-msggtltsvritgt82308203"> <a class="anchor" href="#git-index-pack---fsck-objectsltid-msggtltsvritgt82308203"></a>--fsck-objects[=&lt;id-msg&gt;=&lt;sévérité&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-index-pack---fsck-objectsltid-msggtltsvritgt82308203"> <a class="anchor" href="#git-index-pack---fsck-objectsid-msgsvrit"></a> <a class="anchor" href="#git-index-pack---fsck-objectsltid-msggtltsvritgt82308203"></a>--fsck-objects[=&lt;id-msg&gt;=&lt;sévérité&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Mourir si le paquet contient des objets cassés, mais contrairement à <code>--strict</code>, ne pas s&#8217;étouffer sur les liens cassés. Si le paquet contient un arbre pointant vers un blob .gitmodules qui n&#8217;existe pas, afficher l&#8217;empreinte de ce blob (pour que l&#8217;appelant puisse le vérifier) après l&#8217;empreinte qui entre dans le nom du fichier pack/idx (voir "Notes").</p>
 <div class="paragraph">
 <p>Une liste optionnelle d&#8217;éléments séparés par des virgules, de <code>&lt;id-msg&gt;=&lt;sévérité&gt;</code> peut être transmise pour modifier la gravité de certains problèmes possibles, p.ex. <code>--fsck-objects="missingEmail=ignore,badTagName=ignore"</code>. Voir l&#8217;entrée pour les options de configuration <code>fsck.&lt;id-msg&gt;</code> dans <a href='{{< relurl "docs/git-fsck/fr" >}}'>git-fsck[1]</a> pour plus d&#8217;informations sur les valeurs possibles de <code>&lt;id-msg&gt;</code> et <code>&lt;sévérité&gt;</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-index-pack---threadsltngt"> <a class="anchor" href="#git-index-pack---threadsltngt"></a>--threads=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---threadsltngt"> <a class="anchor" href="#git-index-pack---threadsn"></a> <a class="anchor" href="#git-index-pack---threadsltngt"></a>--threads=&lt;n&gt; </dt>
 <dd>
 <p>Spécifier le nombre de fils d&#8217;exécution à lancer lors de la résolution des deltas. Cela nécessite que index-pack soit compilé avec pthreads, sinon cette option est ignorée avec un avertissement. Ceci a pour but de réduire le temps d&#8217;empaquetage sur les machines multiprocesseurs. La quantité de mémoire requise pour la fenêtre de recherche de delta est cependant multipliée par le nombre de fils. En spécifiant 0, Git détectera automatiquement le nombre de CPU et utilisera au maximum 3 fils.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---max-input-sizelttaillegt"> <a class="anchor" href="#git-index-pack---max-input-sizelttaillegt"></a>--max-input-size=&lt;taille&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---max-input-sizelttaillegt"> <a class="anchor" href="#git-index-pack---max-input-sizetaille"></a> <a class="anchor" href="#git-index-pack---max-input-sizelttaillegt"></a>--max-input-size=&lt;taille&gt; </dt>
 <dd>
 <p>Mourir, si le paquet est plus grand que &lt;taille&gt;.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---object-formatltalgorithme-empreintegt"> <a class="anchor" href="#git-index-pack---object-formatltalgorithme-empreintegt"></a>--object-format=&lt;algorithme-empreinte&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---object-formatltalgorithme-empreintegt"> <a class="anchor" href="#git-index-pack---object-formatalgorithme-empreinte"></a> <a class="anchor" href="#git-index-pack---object-formatltalgorithme-empreintegt"></a>--object-format=&lt;algorithme-empreinte&gt; </dt>
 <dd>
 <p>Spécifier le format d&#8217;objet donné (algorithme d&#8217;empreinte) pour le paquet. Les valeurs valides sont <em>sha1</em> et (si activé) <em>sha256</em>. <em>sha1</em> est la valeur par défaut. La valeur par défaut est l&#8217;algorithme pour le dépôt actuel (défini par <code>extensions.objectFormat</code>), ou <em>sha1</em> si aucune valeur n&#8217;est définie ou en dehors d&#8217;un dépôt.</p>
 <div class="paragraph">
@@ -120,7 +120,7 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-index-pack---promisorltmessagegt"> <a class="anchor" href="#git-index-pack---promisorltmessagegt"></a>--promisor[=&lt;message&gt;] </dt>
+<dt class="hdlist1" id="git-index-pack---promisorltmessagegt"> <a class="anchor" href="#git-index-pack---promisormessage"></a> <a class="anchor" href="#git-index-pack---promisorltmessagegt"></a>--promisor[=&lt;message&gt;] </dt>
 <dd>
 <p>Avant de livrer le pack-index, créer un fichier .promisor pour ce paquet. Particulièrement utile lors de l&#8217;écriture d&#8217;un paquet promisor avec --fix-thin puisque le nom du paquet n&#8217;est pas définitif tant que le paquet n&#8217;a pas été entièrement écrit. Si un <code>&lt;message&gt;</code> est fourni, son contenu sera écrit dans le fichier .promisor pour référence future. Voir <a href="{{< relurl "docs/partial-clone/fr" >}}">partial clone</a> pour plus d&#8217;informations.</p>
 <div class="paragraph">

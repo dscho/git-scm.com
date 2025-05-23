@@ -38,6 +38,7 @@ $(document).ready(function() {
   Forms.init();
   Downloads.init();
   DownloadBox.init();
+  PostelizeAnchor.init();
 });
 
 function onPopState(fn) {
@@ -660,6 +661,120 @@ var DarkMode = {
       else localStorage.setItem("theme", theme);
       button.attr("src", `${baseURLPrefix}images/${theme === "dark" ? "light" : "dark"}-mode.svg`);
     });
+  },
+}
+
+/*
+ * Respect Postel's Law when an invalid anchor was specified;
+ * Try to find the most similar existing anchor and then use
+ * that.
+ */
+var PostelizeAnchor = {
+  init: function() {
+    const anchor = window.location.hash;
+    if (
+      !anchor
+      || !anchor.startsWith("#")
+      || anchor.length < 2
+      || document.querySelector(CSS.escape(anchor)) !== null
+    ) return;
+
+    const id = anchor.slice(1);
+    const maxD = id.length / 2;
+    const ids = [...document.querySelectorAll('[id]')].map(e => e.id);
+    const closestID = ids.reduce((a, e) => {
+      const d = PostelizeAnchor.wuLevenshtein(id, e, maxD);
+      if (d < a.d) {
+        a.d = d;
+        a.id = e;
+      }
+      return a;
+    }, { d: maxD }).id;
+    if (closestID) window.location.hash = `#${closestID}`;
+  },
+  /*
+   * Wu's algorithm to calculate the "simple Levenshtein" distance, i.e.
+   * the minimal number of deletions and insertions needed to transform
+   * str1 to str2.
+   *
+   * The optional `maxD` parameter can be used to cap the distance (and
+   * the runtime of the function).
+   */
+  wuLevenshtein: function(str1, str2, maxD) {
+    const len1 = str1.length;
+    const len2 = str2.length;
+    if (len1 === 0) return len2;
+    if (len2 === 0) return len1;
+
+    /*
+     * The idea is to navigate within the matrix that has len1 columns and len2
+     * rows and which contains the edit distances d (the sum of
+     * deletions/insertions) between the prefixes str1[0..x] and str2[0..y]. This
+     * is done by looping over d, starting at 0, skipping along the diagonals
+     * where str1[x] === str2[y] (which does not change d), storing the maximal x
+     * value of each diagonal (characterized by k := x - y) in V[k + offset]. The
+     * valid diagonals k range from -len2 to len1.
+     *
+     * Once x reaches the length of str1 and y the length of str2, the edit
+     * distance between str1 and str2 has been found.
+     *
+     * Allocate a vector V of size (len1 + len2 + 1) so that index = k + offset,
+     * with offset = len2 (since k can be negative, but JavaScript does not
+     * support negative array indices).
+     *
+     * We can get away with a single array V because adjacent d values on
+     * neighboring diagonals differ by 1, meaning that even k values correspond
+     * to even d values, and odd k values to odd d values. Therefore, in loop
+     * iterations where d is odd, V[k] is read out at even k values and modified
+     * at odd k values.
+     */
+    const size = len1 + len2 + 1;
+    const V = new Array(size).fill(0);
+    const offset = len2;
+
+    if (maxD === undefined) maxD = len1 + len2;
+    // d is the edit distance (insertions/deletions)
+    for (let d = 0; d < maxD; d++) {
+      // k can only be between max(-len2, -d) and min(len1, d)
+      // and we step in increments of 2.
+      for (let k = Math.max(-len2, -d); k <= len1 && k <= d; k += 2) {
+        const kIndex = k + offset;
+        let x;
+
+        /*
+         * Decide whether to use an insertion or a deletion:
+         * - If k is -d, x (i.e. the offset in str1) must be 0 and nothing can be
+         *   deleted,
+         * - If k is d, V[kIndex + 1] hasn't been calculated in the previous
+         *   loop iterations, therefore it must be a deletion,
+         * - Otherwise, choose the direction that allows reaching furthest in
+         *   str1, i.e. maximize x (and therefore also y).
+	 */
+        if (k === -d || (k !== d && V[kIndex - 1] < V[kIndex + 1])) {
+          // Insertion: from diagonal k+1 (i.e. we move down in str2)
+          x = V[kIndex + 1];
+        } else {
+          // Deletion: from diagonal k-1 (i.e. we move right in str1)
+          x = V[kIndex - 1] + 1;
+        }
+
+        // Compute y based on the diagonal: y = x - k.
+        let y = x - k;
+
+        // Follow the “snake” (i.e. match characters along the diagonal).
+        while (x < len1 && y < len2 && str1[x] === str2[y]) {
+          x++;
+          y++;
+        }
+        V[kIndex] = x;
+
+        // If we've reached the ends of both strings, then we've found the answer.
+        if (x >= len1 && y >= len2) {
+          return d;
+        }
+      }
+    }
+    return maxD;
   },
 }
 

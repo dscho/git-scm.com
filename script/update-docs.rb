@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "asciidoctor"
+require "nokogiri"
 require "octokit"
 require "time"
 require "digest/sha1"
@@ -182,7 +183,15 @@ def index_l10n_doc(filter_tags, doc_list, get_content)
         anchor += "-1" while ids.include?(anchor)
         ids.add(anchor)
 
-        "<dt class=\"hdlist1\" id=\"#{anchor}\"> <a class=\"anchor\" href=\"##{anchor}\"></a>#{$1} </dt>"
+        clean_text = Nokogiri::HTML.parse($1).text.tr("^A-Za-z0-9-", "")
+        if clean_text != text
+          clean_anchor = "#{txt_path}-#{clean_text}"
+          clean_anchor += "-1" while ids.include?(clean_anchor)
+          ids.add(clean_anchor)
+          clean_anchor = "<a class=\"anchor\" href=\"##{clean_anchor}\"></a> "
+        end
+
+        "<dt class=\"hdlist1\" id=\"#{anchor}\"> #{clean_anchor}<a class=\"anchor\" href=\"##{anchor}\"></a>#{$1} </dt>"
       end
       # Make links relative
       html.gsub!(/(<a href=['"])\/([^'"]*)/) do |match|
@@ -472,7 +481,16 @@ def index_doc(filter_tags, doc_list, get_content)
           # handle anchor collisions by appending -1
           anchor += "-1" while ids.include?(anchor)
           ids.add(anchor)
-          "<dt class=\"hdlist1\" id=\"#{anchor}\"> <a class=\"anchor\" href=\"##{anchor}\"></a>#{$1} </dt>"
+
+          clean_text = Nokogiri::HTML.parse($1).text.tr("^A-Za-z0-9-", "")
+          if clean_text != text
+            clean_anchor = "#{txt_path}-#{clean_text}"
+            clean_anchor += "-1" while ids.include?(clean_anchor)
+            ids.add(clean_anchor)
+            clean_anchor = "<a class=\"anchor\" href=\"##{clean_anchor}\"></a> "
+          end
+
+          "<dt class=\"hdlist1\" id=\"#{anchor}\"> #{clean_anchor}<a class=\"anchor\" href=\"##{anchor}\"></a>#{$1} </dt>"
         end
         # Make links relative
         html.gsub!(/(<a href=['"])\/([^'"]*)/) do |relurl|

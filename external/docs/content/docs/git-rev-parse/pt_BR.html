@@ -104,11 +104,11 @@ aliases:
 <h3 id="_opções_para_a_saída"><a class="anchor" href="#_opções_para_a_saída"></a>Opções para a Saída</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rev-parse---defaultltarggt"> <a class="anchor" href="#git-rev-parse---defaultltarggt"></a>--default &lt;arg&gt; </dt>
+<dt class="hdlist1" id="git-rev-parse---defaultltarggt"> <a class="anchor" href="#git-rev-parse---defaultarg"></a> <a class="anchor" href="#git-rev-parse---defaultltarggt"></a>--default &lt;arg&gt; </dt>
 <dd>
 <p>Caso não haja nenhum parâmetro informado pelo usuário, em vez disso utilize <code>&lt;arg&gt;</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse---prefixltarggt"> <a class="anchor" href="#git-rev-parse---prefixltarggt"></a>--prefix &lt;arg&gt; </dt>
+<dt class="hdlist1" id="git-rev-parse---prefixltarggt"> <a class="anchor" href="#git-rev-parse---prefixarg"></a> <a class="anchor" href="#git-rev-parse---prefixltarggt"></a>--prefix &lt;arg&gt; </dt>
 <dd>
 <p>Comporta-se como se o comando <code>git rev-parse</code> fosse invocado a partir do subdiretório <code>&lt;arg&gt;</code> da árvore de trabalho. Quaisquer nomes de arquivos relativos são resolvidos como se fossem prefixados pelo <code>&lt;arg&gt;</code> e serão impressos desta maneira.</p>
 <div class="paragraph">
@@ -142,7 +142,7 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 <dd>
 <p>Normalmente, a saída é feita numa linha por opção e por parâmetro. Esta opção torna a saída numa única linha, devidamente citada para uso do shell. Útil quando você espera que o seu parâmetro tenha espaços em branco e novas linhas (por exemplo, ao usar o pickaxe <code>-S</code> com o comando <em>git diff-*</em>). Em contraste com a opção <code>--sq-quote</code>, a entrada do comando ainda é interpretada como de costume.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse---shortltlengthgt"> <a class="anchor" href="#git-rev-parse---shortltlengthgt"></a>--short[=&lt;length&gt;] </dt>
+<dt class="hdlist1" id="git-rev-parse---shortltlengthgt"> <a class="anchor" href="#git-rev-parse---shortlength"></a> <a class="anchor" href="#git-rev-parse---shortltlengthgt"></a>--short[=&lt;length&gt;] </dt>
 <dd>
 <p>O mesmo que <code>--verify</code> porém encurta o nome do objeto para um prefixo único com pelo menos um`comprimento` determinado de caracteres. A quantidade mínima é de 4 caracteres, o valor é predefinido na variável de configuração <code>core.abbrev</code> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>).</p>
 </dd>
@@ -192,20 +192,20 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 <dd>
 <p>Exibe todas as refs encontradas em <code>refs/</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse---branchesltpadrogt"> <a class="anchor" href="#git-rev-parse---branchesltpadrogt"></a>--branches[=&lt;padrão&gt;] </dt>
-<dt class="hdlist1" id="git-rev-parse---tagsltpadrogt"> <a class="anchor" href="#git-rev-parse---tagsltpadrogt"></a>--tags[=&lt;padrão&gt;] </dt>
-<dt class="hdlist1" id="git-rev-parse---remotesltpadrogt"> <a class="anchor" href="#git-rev-parse---remotesltpadrogt"></a>--remotes[=&lt;padrão&gt;] </dt>
+<dt class="hdlist1" id="git-rev-parse---branchesltpadrogt"> <a class="anchor" href="#git-rev-parse---branchespadro"></a> <a class="anchor" href="#git-rev-parse---branchesltpadrogt"></a>--branches[=&lt;padrão&gt;] </dt>
+<dt class="hdlist1" id="git-rev-parse---tagsltpadrogt"> <a class="anchor" href="#git-rev-parse---tagspadro"></a> <a class="anchor" href="#git-rev-parse---tagsltpadrogt"></a>--tags[=&lt;padrão&gt;] </dt>
+<dt class="hdlist1" id="git-rev-parse---remotesltpadrogt"> <a class="anchor" href="#git-rev-parse---remotespadro"></a> <a class="anchor" href="#git-rev-parse---remotesltpadrogt"></a>--remotes[=&lt;padrão&gt;] </dt>
 <dd>
 <p>Exibe todos as ramificações, tags ou ramificações monitoradas remotamente, respectivamente (ou seja, as refs encontradas respectivamente em <code>refs/heads</code>, <code>refs/tags</code> ou <code>refs/remotes</code>).</p>
 <div class="paragraph">
 <p>Se um <code>pattern</code> for fornecido, somente as refs que correspondam a bolha do shell informado serão exibidos. Se o padrão não possuir um caractere de globbing (<code>?</code>, <code>*</code> ou <code>[</code>), ele será transformado numa correspondência do prefixo com a adição de <code>/*</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rev-parse---globltpatterngt"> <a class="anchor" href="#git-rev-parse---globltpatterngt"></a>--glob=&lt;pattern&gt; </dt>
+<dt class="hdlist1" id="git-rev-parse---globltpatterngt"> <a class="anchor" href="#git-rev-parse---globpattern"></a> <a class="anchor" href="#git-rev-parse---globltpatterngt"></a>--glob=&lt;pattern&gt; </dt>
 <dd>
 <p>Mostra todas as refs que correspondem ao padrão da bolha do shell <code>pattern</code>. Se o padrão não começar com <code>refs/</code>, ele será automaticamente anexado. Se o padrão não possuir um caractere de globbing (<code>?</code>, <code>*</code> ou <code>[</code>), ele será transformado numa correspondência do prefixo com a adição de <code>/*</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse---excludeltglob-patterngt"> <a class="anchor" href="#git-rev-parse---excludeltglob-patterngt"></a>--exclude=&lt;glob-pattern&gt; </dt>
+<dt class="hdlist1" id="git-rev-parse---excludeltglob-patterngt"> <a class="anchor" href="#git-rev-parse---excludeglob-pattern"></a> <a class="anchor" href="#git-rev-parse---excludeltglob-patterngt"></a>--exclude=&lt;glob-pattern&gt; </dt>
 <dd>
 <p>Não inclua as refs que coincidam com <code>&lt;glob-pattern&gt;</code> em que as próximas opções <code>--all</code>, <code>--branches</code>, <code>--tags</code>, <code>--remotes</code> ou <code>--glob</code> considerariam de outra forma. As repetições destas opções acumulam padrões de exclusão até a próxima opção <code>--all</code>, <code>--branches</code>, <code>--tags</code>, <code>--remotes</code> ou <code>--glob</code> (outras opções ou argumentos não limpam os padrões acumulados).</p>
 <div class="paragraph">
@@ -216,7 +216,7 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 <dd>
 <p>Não inclua refs que seriam ocultados por <code>git-fetch</code>, <code>git-receive-pack</code> ou <code>git-upload-pack</code> durante a consulta da configuração apropriada de <code>fetch.hideRefs</code>, <code>receive.hideRefs</code> ou <code>uploadpack.hideRefs</code> junto com <code>transfer.hideRefs</code> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Esta opção afeta a próxima opção pseudo-ref <code>--all</code> ou <code>--glob</code> e é zerada após o processamento.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse---disambiguateltprefixogt"> <a class="anchor" href="#git-rev-parse---disambiguateltprefixogt"></a>--disambiguate=&lt;prefixo&gt; </dt>
+<dt class="hdlist1" id="git-rev-parse---disambiguateltprefixogt"> <a class="anchor" href="#git-rev-parse---disambiguateprefixo"></a> <a class="anchor" href="#git-rev-parse---disambiguateltprefixogt"></a>--disambiguate=&lt;prefixo&gt; </dt>
 <dd>
 <p>Mostra todos os objetos cujo nome começa com o prefixo informado. O &lt;prefixo&gt; deve ter pelo menos 4 dígitos hexadecimais para evitar a listagem de todos os objetos do repositório por engano.</p>
 </dd>
@@ -256,11 +256,11 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 <dd>
 <p>Exibe o <code>$GIT_COMMON_DIR</code> caso seja definido, senão <code>$GIT_DIR</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse---resolve-git-dirltcaminhogt"> <a class="anchor" href="#git-rev-parse---resolve-git-dirltcaminhogt"></a>--resolve-git-dir &lt;caminho&gt; </dt>
+<dt class="hdlist1" id="git-rev-parse---resolve-git-dirltcaminhogt"> <a class="anchor" href="#git-rev-parse---resolve-git-dircaminho"></a> <a class="anchor" href="#git-rev-parse---resolve-git-dirltcaminhogt"></a>--resolve-git-dir &lt;caminho&gt; </dt>
 <dd>
 <p>Verifica se o &lt;caminho&gt; é um repositório válido ou um arquivo git que aponte para um repositório válido e imprima o local do repositório. Quando o &lt;caminho&gt; for um arquivo git, o caminho resolvido para o repositório real será impresso.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse---git-pathltcaminhogt"> <a class="anchor" href="#git-rev-parse---git-pathltcaminhogt"></a>--git-path &lt;caminho&gt; </dt>
+<dt class="hdlist1" id="git-rev-parse---git-pathltcaminhogt"> <a class="anchor" href="#git-rev-parse---git-pathcaminho"></a> <a class="anchor" href="#git-rev-parse---git-pathltcaminhogt"></a>--git-path &lt;caminho&gt; </dt>
 <dd>
 <p>Resolva "$GIT_DIR/&lt;caminho&gt;" e leve em consideração as outras variáveis de realocação do caminho, como <code>$GIT_OBJECT_DIRECTORY</code>, <code>$GIT_INDEX_FILE</code>, etc. Caso <code>$GIT_OBJECT_DIRECTORY</code> seja definido para <em>/foo/bar</em> por exemplo, então o comando "git rev-parse --git-path objects/abc" returna <em>/foo/bar/abc</em>.</p>
 </dd>
@@ -326,17 +326,17 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 <h3 id="_outras_opções"><a class="anchor" href="#_outras_opções"></a>Outras Opções</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rev-parse---sinceltdatestringgt"> <a class="anchor" href="#git-rev-parse---sinceltdatestringgt"></a>--since=&lt;datestring&gt; </dt>
-<dt class="hdlist1" id="git-rev-parse---afterltdatestringgt"> <a class="anchor" href="#git-rev-parse---afterltdatestringgt"></a>--after=&lt;datestring&gt; </dt>
+<dt class="hdlist1" id="git-rev-parse---sinceltdatestringgt"> <a class="anchor" href="#git-rev-parse---sincedatestring"></a> <a class="anchor" href="#git-rev-parse---sinceltdatestringgt"></a>--since=&lt;datestring&gt; </dt>
+<dt class="hdlist1" id="git-rev-parse---afterltdatestringgt"> <a class="anchor" href="#git-rev-parse---afterdatestring"></a> <a class="anchor" href="#git-rev-parse---afterltdatestringgt"></a>--after=&lt;datestring&gt; </dt>
 <dd>
 <p>Analise a cadeia de caracteres da data e exiba o parâmetro --max-age= correspondente para <em>git rev-list</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse---untilltdatestringgt"> <a class="anchor" href="#git-rev-parse---untilltdatestringgt"></a>--until=&lt;datestring&gt; </dt>
-<dt class="hdlist1" id="git-rev-parse---beforeltdatestringgt"> <a class="anchor" href="#git-rev-parse---beforeltdatestringgt"></a>--before=&lt;datestring&gt; </dt>
+<dt class="hdlist1" id="git-rev-parse---untilltdatestringgt"> <a class="anchor" href="#git-rev-parse---untildatestring"></a> <a class="anchor" href="#git-rev-parse---untilltdatestringgt"></a>--until=&lt;datestring&gt; </dt>
+<dt class="hdlist1" id="git-rev-parse---beforeltdatestringgt"> <a class="anchor" href="#git-rev-parse---beforedatestring"></a> <a class="anchor" href="#git-rev-parse---beforeltdatestringgt"></a>--before=&lt;datestring&gt; </dt>
 <dd>
 <p>Analise a cadeia de caracteres da data e exiba o parâmetro --min-age= que corresponda para o <em>git rev-list</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-ltarggt82308203"> <a class="anchor" href="#git-rev-parse-ltarggt82308203"></a>&lt;arg&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-rev-parse-ltarggt82308203"> <a class="anchor" href="#git-rev-parse-arg"></a> <a class="anchor" href="#git-rev-parse-ltarggt82308203"></a>&lt;arg&gt;&#8230;&#8203; </dt>
 <dd>
 <p>As opções e os parâmetros que serão analisados.</p>
 </dd>
@@ -365,15 +365,15 @@ Este documento demonstra a sintaxe "bruta" como vista pelo git. O shell e outras
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rev-parse-emltsha1gtemexemploemdae86e1950b1277e545cee180551750029cfe735ememdae86eem"> <a class="anchor" href="#git-rev-parse-emltsha1gtemexemploemdae86e1950b1277e545cee180551750029cfe735ememdae86eem"></a><em>&lt;sha1&gt;</em>, exemplo. <em>dae86e1950b1277e545cee180551750029cfe735</em>, <em>dae86e</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltsha1gtemexemploemdae86e1950b1277e545cee180551750029cfe735ememdae86eem"> <a class="anchor" href="#git-rev-parse-sha1exemplodae86e1950b1277e545cee180551750029cfe735dae86e"></a> <a class="anchor" href="#git-rev-parse-emltsha1gtemexemploemdae86e1950b1277e545cee180551750029cfe735ememdae86eem"></a><em>&lt;sha1&gt;</em>, exemplo. <em>dae86e1950b1277e545cee180551750029cfe735</em>, <em>dae86e</em> </dt>
 <dd>
 <p>O nome completo do objeto SHA-1 (string hexadecimal com 40 bytes) ou uma substring principal que seja exclusiva no repositório. Por exemplo, <em>dae86e1950b1277e545cee180551750029cfe735</em> e <em>dae86e</em> nomeiam o mesmo objeto commit caso não haja nenhum outro objeto em seu repositório cujo nome do objeto também comece com <em>dae86e</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltdescribeOutputgtemexemploemv1742-679-g3bee7fbem"> <a class="anchor" href="#git-rev-parse-emltdescribeOutputgtemexemploemv1742-679-g3bee7fbem"></a><em>&lt;describeOutput&gt;</em>, exemplo. <em>v1.7.4.2-679-g3bee7fb</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltdescribeOutputgtemexemploemv1742-679-g3bee7fbem"> <a class="anchor" href="#git-rev-parse-describeOutputexemplov1742-679-g3bee7fb"></a> <a class="anchor" href="#git-rev-parse-emltdescribeOutputgtemexemploemv1742-679-g3bee7fbem"></a><em>&lt;describeOutput&gt;</em>, exemplo. <em>v1.7.4.2-679-g3bee7fb</em> </dt>
 <dd>
 <p>A saída do <code>git describe</code>; ou seja, um tag mais próximo opcionalmente seguido por um traço e um número do commit seguido por um traço, um <em>g</em> e um nome abreviado do objeto.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrefnamegtemexemploemmasterememheadsmasterememrefsheadsmasterem"> <a class="anchor" href="#git-rev-parse-emltrefnamegtemexemploemmasterememheadsmasterememrefsheadsmasterem"></a><em>&lt;refname&gt;</em>, exemplo. <em>master</em>, <em>heads/master</em>, <em>refs/heads/master</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrefnamegtemexemploemmasterememheadsmasterememrefsheadsmasterem"> <a class="anchor" href="#git-rev-parse-refnameexemplomasterheadsmasterrefsheadsmaster"></a> <a class="anchor" href="#git-rev-parse-emltrefnamegtemexemploemmasterememheadsmasterememrefsheadsmasterem"></a><em>&lt;refname&gt;</em>, exemplo. <em>master</em>, <em>heads/master</em>, <em>refs/heads/master</em> </dt>
 <dd>
 <p>Um nome ref simbólico. Por exemplo, <em>master</em> normalmente significa o objeto commit referenciado por <em>refs/heads/master</em>. Caso tenha <em>heads/master</em> e <em>tags/master</em>, poderá dizer explicitamente <em>heads/master</em> para informar ao Git a que se refere. Quando ambíguo, um <em>&lt;refname&gt;</em> é desambiguado usando a primeira correspondência nas regras a seguir:</p>
 <div class="olist arabic">
@@ -397,48 +397,48 @@ Este documento demonstra a sintaxe "bruta" como vista pelo git. O shell e outras
 <p>caso contrário, utilize <em>refs/remotes/&lt;refname&gt;/HEAD</em> caso exista.</p>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rev-parse-codeHEADcode"> <a class="anchor" href="#git-rev-parse-codeHEADcode"></a><code>HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeHEADcode"> <a class="anchor" href="#git-rev-parse-HEAD"></a> <a class="anchor" href="#git-rev-parse-codeHEADcode"></a><code>HEAD</code> </dt>
 <dd>
 <p>nomeia o commit no qual você baseou as alterações na árvore de trabalho.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeFETCHHEADcode"> <a class="anchor" href="#git-rev-parse-codeFETCHHEADcode"></a><code>FETCH_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeFETCHHEADcode"> <a class="anchor" href="#git-rev-parse-FETCHHEAD"></a> <a class="anchor" href="#git-rev-parse-codeFETCHHEADcode"></a><code>FETCH_HEAD</code> </dt>
 <dd>
 <p>registra o ramo que você obteve de um repositório remoto com
 a sua última invocação <code>git fetch</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeORIGHEADcode"> <a class="anchor" href="#git-rev-parse-codeORIGHEADcode"></a><code>ORIG_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeORIGHEADcode"> <a class="anchor" href="#git-rev-parse-ORIGHEAD"></a> <a class="anchor" href="#git-rev-parse-codeORIGHEADcode"></a><code>ORIG_HEAD</code> </dt>
 <dd>
 <p>é criado por comandos que movem seu <code>HEAD</code> de forma drástica (<code>git
 am</code>, <code>git merge</code>, <code>git rebase</code>, <code>git reset</code>), para registrar a posição
 do <code>HEAD</code> antes de sua operação, para que você possa alterar
 facilmente o cume da ramificação de volta ao estado anterior à sua execução.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeMERGEHEADcode"> <a class="anchor" href="#git-rev-parse-codeMERGEHEADcode"></a><code>MERGE_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeMERGEHEADcode"> <a class="anchor" href="#git-rev-parse-MERGEHEAD"></a> <a class="anchor" href="#git-rev-parse-codeMERGEHEADcode"></a><code>MERGE_HEAD</code> </dt>
 <dd>
 <p>registra o(s) commit(s) que está(ão) sendo mesclado(s) no seu ramo quando você
 executar o <code>git merge</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeREBASEHEADcode"> <a class="anchor" href="#git-rev-parse-codeREBASEHEADcode"></a><code>REBASE_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeREBASEHEADcode"> <a class="anchor" href="#git-rev-parse-REBASEHEAD"></a> <a class="anchor" href="#git-rev-parse-codeREBASEHEADcode"></a><code>REBASE_HEAD</code> </dt>
 <dd>
 <p>durante um rebase, registra o commit onde a operação está
 interrompida no momento, seja por causa de conflitos ou de um comando <code>edit</code>
 num rebase interativo.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeREVERTHEADcode"> <a class="anchor" href="#git-rev-parse-codeREVERTHEADcode"></a><code>REVERT_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeREVERTHEADcode"> <a class="anchor" href="#git-rev-parse-REVERTHEAD"></a> <a class="anchor" href="#git-rev-parse-codeREVERTHEADcode"></a><code>REVERT_HEAD</code> </dt>
 <dd>
 <p>registra o commit que está sendo revertido quando você executa o <code>git revert</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeCHERRYPICKHEADcode"> <a class="anchor" href="#git-rev-parse-codeCHERRYPICKHEADcode"></a><code>CHERRY_PICK_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeCHERRYPICKHEADcode"> <a class="anchor" href="#git-rev-parse-CHERRYPICKHEAD"></a> <a class="anchor" href="#git-rev-parse-codeCHERRYPICKHEADcode"></a><code>CHERRY_PICK_HEAD</code> </dt>
 <dd>
 <p>registra o commit que você está selecionando quando executa o <code>git
 cherry-pick</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeBISECTHEADcode"> <a class="anchor" href="#git-rev-parse-codeBISECTHEADcode"></a><code>BISECT_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeBISECTHEADcode"> <a class="anchor" href="#git-rev-parse-BISECTHEAD"></a> <a class="anchor" href="#git-rev-parse-codeBISECTHEADcode"></a><code>BISECT_HEAD</code> </dt>
 <dd>
 <p>registra o commit atual a ser testado quando você executa <code>git bisect
 --no-checkout</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeAUTOMERGEcode"> <a class="anchor" href="#git-rev-parse-codeAUTOMERGEcode"></a><code>AUTO_MERGE</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeAUTOMERGEcode"> <a class="anchor" href="#git-rev-parse-AUTOMERGE"></a> <a class="anchor" href="#git-rev-parse-codeAUTOMERGEcode"></a><code>AUTO_MERGE</code> </dt>
 <dd>
 <p>registra um objeto da árvore correspondente ao estado da estratégia de mesclagem
 <em>ort</em> gravada na árvore de trabalho quando uma operação de mesclagem
@@ -453,31 +453,31 @@ resultar em conflitos.</p>
 <p>Observe que qualquer um dos casos <em>refs/*</em> acima pode vir do diretório <code>$GIT_DIR/refs</code> ou do arquivo <code>$GIT_DIR/packed-refs</code>. Embora a codificação do nome da referência não seja especificada, é preferível usar o UTF-8, pois alguns processamentos de saída podem assumir nomes no padrão UTF-8 como referência.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emem"> <a class="anchor" href="#git-rev-parse-emem"></a><em>@</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emem"> <a class="anchor" href="#git-rev-parse-"></a> <a class="anchor" href="#git-rev-parse-emem"></a><em>@</em> </dt>
 <dd>
 <p>O <em>@</em> sozinho é um atalho para <code>HEAD</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrefnamegtltdatagtemexemploemmasteryesterdayememHEAD5minutosatrsem"> <a class="anchor" href="#git-rev-parse-emltrefnamegtltdatagtemexemploemmasteryesterdayememHEAD5minutosatrsem"></a><em>[&lt;refname&gt;]@{&lt;data&gt;}</em>, exemplo. <em>master@{yesterday}</em>, <em>HEAD@{5 minutos atrás}</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrefnamegtltdatagtemexemploemmasteryesterdayememHEAD5minutosatrsem"> <a class="anchor" href="#git-rev-parse-refnamedataexemplomasteryesterdayHEAD5minutosatrs"></a> <a class="anchor" href="#git-rev-parse-emltrefnamegtltdatagtemexemploemmasteryesterdayememHEAD5minutosatrsem"></a><em>[&lt;refname&gt;]@{&lt;data&gt;}</em>, exemplo. <em>master@{yesterday}</em>, <em>HEAD@{5 minutos atrás}</em> </dt>
 <dd>
 <p>Uma ref seguida pelo sufixo <em>@</em> com uma especificação de data num par de chaves (por exemplo, <em>{yesterday}</em>, <em>{1 month 2 weeks 3 days 1 hour 1 second ago}</em> ou <em>{1979-02-26 18:30:00}</em>) especifica o valor da ref num momento anterior. Este sufixo só pode ser usado imediatamente após um nome de referência e a referência deve ter um registro existente (<em>$GIT_DIR/logs/&lt;ref&gt;</em>). Observe que isso procura pela condição da sua referência <strong>local</strong> num determinado momento; por exemplo, o que estava no seu ramo local <em>master</em> na semana passada. Caso queira ver os commits feitos durante determinados períodos, consulte as opções <code>--since</code> e <code>--until</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrefnamegtltngtemegemmaster1em"> <a class="anchor" href="#git-rev-parse-emltrefnamegtltngtemegemmaster1em"></a><em>&lt;refname&gt;@{&lt;n&gt;}</em>, e.g. <em>master@{1}</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrefnamegtltngtemegemmaster1em"> <a class="anchor" href="#git-rev-parse-refnamenegmaster1"></a> <a class="anchor" href="#git-rev-parse-emltrefnamegtltngtemegemmaster1em"></a><em>&lt;refname&gt;@{&lt;n&gt;}</em>, e.g. <em>master@{1}</em> </dt>
 <dd>
 <p>Uma ref seguida pelo sufixo <em>@</em> com uma especificação ordinal num par de chaves (por exemplo, <em>{1}</em>, <em>{15}</em>) especifica o n-ésimo valor anterior dessa ref. Por exemplo, “master@{1}” é o valor anterior imediato de <em>master</em>, enquanto <em>master@{5}</em> é o quinto valor anterior de <em>master</em>. Este sufixo só pode ser usado imediatamente após um nome ref e a ref já deve ter um registro log existente (<em>$GIT_DIR/logs/&lt;refname&gt;</em>).</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltngtemexemploem1em"> <a class="anchor" href="#git-rev-parse-emltngtemexemploem1em"></a><em>@{&lt;n&gt;}</em>, exemplo. <em>@{1}</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltngtemexemploem1em"> <a class="anchor" href="#git-rev-parse-nexemplo1"></a> <a class="anchor" href="#git-rev-parse-emltngtemexemploem1em"></a><em>@{&lt;n&gt;}</em>, exemplo. <em>@{1}</em> </dt>
 <dd>
 <p>Você pode usar a construção <em>@</em> com um <code>ref</code> vazio para obter uma entrada <code>reflog</code> do ramo atual. Por exemplo, caso esteja no ramo <em>blabla</em> então <em>@{1}</em> significa o mesmo que <em>blabla@{1}</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-em-ltngtemexemploem-1em"> <a class="anchor" href="#git-rev-parse-em-ltngtemexemploem-1em"></a><em>@{-&lt;n&gt;}</em>, exemplo, <em>@{-1}</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-em-ltngtemexemploem-1em"> <a class="anchor" href="#git-rev-parse--nexemplo-1"></a> <a class="anchor" href="#git-rev-parse-em-ltngtemexemploem-1em"></a><em>@{-&lt;n&gt;}</em>, exemplo, <em>@{-1}</em> </dt>
 <dd>
 <p>O construtor <em>@{-&lt;n&gt;}</em> significa que &lt;n&gt; do ramo/commit foi verificado antes da atual.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltnome-do-ramogtupstreamemexemploemmasterupstreamememuem"> <a class="anchor" href="#git-rev-parse-emltnome-do-ramogtupstreamemexemploemmasterupstreamememuem"></a><em>[&lt;nome-do-ramo&gt;]@{upstream}</em>, exemplo, <em>master@{upstream}</em>, <em>@{u}</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltnome-do-ramogtupstreamemexemploemmasterupstreamememuem"> <a class="anchor" href="#git-rev-parse-nome-do-ramoupstreamexemplomasterupstreamu"></a> <a class="anchor" href="#git-rev-parse-emltnome-do-ramogtupstreamemexemploemmasterupstreamememuem"></a><em>[&lt;nome-do-ramo&gt;]@{upstream}</em>, exemplo, <em>master@{upstream}</em>, <em>@{u}</em> </dt>
 <dd>
 <p>Um ramo B pode ser configurado para construir em cima de um ramo X (configurado com <code>branch.&lt;nome&gt;.merge</code>) em um R remoto (configurado com <code>branch.&lt;nome&gt;.remote</code>). B@{u} refere-se ao ramo rastreado remotamente para o ramo X obtido a partir do R remoto, normalmente encontrado em <code>refs/remotes/R/X</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltnome-do-ramogtpushemexemploemmasterpushemempushem"> <a class="anchor" href="#git-rev-parse-emltnome-do-ramogtpushemexemploemmasterpushemempushem"></a><em>[&lt;nome-do-ramo&gt;]@{push}</em>, exemplo, <em>master@{push}</em>, <em>@{push}</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltnome-do-ramogtpushemexemploemmasterpushemempushem"> <a class="anchor" href="#git-rev-parse-nome-do-ramopushexemplomasterpushpush"></a> <a class="anchor" href="#git-rev-parse-emltnome-do-ramogtpushemexemploemmasterpushemempushem"></a><em>[&lt;nome-do-ramo&gt;]@{push}</em>, exemplo, <em>master@{push}</em>, <em>@{push}</em> </dt>
 <dd>
 <p>O sufixo <em>@{push}</em> relata ao ramo "para onde estaremos fazendo impulsionamento" caso <code>git push</code> seja executado enquanto <code>branchname</code> seja verificado (ou o <code>HEAD</code> atual, caso nenhum nome do ramo tenha sido especificado). Como é para <em>@{upstream}</em>, reportamos o ramo rastreado remotamente que corresponda aquela ramificação remotamente.</p>
 <div class="paragraph">
@@ -503,15 +503,15 @@ refs/remotes/myfork/mybranch</pre>
 <p>Esse sufixo também é aceito quando escrito em maiúsculas e significa a mesma coisa, não importa o caso.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrevgtltngtemexemploemHEADv1510em"> <a class="anchor" href="#git-rev-parse-emltrevgtltngtemexemploemHEADv1510em"></a><em>&lt;rev&gt;^[&lt;n&gt;]</em>, exemplo, <em>HEAD^, v1.5.1^0</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgtltngtemexemploemHEADv1510em"> <a class="anchor" href="#git-rev-parse-revnexemploHEADv1510"></a> <a class="anchor" href="#git-rev-parse-emltrevgtltngtemexemploemHEADv1510em"></a><em>&lt;rev&gt;^[&lt;n&gt;]</em>, exemplo, <em>HEAD^, v1.5.1^0</em> </dt>
 <dd>
 <p>Um sufixo <em>^</em> num parâmetro de revisão significa a primeira origem desse objeto commit. <em>^&lt;n&gt;</em> significa o &lt;n&gt;ésimo ramo principal (ou seja, <em>&lt;rev&gt;^</em> é equivalente a <em>&lt;rev&gt;^1</em>). Como regra especial, <em>&lt;rev&gt;^0</em> significa o próprio commit e é usado quando <em>&lt;rev&gt;</em> é o nome do objeto de um objeto de etiquetas que se refere a um objeto de commit.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrevgtltngtemexemploemHEADmaster3em"> <a class="anchor" href="#git-rev-parse-emltrevgtltngtemexemploemHEADmaster3em"></a><em>&lt;rev&gt;~[&lt;n&gt;]</em>, exemplo, <em>HEAD~, master~3</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgtltngtemexemploemHEADmaster3em"> <a class="anchor" href="#git-rev-parse-revnexemploHEADmaster3"></a> <a class="anchor" href="#git-rev-parse-emltrevgtltngtemexemploemHEADmaster3em"></a><em>&lt;rev&gt;~[&lt;n&gt;]</em>, exemplo, <em>HEAD~, master~3</em> </dt>
 <dd>
 <p>Um sufixo <em>~</em> num parâmetro de revisão significa a primeira origem deste objeto commit. Um sufixo <em>~&lt;n&gt;</em> num parâmetro de revisão significa o objeto de commit que é o ancestral da &lt;n&gt;ésima geração do objeto de commit mencionado, seguindo apenas as primeiras origens. Ou seja, <em>&lt;rev&gt;~3</em> é equivalente a <em>&lt;rev&gt;^^^^</em>, que é equivalente a <em>&lt;rev&gt;^1^1^1</em>. Veja abaixo uma ilustração de uso desse formulário.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrevgtlttypegtemexemploemv0998commitem"> <a class="anchor" href="#git-rev-parse-emltrevgtlttypegtemexemploemv0998commitem"></a><em>&lt;rev&gt;^{&lt;type&gt;}</em>, exemplo, <em>v0.99.8^{commit}</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgtlttypegtemexemploemv0998commitem"> <a class="anchor" href="#git-rev-parse-revtypeexemplov0998commit"></a> <a class="anchor" href="#git-rev-parse-emltrevgtlttypegtemexemploemv0998commitem"></a><em>&lt;rev&gt;^{&lt;type&gt;}</em>, exemplo, <em>v0.99.8^{commit}</em> </dt>
 <dd>
 <p>Um sufixo <em>^</em> seguido por um nome de tipo do objeto entre um par de chaves significa remove a referência do objeto em <em>&lt;rev&gt;</em> recursivamente até que um objeto do tipo <em>&lt;type&gt;</em> seja encontrado ou o objeto não possa mais perder a referência (neste caso, barf). Por exemplo, se <em>&lt;rev&gt;</em> for um commit, <em>&lt;rev&gt;^{commit}</em> descreverá o objeto correspondente do commit. Da mesma maneira, se <em>&lt;rev&gt;</em> for uma árvore, <em>&lt;rev&gt;^{tree}</em> descreverá o objeto correspondente da árvore. <em>&lt;rev&gt;^0</em> é um atalho para <em>&lt;rev&gt;^{commit}</em>.</p>
 <div class="paragraph">
@@ -521,23 +521,23 @@ refs/remotes/myfork/mybranch</pre>
 <p><em>&lt;rev&gt;^{tag}</em> pode ser utilizado para ter certeza que <em>&lt;rev&gt;</em> identifique um objeto <code>tag</code> já existente.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrevgtemexemploemv0998em"> <a class="anchor" href="#git-rev-parse-emltrevgtemexemploemv0998em"></a><em>&lt;rev&gt;^{}</em>, exemplo, <em>v0.99.8^{}</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgtemexemploemv0998em"> <a class="anchor" href="#git-rev-parse-revexemplov0998"></a> <a class="anchor" href="#git-rev-parse-emltrevgtemexemploemv0998em"></a><em>&lt;rev&gt;^{}</em>, exemplo, <em>v0.99.8^{}</em> </dt>
 <dd>
 <p>Um sufixo <em>^</em> seguido por um par de chaves vazias significa que o objeto pode ser uma tag e perder a referência de uma tag recursivamente, até que um objeto que não seja tag, seja encontrada.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrevgtlttextogtemexemploemHEADfixnastybugem"> <a class="anchor" href="#git-rev-parse-emltrevgtlttextogtemexemploemHEADfixnastybugem"></a><em>&lt;rev&gt;^{/&lt;texto&gt;}</em>, exemplo, <em>HEAD^{/fix nasty bug}</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgtlttextogtemexemploemHEADfixnastybugem"> <a class="anchor" href="#git-rev-parse-revtextoexemploHEADfixnastybug"></a> <a class="anchor" href="#git-rev-parse-emltrevgtlttextogtemexemploemHEADfixnastybugem"></a><em>&lt;rev&gt;^{/&lt;texto&gt;}</em>, exemplo, <em>HEAD^{/fix nasty bug}</em> </dt>
 <dd>
 <p>Um sufixo <em>^</em> para um parâmetro de revisão, seguido por um par de chaves que contém um texto liderado por uma barra, é o mesmo que a sintaxe <em>:/fix nasty bug</em> abaixo, exceto que ele retorna o commit coincidente mais jovem que é acessível a partir de <em>&lt;rev&gt;</em> antes de <em>^</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emlttextogtemexemploemfixnastybugem"> <a class="anchor" href="#git-rev-parse-emlttextogtemexemploemfixnastybugem"></a><em>:/&lt;texto&gt;</em>, exemplo, <em>:/fix nasty bug</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emlttextogtemexemploemfixnastybugem"> <a class="anchor" href="#git-rev-parse-textoexemplofixnastybug"></a> <a class="anchor" href="#git-rev-parse-emlttextogtemexemploemfixnastybugem"></a><em>:/&lt;texto&gt;</em>, exemplo, <em>:/fix nasty bug</em> </dt>
 <dd>
 <p>Dois pontos, seguido de uma barra, seguido de um texto, nomeia um commit cuja mensagem de commit corresponde à expressão regular mencionada. Esse nome retorna o commit correspondente mais novo que pode ser acessado de qualquer ref, incluindo o <code>HEAD</code>. A expressão regular pode corresponder a qualquer parte da mensagem do commit. Para corresponder a mensagens que começam com uma string, é possível usar, por exemplo, <em>:/^foo</em>. A sequência especial <em>:/!</em> é reservada para modificadores do que é correspondido. <em>:/!-foo</em> executa uma correspondência negativa, enquanto <em>:/!!foo</em> corresponde a um caractere literal <em>!</em> seguido de <em>foo</em>. Por enquanto, qualquer outra sequência que comece com <em>:/!</em> está reservada. Dependendo do texto informado, as regras de divisão das palavras do shell podem exigir citações adicionais.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrevgtltcaminhogtemexemploemHEADREADMEememmasterREADMEem"> <a class="anchor" href="#git-rev-parse-emltrevgtltcaminhogtemexemploemHEADREADMEememmasterREADMEem"></a><em>&lt;rev&gt;:&lt;caminho&gt;</em>, exemplo, <em>HEAD:README</em>, <em>master:./README</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgtltcaminhogtemexemploemHEADREADMEememmasterREADMEem"> <a class="anchor" href="#git-rev-parse-revcaminhoexemploHEADREADMEmasterREADME"></a> <a class="anchor" href="#git-rev-parse-emltrevgtltcaminhogtemexemploemHEADREADMEememmasterREADMEem"></a><em>&lt;rev&gt;:&lt;caminho&gt;</em>, exemplo, <em>HEAD:README</em>, <em>master:./README</em> </dt>
 <dd>
 <p>Um sufixo <em>:</em> seguido de um caminho nomeia a bolha ou a árvore no caminho manecionado no objeto em forma de árvore nomeado pela parte antes dos dois-pontos. Um caminho que comece com <em>./</em> ou <em>../</em> é relativo ao diretório de trabalho atual. O caminho informado será convertido para ser relativo ao diretório raiz da árvore de trabalho. Isso é mais útil para abordar uma bolha ou uma árvore de um commit ou uma árvore que tenha a mesma estrutura de árvore que a árvore de trabalho.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltngtltcaminhogtemexemploem0READMEememREADMEem"> <a class="anchor" href="#git-rev-parse-emltngtltcaminhogtemexemploem0READMEememREADMEem"></a><em>:[&lt;n&gt;:]&lt;caminho&gt;</em>, exemplo, <em>:0:README</em>, <em>:README</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltngtltcaminhogtemexemploem0READMEememREADMEem"> <a class="anchor" href="#git-rev-parse-ncaminhoexemplo0READMEREADME"></a> <a class="anchor" href="#git-rev-parse-emltngtltcaminhogtemexemploem0READMEememREADMEem"></a><em>:[&lt;n&gt;:]&lt;caminho&gt;</em>, exemplo, <em>:0:README</em>, <em>:README</em> </dt>
 <dd>
 <p>Os dois pontos opcionalmente seguidos por um número de estágio (0 para 3) e dois pontos, seguidos por um caminho, informam um objeto bolha no índice no caminho especificado. Nomeia uma entrada de estágio quando o número estiver ausente (assim como dois pontos que o seguem). Durante uma mesclagem, o estágio 1 é o ancestral comum, o estágio 2 é a versão do ramo de destino (normalmente o ramo atual) e o estágio 3 é a versão do ramo que está sendo mesclado.</p>
 </dd>
@@ -598,7 +598,7 @@ J = F^2  = B^3^2   = A^^3^2</pre>
 <h3 id="_exclusões_de_commits"><a class="anchor" href="#_exclusões_de_commits"></a>Exclusões de Commits</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rev-parse-emltrevgtemcaretNotao"> <a class="anchor" href="#git-rev-parse-emltrevgtemcaretNotao"></a><em>^&lt;rev&gt;</em> (caret) Notação </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgtemcaretNotao"> <a class="anchor" href="#git-rev-parse-revcaretNotao"></a> <a class="anchor" href="#git-rev-parse-emltrevgtemcaretNotao"></a><em>^&lt;rev&gt;</em> (caret) Notação </dt>
 <dd>
 <p>Para excluir commits acessíveis a partir de um commit, é usada a notação de prefixo <em>^</em>. Por exemplo, <em>^r1 r2</em> significa que os commits acessíveis a partir de <em>r2</em>, mas exclui os acessíveis a partir de <em>r1</em> (ou seja, <em>r1</em> e seus ancestrais).</p>
 </dd>
@@ -609,11 +609,11 @@ J = F^2  = B^3^2   = A^^3^2</pre>
 <h3 id="_notações_do_intervalo_pontilhado"><a class="anchor" href="#_notações_do_intervalo_pontilhado"></a>Notações do Intervalo Pontilhado</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rev-parse-Afaixadenotaodeintervaloememdoispontos"> <a class="anchor" href="#git-rev-parse-Afaixadenotaodeintervaloememdoispontos"></a>A faixa de notação de intervalo <em>..</em> (dois pontos) </dt>
+<dt class="hdlist1" id="git-rev-parse-Afaixadenotaodeintervaloememdoispontos"> <a class="anchor" href="#git-rev-parse-Afaixadenotaodeintervalodoispontos"></a> <a class="anchor" href="#git-rev-parse-Afaixadenotaodeintervaloememdoispontos"></a>A faixa de notação de intervalo <em>..</em> (dois pontos) </dt>
 <dd>
 <p>A operação de conjunto <em>^r1 r2</em> aparece com tanta frequência que existe uma abreviação para ela. Quando você tem dois commits <em>r1</em> e <em>r2</em> (mencionados de acordo com a sintaxe explicada em ESPECIFICANDO REVISÕES acima), você pode solicitar os commits que são acessíveis a partir de <em>r2</em> excluindo aqueles que são acessíveis a partir de <em>r1</em> por <em>^r1 r2</em> e isso pode ser escrito como <em>r1..r2</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-Anotaodadiferenasimtricaememtrspontos"> <a class="anchor" href="#git-rev-parse-Anotaodadiferenasimtricaememtrspontos"></a>A notação da diferença simétrica <em>...</em> (três pontos) </dt>
+<dt class="hdlist1" id="git-rev-parse-Anotaodadiferenasimtricaememtrspontos"> <a class="anchor" href="#git-rev-parse-Anotaodadiferenasimtricatrspontos"></a> <a class="anchor" href="#git-rev-parse-Anotaodadiferenasimtricaememtrspontos"></a>A notação da diferença simétrica <em>...</em> (três pontos) </dt>
 <dd>
 <p>Uma notação semelhante <em>r1...r2</em> é chamada de diferença simétrica entre <em>r1</em> e <em>r2</em> e é definida como <em>r1 r2 --not $(git merge-base --all r1 r2)</em>. É o conjunto de commits que são acessíveis a partir de um dos <em>r1</em> (lado esquerdo) ou <em>r2</em> (lado direito), mas não de ambos.</p>
 </dd>
@@ -667,31 +667,31 @@ J = F^2  = B^3^2   = A^^3^2</pre>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rev-parse-emltrevgtem"> <a class="anchor" href="#git-rev-parse-emltrevgtem"></a><em>&lt;rev&gt;</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgtem"> <a class="anchor" href="#git-rev-parse-rev"></a> <a class="anchor" href="#git-rev-parse-emltrevgtem"></a><em>&lt;rev&gt;</em> </dt>
 <dd>
 <p>Inclua os commits que são acessíveis através do &lt;ref&gt; (ou seja, &lt;rev&gt; e seus ancestrais).</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrevgtem-1"> <a class="anchor" href="#git-rev-parse-emltrevgtem-1"></a><em>^&lt;rev&gt;</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgtem-1"> <a class="anchor" href="#git-rev-parse-rev-1"></a> <a class="anchor" href="#git-rev-parse-emltrevgtem-1"></a><em>^&lt;rev&gt;</em> </dt>
 <dd>
 <p>Exclua os commits que estejam acessíveis a partir de <code>&lt;rev&gt;</code> (&lt;rev&gt; e os seus ancestrais por exemplo).</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrev1gtltrev2gtem"> <a class="anchor" href="#git-rev-parse-emltrev1gtltrev2gtem"></a><em>&lt;rev1&gt;..&lt;rev2&gt;</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrev1gtltrev2gtem"> <a class="anchor" href="#git-rev-parse-rev1rev2"></a> <a class="anchor" href="#git-rev-parse-emltrev1gtltrev2gtem"></a><em>&lt;rev1&gt;..&lt;rev2&gt;</em> </dt>
 <dd>
 <p>Inclua os commits que podem ser acessados a partir de <em>&lt;rev2&gt;</em>, mas exclua aqueles que podem ser acessados a partir de <em>&lt;rev1&gt;</em>. Quando <em>&lt;rev1&gt;</em> ou <em>&lt;rev2&gt;</em> é omitido, o padrão é <code>HEAD</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrev1gtltrev2gtem-1"> <a class="anchor" href="#git-rev-parse-emltrev1gtltrev2gtem-1"></a><em>&lt;rev1&gt;...&lt;rev2&gt;</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrev1gtltrev2gtem-1"> <a class="anchor" href="#git-rev-parse-rev1rev2-1"></a> <a class="anchor" href="#git-rev-parse-emltrev1gtltrev2gtem-1"></a><em>&lt;rev1&gt;...&lt;rev2&gt;</em> </dt>
 <dd>
 <p>Inclua os commits que são acessíveis a partir de <em>&lt;rev1&gt;</em> ou <em>&lt;rev2&gt;</em>, mas exclua aqueles que são acessíveis a partir de ambos. Quando <em>&lt;rev1&gt;</em> ou <em>&lt;rev2&gt;</em> é omitido, o padrão é <code>HEAD</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrevgtemegemHEADem"> <a class="anchor" href="#git-rev-parse-emltrevgtemegemHEADem"></a><em>&lt;rev&gt;^@</em>, e.g. <em>HEAD^@</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgtemegemHEADem"> <a class="anchor" href="#git-rev-parse-revegHEAD"></a> <a class="anchor" href="#git-rev-parse-emltrevgtemegemHEADem"></a><em>&lt;rev&gt;^@</em>, e.g. <em>HEAD^@</em> </dt>
 <dd>
 <p>Um sufixo <em>^</em> seguido por um sinal de arroba é o mesmo que listar todas as origens de <em>&lt;rev&gt;</em> (ou seja, incluir qualquer coisa acessível das suas origens, mas não o próprio commit).</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrevgtemegemHEADem-1"> <a class="anchor" href="#git-rev-parse-emltrevgtemegemHEADem-1"></a><em>&lt;rev&gt;^!</em>, e.g. <em>HEAD^!</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgtemegemHEADem-1"> <a class="anchor" href="#git-rev-parse-revegHEAD-1"></a> <a class="anchor" href="#git-rev-parse-emltrevgtemegemHEADem-1"></a><em>&lt;rev&gt;^!</em>, e.g. <em>HEAD^!</em> </dt>
 <dd>
 <p>Um sufixo <em>^</em> seguido de um ponto de exclamação é o mesmo que fazer um commit <em>&lt;rev&gt;</em> e todos os seus principais prefixam com <em>^</em> para excluí-los (assim como seus ancestrais).</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-emltrevgt-ltngtemegemHEAD-HEAD-2em"> <a class="anchor" href="#git-rev-parse-emltrevgt-ltngtemegemHEAD-HEAD-2em"></a><em>&lt;rev&gt;^-&lt;n&gt;</em>, e.g. <em>HEAD^-, HEAD^-2</em> </dt>
+<dt class="hdlist1" id="git-rev-parse-emltrevgt-ltngtemegemHEAD-HEAD-2em"> <a class="anchor" href="#git-rev-parse-rev-negHEAD-HEAD-2"></a> <a class="anchor" href="#git-rev-parse-emltrevgt-ltngtemegemHEAD-HEAD-2em"></a><em>&lt;rev&gt;^-&lt;n&gt;</em>, e.g. <em>HEAD^-, HEAD^-2</em> </dt>
 <dd>
 <p>É o equivalente a <em>&lt;rev&gt;^&lt;n&gt;..&lt;rev&gt;</em>, with <em>&lt;n&gt;</em> = 1 caso nenhum seja informado.</p>
 </dd>
@@ -755,11 +755,11 @@ J = F^2  = B^3^2   = A^^3^2</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rev-parse-codeltopt-specgtcode"> <a class="anchor" href="#git-rev-parse-codeltopt-specgtcode"></a><code>&lt;opt-spec&gt;</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeltopt-specgtcode"> <a class="anchor" href="#git-rev-parse-opt-spec"></a> <a class="anchor" href="#git-rev-parse-codeltopt-specgtcode"></a><code>&lt;opt-spec&gt;</code> </dt>
 <dd>
 <p>O seu formato é o caractere curto da opção, em seguida, o nome longo da opção separado por vírgula. Ambas as partes não são obrigatórias, embora pelo menos uma seja necessária. Não pode conter nenhum dos caracteres <code>&lt;flags&gt;</code>. O <code>h,help</code>, <code>dry-run</code> e <code>f</code> são exemplos de <code>&lt;opt-spec&gt;</code> corretos.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeltflagsgtcode"> <a class="anchor" href="#git-rev-parse-codeltflagsgtcode"></a><code>&lt;flags&gt;</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeltflagsgtcode"> <a class="anchor" href="#git-rev-parse-flags"></a> <a class="anchor" href="#git-rev-parse-codeltflagsgtcode"></a><code>&lt;flags&gt;</code> </dt>
 <dd>
 <p><code>&lt;flags&gt;</code> são do <code>*</code>, <code>=</code>, <code>?</code> ou <code>!</code>.</p>
 <div class="ulist">
@@ -779,7 +779,7 @@ J = F^2  = B^3^2   = A^^3^2</pre>
 </ul>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeltarg-hintgtcode"> <a class="anchor" href="#git-rev-parse-codeltarg-hintgtcode"></a><code>&lt;arg-hint&gt;</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-codeltarg-hintgtcode"> <a class="anchor" href="#git-rev-parse-arg-hint"></a> <a class="anchor" href="#git-rev-parse-codeltarg-hintgtcode"></a><code>&lt;arg-hint&gt;</code> </dt>
 <dd>
 <p>Quando o <code>&lt;arg-hint&gt;</code> é especificado, é utilizado como um nome do argumento na saída da ajuda para as opções que recebem argumentos. O <code>&lt;arg-hint&gt;</code> é encerrado pelo primeiro espaço em branco. É comum usar um travessão para separar palavras numa dica de argumento com várias palavras.</p>
 </dd>

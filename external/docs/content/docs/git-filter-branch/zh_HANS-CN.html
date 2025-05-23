@@ -80,35 +80,35 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-filter-branch---setupltgt"> <a class="anchor" href="#git-filter-branch---setupltgt"></a>--setup &lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---setupltgt"> <a class="anchor" href="#git-filter-branch---setup"></a> <a class="anchor" href="#git-filter-branch---setupltgt"></a>--setup &lt;命令&gt; </dt>
 <dd>
 <p>这不是为每次提交执行的真正过滤器，而是在循环之前的一次性设置。因此还没有定义特定于提交的变量。 由于技术原因，此处定义的函数或变量可以在除提交过滤器之外的后续过滤器步骤中使用或修改。</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---subdirectory-filterltgt"> <a class="anchor" href="#git-filter-branch---subdirectory-filterltgt"></a>--subdirectory-filter &lt;目录&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---subdirectory-filterltgt"> <a class="anchor" href="#git-filter-branch---subdirectory-filter"></a> <a class="anchor" href="#git-filter-branch---subdirectory-filterltgt"></a>--subdirectory-filter &lt;目录&gt; </dt>
 <dd>
 <p>只查看涉及给定子目录的历史记录。 结果将包含作为项目根目录的该目录（且仅包含该目录）。隐含 <a href="#Remap_to_ancestor">重映射到祖先</a>。</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---env-filterltgt"> <a class="anchor" href="#git-filter-branch---env-filterltgt"></a>--env-filter &lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---env-filterltgt"> <a class="anchor" href="#git-filter-branch---env-filter"></a> <a class="anchor" href="#git-filter-branch---env-filterltgt"></a>--env-filter &lt;命令&gt; </dt>
 <dd>
 <p>如果只需要修改提交的环境，可以使用这个过滤器。 具体来说，你可能想重写作者/提交者姓名/电子邮件/时间等环境变量（详见 <a href='{{< relurl "docs/git-commit-tree/zh_HANS-CN" >}}'>git-commit-tree[1]</a>）。</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---tree-filterltgt"> <a class="anchor" href="#git-filter-branch---tree-filterltgt"></a>--tree-filter &lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---tree-filterltgt"> <a class="anchor" href="#git-filter-branch---tree-filter"></a> <a class="anchor" href="#git-filter-branch---tree-filterltgt"></a>--tree-filter &lt;命令&gt; </dt>
 <dd>
 <p>这是重写树及其内容的过滤器。 参数在 shell 中评估，工作目录设置为签出树的根目录。 新的签出树将按原样使用（自动添加新文件，自动删除已消失的文件&#8212;&#8203;无论是 .gitignore 文件还是任何其他忽略规则都不会 <strong>产生任何影响</strong>！）。</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---index-filterltgt"> <a class="anchor" href="#git-filter-branch---index-filterltgt"></a>--index-filter &lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---index-filterltgt"> <a class="anchor" href="#git-filter-branch---index-filter"></a> <a class="anchor" href="#git-filter-branch---index-filterltgt"></a>--index-filter &lt;命令&gt; </dt>
 <dd>
 <p>这是用于重写索引的过滤器。 它与树过滤器类似，但不检查树，因此速度更快。 经常与 `git rm --cached --ignore-unmatch &#8230;&#8203; ` 一起使用，参见下面的示例。 如需了解更多信息，请参阅 <a href='{{< relurl "docs/git-update-index/zh_HANS-CN" >}}'>git-update-index[1]</a>。</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---parent-filterltgt"> <a class="anchor" href="#git-filter-branch---parent-filterltgt"></a>--parent-filter &lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---parent-filterltgt"> <a class="anchor" href="#git-filter-branch---parent-filter"></a> <a class="anchor" href="#git-filter-branch---parent-filterltgt"></a>--parent-filter &lt;命令&gt; </dt>
 <dd>
 <p>这是重写提交父级列表的过滤器。 它通过 stdin 接收父级字符串，并在标准输出流输出新的父级字符串。 父级字符串的格式如 <a href='{{< relurl "docs/git-commit-tree/zh_HANS-CN" >}}'>git-commit-tree[1]</a> 所述：空表示初始提交，"-p parent" 表示正常提交，"-p parent1 -p parent2 -p parent3 &#8230;&#8203;" 表示合并提交。</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---msg-filterltgt"> <a class="anchor" href="#git-filter-branch---msg-filterltgt"></a>--msg-filter &lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---msg-filterltgt"> <a class="anchor" href="#git-filter-branch---msg-filter"></a> <a class="anchor" href="#git-filter-branch---msg-filterltgt"></a>--msg-filter &lt;命令&gt; </dt>
 <dd>
 <p>这是重写提交信息的过滤器。 该参数在 shell 中与标准输入的原始提交信息一起进行评估；其标准输出将用作新的提交信息。</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---commit-filterltgt"> <a class="anchor" href="#git-filter-branch---commit-filterltgt"></a>--commit-filter &lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---commit-filterltgt"> <a class="anchor" href="#git-filter-branch---commit-filter"></a> <a class="anchor" href="#git-filter-branch---commit-filterltgt"></a>--commit-filter &lt;命令&gt; </dt>
 <dd>
 <p>这是执行提交的过滤器。 如果指定了该过滤器，它将代替 <em>git commit-tree</em> 命令被调用，参数形式为 "&lt;TREE_ID&gt; [(-p &lt;PARENT_COMMIT_ID&gt;)&#8230;&#8203;]" 并在标准输入流上显示日志信息。 提交 ID 将显示在标准输出流上。</p>
 <div class="paragraph">
@@ -121,7 +121,7 @@ aliases:
 <p>如果不希望保留单父提交，也可以使用 <code>git_commit_non_empty_tree "$@"</code> 代替 <code>git commit-tree "$@"</code>，这样不会对提交树造成任何改变。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---tag-name-filterltgt"> <a class="anchor" href="#git-filter-branch---tag-name-filterltgt"></a>--tag-name-filter &lt;命令&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---tag-name-filterltgt"> <a class="anchor" href="#git-filter-branch---tag-name-filter"></a> <a class="anchor" href="#git-filter-branch---tag-name-filterltgt"></a>--tag-name-filter &lt;命令&gt; </dt>
 <dd>
 <p>这是重写标记名的过滤器。当传递时，它将对指向重写对象的每个标签引用（或指向重写对象的标签对象）进行调用。 原始标签名通过标准输入传递，新标签名则通过标准输出传递。</p>
 <div class="paragraph">
@@ -135,11 +135,11 @@ aliases:
 <dd>
 <p>某些过滤器会产生空提交，从而使树保持原样。 此选项指示 git-filter-branch，如果这些提交的父提交中正好有一个或零个未剪枝，则删除这些提交；因此，合并提交将保持不变。 此选项不能与 <code>--commit-filter</code> 一起使用，不过在提交过滤器中使用所提供的 <code>git_commit_non_empty_tree</code> 函数可以达到同样的效果。</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---originalltgt"> <a class="anchor" href="#git-filter-branch---originalltgt"></a>--original &lt;命名空间&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---originalltgt"> <a class="anchor" href="#git-filter-branch---original"></a> <a class="anchor" href="#git-filter-branch---originalltgt"></a>--original &lt;命名空间&gt; </dt>
 <dd>
 <p>使用此选项可设置存储原始提交的命名空间。默认值为 <em>refs/original</em>。</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch--dltgt"> <a class="anchor" href="#git-filter-branch--dltgt"></a>-d &lt;目录&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch--dltgt"> <a class="anchor" href="#git-filter-branch--d"></a> <a class="anchor" href="#git-filter-branch--dltgt"></a>-d &lt;目录&gt; </dt>
 <dd>
 <p>使用该选项可设置用于重写的临时目录路径。 在应用树过滤器时，命令需要将树临时签出到某个目录，这可能会占用大型项目的大量空间。 默认情况下，它会在 `.git-rewrite/`目录下进行，但你可以用这个参数来覆盖这个选择。</p>
 </dd>
@@ -148,11 +148,11 @@ aliases:
 <dd>
 <p>除非强制要求，否则 <em>git filter-branch</em> 不会从已有的临时目录开始，也不会从已有的以 <em>refs/original/</em> 开头的引用开始。</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---state-branchltgt"> <a class="anchor" href="#git-filter-branch---state-branchltgt"></a>--state-branch &lt;分支&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---state-branchltgt"> <a class="anchor" href="#git-filter-branch---state-branch"></a> <a class="anchor" href="#git-filter-branch---state-branchltgt"></a>--state-branch &lt;分支&gt; </dt>
 <dd>
 <p>该选项将导致在启动时从指定分支加载新旧对象的映射，并在退出时作为新提交保存到该分支，从而实现大树的增量。如果 <em>&lt;分支&gt;</em> 不存在，它将被创建。</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch-ltgt82308203"> <a class="anchor" href="#git-filter-branch-ltgt82308203"></a>&lt;版本列表选项&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-filter-branch-ltgt82308203"> <a class="anchor" href="#git-filter-branch-"></a> <a class="anchor" href="#git-filter-branch-ltgt82308203"></a>&lt;版本列表选项&gt;&#8230;&#8203; </dt>
 <dd>
 <p><em>git rev-list</em> 的参数。 这些选项包含的所有正引用都会被重写。 您也可以指定诸如 <code>--all</code> 之类的选项，但必须使用 <code>--</code> 将它们与 <em>git filter-branch</em> 选项分开。隐含 <a href="#Remap_to_ancestor">重映射到祖先</a>。</p>
 </dd>

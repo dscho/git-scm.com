@@ -125,35 +125,35 @@ password=secr3t</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-credential-codeprotocolcode"> <a class="anchor" href="#git-credential-codeprotocolcode"></a><code>protocol</code> </dt>
+<dt class="hdlist1" id="git-credential-codeprotocolcode"> <a class="anchor" href="#git-credential-protocol"></a> <a class="anchor" href="#git-credential-codeprotocolcode"></a><code>protocol</code> </dt>
 <dd>
 <p>将使用证书的协议（例如，<code>https</code>）。</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codehostcode"> <a class="anchor" href="#git-credential-codehostcode"></a><code>host</code> </dt>
+<dt class="hdlist1" id="git-credential-codehostcode"> <a class="anchor" href="#git-credential-host"></a> <a class="anchor" href="#git-credential-codehostcode"></a><code>host</code> </dt>
 <dd>
 <p>网络凭证的远程主机名。 如果指定了端口号，这包括端口号（例如，"example.com:8088"）。</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codepathcode"> <a class="anchor" href="#git-credential-codepathcode"></a><code>path</code> </dt>
+<dt class="hdlist1" id="git-credential-codepathcode"> <a class="anchor" href="#git-credential-path"></a> <a class="anchor" href="#git-credential-codepathcode"></a><code>path</code> </dt>
 <dd>
 <p>证书将被使用的路径。例如，对于访问远程 https 版本库，这将是服务器上版本库的路径。</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codeusernamecode"> <a class="anchor" href="#git-credential-codeusernamecode"></a><code>username</code> </dt>
+<dt class="hdlist1" id="git-credential-codeusernamecode"> <a class="anchor" href="#git-credential-username"></a> <a class="anchor" href="#git-credential-codeusernamecode"></a><code>username</code> </dt>
 <dd>
 <p>证书的用户名，如果我们已经有了一个（例如，从URL、配置、用户，或从先前运行的帮助器）。</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codepasswordcode"> <a class="anchor" href="#git-credential-codepasswordcode"></a><code>password</code> </dt>
+<dt class="hdlist1" id="git-credential-codepasswordcode"> <a class="anchor" href="#git-credential-password"></a> <a class="anchor" href="#git-credential-codepasswordcode"></a><code>password</code> </dt>
 <dd>
 <p>凭证的密码，如果我们要求它被存储。</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codepasswordexpiryutccode"> <a class="anchor" href="#git-credential-codepasswordexpiryutccode"></a><code>password_expiry_utc</code> </dt>
+<dt class="hdlist1" id="git-credential-codepasswordexpiryutccode"> <a class="anchor" href="#git-credential-passwordexpiryutc"></a> <a class="anchor" href="#git-credential-codepasswordexpiryutccode"></a><code>password_expiry_utc</code> </dt>
 <dd>
 <p>生成的密码，如 OAuth 访问令牌，可能有一个过期日期。 当从助手那里读取凭证时，<code>git credential fill</code> 会忽略过期的密码。表示为 Unix 时间 UTC，自 1970 年以来的秒数。</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codeoauthrefreshtokencode"> <a class="anchor" href="#git-credential-codeoauthrefreshtokencode"></a><code>oauth_refresh_token</code> </dt>
+<dt class="hdlist1" id="git-credential-codeoauthrefreshtokencode"> <a class="anchor" href="#git-credential-oauthrefreshtoken"></a> <a class="anchor" href="#git-credential-codeoauthrefreshtokencode"></a><code>oauth_refresh_token</code> </dt>
 <dd>
 <p>一个 OAuth 刷新令牌可以伴随着一个 OAuth 访问令牌的密码。帮助者必须像密码属性一样，将此属性视为机密。Git 本身对这个属性没有特殊行为。</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codeurlcode"> <a class="anchor" href="#git-credential-codeurlcode"></a><code>url</code> </dt>
+<dt class="hdlist1" id="git-credential-codeurlcode"> <a class="anchor" href="#git-credential-url"></a> <a class="anchor" href="#git-credential-codeurlcode"></a><code>url</code> </dt>
 <dd>
 <p>当这个特殊属性被 <code>git credential</code> 读取时，该值被解析为一个 URL，并被当作其组成部分来处理（例如，<code>url=_00</code> 的行为就如同提供了 <code>protocol=https</code> 和 <code>host=example.com</code>）。这可以帮助调用者避免自己解析 URL。</p>
 <div class="paragraph">
@@ -163,21 +163,21 @@ password=secr3t</pre>
 <p>URL 中缺少的组件（例如，上面的例子中没有用户名）将不被设置。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codeauthtypecode"> <a class="anchor" href="#git-credential-codeauthtypecode"></a><code>authtype</code> </dt>
+<dt class="hdlist1" id="git-credential-codeauthtypecode"> <a class="anchor" href="#git-credential-authtype"></a> <a class="anchor" href="#git-credential-codeauthtypecode"></a><code>authtype</code> </dt>
 <dd>
 <p>这表明应该使用所提及的认证方案。对于 HTTP 和 HTTPS，常见的值包括 <code>basic</code>、<code>bearer</code> 和 <code>digest</code>，尽管后者不安全，不应使用。如果使用了 <code>credential</code>，这可能被设置为适合所涉及协议的任意字符串（通常是 HTTP）。</p>
 <div class="paragraph">
 <p>除非在输入时提供了适当的功能（见下文），否则不应发送此值。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codecredentialcode"> <a class="anchor" href="#git-credential-codecredentialcode"></a><code>credential</code> </dt>
+<dt class="hdlist1" id="git-credential-codecredentialcode"> <a class="anchor" href="#git-credential-credential"></a> <a class="anchor" href="#git-credential-codecredentialcode"></a><code>credential</code> </dt>
 <dd>
 <p>预编码的凭据，适用于所涉及的协议（通常是 HTTP）。如果发送了这个键，<code>authtype</code> 是强制性的，而 <code>username</code> 和 <code>password</code> 将不被使用。对于 HTTP，Git 将 <code>authtype</code> 值和这个值用一个空格连接起来，以确定 <code>Authorization</code> 头部。</p>
 <div class="paragraph">
 <p>除非在输入时提供了适当的功能（见下文），否则不应发送此值。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codeephemeralcode"> <a class="anchor" href="#git-credential-codeephemeralcode"></a><code>ephemeral</code> </dt>
+<dt class="hdlist1" id="git-credential-codeephemeralcode"> <a class="anchor" href="#git-credential-ephemeral"></a> <a class="anchor" href="#git-credential-codeephemeralcode"></a><code>ephemeral</code> </dt>
 <dd>
 <p>这个布尔值表示，如果为真，则凭据助手不应保存 <code>credential</code> 字段中的值，因为其有用性是有限的。例如，HTTP Digest <code>credential</code> 值是使用一次性随机数（nonce）计算的，重复使用它不会导致认证成功。这也可能用于凭证有效期较短的情况（例如，24小时凭证）。默认值为假。</p>
 <div class="paragraph">
@@ -187,28 +187,28 @@ password=secr3t</pre>
 <p>除非在输入时提供了适当的功能（见下文），否则不应发送此值。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codestatecode"> <a class="anchor" href="#git-credential-codestatecode"></a><code>state[]</code> </dt>
+<dt class="hdlist1" id="git-credential-codestatecode"> <a class="anchor" href="#git-credential-state"></a> <a class="anchor" href="#git-credential-codestatecode"></a><code>state[]</code> </dt>
 <dd>
 <p>这个值提供了一个不透明的状态，如果该助手再次被调用，这个状态将回传给它。每个不同的凭据助手可以指定一次这个值。该值应包括一个唯一对应凭据助手的前缀，并应忽略不匹配其前缀的值。</p>
 <div class="paragraph">
 <p>除非在输入时提供了适当的功能（见下文），否则不应发送此值。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codecontinuecode"> <a class="anchor" href="#git-credential-codecontinuecode"></a><code>continue</code> </dt>
+<dt class="hdlist1" id="git-credential-codecontinuecode"> <a class="anchor" href="#git-credential-continue"></a> <a class="anchor" href="#git-credential-codecontinuecode"></a><code>continue</code> </dt>
 <dd>
 <p>这是一个布尔值，如果启用，表示这次认证是一个多阶段认证步骤的非最终部分。这在诸如 NTLM 和 Kerberos 等协议中很常见，这些协议需要两轮客户端认证，设置这个标志允许凭据助手实现多阶段认证步骤。这个标志只应在需要进一步阶段时发送；也就是说，如果预期会有另一轮认证。</p>
 <div class="paragraph">
 <p>除非在输入时提供了适当的功能（见下文），否则不应发送此值。这个属性是“单向”的，用于凭据助手将信息传递给 Git（或其他调用 <code>git credential</code> 的程序）。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codewwwauthcode"> <a class="anchor" href="#git-credential-codewwwauthcode"></a><code>wwwauth[]</code> </dt>
+<dt class="hdlist1" id="git-credential-codewwwauthcode"> <a class="anchor" href="#git-credential-wwwauth"></a> <a class="anchor" href="#git-credential-codewwwauthcode"></a><code>wwwauth[]</code> </dt>
 <dd>
 <p>当 Git 收到包含一个或多个 "WWW-Authenticate" 认证头的 HTTP 响应时，这些头将被 Git 传递给证书助手。</p>
 <div class="paragraph">
 <p>每个 <em>WWW-Authenticate</em> 头的值都以多值属性 <em>wwwauth[]</em> 的形式传递，其中属性的顺序与它们在 HTTP 响应中出现的一样。这个属性是 Git 的 <em>one-way</em> 属性，用于传递额外的信息给证书助手。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codecapabilitycode"> <a class="anchor" href="#git-credential-codecapabilitycode"></a><code>capability[]</code> </dt>
+<dt class="hdlist1" id="git-credential-codecapabilitycode"> <a class="anchor" href="#git-credential-capability"></a> <a class="anchor" href="#git-credential-codecapabilitycode"></a><code>capability[]</code> </dt>
 <dd>
 <p>这表示 Git 或助手（视情况而定）支持所提及的功能。这可以用来作为协议的一部分提供更好、更具体的数据。<code>capability[]</code> 指令必须在其依赖的任何值之前，并且这些指令 <em>应该</em> 是协议中宣布的第一项。</p>
 <div class="paragraph">

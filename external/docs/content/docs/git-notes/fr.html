@@ -65,15 +65,15 @@ git notes get-ref</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-notes-codelistcode"> <a class="anchor" href="#git-notes-codelistcode"></a><code>list</code> </dt>
+<dt class="hdlist1" id="git-notes-codelistcode"> <a class="anchor" href="#git-notes-list"></a> <a class="anchor" href="#git-notes-codelistcode"></a><code>list</code> </dt>
 <dd>
 <p>Affiche la liste des objets notes pour un objet donné. Si aucun objet n&#8217;est donné, affiche une liste de tous les objets notes et des objets qu&#8217;ils annotent (au format "<code>&lt;objet-note&gt; &lt;objet-annoté&gt;</code>"). Il s&#8217;agit de la sous-commande par défaut si aucune sous-commande n&#8217;est donnée.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-codeaddcode"> <a class="anchor" href="#git-notes-codeaddcode"></a><code>add</code> </dt>
+<dt class="hdlist1" id="git-notes-codeaddcode"> <a class="anchor" href="#git-notes-add"></a> <a class="anchor" href="#git-notes-codeaddcode"></a><code>add</code> </dt>
 <dd>
 <p>Ajouter des notes pour un objet donné (par défaut <code>HEAD</code>). Abandonner si l&#8217;objet a déjà des notes (utilisez <code>-f</code> pour écraser les notes existantes). Cependant, si vous utilisez <code>add</code> de manière interactive (en utilisant un éditeur pour fournir le contenu des notes), alors - au lieu d&#8217;abandonner - les notes existantes seront ouvertes dans l&#8217;éditeur (comme la sous-commande <code>edit</code>). Si vous spécifiez plusieurs <code>-m</code> et <code>-F</code>, une ligne vierge sera insérée entre les messages. Utilisez l&#8217;option <code>--separator</code> pour insérer d&#8217;autres délimiteurs. Vous pouvez utiliser <code>-e</code> pour éditer et affiner interactivement le(s) message(s) fourni(s) par les options <code>-m</code> et <code>-F</code> (en utilisant un éditeur) avant d&#8217;ajouter une note.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-codecopycode"> <a class="anchor" href="#git-notes-codecopycode"></a><code>copy</code> </dt>
+<dt class="hdlist1" id="git-notes-codecopycode"> <a class="anchor" href="#git-notes-copy"></a> <a class="anchor" href="#git-notes-codecopycode"></a><code>copy</code> </dt>
 <dd>
 <p>Copier les notes du premier objet sur le deuxième objet (par défaut <code>HEAD</code>). Abandonner si le second objet a déjà des notes, ou si le premier objet n&#8217;en a pas (utilisez <code>-f</code> pour écraser les notes existantes sur le second objet). Cette sous-commande est équivalente à : <code>git notes add [-f] -C $(git notes list &lt;objet-source&gt;) &lt;objet-cible&gt;</code></p>
 <div class="paragraph">
@@ -88,34 +88,34 @@ git notes get-ref</p>
 <p>sur l&#8217;entrée standard, et copier les notes de chaque <em>&lt;objet-source&gt;</em> vers son <em>&lt;objet-cible&gt;</em> correspondant. (Le`<em>&lt;rest&gt;</em>` optionnel est ignoré afin que la commande puisse lire l&#8217;entrée donnée au crochet <code>post-rewrite</code>.)</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-notes-codeappendcode"> <a class="anchor" href="#git-notes-codeappendcode"></a><code>append</code> </dt>
+<dt class="hdlist1" id="git-notes-codeappendcode"> <a class="anchor" href="#git-notes-append"></a> <a class="anchor" href="#git-notes-codeappendcode"></a><code>append</code> </dt>
 <dd>
 <p>Appliquer un ou plusieurs nouveaux messages donnés par des options <code>-m</code> ou <code>-F</code> à une note existante, ou les ajouter comme une nouvelle note si aucune n&#8217;existe , pour l&#8217;objet (par défaut à <code>HEAD</code>). Lorsqu&#8217;elle continue une note existante, une ligne vierge est ajoutée avant chaque nouveau message en tant que séparateur inter-paragraphe. Le séparateur peut être personnalisé avec l&#8217;option <code>--separator</code>. Éditer les notes à ajouter données par les options <code>-m</code> et <code>-F</code> et <code>-e</code> interactivement (en utilisant un éditeur) avant d&#8217;ajouter la note.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-codeeditcode"> <a class="anchor" href="#git-notes-codeeditcode"></a><code>edit</code> </dt>
+<dt class="hdlist1" id="git-notes-codeeditcode"> <a class="anchor" href="#git-notes-edit"></a> <a class="anchor" href="#git-notes-codeeditcode"></a><code>edit</code> </dt>
 <dd>
 <p>Modifier les notes pour un objet donné (par défaut <code>HEAD</code>).</p>
 </dd>
-<dt class="hdlist1" id="git-notes-codeshowcode"> <a class="anchor" href="#git-notes-codeshowcode"></a><code>show</code> </dt>
+<dt class="hdlist1" id="git-notes-codeshowcode"> <a class="anchor" href="#git-notes-show"></a> <a class="anchor" href="#git-notes-codeshowcode"></a><code>show</code> </dt>
 <dd>
 <p>Afficher les notes pour un objet donné (par défaut, <code>HEAD</code>).</p>
 </dd>
-<dt class="hdlist1" id="git-notes-codemergecode"> <a class="anchor" href="#git-notes-codemergecode"></a><code>merge</code> </dt>
+<dt class="hdlist1" id="git-notes-codemergecode"> <a class="anchor" href="#git-notes-merge"></a> <a class="anchor" href="#git-notes-codemergecode"></a><code>merge</code> </dt>
 <dd>
 <p>Fusionner la référence de notes donnée dans la référence de notes actuelle. Cette commande essaiera de fusionner les modifications apportées par la référence de notes donnée (appelée "remote") depuis la base de fusion (si elle existe) dans la référence de notes actuelle (appelée "local").</p>
 <div class="paragraph">
 <p>Si des conflits surviennent et qu&#8217;une stratégie pour résoudre automatiquement les notes en conflit (voir la section "STRATEGIES DE FUSION DES NOTES") n&#8217;est pas donnée, le résolveur <code>manual</code> est utilisé. Ce résolveur vérifie les notes en conflit dans un arbre de travail spécial (<code>.git/NOTES_MERGE_WORKTREE</code>), et demande à l&#8217;utilisateur de résoudre manuellement les conflits à cet endroit. Lorsque cela est fait, l&#8217;utilisateur peut soit finaliser la fusion avec <code>git notes merge --commit</code>, soit abandonner la fusion avec <code>git notes merge --abort</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-notes-coderemovecode"> <a class="anchor" href="#git-notes-coderemovecode"></a><code>remove</code> </dt>
+<dt class="hdlist1" id="git-notes-coderemovecode"> <a class="anchor" href="#git-notes-remove"></a> <a class="anchor" href="#git-notes-coderemovecode"></a><code>remove</code> </dt>
 <dd>
 <p>Supprimer les notes pour les objets donnés (la valeur par défaut est <code>HEAD</code>). Lorsque l&#8217;on donne zéro ou un objet depuis la ligne de commande, cela équivaut à spécifier un message de note vide à la sous-commande <code>edit</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-codeprunecode"> <a class="anchor" href="#git-notes-codeprunecode"></a><code>prune</code> </dt>
+<dt class="hdlist1" id="git-notes-codeprunecode"> <a class="anchor" href="#git-notes-prune"></a> <a class="anchor" href="#git-notes-codeprunecode"></a><code>prune</code> </dt>
 <dd>
 <p>Supprimer toutes les notes relatives aux objets inexistants ou inaccessibles.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-codeget-refcode"> <a class="anchor" href="#git-notes-codeget-refcode"></a><code>get-ref</code> </dt>
+<dt class="hdlist1" id="git-notes-codeget-refcode"> <a class="anchor" href="#git-notes-get-ref"></a> <a class="anchor" href="#git-notes-codeget-refcode"></a><code>get-ref</code> </dt>
 <dd>
 <p>Afficher la référence des notes actuelles. Ceci fournit un moyen facile de récupérer la référence des notes actuelles (par exemple, à partir de scripts).</p>
 </dd>
@@ -128,81 +128,81 @@ git notes get-ref</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-notes-code-fcode"> <a class="anchor" href="#git-notes-code-fcode"></a><code>-f</code> </dt>
-<dt class="hdlist1" id="git-notes-code--forcecode"> <a class="anchor" href="#git-notes-code--forcecode"></a><code>--force</code> </dt>
+<dt class="hdlist1" id="git-notes-code-fcode"> <a class="anchor" href="#git-notes--f"></a> <a class="anchor" href="#git-notes-code-fcode"></a><code>-f</code> </dt>
+<dt class="hdlist1" id="git-notes-code--forcecode"> <a class="anchor" href="#git-notes---force"></a> <a class="anchor" href="#git-notes-code--forcecode"></a><code>--force</code> </dt>
 <dd>
 <p>Lors de l&#8217;ajout de notes à un objet qui en possède déjà, les notes existantes sont écrasées (au lieu d&#8217;être abandonnées).</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code-mltmsggtcode"> <a class="anchor" href="#git-notes-code-mltmsggtcode"></a><code>-m &lt;msg&gt;</code> </dt>
-<dt class="hdlist1" id="git-notes-code--messageltmsggtcode"> <a class="anchor" href="#git-notes-code--messageltmsggtcode"></a><code>--message=&lt;msg&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code-mltmsggtcode"> <a class="anchor" href="#git-notes--mmsg"></a> <a class="anchor" href="#git-notes-code-mltmsggtcode"></a><code>-m &lt;msg&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code--messageltmsggtcode"> <a class="anchor" href="#git-notes---messagemsg"></a> <a class="anchor" href="#git-notes-code--messageltmsggtcode"></a><code>--message=&lt;msg&gt;</code> </dt>
 <dd>
 <p>Utiliser le message de note fourni (au lieu de le demander). Si plusieurs options <code>-m</code> sont fournies, leurs valeurs sont concaténées comme paragraphes séparés. Les lignes commençant par <code>#</code> et les lignes vides sont supprimées si elles ne sont pas uniques entre paragraphes. Si vous souhaitez les garder verbatim, utilisez <code>--no-stripspace</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code-Fltfichiergtcode"> <a class="anchor" href="#git-notes-code-Fltfichiergtcode"></a><code>-F &lt;fichier&gt;</code> </dt>
-<dt class="hdlist1" id="git-notes-code--fileltfichiergtcode"> <a class="anchor" href="#git-notes-code--fileltfichiergtcode"></a><code>--file=&lt;fichier&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code-Fltfichiergtcode"> <a class="anchor" href="#git-notes--Ffichier"></a> <a class="anchor" href="#git-notes-code-Fltfichiergtcode"></a><code>-F &lt;fichier&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code--fileltfichiergtcode"> <a class="anchor" href="#git-notes---filefichier"></a> <a class="anchor" href="#git-notes-code--fileltfichiergtcode"></a><code>--file=&lt;fichier&gt;</code> </dt>
 <dd>
 <p>Prendre le message de note depuis le fichier indiqué. Utilisez <code>-</code> pour lire le message depuis l&#8217;entrée standard. Les lignes commençant par <code>#</code> et les lignes vides sont supprimées si elles ne sont pas uniques entre paragraphes. Si vous souhaitez les garder verbatim, utilisez <code>--no-stripspace</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code-Cltobjetgtcode"> <a class="anchor" href="#git-notes-code-Cltobjetgtcode"></a><code>-C &lt;objet&gt;</code> </dt>
-<dt class="hdlist1" id="git-notes-code--reuse-messageltobjetgtcode"> <a class="anchor" href="#git-notes-code--reuse-messageltobjetgtcode"></a><code>--reuse-message=&lt;objet&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code-Cltobjetgtcode"> <a class="anchor" href="#git-notes--Cobjet"></a> <a class="anchor" href="#git-notes-code-Cltobjetgtcode"></a><code>-C &lt;objet&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code--reuse-messageltobjetgtcode"> <a class="anchor" href="#git-notes---reuse-messageobjet"></a> <a class="anchor" href="#git-notes-code--reuse-messageltobjetgtcode"></a><code>--reuse-message=&lt;objet&gt;</code> </dt>
 <dd>
 <p>Prendre l&#8217;objet blob donné (par exemple, une autre note) comme message de note. (Utilisez <code>git notes copy &lt;objet&gt;</code> au lieu de copier les notes entre les objets). Par défaut, le message sera copié verbatim, mais si vous souhaitez supprimer les lignes commençant par <code>#</code> et les lignes vides autres que les lignes uniques entre les paragraphes, utilisez l&#8217;option <code>--stripspace</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code-cltobjetgtcode"> <a class="anchor" href="#git-notes-code-cltobjetgtcode"></a><code>-c &lt;objet&gt;</code> </dt>
-<dt class="hdlist1" id="git-notes-code--reedit-messageltobjetgtcode"> <a class="anchor" href="#git-notes-code--reedit-messageltobjetgtcode"></a><code>--reedit-message=&lt;objet&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code-cltobjetgtcode"> <a class="anchor" href="#git-notes--cobjet"></a> <a class="anchor" href="#git-notes-code-cltobjetgtcode"></a><code>-c &lt;objet&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code--reedit-messageltobjetgtcode"> <a class="anchor" href="#git-notes---reedit-messageobjet"></a> <a class="anchor" href="#git-notes-code--reedit-messageltobjetgtcode"></a><code>--reedit-message=&lt;objet&gt;</code> </dt>
 <dd>
 <p>Comme <code>-C</code>, mais avec <code>-c</code>, l&#8217;éditeur est appelé pour permettre à l&#8217;utilisateur de modifier le message de note.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code--allow-emptycode"> <a class="anchor" href="#git-notes-code--allow-emptycode"></a><code>--allow-empty</code> </dt>
+<dt class="hdlist1" id="git-notes-code--allow-emptycode"> <a class="anchor" href="#git-notes---allow-empty"></a> <a class="anchor" href="#git-notes-code--allow-emptycode"></a><code>--allow-empty</code> </dt>
 <dd>
 <p>Permettre de stocker un objet note vide. Le comportement par défaut consiste à supprimer automatiquement les notes vides.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code--no-separatorcode"> <a class="anchor" href="#git-notes-code--no-separatorcode"></a><code>--[no-]separator</code> </dt>
-<dt class="hdlist1" id="git-notes-code--separatorltcoupure-paragraphegtcode"> <a class="anchor" href="#git-notes-code--separatorltcoupure-paragraphegtcode"></a><code>--separator=&lt;coupure-paragraphe&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code--no-separatorcode"> <a class="anchor" href="#git-notes---no-separator"></a> <a class="anchor" href="#git-notes-code--no-separatorcode"></a><code>--[no-]separator</code> </dt>
+<dt class="hdlist1" id="git-notes-code--separatorltcoupure-paragraphegtcode"> <a class="anchor" href="#git-notes---separatorcoupure-paragraphe"></a> <a class="anchor" href="#git-notes-code--separatorltcoupure-paragraphegtcode"></a><code>--separator=&lt;coupure-paragraphe&gt;</code> </dt>
 <dd>
 <p>Spécifier une chaîne utilisée comme séparateur d&#8217;inter-paragraphe personnalisé (une nouvelle ligne est ajoutée à la fin si nécessaire). Si <code>--no-separator</code> , aucun séparateur ne sera ajouté entre les paragraphes. Par défaut, la valeur est une ligne vierge.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code--no-stripspacecode"> <a class="anchor" href="#git-notes-code--no-stripspacecode"></a><code>--[no-]stripspace</code> </dt>
+<dt class="hdlist1" id="git-notes-code--no-stripspacecode"> <a class="anchor" href="#git-notes---no-stripspace"></a> <a class="anchor" href="#git-notes-code--no-stripspacecode"></a><code>--[no-]stripspace</code> </dt>
 <dd>
 <p>Éliminer les espaces précédant et suivant le message de note. Également éliminer les lignes vides autres que les lignes uniques entre les paragraphes. Les lignes commençant par <code>#</code> seront nettoyées dans des cas sans éditeur comme <code>-m</code>, <code>-F</code> et <code>-C</code>, mais pas dans les cas avec éditeur comme <code>git notes edit</code>, <code>-c</code>, etc.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code--refltrfgtcode"> <a class="anchor" href="#git-notes-code--refltrfgtcode"></a><code>--ref &lt;réf&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code--refltrfgtcode"> <a class="anchor" href="#git-notes---refrf"></a> <a class="anchor" href="#git-notes-code--refltrfgtcode"></a><code>--ref &lt;réf&gt;</code> </dt>
 <dd>
 <p>Manipuler l&#8217;arbre des notes dans <em>&lt;réf&gt;</em>. Ceci a priorité sur <code>GIT_NOTES_REF</code> et la configuration <code>core.notesRef</code>. La réf spécifie le nom complet de la réf quand elle commence par <code>refs/notes/</code> ; quand elle commence par <code>notes/</code>, <code>refs/</code> ou autre, <code>refs/notes/</code> est préfixé pour former un nom complet de la réf.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code--ignore-missingcode"> <a class="anchor" href="#git-notes-code--ignore-missingcode"></a><code>--ignore-missing</code> </dt>
+<dt class="hdlist1" id="git-notes-code--ignore-missingcode"> <a class="anchor" href="#git-notes---ignore-missing"></a> <a class="anchor" href="#git-notes-code--ignore-missingcode"></a><code>--ignore-missing</code> </dt>
 <dd>
 <p>Ne pas considérer comme une erreur de demander la suppression des notes d&#8217;un objet qui n&#8217;a pas de notes qui lui sont attachées.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code--stdincode"> <a class="anchor" href="#git-notes-code--stdincode"></a><code>--stdin</code> </dt>
+<dt class="hdlist1" id="git-notes-code--stdincode"> <a class="anchor" href="#git-notes---stdin"></a> <a class="anchor" href="#git-notes-code--stdincode"></a><code>--stdin</code> </dt>
 <dd>
 <p>Lire également les noms d&#8217;objets pour supprimer les notes à partir de l&#8217;entrée standard (il n&#8217;y a aucune raison pour que vous ne puissiez pas combiner cela avec les noms d&#8217;objets à partir de la ligne de commande).</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code-ncode"> <a class="anchor" href="#git-notes-code-ncode"></a><code>-n</code> </dt>
-<dt class="hdlist1" id="git-notes-code--dry-runcode"> <a class="anchor" href="#git-notes-code--dry-runcode"></a><code>--dry-run</code> </dt>
+<dt class="hdlist1" id="git-notes-code-ncode"> <a class="anchor" href="#git-notes--n"></a> <a class="anchor" href="#git-notes-code-ncode"></a><code>-n</code> </dt>
+<dt class="hdlist1" id="git-notes-code--dry-runcode"> <a class="anchor" href="#git-notes---dry-run"></a> <a class="anchor" href="#git-notes-code--dry-runcode"></a><code>--dry-run</code> </dt>
 <dd>
 <p>Ne rien supprimer ; signaler simplement les noms des objets dont les notes seraient supprimées.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code-sltstratgiegtcode"> <a class="anchor" href="#git-notes-code-sltstratgiegtcode"></a><code>-s &lt;stratégie&gt;</code> </dt>
-<dt class="hdlist1" id="git-notes-code--strategyltstrategiegtcode"> <a class="anchor" href="#git-notes-code--strategyltstrategiegtcode"></a><code>--strategy=&lt;strategie&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code-sltstratgiegtcode"> <a class="anchor" href="#git-notes--sstratgie"></a> <a class="anchor" href="#git-notes-code-sltstratgiegtcode"></a><code>-s &lt;stratégie&gt;</code> </dt>
+<dt class="hdlist1" id="git-notes-code--strategyltstrategiegtcode"> <a class="anchor" href="#git-notes---strategystrategie"></a> <a class="anchor" href="#git-notes-code--strategyltstrategiegtcode"></a><code>--strategy=&lt;strategie&gt;</code> </dt>
 <dd>
 <p>Lors d&#8217;une fusion de notes, résoudre les conflits de notes en utilisant la stratégie donnée. Les stratégies suivantes sont reconnues : <code>manual</code> (par défaut), <code>ours</code>, <code>theirs</code>, <code>union</code> et <code>cat_sort_uniq</code>. Cette option a priorité sur le paramètre de configuration <code>notes.mergeStrategy</code>. Voir la section "STRATÉGIES DE FUSION DES NOTES" ci-dessous pour plus d&#8217;informations sur chaque stratégie de fusion des notes.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code--commitcode"> <a class="anchor" href="#git-notes-code--commitcode"></a><code>--commit</code> </dt>
+<dt class="hdlist1" id="git-notes-code--commitcode"> <a class="anchor" href="#git-notes---commit"></a> <a class="anchor" href="#git-notes-code--commitcode"></a><code>--commit</code> </dt>
 <dd>
 <p>Finaliser une fusion de notes en cours. Utilisez cette option lorsque vous avez résolu les conflits que <code>git notes merge</code> a stockés dans <code>.git/NOTES_MERGE_WORKTREE</code>. Cela modifie le commit de fusion partielle créé par <code>git notes merge</code> (stocké dans <code>.git/NOTES_MERGE_PARTIAL</code>) en ajoutant les notes dans <code>.git/NOTES_MERGE_WORKTREE</code>. La référence des notes stockée dans la réf symbolique <code>.git/NOTES_MERGE_REF</code> est mise à jour avec le commit résultant.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code--abortcode"> <a class="anchor" href="#git-notes-code--abortcode"></a><code>--abort</code> </dt>
+<dt class="hdlist1" id="git-notes-code--abortcode"> <a class="anchor" href="#git-notes---abort"></a> <a class="anchor" href="#git-notes-code--abortcode"></a><code>--abort</code> </dt>
 <dd>
 <p>Abandonner/réinitialiser un <code>git notes merge</code> en cours, c&#8217;est-à-dire une fusion de notes avec des conflits. Cela supprime simplement tous les fichiers liés à la fusion de notes.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code-qcode"> <a class="anchor" href="#git-notes-code-qcode"></a><code>-q</code> </dt>
-<dt class="hdlist1" id="git-notes-code--quietcode"> <a class="anchor" href="#git-notes-code--quietcode"></a><code>--quiet</code> </dt>
+<dt class="hdlist1" id="git-notes-code-qcode"> <a class="anchor" href="#git-notes--q"></a> <a class="anchor" href="#git-notes-code-qcode"></a><code>-q</code> </dt>
+<dt class="hdlist1" id="git-notes-code--quietcode"> <a class="anchor" href="#git-notes---quiet"></a> <a class="anchor" href="#git-notes-code--quietcode"></a><code>--quiet</code> </dt>
 <dd>
 <p>Mode silencieux lors d&#8217;une fusion de notes.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-code-vcode"> <a class="anchor" href="#git-notes-code-vcode"></a><code>-v</code> </dt>
-<dt class="hdlist1" id="git-notes-code--verbosecode"> <a class="anchor" href="#git-notes-code--verbosecode"></a><code>--verbose</code> </dt>
+<dt class="hdlist1" id="git-notes-code-vcode"> <a class="anchor" href="#git-notes--v"></a> <a class="anchor" href="#git-notes-code-vcode"></a><code>-v</code> </dt>
+<dt class="hdlist1" id="git-notes-code--verbosecode"> <a class="anchor" href="#git-notes---verbose"></a> <a class="anchor" href="#git-notes-code--verbosecode"></a><code>--verbose</code> </dt>
 <dd>
 <p>Mode verbeux lors d&#8217;une fusion de notes. Lors de l&#8217;élagage des notes, signaler tous les noms d&#8217;objets dont les notes sont supprimées.</p>
 </dd>
@@ -284,7 +284,7 @@ $ git notes --ref=built add --allow-empty -C "$blob" HEAD</pre>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-notes-codecorenotesRefcode"> <a class="anchor" href="#git-notes-codecorenotesRefcode"></a><code>core.notesRef</code> </dt>
+<dt class="hdlist1" id="git-notes-codecorenotesRefcode"> <a class="anchor" href="#git-notes-corenotesRef"></a> <a class="anchor" href="#git-notes-codecorenotesRefcode"></a><code>core.notesRef</code> </dt>
 <dd>
 <p>Réf. de notes à lire et à manipuler à la place de <code>refs/notes/commits</code>. Doit être un nom de référence non abrégé. Ce paramètre peut être remplacé via l&#8217;environnement et la ligne de commande.</p>
 </dd>
@@ -317,22 +317,22 @@ $ git notes --ref=built add --allow-empty -C "$blob" HEAD</pre>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-notes-codeGITNOTESREFcode"> <a class="anchor" href="#git-notes-codeGITNOTESREFcode"></a><code>GIT_NOTES_REF</code> </dt>
+<dt class="hdlist1" id="git-notes-codeGITNOTESREFcode"> <a class="anchor" href="#git-notes-GITNOTESREF"></a> <a class="anchor" href="#git-notes-codeGITNOTESREFcode"></a><code>GIT_NOTES_REF</code> </dt>
 <dd>
 <p>La référence dont les notes doivent être manipulées, au lieu de <code>refs/notes/commits</code>. Ceci remplace le paramètre <code>core.notesRef</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-codeGITNOTESDISPLAYREFcode"> <a class="anchor" href="#git-notes-codeGITNOTESDISPLAYREFcode"></a><code>GIT_NOTES_DISPLAY_REF</code> </dt>
+<dt class="hdlist1" id="git-notes-codeGITNOTESDISPLAYREFcode"> <a class="anchor" href="#git-notes-GITNOTESDISPLAYREF"></a> <a class="anchor" href="#git-notes-codeGITNOTESDISPLAYREFcode"></a><code>GIT_NOTES_DISPLAY_REF</code> </dt>
 <dd>
 <p>Liste de refs ou de globs délimités par des colonnes indiquant les réfs, en plus de la valeur par défaut de <code>core.notesRef</code> ou de <code>GIT_NOTES_REF</code>, à partir desquelles lire les notes lors de l&#8217;affichage des messages de validation. Ceci surcharge le paramètre <code>notes.displayRef</code>.</p>
 <div class="paragraph">
 <p>Un avertissement sera émis pour les réfs qui n&#8217;existent pas, mais un glob qui ne correspond à aucune réf est silencieusement ignoré.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-notes-codeGITNOTESREWRITEMODEcode"> <a class="anchor" href="#git-notes-codeGITNOTESREWRITEMODEcode"></a><code>GIT_NOTES_REWRITE_MODE</code> </dt>
+<dt class="hdlist1" id="git-notes-codeGITNOTESREWRITEMODEcode"> <a class="anchor" href="#git-notes-GITNOTESREWRITEMODE"></a> <a class="anchor" href="#git-notes-codeGITNOTESREWRITEMODEcode"></a><code>GIT_NOTES_REWRITE_MODE</code> </dt>
 <dd>
 <p>Lors de la copie de notes pendant une réécriture, action à faire si le commit cible a déjà une note. Doit être parmi <code>overwrite</code>, <code>concatenate</code>, <code>cat_sort_uniq</code>, ou <code>ignore</code>. Ceci surcharge le paramètre <code>core.rewriteMode</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-notes-codeGITNOTESREWRITEREFcode"> <a class="anchor" href="#git-notes-codeGITNOTESREWRITEREFcode"></a><code>GIT_NOTES_REWRITE_REF</code> </dt>
+<dt class="hdlist1" id="git-notes-codeGITNOTESREWRITEREFcode"> <a class="anchor" href="#git-notes-GITNOTESREWRITEREF"></a> <a class="anchor" href="#git-notes-codeGITNOTESREWRITEREFcode"></a><code>GIT_NOTES_REWRITE_REF</code> </dt>
 <dd>
 <p>Lors de la réécriture de commits, quelles notes copier de l&#8217;original vers le commit réécrit. Doit être une liste de refs ou de globs délimitée par deux points.</p>
 <div class="paragraph">

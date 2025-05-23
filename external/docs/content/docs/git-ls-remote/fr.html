@@ -57,7 +57,7 @@ aliases:
 <dd>
 <p>Ne pas afficher l&#8217;URL distante sur stderr.</p>
 </dd>
-<dt class="hdlist1" id="git-ls-remote---upload-packltexecgt"> <a class="anchor" href="#git-ls-remote---upload-packltexecgt"></a>--upload-pack=&lt;exec&gt; </dt>
+<dt class="hdlist1" id="git-ls-remote---upload-packltexecgt"> <a class="anchor" href="#git-ls-remote---upload-packexec"></a> <a class="anchor" href="#git-ls-remote---upload-packltexecgt"></a>--upload-pack=&lt;exec&gt; </dt>
 <dd>
 <p>Spécifier le chemin complet de <em>git-upload-pack</em> sur l&#8217;hôte distant. Cela permet de lister des références provenant de dépôts accessibles via SSH et pour lesquels le démon SSH n&#8217;utilise pas le PATH configuré par l&#8217;utilisateur.</p>
 </dd>
@@ -73,20 +73,20 @@ aliases:
 <dd>
 <p>En plus de l&#8217;objet pointé par lui, afficher la réf sous-jacente pointée par lui lors de l&#8217;affichage d&#8217;une réf symbolique. Actuellement, upload-pack n&#8217;affiche que la symref HEAD, qui sera donc la seule affichée par ls-remote.</p>
 </dd>
-<dt class="hdlist1" id="git-ls-remote---sortltclgt"> <a class="anchor" href="#git-ls-remote---sortltclgt"></a>--sort=&lt;clé&gt; </dt>
+<dt class="hdlist1" id="git-ls-remote---sortltclgt"> <a class="anchor" href="#git-ls-remote---sortcl"></a> <a class="anchor" href="#git-ls-remote---sortltclgt"></a>--sort=&lt;clé&gt; </dt>
 <dd>
 <p>Trier sur la base de la clé donnée. Préfixe <code>-</code> pour trier par ordre décroissant de la valeur. Supporte "version:refname" ou "v:refname" (les noms de balises sont traités comme des versions). L&#8217;ordre de tri "version:refname" peut également être affecté par la variable de configuration "versionsort.suffix". Voir <a href='{{< relurl "docs/git-for-each-ref/fr" >}}'>git-for-each-ref[1]</a> pour plus d&#8217;options de tri, mais soyez conscient que des clés comme <code>committerdate</code> qui requièrent l&#8217;accès aux objets eux-mêmes ne fonctionneront pas pour les refs dont les objets n&#8217;ont pas encore été récupérés du distant, et donneront une erreur <code>missing object</code> (objet manquant).</p>
 </dd>
-<dt class="hdlist1" id="git-ls-remote--oltoptiongt"> <a class="anchor" href="#git-ls-remote--oltoptiongt"></a>-o &lt;option&gt; </dt>
-<dt class="hdlist1" id="git-ls-remote---server-optionltoptiongt"> <a class="anchor" href="#git-ls-remote---server-optionltoptiongt"></a>--server-option=&lt;option&gt; </dt>
+<dt class="hdlist1" id="git-ls-remote--oltoptiongt"> <a class="anchor" href="#git-ls-remote--ooption"></a> <a class="anchor" href="#git-ls-remote--oltoptiongt"></a>-o &lt;option&gt; </dt>
+<dt class="hdlist1" id="git-ls-remote---server-optionltoptiongt"> <a class="anchor" href="#git-ls-remote---server-optionoption"></a> <a class="anchor" href="#git-ls-remote---server-optionltoptiongt"></a>--server-option=&lt;option&gt; </dt>
 <dd>
 <p>Transmettre la chaîne donnée au serveur lors d&#8217;une communication avec le protocole version 2. La chaîne donnée ne doit pas contenir de caractère <em>NUL</em> ou <em>LF</em>. Lorsque plusieurs <code>--server-option=&lt;option&gt;</code> sont donnés, ils sont tous envoyés de l&#8217;autre côté dans l&#8217;ordre indiqué sur la ligne de commande. Lorsqu&#8217;aucun <code>--server-option=&lt;option&gt;</code> n&#8217;est donné en ligne de commande, les valeurs de la variable de configuration <code>remote.&lt;nom&gt;.serverOption</code> sont utilisées à la place.</p>
 </dd>
-<dt class="hdlist1" id="git-ls-remote-ltdptgt"> <a class="anchor" href="#git-ls-remote-ltdptgt"></a>&lt;dépôt&gt; </dt>
+<dt class="hdlist1" id="git-ls-remote-ltdptgt"> <a class="anchor" href="#git-ls-remote-dpt"></a> <a class="anchor" href="#git-ls-remote-ltdptgt"></a>&lt;dépôt&gt; </dt>
 <dd>
 <p>Le dépôt "distant" à interroger. Ce paramètre peut être une URL ou le nom d&#8217;un dépôt distant (voir les sections GIT URLS et REMOTES de <a href='{{< relurl "docs/git-fetch/fr" >}}'>git-fetch[1]</a>).</p>
 </dd>
-<dt class="hdlist1" id="git-ls-remote-ltmotifgt82308203"> <a class="anchor" href="#git-ls-remote-ltmotifgt82308203"></a>&lt;motif&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-ls-remote-ltmotifgt82308203"> <a class="anchor" href="#git-ls-remote-motif"></a> <a class="anchor" href="#git-ls-remote-ltmotifgt82308203"></a>&lt;motif&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Si elle n&#8217;est pas spécifiée, toutes les références, après le filtrage effectué avec --heads et --tags, sont affichées. Lorsque &lt;motif&gt;&#8230;&#8203; est spécifié, seules les références correspondant à un ou plusieurs des motifs donnés sont affichées. Chaque motif est interprété comme un glob (voir <code>glob</code> dans <a href='{{< relurl "docs/gitglossary/fr" >}}'>gitglossary[7]</a>) qui est comparé à la "queue" d&#8217;une référence, en commençant soit par le début de la référence (ainsi un nom complet comme <code>refs/heads/foo</code> correspond), soit par un séparateur (ainsi <code>bar</code> correspond à <code>refs/heads/bar</code> mais pas à <code>refs/heads/foobar</code>).</p>
 </dd>

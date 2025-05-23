@@ -66,7 +66,7 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-cherry-pick-ltcommitgt82308203"> <a class="anchor" href="#git-cherry-pick-ltcommitgt82308203"></a>&lt;commit&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-cherry-pick-ltcommitgt82308203"> <a class="anchor" href="#git-cherry-pick-commit"></a> <a class="anchor" href="#git-cherry-pick-ltcommitgt82308203"></a>&lt;commit&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Faz os commits para "cherry-pick". Para obter uma lista mais completa de formas de escrever os commits, consulte <a href='{{< relurl "docs/gitrevisions/pt_BR" >}}'>gitrevisions[7]</a>. Conjuntos dos commits que podem ser passadas, mas por predefinição, nenhuma travessia é feita, como se a opção <code>--no-walk</code> fosse especificada, consulte <a href='{{< relurl "docs/git-rev-list/pt_BR" >}}'>git-rev-list[1]</a>. Observe que a especificação de um intervalo alimentará todos os argumentos &lt;commit&gt;&#8230;&#8203; para uma única etapa da revisão (veja um exemplo posterior que usa <em>maint master&#8230;&#8203;next</em>).</p>
 </dd>
@@ -75,7 +75,7 @@ aliases:
 <dd>
 <p>Com esta opção, o <em>git cherry-pick</em> permitirá que você edite a mensagem de commit antes de confirmar.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick---cleanupltmodogt"> <a class="anchor" href="#git-cherry-pick---cleanupltmodogt"></a>--cleanup=&lt;modo&gt; </dt>
+<dt class="hdlist1" id="git-cherry-pick---cleanupltmodogt"> <a class="anchor" href="#git-cherry-pick---cleanupmodo"></a> <a class="anchor" href="#git-cherry-pick---cleanupltmodogt"></a>--cleanup=&lt;modo&gt; </dt>
 <dd>
 <p>Essa opção define como a mensagem de commit sera limpa antes de ser encaminhada para o maquinário de commit. Para mais detalhes consulte <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a>. Em particular, caso o valor <em>&lt;mode&gt;</em> tenha um valor de tesoura <code>scissors</code>, a tesoura será anexada a <code>MERGE_MSG</code> antes de ser repassada no caso de um conflito.</p>
 </dd>
@@ -87,8 +87,8 @@ aliases:
 <dd>
 <p>Antigamente, o comando tinha como padrão fazer o <code>-x</code> descrito acima e o <code>-r</code> era para desativá-lo. Agora, a predefinição é não fazer <code>-x</code>, portanto, essa opção não funciona.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick--mltparent-numbergt"> <a class="anchor" href="#git-cherry-pick--mltparent-numbergt"></a>-m &lt;parent-number&gt; </dt>
-<dt class="hdlist1" id="git-cherry-pick---mainlineltnmero-relacionadogt"> <a class="anchor" href="#git-cherry-pick---mainlineltnmero-relacionadogt"></a>--mainline &lt;número-relacionado&gt; </dt>
+<dt class="hdlist1" id="git-cherry-pick--mltparent-numbergt"> <a class="anchor" href="#git-cherry-pick--mparent-number"></a> <a class="anchor" href="#git-cherry-pick--mltparent-numbergt"></a>-m &lt;parent-number&gt; </dt>
+<dt class="hdlist1" id="git-cherry-pick---mainlineltnmero-relacionadogt"> <a class="anchor" href="#git-cherry-pick---mainlinenmero-relacionado"></a> <a class="anchor" href="#git-cherry-pick---mainlineltnmero-relacionadogt"></a>--mainline &lt;número-relacionado&gt; </dt>
 <dd>
 <p>Normalmente, não é possível selecionar uma mesclagem porque você não sabe qual lado da mesclagem deve ser considerado como principal. Esta opção especifica o "parent number" ou número principal (a partir de 1) da linha principal e permite que o <em>cherry-pick</em> reproduza a alteração em relação ao principal definido.</p>
 </dd>
@@ -105,8 +105,8 @@ aliases:
 <dd>
 <p>Adicione uma linha <code>Signed-off-by</code> no final da mensagem de confirmação. Consulte a opção signoff do comando <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a> para obter mais informações.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick--Sltkeyidgt"> <a class="anchor" href="#git-cherry-pick--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
-<dt class="hdlist1" id="git-cherry-pick---gpg-signltkeyidgt"> <a class="anchor" href="#git-cherry-pick---gpg-signltkeyidgt"></a>--gpg-sign[=&lt;keyid&gt;] </dt>
+<dt class="hdlist1" id="git-cherry-pick--Sltkeyidgt"> <a class="anchor" href="#git-cherry-pick--Skeyid"></a> <a class="anchor" href="#git-cherry-pick--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
+<dt class="hdlist1" id="git-cherry-pick---gpg-signltkeyidgt"> <a class="anchor" href="#git-cherry-pick---gpg-signkeyid"></a> <a class="anchor" href="#git-cherry-pick---gpg-signltkeyidgt"></a>--gpg-sign[=&lt;keyid&gt;] </dt>
 <dt class="hdlist1" id="git-cherry-pick---no-gpg-sign"> <a class="anchor" href="#git-cherry-pick---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
 <p>Commits assinados com o GPG O argumento <code>keyid</code> é opcional e a predefinição retorna para a identidade de quem fez o commit; caso seja utilizado, deve estar anexado a opção e sem espaço. A opção <code>--no-gpg-sign</code> é útil para revogar a variável de configuração <code>commit.gpgSign</code> e a anterior <code>--gpg-sign</code>.</p>
@@ -130,15 +130,15 @@ aliases:
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-cherry-pick-codedropcode"> <a class="anchor" href="#git-cherry-pick-codedropcode"></a><code>drop</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codedropcode"> <a class="anchor" href="#git-cherry-pick-drop"></a> <a class="anchor" href="#git-cherry-pick-codedropcode"></a><code>drop</code> </dt>
 <dd>
 <p>The commit will be dropped.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codekeepcode"> <a class="anchor" href="#git-cherry-pick-codekeepcode"></a><code>keep</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codekeepcode"> <a class="anchor" href="#git-cherry-pick-keep"></a> <a class="anchor" href="#git-cherry-pick-codekeepcode"></a><code>keep</code> </dt>
 <dd>
 <p>The commit will be kept. Implies <code>--allow-empty</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codestopcode"> <a class="anchor" href="#git-cherry-pick-codestopcode"></a><code>stop</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codestopcode"> <a class="anchor" href="#git-cherry-pick-stop"></a> <a class="anchor" href="#git-cherry-pick-codestopcode"></a><code>stop</code> </dt>
 <dd>
 <p>The cherry-pick will stop when the commit is applied, allowing you to examine the commit. This is the default behavior.</p>
 </dd>
@@ -154,12 +154,12 @@ aliases:
 <dd>
 <p>Deprecated synonym for <code>--empty=keep</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick---strategyltestratgiagt"> <a class="anchor" href="#git-cherry-pick---strategyltestratgiagt"></a>--strategy=&lt;estratégia&gt; </dt>
+<dt class="hdlist1" id="git-cherry-pick---strategyltestratgiagt"> <a class="anchor" href="#git-cherry-pick---strategyestratgia"></a> <a class="anchor" href="#git-cherry-pick---strategyltestratgiagt"></a>--strategy=&lt;estratégia&gt; </dt>
 <dd>
 <p>Use a estratégia de mesclagem fornecida. Deve ser utilizada apenas uma vez. Consulte a seção ESTRATÉGIAS DE MESCLAGEM do comando <a href='{{< relurl "docs/git-merge/pt_BR" >}}'>git-merge[1]</a> for details.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick--Xltopogt"> <a class="anchor" href="#git-cherry-pick--Xltopogt"></a>-X&lt;opção&gt; </dt>
-<dt class="hdlist1" id="git-cherry-pick---strategy-optionltopogt"> <a class="anchor" href="#git-cherry-pick---strategy-optionltopogt"></a>--strategy-option=&lt;opção&gt; </dt>
+<dt class="hdlist1" id="git-cherry-pick--Xltopogt"> <a class="anchor" href="#git-cherry-pick--Xopo"></a> <a class="anchor" href="#git-cherry-pick--Xltopogt"></a>-X&lt;opção&gt; </dt>
+<dt class="hdlist1" id="git-cherry-pick---strategy-optionltopogt"> <a class="anchor" href="#git-cherry-pick---strategy-optionopo"></a> <a class="anchor" href="#git-cherry-pick---strategy-optionltopogt"></a>--strategy-option=&lt;opção&gt; </dt>
 <dd>
 <p>Encaminhe a opção específica da estratégia de mesclagem para a estratégia de mesclagem. Para mais detalhes consulte <a href='{{< relurl "docs/git-merge/pt_BR" >}}'>git-merge[1]</a>.</p>
 </dd>
@@ -202,33 +202,33 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmastercode"> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmastercode"></a><code>git cherry-pick master</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmastercode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmastercode"></a><code>git cherry-pick master</code> </dt>
 <dd>
 <p>Aplique a mudança introduzida pelo commit na ponta do branch master e crie um novo commit com esta mudança.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmastercode-1"> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmastercode-1"></a><code>git cherry-pick ..master</code> </dt>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickHEADmastercode"> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickHEADmastercode"></a><code>git cherry-pick ^HEAD master</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmastercode-1"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster-1"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmastercode-1"></a><code>git cherry-pick ..master</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickHEADmastercode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickHEADmaster"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickHEADmastercode"></a><code>git cherry-pick ^HEAD master</code> </dt>
 <dd>
 <p>Aplique as alterações introduzidas por todos os commits que são ancestrais do master, mas não do HEAD para produzir novos commits.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaintprximomastercode"> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaintprximomastercode"></a><code>git cherry-pick maint próximo ^master</code> </dt>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaintmasterprximocode"> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaintmasterprximocode"></a><code>git cherry-pick maint master..próximo</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaintprximomastercode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaintprximomaster"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaintprximomastercode"></a><code>git cherry-pick maint próximo ^master</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaintmasterprximocode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaintmasterprximo"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaintmasterprximocode"></a><code>git cherry-pick maint master..próximo</code> </dt>
 <dd>
 <p>Aplique as alterações introduzidas por todos os commits que sejam ancestrais <code>maint</code> ou do próximo, nem do <code>master</code> ou de qualquer um de seus ancestrais. Observe que o último não significa <code>maint</code> e tudo entre <code>master</code> e <code>next</code>; especificamente, <code>maint</code> não será usado se estiver incluído em <code>master</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaster4master2code"> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaster4master2code"></a><code>git cherry-pick master~4 master~2</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaster4master2code"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster4master2"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaster4master2code"></a><code>git cherry-pick master~4 master~2</code> </dt>
 <dd>
 <p>Aplique as alterações introduzidas pelo quinto e terceiro últimos commits apontados pelo master e crie 2 novos commits com essas mudanças.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pick-nmaster1nextcode"> <a class="anchor" href="#git-cherry-pick-codegitcherry-pick-nmaster1nextcode"></a><code>git cherry-pick -n master~1 next</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pick-nmaster1nextcode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pick-nmaster1next"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pick-nmaster1nextcode"></a><code>git cherry-pick -n master~1 next</code> </dt>
 <dd>
 <p>Aplique as alterações na árvore de trabalho e no índice que foram introduzidos pelo segundo último commit apontada pelo "master" e pelo último commit apontada pelo próximo, porém não crie nenhum commit com estas alterações.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pick--ffnextcode"> <a class="anchor" href="#git-cherry-pick-codegitcherry-pick--ffnextcode"></a><code>git cherry-pick --ff ..next</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pick--ffnextcode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pick--ffnext"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pick--ffnextcode"></a><code>git cherry-pick --ff ..next</code> </dt>
 <dd>
 <p>Se o histórico for linear e <code>HEAD</code> for um ancestral do próximo, atualize a árvore de trabalho e avance o ponteiro <code>HEAD</code> para a próxima correspondência. Caso contrário, aplique as alterações introduzidas por estes commits que estão próximos, mas não são o <code>HEAD</code> do ramo atual, criando um novo commit para cada nova alteração.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitrev-list--reversemaster--READMEgitcherry-pick-n--stdincode"> <a class="anchor" href="#git-cherry-pick-codegitrev-list--reversemaster--READMEgitcherry-pick-n--stdincode"></a><code>git rev-list --reverse master -- README | git cherry-pick -n --stdin</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-codegitrev-list--reversemaster--READMEgitcherry-pick-n--stdincode"> <a class="anchor" href="#git-cherry-pick-gitrev-list--reversemaster--READMEgitcherry-pick-n--stdin"></a> <a class="anchor" href="#git-cherry-pick-codegitrev-list--reversemaster--READMEgitcherry-pick-n--stdincode"></a><code>git rev-list --reverse master -- README | git cherry-pick -n --stdin</code> </dt>
 <dd>
 <p>Aplique as alterações introduzidas por todas as confirmações no ramo principal que tocaram no README para a árvore de trabalho e o índice, para que o resultado possa ser inspecionado e transformado numa única nova confirmação, se adequado.</p>
 </dd>

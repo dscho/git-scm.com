@@ -89,7 +89,7 @@ all trace messages. E.g.:</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codestructtracekeycode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-codestructtracekeycode"></a><code>struct trace_key</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codestructtracekeycode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-structtracekey"></a> <a class="anchor" href="#Documentation/technical/api-trace.txt-codestructtracekeycode"></a><code>struct trace_key</code> </dt>
 <dd>
 <p>Defines a trace key (or category). The default (for API functions that
 don&#8217;t take a key) is <code>GIT_TRACE</code>.</p>
@@ -120,31 +120,31 @@ the <code>trace_key</code> structure.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codeinttracewantstructtracekeykeycode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-codeinttracewantstructtracekeykeycode"></a><code>int trace_want(struct trace_key *key)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codeinttracewantstructtracekeykeycode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-inttracewantstructtracekeykey"></a> <a class="anchor" href="#Documentation/technical/api-trace.txt-codeinttracewantstructtracekeykeycode"></a><code>int trace_want(struct trace_key *key)</code> </dt>
 <dd>
 <p>Checks whether the trace key is enabled. Used to prevent expensive
 string formatting before calling one of the printing APIs.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtracedisablestructtracekeykeycode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtracedisablestructtracekeykeycode"></a><code>void trace_disable(struct trace_key *key)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtracedisablestructtracekeykeycode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-voidtracedisablestructtracekeykey"></a> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtracedisablestructtracekeykeycode"></a><code>void trace_disable(struct trace_key *key)</code> </dt>
 <dd>
 <p>Disables tracing for the specified key, even if the environment
 variable was set.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtraceprintfconstcharformatcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtraceprintfconstcharformatcode"></a><code>void trace_printf(const char *format, ...)</code> </dt>
-<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtraceprintfkeystructtracekeykeyconstcharformatcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtraceprintfkeystructtracekeykeyconstcharformatcode"></a><code>void trace_printf_key(struct trace_key *key, const char *format, ...)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtraceprintfconstcharformatcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-voidtraceprintfconstcharformat"></a> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtraceprintfconstcharformatcode"></a><code>void trace_printf(const char *format, ...)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtraceprintfkeystructtracekeykeyconstcharformatcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-voidtraceprintfkeystructtracekeykeyconstcharformat"></a> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtraceprintfkeystructtracekeykeyconstcharformatcode"></a><code>void trace_printf_key(struct trace_key *key, const char *format, ...)</code> </dt>
 <dd>
 <p>Prints a formatted message, similar to printf.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtraceargvprintfconstcharargvconstcharformatcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtraceargvprintfconstcharargvconstcharformatcode"></a><code>void trace_argv_printf(const char **argv, const char *format, ...)`</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtraceargvprintfconstcharargvconstcharformatcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-voidtraceargvprintfconstcharargvconstcharformat"></a> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtraceargvprintfconstcharargvconstcharformatcode"></a><code>void trace_argv_printf(const char **argv, const char *format, ...)`</code> </dt>
 <dd>
 <p>Prints a formatted message, followed by a quoted list of arguments.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtracestrbufstructtracekeykeyconststructstrbufdatacode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtracestrbufstructtracekeykeyconststructstrbufdatacode"></a><code>void trace_strbuf(struct trace_key *key, const struct strbuf *data)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtracestrbufstructtracekeykeyconststructstrbufdatacode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-voidtracestrbufstructtracekeykeyconststructstrbufdata"></a> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtracestrbufstructtracekeykeyconststructstrbufdatacode"></a><code>void trace_strbuf(struct trace_key *key, const struct strbuf *data)</code> </dt>
 <dd>
 <p>Prints the strbuf, without additional formatting (i.e. doesn&#8217;t
 choke on <code>%</code> or even <code>\0</code>).</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codeuint64tgetnanotimevoidcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-codeuint64tgetnanotimevoidcode"></a><code>uint64_t getnanotime(void)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codeuint64tgetnanotimevoidcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-uint64tgetnanotimevoid"></a> <a class="anchor" href="#Documentation/technical/api-trace.txt-codeuint64tgetnanotimevoidcode"></a><code>uint64_t getnanotime(void)</code> </dt>
 <dd>
 <p>Returns nanoseconds since the epoch (01/01/1970), typically used
 for performance measurements.</p>
@@ -154,8 +154,8 @@ for performance measurements.</p>
 Other platforms use <code>gettimeofday</code> as time source.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtraceperformanceuint64tnanosconstcharformatcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtraceperformanceuint64tnanosconstcharformatcode"></a><code>void trace_performance(uint64_t nanos, const char *format, ...)</code> </dt>
-<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtraceperformancesinceuint64tstartconstcharformatcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtraceperformancesinceuint64tstartconstcharformatcode"></a><code>void trace_performance_since(uint64_t start, const char *format, ...)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtraceperformanceuint64tnanosconstcharformatcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-voidtraceperformanceuint64tnanosconstcharformat"></a> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtraceperformanceuint64tnanosconstcharformatcode"></a><code>void trace_performance(uint64_t nanos, const char *format, ...)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-trace.txt-codevoidtraceperformancesinceuint64tstartconstcharformatcode"> <a class="anchor" href="#Documentation/technical/api-trace.txt-voidtraceperformancesinceuint64tstartconstcharformat"></a> <a class="anchor" href="#Documentation/technical/api-trace.txt-codevoidtraceperformancesinceuint64tstartconstcharformatcode"></a><code>void trace_performance_since(uint64_t start, const char *format, ...)</code> </dt>
 <dd>
 <p>Prints the elapsed time (in nanoseconds), or elapsed time since
 <code>start</code>, followed by a formatted message. Enabled via environment

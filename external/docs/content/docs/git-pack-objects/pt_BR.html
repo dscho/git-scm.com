@@ -99,23 +99,23 @@ aliases:
 <p>É incompatível com as opções <code>--unpack-unreachable</code>, <code>--keep-unreachable</code>, <code>--pack-loose-unreachable</code>, <code>--stdin-packs</code>, bem como quaisquer outras opções que impliquem <code>--revs</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---cruft-expirationltaproximadogt"> <a class="anchor" href="#git-pack-objects---cruft-expirationltaproximadogt"></a>--cruft-expiration=&lt;aproximado&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---cruft-expirationltaproximadogt"> <a class="anchor" href="#git-pack-objects---cruft-expirationaproximado"></a> <a class="anchor" href="#git-pack-objects---cruft-expirationltaproximadogt"></a>--cruft-expiration=&lt;aproximado&gt; </dt>
 <dd>
 <p>Se definido, os objetos são eliminados do pacote "cruft" caso tenham um mtime mais antigo que <code>&lt;aproximado&gt;</code>. Se não for definido (e for usado <code>--cruft</code>), nenhum objeto será eliminado.</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---windowltngt"> <a class="anchor" href="#git-pack-objects---windowltngt"></a>--window=&lt;n&gt; </dt>
-<dt class="hdlist1" id="git-pack-objects---depthltngt"> <a class="anchor" href="#git-pack-objects---depthltngt"></a>--depth=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---windowltngt"> <a class="anchor" href="#git-pack-objects---windown"></a> <a class="anchor" href="#git-pack-objects---windowltngt"></a>--window=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---depthltngt"> <a class="anchor" href="#git-pack-objects---depthn"></a> <a class="anchor" href="#git-pack-objects---depthltngt"></a>--depth=&lt;n&gt; </dt>
 <dd>
 <p>Estas duas opções afetam a maneira como os objetos contidos no pacote são armazenados usando a compactação delta. Os objetos são primeiro classificados internamente por tipo, tamanho e, opcionalmente, por nomes, e também comparados com os outros objetos dentro em conjunto com a opção <code>--window</code> para verificar se o uso da compactação delta economiza espaço. A opção <code>--depth</code> limita a profundidade delta máxima; torná-la muito profunda afeta o desempenho para quem for descompactar, pois os dados delta precisam ser aplicados muitas vezes para chegar ao objeto necessário.</p>
 <div class="paragraph">
 <p>O valor predefinido para a opção <code>--window</code> é 10 e o <code>--depth</code> é 50. O valor da profundidade máxima é 4095.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---window-memoryltngt"> <a class="anchor" href="#git-pack-objects---window-memoryltngt"></a>--window-memory=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---window-memoryltngt"> <a class="anchor" href="#git-pack-objects---window-memoryn"></a> <a class="anchor" href="#git-pack-objects---window-memoryltngt"></a>--window-memory=&lt;n&gt; </dt>
 <dd>
 <p>Esta opção fornece um limite adicional além da opção <code>--window</code>; o tamanho da janela será reduzido dinamicamente para não ocupar mais do que <em>&lt;n&gt;</em> bytes na memória. Isso é útil em repositórios com uma mistura de objetos grandes e pequenos evitando a falta de memória com uma janela grande, mas ainda assim ser possível aproveitar a grande janela para os objetos menores. O tamanho pode ser sufixado com "k", "m" ou "g". A opção <code>--window-memory=0</code> torna ilimitado o uso da memória. A predefinição é obtida a partir na variável de configuração <code>pack.windowMemory</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---max-pack-sizeltngt"> <a class="anchor" href="#git-pack-objects---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---max-pack-sizeltngt"> <a class="anchor" href="#git-pack-objects---max-pack-sizen"></a> <a class="anchor" href="#git-pack-objects---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
 <dd>
 <p>Em cenários incomuns, talvez não seja possível criar arquivos maiores do que um determinado tamanho no sistema de arquivos, e essa opção pode ser usada para informar ao comando para dividir o pacote do arquivo gerado em vários arquivos independentes, cada um não maior do que o tamanho informado. O tamanho pode ser sufixado com "k", "m" ou "g". O tamanho mínimo permitido é limitado a 1 MiB. A predefinição é ilimitado, a menos que outro valor seja definido na variável de configuração <code>pack.packSizeLimit</code>. Observe que esta opção pode resultar num repositório maior e mais lento; consulte a discussão em <code>pack.packSizeLimit</code>.</p>
 </dd>
@@ -123,7 +123,7 @@ aliases:
 <dd>
 <p>Esta opção faz com que um objeto que já esteja num pacote local que possua um arquivo <em>.keep</em> seja ignorado, mesmo que já tivesse sido compactado.</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---keep-packltnome-do-pacotegt"> <a class="anchor" href="#git-pack-objects---keep-packltnome-do-pacotegt"></a>--keep-pack=&lt;nome-do-pacote&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---keep-packltnome-do-pacotegt"> <a class="anchor" href="#git-pack-objects---keep-packnome-do-pacote"></a> <a class="anchor" href="#git-pack-objects---keep-packltnome-do-pacotegt"></a>--keep-pack=&lt;nome-do-pacote&gt; </dt>
 <dd>
 <p>Esta opção faz com que um objeto que já esteja no pacote informado seja ignorado, mesmo que ele tivesse sido compactado. O <code>&lt;nome-do-pacote&gt;</code> é o nome do arquivo do pacote sem o diretório principal (por exemplo, <code>pack-123.pack</code>). A opção pode ser utilizada várias vezes para manter os vários pacotes.</p>
 </dd>
@@ -163,7 +163,7 @@ aliases:
 <dd>
 <p>Esta opção informa ao comando para não reutilizar os dados do objeto já existente, inclusive o objeto não deltificado, impondo a recompressão de tudo. Implica no uso da opção <code>--no-reuse-delta</code>. Útil apenas em casos obscuros onde se deseja a aplicação total de um nível de compactação diferente nos dados compactados.</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---compressionltngt"> <a class="anchor" href="#git-pack-objects---compressionltngt"></a>--compression=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---compressionltngt"> <a class="anchor" href="#git-pack-objects---compressionn"></a> <a class="anchor" href="#git-pack-objects---compressionltngt"></a>--compression=&lt;n&gt; </dt>
 <dd>
 <p>Especifica o nível de compactação dos dados recém-compactados no pacote que foi gerado. Se não for especificado, o nível de compactação do pacote será determinado primeiro por <code>pack.compression</code> e, em seguida, por <code>core.compression</code>, e a predefinição será -1, a predefinição zlib, caso nenhum dos dois tenha sido definido. Adicione a opção <code>--no-reuse-object</code> se quiser impor um nível de compactação uniforme em todos os dados, independentemente da origem.</p>
 </dd>
@@ -189,11 +189,11 @@ aliases:
 <p>Observação: Comandos porcelana como <code>git gc</code> (consulte <a href='{{< relurl "docs/git-gc/pt_BR" >}}'>git-gc[1]</a>), <code>git repack</code> (consulte <a href='{{< relurl "docs/git-repack/pt_BR" >}}'>git-repack[1]</a>) repassam esta opção ao Git atual quando colocam objetos em seu repositório ou em pacotes de arquivos. O mesmo acontece com o comando <code>git bundle</code> (consulte <a href='{{< relurl "docs/git-bundle/pt_BR" >}}'>git-bundle[1]</a>) quando ele cria um pacote.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---threadsltngt"> <a class="anchor" href="#git-pack-objects---threadsltngt"></a>--threads=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---threadsltngt"> <a class="anchor" href="#git-pack-objects---threadsn"></a> <a class="anchor" href="#git-pack-objects---threadsltngt"></a>--threads=&lt;n&gt; </dt>
 <dd>
 <p>Especifica a quantidade de threads que serão gerados durante a pesquisa das melhores correspondências delta. Isso requer que o pack-objects seja compilado com pthreads; caso contrário, esta opção será ignorada e exibirá um aviso. O objetivo é reduzir o tempo de empacotamento em máquinas com vários processadores. No entanto, a quantidade de memória necessária para a janela de pesquisa delta é multiplicada pelo número de threads. Ao definir como 0, fará com que o Git detecte automaticamente a quantidade de CPUs e defina a quantidade de threads automaticamente.</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---index-versionltversiongtltoffsetgt"> <a class="anchor" href="#git-pack-objects---index-versionltversiongtltoffsetgt"></a>--index-version=&lt;version&gt;[,&lt;offset&gt;] </dt>
+<dt class="hdlist1" id="git-pack-objects---index-versionltversiongtltoffsetgt"> <a class="anchor" href="#git-pack-objects---index-versionversionoffset"></a> <a class="anchor" href="#git-pack-objects---index-versionltversiongtltoffsetgt"></a>--index-version=&lt;version&gt;[,&lt;offset&gt;] </dt>
 <dd>
 <p>Isso foi pensado para ser utilizado apenas pelo conjunto de testes. Ele permite impor a versão do índice do pacote gerado e impor as entradas no índice com 64 bits nos objetos localizados acima da compensação informada.</p>
 </dd>
@@ -201,7 +201,7 @@ aliases:
 <dd>
 <p>Com esta opção, as origens são ocultas pelos enxertos são embalados mesmo assim.</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---filterltfilter-specgt"> <a class="anchor" href="#git-pack-objects---filterltfilter-specgt"></a>--filter=&lt;filter-spec&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---filterltfilter-specgt"> <a class="anchor" href="#git-pack-objects---filterfilter-spec"></a> <a class="anchor" href="#git-pack-objects---filterltfilter-specgt"></a>--filter=&lt;filter-spec&gt; </dt>
 <dd>
 <p>Omite determinados objetos (geralmente bolhas) do pacote resultante de arquivos. Consulte <a href='{{< relurl "docs/git-rev-list/pt_BR" >}}'>git-rev-list[1]</a> para formas de <code>&lt;spec-do-filtro&gt;</code> válidos.</p>
 </dd>
@@ -209,7 +209,7 @@ aliases:
 <dd>
 <p>Desliga qualquer argumento <code>--filter=</code> anterior.</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---missingltmissing-actiongt"> <a class="anchor" href="#git-pack-objects---missingltmissing-actiongt"></a>--missing=&lt;missing-action&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---missingltmissing-actiongt"> <a class="anchor" href="#git-pack-objects---missingmissing-action"></a> <a class="anchor" href="#git-pack-objects---missingltmissing-actiongt"></a>--missing=&lt;missing-action&gt; </dt>
 <dd>
 <p>Uma opção de depuração para ajudar no desenvolvimento futuro de "clones parciais". Esta opção determina como lidar com os objetos ausentes.</p>
 <div class="paragraph">
@@ -242,7 +242,7 @@ aliases:
 <dd>
 <p>Restrinja a coincidência delta com base nas "ilhas". Consulte ILHAS DELTA abaixo.</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---name-hash-versionltngt"> <a class="anchor" href="#git-pack-objects---name-hash-versionltngt"></a>--name-hash-version=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---name-hash-versionltngt"> <a class="anchor" href="#git-pack-objects---name-hash-versionn"></a> <a class="anchor" href="#git-pack-objects---name-hash-versionltngt"></a>--name-hash-version=&lt;n&gt; </dt>
 <dd>
 <p>While performing delta compression, Git groups objects that may be similar based on heuristics using the path to that object. While grouping objects by an exact path match is good for paths with many versions, there are benefits for finding delta pairs across different full paths. Git collects objects by type and then by a "name hash" of the path and then by size, hoping to group objects that will compress well together.</p>
 <div class="paragraph">

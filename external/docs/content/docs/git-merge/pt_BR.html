@@ -94,7 +94,7 @@ A opção <code>--edit</code> (ou <code>-e</code>) ainda é útil caso esteja en
 <p>Os scripts mais antigos podem depender do comportamento histórico de não permitir que o usuário edite a mensagem do registro log da mesclagem. Eles verão um editor aberto quando executar o <code>git merge</code>. Para facilitar o ajuste destes scripts para o comportamento que foi atualizado, a variável de ambiente <code>GIT_MERGE_AUTOEDIT</code> pode ser definido como <code>no</code> no início deles.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge---cleanupltmodogt"> <a class="anchor" href="#git-merge---cleanupltmodogt"></a>--cleanup=&lt;modo&gt; </dt>
+<dt class="hdlist1" id="git-merge---cleanupltmodogt"> <a class="anchor" href="#git-merge---cleanupmodo"></a> <a class="anchor" href="#git-merge---cleanupltmodogt"></a>--cleanup=&lt;modo&gt; </dt>
 <dd>
 <p>Esta opção determina como a mensagem da mesclagem será limpa antes da confirmação. Para mais detalhes consulte <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a>. Além disso, caso o valor de <code>scissors</code> seja dado ao <em>&lt;mode&gt;</em> , o <code>scissors</code> (tesouras) será anexada ao <code>MERGE_MSG</code> antes de ser repassada para o mecanismo de commit caso exista mesclagens conflitantes.</p>
 </dd>
@@ -113,13 +113,13 @@ A opção <code>--edit</code> (ou <code>-e</code>) ainda é útil caso esteja en
 <p>Com a opção <code>--ff-only</code>, resolva a mesclagem como um avanço rápido quando for possível. Quando não for possível, recuse a mesclagem e encerre com uma condição de encerramento diferente de zero.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge--Sltkeyidgt"> <a class="anchor" href="#git-merge--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
-<dt class="hdlist1" id="git-merge---gpg-signltkeyidgt"> <a class="anchor" href="#git-merge---gpg-signltkeyidgt"></a>--gpg-sign[=&lt;keyid&gt;] </dt>
+<dt class="hdlist1" id="git-merge--Sltkeyidgt"> <a class="anchor" href="#git-merge--Skeyid"></a> <a class="anchor" href="#git-merge--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
+<dt class="hdlist1" id="git-merge---gpg-signltkeyidgt"> <a class="anchor" href="#git-merge---gpg-signkeyid"></a> <a class="anchor" href="#git-merge---gpg-signltkeyidgt"></a>--gpg-sign[=&lt;keyid&gt;] </dt>
 <dt class="hdlist1" id="git-merge---no-gpg-sign"> <a class="anchor" href="#git-merge---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
 <p>Assine a mesclagem resultante do commit com o GPG. O argumento <code>keyid</code> é opcional e a predefinição retorna para a identidade de quem fez o commit; se utilizado, deve estar anexado a opção sem espaço. A opção <code>--no-gpg-sign</code> é útil para revogar a variável de configuração <code>commit.gpgSign</code> e a anterior <code>--gpg-sign</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-merge---logltngt"> <a class="anchor" href="#git-merge---logltngt"></a>--log[=&lt;n&gt;] </dt>
+<dt class="hdlist1" id="git-merge---logltngt"> <a class="anchor" href="#git-merge---logn"></a> <a class="anchor" href="#git-merge---logltngt"></a>--log[=&lt;n&gt;] </dt>
 <dt class="hdlist1" id="git-merge---no-log"> <a class="anchor" href="#git-merge---no-log"></a>--no-log </dt>
 <dd>
 <p>Além dos nomes dos ramos, preencha a mensagem do registro log com descrições de uma linha com no máximo &lt;n&gt; commits atuais que estão sendo mesclados. Consulte também <a href='{{< relurl "docs/git-fmt-merge-msg/pt_BR" >}}'>git-fmt-merge-msg[1]</a>.</p>
@@ -127,8 +127,8 @@ A opção <code>--edit</code> (ou <code>-e</code>) ainda é útil caso esteja en
 <p>Com <em>--no-log</em>, não liste as descrições de uma linha vindas do commits que estão atualmente sendo mescladas.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge-code--signoffcode"> <a class="anchor" href="#git-merge-code--signoffcode"></a><code>--signoff</code> </dt>
-<dt class="hdlist1" id="git-merge-code--no-signoffcode"> <a class="anchor" href="#git-merge-code--no-signoffcode"></a><code>--no-signoff</code> </dt>
+<dt class="hdlist1" id="git-merge-code--signoffcode"> <a class="anchor" href="#git-merge---signoff"></a> <a class="anchor" href="#git-merge-code--signoffcode"></a><code>--signoff</code> </dt>
+<dt class="hdlist1" id="git-merge-code--no-signoffcode"> <a class="anchor" href="#git-merge---no-signoff"></a> <a class="anchor" href="#git-merge-code--no-signoffcode"></a><code>--no-signoff</code> </dt>
 <dd>
 <p>Adicione uma linha <code>Signed-off-by</code> de quem fez o commit no final da mensagem de registro do commit. O significado de uma aprovação depende do projeto onde você está fazendo o commit. Por exemplo, ele pode certificar que quem fez o commit tem o direito de enviar o trabalho sob a licença do projeto ou concorda com alguma representação do contribuinte, como um certificado de origem do desenvolvedor. (Consulte <a href="https://developercertificate.org" class="bare">https://developercertificate.org</a> para saber qual é a usada pelo kernel do Linux e pelos projetos Git). Consulte a documentação ou a liderança do projeto para onde está contribuindo para compreender como as assinaturas são usadas nesse projeto.</p>
 <div class="paragraph">
@@ -163,13 +163,13 @@ A opção <code>--edit</code> (ou <code>-e</code>) ainda é útil caso esteja en
 <dd>
 <p>É predefinido que os ganchos <em>pre-merge</em> e <em>commit-msg</em> sejam executados. Quando a opção <code>--no-verify</code> é usada, isso é ignorado. Consulte também <a href='{{< relurl "docs/githooks/pt_BR" >}}'>githooks[5]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-merge--sltestratgiagt"> <a class="anchor" href="#git-merge--sltestratgiagt"></a>-s &lt;estratégia&gt; </dt>
-<dt class="hdlist1" id="git-merge---strategyltestratgiagt"> <a class="anchor" href="#git-merge---strategyltestratgiagt"></a>--strategy=&lt;estratégia&gt; </dt>
+<dt class="hdlist1" id="git-merge--sltestratgiagt"> <a class="anchor" href="#git-merge--sestratgia"></a> <a class="anchor" href="#git-merge--sltestratgiagt"></a>-s &lt;estratégia&gt; </dt>
+<dt class="hdlist1" id="git-merge---strategyltestratgiagt"> <a class="anchor" href="#git-merge---strategyestratgia"></a> <a class="anchor" href="#git-merge---strategyltestratgiagt"></a>--strategy=&lt;estratégia&gt; </dt>
 <dd>
 <p>Use a estratégia fornecida de mesclagem; mais de uma pode ser fornecida mais de uma vez para especificá-las na ordem em que devem ser testadas. Se não houver a opção <code>-s</code>, uma lista integrada de estratégias será usada em seu lugar (<code>ort</code> ao mesclar um único <code>HEAD</code>, caso contrário, <code>octopus</code>).</p>
 </dd>
-<dt class="hdlist1" id="git-merge--Xltopogt"> <a class="anchor" href="#git-merge--Xltopogt"></a>-X &lt;opção&gt; </dt>
-<dt class="hdlist1" id="git-merge---strategy-optionltopogt"> <a class="anchor" href="#git-merge---strategy-optionltopogt"></a>--strategy-option=&lt;opção&gt; </dt>
+<dt class="hdlist1" id="git-merge--Xltopogt"> <a class="anchor" href="#git-merge--Xopo"></a> <a class="anchor" href="#git-merge--Xltopogt"></a>-X &lt;opção&gt; </dt>
+<dt class="hdlist1" id="git-merge---strategy-optionltopogt"> <a class="anchor" href="#git-merge---strategy-optionopo"></a> <a class="anchor" href="#git-merge---strategy-optionltopogt"></a>--strategy-option=&lt;opção&gt; </dt>
 <dd>
 <p>Passe a opção específica da estratégia através da estratégia de mesclagem.</p>
 </dd>
@@ -211,7 +211,7 @@ A opção <code>--edit</code> (ou <code>-e</code>) ainda é útil caso esteja en
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-merge--mltmsggt"> <a class="anchor" href="#git-merge--mltmsggt"></a>-m &lt;msg&gt; </dt>
+<dt class="hdlist1" id="git-merge--mltmsggt"> <a class="anchor" href="#git-merge--mmsg"></a> <a class="anchor" href="#git-merge--mltmsggt"></a>-m &lt;msg&gt; </dt>
 <dd>
 <p>Defina a mensagem do commit que será utilizada para a mesclagem do commit (no caso de uma ser criada).</p>
 <div class="paragraph">
@@ -221,12 +221,12 @@ A opção <code>--edit</code> (ou <code>-e</code>) ainda é útil caso esteja en
 <p>O comando <code>git fmt-merge-msg</code> pode ser usado para fornecer um bom padrão para invocações automatizadas do comando <code>git merge</code>. A mensagem automática pode incluir a descrição da agência.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge---into-nameltramogt"> <a class="anchor" href="#git-merge---into-nameltramogt"></a>--into-name &lt;ramo&gt; </dt>
+<dt class="hdlist1" id="git-merge---into-nameltramogt"> <a class="anchor" href="#git-merge---into-nameramo"></a> <a class="anchor" href="#git-merge---into-nameltramogt"></a>--into-name &lt;ramo&gt; </dt>
 <dd>
 <p>Prepare a mensagem predefinida da mesclagem como se fosse uma mesclagem para a ramificação <code>&lt;ramificação&gt;</code> em vez do nome da ramificação real para onde a mesclagem for feita.</p>
 </dd>
-<dt class="hdlist1" id="git-merge--Fltarquivogt"> <a class="anchor" href="#git-merge--Fltarquivogt"></a>-F &lt;arquivo&gt; </dt>
-<dt class="hdlist1" id="git-merge---fileltarquivogt"> <a class="anchor" href="#git-merge---fileltarquivogt"></a>--file=&lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-merge--Fltarquivogt"> <a class="anchor" href="#git-merge--Farquivo"></a> <a class="anchor" href="#git-merge--Fltarquivogt"></a>-F &lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-merge---fileltarquivogt"> <a class="anchor" href="#git-merge---filearquivo"></a> <a class="anchor" href="#git-merge---fileltarquivogt"></a>--file=&lt;arquivo&gt; </dt>
 <dd>
 <p>Leia a mensagem de commit que será utilizada para mesclar o commit (no caso de uma ser criada).</p>
 <div class="paragraph">
@@ -265,7 +265,7 @@ A opção <code>--edit</code> (ou <code>-e</code>) ainda é útil caso esteja en
 <dd>
 <p>Após a interrupção de um comando`git merge` devido a conflitos, é possível concluir a mesclagem executando o comando <code>git merge --continue</code> (consulte a seção "COMO RESOLVER CONFLITOS" abaixo).</p>
 </dd>
-<dt class="hdlist1" id="git-merge-ltcommitgt82308203"> <a class="anchor" href="#git-merge-ltcommitgt82308203"></a>&lt;commit&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-merge-ltcommitgt82308203"> <a class="anchor" href="#git-merge-commit"></a> <a class="anchor" href="#git-merge-ltcommitgt82308203"></a>&lt;commit&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Os commits, geralmente vindo dos cabeçalhos de outras ramificações, para mesclar em nossa ramificação. Ao especificar mais de um commit criará uma mesclagem com mais de duas origens (carinhosamente chamada de mesclagem Octopus).</p>
 <div class="paragraph">
@@ -570,15 +570,15 @@ E aqui está outra linha que foi claramente resolvida ou não foi modificada.</p
 <dd>
 <p>Desativa a opção <code>renormalize</code>. Isso substitui a variável de configuração <code>merge.renormalize</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-merge-find-renamesltngt"> <a class="anchor" href="#git-merge-find-renamesltngt"></a>find-renames[=&lt;n&gt;] </dt>
+<dt class="hdlist1" id="git-merge-find-renamesltngt"> <a class="anchor" href="#git-merge-find-renamesn"></a> <a class="anchor" href="#git-merge-find-renamesltngt"></a>find-renames[=&lt;n&gt;] </dt>
 <dd>
 <p>Ative a detecção de renomeação, definindo opcionalmente o limite de similaridade. Esta é a predefinição. Isso substitui a variável de configuração <em>merge.renames</em>. Consulte também <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <code>--find-renames</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-merge-rename-thresholdltngt"> <a class="anchor" href="#git-merge-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-merge-rename-thresholdltngt"> <a class="anchor" href="#git-merge-rename-thresholdn"></a> <a class="anchor" href="#git-merge-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
 <dd>
 <p>É um sinônimo obsoleto para <code>find-renames=&lt;n&gt;</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-merge-subtreeltcaminhogt"> <a class="anchor" href="#git-merge-subtreeltcaminhogt"></a>subtree[=&lt;caminho&gt;] </dt>
+<dt class="hdlist1" id="git-merge-subtreeltcaminhogt"> <a class="anchor" href="#git-merge-subtreecaminho"></a> <a class="anchor" href="#git-merge-subtreeltcaminhogt"></a>subtree[=&lt;caminho&gt;] </dt>
 <dd>
 <p>Esta opção é uma forma mais avançada de estratégia de <em>subárvore</em>, onde a estratégia faz uma estimativa de como as duas árvores devem ser deslocadas para coincidir uma com a outra durante a mesclagem. Em vez disso, o caminho especificado é prefixado (ou retirado do início) para fazer com que a forma das duas árvores coincida.</p>
 </dd>
@@ -636,7 +636,7 @@ E aqui está outra linha que foi claramente resolvida ou não foi modificada.</p
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-merge-branchltnomegtmergeOptions"> <a class="anchor" href="#git-merge-branchltnomegtmergeOptions"></a>branch.&lt;nome&gt;.mergeOptions </dt>
+<dt class="hdlist1" id="git-merge-branchltnomegtmergeOptions"> <a class="anchor" href="#git-merge-branchnomemergeOptions"></a> <a class="anchor" href="#git-merge-branchltnomegtmergeOptions"></a>branch.&lt;nome&gt;.mergeOptions </dt>
 <dd>
 <p>Define as opções predefinidas para a mesclagem no ramo &lt;nome&gt;. A sintaxe e as opções suportadas são as mesmas do comando <code>git merge</code>, não são compatíveis no momento valores da opção que contenha caracteres de espaço em branco.</p>
 </dd>

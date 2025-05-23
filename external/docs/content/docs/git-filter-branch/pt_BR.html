@@ -80,35 +80,35 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-filter-branch---setupltcomandogt"> <a class="anchor" href="#git-filter-branch---setupltcomandogt"></a>--setup &lt;comando&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---setupltcomandogt"> <a class="anchor" href="#git-filter-branch---setupcomando"></a> <a class="anchor" href="#git-filter-branch---setupltcomandogt"></a>--setup &lt;comando&gt; </dt>
 <dd>
 <p>Esse não é um filtro real executado para cada commit, mas uma configuração única antes do loop. Portanto, ainda não há variáveis específicas do commit definidas. As funções ou variáveis definidas aqui podem ser usadas ou modificadas nas etapas de filtro a seguir, exceto no filtro de confirmação, por motivos técnicos.</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---subdirectory-filterltdiretriogt"> <a class="anchor" href="#git-filter-branch---subdirectory-filterltdiretriogt"></a>--subdirectory-filter &lt;diretório&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---subdirectory-filterltdiretriogt"> <a class="anchor" href="#git-filter-branch---subdirectory-filterdiretrio"></a> <a class="anchor" href="#git-filter-branch---subdirectory-filterltdiretriogt"></a>--subdirectory-filter &lt;diretório&gt; </dt>
 <dd>
 <p>Examina apenas o histórico que toca o subdiretório informado. O resultado conterá esse diretório (e somente ele) como raiz do projeto. Implica em <a href="#Remap_to_ancestor">Remapear para o ancestral</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---env-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---env-filterltcomandogt"></a>--env-filter &lt;comando&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---env-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---env-filtercomando"></a> <a class="anchor" href="#git-filter-branch---env-filterltcomandogt"></a>--env-filter &lt;comando&gt; </dt>
 <dd>
 <p>Este filtro pode ser usado se você precisar modificar apenas o ambiente no qual o commit será realizado. Especificamente, você pode querer reescrever as variáveis de ambiente author/committer name/email/time (Para mais detalhes, consulte <a href='{{< relurl "docs/git-commit-tree/pt_BR" >}}'>git-commit-tree[1]</a>).</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---tree-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---tree-filterltcomandogt"></a>--tree-filter &lt;comando&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---tree-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---tree-filtercomando"></a> <a class="anchor" href="#git-filter-branch---tree-filterltcomandogt"></a>--tree-filter &lt;comando&gt; </dt>
 <dd>
 <p>Este é o filtro para reescrever a árvore e seu conteúdo. O argumento é avaliado no shell com o diretório de trabalho definido como a raiz da árvore verificada. A nova árvore é então usada como está (os novos arquivos são adicionados automaticamente, os arquivos desaparecidos são removidos automaticamente - nem os arquivos .gitignore nem quaisquer outras regras de ignorar <strong>FARÃO QUALQUER EFEITO</strong>!).</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---index-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---index-filterltcomandogt"></a>--index-filter &lt;comando&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---index-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---index-filtercomando"></a> <a class="anchor" href="#git-filter-branch---index-filterltcomandogt"></a>--index-filter &lt;comando&gt; </dt>
 <dd>
 <p>Este é o filtro para reescrever o índice. Ele é semelhante ao filtro de árvore, mas não verifica a árvore, o que o torna muito mais rápido. Frequentemente usado com <code>git rm --cached --ignore-unmatch ...</code>, consulte EXEMPLOS abaixo. Para casos complicados, consulte <a href='{{< relurl "docs/git-update-index/pt_BR" >}}'>git-update-index[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---parent-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---parent-filterltcomandogt"></a>--parent-filter &lt;comando&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---parent-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---parent-filtercomando"></a> <a class="anchor" href="#git-filter-branch---parent-filterltcomandogt"></a>--parent-filter &lt;comando&gt; </dt>
 <dd>
 <p>Este é o filtro para reescrever a lista principal do commit. Ele receberá a string principal no stdin e emitirá uma nova string principal no stdout. A string principal está no formato descrito do comando <a href='{{< relurl "docs/git-commit-tree/pt_BR" >}}'>git-commit-tree[1]</a>: vazio para o commit inicial, "-p parent" para um commit normal e "-p parent1 -p parent2 -p parent3 &#8230;&#8203;" para um commit de mesclagem.</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---msg-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---msg-filterltcomandogt"></a>--msg-filter &lt;comando&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---msg-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---msg-filtercomando"></a> <a class="anchor" href="#git-filter-branch---msg-filterltcomandogt"></a>--msg-filter &lt;comando&gt; </dt>
 <dd>
 <p>Esse é o filtro para reescrever as mensagens do commit. O argumento é avaliado no shell com a mensagem de confirmação original na entrada padrão; a sua saída predefinida é usada como a nova mensagem do commit.</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---commit-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---commit-filterltcomandogt"></a>--commit-filter &lt;comando&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---commit-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---commit-filtercomando"></a> <a class="anchor" href="#git-filter-branch---commit-filterltcomandogt"></a>--commit-filter &lt;comando&gt; </dt>
 <dd>
 <p>Este é o filtro para reescrever as mensagens dos commits. Se este filtro for especificado, ele será invocado em vez do comando <em>git commit-tree</em>, com argumentos do tipo "&lt;TREE_ID&gt; [(-p &lt;PARENT_COMMIT_ID&gt;)&#8230;&#8203;]" e a mensagem de registro no stdin. O ID do commit é esperado no stdout.</p>
 <div class="paragraph">
@@ -121,7 +121,7 @@ aliases:
 <p>É possível também utilizar <code>git_commit_non_empty_tree "$@"</code> em vez de <code>git commit-tree "$@"</code> caso não queira mais manter os commit com uma única origem, isso não faz qualquer alteração na árvore.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---tag-name-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---tag-name-filterltcomandogt"></a>--tag-name-filter &lt;comando&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---tag-name-filterltcomandogt"> <a class="anchor" href="#git-filter-branch---tag-name-filtercomando"></a> <a class="anchor" href="#git-filter-branch---tag-name-filterltcomandogt"></a>--tag-name-filter &lt;comando&gt; </dt>
 <dd>
 <p>Esse é o filtro para reescrever nomes das etiquetas. Quando passada, ela será chamada para cada referência de tag que aponte para um objeto reescrito (ou para um objeto de tag que aponte para um objeto reescrito). O nome da etiqueta original é passado através da entrada predefinida, e o novo nome da etiqueta é esperada na saída predefinida.</p>
 <div class="paragraph">
@@ -135,11 +135,11 @@ aliases:
 <dd>
 <p>Alguns filtros geram commits vazios que deixam a árvore intocada. Essa opção instrui o <code>git-filter-branch</code> a remover estes commits se eles tiverem exatamente um ou nenhum ramo principal podados; portanto, a mesclagem dos commits permanecerão intactos. Esta opção não pode ser usada em conjunto com <code>--commit-filter</code>, embora o mesmo efeito possa ser obtido com o uso da função <code>git_commit_non_empty_tree</code> fornecida num filtro do commit.</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---originalltespao-de-nomesgt"> <a class="anchor" href="#git-filter-branch---originalltespao-de-nomesgt"></a>--original &lt;espaço-de-nomes&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---originalltespao-de-nomesgt"> <a class="anchor" href="#git-filter-branch---originalespao-de-nomes"></a> <a class="anchor" href="#git-filter-branch---originalltespao-de-nomesgt"></a>--original &lt;espaço-de-nomes&gt; </dt>
 <dd>
 <p>Utilize esta opção para definir o espaço de nomes onde os commits originais serão armazenados. O valor predefinido é <em>refs/original</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch--dltdiretriogt"> <a class="anchor" href="#git-filter-branch--dltdiretriogt"></a>-d &lt;diretório&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch--dltdiretriogt"> <a class="anchor" href="#git-filter-branch--ddiretrio"></a> <a class="anchor" href="#git-filter-branch--dltdiretriogt"></a>-d &lt;diretório&gt; </dt>
 <dd>
 <p>Use esta opção para definir o caminho para o diretório temporário usado para reescrita. Ao aplicar um filtro na árvore, o comando precisa fazer a verificação temporário da árvore em algum diretório, o que pode consumir um espaço considerável no caso de projetos grandes. É predefinido que ele faz isso no diretório <code>.git-rewrite/</code>, mas você pode substituir essa opção por esse parâmetro.</p>
 </dd>
@@ -148,11 +148,11 @@ aliases:
 <dd>
 <p>O comando <em>git filter-branch</em> não será iniciado caso um diretório temporário existenta ou quando já existem referências começando com <em>refs/original/</em> ou a menos que seja imposto.</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch---state-branchltramogt"> <a class="anchor" href="#git-filter-branch---state-branchltramogt"></a>--state-branch &lt;ramo&gt; </dt>
+<dt class="hdlist1" id="git-filter-branch---state-branchltramogt"> <a class="anchor" href="#git-filter-branch---state-branchramo"></a> <a class="anchor" href="#git-filter-branch---state-branchltramogt"></a>--state-branch &lt;ramo&gt; </dt>
 <dd>
 <p>Esta opção fará com que o mapeamento dos objetos antigos para os novos sejam carregados do ramo chamado na inicialização e salvo como um novo commit até a sua conclusão, permitindo o incremento das grandes árvores. Se o <em>&lt;ramo&gt;</em> não existir, ele será criado.</p>
 </dd>
-<dt class="hdlist1" id="git-filter-branch-ltopesdarev-listgt82308203"> <a class="anchor" href="#git-filter-branch-ltopesdarev-listgt82308203"></a>&lt;opções da rev-list&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-filter-branch-ltopesdarev-listgt82308203"> <a class="anchor" href="#git-filter-branch-opesdarev-list"></a> <a class="anchor" href="#git-filter-branch-ltopesdarev-listgt82308203"></a>&lt;opções da rev-list&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Argumentos para o comando <em>git rev-list</em>. Todas as referências positivas incluídas por essas opções são reescritas. Você também pode especificar opções como <code>--all</code>, mas deve usar <code>--</code> para separá-las das opções do comando <em>git filter-branch</em>. Implica em <a href="#Remap_to_ancestor">Remapear para o ancestral</a>.</p>
 </dd>

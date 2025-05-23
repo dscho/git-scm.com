@@ -154,14 +154,14 @@ unreachable object whose mtime is newer than the <code>--cruft-expiration</code>
 options which imply <code>--revs</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---cruft-expirationltapproxidategt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---cruft-expirationltapproxidategt"></a>--cruft-expiration=&lt;approxidate&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---cruft-expirationltapproxidategt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---cruft-expirationapproxidate"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---cruft-expirationltapproxidategt"></a>--cruft-expiration=&lt;approxidate&gt; </dt>
 <dd>
 <p>If specified, objects are eliminated from the cruft pack if they
 have an mtime older than <code>&lt;approxidate&gt;</code>. If unspecified (and
 given <code>--cruft</code>), then no objects are eliminated.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---windowltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---windowltngt"></a>--window=&lt;n&gt; </dt>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---depthltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---depthltngt"></a>--depth=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---windowltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---windown"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---windowltngt"></a>--window=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---depthltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---depthn"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---depthltngt"></a>--depth=&lt;n&gt; </dt>
 <dd>
 <p>These two options affect how the objects contained in
 the pack are stored using delta compression.  The
@@ -177,7 +177,7 @@ times to get to the necessary object.</p>
 depth is 4095.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---window-memoryltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---window-memoryltngt"></a>--window-memory=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---window-memoryltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---window-memoryn"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---window-memoryltngt"></a>--window-memory=&lt;n&gt; </dt>
 <dd>
 <p>This option provides an additional limit on top of <code>--window</code>;
 the window size will dynamically scale down so as to not take
@@ -189,7 +189,7 @@ size can be suffixed with "k", "m", or "g".
 <code>--window-memory=0</code> makes memory usage unlimited.  The default
 is taken from the <code>pack.windowMemory</code> configuration variable.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---max-pack-sizeltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---max-pack-sizeltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---max-pack-sizen"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
 <dd>
 <p>In unusual scenarios, you may not be able to create files
 larger than a certain size on your filesystem, and this option
@@ -208,7 +208,7 @@ a larger and slower repository; see the discussion in
 has a .keep file to be ignored, even if it would have
 otherwise been packed.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---keep-packltpack-namegt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---keep-packltpack-namegt"></a>--keep-pack=&lt;pack-name&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---keep-packltpack-namegt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---keep-packpack-name"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---keep-packltpack-namegt"></a>--keep-pack=&lt;pack-name&gt; </dt>
 <dd>
 <p>This flag causes an object already in the given pack to be
 ignored, even if it would have otherwise been
@@ -278,7 +278,7 @@ This implies --no-reuse-delta. Useful only in the obscure case where
 wholesale enforcement of a different compression level on the
 packed data is desired.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---compressionltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---compressionltngt"></a>--compression=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---compressionltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---compressionn"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---compressionltngt"></a>--compression=&lt;n&gt; </dt>
 <dd>
 <p>Specifies compression level for newly-compressed data in the
 generated pack.  If not specified,  pack compression level is
@@ -335,7 +335,7 @@ in modern Git when they put objects in your repository into pack files.
 So does <code>git bundle</code> (see <a href='{{< relurl "docs/git-bundle" >}}'>git-bundle[1]</a>) when it creates a bundle.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---threadsltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---threadsltngt"></a>--threads=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---threadsltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---threadsn"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---threadsltngt"></a>--threads=&lt;n&gt; </dt>
 <dd>
 <p>Specifies the number of threads to spawn when searching for best
 delta matches.  This requires that pack-objects be compiled with
@@ -346,7 +346,7 @@ however multiplied by the number of threads.
 Specifying 0 will cause Git to auto-detect the number of CPU&#8217;s
 and set the number of threads accordingly.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---index-versionltversiongtltoffsetgt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---index-versionltversiongtltoffsetgt"></a>--index-version=&lt;version&gt;[,&lt;offset&gt;] </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---index-versionltversiongtltoffsetgt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---index-versionversionoffset"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---index-versionltversiongtltoffsetgt"></a>--index-version=&lt;version&gt;[,&lt;offset&gt;] </dt>
 <dd>
 <p>This is intended to be used by the test suite only. It allows
 to force the version for the generated pack index, and to force
@@ -357,7 +357,7 @@ to force the version for the generated pack index, and to force
 <p>With this option, parents that are hidden by grafts are packed
 nevertheless.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---filterltfilter-specgt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---filterltfilter-specgt"></a>--filter=&lt;filter-spec&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---filterltfilter-specgt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---filterfilter-spec"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---filterltfilter-specgt"></a>--filter=&lt;filter-spec&gt; </dt>
 <dd>
 <p>Omits certain objects (usually blobs) from the resulting
 packfile.  See <a href='{{< relurl "docs/git-rev-list" >}}'>git-rev-list[1]</a> for valid
@@ -367,7 +367,7 @@ packfile.  See <a href='{{< relurl "docs/git-rev-list" >}}'>git-rev-list[1]</a> 
 <dd>
 <p>Turns off any previous <code>--filter=</code> argument.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---missingltmissing-actiongt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---missingltmissing-actiongt"></a>--missing=&lt;missing-action&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---missingltmissing-actiongt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---missingmissing-action"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---missingltmissing-actiongt"></a>--missing=&lt;missing-action&gt; </dt>
 <dd>
 <p>A debug option to help with future "partial clone" development.
 This option specifies how missing objects are handled.</p>
@@ -418,7 +418,7 @@ removed). This implies <code>--revs</code>.</p>
 <p>Restrict delta matches based on "islands". See DELTA ISLANDS
 below.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---name-hash-versionltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---name-hash-versionltngt"></a>--name-hash-version=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---name-hash-versionltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---name-hash-versionn"></a> <a class="anchor" href="#Documentation/git-pack-objects.txt---name-hash-versionltngt"></a>--name-hash-version=&lt;n&gt; </dt>
 <dd>
 <p>While performing delta compression, Git groups objects that may be
 similar based on heuristics using the path to that object. While

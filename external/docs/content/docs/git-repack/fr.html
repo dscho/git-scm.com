@@ -69,15 +69,15 @@ aliases:
 <dd>
 <p>Identique à <code>-a</code>, sauf si <code>-d</code> est utilisé. Ensuite, tous les objets inaccessibles sont empaquetés dans un paquet déchet séparé. Les objets inaccessibles peuvent être élagués selon les règles d&#8217;expiration normales avec l&#8217;invocation suivante de <code>git gc</code> (voir <a href='{{< relurl "docs/git-gc/fr" >}}'>git-gc[1]</a>). Incompatible avec <code>-k</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-repack---cruft-expirationltapproxi-dategt"> <a class="anchor" href="#git-repack---cruft-expirationltapproxi-dategt"></a>--cruft-expiration=&lt;approxi-date&gt; </dt>
+<dt class="hdlist1" id="git-repack---cruft-expirationltapproxi-dategt"> <a class="anchor" href="#git-repack---cruft-expirationapproxi-date"></a> <a class="anchor" href="#git-repack---cruft-expirationltapproxi-dategt"></a>--cruft-expiration=&lt;approxi-date&gt; </dt>
 <dd>
 <p>Expirer les objets inaccessibles plus âgés que <code>&lt;date-approx&gt;</code> immédiatement au lieu d&#8217;attendre la prochaine invocation <code>git gc</code>. Seulement utile avec <code>--cruft -d</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-repack---max-cruft-sizeltngt"> <a class="anchor" href="#git-repack---max-cruft-sizeltngt"></a>--max-cruft-size=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-repack---max-cruft-sizeltngt"> <a class="anchor" href="#git-repack---max-cruft-sizen"></a> <a class="anchor" href="#git-repack---max-cruft-sizeltngt"></a>--max-cruft-size=&lt;n&gt; </dt>
 <dd>
 <p>Rempaqueter les objets en paquets d&#8217;au plus <em>&lt;n&gt;</em> octets avant de créer de nouveaux paquets. Tant qu&#8217;il y a assez de paquets déchets plus petits que <em>&lt;n&gt;</em>, le rempaquetage créera un nouveau paquet déchet contenant les objets de tous les paquets déchets combinés, en plus de tous les nouveaux objets inaccessibles. Les paquets déchets plus grands que <em>&lt;n&gt;</em> ne seront pas modifiés. Lorsqu&#8217;un nouveau paquet déchet est plus grand que les <em>&lt;n&gt;_octets, il est divisé en plusieurs paquets, qui sont tous garantis d&#8217;avoir une taille d&#8217;au plus _&lt;n&gt;</em> octets. Seulement utile avec <code>--cruft -d</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-repack---expire-toltrpgt"> <a class="anchor" href="#git-repack---expire-toltrpgt"></a>--expire-to=&lt;rép.&gt; </dt>
+<dt class="hdlist1" id="git-repack---expire-toltrpgt"> <a class="anchor" href="#git-repack---expire-torp"></a> <a class="anchor" href="#git-repack---expire-toltrpgt"></a>--expire-to=&lt;rép.&gt; </dt>
 <dd>
 <p>Écrire un paquet déchet contenant des objets élagués (le cas échéant) dans le répertoire <em>&lt;rép&gt;</em>. Cette option est utile pour conserver une copie de tous les objets élagués dans un répertoire séparé comme sauvegarde. Seulement utile avec <code>--cruft -d</code>.</p>
 </dd>
@@ -102,31 +102,31 @@ aliases:
 <dd>
 <p>Ne pas mettre à jour les informations du serveur avec <em>git update-server-info</em>. Cette option ignore la mise à jour des fichiers de catalogue locaux nécessaires pour publier ce dépôt (ou une copie directe de celui-ci) sur HTTP ou FTP. Voir <a href='{{< relurl "docs/git-update-server-info/fr" >}}'>git-update-server-info[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-repack---windowltngt"> <a class="anchor" href="#git-repack---windowltngt"></a>--window=&lt;n&gt; </dt>
-<dt class="hdlist1" id="git-repack---depthltngt"> <a class="anchor" href="#git-repack---depthltngt"></a>--depth=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-repack---windowltngt"> <a class="anchor" href="#git-repack---windown"></a> <a class="anchor" href="#git-repack---windowltngt"></a>--window=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-repack---depthltngt"> <a class="anchor" href="#git-repack---depthn"></a> <a class="anchor" href="#git-repack---depthltngt"></a>--depth=&lt;n&gt; </dt>
 <dd>
 <p>Ces deux options affectent la façon dont les objets contenus dans le paquet sont stockés à l&#8217;aide de la compression delta. Les objets sont d&#8217;abord triés en interne par type, taille et optionnellement par noms et comparés aux autres objets dans <code>--window</code> pour voir si l&#8217;utilisation de compression de delta permet d&#8217;économiser de l&#8217;espace. <code>--depth</code> limite la profondeur maximale du delta ; la rendre trop profonde affecte la performance du côté du dépaqueteur, parce que les données de delta doivent être appliquées autant de fois pour arriver à l&#8217;objet nécessaire.</p>
 <div class="paragraph">
 <p>La valeur par défaut pour --window est 10 et --depth est 50. La profondeur maximale est de 4095.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-repack---threadsltngt"> <a class="anchor" href="#git-repack---threadsltngt"></a>--threads=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-repack---threadsltngt"> <a class="anchor" href="#git-repack---threadsn"></a> <a class="anchor" href="#git-repack---threadsltngt"></a>--threads=&lt;n&gt; </dt>
 <dd>
 <p>Cette option est passée à <code>git pack-objects</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-repack---window-memoryltngt"> <a class="anchor" href="#git-repack---window-memoryltngt"></a>--window-memory=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-repack---window-memoryltngt"> <a class="anchor" href="#git-repack---window-memoryn"></a> <a class="anchor" href="#git-repack---window-memoryltngt"></a>--window-memory=&lt;n&gt; </dt>
 <dd>
 <p>Cette option fournit une limite supplémentaire par dessus <code>--window</code> ; la taille de la fenêtre s&#8217;étendra dynamiquement vers le bas afin de ne pas prendre plus que <em>&lt;n&gt;</em> octets en mémoire. Ceci est utile dans les dépôts avec un mélange de grands et petits objets afin de ne pas manquer de mémoire avec une grande fenêtre, mais encore être en mesure de profiter de la grande fenêtre pour les petits objets. La taille peut être suffixée par "k", "m", ou "g". <code>--window-memory=0</code> rend l&#8217;utilisation de la mémoire illimitée. La valeur par défaut est tirée de la variable de configuration <code>pack.windowMemory</code>. Notez que l&#8217;utilisation réelle de la mémoire sera la limite multipliée par le nombre de threads utilisés par <a href='{{< relurl "docs/git-pack-objects/fr" >}}'>git-pack-objects[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-repack---max-pack-sizeltngt"> <a class="anchor" href="#git-repack---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-repack---max-pack-sizeltngt"> <a class="anchor" href="#git-repack---max-pack-sizen"></a> <a class="anchor" href="#git-repack---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
 <dd>
 <p>La taille maximum de chaque fichier paquet. La taille peut être suffixée avec "k", "m", ou "g". La taille minimale autorisée est limitée à 1 MiB. Si spécifiée, plusieurs fichiers paquets seront créés, ce qui empêche la création d&#8217;un index de bitmap. La valeur par défaut est illimitée, sauf si la variable config <code>pack.packSizeLimit</code> est définie. Notez que cette option peut entraîner un dépôt plus gros et plus lent ; voir la discussion dans <code>pack.packSizeLimit</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-repack---filterltspcdufiltregt"> <a class="anchor" href="#git-repack---filterltspcdufiltregt"></a>--filter=&lt;spéc. du filtre&gt; </dt>
+<dt class="hdlist1" id="git-repack---filterltspcdufiltregt"> <a class="anchor" href="#git-repack---filterspcdufiltre"></a> <a class="anchor" href="#git-repack---filterltspcdufiltregt"></a>--filter=&lt;spéc. du filtre&gt; </dt>
 <dd>
 <p>Retirer les objets correspondant à la spécification du filtre du fichier paquet résultant et les mettre dans un fichier paquet séparé. Notez que les objets utilisés dans le répertoire de travail ne sont pas filtrés. Donc, pour que la séparation fonctionne pleinement, il est préférable de l&#8217;exécuter dans un dépôt nu et d&#8217;utiliser les options <code>-a</code> et <code>-d</code> avec cette option. <code>--no-write-bitmap-index</code> (ou l&#8217;option de config <code>repack.writebitmaps</code> à <code>false</code>) devrait aussi être utilisés, sinon l&#8217;écriture de l&#8217;index de bitmap échouera, vu que cela supposerait l&#8217;écriture d&#8217;un seul fichier paquet contenant tous les objets. Voir <a href='{{< relurl "docs/git-rev-list/fr" >}}'>git-rev-list[1]</a> pour les forme valides de <em>&lt;spéc-de-filtre&gt;</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-repack---filter-toltrpgt"> <a class="anchor" href="#git-repack---filter-toltrpgt"></a>--filter-to=&lt;rép.&gt; </dt>
+<dt class="hdlist1" id="git-repack---filter-toltrpgt"> <a class="anchor" href="#git-repack---filter-torp"></a> <a class="anchor" href="#git-repack---filter-toltrpgt"></a>--filter-to=&lt;rép.&gt; </dt>
 <dd>
 <p>Écrire le paquet contenant des objets filtrés vers le répertoire <em>&lt;répertoire&gt;</em>. Seulement utile avec <code>--filter</code>. Ceci peut être utilisé pour mettre le paquet dans un répertoire d&#8217;objets séparé qui est accessible par le mécanisme alternatif de Git. <strong>ATTENTION :</strong> Si le fichier paquet contenant les objets filtrés n&#8217;est pas accessible, le dépôt peut se corrompre car il pourrait ne pas être possible d&#8217;accéder aux objets dans ce fichier. Voir les sections <code>objects</code> et <code>objects/info/alternates</code> de <a href='{{< relurl "docs/gitrepository-layout/fr" >}}'>gitrepository-layout[5]</a>.</p>
 </dd>
@@ -139,11 +139,11 @@ aliases:
 <dd>
 <p>Inclure des objets dans les fichiers <code>.keep</code> lors du rempaquetage. Notez que nous ne supprimons toujours pas les paquets <code>.keep</code> après la fin de <code>pack-objects</code> . Cela signifie que nous pouvons dupliquer des objets, mais cela rend l&#8217;option sûre lorsqu&#8217;il y a des poussées ou des récupérations simultanées. Cette option n&#8217;est généralement utile que si vous écrivez des bitmaps avec <code>-b</code> ou <code>repack.writeBitmaps</code>, car elle garantit que le paquet géré par le bitmap a les objets nécessaires.</p>
 </dd>
-<dt class="hdlist1" id="git-repack---keep-packltnom-de-paquetgt"> <a class="anchor" href="#git-repack---keep-packltnom-de-paquetgt"></a>--keep-pack=&lt;nom-de-paquet&gt; </dt>
+<dt class="hdlist1" id="git-repack---keep-packltnom-de-paquetgt"> <a class="anchor" href="#git-repack---keep-packnom-de-paquet"></a> <a class="anchor" href="#git-repack---keep-packltnom-de-paquetgt"></a>--keep-pack=&lt;nom-de-paquet&gt; </dt>
 <dd>
 <p>Exclure le paquet donné du réempaquetage. C&#8217;est équivalent à avoir un fichier <code>.keep</code> sur le paquet.<code>&lt;nom-de-paquet&gt;</code> est le nom du fichier paquet sans répertoire (par exemple <code>pack-123.pack</code>). L&#8217;option peut être spécifiée plusieurs fois pour garder plusieurs paquets.</p>
 </dd>
-<dt class="hdlist1" id="git-repack---unpack-unreachableltquandgt"> <a class="anchor" href="#git-repack---unpack-unreachableltquandgt"></a>--unpack-unreachable=&lt;quand&gt; </dt>
+<dt class="hdlist1" id="git-repack---unpack-unreachableltquandgt"> <a class="anchor" href="#git-repack---unpack-unreachablequand"></a> <a class="anchor" href="#git-repack---unpack-unreachableltquandgt"></a>--unpack-unreachable=&lt;quand&gt; </dt>
 <dd>
 <p>Lors de la libération des objets inaccessibles, ne pas s&#8217;ennuyer à relâcher des objets plus anciens que <em>&lt;quand&gt;</em>. Cela peut être utilisé pour optimiser l&#8217;écriture de tous les objets qui seraient immédiatement élagués par un `git prune`subséquent.</p>
 </dd>
@@ -157,8 +157,8 @@ aliases:
 <dd>
 <p>Passer l&#8217;option <code>--delta-islands</code> à <code>git-pack-objects</code>, voir <a href='{{< relurl "docs/git-pack-objects/fr" >}}'>git-pack-objects[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-repack--gltfacteurgt"> <a class="anchor" href="#git-repack--gltfacteurgt"></a>-g&lt;facteur&gt; </dt>
-<dt class="hdlist1" id="git-repack---geometricltfacteurgt"> <a class="anchor" href="#git-repack---geometricltfacteurgt"></a>--geometric=&lt;facteur&gt; </dt>
+<dt class="hdlist1" id="git-repack--gltfacteurgt"> <a class="anchor" href="#git-repack--gfacteur"></a> <a class="anchor" href="#git-repack--gltfacteurgt"></a>-g&lt;facteur&gt; </dt>
+<dt class="hdlist1" id="git-repack---geometricltfacteurgt"> <a class="anchor" href="#git-repack---geometricfacteur"></a> <a class="anchor" href="#git-repack---geometricltfacteurgt"></a>--geometric=&lt;facteur&gt; </dt>
 <dd>
 <p>Arranger la structure de paquets résultant de sorte que chaque paquet successif contient au moins <em>&lt;facteur&gt;</em> fois le nombre d&#8217;objets que le plus grand paquet existant .</p>
 <div class="paragraph">
@@ -179,7 +179,7 @@ aliases:
 <dd>
 <p>Écrire un index multi-paquet (voir <a href='{{< relurl "docs/git-multi-pack-index/fr" >}}'>git-multi-pack-index[1]</a>) contenant les paquets non redondants.</p>
 </dd>
-<dt class="hdlist1" id="git-repack---name-hash-versionltngt"> <a class="anchor" href="#git-repack---name-hash-versionltngt"></a>--name-hash-version=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-repack---name-hash-versionltngt"> <a class="anchor" href="#git-repack---name-hash-versionn"></a> <a class="anchor" href="#git-repack---name-hash-versionltngt"></a>--name-hash-version=&lt;n&gt; </dt>
 <dd>
 <p>Fournir cet argument au processus sous-jacent <code>git pack-objects</code>. Voir <a href='{{< relurl "docs/git-pack-objects/fr" >}}'>git-pack-objects[1]</a> pour plus de détails.</p>
 </dd>

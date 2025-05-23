@@ -42,7 +42,7 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutemltgt"> <a class="anchor" href="#git-checkout-emgitcheckoutemltgt"></a><em>git checkout</em> [&lt;分支&gt;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutemltgt"> <a class="anchor" href="#git-checkout-gitcheckout"></a> <a class="anchor" href="#git-checkout-emgitcheckoutemltgt"></a><em>git checkout</em> [&lt;分支&gt;] </dt>
 <dd>
 <p>要准备在 <code>&lt;分支&gt;</code> 上工作，需要更新索引和工作区中的文件，以及将 <code>HEAD</code> 指向该分支来切换到该分支。对工作区中文件的本地修改会被保留，以便修改可以被提交到 <code>&lt;分支&gt;</code>。</p>
 <div class="paragraph">
@@ -57,7 +57,7 @@ aliases:
 <p>你可以省略 <code>&lt;分支&gt;</code>，在这种情况下，该命令会退化为 “检出当前分支”，这是一个美化的无操作，具有非常大的副作用，如果存在当前分支的话，只显示当前分支的跟踪信息。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-b-Bltgtltgt"> <a class="anchor" href="#git-checkout-emgitcheckoutem-b-Bltgtltgt"></a><em>git checkout</em> -b|-B &lt;新分支&gt; [&lt;起始点&gt;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-b-Bltgtltgt"> <a class="anchor" href="#git-checkout-gitcheckout-b-B"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-b-Bltgtltgt"></a><em>git checkout</em> -b|-B &lt;新分支&gt; [&lt;起始点&gt;] </dt>
 <dd>
 <p>指定 <code>-b</code> 会导致一个新的分支被创建，就像调用 <a href='{{< relurl "docs/git-branch/zh_HANS-CN" >}}'>git-branch[1]</a> 然后签出一样。 在这种情况下，你可以使用 <code>--track</code> 或 <code>--no-track</code> 选项，它们将被传递给 <em>git branch</em>。 为方便起见，<code>--track</code> 不加 <code>-b</code> 意味着创建分支；见下文对 <code>--track</code> 的描述。</p>
 <div class="paragraph">
@@ -73,8 +73,8 @@ $ git checkout &lt;分支&gt;</pre>
 <p>也就是说，除非 "git checkout" 成功，否则不会重置/创建分支（例如，当分支在另一个工作树中使用时，不仅当前分支保持不变，分支也不会重置为起点）。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltgt"> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltgt"></a><em>git checkout</em> --detach [&lt;分支&gt;] </dt>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltgt-1"> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltgt-1"></a><em>git checkout</em> [--detach] &lt;提交&gt; </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltgt"> <a class="anchor" href="#git-checkout-gitcheckout--detach"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltgt"></a><em>git checkout</em> --detach [&lt;分支&gt;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltgt-1"> <a class="anchor" href="#git-checkout-gitcheckout--detach-1"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltgt-1"></a><em>git checkout</em> [--detach] &lt;提交&gt; </dt>
 <dd>
 <p>准备在 <code>&lt;提交&gt;</code> 上工作，通过分离 <code>HEAD</code> 来实现（参见 "DETACHED HEAD" 部分），并更新工作区中的索引和文件。 对工作区中的文件的本地修改会被保留，所以最终的工作区将是提交时记录的状态加上本地的修改。</p>
 <div class="paragraph">
@@ -84,15 +84,15 @@ $ git checkout &lt;分支&gt;</pre>
 <p>省略 <code>&lt;分支&gt;</code> 会在当前分支的顶端分离 <code>HEAD</code>。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltgtltgt--ltgt82308203"> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltgtltgt--ltgt82308203"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;样式&gt;] [&lt;目录树对象&gt;] [--] &lt;路径规范&gt;&#8230;&#8203; </dt>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltgtltgt--pathspec-from-fileltgt--pathspec-file-nul"> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltgtltgt--pathspec-from-fileltgt--pathspec-file-nul"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;样式&gt;] [&lt;树状对象&gt;] --pathspec-from-file=&lt;文件&gt; [--pathspec-file-nul] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltgtltgt--ltgt82308203"> <a class="anchor" href="#git-checkout-gitcheckout-f--ours--theirs-m--conflict--"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltgtltgt--ltgt82308203"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;样式&gt;] [&lt;目录树对象&gt;] [--] &lt;路径规范&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltgtltgt--pathspec-from-fileltgt--pathspec-file-nul"> <a class="anchor" href="#git-checkout-gitcheckout-f--ours--theirs-m--conflict--pathspec-from-file--pathspec-file-nul"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltgtltgt--pathspec-from-fileltgt--pathspec-file-nul"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;样式&gt;] [&lt;树状对象&gt;] --pathspec-from-file=&lt;文件&gt; [--pathspec-file-nul] </dt>
 <dd>
 <p>覆盖符合路径对范文件的内容。 当没有给出 <code>&lt;树状对象&gt;</code> （最常见的是提交），用索引中的内容覆盖工作区。 当 <code>&lt;树状对象&gt;</code> 被给出时，用 <code>&lt;树状对象&gt;</code> 处的内容覆盖索引和工作区。</p>
 <div class="paragraph">
 <p>索引可能包含因之前合并失败导致的未合并条目。 默认情况下，如果你试图从索引中签出这样的条目，签出操作将失败，没有任何东西被签出。 使用 <code>-f</code> 将忽略这些未合并的条目。 通过使用 <code>--ours</code> 或 <code>--theirs</code> 选项，可以从索引中检出合并的特定一方的内容。 使用`-m`，对工作区文件的修改可以被丢弃，以重新创建原冲突合并的结果。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-p--patchltgt--ltgt82308203"> <a class="anchor" href="#git-checkout-emgitcheckoutem-p--patchltgt--ltgt82308203"></a><em>git checkout</em> (-p|--patch) [&lt;树状对象&gt;] [--] [&lt;路径规范&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-p--patchltgt--ltgt82308203"> <a class="anchor" href="#git-checkout-gitcheckout-p--patch--"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-p--patchltgt--ltgt82308203"></a><em>git checkout</em> (-p|--patch) [&lt;树状对象&gt;] [--] [&lt;路径规范&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>这与前面的模式类似，但让你使用交互式界面来显示 "diff "输出，并选择在结果中使用哪些代码块。 关于`--patch`选项的描述，见下文。</p>
 </dd>
@@ -134,11 +134,11 @@ $ git checkout &lt;分支&gt;</pre>
 <p>这是因为 "rebase"在工作流程中使用，它将远程的历史视为共享的规范历史，并将在你重命名的分支上所做的工作视为需要整合的第三方工作，而你在重命名过程中暂时承担了规范历史守护者的角色。 作为规范历史的守护者，你需要将远程的历史视为 "ours"（即 "我们共享的规范历史"），而将你在侧边分支上的工作视为 "their"（即 "一个贡献者在上面所作的工作"）。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout--bltgt"> <a class="anchor" href="#git-checkout--bltgt"></a>-b &lt;新分支&gt; </dt>
+<dt class="hdlist1" id="git-checkout--bltgt"> <a class="anchor" href="#git-checkout--b"></a> <a class="anchor" href="#git-checkout--bltgt"></a>-b &lt;新分支&gt; </dt>
 <dd>
 <p>创建一个名为"&lt;新分支&gt;"的新分支，从"&lt;起点&gt;"开始，并检出产生的分支；详情见 <a href='{{< relurl "docs/git-branch/zh_HANS-CN" >}}'>git-branch[1]</a>。</p>
 </dd>
-<dt class="hdlist1" id="git-checkout--Bltgt"> <a class="anchor" href="#git-checkout--Bltgt"></a>-B &lt;新分支&gt; </dt>
+<dt class="hdlist1" id="git-checkout--Bltgt"> <a class="anchor" href="#git-checkout--B"></a> <a class="anchor" href="#git-checkout--Bltgt"></a>-B &lt;新分支&gt; </dt>
 <dd>
 <p>从 <code>&lt;起点&gt;</code> 开始，创建分支 <code>&lt;新分支&gt;</code> ；如果分支已经存在，则重置为 <code>&lt;起点&gt;</code> 。然后检出生成的分支。这相当于用 "-f"选项 运行 "git branch" ，然后用 "git checkout" 检出该分支；详见 <a href='{{< relurl "docs/git-branch/zh_HANS-CN" >}}'>git-branch[1]</a>。</p>
 </dd>
@@ -182,7 +182,7 @@ $ git checkout &lt;分支&gt;</pre>
 <dd>
 <p>与其签出一个分支来工作，不如签出一个提交来进行检查和可放弃的实验。当 <code>&lt;提交&gt;</code> 不是一个分支名时， 这是 <code>git checkout &lt;提交&gt;</code> 的默认行为，。 详见下面的 "游离状态（DETACHED HEAD）"部分。</p>
 </dd>
-<dt class="hdlist1" id="git-checkout---orphanltgt"> <a class="anchor" href="#git-checkout---orphanltgt"></a>--orphan &lt;新分支&gt; </dt>
+<dt class="hdlist1" id="git-checkout---orphanltgt"> <a class="anchor" href="#git-checkout---orphan"></a> <a class="anchor" href="#git-checkout---orphanltgt"></a>--orphan &lt;新分支&gt; </dt>
 <dd>
 <p>从 <code>&lt;起点&gt;</code> 开始，创建一个新的 “未出生” 分支，命名为 <code>&lt;新分支&gt;</code> ，并切换到该分支。 在这个新分支上的第一次提交将没有父分支，它将是一个新的历史起点，与所有其他的分支和提交完全断开。</p>
 <div class="paragraph">
@@ -213,7 +213,7 @@ $ git checkout &lt;分支&gt;</pre>
 <p>当用 <code>--merge</code> 切换分支时，可能会丢失阶段性修改。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout---conflictltgt"> <a class="anchor" href="#git-checkout---conflictltgt"></a>--conflict=&lt;样式&gt; </dt>
+<dt class="hdlist1" id="git-checkout---conflictltgt"> <a class="anchor" href="#git-checkout---conflict"></a> <a class="anchor" href="#git-checkout---conflictltgt"></a>--conflict=&lt;样式&gt; </dt>
 <dd>
 <p>与上面的 <code>--merge</code> 选项相同，但改变了冲突块的显示方式，覆盖 <code>merge.conflictStyle</code> 配置变量。可能的值是 "merge"（默认）和 "diff3"（除了 "merge" 样式显示的内容外，还显示原始内容）。</p>
 </dd>
@@ -247,7 +247,7 @@ $ git checkout &lt;分支&gt;</pre>
 <dd>
 <p>在默认的覆盖模式下，<code>git checkout</code> 不会从索引或工作区中删除文件。 当指定 <code>--no-overlay</code> 时，出现在索引和工作区中，但不在 <code>&lt;树状对象&gt;</code> 中的文件会被删除，以使它们与 <code>&lt;树状对象&gt;</code> 完全匹配。</p>
 </dd>
-<dt class="hdlist1" id="git-checkout---pathspec-from-fileltfilegt"> <a class="anchor" href="#git-checkout---pathspec-from-fileltfilegt"></a>--pathspec-from-file=&lt;file&gt; </dt>
+<dt class="hdlist1" id="git-checkout---pathspec-from-fileltfilegt"> <a class="anchor" href="#git-checkout---pathspec-from-filefile"></a> <a class="anchor" href="#git-checkout---pathspec-from-fileltfilegt"></a>--pathspec-from-file=&lt;file&gt; </dt>
 <dd>
 <p>Pathspec 在 <code>&lt;文件&gt;</code> 中传递，而不是在命令行参数中传递。如果 <code>&lt;文件&gt;</code> 正好是 <code>-</code>，则使用标准输入。路径规范元素由 LF 或 CR/LF 分隔。可以引用配置变量 <code>core.quotePath</code> 的路径规范元素（请参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。另请参见 <code>--pathspec-file-nul</code> 和全局 <code>--literal-pathspecs</code>。</p>
 </dd>
@@ -255,7 +255,7 @@ $ git checkout &lt;分支&gt;</pre>
 <dd>
 <p>只有在使用 <code>--pathspec-from-file</code> 选项时才有意义。指定路径元素用 NUL 字符分隔，所有其他字符都按字面意思（包括换行符和引号）表示。</p>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltgt"> <a class="anchor" href="#git-checkout-ltgt"></a>&lt;分支&gt; </dt>
+<dt class="hdlist1" id="git-checkout-ltgt"> <a class="anchor" href="#git-checkout-"></a> <a class="anchor" href="#git-checkout-ltgt"></a>&lt;分支&gt; </dt>
 <dd>
 <p>签出的分支；如果它指的是一个分支（即一个名字，在前面加上 "refs/heads/"时，是一个有效的 引用），那么这个分支就被签出。否则，如果它指的是一个有效的提交，你的 <code>HEAD</code> 就会"分离"，此时，你就不再在任何一个分支上了（详见下文）。</p>
 <div class="paragraph">
@@ -265,18 +265,18 @@ $ git checkout &lt;分支&gt;</pre>
 <p>作为一种特殊情况，如果正好有一个合并基础，你可以使用 <code>A...B</code> 作为 <code>A</code> 和 <code>B</code> 的合并基础的快捷方式。你最多可以省略在 <code>A</code> 和 <code>B</code> 中默认为 <code>HEAD</code> 的一个分支。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltgt-1"> <a class="anchor" href="#git-checkout-ltgt-1"></a>&lt;新分支&gt; </dt>
+<dt class="hdlist1" id="git-checkout-ltgt-1"> <a class="anchor" href="#git-checkout--1"></a> <a class="anchor" href="#git-checkout-ltgt-1"></a>&lt;新分支&gt; </dt>
 <dd>
 <p>新分支的名称。</p>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltstart-pointgt"> <a class="anchor" href="#git-checkout-ltstart-pointgt"></a>&lt;start-point&gt; </dt>
+<dt class="hdlist1" id="git-checkout-ltstart-pointgt"> <a class="anchor" href="#git-checkout-start-point"></a> <a class="anchor" href="#git-checkout-ltstart-pointgt"></a>&lt;start-point&gt; </dt>
 <dd>
 <p>启动新分支的提交名称；详见 <a href='{{< relurl "docs/git-branch/zh_HANS-CN" >}}'>git-branch[1]</a>。默认为 <code>HEAD</code>。</p>
 <div class="paragraph">
 <p>作为一种特殊情况，如果正好有一个合并基数，你可以使用`"A&#8230;&#8203;B "作为`A`和`B`的合并基数的快捷方式。你最多可以漏掉`A`和`B`中的一个，在这种情况下，它默认为`HEAD`。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-lttree-ishgt"> <a class="anchor" href="#git-checkout-lttree-ishgt"></a>&lt;tree-ish&gt; </dt>
+<dt class="hdlist1" id="git-checkout-lttree-ishgt"> <a class="anchor" href="#git-checkout-tree-ish"></a> <a class="anchor" href="#git-checkout-lttree-ishgt"></a>&lt;tree-ish&gt; </dt>
 <dd>
 <p>签出的树（当路径给定时）。如果没有指定，将使用索引。</p>
 <div class="paragraph">
@@ -287,7 +287,7 @@ $ git checkout &lt;分支&gt;</pre>
 <dd>
 <p>不将之后的参数解释为选项。</p>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltgt82308203"> <a class="anchor" href="#git-checkout-ltgt82308203"></a>&lt;路径规范&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-checkout-ltgt82308203"> <a class="anchor" href="#git-checkout--1-1"></a> <a class="anchor" href="#git-checkout-ltgt82308203"></a>&lt;路径规范&gt;&#8230;&#8203; </dt>
 <dd>
 <p>限制受操作影响的路径。</p>
 <div class="paragraph">

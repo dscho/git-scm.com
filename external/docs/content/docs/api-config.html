@@ -86,14 +86,14 @@ process. It takes two extra parameters:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeconfigsourcecode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeconfigsourcecode"></a><code>config_source</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeconfigsourcecode"> <a class="anchor" href="#Documentation/technical/api-config.txt-configsource"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeconfigsourcecode"></a><code>config_source</code> </dt>
 <dd>
 <p>If this parameter is non-NULL, it specifies the source to parse for
 configuration, rather than looking in the usual files. See <code>struct
 git_config_source</code> in <code>config.h</code> for details. Regular <code>git_config</code> defaults
 to <code>NULL</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeoptscode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeoptscode"></a><code>opts</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeoptscode"> <a class="anchor" href="#Documentation/technical/api-config.txt-opts"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeoptscode"></a><code>opts</code> </dt>
 <dd>
 <p>Specify options to adjust the behavior of parsing config files. See <code>struct
 config_options</code> in <code>config.h</code> for details. As an example: regular <code>git_config</code>
@@ -124,7 +124,7 @@ cache generated previously from reading the config files.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetvalueconstcharkeyconstcharvaluecode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetvalueconstcharkeyconstcharvaluecode"></a><code>int git_config_get_value(const char *key, const char **value)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetvalueconstcharkeyconstcharvaluecode"> <a class="anchor" href="#Documentation/technical/api-config.txt-intgitconfiggetvalueconstcharkeyconstcharvalue"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetvalueconstcharkeyconstcharvaluecode"></a><code>int git_config_get_value(const char *key, const char **value)</code> </dt>
 <dd>
 <p>Finds the highest-priority value for the configuration variable <code>key</code>,
 stores the pointer to it in <code>value</code> and returns 0. When the
@@ -132,14 +132,14 @@ configuration variable <code>key</code> is not found, returns 1 without touching
 <code>value</code>. The caller should not free or modify <code>value</code>, as it is owned
 by the cache.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeconststructstringlistgitconfiggetvaluemulticonstcharkeycode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeconststructstringlistgitconfiggetvaluemulticonstcharkeycode"></a><code>const struct string_list *git_config_get_value_multi(const char *key)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeconststructstringlistgitconfiggetvaluemulticonstcharkeycode"> <a class="anchor" href="#Documentation/technical/api-config.txt-conststructstringlistgitconfiggetvaluemulticonstcharkey"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeconststructstringlistgitconfiggetvaluemulticonstcharkeycode"></a><code>const struct string_list *git_config_get_value_multi(const char *key)</code> </dt>
 <dd>
 <p>Finds and returns the value list, sorted in order of increasing priority
 for the configuration variable <code>key</code>. When the configuration variable
 <code>key</code> is not found, returns NULL. The caller should not free or modify
 the returned pointer, as it is owned by the cache.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codevoidgitconfigclearvoidcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codevoidgitconfigclearvoidcode"></a><code>void git_config_clear(void)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codevoidgitconfigclearvoidcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-voidgitconfigclearvoid"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codevoidgitconfigclearvoidcode"></a><code>void git_config_clear(void)</code> </dt>
 <dd>
 <p>Resets and invalidates the config cache.</p>
 </dd>
@@ -151,18 +151,18 @@ as well as retrieval for the queried variable, including:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetintconstcharkeyintdestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetintconstcharkeyintdestcode"></a><code>int git_config_get_int(const char *key, int *dest)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetintconstcharkeyintdestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-intgitconfiggetintconstcharkeyintdest"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetintconstcharkeyintdestcode"></a><code>int git_config_get_int(const char *key, int *dest)</code> </dt>
 <dd>
 <p>Finds and parses the value to an integer for the configuration variable
 <code>key</code>. Dies on error; otherwise, stores the value of the parsed integer in
 <code>dest</code> and returns 0. When the configuration variable <code>key</code> is not found,
 returns 1 without touching <code>dest</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetulongconstcharkeyunsignedlongdestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetulongconstcharkeyunsignedlongdestcode"></a><code>int git_config_get_ulong(const char *key, unsigned long *dest)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetulongconstcharkeyunsignedlongdestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-intgitconfiggetulongconstcharkeyunsignedlongdest"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetulongconstcharkeyunsignedlongdestcode"></a><code>int git_config_get_ulong(const char *key, unsigned long *dest)</code> </dt>
 <dd>
 <p>Similar to <code>git_config_get_int</code> but for unsigned longs.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetboolconstcharkeyintdestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetboolconstcharkeyintdestcode"></a><code>int git_config_get_bool(const char *key, int *dest)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetboolconstcharkeyintdestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-intgitconfiggetboolconstcharkeyintdest"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetboolconstcharkeyintdestcode"></a><code>int git_config_get_bool(const char *key, int *dest)</code> </dt>
 <dd>
 <p>Finds and parses the value into a boolean value, for the configuration
 variable <code>key</code> respecting keywords like "true" and "false". Integer
@@ -172,40 +172,40 @@ stores the value of the parsed result in <code>dest</code> and returns 0. When t
 configuration variable <code>key</code> is not found, returns 1 without touching
 <code>dest</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetboolorintconstcharkeyintisboolintdestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetboolorintconstcharkeyintisboolintdestcode"></a><code>int git_config_get_bool_or_int(const char *key, int *is_bool, int *dest)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetboolorintconstcharkeyintisboolintdestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-intgitconfiggetboolorintconstcharkeyintisboolintdest"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetboolorintconstcharkeyintisboolintdestcode"></a><code>int git_config_get_bool_or_int(const char *key, int *is_bool, int *dest)</code> </dt>
 <dd>
 <p>Similar to <code>git_config_get_bool</code>, except that integers are copied as-is,
 and <code>is_bool</code> flag is unset.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetmaybeboolconstcharkeyintdestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetmaybeboolconstcharkeyintdestcode"></a><code>int git_config_get_maybe_bool(const char *key, int *dest)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetmaybeboolconstcharkeyintdestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-intgitconfiggetmaybeboolconstcharkeyintdest"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetmaybeboolconstcharkeyintdestcode"></a><code>int git_config_get_maybe_bool(const char *key, int *dest)</code> </dt>
 <dd>
 <p>Similar to <code>git_config_get_bool</code>, except that it returns -1 on error
 rather than dying.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetstringconstconstcharkeyconstchardestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetstringconstconstcharkeyconstchardestcode"></a><code>int git_config_get_string_const(const char *key, const char **dest)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetstringconstconstcharkeyconstchardestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-intgitconfiggetstringconstconstcharkeyconstchardest"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetstringconstconstcharkeyconstchardestcode"></a><code>int git_config_get_string_const(const char *key, const char **dest)</code> </dt>
 <dd>
 <p>Allocates and copies the retrieved string into the <code>dest</code> parameter for
 the configuration variable <code>key</code>; if NULL string is given, prints an
 error message and returns -1. When the configuration variable <code>key</code> is
 not found, returns 1 without touching <code>dest</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetstringconstcharkeychardestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetstringconstcharkeychardestcode"></a><code>int git_config_get_string(const char *key, char **dest)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetstringconstcharkeychardestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-intgitconfiggetstringconstcharkeychardest"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetstringconstcharkeychardestcode"></a><code>int git_config_get_string(const char *key, char **dest)</code> </dt>
 <dd>
 <p>Similar to <code>git_config_get_string_const</code>, except that retrieved value
 copied into the <code>dest</code> parameter is a mutable string.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetpathnameconstcharkeyconstchardestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetpathnameconstcharkeyconstchardestcode"></a><code>int git_config_get_pathname(const char *key, const char **dest)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfiggetpathnameconstcharkeyconstchardestcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-intgitconfiggetpathnameconstcharkeyconstchardest"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfiggetpathnameconstcharkeyconstchardestcode"></a><code>int git_config_get_pathname(const char *key, const char **dest)</code> </dt>
 <dd>
 <p>Similar to <code>git_config_get_string</code>, but expands <code>~</code> or <code>~user</code> into
 the user&#8217;s home directory when found at the beginning of the path.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitdieconfigconstcharkeyconstcharerrcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitdieconfigconstcharkeyconstcharerrcode"></a><code>git_die_config(const char *key, const char *err, ...)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitdieconfigconstcharkeyconstcharerrcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-gitdieconfigconstcharkeyconstcharerr"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitdieconfigconstcharkeyconstcharerrcode"></a><code>git_die_config(const char *key, const char *err, ...)</code> </dt>
 <dd>
 <p>First prints the error message specified by the caller in <code>err</code> and then
 dies printing the line number and the file name of the highest priority
 value for the configuration variable <code>key</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codevoidgitdieconfiglinenrconstcharkeyconstcharfilenameintlinenrcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codevoidgitdieconfiglinenrconstcharkeyconstcharfilenameintlinenrcode"></a><code>void git_die_config_linenr(const char *key, const char *filename, int linenr)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codevoidgitdieconfiglinenrconstcharkeyconstcharfilenameintlinenrcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-voidgitdieconfiglinenrconstcharkeyconstcharfilenameintlinenr"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codevoidgitdieconfiglinenrconstcharkeyconstcharfilenameintlinenrcode"></a><code>void git_die_config_linenr(const char *key, const char *filename, int linenr)</code> </dt>
 <dd>
 <p>Helper function which formats the die error message according to the
 parameters entered. Used by <code>git_die_config()</code>. It can be used by callers
@@ -228,38 +228,38 @@ a number of helper functions, including:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigintcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigintcode"></a><code>git_config_int</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigintcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-gitconfigint"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigintcode"></a><code>git_config_int</code> </dt>
 <dd>
 <p>Parse the string to an integer, including unit factors. Dies on error;
 otherwise, returns the parsed result.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigulongcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigulongcode"></a><code>git_config_ulong</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigulongcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-gitconfigulong"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigulongcode"></a><code>git_config_ulong</code> </dt>
 <dd>
 <p>Identical to <code>git_config_int</code>, but for unsigned longs.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigboolcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigboolcode"></a><code>git_config_bool</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigboolcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-gitconfigbool"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigboolcode"></a><code>git_config_bool</code> </dt>
 <dd>
 <p>Parse a string into a boolean value, respecting keywords like "true" and
 "false". Integer values are converted into true/false values (when they
 are non-zero or zero, respectively). Other values cause a die(). If
 parsing is successful, the return value is the result.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigboolorintcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigboolorintcode"></a><code>git_config_bool_or_int</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigboolorintcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-gitconfigboolorint"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigboolorintcode"></a><code>git_config_bool_or_int</code> </dt>
 <dd>
 <p>Same as <code>git_config_bool</code>, except that integers are returned as-is, and
 an <code>is_bool</code> flag is unset.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitparsemaybeboolcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitparsemaybeboolcode"></a><code>git_parse_maybe_bool</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitparsemaybeboolcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-gitparsemaybebool"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitparsemaybeboolcode"></a><code>git_parse_maybe_bool</code> </dt>
 <dd>
 <p>Same as <code>git_config_bool</code>, except that it returns -1 on error rather
 than dying.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigstringcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigstringcode"></a><code>git_config_string</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigstringcode"> <a class="anchor" href="#Documentation/technical/api-config.txt-gitconfigstring"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigstringcode"></a><code>git_config_string</code> </dt>
 <dd>
 <p>Allocates and copies the value string into the <code>dest</code> parameter; if no
 string is given, prints an error message and returns -1.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigpathnamecode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigpathnamecode"></a><code>git_config_pathname</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codegitconfigpathnamecode"> <a class="anchor" href="#Documentation/technical/api-config.txt-gitconfigpathname"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codegitconfigpathnamecode"></a><code>git_config_pathname</code> </dt>
 <dd>
 <p>Similar to <code>git_config_string</code>, but expands <code>~</code> or <code>~user</code> into the
 user&#8217;s home directory when found at the beginning of the path.</p>
@@ -325,11 +325,11 @@ git_configset_clear(&amp;gm_config);</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codevoidgitconfigsetinitstructconfigsetcscode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codevoidgitconfigsetinitstructconfigsetcscode"></a><code>void git_configset_init(struct config_set *cs)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codevoidgitconfigsetinitstructconfigsetcscode"> <a class="anchor" href="#Documentation/technical/api-config.txt-voidgitconfigsetinitstructconfigsetcs"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codevoidgitconfigsetinitstructconfigsetcscode"></a><code>void git_configset_init(struct config_set *cs)</code> </dt>
 <dd>
 <p>Initializes the config_set <code>cs</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfigsetaddfilestructconfigsetcsconstcharfilenamecode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfigsetaddfilestructconfigsetcsconstcharfilenamecode"></a><code>int git_configset_add_file(struct config_set *cs, const char *filename)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfigsetaddfilestructconfigsetcsconstcharfilenamecode"> <a class="anchor" href="#Documentation/technical/api-config.txt-intgitconfigsetaddfilestructconfigsetcsconstcharfilename"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfigsetaddfilestructconfigsetcsconstcharfilenamecode"></a><code>int git_configset_add_file(struct config_set *cs, const char *filename)</code> </dt>
 <dd>
 <p>Parses the file and adds the variable-value pairs to the <code>config_set</code>,
 dies if there is an error in parsing the file. Returns 0 on success, or
@@ -337,7 +337,7 @@ dies if there is an error in parsing the file. Returns 0 on success, or
 if he wants to free the incomplete configset or continue using it when
 the function returns -1.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfigsetgetvaluestructconfigsetcsconstcharkeyconstcharvaluecode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfigsetgetvaluestructconfigsetcsconstcharkeyconstcharvaluecode"></a><code>int git_configset_get_value(struct config_set *cs, const char *key, const char **value)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeintgitconfigsetgetvaluestructconfigsetcsconstcharkeyconstcharvaluecode"> <a class="anchor" href="#Documentation/technical/api-config.txt-intgitconfigsetgetvaluestructconfigsetcsconstcharkeyconstcharvalue"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeintgitconfigsetgetvaluestructconfigsetcsconstcharkeyconstcharvaluecode"></a><code>int git_configset_get_value(struct config_set *cs, const char *key, const char **value)</code> </dt>
 <dd>
 <p>Finds the highest-priority value for the configuration variable <code>key</code>
 and config set <code>cs</code>, stores the pointer to it in <code>value</code> and returns 0.
@@ -345,14 +345,14 @@ When the configuration variable <code>key</code> is not found, returns 1 without
 touching <code>value</code>. The caller should not free or modify <code>value</code>, as it
 is owned by the cache.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeconststructstringlistgitconfigsetgetvaluemultistructconfigsetcsconstcharkeycode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codeconststructstringlistgitconfigsetgetvaluemultistructconfigsetcsconstcharkeycode"></a><code>const struct string_list *git_configset_get_value_multi(struct config_set *cs, const char *key)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codeconststructstringlistgitconfigsetgetvaluemultistructconfigsetcsconstcharkeycode"> <a class="anchor" href="#Documentation/technical/api-config.txt-conststructstringlistgitconfigsetgetvaluemultistructconfigsetcsconstcharkey"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codeconststructstringlistgitconfigsetgetvaluemultistructconfigsetcsconstcharkeycode"></a><code>const struct string_list *git_configset_get_value_multi(struct config_set *cs, const char *key)</code> </dt>
 <dd>
 <p>Finds and returns the value list, sorted in order of increasing priority
 for the configuration variable <code>key</code> and config set <code>cs</code>. When the
 configuration variable <code>key</code> is not found, returns NULL. The caller
 should not free or modify the returned pointer, as it is owned by the cache.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-config.txt-codevoidgitconfigsetclearstructconfigsetcscode"> <a class="anchor" href="#Documentation/technical/api-config.txt-codevoidgitconfigsetclearstructconfigsetcscode"></a><code>void git_configset_clear(struct config_set *cs)</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-config.txt-codevoidgitconfigsetclearstructconfigsetcscode"> <a class="anchor" href="#Documentation/technical/api-config.txt-voidgitconfigsetclearstructconfigsetcs"></a> <a class="anchor" href="#Documentation/technical/api-config.txt-codevoidgitconfigsetclearstructconfigsetcscode"></a><code>void git_configset_clear(struct config_set *cs)</code> </dt>
 <dd>
 <p>Clears <code>config_set</code> structure, removes all saved variable-value pairs.</p>
 </dd>

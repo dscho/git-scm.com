@@ -37,8 +37,8 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-reset-emgitresetem-qltarbre-esquegt--ltspec-de-chemingt82308203"> <a class="anchor" href="#git-reset-emgitresetem-qltarbre-esquegt--ltspec-de-chemingt82308203"></a><em>git reset</em> [-q] [&lt;arbre-esque&gt;] [--] &lt;spec-de-chemin&gt;&#8230;&#8203; </dt>
-<dt class="hdlist1" id="git-reset-emgitresetem-q--pathspec-from-fileltfichiergt--pathspec-file-nulltarbre-esquegt"> <a class="anchor" href="#git-reset-emgitresetem-q--pathspec-from-fileltfichiergt--pathspec-file-nulltarbre-esquegt"></a><em>git reset</em> [-q] [--pathspec-from-file=&lt;fichier&gt; [--pathspec-file-nul]] [&lt;arbre-esque&gt;] </dt>
+<dt class="hdlist1" id="git-reset-emgitresetem-qltarbre-esquegt--ltspec-de-chemingt82308203"> <a class="anchor" href="#git-reset-gitreset-qarbre-esque--spec-de-chemin"></a> <a class="anchor" href="#git-reset-emgitresetem-qltarbre-esquegt--ltspec-de-chemingt82308203"></a><em>git reset</em> [-q] [&lt;arbre-esque&gt;] [--] &lt;spec-de-chemin&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-reset-emgitresetem-q--pathspec-from-fileltfichiergt--pathspec-file-nulltarbre-esquegt"> <a class="anchor" href="#git-reset-gitreset-q--pathspec-from-filefichier--pathspec-file-nularbre-esque"></a> <a class="anchor" href="#git-reset-emgitresetem-q--pathspec-from-fileltfichiergt--pathspec-file-nulltarbre-esquegt"></a><em>git reset</em> [-q] [--pathspec-from-file=&lt;fichier&gt; [--pathspec-file-nul]] [&lt;arbre-esque&gt;] </dt>
 <dd>
 <p>Ces formes réinitialisent les entrées d&#8217;index pour tous fichiers correspondant à &lt;spec-de-chemin&gt; à leur état de <code>&lt;arbre-esque&gt;</code> (ceci n&#8217;affecte pas l&#8217;arbre de travail ou la branche actuelle.)</p>
 <div class="paragraph">
@@ -48,14 +48,14 @@ aliases:
 <p>Après avoir lancé <code>git reset &lt;spec-de-chemin&gt;</code> pour mettre à jour l&#8217;entrée d&#8217;index, vous pouvez <a href='{{< relurl "docs/git-restore/fr" >}}'>git-restore[1]</a> pour extraire le contenu de l&#8217;index dans l&#8217;arbre de travail. Alternativement, en utilisant <a href='{{< relurl "docs/git-restore/fr" >}}'>git-restore[1]</a> et en spécifiant un commit avec <code>--source</code>, vous pouvez copier le contenu d&#8217;un chemin d&#8217;un commit vers l&#8217;index et l&#8217;arbre de travail d&#8217;une seule traite.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-emgitresetem--patch-pltarbre-esquegt--ltspec-de-chemingt82308203"> <a class="anchor" href="#git-reset-emgitresetem--patch-pltarbre-esquegt--ltspec-de-chemingt82308203"></a><em>git reset</em> (--patch | -p) [&lt;arbre-esque&gt;] [--] [&lt;spec-de-chemin&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-reset-emgitresetem--patch-pltarbre-esquegt--ltspec-de-chemingt82308203"> <a class="anchor" href="#git-reset-gitreset--patch-parbre-esque--spec-de-chemin"></a> <a class="anchor" href="#git-reset-emgitresetem--patch-pltarbre-esquegt--ltspec-de-chemingt82308203"></a><em>git reset</em> (--patch | -p) [&lt;arbre-esque&gt;] [--] [&lt;spec-de-chemin&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Sélectionner interactivement les sections dans la différence entre l&#8217;index et l'&lt;arbre-esque&gt; (par défaut <code>HEAD</code>). Les sections choisies sont ensuite appliquées en ordre inversé à l&#8217;index.</p>
 <div class="paragraph">
 <p>Ceci signifie que <code>git reset -p</code> est l&#8217;opposé de <code>git add -p</code>, autrement dit, vous pouvez l&#8217;utiliser pour réinitialiser sélectivement les sections. Voir la section « Mode interactif » de <a href='{{< relurl "docs/git-add/fr" >}}'>git-add[1]</a> pour apprendre comment utiliser le mode <code>--patch</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-emgitresetemltmodegtltcommitgt"> <a class="anchor" href="#git-reset-emgitresetemltmodegtltcommitgt"></a><em>git reset</em> [&lt;mode&gt;] [&lt;commit&gt;] </dt>
+<dt class="hdlist1" id="git-reset-emgitresetemltmodegtltcommitgt"> <a class="anchor" href="#git-reset-gitresetmodecommit"></a> <a class="anchor" href="#git-reset-emgitresetemltmodegtltcommitgt"></a><em>git reset</em> [&lt;mode&gt;] [&lt;commit&gt;] </dt>
 <dd>
 <p>Cette forme réinitialise le sommet de la branche actuelle à <code>&lt;commit&gt;</code> et met à jour l&#8217;index éventuellement (en le réinitialisant à l&#8217;arbre de <code>&lt;commit&gt;</code>) et l&#8217;arbre de travail en fonction de <code>&lt;mode&gt;</code>. Avant l&#8217;opération, <code>ORIG_HEAD</code> est définie sur le sommet de la branche actuelle. Si <code>&lt;mode&gt;</code> est omis, l&#8217;option par défaut est <code>--mixed</code>. Le mode est une valeur parmi :</p>
 <div class="openblock">
@@ -119,7 +119,7 @@ aliases:
 <dd>
 <p>Rafraîchir l&#8217;index après une réinitialisation mixte. Activé par défaut.</p>
 </dd>
-<dt class="hdlist1" id="git-reset---pathspec-from-fileltfichiergt"> <a class="anchor" href="#git-reset---pathspec-from-fileltfichiergt"></a>--pathspec-from-file=&lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-reset---pathspec-from-fileltfichiergt"> <a class="anchor" href="#git-reset---pathspec-from-filefichier"></a> <a class="anchor" href="#git-reset---pathspec-from-fileltfichiergt"></a>--pathspec-from-file=&lt;fichier&gt; </dt>
 <dd>
 <p>Le spécificateur de chemin est passé dans <code>&lt;fichier&gt;</code> au lieu des arguments de la ligne de commande. Si <code>&lt;fichier&gt;</code> vaut <code>-</code> alors l&#8217;entrée standard est utilisée. Les éléments du spécificateur de chemin sont séparés par LF ou CR/LF. Les éléments du spécificateur de chemin peuvent être cités comme expliqué pour la variable de configuration <code>core.quotePath</code> (voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>). Voir aussi l&#8217;option <code>--pathspec-file-nul</code> et l&#8217;option globale <code>--literal-pathspecs</code>.</p>
 </dd>
@@ -131,7 +131,7 @@ aliases:
 <dd>
 <p>Ne pas interpréter les arguments qui suivent comme options.</p>
 </dd>
-<dt class="hdlist1" id="git-reset-ltspcificateurdechemingt82308203"> <a class="anchor" href="#git-reset-ltspcificateurdechemingt82308203"></a>&lt;spécificateur de chemin&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-reset-ltspcificateurdechemingt82308203"> <a class="anchor" href="#git-reset-spcificateurdechemin"></a> <a class="anchor" href="#git-reset-ltspcificateurdechemingt82308203"></a>&lt;spécificateur de chemin&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Limite les chemins affectés par l&#8217;opération.</p>
 <div class="paragraph">
@@ -331,7 +331,7 @@ $ git reset                                       <b class="conum">(3)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-Rinitialiserunseulfichierdansl8217index"> <a class="anchor" href="#git-reset-Rinitialiserunseulfichierdansl8217index"></a>Réinitialiser un seul fichier dans l&#8217;index </dt>
+<dt class="hdlist1" id="git-reset-Rinitialiserunseulfichierdansl8217index"> <a class="anchor" href="#git-reset-Rinitialiserunseulfichierdanslindex"></a> <a class="anchor" href="#git-reset-Rinitialiserunseulfichierdansl8217index"></a>Réinitialiser un seul fichier dans l&#8217;index </dt>
 <dd>
 <div class="paragraph">
 <p>Supposons que vous avez ajouté un fichier à votre index, mais décidez plus tard que vous ne voulez plus l&#8217;ajouter à votre validation. Vous pouvez retirer le fichier de l&#8217;index tout en conservant vos modifications avec git reset.</p>
@@ -357,7 +357,7 @@ $ git add frotz.c                           <b class="conum">(3)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-Conserverlesmodificationsdansl8217arbredetravailtoutenliminantlesvalidationsprcdentes"> <a class="anchor" href="#git-reset-Conserverlesmodificationsdansl8217arbredetravailtoutenliminantlesvalidationsprcdentes"></a>Conserver les modifications dans l&#8217;arbre de travail tout en éliminant les validations précédentes </dt>
+<dt class="hdlist1" id="git-reset-Conserverlesmodificationsdansl8217arbredetravailtoutenliminantlesvalidationsprcdentes"> <a class="anchor" href="#git-reset-Conserverlesmodificationsdanslarbredetravailtoutenliminantlesvalidationsprcdentes"></a> <a class="anchor" href="#git-reset-Conserverlesmodificationsdansl8217arbredetravailtoutenliminantlesvalidationsprcdentes"></a>Conserver les modifications dans l&#8217;arbre de travail tout en éliminant les validations précédentes </dt>
 <dd>
 <div class="paragraph">
 <p>Supposons que vous êtes en train de travailler sur quelque chose et que vous le validez, et qu&#8217;alors vous continuez à travailler un peu plus, mais vous pensez maintenant que ce que vous avez dans votre arbre de travail devrait aller dans une autre branche qui n&#8217;a rien à voir avec ce que vous avez validé précédemment. Vous pouvez commencer une nouvelle branche et la réinitialiser tout en conservant les modifications dans votre arbre de travail.</p>

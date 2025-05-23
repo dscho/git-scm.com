@@ -69,27 +69,27 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-bundle-createoptionsltfichiergtltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-createoptionsltfichiergtltgit-rev-list-argsgt"></a>create [options] &lt;fichier&gt; &lt;git-rev-list-args&gt; </dt>
+<dt class="hdlist1" id="git-bundle-createoptionsltfichiergtltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-createoptionsfichiergit-rev-list-args"></a> <a class="anchor" href="#git-bundle-createoptionsltfichiergtltgit-rev-list-argsgt"></a>create [options] &lt;fichier&gt; &lt;git-rev-list-args&gt; </dt>
 <dd>
 <p>Utilisé pour créer un regroupement nommé <em>fichier</em>. Cela nécessite les arguments <em>&lt;arguments-git-rev-list&gt;</em> pour définir le contenu du regroupement. options' contient les options spécifiques à la sous-commande <em>git bundle create</em>. si <em>fichier</em> est <code>-</code>, le paquet envoyé sur la sortie standard.</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-verifyltfichiergt"> <a class="anchor" href="#git-bundle-verifyltfichiergt"></a>verify &lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-bundle-verifyltfichiergt"> <a class="anchor" href="#git-bundle-verifyfichier"></a> <a class="anchor" href="#git-bundle-verifyltfichiergt"></a>verify &lt;fichier&gt; </dt>
 <dd>
 <p>Utilisé pour vérifier qu&#8217;un fichier regroupement est valide et s&#8217;appliquera proprement au dépôt actuel. Cela inclut des vérifications sur le format du regroupement lui-même ainsi que la vérification que les commits pré-requis existent et sont complètement liés dans le dépôt actuel. <em>git bundle</em> affiche une liste des commits manquants, s&#8217;il y en a. Enfin, des informations sur des capacités supplémentaires, telles que "object filter" sont imprimées. Voir "Capacités" dans <a href='{{< relurl "docs/gitformat-bundle/fr" >}}'>gitformat-bundle[5]</a> pour plus d&#8217;informations. Le code de sortie est zéro en cas de succès, mais sera non nul si le fichier colis est invalide. Si <em>fichier</em> est <code>-</code>, le paquet est lu sur l&#8217;entrée standard.</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-list-headsltfichiergt"> <a class="anchor" href="#git-bundle-list-headsltfichiergt"></a>list-heads &lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-bundle-list-headsltfichiergt"> <a class="anchor" href="#git-bundle-list-headsfichier"></a> <a class="anchor" href="#git-bundle-list-headsltfichiergt"></a>list-heads &lt;fichier&gt; </dt>
 <dd>
 <p>Liste les références définies dans le regroupement. Si elle est suivie d&#8217;une liste de références, seules les références correspondant à celles données sont imprimées. Si <em>fichier</em> est <code>-</code>, le paquet est lu sur l&#8217;entrée standard.</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-unbundleltfichiergt"> <a class="anchor" href="#git-bundle-unbundleltfichiergt"></a>unbundle &lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-bundle-unbundleltfichiergt"> <a class="anchor" href="#git-bundle-unbundlefichier"></a> <a class="anchor" href="#git-bundle-unbundleltfichiergt"></a>unbundle &lt;fichier&gt; </dt>
 <dd>
 <p>Passe les objets du groupement à <em>git index-pack</em> pour qu&#8217;ils soient stockés dans le dépôt, puis affiche les noms de toutes les références définies. Si une liste de références est donnée, seules les références correspondant à celles de la liste sont imprimées. Cette commande est vraiment de plomberie et n&#8217;est définie que pour être appelée par <em>git fetch</em>. si <em>fichier</em> est <code>-</code>, le paquet est lu depuis l&#8217;entrée standard.</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-ltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-ltgit-rev-list-argsgt"></a>&lt;git-rev-list-args&gt; </dt>
+<dt class="hdlist1" id="git-bundle-ltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-git-rev-list-args"></a> <a class="anchor" href="#git-bundle-ltgit-rev-list-argsgt"></a>&lt;git-rev-list-args&gt; </dt>
 <dd>
 <p>Une liste d&#8217;arguments, acceptable pour <em>git rev-parse</em> et <em>git rev-list</em> (et contenant une référence nommée, voir SPECIFICATION DES REFERENCES ci-dessous), qui spécifie les objets et références spécifiques à transporter. Par exemple, <code>master~10..master</code> fait en sorte que la référence master actuelle soit regroupée avec tous les objets ajoutés depuis le dixième commit de son ancêtre. Il n&#8217;y a pas de limite explicite au nombre de références et d&#8217;objets qui peuvent être regroupés.</p>
 </dd>
-<dt class="hdlist1" id="git-bundle-ltnom-de-rfgt82308203"> <a class="anchor" href="#git-bundle-ltnom-de-rfgt82308203"></a>[&lt;nom-de-réf&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-bundle-ltnom-de-rfgt82308203"> <a class="anchor" href="#git-bundle-nom-de-rf"></a> <a class="anchor" href="#git-bundle-ltnom-de-rfgt82308203"></a>[&lt;nom-de-réf&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Une liste de références utilisée pour limiter les références signalées comme disponibles. Ceci est principalement utile à <em>git fetch</em>, qui s&#8217;attend à ne recevoir que les références demandées et pas nécessairement tout le contenu du pack (dans ce cas, <em>git bundle</em> agit comme <em>git fetch-pack</em>).</p>
 </dd>
@@ -97,7 +97,7 @@ aliases:
 <dd>
 <p>L&#8217;état d&#8217;avancement est affiché sur la sortie d&#8217;erreur standard quand elle est attachée à un terminal, à moins que -q soit spécifié. Ce drapeau force l&#8217;état d&#8217;avancement même si le flux d&#8217;erreur standard n&#8217;est pas dirigé vers un terminal.</p>
 </dd>
-<dt class="hdlist1" id="git-bundle---versionltversiongt"> <a class="anchor" href="#git-bundle---versionltversiongt"></a>--version=&lt;version&gt; </dt>
+<dt class="hdlist1" id="git-bundle---versionltversiongt"> <a class="anchor" href="#git-bundle---versionversion"></a> <a class="anchor" href="#git-bundle---versionltversiongt"></a>--version=&lt;version&gt; </dt>
 <dd>
 <p>Spécifier la version du regroupement. La version 2 est l&#8217;ancien format et ne peut être utilisée qu&#8217;avec les dépôts SHA-1 ; la version 3, plus récente, contient des capacités qui permettent des extensions. La valeur par défaut est le plus ancien format pris en charge, en fonction de l&#8217;algorithme de hachage utilisé.</p>
 </dd>

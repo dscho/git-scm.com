@@ -94,7 +94,7 @@ aliases:
 <p>旧的脚本可能依赖于不允许用户编辑合并日志信息的历史行为。他们会在运行`git merge`时看到一个编辑器被打开。为了使这些脚本更容易调整到最新的行为，可以在脚本的开头将环境变量`GIT_MERGE_AUTOEDIT`设置为`no`。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge---cleanupltgt"> <a class="anchor" href="#git-merge---cleanupltgt"></a>--cleanup=&lt;模式&gt; </dt>
+<dt class="hdlist1" id="git-merge---cleanupltgt"> <a class="anchor" href="#git-merge---cleanup"></a> <a class="anchor" href="#git-merge---cleanupltgt"></a>--cleanup=&lt;模式&gt; </dt>
 <dd>
 <p>这个选项决定了在提交前如何清理合并信息。更多细节见<a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a>。此外，如果`&lt;模式&gt;<code>的值为 `scissors</code>，在发生合并冲突时，scissors将被附加到 "MERGE_MSG "上，然后传递给提交机制。</p>
 </dd>
@@ -113,13 +113,13 @@ aliases:
 <p>使用`--ff-only`，在可能的情况下，以快进的方式解决合并的问题。 当不可能时，拒绝合并并以非零状态退出。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge--Sltkeyidgt"> <a class="anchor" href="#git-merge--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
-<dt class="hdlist1" id="git-merge---gpg-signltIDgt"> <a class="anchor" href="#git-merge---gpg-signltIDgt"></a>--gpg-sign[=&lt;键 ID&gt;] </dt>
+<dt class="hdlist1" id="git-merge--Sltkeyidgt"> <a class="anchor" href="#git-merge--Skeyid"></a> <a class="anchor" href="#git-merge--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
+<dt class="hdlist1" id="git-merge---gpg-signltIDgt"> <a class="anchor" href="#git-merge---gpg-signID"></a> <a class="anchor" href="#git-merge---gpg-signltIDgt"></a>--gpg-sign[=&lt;键 ID&gt;] </dt>
 <dt class="hdlist1" id="git-merge---no-gpg-sign"> <a class="anchor" href="#git-merge---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
 <p>对合并后的提交进行 GPG 签名。<code>keyid</code> 参数是可选的，默认为提交者的身份；如果指定，它必须与选项连在一起，不能有空格。<code>--no-gpg-sign</code> 对于反命令 <code>commit.gpgSign</code> 配置变量和早期的 <code>--gpg-sign</code> 都很有用。</p>
 </dd>
-<dt class="hdlist1" id="git-merge---logltngt"> <a class="anchor" href="#git-merge---logltngt"></a>--log[=&lt;n&gt;] </dt>
+<dt class="hdlist1" id="git-merge---logltngt"> <a class="anchor" href="#git-merge---logn"></a> <a class="anchor" href="#git-merge---logltngt"></a>--log[=&lt;n&gt;] </dt>
 <dt class="hdlist1" id="git-merge---no-log"> <a class="anchor" href="#git-merge---no-log"></a>--no-log </dt>
 <dd>
 <p>除了分支名称外，在日志信息中最多只用&lt;n&gt;个正在合并的实际提交的单行描述来填充。参见 <a href='{{< relurl "docs/git-fmt-merge-msg/zh_HANS-CN" >}}'>git-fmt-merge-msg[1]</a>。</p>
@@ -127,8 +127,8 @@ aliases:
 <p>如果使用 --no-log，则不列出被合并的实际提交内容的单行描述。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge-code--signoffcode"> <a class="anchor" href="#git-merge-code--signoffcode"></a><code>--signoff</code> </dt>
-<dt class="hdlist1" id="git-merge-code--no-signoffcode"> <a class="anchor" href="#git-merge-code--no-signoffcode"></a><code>--no-signoff</code> </dt>
+<dt class="hdlist1" id="git-merge-code--signoffcode"> <a class="anchor" href="#git-merge---signoff"></a> <a class="anchor" href="#git-merge-code--signoffcode"></a><code>--signoff</code> </dt>
+<dt class="hdlist1" id="git-merge-code--no-signoffcode"> <a class="anchor" href="#git-merge---no-signoff"></a> <a class="anchor" href="#git-merge-code--no-signoffcode"></a><code>--no-signoff</code> </dt>
 <dd>
 <p>在提交日志信息的末尾添加提交者的 "Signed-off-by "预告片。 签名的意义取决于你所提交的项目。 例如，它可以证明提交者有权利在项目许可下提交作品，或者同意一些贡献者的陈述，如开发者的原产地证书。 关于Linux内核和Git项目使用的证书，请参见http://developercertificate.org）。 请查阅你要贡献的项目的文档或领导层，以了解该项目如何使用签名。</p>
 <div class="paragraph">
@@ -163,13 +163,13 @@ aliases:
 <dd>
 <p>默认情况下，会运行 pre-merge 和 commit-msg 事件hook。 当给定 `--no-verify`时，这些将不会执行。 参见 <a href='{{< relurl "docs/githooks/zh_HANS-CN" >}}'>githooks[5]</a>。</p>
 </dd>
-<dt class="hdlist1" id="git-merge--sltgt"> <a class="anchor" href="#git-merge--sltgt"></a>-s &lt;策略&gt; </dt>
-<dt class="hdlist1" id="git-merge---strategyltgt"> <a class="anchor" href="#git-merge---strategyltgt"></a>--strategy=&lt;策略&gt; </dt>
+<dt class="hdlist1" id="git-merge--sltgt"> <a class="anchor" href="#git-merge--s"></a> <a class="anchor" href="#git-merge--sltgt"></a>-s &lt;策略&gt; </dt>
+<dt class="hdlist1" id="git-merge---strategyltgt"> <a class="anchor" href="#git-merge---strategy"></a> <a class="anchor" href="#git-merge---strategyltgt"></a>--strategy=&lt;策略&gt; </dt>
 <dd>
 <p>使用给定的合并策略；可以多次提供，以指定它们应该被尝试的顺序。 如果没有`-s`选项，则使用一个内置的策略列表（当合并单个头时使用`ort`，否则使用`octopus`）。</p>
 </dd>
-<dt class="hdlist1" id="git-merge--Xltgt"> <a class="anchor" href="#git-merge--Xltgt"></a>-X &lt;选项&gt; </dt>
-<dt class="hdlist1" id="git-merge---strategy-optionltgt"> <a class="anchor" href="#git-merge---strategy-optionltgt"></a>--strategy-option=&lt;选项&gt; </dt>
+<dt class="hdlist1" id="git-merge--Xltgt"> <a class="anchor" href="#git-merge--X"></a> <a class="anchor" href="#git-merge--Xltgt"></a>-X &lt;选项&gt; </dt>
+<dt class="hdlist1" id="git-merge---strategy-optionltgt"> <a class="anchor" href="#git-merge---strategy-option"></a> <a class="anchor" href="#git-merge---strategy-optionltgt"></a>--strategy-option=&lt;选项&gt; </dt>
 <dd>
 <p>将合并策略的特定选项传递给合并策略。</p>
 </dd>
@@ -211,7 +211,7 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-merge--mltgt"> <a class="anchor" href="#git-merge--mltgt"></a>-m &lt;消息&gt; </dt>
+<dt class="hdlist1" id="git-merge--mltgt"> <a class="anchor" href="#git-merge--m"></a> <a class="anchor" href="#git-merge--mltgt"></a>-m &lt;消息&gt; </dt>
 <dd>
 <p>设置用于合并提交的提交信息（如果创建了一个的话）。</p>
 <div class="paragraph">
@@ -221,12 +221,12 @@ aliases:
 <p><code>git fmt-merge-msg</code> 命令可以为自动 <code>git merge</code> 调用提供一个良好的默认值。自动信息可以包括分支描述。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge---into-nameltgt"> <a class="anchor" href="#git-merge---into-nameltgt"></a>--into-name &lt;分支&gt; </dt>
+<dt class="hdlist1" id="git-merge---into-nameltgt"> <a class="anchor" href="#git-merge---into-name"></a> <a class="anchor" href="#git-merge---into-nameltgt"></a>--into-name &lt;分支&gt; </dt>
 <dd>
 <p>准备默认的合并信息，就像合并到分支`&lt;分支&gt;`一样，而不是真正要合并的分支名称。</p>
 </dd>
-<dt class="hdlist1" id="git-merge--Fltgt"> <a class="anchor" href="#git-merge--Fltgt"></a>-F &lt;文件&gt; </dt>
-<dt class="hdlist1" id="git-merge---fileltgt"> <a class="anchor" href="#git-merge---fileltgt"></a>--file=&lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-merge--Fltgt"> <a class="anchor" href="#git-merge--F"></a> <a class="anchor" href="#git-merge--Fltgt"></a>-F &lt;文件&gt; </dt>
+<dt class="hdlist1" id="git-merge---fileltgt"> <a class="anchor" href="#git-merge---file"></a> <a class="anchor" href="#git-merge---fileltgt"></a>--file=&lt;文件&gt; </dt>
 <dd>
 <p>读取用于合并提交的提交信息（如果创建了）。</p>
 <div class="paragraph">
@@ -265,7 +265,7 @@ aliases:
 <dd>
 <p>在 <code>git merge</code> 因冲突而停止后，你可以通过运行 <code>git merge --continue</code> 来结束当前合并（见下文“如何解决冲突”部分）。</p>
 </dd>
-<dt class="hdlist1" id="git-merge-ltgt82308203"> <a class="anchor" href="#git-merge-ltgt82308203"></a>&lt;提交&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-merge-ltgt82308203"> <a class="anchor" href="#git-merge-"></a> <a class="anchor" href="#git-merge-ltgt82308203"></a>&lt;提交&gt;&#8230;&#8203; </dt>
 <dd>
 <p>提交，通常是其他分支负责人，合并到我们的分支中。 指定多个提交将创建具有两个以上父项的合并（亲切地称为八爪/多路合并）。</p>
 <div class="paragraph">
@@ -570,15 +570,15 @@ Git 让冲突解决变得简单。
 <dd>
 <p>禁用 <code>renormalize</code> 选项。 这覆盖了 <code>merge.renormalize</code> 配置变量。</p>
 </dd>
-<dt class="hdlist1" id="git-merge-find-renamesltngt"> <a class="anchor" href="#git-merge-find-renamesltngt"></a>find-renames[=&lt;n&gt;] </dt>
+<dt class="hdlist1" id="git-merge-find-renamesltngt"> <a class="anchor" href="#git-merge-find-renamesn"></a> <a class="anchor" href="#git-merge-find-renamesltngt"></a>find-renames[=&lt;n&gt;] </dt>
 <dd>
 <p>开启重名检测，可选择设置相似度阈值。 这是默认的。这覆盖了 <em>merge.renames</em> 配置变量。 参见<a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a> <code>--find-renames</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-merge-rename-thresholdltngt"> <a class="anchor" href="#git-merge-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-merge-rename-thresholdltngt"> <a class="anchor" href="#git-merge-rename-thresholdn"></a> <a class="anchor" href="#git-merge-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
 <dd>
 <p>废弃的，<code>find-renames=&lt;n&gt;</code> 的同义词。</p>
 </dd>
-<dt class="hdlist1" id="git-merge-subtreeltgt"> <a class="anchor" href="#git-merge-subtreeltgt"></a>subtree[=&lt;路径&gt;] </dt>
+<dt class="hdlist1" id="git-merge-subtreeltgt"> <a class="anchor" href="#git-merge-subtree"></a> <a class="anchor" href="#git-merge-subtreeltgt"></a>subtree[=&lt;路径&gt;] </dt>
 <dd>
 <p>这个选项是 <em>子树</em> 策略的更高级形式，该策略对两棵树在合并时必须如何移位以相互匹配进行猜测。 相反，指定的路径是前缀（或从开始剥离），以使两棵树的形状相匹配。</p>
 </dd>
@@ -620,7 +620,7 @@ Git 让冲突解决变得简单。
 <dd>
 <p>这可以解决任何数量的头，但合并的结果总是当前分支头的树，有效地忽略了所有其他分支的变化。 它是用来取代侧边分支的旧开发历史的。 注意，这与 <em>recursive</em> 合并策略的-Xours选项不同。</p>
 </dd>
-<dt class="hdlist1" id="git-merge-subtree"> <a class="anchor" href="#git-merge-subtree"></a>subtree </dt>
+<dt class="hdlist1" id="git-merge-subtree-1"> <a class="anchor" href="#git-merge-subtree-1"></a>subtree </dt>
 <dd>
 <p>这是一个修正的 <code>ort</code> 策略。当合并树A和B时，如果B对应于A的子树，B首先被调整为与A的树结构相匹配，而不是在同一级别读取树。这种调整也是针对共同祖先树进行的。</p>
 </dd>
@@ -636,7 +636,7 @@ Git 让冲突解决变得简单。
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-merge-ltgt"> <a class="anchor" href="#git-merge-ltgt"></a>分支 .&lt;名字&gt;.合并操作选项 </dt>
+<dt class="hdlist1" id="git-merge-ltgt"> <a class="anchor" href="#git-merge--1"></a> <a class="anchor" href="#git-merge-ltgt"></a>分支 .&lt;名字&gt;.合并操作选项 </dt>
 <dd>
 <p>设置合并到分支 &lt;分支名&gt; 的默认选项。语法和支持的选项与 <code>git merge</code> 相同，不过目前不支持包含空格的选项值。</p>
 </dd>

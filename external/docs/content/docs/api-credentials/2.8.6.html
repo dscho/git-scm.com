@@ -129,7 +129,7 @@ can be erased from any persistent storage).</p>
 <h3 id="_data_structures"><a class="anchor" href="#_data_structures"></a>Data Structures</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codestructcredentialcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codestructcredentialcode"></a><code>struct credential</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codestructcredentialcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-structcredential"></a> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codestructcredentialcode"></a><code>struct credential</code> </dt>
 <dd>
 <p>This struct represents a single username/password combination
 along with any associated context. All string fields should be
@@ -158,16 +158,16 @@ modify the helpers field at all.</p>
 <h3 id="_functions"><a class="anchor" href="#_functions"></a>Functions</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialinitcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialinitcode"></a><code>credential_init</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialinitcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-credentialinit"></a> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialinitcode"></a><code>credential_init</code> </dt>
 <dd>
 <p>Initialize a credential structure, setting all fields to empty.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialclearcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialclearcode"></a><code>credential_clear</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialclearcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-credentialclear"></a> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialclearcode"></a><code>credential_clear</code> </dt>
 <dd>
 <p>Free any resources associated with the credential structure,
 returning it to a pristine initialized state.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialfillcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialfillcode"></a><code>credential_fill</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialfillcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-credentialfill"></a> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialfillcode"></a><code>credential_fill</code> </dt>
 <dd>
 <p>Instruct the credential subsystem to fill the username and
 password fields of the passed credential struct by first
@@ -176,7 +176,7 @@ returns, the username and password fields of the credential are
 guaranteed to be non-NULL. If an error occurs, the function will
 die().</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialrejectcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialrejectcode"></a><code>credential_reject</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialrejectcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-credentialreject"></a> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialrejectcode"></a><code>credential_reject</code> </dt>
 <dd>
 <p>Inform the credential subsystem that the provided credentials
 have been rejected. This will cause the credential subsystem to
@@ -187,7 +187,7 @@ credential and set them to NULL (readying the credential for
 another call to <code>credential_fill</code>). Any errors from helpers are
 ignored.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialapprovecode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialapprovecode"></a><code>credential_approve</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialapprovecode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-credentialapprove"></a> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialapprovecode"></a><code>credential_approve</code> </dt>
 <dd>
 <p>Inform the credential subsystem that the provided credentials
 were successfully used for authentication.  This will cause the
@@ -195,7 +195,7 @@ credential subsystem to notify any helpers of the approval, so
 that they may store the result to be used again.  Any errors
 from helpers are ignored.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialfromurlcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialfromurlcode"></a><code>credential_from_url</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codecredentialfromurlcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-credentialfromurl"></a> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codecredentialfromurlcode"></a><code>credential_from_url</code> </dt>
 <dd>
 <p>Parse a URL into broken-down credential fields.</p>
 </dd>
@@ -331,15 +331,15 @@ appended to its command line, which is one of:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codegetcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codegetcode"></a><code>get</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codegetcode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-get"></a> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codegetcode"></a><code>get</code> </dt>
 <dd>
 <p>Return a matching credential, if any exists.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codestorecode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codestorecode"></a><code>store</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codestorecode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-store"></a> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codestorecode"></a><code>store</code> </dt>
 <dd>
 <p>Store the credential, if applicable to the helper.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codeerasecode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codeerasecode"></a><code>erase</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-credentials.txt-codeerasecode"> <a class="anchor" href="#Documentation/technical/api-credentials.txt-erase"></a> <a class="anchor" href="#Documentation/technical/api-credentials.txt-codeerasecode"></a><code>erase</code> </dt>
 <dd>
 <p>Remove a matching credential, if any, from the helper&#8217;s storage.</p>
 </dd>

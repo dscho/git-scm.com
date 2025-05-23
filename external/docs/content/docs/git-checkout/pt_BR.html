@@ -42,7 +42,7 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutemltramogt"> <a class="anchor" href="#git-checkout-emgitcheckoutemltramogt"></a><em>git checkout</em> [&lt;ramo&gt;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutemltramogt"> <a class="anchor" href="#git-checkout-gitcheckoutramo"></a> <a class="anchor" href="#git-checkout-emgitcheckoutemltramogt"></a><em>git checkout</em> [&lt;ramo&gt;] </dt>
 <dd>
 <p>Para se preparar para trabalhar em um <code>&lt;ramo&gt;</code>, alterne para ele atualizando o índice, os arquivos na árvore de trabalho e apontando para o <code>HEAD</code> do ramo. As modificações locais são mantidas nos arquivos da árvore de trabalho, para que o commit possa ser no <code>&lt;ramo&gt;</code>.</p>
 <div class="paragraph">
@@ -57,7 +57,7 @@ aliases:
 <p>Você pode omitir o <code>&lt;ramo&gt;</code> no caso em que o comando se degenera para "verificar o branch atual", que é um glorificado não-op com efeitos colaterais bastante dispendiosos para exibir apenas as informações de rastreamento, caso existam, para o ramo atual.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-b-Bltnew-branchgtltponto-de-partidagt"> <a class="anchor" href="#git-checkout-emgitcheckoutem-b-Bltnew-branchgtltponto-de-partidagt"></a><em>git checkout</em> -b|-B &lt;new-branch&gt; [&lt;ponto-de-partida&gt;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-b-Bltnew-branchgtltponto-de-partidagt"> <a class="anchor" href="#git-checkout-gitcheckout-b-Bnew-branchponto-de-partida"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-b-Bltnew-branchgtltponto-de-partidagt"></a><em>git checkout</em> -b|-B &lt;new-branch&gt; [&lt;ponto-de-partida&gt;] </dt>
 <dd>
 <p>Ao especificar a opção <code>-b</code>, isso faz com que um novo ramo seja criado como se o <a href='{{< relurl "docs/git-branch/pt_BR" >}}'>git-branch[1]</a> tivesse sido invocado e, em seguida, feito o "check-out". Nesse caso, você pode usar as opções <code>--track</code> ou <code>--no-track</code>, que serão encaminhadas ao <em>git branch</em>. Por conveniência, a opção <code>--track</code> sem <code>-b</code> implica na criação de ramificações; consulte a descrição de da opção <code>--track</code> abaixo.</p>
 <div class="paragraph">
@@ -73,8 +73,8 @@ $ git checkout &lt;ramo&gt;</pre>
 <p>Ou seja, o ramo não é redefinido/criado a menos que o comando "git checkout" seja bem-sucedido (quando o ramo está em uso em outra árvore de trabalho, não apenas o ramo atual permanece o mesmo, mas o ramo também não é redefinido para o ponto inicial por exemplo).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltramogt"> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltramogt"></a><em>git checkout</em> --detach [&lt;ramo&gt;] </dt>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltcommitgt"> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltcommitgt"></a><em>git checkout</em> [--detach] &lt;commit&gt; </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltramogt"> <a class="anchor" href="#git-checkout-gitcheckout--detachramo"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltramogt"></a><em>git checkout</em> --detach [&lt;ramo&gt;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem--detachltcommitgt"> <a class="anchor" href="#git-checkout-gitcheckout--detachcommit"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem--detachltcommitgt"></a><em>git checkout</em> [--detach] &lt;commit&gt; </dt>
 <dd>
 <p>Prepare-se para trabalhar em cima do <code>&lt;commit&gt;</code>, desvinculando o <code>HEAD</code> dele (consulte a seção "HEAD DESANEXANDO"), atualizando o índice e os arquivos na árvore de trabalho. As modificações locais nos arquivos da árvore de trabalho são mantidas, de modo que a árvore de trabalho resultante será o estado registrado no commit mais as alterações locais.</p>
 <div class="paragraph">
@@ -84,15 +84,15 @@ $ git checkout &lt;ramo&gt;</pre>
 <p>Ao omitir o <code>&lt;ramo&gt;</code> isso desanexa o <code>HEAD</code> na ponta do ramo atual.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltestilogtltrvoregt--ltpathspecgt82308203"> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltestilogtltrvoregt--ltpathspecgt82308203"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;estilo&gt;] [&lt;árvore&gt;] [--] &lt;pathspec&gt;&#8230;&#8203; </dt>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltestilogtltrvoregt--pathspec-from-fileltarquivogt--pathspec-file-nul"> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltestilogtltrvoregt--pathspec-from-fileltarquivogt--pathspec-file-nul"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;estilo&gt;] [&lt;árvore&gt;] --pathspec-from-file=&lt;arquivo&gt; [--pathspec-file-nul] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltestilogtltrvoregt--ltpathspecgt82308203"> <a class="anchor" href="#git-checkout-gitcheckout-f--ours--theirs-m--conflictestilorvore--pathspec"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltestilogtltrvoregt--ltpathspecgt82308203"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;estilo&gt;] [&lt;árvore&gt;] [--] &lt;pathspec&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltestilogtltrvoregt--pathspec-from-fileltarquivogt--pathspec-file-nul"> <a class="anchor" href="#git-checkout-gitcheckout-f--ours--theirs-m--conflictestilorvore--pathspec-from-filearquivo--pathspec-file-nul"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-f--ours--theirs-m--conflictltestilogtltrvoregt--pathspec-from-fileltarquivogt--pathspec-file-nul"></a><em>git checkout</em> [-f|--ours|--theirs|-m|--conflict=&lt;estilo&gt;] [&lt;árvore&gt;] --pathspec-from-file=&lt;arquivo&gt; [--pathspec-file-nul] </dt>
 <dd>
 <p>Substitui o conteúdo dos arquivos que correspondem ao pathpec. Quando o <code>&lt;tree-ish&gt;</code> (geralmente um commit) não for fornecido, substitua a árvore de trabalho pelo conteúdo do índice. Quando o <code>&lt;tree-ish&gt;</code> for fornecido, substitua o índice e a árvore de trabalho pelo conteúdo do <code>&lt;tree-ish&gt;</code>.</p>
 <div class="paragraph">
 <p>O índice pode conter entradas não mescladas devido a uma falha anterior de mesclagem. É predefinido que se você tentar fazer o "check-out" de uma entrada deste tipo no índice, a operação de "check-out" falhará e nada será verificado. O uso de <code>-f</code> ignorará essas entradas não mescladas. O conteúdo de um lado específico da mesclagem pode ser verificado fora do índice usando a opção <code>--ours</code> ou <code>--theirs</code>. Com a opção <code>-m</code>, as alterações que forem feitas no arquivo da árvore de trabalho podem ser descartadas para recriar o resultado conflitante original da mesclagem.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-emgitcheckoutem-p--patchltrvoregt--ltpathspecgt82308203"> <a class="anchor" href="#git-checkout-emgitcheckoutem-p--patchltrvoregt--ltpathspecgt82308203"></a><em>git checkout</em> (-p|--patch) [&lt;árvore&gt;] [--] [&lt;pathspec&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-checkout-emgitcheckoutem-p--patchltrvoregt--ltpathspecgt82308203"> <a class="anchor" href="#git-checkout-gitcheckout-p--patchrvore--pathspec"></a> <a class="anchor" href="#git-checkout-emgitcheckoutem-p--patchltrvoregt--ltpathspecgt82308203"></a><em>git checkout</em> (-p|--patch) [&lt;árvore&gt;] [--] [&lt;pathspec&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Esse modo é semelhante ao anterior, mas permite que você use a interface interativa para mostrar a saída do "diff" e escolher quais blocos usar no resultado. Veja abaixo a descrição da opção <code>--patch</code>.</p>
 </dd>
@@ -134,11 +134,11 @@ $ git checkout &lt;ramo&gt;</pre>
 <p>Isso ocorre porque o <code>rebase</code> é usado num fluxo de trabalho que trata o histórico no ramo remoto como um canônico compartilhado e trata o trabalho feito no ramo que você está fazendo o "rebase" como o trabalho de terceiros que ainda será integrado, e você está assumindo temporariamente a função de guardião do histórico canônico durante o processo de "rebase". Como guardião do histórico canônico, você precisa ver o histórico do ramo remoto como <code>ours</code> "nosso" (ou seja, "nosso histórico canônico compartilhado"), enquanto o que você fez no seu ramo secundário como <code>theirs</code> "deles" (ou seja, "o trabalho de um colaborador sobre ele").</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout--bltnovo-ramogt"> <a class="anchor" href="#git-checkout--bltnovo-ramogt"></a>-b &lt;novo-ramo&gt; </dt>
+<dt class="hdlist1" id="git-checkout--bltnovo-ramogt"> <a class="anchor" href="#git-checkout--bnovo-ramo"></a> <a class="anchor" href="#git-checkout--bltnovo-ramogt"></a>-b &lt;novo-ramo&gt; </dt>
 <dd>
 <p>Crie uma nova ramificação chamada <code>&lt;-novo-ramo&gt;</code>, inicie-a em <code>&lt;ponto-de-partida&gt;</code>; e verifique o ramo criado; para obter mais detalhes consulte <a href='{{< relurl "docs/git-branch/pt_BR" >}}'>git-branch[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-checkout--Bltnovo-ramogt"> <a class="anchor" href="#git-checkout--Bltnovo-ramogt"></a>-B &lt;novo-ramo&gt; </dt>
+<dt class="hdlist1" id="git-checkout--Bltnovo-ramogt"> <a class="anchor" href="#git-checkout--Bnovo-ramo"></a> <a class="anchor" href="#git-checkout--Bltnovo-ramogt"></a>-B &lt;novo-ramo&gt; </dt>
 <dd>
 <p>Cria a ramificação <code>&lt;novo-ramo&gt;</code>, iniciando-a em <code>&lt;ponto-de-partida&gt;</code>; caso já exista, será redefinido para <code>&lt;ponto-de-partida&gt;</code>. E, em seguida, verifique o ramo resultante. Isso equivale a executar o comando "git branch" com a opção "-f" seguido pelo comando "git checkout" desse ramo; para mais detalhes consulte <a href='{{< relurl "docs/git-branch/pt_BR" >}}'>git-branch[1]</a>.</p>
 </dd>
@@ -182,7 +182,7 @@ $ git checkout &lt;ramo&gt;</pre>
 <dd>
 <p>Em vez de fazer "check-out" de uma ramificação para trabalhar nela, faça o "check-out" de um commit para inspeção e experimentos descartáveis. Esse é o comportamento padrão do comando <code>git checkout &lt;commit&gt;</code> quando o <code>&lt;commit&gt;</code> não é o nome de um ramo. Para mais detalhes consulte a seção "HEAD DESANEXADO" abaixo.</p>
 </dd>
-<dt class="hdlist1" id="git-checkout---orphanltnovo-ramogt"> <a class="anchor" href="#git-checkout---orphanltnovo-ramogt"></a>--orphan &lt;novo-ramo&gt; </dt>
+<dt class="hdlist1" id="git-checkout---orphanltnovo-ramogt"> <a class="anchor" href="#git-checkout---orphannovo-ramo"></a> <a class="anchor" href="#git-checkout---orphanltnovo-ramogt"></a>--orphan &lt;novo-ramo&gt; </dt>
 <dd>
 <p>Crie uma nova ramificação chamada <code>&lt;novo-ramo&gt;</code>, iniciada em <code>&lt;ponto-de-partida&gt;</code> e mude-se para ela. O primeiro commit feito nesse novo ramo não terá origens e será a raiz de um novo histórico totalmente desconectado de todos os outros ramos e dos outros commits.</p>
 <div class="paragraph">
@@ -213,7 +213,7 @@ $ git checkout &lt;ramo&gt;</pre>
 <p>Ao alternar as ramificações com <code>--merge</code> as alterações que já foram organizadas podem ser perdidas.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout---conflictltestilogt"> <a class="anchor" href="#git-checkout---conflictltestilogt"></a>--conflict=&lt;estilo&gt; </dt>
+<dt class="hdlist1" id="git-checkout---conflictltestilogt"> <a class="anchor" href="#git-checkout---conflictestilo"></a> <a class="anchor" href="#git-checkout---conflictltestilogt"></a>--conflict=&lt;estilo&gt; </dt>
 <dd>
 <p>O mesmo que a opção <code>--merge</code> acima, porém altera a maneira como os blocos conflitantes são apresentados, ao substituir a variável de configuração <code>merge.conflictStyle</code>. Os valores possíveis são <code>merge</code> (predefinido), "diff3" e "zdiff3".</p>
 </dd>
@@ -247,7 +247,7 @@ $ git checkout &lt;ramo&gt;</pre>
 <dd>
 <p>No modo de sobreposição padrão, o comando <code>git checkout</code> nunca remove os arquivos do índice ou da árvore de trabalho. Ao especificar a opção <code>--no-overlay</code>, os arquivos que aparecem no índice e na árvore de trabalho, mas não em <code>&lt;tree-ish&gt;</code>, são removidos para que correspondam exatamente a <code>&lt;tree-ish&gt;</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-checkout---pathspec-from-fileltarquivogt"> <a class="anchor" href="#git-checkout---pathspec-from-fileltarquivogt"></a>--pathspec-from-file=&lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-checkout---pathspec-from-fileltarquivogt"> <a class="anchor" href="#git-checkout---pathspec-from-filearquivo"></a> <a class="anchor" href="#git-checkout---pathspec-from-fileltarquivogt"></a>--pathspec-from-file=&lt;arquivo&gt; </dt>
 <dd>
 <p>O "pathspec" é passado com <code>&lt;arquivo&gt;</code> em vez dos argumentos da linha de comando. Caso o <code>&lt;arquivo&gt;</code> seja exatamente <code>-</code>, a entrada padrão será utilizada. Os elementos do "pathspec" são separados por caracteres de término de linha <code>LF</code> ou <code>CR/LF</code>. Os elementos do "pathspec" podem ser citados conforme explicado na variável de configuração <code>core.quotePath</code> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Consulte também opção <code>--pathspec-file-nul</code> e o global <code>--literal-pathspecs</code>.</p>
 </dd>
@@ -255,7 +255,7 @@ $ git checkout &lt;ramo&gt;</pre>
 <dd>
 <p>Só faz algum sentido caso seja utilizado junto com a opção <code>--pathspec-from-file</code>. Os elementos "pathspec" são separados com caracteres <code>NUL</code> e todos os outros caracteres são considerados de forma literal (incluindo as novas linhas e as citações).</p>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltramogt"> <a class="anchor" href="#git-checkout-ltramogt"></a>&lt;ramo&gt; </dt>
+<dt class="hdlist1" id="git-checkout-ltramogt"> <a class="anchor" href="#git-checkout-ramo"></a> <a class="anchor" href="#git-checkout-ltramogt"></a>&lt;ramo&gt; </dt>
 <dd>
 <p>O ramo que será averiguado; caso se referira a um ramo (ou seja, um nome que, quando anexado com "refs/heads/", seja uma "ref" válida), então este ramo será retirado. Caso contrário, caso tenha referência para um commit inválido, o seu <code>HEAD</code> se torna "desanexado" e você não estará mais em qualquer outro ramo (veja mais detalhes abaixo).</p>
 <div class="paragraph">
@@ -265,18 +265,18 @@ $ git checkout &lt;ramo&gt;</pre>
 <p>Como um caso especial, você pode usar <code>A...B</code> como um atalho para a mesclagem na base de <code>A</code> e` B` se houver exatamente uma base a ser mesclada. Você pode deixar de fora, no máximo, um de <code>A</code> e` B`, no caso, a predefinição retorna para <code>HEAD</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltnovo-ramogt"> <a class="anchor" href="#git-checkout-ltnovo-ramogt"></a>&lt;novo-ramo&gt; </dt>
+<dt class="hdlist1" id="git-checkout-ltnovo-ramogt"> <a class="anchor" href="#git-checkout-novo-ramo"></a> <a class="anchor" href="#git-checkout-ltnovo-ramogt"></a>&lt;novo-ramo&gt; </dt>
 <dd>
 <p>Nome para o novo branch.</p>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltincio-pontogt"> <a class="anchor" href="#git-checkout-ltincio-pontogt"></a>&lt;início-ponto&gt; </dt>
+<dt class="hdlist1" id="git-checkout-ltincio-pontogt"> <a class="anchor" href="#git-checkout-incio-ponto"></a> <a class="anchor" href="#git-checkout-ltincio-pontogt"></a>&lt;início-ponto&gt; </dt>
 <dd>
 <p>O nome do commit onde o ramo deve iniciar; para mais detalhes consulte <a href='{{< relurl "docs/git-branch/pt_BR" >}}'>git-branch[1]</a>. A predefinição retorna para <code>HEAD</code>.</p>
 <div class="paragraph">
 <p>Como um caso especial, é possível utilizar <code>"A...B"</code> como um atalho como uma base para a mesclagem de <code>A</code> e <code>B</code> caso exista exatamente uma base de merge. Você pode deixar de fora, no máximo, um de <code>A</code> e` B`, caso onde a predefinição retorna para <code>HEAD</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-lttree-ishgt"> <a class="anchor" href="#git-checkout-lttree-ishgt"></a>&lt;tree-ish&gt; </dt>
+<dt class="hdlist1" id="git-checkout-lttree-ishgt"> <a class="anchor" href="#git-checkout-tree-ish"></a> <a class="anchor" href="#git-checkout-lttree-ishgt"></a>&lt;tree-ish&gt; </dt>
 <dd>
 <p>Árvore que será averiguada (quando os caminhos são informados). Caso não seja informado, o índice será usado.</p>
 <div class="paragraph">
@@ -287,7 +287,7 @@ $ git checkout &lt;ramo&gt;</pre>
 <dd>
 <p>Não interprete mais argumentos como opções.</p>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltpathspecgt82308203"> <a class="anchor" href="#git-checkout-ltpathspecgt82308203"></a>&lt;pathspec&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-checkout-ltpathspecgt82308203"> <a class="anchor" href="#git-checkout-pathspec"></a> <a class="anchor" href="#git-checkout-ltpathspecgt82308203"></a>&lt;pathspec&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Limita os caminhos afetados pela operação.</p>
 <div class="paragraph">

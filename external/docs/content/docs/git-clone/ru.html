@@ -53,8 +53,8 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-clone-code-lcode"> <a class="anchor" href="#git-clone-code-lcode"></a><code>-l</code> </dt>
-<dt class="hdlist1" id="git-clone-code--localcode"> <a class="anchor" href="#git-clone-code--localcode"></a><code>--local</code> </dt>
+<dt class="hdlist1" id="git-clone-code-lcode"> <a class="anchor" href="#git-clone--l"></a> <a class="anchor" href="#git-clone-code-lcode"></a><code>-l</code> </dt>
+<dt class="hdlist1" id="git-clone-code--localcode"> <a class="anchor" href="#git-clone---local"></a> <a class="anchor" href="#git-clone-code--localcode"></a><code>--local</code> </dt>
 <dd>
 <p>Когда репозиторий с которого производится клонирование находится на локальной машине, этот флаг позволяет обойти обычный «осведомлённый о Git» транспортный механизм и клонирует репозиторий напрямую: просто копируя <code>HEAD</code> и всё, что находится в каталогах <code>objects</code> и <code>refs</code>. По возможности, для файлов в каталоге <code>.git/objects/</code> будут использоваться жёсткие ссылки, дабы сохранить дисковое пространство.</p>
 <div class="paragraph">
@@ -70,12 +70,12 @@ aliases:
 <p><strong>ПРИМЕЧАНИЕ</strong>: при выполнении данной операции может возникнуть состояние гонки с параллельными модификациями в исходном репозитории, аналогично тому, как это может происходить при выполнении <code>cp -r &lt;источник&gt; &lt;назначение&gt;</code> одновременно с изменениями в <em>&lt;источнике&gt;</em>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--no-hardlinkscode"> <a class="anchor" href="#git-clone-code--no-hardlinkscode"></a><code>--no-hardlinks</code> </dt>
+<dt class="hdlist1" id="git-clone-code--no-hardlinkscode"> <a class="anchor" href="#git-clone---no-hardlinks"></a> <a class="anchor" href="#git-clone-code--no-hardlinkscode"></a><code>--no-hardlinks</code> </dt>
 <dd>
 <p>При клонировании из репозитория на локальной файловой системе, принудительно использовать копирование для файлов в каталоге <code>.git/objects</code>, а не жёсткие ссылки. Это может быть желательно, если вы пытаетесь сделать резервную копию вашего репозитория.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-scode"> <a class="anchor" href="#git-clone-code-scode"></a><code>-s</code> </dt>
-<dt class="hdlist1" id="git-clone-code--sharedcode"> <a class="anchor" href="#git-clone-code--sharedcode"></a><code>--shared</code> </dt>
+<dt class="hdlist1" id="git-clone-code-scode"> <a class="anchor" href="#git-clone--s"></a> <a class="anchor" href="#git-clone-code-scode"></a><code>-s</code> </dt>
+<dt class="hdlist1" id="git-clone-code--sharedcode"> <a class="anchor" href="#git-clone---shared"></a> <a class="anchor" href="#git-clone-code--sharedcode"></a><code>--shared</code> </dt>
 <dd>
 <p>Когда клонируемый репозиторий находится на локальной машине, вместо использования жёстких ссылок, автоматически настроить <code>.git/objects/info/alternates</code> для совместного использования объектов с исходным репозиторием. Изначально в полученном репозитории не будет ни каких собственных объектов.</p>
 <div class="paragraph">
@@ -88,112 +88,112 @@ aliases:
 <p>Если вы хотите избавиться от зависимостей репозитория, клонированного с <code>--shared</code>, от его исходного репозитория, вы можете просто запустить <code>git repack -a</code>, который скопирует все объекты из исходного репозитория в pack-файлы клонированного.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--reference-if-ableltgtcode"> <a class="anchor" href="#git-clone-code--reference-if-ableltgtcode"></a><code>--reference[-if-able] &lt;репозиторий&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--reference-if-ableltgtcode"> <a class="anchor" href="#git-clone---reference-if-able"></a> <a class="anchor" href="#git-clone-code--reference-if-ableltgtcode"></a><code>--reference[-if-able] &lt;репозиторий&gt;</code> </dt>
 <dd>
 <p>Если <em>&lt;репозиторий&gt;</em> (заданный как аргумент параметра) находится на локальной машине, автоматически настроить <code>.git/objects/info/alternates</code> для получения объектов из этого <em>&lt;репозитория&gt;</em>. Использование уже существующего репозиторий как дополнительного потребует копирования меньшего количества объектов из клонируемого репозитория, что уменьшит сетевой трафик и локальные затраты на хранение. С <code>--reference-if-able</code>, если каталог <em>&lt;репозитория&gt;</em> не существует, то это вызовет предупреждением, а не ошибку, и клонирование не будет из-за этого прервано.</p>
 <div class="paragraph">
 <p><strong>ПРИМЕЧАНИЕ</strong>: см. ПРИМЕЧАНИЕ для параметра <code>--shared</code>, а также описание параметра <code>--dissociate</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--dissociatecode"> <a class="anchor" href="#git-clone-code--dissociatecode"></a><code>--dissociate</code> </dt>
+<dt class="hdlist1" id="git-clone-code--dissociatecode"> <a class="anchor" href="#git-clone---dissociate"></a> <a class="anchor" href="#git-clone-code--dissociatecode"></a><code>--dissociate</code> </dt>
 <dd>
 <p>Заимствовать объекты из дополнительных репозиториев, заданных в параметрах <code>--reference</code> для того, чтобы уменьшить использование сетевого трафика, и прекратить совместное использование объектов после того, как клонирование будет закончено, скопировав все необходимые объекты в клонированный репозиторий. Этот параметр также может использован при клонировании из локального репозитория, у которого уже есть свой дополнительный репозиторий. В таком случае в новый репозиторий будут скопированы объекты из дополнительного, так что этот параметр можно использовать для создания копии репозитория, которая более не зависит от дополнительных репозиториев.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-qcode"> <a class="anchor" href="#git-clone-code-qcode"></a><code>-q</code> </dt>
-<dt class="hdlist1" id="git-clone-code--quietcode"> <a class="anchor" href="#git-clone-code--quietcode"></a><code>--quiet</code> </dt>
+<dt class="hdlist1" id="git-clone-code-qcode"> <a class="anchor" href="#git-clone--q"></a> <a class="anchor" href="#git-clone-code-qcode"></a><code>-q</code> </dt>
+<dt class="hdlist1" id="git-clone-code--quietcode"> <a class="anchor" href="#git-clone---quiet"></a> <a class="anchor" href="#git-clone-code--quietcode"></a><code>--quiet</code> </dt>
 <dd>
 <p>Тихий режим. Не выводить информацию о ходе выполнения в стандартный поток ошибок.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-vcode"> <a class="anchor" href="#git-clone-code-vcode"></a><code>-v</code> </dt>
-<dt class="hdlist1" id="git-clone-code--verbosecode"> <a class="anchor" href="#git-clone-code--verbosecode"></a><code>--verbose</code> </dt>
+<dt class="hdlist1" id="git-clone-code-vcode"> <a class="anchor" href="#git-clone--v"></a> <a class="anchor" href="#git-clone-code-vcode"></a><code>-v</code> </dt>
+<dt class="hdlist1" id="git-clone-code--verbosecode"> <a class="anchor" href="#git-clone---verbose"></a> <a class="anchor" href="#git-clone-code--verbosecode"></a><code>--verbose</code> </dt>
 <dd>
 <p>Включение подробного режима. Не влияет на вывод информацию о ходе выполнения в стандартный поток ошибок.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--progresscode"> <a class="anchor" href="#git-clone-code--progresscode"></a><code>--progress</code> </dt>
+<dt class="hdlist1" id="git-clone-code--progresscode"> <a class="anchor" href="#git-clone---progress"></a> <a class="anchor" href="#git-clone-code--progresscode"></a><code>--progress</code> </dt>
 <dd>
 <p>По умолчанию информация о ходе выполнения выводится в стандартный поток ошибок, когда он привязан к терминалу, если только не задан параметр <code>--quiet</code>. Данный флаг принудительно включает вывод этой информации даже если стандартный поток ошибок направлен не в терминал.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--server-optionltgtcode"> <a class="anchor" href="#git-clone-code--server-optionltgtcode"></a><code>--server-option=&lt;параметры&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--server-optionltgtcode"> <a class="anchor" href="#git-clone---server-option"></a> <a class="anchor" href="#git-clone-code--server-optionltgtcode"></a><code>--server-option=&lt;параметры&gt;</code> </dt>
 <dd>
 <p>Передать данную строку на сервер при обмене данными по протоколу версии 2. Данная строка не должна содержать символы NUL или LF. То как сервер будет обрабатывать эти параметры, в том числе неизвестные, зависит только от сервера. Если параметр <code>--server-option=&lt;параметры&gt;</code> указан несколько раз, то все эти строки будут отправлены другой стороне в том порядке, в котором они указанном в командной строке. Если в командной строке параметр <code>--server-option=</code><em>&lt;параметры&gt;</em> не задан ни разу, то вместо этого будет использовано значения переменной конфигурации <code>remote.&lt;имя&gt;.serverOption</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-ncode"> <a class="anchor" href="#git-clone-code-ncode"></a><code>-n</code> </dt>
-<dt class="hdlist1" id="git-clone-code--no-checkoutcode"> <a class="anchor" href="#git-clone-code--no-checkoutcode"></a><code>--no-checkout</code> </dt>
+<dt class="hdlist1" id="git-clone-code-ncode"> <a class="anchor" href="#git-clone--n"></a> <a class="anchor" href="#git-clone-code-ncode"></a><code>-n</code> </dt>
+<dt class="hdlist1" id="git-clone-code--no-checkoutcode"> <a class="anchor" href="#git-clone---no-checkout"></a> <a class="anchor" href="#git-clone-code--no-checkoutcode"></a><code>--no-checkout</code> </dt>
 <dd>
 <p>После завершения клонирования, переход на какую-либо ветку не производится и указатель <code>HEAD</code> не устанавливается.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--codecodeno-codecodereject-shallowcode"> <a class="anchor" href="#git-clone-code--codecodeno-codecodereject-shallowcode"></a><code>--</code>[<code>no-</code>]<code>reject-shallow</code> </dt>
+<dt class="hdlist1" id="git-clone-code--codecodeno-codecodereject-shallowcode"> <a class="anchor" href="#git-clone---no-reject-shallow"></a> <a class="anchor" href="#git-clone-code--codecodeno-codecodereject-shallowcode"></a><code>--</code>[<code>no-</code>]<code>reject-shallow</code> </dt>
 <dd>
 <p>Завершиться с ошибкой, если репозиторий, из которого происходит клонирование, является частичным. Для указания значения по умолчанию можно использовать переменную конфигурации <code>clone.rejectShallow</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--barecode"> <a class="anchor" href="#git-clone-code--barecode"></a><code>--bare</code> </dt>
+<dt class="hdlist1" id="git-clone-code--barecode"> <a class="anchor" href="#git-clone---bare"></a> <a class="anchor" href="#git-clone-code--barecode"></a><code>--bare</code> </dt>
 <dd>
 <p>Создать голый («bare») репозиторий Git. То есть вместо создания <em>&lt;каталога&gt;</em> и размещения административных файлов в <code>&lt;каталог&gt;/.git</code>, использовать сам <em>&lt;каталог&gt;</em> в качестве <code>$GIT_DIR</code>. Это, очевидно, подразумевает <code>--no-checkout</code>, потому что нет подходящего места для размещения рабочей копии. Кроме того, головы веток внешнего репозитория копируются непосредственно в соответствующие им локальные головы веток, без отображений в <code>refs/remotes/origin/</code>. При использовании этого параметра не создаются ни отслеживаемые внешние ветви, ни связанные с ними переменные конфигурации.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--sparsecode"> <a class="anchor" href="#git-clone-code--sparsecode"></a><code>--sparse</code> </dt>
+<dt class="hdlist1" id="git-clone-code--sparsecode"> <a class="anchor" href="#git-clone---sparse"></a> <a class="anchor" href="#git-clone-code--sparsecode"></a><code>--sparse</code> </dt>
 <dd>
 <p>Задействовать режим разреженного состояния, изначально извлекая файлы только в каталоге верхнего уровня. Для расширения рабочего каталога по мере необходимости, можно использовать команду <a href='{{< relurl "docs/git-sparse-checkout/ru" >}}'>git-sparse-checkout[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--filterlt-gtcode"> <a class="anchor" href="#git-clone-code--filterlt-gtcode"></a><code>--filter=&lt;спецификатор-фильтра&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--filterlt-gtcode"> <a class="anchor" href="#git-clone---filter-"></a> <a class="anchor" href="#git-clone-code--filterlt-gtcode"></a><code>--filter=&lt;спецификатор-фильтра&gt;</code> </dt>
 <dd>
 <p>Использовать функцию неполного клонирования и попросить сервер отправлять только подмножество достижимых объектов, удовлетворяющих заданной <em>&lt;спецификатору-фильтра&gt;</em>. При использовании <code>--filter</code> указанный <em>&lt;спецификатор-фильтра&gt;</em> используется в качестве фильтра неполного клонирования. Например, <code>--filter=blob:none</code> отфильтрует все blob-объекты (содержимое файлов), пока они не понадобятся Git. А, например, <code>--filter=blob:limit=&lt;размер&gt;</code> отфильтрует все blob-объекты объёмом не меньше <em>&lt;размера&gt;</em>. Дополнительные сведения о спецификаторах фильтра см. в описании параметра <code>--filter</code> команды <a href='{{< relurl "docs/git-rev-list/ru" >}}'>git-rev-list[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--also-filter-submodulescode"> <a class="anchor" href="#git-clone-code--also-filter-submodulescode"></a><code>--also-filter-submodules</code> </dt>
+<dt class="hdlist1" id="git-clone-code--also-filter-submodulescode"> <a class="anchor" href="#git-clone---also-filter-submodules"></a> <a class="anchor" href="#git-clone-code--also-filter-submodulescode"></a><code>--also-filter-submodules</code> </dt>
 <dd>
 <p>Также применять фильтр неполного клонирования ко всем подмодулям в репозитории. Требует указания <code>--filter</code> и <code>--recurse-submodules</code>. Данный параметр может быть включён по умолчанию с помощью переменной конфигурации <code>clone.filterSubmodules</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--mirrorcode"> <a class="anchor" href="#git-clone-code--mirrorcode"></a><code>--mirror</code> </dt>
+<dt class="hdlist1" id="git-clone-code--mirrorcode"> <a class="anchor" href="#git-clone---mirror"></a> <a class="anchor" href="#git-clone-code--mirrorcode"></a><code>--mirror</code> </dt>
 <dd>
 <p>Создать зеркало исходного репозитория. Это подразумевает <code>--bare</code>. В сравнении с <code>--bare</code>, <code>--mirror</code> не только переносит локальные ветки источника на локальные ветки цели, но он также переносит и все другие ссылки (включая отслеживаемые внешние ветки, заметки и т.д.) и устанавливает спецификаторы ссылок таким образом, чтобы все эти ссылки были перезаписаны <code>git remote update</code> в целевом репозитории.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-ocodeemltgtem"> <a class="anchor" href="#git-clone-code-ocodeemltgtem"></a><code>-o</code> <em>&lt;имя&gt;</em> </dt>
-<dt class="hdlist1" id="git-clone-code--origincodeemltgtem"> <a class="anchor" href="#git-clone-code--origincodeemltgtem"></a><code>--origin</code> <em>&lt;имя&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-code-ocodeemltgtem"> <a class="anchor" href="#git-clone--o"></a> <a class="anchor" href="#git-clone-code-ocodeemltgtem"></a><code>-o</code> <em>&lt;имя&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-code--origincodeemltgtem"> <a class="anchor" href="#git-clone---origin"></a> <a class="anchor" href="#git-clone-code--origincodeemltgtem"></a><code>--origin</code> <em>&lt;имя&gt;</em> </dt>
 <dd>
 <p>Вместо имени <code>origin</code> для вышестоящего репозитория, использовать <em>&lt;имя&gt;</em> в качестве имени удалённого источника. Это переопределяет значение заданное в переменной конфигурации <code>clone.defaultRemoteName</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-bcodeemltgtem"> <a class="anchor" href="#git-clone-code-bcodeemltgtem"></a><code>-b</code> <em>&lt;имя&gt;</em> </dt>
-<dt class="hdlist1" id="git-clone-code--branchcodeemltgtem"> <a class="anchor" href="#git-clone-code--branchcodeemltgtem"></a><code>--branch</code> <em>&lt;имя&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-code-bcodeemltgtem"> <a class="anchor" href="#git-clone--b"></a> <a class="anchor" href="#git-clone-code-bcodeemltgtem"></a><code>-b</code> <em>&lt;имя&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-code--branchcodeemltgtem"> <a class="anchor" href="#git-clone---branch"></a> <a class="anchor" href="#git-clone-code--branchcodeemltgtem"></a><code>--branch</code> <em>&lt;имя&gt;</em> </dt>
 <dd>
 <p>Вместо того, чтобы вновь созданный <code>HEAD</code> указывал, на ту же ветку, на которую указывает <code>HEAD</code> клонировуемого репозитория, направить его на ветку с указанным <em>&lt;именем&gt;</em>. Репозиторий (не являющийся голым) будет также переключен на эту ветку. Параметр <code>--branch</code> также принимает <em>&lt;имена&gt;</em> меток; в таком случае после клонирования полученный репозиторий будет находится в состоянии с отсоединённым указателем <code>HEAD</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--revisionltgtcode"> <a class="anchor" href="#git-clone-code--revisionltgtcode"></a><code>--revision=&lt;редакция&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--revisionltgtcode"> <a class="anchor" href="#git-clone---revision"></a> <a class="anchor" href="#git-clone-code--revisionltgtcode"></a><code>--revision=&lt;редакция&gt;</code> </dt>
 <dd>
 <p>Создать новый репозиторий и извлечь (fetch) историю, ведущую к указанной <em>&lt;редакции&gt;</em> (и ничего кроме этого), не создавая отслеживаемую внешнюю ветку и не создавая локальную ветку, и перевести репозиторий в состояние отсоединённого <code>HEAD</code>, указывающего на <em>&lt;редакцию&gt;</em>. Аргумент может быть именем ссылки (например, <code>refs/heads/main</code> или <code>refs/tags/v1.0</code>), которая рекурсивно разыменовывается до коммита, или шестнадцатеричного имени объекта. Этот параметр несовместим с <code>--branch</code> и <code>--mirror</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-ucodeemltupload-packgtem"> <a class="anchor" href="#git-clone-code-ucodeemltupload-packgtem"></a><code>-u</code> <em>&lt;upload-pack&gt;</em> </dt>
-<dt class="hdlist1" id="git-clone-code--upload-packcodeemltupload-packgtem"> <a class="anchor" href="#git-clone-code--upload-packcodeemltupload-packgtem"></a><code>--upload-pack</code> <em>&lt;upload-pack&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-code-ucodeemltupload-packgtem"> <a class="anchor" href="#git-clone--uupload-pack"></a> <a class="anchor" href="#git-clone-code-ucodeemltupload-packgtem"></a><code>-u</code> <em>&lt;upload-pack&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-code--upload-packcodeemltupload-packgtem"> <a class="anchor" href="#git-clone---upload-packupload-pack"></a> <a class="anchor" href="#git-clone-code--upload-packcodeemltupload-packgtem"></a><code>--upload-pack</code> <em>&lt;upload-pack&gt;</em> </dt>
 <dd>
 <p>При доступе к клонируемому репозиторию по ssh, этот параметр задаёт путь (отличный от пути по умолчанию) к команде <code>git-upload-pack</code>, которая будет запускаться на удалённом конце.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--templatelt-gtcode"> <a class="anchor" href="#git-clone-code--templatelt-gtcode"></a><code>--template=&lt;каталог-шаблонов&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--templatelt-gtcode"> <a class="anchor" href="#git-clone---template-"></a> <a class="anchor" href="#git-clone-code--templatelt-gtcode"></a><code>--template=&lt;каталог-шаблонов&gt;</code> </dt>
 <dd>
 <p>Задаёт каталог с шаблонами. (См. раздел «КАТАЛОГ ШАБЛОНОВ» в <a href='{{< relurl "docs/git-init/ru" >}}'>git-init[1]</a>)</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-ccodecodeltgtltgtcode"> <a class="anchor" href="#git-clone-code-ccodecodeltgtltgtcode"></a><code>-c</code> <code>&lt;ключ&gt;=&lt;значение&gt;</code> </dt>
-<dt class="hdlist1" id="git-clone-code--configcodecodeltgtltgtcode"> <a class="anchor" href="#git-clone-code--configcodecodeltgtltgtcode"></a><code>--config</code> <code>&lt;ключ&gt;=&lt;значение&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code-ccodecodeltgtltgtcode"> <a class="anchor" href="#git-clone--c"></a> <a class="anchor" href="#git-clone-code-ccodecodeltgtltgtcode"></a><code>-c</code> <code>&lt;ключ&gt;=&lt;значение&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--configcodecodeltgtltgtcode"> <a class="anchor" href="#git-clone---config"></a> <a class="anchor" href="#git-clone-code--configcodecodeltgtltgtcode"></a><code>--config</code> <code>&lt;ключ&gt;=&lt;значение&gt;</code> </dt>
 <dd>
 <p>Устанавливает переменную конфигурации во вновь созданном репозитории; эта переменная устанавливается сразу после инициализации репозитория, но до того, как будет получена внешняя история или будут извлечены какие-либо файлы. <em>&lt;ключ&gt;</em> должен быть в том же формате, что и для <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a> (например, <code>core.eol=true</code>). Если для одного и того же <em>&lt;ключа&gt;</em> даны несколько <em>&lt;значений&gt;</em>, каждое значение будет записано в файл конфигурации. Так что это позволяет, например, добавить дополнительные спецификаторы ссылок, которые должны быть извлечены из внешнего источнику origin.</p>
 <div class="paragraph">
 <p>Из-за ограничений текущей реализации, некоторые переменные конфигурации не вступают в силу до тех пор, пока не будут произведены первоначальные загрузка и извлечение состояния. В частности это относится к таким переменным конфигурации, как <code>remote.&lt;имя&gt;.mirror' и `remote.&lt;имя&gt;.tagOpt</code>. Вместо них следует использовать соответственно параметры <code>--mirror</code> и <code>--no-tags</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--depthltgtcode"> <a class="anchor" href="#git-clone-code--depthltgtcode"></a><code>--depth &lt;глубина&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--depthltgtcode"> <a class="anchor" href="#git-clone---depth"></a> <a class="anchor" href="#git-clone-code--depthltgtcode"></a><code>--depth &lt;глубина&gt;</code> </dt>
 <dd>
 <p>Создаёт «частичный» (shallow) клон с историей, усечённой до указанного количество коммитов. Ясли явно не передано <code>--no-single-branch</code> (что приведёт к загрузке последней истории всех ветвей), то данный параметр подразумевает <code>--single-branch</code>. Если вы хотите, чтобы подмодули тоже клонировались частично, то передайте также <code>--shallow-submodules</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--shallow-sinceltgtcode"> <a class="anchor" href="#git-clone-code--shallow-sinceltgtcode"></a><code>--shallow-since=&lt;дата&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--shallow-sinceltgtcode"> <a class="anchor" href="#git-clone---shallow-since"></a> <a class="anchor" href="#git-clone-code--shallow-sinceltgtcode"></a><code>--shallow-since=&lt;дата&gt;</code> </dt>
 <dd>
 <p>Создать частичный клон с историей начиная с указанной <em>&lt;даты&gt;</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--shallow-excludeltgtcode"> <a class="anchor" href="#git-clone-code--shallow-excludeltgtcode"></a><code>--shallow-exclude=&lt;ссылка&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--shallow-excludeltgtcode"> <a class="anchor" href="#git-clone---shallow-exclude"></a> <a class="anchor" href="#git-clone-code--shallow-excludeltgtcode"></a><code>--shallow-exclude=&lt;ссылка&gt;</code> </dt>
 <dd>
 <p>Создать частичный клон с историей, в которую не будут включены коммиты, достижимые из указанной внешней ветки или метки. Этот параметр может быть задан несколько раз.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--no-single-branchcode"> <a class="anchor" href="#git-clone-code--no-single-branchcode"></a><code>--[no-]single-branch</code> </dt>
+<dt class="hdlist1" id="git-clone-code--no-single-branchcode"> <a class="anchor" href="#git-clone---no-single-branch"></a> <a class="anchor" href="#git-clone-code--no-single-branchcode"></a><code>--[no-]single-branch</code> </dt>
 <dd>
 <p>Клонировать только историю, ведущую к верхушке одной конкретной ветки (либо заданной параметром <code>--branch</code>, либо той, на которую указывает <code>HEAD</code> внешнего репозитория). Дальнейшие вызовы <code>fetch</code> в полученном репозитории будут обновлять отслеживаемую внешнюю ветку только для этой самой ветки, которая была создана при изначальном клонировании репозитория с данным параметром. Если во время клонирования с <code>--single-branch</code> <code>HEAD</code> во внешнем репозитории не указывает ни на одну ветку, то ни одной отслеживаемой внешней ветки создано не будет.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--no-tagscode"> <a class="anchor" href="#git-clone-code--no-tagscode"></a><code>--[no-]tags</code> </dt>
+<dt class="hdlist1" id="git-clone-code--no-tagscode"> <a class="anchor" href="#git-clone---no-tags"></a> <a class="anchor" href="#git-clone-code--no-tagscode"></a><code>--[no-]tags</code> </dt>
 <dd>
 <p>Определяет, будут ли клонироваться теги. При использовании <code>--no-tags</code>, это поведение будет сохранено с помощью установки переменной конфигурации <code>remote.&lt;имя&gt;.tagOpt=--no-tags</code>, что гарантирует, что будущие операции <code>git pull</code> и <code>git fetch</code> не будут отслеживать какие-либо метки. Однако в дальнейшем, будет возможна явная загрузка меток (см. <a href='{{< relurl "docs/git-fetch/ru" >}}'>git-fetch[1]</a>).</p>
 <div class="literalblock">
@@ -205,26 +205,26 @@ aliases:
 <p>Может использоваться совместно с <code>--single-branch</code> для клонирования и дальнейшей работы только с одной веткой, без каких-либо других ссылок. Это полезно, например, если есть потребность держать рядом минимальную копию ветки по умолчанию из некоторого репозитория для её индексации и поиска в ней.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--recurse-submoduleslt-gtcode"> <a class="anchor" href="#git-clone-code--recurse-submoduleslt-gtcode"></a><code>--recurse-submodules[=&lt;спецификатор-пути&gt;]</code> </dt>
+<dt class="hdlist1" id="git-clone-code--recurse-submoduleslt-gtcode"> <a class="anchor" href="#git-clone---recurse-submodules-"></a> <a class="anchor" href="#git-clone-code--recurse-submoduleslt-gtcode"></a><code>--recurse-submodules[=&lt;спецификатор-пути&gt;]</code> </dt>
 <dd>
 <p>После того, как клон будет создан, инициализировать и клонировать его подмодули, соответствующие указанному <em>&lt;спецификатору-пути&gt;</em>. Если <code>=&lt;спецификатор-пути&gt;</code> не задан, то инициализируются и клонируются все подмодули. Этот параметр может быть указан несколько раз, чтобы задать спецификатор, состоящий из нескольких записей. В полученном клоне устанавливается переменная конфигурации 'submodule.active`, в качестве значения которой используется итоговый спецификатор пути или "<code>.</code>", если ни один не задан, что означает «все подмодули».</p>
 <div class="paragraph">
 <p>При инициализации и клонировании подмодулей используются их параметры по умолчанию. Данный параметр эквивалентен запуску <code>git submodule update --init --recursive &lt;спецификатор-пути&gt;</code> сразу после завершения клонирования. Если у клонированного репозитория нет рабочей копии или если переключение на текущую ветку после извлечения отключено (т.е. если задан один из параметров: <code>--no-checkout</code>/<code>-n</code>, <code>--bare</code> или <code>--mirror</code>), то этот параметр игнорируется.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--no-shallow-submodulescode"> <a class="anchor" href="#git-clone-code--no-shallow-submodulescode"></a><code>--[no-]shallow-submodules</code> </dt>
+<dt class="hdlist1" id="git-clone-code--no-shallow-submodulescode"> <a class="anchor" href="#git-clone---no-shallow-submodules"></a> <a class="anchor" href="#git-clone-code--no-shallow-submodulescode"></a><code>--[no-]shallow-submodules</code> </dt>
 <dd>
 <p>Клонировать все (выбранные) подмодули как частичные с глубиной 1.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--no-remote-submodulescode"> <a class="anchor" href="#git-clone-code--no-remote-submodulescode"></a><code>--[no-]remote-submodules</code> </dt>
+<dt class="hdlist1" id="git-clone-code--no-remote-submodulescode"> <a class="anchor" href="#git-clone---no-remote-submodules"></a> <a class="anchor" href="#git-clone-code--no-remote-submodulescode"></a><code>--[no-]remote-submodules</code> </dt>
 <dd>
 <p>Все клонируемые подмодули, будут использовать статус из отслеживаемой внешней ветки своих репозиториев, а не SHA-1, сохранённый в надпроекте. Это эквивалентно передаче параметра <code>--remote</code> в <code>git submodule update</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--separate-git-dirlt-gitgtcode"> <a class="anchor" href="#git-clone-code--separate-git-dirlt-gitgtcode"></a><code>--separate-git-dir=&lt;каталог-git&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--separate-git-dirlt-gitgtcode"> <a class="anchor" href="#git-clone---separate-git-dir-git"></a> <a class="anchor" href="#git-clone-code--separate-git-dirlt-gitgtcode"></a><code>--separate-git-dir=&lt;каталог-git&gt;</code> </dt>
 <dd>
 <p>Вместо того, чтобы размещать клонированный репозиторий там, где он должен быть, поместить его в указанный каталог, а затем сделать на него независящую от файловой системы символическую ссылку Git. В результате репозиторий Git может находится отдельно от рабочей копии.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--ref-formatlt-gtcode"> <a class="anchor" href="#git-clone-code--ref-formatlt-gtcode"></a><code>--ref-format=&lt;формат-ссылок&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--ref-formatlt-gtcode"> <a class="anchor" href="#git-clone---ref-format-"></a> <a class="anchor" href="#git-clone-code--ref-formatlt-gtcode"></a><code>--ref-format=&lt;формат-ссылок&gt;</code> </dt>
 <dd>
 <p>Задаёт формат хранения ссылок репозитория. Допустимые значения:</p>
 <div class="ulist">
@@ -242,20 +242,20 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-clone-code-jcodeemltngtem"> <a class="anchor" href="#git-clone-code-jcodeemltngtem"></a><code>-j</code> <em>&lt;n&gt;</em> </dt>
-<dt class="hdlist1" id="git-clone-code--jobscodeemltngtem"> <a class="anchor" href="#git-clone-code--jobscodeemltngtem"></a><code>--jobs</code> <em>&lt;n&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-code-jcodeemltngtem"> <a class="anchor" href="#git-clone--jn"></a> <a class="anchor" href="#git-clone-code-jcodeemltngtem"></a><code>-j</code> <em>&lt;n&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-code--jobscodeemltngtem"> <a class="anchor" href="#git-clone---jobsn"></a> <a class="anchor" href="#git-clone-code--jobscodeemltngtem"></a><code>--jobs</code> <em>&lt;n&gt;</em> </dt>
 <dd>
 <p>Количество подмодулей, которые будут загружаться одновременно. По умолчанию равно значению переменной конфигурации <code>submodule.fetchJobs</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-emltgtem"> <a class="anchor" href="#git-clone-emltgtem"></a><em>&lt;репозиторий&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-emltgtem"> <a class="anchor" href="#git-clone-"></a> <a class="anchor" href="#git-clone-emltgtem"></a><em>&lt;репозиторий&gt;</em> </dt>
 <dd>
 <p>(Возможно удалённый) <em>&lt;репозиторий&gt;</em>, который должен быть склонирован. См. подробности о том как задавать адрес репозитория в разделе <a href="#URLS">URL-АДРЕСА GIT</a> ниже.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-emltgtem-1"> <a class="anchor" href="#git-clone-emltgtem-1"></a><em>&lt;каталог&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-emltgtem-1"> <a class="anchor" href="#git-clone--1"></a> <a class="anchor" href="#git-clone-emltgtem-1"></a><em>&lt;каталог&gt;</em> </dt>
 <dd>
 <p>Название нового каталога в который репозиторий должен быть склонирован. Если <em>&lt;каталог&gt;</em> не задан, то используется «человеская» часть ссылки на исходный репозиторий (например, <code>репо</code> for <code>/путь/к/репо.git</code> и <code>foo</code> для <code>host.xz:foo/.git</code>). Клонирование в существующий каталог разрешается только, если этот каталог пуст.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--bundle-urilturigtcode"> <a class="anchor" href="#git-clone-code--bundle-urilturigtcode"></a><code>--bundle-uri=&lt;uri&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-code--bundle-urilturigtcode"> <a class="anchor" href="#git-clone---bundle-uriuri"></a> <a class="anchor" href="#git-clone-code--bundle-urilturigtcode"></a><code>--bundle-uri=&lt;uri&gt;</code> </dt>
 <dd>
 <p>Прежде чем извлекать данные из внешнего репозитория, сначала скачать пакет (bundle) из указанного <em>&lt;uri&gt;</em> и распаковать его в локальный репозиторий. Ссылки из пакета будут храниться в скрытым пространстве имён <code>refs/bundle/*</code>. Этот параметр несовместим с <code>--depth</code>, <code>--shallow-since</code> и <code>--shallow-exclude</code>.</p>
 </dd>

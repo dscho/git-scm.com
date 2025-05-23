@@ -53,7 +53,7 @@ aliases:
 <dd>
 <p>Montrer le nombre d&#8217;entrées actuellement remisées.</p>
 </dd>
-<dt class="hdlist1" id="git-status---porcelainltversiongt"> <a class="anchor" href="#git-status---porcelainltversiongt"></a>--porcelain[=&lt;version&gt;] </dt>
+<dt class="hdlist1" id="git-status---porcelainltversiongt"> <a class="anchor" href="#git-status---porcelainversion"></a> <a class="anchor" href="#git-status---porcelainltversiongt"></a>--porcelain[=&lt;version&gt;] </dt>
 <dd>
 <p>Donner la sortie dans un format facile à analyser par script. Ceci est similaire à la sortie courte, mais restera stable à travers les versions de Git et sans tenir compte de la configuration utilisateur. Voir ci-dessous pour de plus amples détails.</p>
 <div class="paragraph">
@@ -69,8 +69,8 @@ aliases:
 <dd>
 <p>En plus des noms de fichiers qui ont été changés, montrer aussi les changements textuels qui sont indexés pour validation (c.-à-d., comme la sortie de <code>git diff --cached</code>). Si <code>-v</code> est spécifié deux fois, alors montrer également les modifications dans l&#8217;arbre de travail qui n&#8217;ont pas encore été indexées (c.-à-d., comme la sortie de <code>git diff</code>).</p>
 </dd>
-<dt class="hdlist1" id="git-status--ultmodegt"> <a class="anchor" href="#git-status--ultmodegt"></a>-u[&lt;mode&gt;] </dt>
-<dt class="hdlist1" id="git-status---untracked-filesltmodegt"> <a class="anchor" href="#git-status---untracked-filesltmodegt"></a>--untracked-files[=&lt;mode&gt;] </dt>
+<dt class="hdlist1" id="git-status--ultmodegt"> <a class="anchor" href="#git-status--umode"></a> <a class="anchor" href="#git-status--ultmodegt"></a>-u[&lt;mode&gt;] </dt>
+<dt class="hdlist1" id="git-status---untracked-filesltmodegt"> <a class="anchor" href="#git-status---untracked-filesmode"></a> <a class="anchor" href="#git-status---untracked-filesltmodegt"></a>--untracked-files[=&lt;mode&gt;] </dt>
 <dd>
 <p>Montrer les fichiers non-suivis.</p>
 <div class="openblock">
@@ -103,11 +103,11 @@ aliases:
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-status---ignore-submodulesltquandgt"> <a class="anchor" href="#git-status---ignore-submodulesltquandgt"></a>--ignore-submodules[=&lt;quand&gt;] </dt>
+<dt class="hdlist1" id="git-status---ignore-submodulesltquandgt"> <a class="anchor" href="#git-status---ignore-submodulesquand"></a> <a class="anchor" href="#git-status---ignore-submodulesltquandgt"></a>--ignore-submodules[=&lt;quand&gt;] </dt>
 <dd>
 <p>Ignorer les modifications apportées aux sous-modules lors de la recherche de modifications. &lt;quand&gt; peut être "none", "untracked", "dirty" ou "all", qui est la valeur par défaut. Utiliser "none" considérera le sous-module comme modifié lorsqu&#8217;il contient des fichiers non suivis ou modifiés ou que sa HEAD diffère de la validation enregistrée dans le super-projet et peut être utilisé pour remplacer les paramètres de l&#8217;option <em>ignore</em> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a> ou <a href='{{< relurl "docs/gitmodules/fr" >}}'>gitmodules[5]</a>. Lorsque "untracked" est utilisé, les sous-modules ne sont pas considérés comme sales lorsqu&#8217;ils contiennent uniquement du contenu non suivi (mais ils sont toujours analysés pour rechercher le contenu modifié). L&#8217;utilisation de "dirty" ignore toutes les modifications apportées à l&#8217;arborescence de travail des sous-modules ; seules les modifications des validations stockées dans le super-projet sont affichées (il s&#8217;agissait du comportement avant la version 1.7.0). L&#8217;utilisation de "all" masque toutes les modifications apportées aux sous-modules (et supprime la sortie des résumés de sous-modules lorsque l&#8217;option de configuration <code>status.submoduleSummary</code> est définie).</p>
 </dd>
-<dt class="hdlist1" id="git-status---ignoredltmodegt"> <a class="anchor" href="#git-status---ignoredltmodegt"></a>--ignored[=&lt;mode&gt;] </dt>
+<dt class="hdlist1" id="git-status---ignoredltmodegt"> <a class="anchor" href="#git-status---ignoredmode"></a> <a class="anchor" href="#git-status---ignoredltmodegt"></a>--ignored[=&lt;mode&gt;] </dt>
 <dd>
 <p>Montrer aussi les fichiers ignorés.</p>
 <div class="openblock">
@@ -145,7 +145,7 @@ un motif à ignorer.</p>
 <dd>
 <p>Terminer les entrées avec NUL au lieu de LF. Cela implique le format de sortie <code>--porcelain=v1</code> si aucun autre format n&#8217;est fourni.</p>
 </dd>
-<dt class="hdlist1" id="git-status---columnltoptionsgt"> <a class="anchor" href="#git-status---columnltoptionsgt"></a>--column[=&lt;options&gt;] </dt>
+<dt class="hdlist1" id="git-status---columnltoptionsgt"> <a class="anchor" href="#git-status---columnoptions"></a> <a class="anchor" href="#git-status---columnltoptionsgt"></a>--column[=&lt;options&gt;] </dt>
 <dt class="hdlist1" id="git-status---no-column"> <a class="anchor" href="#git-status---no-column"></a>--no-column </dt>
 <dd>
 <p>Afficher les fichiers non suivis en colonnes. Voir la variable de configuration <code>column.status</code> pour la syntaxe de l&#8217;option. <code>--column</code> et <code>--no-column</code> sans options sont équivalents à <em>always</em> et <em>never</em> respectivement.</p>
@@ -160,11 +160,11 @@ un motif à ignorer.</p>
 <dd>
 <p>Activer ou désactiver la détection de renommage sans tenir compte de la configuration utilisateur. Voir aussi <a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a> <code>--no-renames</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-status---find-renamesltngt"> <a class="anchor" href="#git-status---find-renamesltngt"></a>--find-renames[=&lt;n&gt;] </dt>
+<dt class="hdlist1" id="git-status---find-renamesltngt"> <a class="anchor" href="#git-status---find-renamesn"></a> <a class="anchor" href="#git-status---find-renamesltngt"></a>--find-renames[=&lt;n&gt;] </dt>
 <dd>
 <p>Activer la détection de renommage, en définissant de manière optionnelle le seuil de similarité. Voir aussi <a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a> <code>--find-renames</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-status-ltspcificateurdechemingt82308203"> <a class="anchor" href="#git-status-ltspcificateurdechemingt82308203"></a>&lt;spécificateur de chemin&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-status-ltspcificateurdechemingt82308203"> <a class="anchor" href="#git-status-spcificateurdechemin"></a> <a class="anchor" href="#git-status-ltspcificateurdechemingt82308203"></a>&lt;spécificateur de chemin&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Voir l&#8217;entrée <em>spécificateur de chemin</em> dans <a href='{{< relurl "docs/gitglossary/fr" >}}'>gitglossary[7]</a>.</p>
 </dd>

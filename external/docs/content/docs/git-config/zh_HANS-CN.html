@@ -137,7 +137,7 @@ aliases:
 <dd>
 <p>Adds a new line to the option without altering any existing values. This is the same as providing <em>--value=^$</em> in <code>set</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-config---commentltmessagegt"> <a class="anchor" href="#git-config---commentltmessagegt"></a>--comment &lt;message&gt; </dt>
+<dt class="hdlist1" id="git-config---commentltmessagegt"> <a class="anchor" href="#git-config---commentmessage"></a> <a class="anchor" href="#git-config---commentltmessagegt"></a>--comment &lt;message&gt; </dt>
 <dd>
 <p>在新的或修改过的行末尾添加注释。</p>
 <div class="literalblock">
@@ -154,7 +154,7 @@ aliases:
 <dd>
 <p>With <code>get</code>, interpret the name as a regular expression. Regular expression matching is currently case-sensitive and done against a canonicalized version of the key in which section and variable names are lowercased, but subsection names are not.</p>
 </dd>
-<dt class="hdlist1" id="git-config---urlltURLgt"> <a class="anchor" href="#git-config---urlltURLgt"></a>--url=&lt;URL&gt; </dt>
+<dt class="hdlist1" id="git-config---urlltURLgt"> <a class="anchor" href="#git-config---urlURL"></a> <a class="anchor" href="#git-config---urlltURLgt"></a>--url=&lt;URL&gt; </dt>
 <dd>
 <p>当给定一个由两部分组成的名称 section.key 时，返回 section.&lt;URL&gt;.key 的值，其 &lt;URL&gt; 部分是给定的最相匹配的 URL（如果没有这样的键存在，section.key 的值将作为备用值）。 当只给出 section 的名称时，对 section 中的所有 key 进行处理，并将其列出。 如果没有找到值，返回错误代码 1（section: 节，key:键；在配置文件中是这样的 [section] key=value）。</p>
 </dd>
@@ -192,8 +192,8 @@ aliases:
 <dd>
 <p>与 <code>--local</code> 选项类似，只是如果启用了 <code>extensions.worktreeConfig</code> ，则从 <code>$GIT_DIR/config.worktree</code> 读取或写入。如果没有，则与 <code>--local</code> 选项行为相同。注意，对于主工作区， <code>$GIT_DIR</code> 等于 <code>$GIT_COMMON_DIR</code>，但对于其他工作区，它的形式是 <code>$GIT_DIR/worktrees/&lt;id&gt;/</code>。了解如何启用 <code>extensions.worktreeConfig</code>，参见 <a href='{{< relurl "docs/git-worktree/zh_HANS-CN" >}}'>git-worktree[1]</a> 。</p>
 </dd>
-<dt class="hdlist1" id="git-config--fltgt"> <a class="anchor" href="#git-config--fltgt"></a>-f &lt;配置文件&gt; </dt>
-<dt class="hdlist1" id="git-config---fileltgt"> <a class="anchor" href="#git-config---fileltgt"></a>--file &lt;配置文件&gt; </dt>
+<dt class="hdlist1" id="git-config--fltgt"> <a class="anchor" href="#git-config--f"></a> <a class="anchor" href="#git-config--fltgt"></a>-f &lt;配置文件&gt; </dt>
+<dt class="hdlist1" id="git-config---fileltgt"> <a class="anchor" href="#git-config---file"></a> <a class="anchor" href="#git-config---fileltgt"></a>--file &lt;配置文件&gt; </dt>
 <dd>
 <p>对于写入选项：写到指定的文件，而不是仓库 <code>.git/config</code> 文件。</p>
 <div class="paragraph">
@@ -203,7 +203,7 @@ aliases:
 <p>另请参见<a href="#FILES">文件</a>。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-config---blobltblobgt"> <a class="anchor" href="#git-config---blobltblobgt"></a>--blob &lt;blob&gt; </dt>
+<dt class="hdlist1" id="git-config---blobltblobgt"> <a class="anchor" href="#git-config---blobblob"></a> <a class="anchor" href="#git-config---blobltblobgt"></a>--blob &lt;blob&gt; </dt>
 <dd>
 <p>类似于 <code>--file</code> 选项，但使用指定的二进制对象而不是文件。例如，你可以使用 <em>master:.gitmodules</em> 来读取主分支中 <em>.gitmodules</em> 文件中的值。参见 <a href='{{< relurl "docs/gitrevisions/zh_HANS-CN" >}}'>gitrevisions[7]</a> 中的 “指定的修正” 部分，以获得更完整的二进制对象名称拼写方式。</p>
 </dd>
@@ -211,7 +211,7 @@ aliases:
 <dd>
 <p>当与 <code>value-pattern</code> 参数一起使用时，将 <code>value-pattern</code> 视为精确的字符串，而不是正则表达式。这将使得被匹配的名称/值对只有那些值与 <code>value-pattern</code> 完全相等的名称/值对。</p>
 </dd>
-<dt class="hdlist1" id="git-config---typeltgt"> <a class="anchor" href="#git-config---typeltgt"></a>--type &lt;类型&gt; </dt>
+<dt class="hdlist1" id="git-config---typeltgt"> <a class="anchor" href="#git-config---type"></a> <a class="anchor" href="#git-config---typeltgt"></a>--type &lt;类型&gt; </dt>
 <dd>
 <p><em>git config</em> 将确保任何输入或输出在给定的类型约束下是有效的，并将以 <code>&lt;类型&gt;</code> 的规范形式将输出的值规范化。</p>
 <div class="paragraph">
@@ -269,7 +269,7 @@ aliases:
 <dd>
 <p>类似于 <code>--show-origin</code> 选项，它用该值的范围（工作区、本地、全局、系统、命令）来增加所有查询的配置选项的输出。</p>
 </dd>
-<dt class="hdlist1" id="git-config---get-colorboolltgtltstdout-is-ttygt"> <a class="anchor" href="#git-config---get-colorboolltgtltstdout-is-ttygt"></a>--get-colorbool &lt;名称&gt; [&lt;stdout-is-tty&gt;] </dt>
+<dt class="hdlist1" id="git-config---get-colorboolltgtltstdout-is-ttygt"> <a class="anchor" href="#git-config---get-colorboolstdout-is-tty"></a> <a class="anchor" href="#git-config---get-colorboolltgtltstdout-is-ttygt"></a>--get-colorbool &lt;名称&gt; [&lt;stdout-is-tty&gt;] </dt>
 <dd>
 <p>找到 <code>&lt;名称&gt;</code> 的颜色设置（例如 <code>color.diff</code>），并输出 "true" 或 "false"。 <code>&lt;stdout-is-tty&gt;</code> 应该是 "true" 或 "false"，同样考虑配置为 "auto" 的情况。 如果 <code>&lt;stdout-is-tty&gt;</code> 缺失，则检查命令本身的标准输出，如果要使用颜色则以状态 0 退出，否则以状态 1 退出。 当 <code>名称</code> 的颜色设置未被定义时，该命令使用 <code>color.ui</code> 作为回退（stdout 是 "standard output" 的缩写，而 tty 是 "teletypewriter" 的缩写，通常指的是终端或控制台。）。</p>
 </dd>
@@ -277,7 +277,7 @@ aliases:
 <dd>
 <p>在查找数值时尊重配置文件中的 <code>include.*</code> 指令。当给出一个特定的文件时，默认为 <code>off</code>（例如，使用 <code>--file</code>、<code>--global</code> 等），当搜索所有配置文件时，默认为 <code>on</code>。</p>
 </dd>
-<dt class="hdlist1" id="git-config---defaultltgt"> <a class="anchor" href="#git-config---defaultltgt"></a>--default &lt;值&gt; </dt>
+<dt class="hdlist1" id="git-config---defaultltgt"> <a class="anchor" href="#git-config---default"></a> <a class="anchor" href="#git-config---defaultltgt"></a>--default &lt;值&gt; </dt>
 <dd>
 <p>When using <code>get</code>, and the requested variable is not found, behave as if &lt;value&gt; were the value assigned to that variable.</p>
 </dd>
@@ -293,11 +293,11 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-config-emgitconfigltgtem"> <a class="anchor" href="#git-config-emgitconfigltgtem"></a><em>git config &lt;配置名称&gt;</em> </dt>
+<dt class="hdlist1" id="git-config-emgitconfigltgtem"> <a class="anchor" href="#git-config-gitconfig"></a> <a class="anchor" href="#git-config-emgitconfigltgtem"></a><em>git config &lt;配置名称&gt;</em> </dt>
 <dd>
 <p>已由 <code>git config get &lt;配置名称&gt;</code> 替代。</p>
 </dd>
-<dt class="hdlist1" id="git-config-emgitconfigltgtltgtltgtem"> <a class="anchor" href="#git-config-emgitconfigltgtltgtltgtem"></a><em>git config &lt;配置名称&gt; &lt;值&gt; [&lt;值模式&gt;]</em> </dt>
+<dt class="hdlist1" id="git-config-emgitconfigltgtltgtltgtem"> <a class="anchor" href="#git-config-gitconfig-1"></a> <a class="anchor" href="#git-config-emgitconfigltgtltgtltgtem"></a><em>git config &lt;配置名称&gt; &lt;值&gt; [&lt;值模式&gt;]</em> </dt>
 <dd>
 <p>已由 <code>git config set [--value=&lt;模式&gt;] &lt;配置名称&gt; &lt;值&gt;</code> 替代。</p>
 </dd>
@@ -306,43 +306,43 @@ aliases:
 <dd>
 <p>已由 <code>git config list</code> 替代。</p>
 </dd>
-<dt class="hdlist1" id="git-config---getltnamegtltvalue-patterngt"> <a class="anchor" href="#git-config---getltnamegtltvalue-patterngt"></a>--get &lt;name&gt; [&lt;value-pattern&gt;] </dt>
+<dt class="hdlist1" id="git-config---getltnamegtltvalue-patterngt"> <a class="anchor" href="#git-config---getnamevalue-pattern"></a> <a class="anchor" href="#git-config---getltnamegtltvalue-patterngt"></a>--get &lt;name&gt; [&lt;value-pattern&gt;] </dt>
 <dd>
 <p>已由 <code>git config get [--value=&lt;模式&gt;] &lt;配置名称&gt;</code> 替代。</p>
 </dd>
-<dt class="hdlist1" id="git-config---get-allltnamegtltvalue-patterngt"> <a class="anchor" href="#git-config---get-allltnamegtltvalue-patterngt"></a>--get-all &lt;name&gt; [&lt;value-pattern&gt;] </dt>
+<dt class="hdlist1" id="git-config---get-allltnamegtltvalue-patterngt"> <a class="anchor" href="#git-config---get-allnamevalue-pattern"></a> <a class="anchor" href="#git-config---get-allltnamegtltvalue-patterngt"></a>--get-all &lt;name&gt; [&lt;value-pattern&gt;] </dt>
 <dd>
 <p>Replaced by <code>git config get [--value=&lt;pattern&gt;] --all &lt;name&gt;</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-config---get-regexpltname-regexpgt"> <a class="anchor" href="#git-config---get-regexpltname-regexpgt"></a>--get-regexp &lt;name-regexp&gt; </dt>
+<dt class="hdlist1" id="git-config---get-regexpltname-regexpgt"> <a class="anchor" href="#git-config---get-regexpname-regexp"></a> <a class="anchor" href="#git-config---get-regexpltname-regexpgt"></a>--get-regexp &lt;name-regexp&gt; </dt>
 <dd>
 <p>已由 <code>git config get --all --show-names --regexp &lt;名称正则表达式&gt;</code> 替代。</p>
 </dd>
-<dt class="hdlist1" id="git-config---get-urlmatchltgtltURLgt"> <a class="anchor" href="#git-config---get-urlmatchltgtltURLgt"></a>--get-urlmatch &lt;名称&gt; &lt;URL&gt; </dt>
+<dt class="hdlist1" id="git-config---get-urlmatchltgtltURLgt"> <a class="anchor" href="#git-config---get-urlmatchURL"></a> <a class="anchor" href="#git-config---get-urlmatchltgtltURLgt"></a>--get-urlmatch &lt;名称&gt; &lt;URL&gt; </dt>
 <dd>
 <p>已由 <code>git config get --all --show-names --url=&lt;URL&gt; &lt;配置名称&gt;</code> 替代。</p>
 </dd>
-<dt class="hdlist1" id="git-config---get-colorltgtltgt"> <a class="anchor" href="#git-config---get-colorltgtltgt"></a>--get-color &lt;名称&gt; [&lt;默认值&gt;] </dt>
+<dt class="hdlist1" id="git-config---get-colorltgtltgt"> <a class="anchor" href="#git-config---get-color"></a> <a class="anchor" href="#git-config---get-colorltgtltgt"></a>--get-color &lt;名称&gt; [&lt;默认值&gt;] </dt>
 <dd>
 <p>已由 <code>git config get --type=color [--default=&lt;默认值&gt;] &lt;配置名称&gt;</code> 替代。</p>
 </dd>
-<dt class="hdlist1" id="git-config---addltnamegtltvaluegt"> <a class="anchor" href="#git-config---addltnamegtltvaluegt"></a>--add &lt;name&gt; &lt;value&gt; </dt>
+<dt class="hdlist1" id="git-config---addltnamegtltvaluegt"> <a class="anchor" href="#git-config---addnamevalue"></a> <a class="anchor" href="#git-config---addltnamegtltvaluegt"></a>--add &lt;name&gt; &lt;value&gt; </dt>
 <dd>
 <p>已由 <code>git config set --append &lt;配置名称&gt; &lt;值&gt;</code> 替代。</p>
 </dd>
-<dt class="hdlist1" id="git-config---unsetltnamegtltvalue-patterngt"> <a class="anchor" href="#git-config---unsetltnamegtltvalue-patterngt"></a>--unset &lt;name&gt; [&lt;value-pattern&gt;] </dt>
+<dt class="hdlist1" id="git-config---unsetltnamegtltvalue-patterngt"> <a class="anchor" href="#git-config---unsetnamevalue-pattern"></a> <a class="anchor" href="#git-config---unsetltnamegtltvalue-patterngt"></a>--unset &lt;name&gt; [&lt;value-pattern&gt;] </dt>
 <dd>
 <p>已由 <code>git config unset [--value=&lt;模式&gt;] &lt;名称&gt;</code> 替代。</p>
 </dd>
-<dt class="hdlist1" id="git-config---unset-allltnamegtltvalue-patterngt"> <a class="anchor" href="#git-config---unset-allltnamegtltvalue-patterngt"></a>--unset-all &lt;name&gt; [&lt;value-pattern&gt;] </dt>
+<dt class="hdlist1" id="git-config---unset-allltnamegtltvalue-patterngt"> <a class="anchor" href="#git-config---unset-allnamevalue-pattern"></a> <a class="anchor" href="#git-config---unset-allltnamegtltvalue-patterngt"></a>--unset-all &lt;name&gt; [&lt;value-pattern&gt;] </dt>
 <dd>
 <p>已由 <code>git config unset [--value=&lt;模式&gt;] --all &lt;配置名称&gt;</code> 替代。</p>
 </dd>
-<dt class="hdlist1" id="git-config---rename-sectionltgtltgt"> <a class="anchor" href="#git-config---rename-sectionltgtltgt"></a>--rename-section &lt;旧配置名称&gt; &lt;新配置名称&gt; </dt>
+<dt class="hdlist1" id="git-config---rename-sectionltgtltgt"> <a class="anchor" href="#git-config---rename-section"></a> <a class="anchor" href="#git-config---rename-sectionltgtltgt"></a>--rename-section &lt;旧配置名称&gt; &lt;新配置名称&gt; </dt>
 <dd>
 <p>已由 <code>git config rename-section &lt;旧配置名称&gt; &lt;新配置名称&gt;</code> 替代。</p>
 </dd>
-<dt class="hdlist1" id="git-config---remove-sectionltnamegt"> <a class="anchor" href="#git-config---remove-sectionltnamegt"></a>--remove-section &lt;name&gt; </dt>
+<dt class="hdlist1" id="git-config---remove-sectionltnamegt"> <a class="anchor" href="#git-config---remove-sectionname"></a> <a class="anchor" href="#git-config---remove-sectionltnamegt"></a>--remove-section &lt;name&gt; </dt>
 <dd>
 <p>已由 <code>git config remove-section &lt;配置名称&gt;</code> 替代。</p>
 </dd>
@@ -376,7 +376,7 @@ aliases:
 <p>全系统的配置文件。</p>
 </dd>
 <dt class="hdlist1" id="git-config-XDGCONFIGHOMEgitconfig"> <a class="anchor" href="#git-config-XDGCONFIGHOMEgitconfig"></a>$XDG_CONFIG_HOME/git/config </dt>
-<dt class="hdlist1" id="git-config-gitconfig"> <a class="anchor" href="#git-config-gitconfig"></a>~/.gitconfig </dt>
+<dt class="hdlist1" id="git-config-gitconfig-1-1"> <a class="anchor" href="#git-config-gitconfig-1-1"></a>~/.gitconfig </dt>
 <dd>
 <p>用户特定的配置文件。当 XDG_CONFIG_HOME 环境变量没有设置或为空时，$HOME/.config/ 被用作 $XDG_CONFIG_HOME。</p>
 <div class="paragraph">
@@ -488,8 +488,8 @@ aliases:
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-config-GITCONFIGCOUNT"> <a class="anchor" href="#git-config-GITCONFIGCOUNT"></a>GIT_CONFIG_COUNT </dt>
-<dt class="hdlist1" id="git-config-GITCONFIGKEYltngt"> <a class="anchor" href="#git-config-GITCONFIGKEYltngt"></a>GIT_CONFIG_KEY_&lt;n&gt; </dt>
-<dt class="hdlist1" id="git-config-GITCONFIGVALUEltngt"> <a class="anchor" href="#git-config-GITCONFIGVALUEltngt"></a>GIT_CONFIG_VALUE_&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-config-GITCONFIGKEYltngt"> <a class="anchor" href="#git-config-GITCONFIGKEYn"></a> <a class="anchor" href="#git-config-GITCONFIGKEYltngt"></a>GIT_CONFIG_KEY_&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-config-GITCONFIGVALUEltngt"> <a class="anchor" href="#git-config-GITCONFIGVALUEn"></a> <a class="anchor" href="#git-config-GITCONFIGVALUEltngt"></a>GIT_CONFIG_VALUE_&lt;n&gt; </dt>
 <dd>
 <p>如果 GIT_CONFIG_COUNT 被设置为一个正数，所有环境对 GIT_CONFIG_KEY_&lt;n&gt; 和 GIT_CONFIG_VALUE_&lt;n&gt; 到这个数字都将被添加到进程的运行时配置中。配置对是零索引的。任何缺失的键或值都被视为一个错误。空的 GIT_CONFIG_COUNT 与 GIT_CONFIG_COUNT=0 的处理方式相同，即不处理配置对。这些环境变量将覆盖配置文件中的值，但会被通过 <code>git -c</code> 传递的任何明确选项所覆盖。</p>
 <div class="paragraph">
@@ -720,7 +720,7 @@ http.sslverify false</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-config-codegitdircode"> <a class="anchor" href="#git-config-codegitdircode"></a><code>gitdir</code> </dt>
+<dt class="hdlist1" id="git-config-codegitdircode"> <a class="anchor" href="#git-config-gitdir"></a> <a class="anchor" href="#git-config-codegitdircode"></a><code>gitdir</code> </dt>
 <dd>
 <p>关键字 <code>gitdir:</code> 后面的数据被用作匹配模式。如果. git 目录的位置与该模式相匹配，则满足包含条件。</p>
 <div class="paragraph">
@@ -744,18 +744,18 @@ http.sslverify false</pre>
 </ul>
 </div>
 </dd>
-<dt class="hdlist1" id="git-config-codegitdiricode"> <a class="anchor" href="#git-config-codegitdiricode"></a><code>gitdir/i</code> </dt>
+<dt class="hdlist1" id="git-config-codegitdiricode"> <a class="anchor" href="#git-config-gitdiri"></a> <a class="anchor" href="#git-config-codegitdiricode"></a><code>gitdir/i</code> </dt>
 <dd>
 <p>这与 <code>gitdir</code> 相同，只是匹配时不区分大小写（例如，在不区分大小写的文件系统上）</p>
 </dd>
-<dt class="hdlist1" id="git-config-codeonbranchcode"> <a class="anchor" href="#git-config-codeonbranchcode"></a><code>onbranch</code> </dt>
+<dt class="hdlist1" id="git-config-codeonbranchcode"> <a class="anchor" href="#git-config-onbranch"></a> <a class="anchor" href="#git-config-codeonbranchcode"></a><code>onbranch</code> </dt>
 <dd>
 <p>关键词 <code>onbranch: ` 后面的数据被认为是一个带有标准通配符和两个额外的通配符的模式，</code>**/` 和 <code>/**</code>，可以匹配多个路径组件。 如果我们在一个工作树中，当前签出的分支的名称与该模式相匹配，则满足包含条件。</p>
 <div class="paragraph">
 <p>如果模式以 <code>/</code> 结尾，<code>**</code> 将被自动添加。例如，模式 <code>foo/</code> 变成 <code>foo/**</code>。换句话说，它匹配所有以 "foo/" 开头的分支。如果你的分支是分层组织的，而你想将一个配置应用于该层级中的所有分支，这就很有用了。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-config-codehasconfigremoteurlcode"> <a class="anchor" href="#git-config-codehasconfigremoteurlcode"></a><code>hasconfig:remote.*.url:</code> </dt>
+<dt class="hdlist1" id="git-config-codehasconfigremoteurlcode"> <a class="anchor" href="#git-config-hasconfigremoteurl"></a> <a class="anchor" href="#git-config-codehasconfigremoteurlcode"></a><code>hasconfig:remote.*.url:</code> </dt>
 <dd>
 <p>这个关键词后面的数据被认为是一个带有标准的通配符和两个额外的通配符的模式，<code>**/</code> 和 <code>/**</code>，可以匹配多个组件。第一次看到这个关键词时，其余的配置文件将被扫描以寻找远程 URL（不应用任何值）。如果存在至少一个匹配该模式的远程 URL，则满足包含条件。</p>
 <div class="paragraph">

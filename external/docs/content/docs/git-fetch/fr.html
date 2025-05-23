@@ -67,19 +67,19 @@ aliases:
 <dd>
 <p>Utiliser une transaction atomique pour mettre à jour les références locales. Soit toutes les références sont mises à jour, soit, en cas d&#8217;erreur, aucune référence n&#8217;est mise à jour.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---depthltprofondeurgt"> <a class="anchor" href="#git-fetch---depthltprofondeurgt"></a>--depth=&lt;profondeur&gt; </dt>
+<dt class="hdlist1" id="git-fetch---depthltprofondeurgt"> <a class="anchor" href="#git-fetch---depthprofondeur"></a> <a class="anchor" href="#git-fetch---depthltprofondeurgt"></a>--depth=&lt;profondeur&gt; </dt>
 <dd>
 <p>Limiter la récupération au nombre spécifié de commits à partir du sommet de l&#8217;historique de chaque branche distante. Si vous allez chercher dans un dépôt "superficiel" créé par <code>git clone</code> avec l&#8217;option <code>--depth=&lt;profondeur&gt;</code> (voir <a href='{{< relurl "docs/git-clone/fr" >}}'>git-clone[1]</a>), approfondir ou raccourcir l&#8217;historique jusqu&#8217;au nombre spécifié de validations. Les étiquettes pour les commits approfondis ne sont pas récupérées.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---deepenltprofondeurgt"> <a class="anchor" href="#git-fetch---deepenltprofondeurgt"></a>--deepen=&lt;profondeur&gt; </dt>
+<dt class="hdlist1" id="git-fetch---deepenltprofondeurgt"> <a class="anchor" href="#git-fetch---deepenprofondeur"></a> <a class="anchor" href="#git-fetch---deepenltprofondeurgt"></a>--deepen=&lt;profondeur&gt; </dt>
 <dd>
 <p>Semblable à --depth, sauf que cela précise le nombre de commits à partir de la limite actuelle superficielle au lieu du sommet de l&#8217;historique de chaque branche distante.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---shallow-sinceltdategt"> <a class="anchor" href="#git-fetch---shallow-sinceltdategt"></a>--shallow-since=&lt;date&gt; </dt>
+<dt class="hdlist1" id="git-fetch---shallow-sinceltdategt"> <a class="anchor" href="#git-fetch---shallow-sincedate"></a> <a class="anchor" href="#git-fetch---shallow-sinceltdategt"></a>--shallow-since=&lt;date&gt; </dt>
 <dd>
 <p>Approfondir ou raccourcir l&#8217;historique d&#8217;un dépôt superficiel pour inclure tous les commits accessibles après &lt;date&gt;.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-code--shallow-excludeltrfgtcode"> <a class="anchor" href="#git-fetch-code--shallow-excludeltrfgtcode"></a><code>--shallow-exclude=&lt;réf&gt;</code> </dt>
+<dt class="hdlist1" id="git-fetch-code--shallow-excludeltrfgtcode"> <a class="anchor" href="#git-fetch---shallow-excluderf"></a> <a class="anchor" href="#git-fetch-code--shallow-excludeltrfgtcode"></a><code>--shallow-exclude=&lt;réf&gt;</code> </dt>
 <dd>
 <p>Approfondir ou raccourcir l&#8217;historique d&#8217;un dépôt superficiel afin d&#8217;exclure les commits accessibles depuis une branche ou une étiquette distante spécifiée. Cette option peut être spécifiée plusieurs fois.</p>
 </dd>
@@ -94,7 +94,7 @@ aliases:
 <dd>
 <p>Par défaut, lors de la récupération d&#8217;un dépôt superficiel, <code>git fetch</code> refuse les références qui nécessitent une mise à jour de .git/shallow. Cette option met à jour le fichier .git/shallow et accepte de telles références.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---negotiation-tipltcommitglobgt"> <a class="anchor" href="#git-fetch---negotiation-tipltcommitglobgt"></a>--negotiation-tip=&lt;commit|glob&gt; </dt>
+<dt class="hdlist1" id="git-fetch---negotiation-tipltcommitglobgt"> <a class="anchor" href="#git-fetch---negotiation-tipcommitglob"></a> <a class="anchor" href="#git-fetch---negotiation-tipltcommitglobgt"></a>--negotiation-tip=&lt;commit|glob&gt; </dt>
 <dd>
 <p>Par défaut, Git signalera au serveur les commits accessibles à partir de toutes les références locales pour trouver les commits communs afin de réduire la taille du fichier de paquet à recevoir. Si ceci est spécifié, Git ne signalera que les commits accessibles à partir des sommets donnés. Ceci est utile pour accélérer les recherches lorsque l&#8217;utilisateur sait quelle réf locale est susceptible d&#8217;avoir des commits en commun avec la réf amont qui est recherchée.</p>
 <div class="paragraph">
@@ -183,7 +183,7 @@ Cette option permet de passer outre à ce contrôle.</p>
 <dd>
 <p>Au lieu de négocier avec le serveur pour éviter de transférer les commits et les objets associés qui sont déjà présents localement, cette option récupère tous les objets comme le ferait un nouveau clone. Utilisez cette option pour réappliquer un filtre de clone partiel depuis la configuration ou en utilisant <code>--filter=</code> lorsque la définition du filtre a changé. La maintenance automatique post-récupération effectuera une consolidation des paquets de la base de données des objets pour supprimer tout objet en double.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---refmapltspcificateur-de-rfrencegt"> <a class="anchor" href="#git-fetch---refmapltspcificateur-de-rfrencegt"></a>--refmap=&lt;spécificateur-de-référence&gt; </dt>
+<dt class="hdlist1" id="git-fetch---refmapltspcificateur-de-rfrencegt"> <a class="anchor" href="#git-fetch---refmapspcificateur-de-rfrence"></a> <a class="anchor" href="#git-fetch---refmapltspcificateur-de-rfrencegt"></a>--refmap=&lt;spécificateur-de-référence&gt; </dt>
 <dd>
 <p>Lors de la récupération des références listées en ligne de commande, utiliser la spécification de référence (qui peut être donnée plusieurs fois) pour mapper les références sur les branches de suivi à distance, au lieu des valeurs des variables de configuration <code>remote.*.fetch</code> pour le dépôt distant. Fournir un <code>&lt;spécificateur-de-référence&gt;</code> vide à l&#8217;option <code>--refmap</code> fait que Git ignore les spécification de référence configurées et se fie entièrement aux spécifications de référence fournies comme arguments de la ligne de commande. Voir la section sur les "Branches de suivi à distance configurées" pour plus de détails.</p>
 </dd>
@@ -203,7 +203,7 @@ Cette option permet de passer outre à ce contrôle.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fetch--j"> <a class="anchor" href="#git-fetch--j"></a>-j </dt>
-<dt class="hdlist1" id="git-fetch---jobsltngt"> <a class="anchor" href="#git-fetch---jobsltngt"></a>--jobs=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fetch---jobsltngt"> <a class="anchor" href="#git-fetch---jobsn"></a> <a class="anchor" href="#git-fetch---jobsltngt"></a>--jobs=&lt;n&gt; </dt>
 <dd>
 <p>Nombre d&#8217;enfants parallèles à utiliser pour toutes les formes d&#8217;extraction.</p>
 <div class="paragraph">
@@ -221,7 +221,7 @@ Cette option permet de passer outre à ce contrôle.</p>
 <dd>
 <p>Si le distant est récupéré avec succès, ajouter la référence (de suivi) amont , utilisée par les commandes sans argument <a href='{{< relurl "docs/git-pull/fr" >}}'>git-pull[1]</a> et autres. Pour plus d&#8217;informations, voir <code>branch.&lt;nom&gt;.merge</code> et <code>branch.&lt;nom&gt;.remote</code> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---submodule-prefixltchemingt"> <a class="anchor" href="#git-fetch---submodule-prefixltchemingt"></a>--submodule-prefix=&lt;chemin&gt; </dt>
+<dt class="hdlist1" id="git-fetch---submodule-prefixltchemingt"> <a class="anchor" href="#git-fetch---submodule-prefixchemin"></a> <a class="anchor" href="#git-fetch---submodule-prefixltchemingt"></a>--submodule-prefix=&lt;chemin&gt; </dt>
 <dd>
 <p>Préfixer &lt;chemin&gt; aux chemins affichés dans les messages informatifs tels que "Récupération du sous-module foo". Cette option est utilisée en interne lors de la récursion sur les sous-modules.</p>
 </dd>
@@ -234,7 +234,7 @@ Cette option permet de passer outre à ce contrôle.</p>
 <dd>
 <p>Par défaut, <em>git fetch</em> refuse de mettre à jour la tête qui correspond à la branche en cours. Ce drapeau désactive la vérification. C&#8217;est purement pour l&#8217;usage interne de <em>git pull</em> pour communiquer avec <em>git fetch</em>, et à moins que vous n&#8217;implémentiez votre propre Porcelaine, vous n&#8217;êtes pas censé l&#8217;utiliser.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---upload-packltupload-packgt"> <a class="anchor" href="#git-fetch---upload-packltupload-packgt"></a>--upload-pack &lt;upload-pack&gt; </dt>
+<dt class="hdlist1" id="git-fetch---upload-packltupload-packgt"> <a class="anchor" href="#git-fetch---upload-packupload-pack"></a> <a class="anchor" href="#git-fetch---upload-packltupload-packgt"></a>--upload-pack &lt;upload-pack&gt; </dt>
 <dd>
 <p>Lorsqu&#8217;il est donné, et que le dépôt à récupérer est géré par <em>git fetch-pack</em>, <code>--exec=&lt;upload-pack&gt;</code> est passé à la commande pour spécifier le chemin par défaut pour la commande exécutée à l&#8217;autre bout.</p>
 </dd>
@@ -252,8 +252,8 @@ Cette option permet de passer outre à ce contrôle.</p>
 <dd>
 <p>L&#8217;état d&#8217;avancement est affiché sur la sortie d&#8217;erreur standard quand elle est attachée à un terminal, à moins que -q soit spécifié. Ce drapeau force l&#8217;état d&#8217;avancement même si le flux d&#8217;erreur standard n&#8217;est pas dirigé vers un terminal.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--oltoptiongt"> <a class="anchor" href="#git-fetch--oltoptiongt"></a>-o &lt;option&gt; </dt>
-<dt class="hdlist1" id="git-fetch---server-optionltoptiongt"> <a class="anchor" href="#git-fetch---server-optionltoptiongt"></a>--server-option=&lt;option&gt; </dt>
+<dt class="hdlist1" id="git-fetch--oltoptiongt"> <a class="anchor" href="#git-fetch--ooption"></a> <a class="anchor" href="#git-fetch--oltoptiongt"></a>-o &lt;option&gt; </dt>
+<dt class="hdlist1" id="git-fetch---server-optionltoptiongt"> <a class="anchor" href="#git-fetch---server-optionoption"></a> <a class="anchor" href="#git-fetch---server-optionltoptiongt"></a>--server-option=&lt;option&gt; </dt>
 <dd>
 <p>Transmettre la chaîne donnée au serveur lors d&#8217;une communication utilisant la version 2 du protocole. La chaîne donnée ne doit pas contenir de caractère NUL ou LF. La gestion par le serveur des options du serveur, y compris les options inconnues, est spécifique au serveur. Lorsque plusieurs <code>--server-option=&lt;option&gt;</code> sont donnés, ils sont tous envoyés à l&#8217;autre côté dans l&#8217;ordre indiqué sur la ligne de commande. Quand aucun <code>--server-option=&lt;option&gt;`est fourni sur la ligne de commande, les valeurs de la variable de configuration `remote.&lt;nom&gt;.serverOption</code> sont utilisées à la place.</p>
 </dd>
@@ -279,15 +279,15 @@ Cette option permet de passer outre à ce contrôle.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fetch-ltdptgt"> <a class="anchor" href="#git-fetch-ltdptgt"></a>&lt;dépôt&gt; </dt>
+<dt class="hdlist1" id="git-fetch-ltdptgt"> <a class="anchor" href="#git-fetch-dpt"></a> <a class="anchor" href="#git-fetch-ltdptgt"></a>&lt;dépôt&gt; </dt>
 <dd>
 <p>Le dépôt "distant" qui est la source d&#8217;une opération de récupération ou de tirage. Ce paramètre peut être soit une URL (voir la section <a href="#URLS">URLS GIT</a> ci-dessous) soit le nom d&#8217;un remote (voir la section <a href="#REMOTES">DISTANTS</a> ci-dessous).</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-ltgroupegt"> <a class="anchor" href="#git-fetch-ltgroupegt"></a>&lt;groupe&gt; </dt>
+<dt class="hdlist1" id="git-fetch-ltgroupegt"> <a class="anchor" href="#git-fetch-groupe"></a> <a class="anchor" href="#git-fetch-ltgroupegt"></a>&lt;groupe&gt; </dt>
 <dd>
 <p>Un nom faisant référence à une liste des dépôts comme la valeur de remotes.&lt;groupe&gt; dans le fichier de configuration. (voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>).</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-ltspcificateur-de-rfrencegt"> <a class="anchor" href="#git-fetch-ltspcificateur-de-rfrencegt"></a>&lt;spécificateur-de-référence&gt; </dt>
+<dt class="hdlist1" id="git-fetch-ltspcificateur-de-rfrencegt"> <a class="anchor" href="#git-fetch-spcificateur-de-rfrence"></a> <a class="anchor" href="#git-fetch-ltspcificateur-de-rfrencegt"></a>&lt;spécificateur-de-référence&gt; </dt>
 <dd>
 <p>Préciser les références à récupérer et les références locales à mettre à jour. Lorsqu&#8217;aucun &lt;spéc-de-réf&gt; n&#8217;apparaît sur la ligne de commande, les références à récupérer sont lues à partir des variables <code>remote.&lt;dépôt&gt;.fetch</code> à la place
 (voir <a href="#CRTB">BRANCHES DE SUIVI À DISTANCE CONFIGURÉES</a> ci-dessous).</p>
@@ -710,27 +710,27 @@ $ git fetch &lt;url-d-origin&gt; --prune 'refs/tags/*:refs/tags/*</pre>
 <dd>
 <p>pour une récupération en avance rapide réussie ;</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-codecode"> <a class="anchor" href="#git-fetch-codecode"></a><code>+</code> </dt>
+<dt class="hdlist1" id="git-fetch-codecode"> <a class="anchor" href="#git-fetch-"></a> <a class="anchor" href="#git-fetch-codecode"></a><code>+</code> </dt>
 <dd>
 <p>pour une mise à jour forcée avec succès ;</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-code-code"> <a class="anchor" href="#git-fetch-code-code"></a><code>-</code> </dt>
+<dt class="hdlist1" id="git-fetch-code-code"> <a class="anchor" href="#git-fetch--"></a> <a class="anchor" href="#git-fetch-code-code"></a><code>-</code> </dt>
 <dd>
 <p>pour une ref. élaguée avec succès ;</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-codetcode"> <a class="anchor" href="#git-fetch-codetcode"></a><code>t</code> </dt>
+<dt class="hdlist1" id="git-fetch-codetcode"> <a class="anchor" href="#git-fetch-t"></a> <a class="anchor" href="#git-fetch-codetcode"></a><code>t</code> </dt>
 <dd>
 <p>pour une mise à jour d&#8217;étiquette avec succès ;</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-codecode-1"> <a class="anchor" href="#git-fetch-codecode-1"></a><code>*</code> </dt>
+<dt class="hdlist1" id="git-fetch-codecode-1"> <a class="anchor" href="#git-fetch--1"></a> <a class="anchor" href="#git-fetch-codecode-1"></a><code>*</code> </dt>
 <dd>
 <p>pour la récupération réussie d&#8217;une nouvelle réf. ;</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-codecode-1-1"> <a class="anchor" href="#git-fetch-codecode-1-1"></a><code>!</code> </dt>
+<dt class="hdlist1" id="git-fetch-codecode-1-1"> <a class="anchor" href="#git-fetch--1-1"></a> <a class="anchor" href="#git-fetch-codecode-1-1"></a><code>!</code> </dt>
 <dd>
 <p>pour une référence qui a été rejetée ou qui n&#8217;a pas pu être mise à jour ; et</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-codecode-1-1-1"> <a class="anchor" href="#git-fetch-codecode-1-1-1"></a><code>=</code> </dt>
+<dt class="hdlist1" id="git-fetch-codecode-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1"></a> <a class="anchor" href="#git-fetch-codecode-1-1-1"></a><code>=</code> </dt>
 <dd>
 <p>pour une référence qui était à jour et n&#8217;avait pas besoin d&#8217;être récupérée.</p>
 </dd>
@@ -745,7 +745,7 @@ $ git fetch &lt;url-d-origin&gt; --prune 'refs/tags/*:refs/tags/*</pre>
 <dd>
 <p>Le nom de la référence distante récupérée, moins son préfixe "refs/&lt;type&gt;/". En cas de suppression, le nom de la référence distante est "(none)".</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-"> <a class="anchor" href="#git-fetch-"></a>à </dt>
+<dt class="hdlist1" id="git-fetch--1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1"></a>à </dt>
 <dd>
 <p>Le nom de la référence locale en cours de mise à jour, moins son préfixe <code>refs/&lt;type&gt;/</code>.</p>
 </dd>

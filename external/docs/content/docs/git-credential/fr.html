@@ -125,35 +125,35 @@ password=secr3t</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-credential-codeprotocolcode"> <a class="anchor" href="#git-credential-codeprotocolcode"></a><code>protocol</code> </dt>
+<dt class="hdlist1" id="git-credential-codeprotocolcode"> <a class="anchor" href="#git-credential-protocol"></a> <a class="anchor" href="#git-credential-codeprotocolcode"></a><code>protocol</code> </dt>
 <dd>
 <p>Le protocole sur lequel l&#8217;identifiant sera utilisé (par exemple, <code>https</code>).</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codehostcode"> <a class="anchor" href="#git-credential-codehostcode"></a><code>host</code> </dt>
+<dt class="hdlist1" id="git-credential-codehostcode"> <a class="anchor" href="#git-credential-host"></a> <a class="anchor" href="#git-credential-codehostcode"></a><code>host</code> </dt>
 <dd>
 <p>Le nom d&#8217;hôte distant pour un identifiant réseau. Cela inclut le numéro de port s&#8217;il a été spécifié (par exemple, "exemple.com:8088").</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codepathcode"> <a class="anchor" href="#git-credential-codepathcode"></a><code>path</code> </dt>
+<dt class="hdlist1" id="git-credential-codepathcode"> <a class="anchor" href="#git-credential-path"></a> <a class="anchor" href="#git-credential-codepathcode"></a><code>path</code> </dt>
 <dd>
 <p>Le chemin avec lequel l&#8217;identifiant sera utilisé. Par exemple, pour accéder à un dépôt https distant, ce sera le chemin du dépôt sur le serveur.</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codeusernamecode"> <a class="anchor" href="#git-credential-codeusernamecode"></a><code>username</code> </dt>
+<dt class="hdlist1" id="git-credential-codeusernamecode"> <a class="anchor" href="#git-credential-username"></a> <a class="anchor" href="#git-credential-codeusernamecode"></a><code>username</code> </dt>
 <dd>
 <p>Le nom d&#8217;utilisateur de l&#8217;identifiant, si nous en avons déjà un (par exemple, à partir d&#8217;une URL, de la configuration, de l&#8217;utilisateur ou d&#8217;une aide précédemment exécutée).</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codepasswordcode"> <a class="anchor" href="#git-credential-codepasswordcode"></a><code>password</code> </dt>
+<dt class="hdlist1" id="git-credential-codepasswordcode"> <a class="anchor" href="#git-credential-password"></a> <a class="anchor" href="#git-credential-codepasswordcode"></a><code>password</code> </dt>
 <dd>
 <p>Le mot de passe de l&#8217;identifiant, si nous demandons qu&#8217;il soit stocké.</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codepasswordexpiryutccode"> <a class="anchor" href="#git-credential-codepasswordexpiryutccode"></a><code>password_expiry_utc</code> </dt>
+<dt class="hdlist1" id="git-credential-codepasswordexpiryutccode"> <a class="anchor" href="#git-credential-passwordexpiryutc"></a> <a class="anchor" href="#git-credential-codepasswordexpiryutccode"></a><code>password_expiry_utc</code> </dt>
 <dd>
 <p>Les mots de passe générés tels que les jetons d&#8217;accès OAuth peuvent avoir une date d&#8217;expiration. Lors de la lecture des informations d&#8217;identification depuis les assistants, <code>git credential fill</code> ignore les mots de passe expirés. Représenté en temps Unix UTC, en secondes depuis 1970.</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codeoauthrefreshtokencode"> <a class="anchor" href="#git-credential-codeoauthrefreshtokencode"></a><code>oauth_refresh_token</code> </dt>
+<dt class="hdlist1" id="git-credential-codeoauthrefreshtokencode"> <a class="anchor" href="#git-credential-oauthrefreshtoken"></a> <a class="anchor" href="#git-credential-codeoauthrefreshtokencode"></a><code>oauth_refresh_token</code> </dt>
 <dd>
 <p>Un jeton de rafraîchissement OAuth peut accompagner un mot de passe qui est un jeton d&#8217;accès OAuth. Les assistants doivent traiter cet attribut comme confidentiel, au même titre que l&#8217;attribut password. Git lui-même n&#8217;a pas de comportement particulier pour cet attribut.</p>
 </dd>
-<dt class="hdlist1" id="git-credential-codeurlcode"> <a class="anchor" href="#git-credential-codeurlcode"></a><code>url</code> </dt>
+<dt class="hdlist1" id="git-credential-codeurlcode"> <a class="anchor" href="#git-credential-url"></a> <a class="anchor" href="#git-credential-codeurlcode"></a><code>url</code> </dt>
 <dd>
 <p>Lorsque cet attribut spécial est lu par <code>git credential</code>, la valeur est analysée comme une URL et traitée comme si ses parties constitutives étaient lues (par exemple, <code>url=https://example.com</code> se comporterait comme si <code>protocol=https</code> et <code>host=example.com</code> avaient été fournis). Cela peut aider les appelants à éviter d&#8217;analyser eux-mêmes les URL.</p>
 <div class="paragraph">
@@ -163,21 +163,21 @@ password=secr3t</pre>
 <p>Les composants qui manquent dans l&#8217;URL (par exemple, il n&#8217;y a pas de nom d&#8217;utilisateur dans l&#8217;exemple ci-dessus) ne seront pas définis.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codeauthtypecode"> <a class="anchor" href="#git-credential-codeauthtypecode"></a><code>authtype</code> </dt>
+<dt class="hdlist1" id="git-credential-codeauthtypecode"> <a class="anchor" href="#git-credential-authtype"></a> <a class="anchor" href="#git-credential-codeauthtypecode"></a><code>authtype</code> </dt>
 <dd>
 <p>Cela indique que le système d&#8217;authentification en question devrait être utilisé. Les valeurs communes pour HTTP et HTTPS comprennent <code>basic</code>, <code>bearer</code>, and <code>digest</code>, bien que cette dernière ne devrait pas être utilisée. Si <code>credential</code> est utilisé, cela peut être réglé à une chaîne arbitraire adaptée au protocole en question (généralement HTTP).</p>
 <div class="paragraph">
 <p>Cette valeur ne doit pas être envoyée à moins que la capacité appropriée (voir ci-dessous) ne soit fournie en entrée.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codecredentialcode"> <a class="anchor" href="#git-credential-codecredentialcode"></a><code>credential</code> </dt>
+<dt class="hdlist1" id="git-credential-codecredentialcode"> <a class="anchor" href="#git-credential-credential"></a> <a class="anchor" href="#git-credential-codecredentialcode"></a><code>credential</code> </dt>
 <dd>
 <p>Le credential pré-encodé, adapté au protocole en question (généralement HTTP). Si cette clé est envoyée, <code>authtype</code> est obligatoire, et <code>utilisateur</code> et <code>mot-de-passe</code> ne sont pas utilisés. Pour HTTP, Git concatène la valeur <code>type-auth</code> et cette valeur avec un seul espace pour déterminer l&#8217;en-tête <code>Authorization</code>.</p>
 <div class="paragraph">
 <p>Cette valeur ne doit pas être envoyée à moins que la capacité appropriée (voir ci-dessous) ne soit fournie en entrée.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codeephemeralcode"> <a class="anchor" href="#git-credential-codeephemeralcode"></a><code>ephemeral</code> </dt>
+<dt class="hdlist1" id="git-credential-codeephemeralcode"> <a class="anchor" href="#git-credential-ephemeral"></a> <a class="anchor" href="#git-credential-codeephemeralcode"></a><code>ephemeral</code> </dt>
 <dd>
 <p>Cette valeur booléenne indique, si elle est à <code>true</code>, que la valeur dans le champ <code>credential</code> ne devrait pas être sauvegardée par l&#8217;assistant d&#8217;accréditation parce que son utilité est limitée dans le temps. Par exemple, une valeur <code>credential</code> HTTP Digest est calculée à l&#8217;aide d&#8217;une nonce et la réutiliser n&#8217;aboutira pas à une authentification réussie. Cela peut également être utilisé pour des situations de courte durée (p. ex., 24 heures). La valeur par défaut est <code>false</code>.</p>
 <div class="paragraph">
@@ -187,28 +187,28 @@ password=secr3t</pre>
 <p>Cette valeur ne doit pas être envoyée à moins que la capacité appropriée (voir ci-dessous) ne soit fournie en entrée.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codestatecode"> <a class="anchor" href="#git-credential-codestatecode"></a><code>state[]</code> </dt>
+<dt class="hdlist1" id="git-credential-codestatecode"> <a class="anchor" href="#git-credential-state"></a> <a class="anchor" href="#git-credential-codestatecode"></a><code>state[]</code> </dt>
 <dd>
 <p>Cette valeur fournit un état opaque qui sera transmis à cet assistant s&#8217;il est de nouveau appelé. Chaque assistant différent peut spécifier ceci une fois. La valeur devrait inclure un préfixe unique à l&#8217;assistant d&#8217;accréditation et il devrait ignorer les valeurs qui ne correspondent pas à son préfixe.</p>
 <div class="paragraph">
 <p>Cette valeur ne doit pas être envoyée à moins que la capacité appropriée (voir ci-dessous) ne soit fournie en entrée.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codecontinuecode"> <a class="anchor" href="#git-credential-codecontinuecode"></a><code>continue</code> </dt>
+<dt class="hdlist1" id="git-credential-codecontinuecode"> <a class="anchor" href="#git-credential-continue"></a> <a class="anchor" href="#git-credential-codecontinuecode"></a><code>continue</code> </dt>
 <dd>
 <p>C&#8217;est une valeur booléenne qui, si elle est activée, indique que cette authentification est une partie non finale d&#8217;une étape d&#8217;authentification multi-étape. Ceci est courant dans les protocoles tels que NTLM et Kerberos, où deux séries d&#8217;authentification client sont nécessaires, et le réglage de ce drapeau permet à l&#8217;assistant d&#8217;accréditation de mettre en œuvre l&#8217;étape d&#8217;authentification multi-étape. Ce drapeau ne doit être envoyé que si une autre étape est nécessaire ; c&#8217;est-à-dire si une autre série d&#8217;authentification est prévue.</p>
 <div class="paragraph">
 <p>Cette valeur ne doit pas être envoyée à moins que la capacité appropriée (voir ci-dessous) ne soit fournie en entrée. Cet attribut est à sens unique depuis l&#8217;assistant d&#8217;accréditation pour transmettre de l&#8217;information à Git (ou à d&#8217;autres programmes invoquant <code>git credential</code>).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codewwwauthcode"> <a class="anchor" href="#git-credential-codewwwauthcode"></a><code>wwwauth[]</code> </dt>
+<dt class="hdlist1" id="git-credential-codewwwauthcode"> <a class="anchor" href="#git-credential-wwwauth"></a> <a class="anchor" href="#git-credential-codewwwauthcode"></a><code>wwwauth[]</code> </dt>
 <dd>
 <p>Lorsque Git reçoit une réponse HTTP contenant un ou plusieurs en-têtes d&#8217;authentification "WWW-Authenticate", ceux-ci sont transmis par Git aux assistants d&#8217;authentification.</p>
 <div class="paragraph">
 <p>Chaque valeur de l&#8217;en-tête "WWW-Authenticate" est transmise sous la forme d&#8217;un attribut à valeurs multiples "wwwauth[]", l&#8217;ordre des attributs étant le même que celui dans lequel ils apparaissent dans la réponse HTTP. Cet attribut est "à sens unique" à partir de Git pour transmettre des informations supplémentaires aux assistants d&#8217;authentification.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-credential-codecapabilitycode"> <a class="anchor" href="#git-credential-codecapabilitycode"></a><code>capability[]</code> </dt>
+<dt class="hdlist1" id="git-credential-codecapabilitycode"> <a class="anchor" href="#git-credential-capability"></a> <a class="anchor" href="#git-credential-codecapabilitycode"></a><code>capability[]</code> </dt>
 <dd>
 <p>Cela signale que Git, ou l&#8217;assistant, selon le cas, prend en charge la capacité en question. Cela peut être utilisé pour fournir de meilleures données, plus précises dans le cadre du protocole. Une directive <code>capability[]</code> doit précéder toute valeur qui dépend d&#8217;elle et ces directives <em>devraient</em> être le premier élément annoncé dans le protocole.</p>
 <div class="paragraph">

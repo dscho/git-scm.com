@@ -42,7 +42,7 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-export---progressltngt"> <a class="anchor" href="#git-fast-export---progressltngt"></a>--progress=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fast-export---progressltngt"> <a class="anchor" href="#git-fast-export---progressn"></a> <a class="anchor" href="#git-fast-export---progressltngt"></a>--progress=&lt;n&gt; </dt>
 <dd>
 <p>Insérer des déclarations <em>de progrès</em> tous les &lt;n&gt;objets, à afficher par <em>git fast-import</em> lors de l’importation.</p>
 </dd>
@@ -68,11 +68,11 @@ aliases:
 <p>Notez que les versions précédentes de cette commande ne se plaignaient pas et produisaient des résultats incorrects si vous donniez ces options.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fast-export---export-marksltfichiergt"> <a class="anchor" href="#git-fast-export---export-marksltfichiergt"></a>--export-marks=&lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-fast-export---export-marksltfichiergt"> <a class="anchor" href="#git-fast-export---export-marksfichier"></a> <a class="anchor" href="#git-fast-export---export-marksltfichiergt"></a>--export-marks=&lt;fichier&gt; </dt>
 <dd>
 <p>Décharge la table interne des marques dans un &lt;fichier&gt;, une fois terminé. Les marques sont écrites une par ligne comme <code>:markid SHA-1</code>. Seules les marques des révisions sont écrites ; les marques des blobs sont ignorées. Des moteurs peuvent utiliser ce fichier pour valider les importations après qu&#8217;elles aient été complétées, ou pour sauvegarder la table des marques à travers des exécutions incrémentales. Comme &lt;fichier&gt; n&#8217;est ouvert et tronqué qu&#8217;à la fin de l&#8217;opération, le même chemin peut aussi être donné sans risque à --import-marks. Le fichier ne sera pas écrit si aucun nouvel objet n&#8217;a été marqué/exporté.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-export---import-marksltfichiergt"> <a class="anchor" href="#git-fast-export---import-marksltfichiergt"></a>--import-marks=&lt;fichier&gt; </dt>
+<dt class="hdlist1" id="git-fast-export---import-marksltfichiergt"> <a class="anchor" href="#git-fast-export---import-marksfichier"></a> <a class="anchor" href="#git-fast-export---import-marksltfichiergt"></a>--import-marks=&lt;fichier&gt; </dt>
 <dd>
 <p>Avant de traiter toute entrée, charger les marques spécifiées dans &lt;fichier&gt; ;. Le fichier d&#8217;entrée doit exister, doit être lisible, et doit utiliser le même format que celui produit par --export-marks.</p>
 </dd>
@@ -103,7 +103,7 @@ aliases:
 <dd>
 <p>Anonymiser le contenu du dépôt tout en conservant la forme de l&#8217;historique et de l&#8217;arbre stocké. Voir la section <code>ANONYMISATION</code> ci-dessous.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-export---anonymize-mapltdepuisgtltversgt"> <a class="anchor" href="#git-fast-export---anonymize-mapltdepuisgtltversgt"></a>--anonymize-map=&lt;depuis&gt;[:&lt;vers&gt;] </dt>
+<dt class="hdlist1" id="git-fast-export---anonymize-mapltdepuisgtltversgt"> <a class="anchor" href="#git-fast-export---anonymize-mapdepuisvers"></a> <a class="anchor" href="#git-fast-export---anonymize-mapltdepuisgtltversgt"></a>--anonymize-map=&lt;depuis&gt;[:&lt;vers&gt;] </dt>
 <dd>
 <p>Convertir le jeton <code>&lt;depuis&gt;</code> en <code>&lt;vers&gt;</code> dans la sortie anonymisée. Si <code>&lt;vers&gt;</code> est omis, convertir <code>&lt;depuis&gt;</code> en lui-même (c&#8217;est-à-dire, ne pa l&#8217;anonymiser). Voir la section sur <code>ANONYMISATION</code> ci-dessous.</p>
 </dd>
@@ -123,7 +123,7 @@ aliases:
 <dd>
 <p>Appliquer la refspec spécifiée à chaque ref exportée. Plusieurs d&#8217;entre elles peuvent être spécifiées.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-export-ltgit-rev-list-argsgt82308203"> <a class="anchor" href="#git-fast-export-ltgit-rev-list-argsgt82308203"></a>[&lt;git-rev-list-args&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-fast-export-ltgit-rev-list-argsgt82308203"> <a class="anchor" href="#git-fast-export-git-rev-list-args"></a> <a class="anchor" href="#git-fast-export-ltgit-rev-list-argsgt82308203"></a>[&lt;git-rev-list-args&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Une liste d&#8217;arguments, acceptable pour <em>git rev-parse</em> et <em>git rev-list</em>, qui spécifie les objets et références spécifiques à exporter. Par exemple, <code>master~10..master</code> provoque l&#8217;exportation de la référence master actuelle avec tous les objets ajoutés depuis le commit de son 10ème ancêtre et (à moins que l&#8217;option --reference-excluded-parents soit spécifiée) tous les fichiers communs à master~9 et master~10.</p>
 </dd>

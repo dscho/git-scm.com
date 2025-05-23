@@ -57,7 +57,7 @@ aliases:
 <dd>
 <p>不将远程 URL 打印到标准错误流。</p>
 </dd>
-<dt class="hdlist1" id="git-ls-remote---upload-packltexecgt"> <a class="anchor" href="#git-ls-remote---upload-packltexecgt"></a>--upload-pack=&lt;exec&gt; </dt>
+<dt class="hdlist1" id="git-ls-remote---upload-packltexecgt"> <a class="anchor" href="#git-ls-remote---upload-packexec"></a> <a class="anchor" href="#git-ls-remote---upload-packltexecgt"></a>--upload-pack=&lt;exec&gt; </dt>
 <dd>
 <p>指定远程主机上 <em>git-upload-pack</em> 的完整路径。这允许列出通过 SSH 访问的存储库的引用，而且 SSH 守护程序不使用用户配置的 PATH。</p>
 </dd>
@@ -73,20 +73,20 @@ aliases:
 <dd>
 <p>除了它所指向的对象之外，在显示一个符号引用时，还要显示它所指向的底层引用。 目前，upload-pack 只显示符号引用HEAD，所以它将是 ls-remote 显示的唯一对象。</p>
 </dd>
-<dt class="hdlist1" id="git-ls-remote---sortltgt"> <a class="anchor" href="#git-ls-remote---sortltgt"></a>--sort=&lt;键&gt; </dt>
+<dt class="hdlist1" id="git-ls-remote---sortltgt"> <a class="anchor" href="#git-ls-remote---sort"></a> <a class="anchor" href="#git-ls-remote---sortltgt"></a>--sort=&lt;键&gt; </dt>
 <dd>
 <p>根据给定的键进行排序。前缀 <code>-</code> 以数值的降序来排序。支持 "version:refname" 或 "v:refname"（标签名被视为版本）。"version:refname" 的排序顺序也可以由 "versionsort.suffix" 配置的变量影响。 见 <a href='{{< relurl "docs/git-for-each-ref/zh_HANS-CN" >}}'>git-for-each-ref[1]</a> 以获得更多的排序选项，但要注意像 <code>committerdate</code> 这样需要访问对象本身的键，对对象尚未从远程获取的引用不起作用，并会出现 <code>missing object</code> 的错误。</p>
 </dd>
-<dt class="hdlist1" id="git-ls-remote--oltgt"> <a class="anchor" href="#git-ls-remote--oltgt"></a>-o &lt;选项&gt; </dt>
-<dt class="hdlist1" id="git-ls-remote---server-optionltgt"> <a class="anchor" href="#git-ls-remote---server-optionltgt"></a>--server-option=&lt;选项&gt; </dt>
+<dt class="hdlist1" id="git-ls-remote--oltgt"> <a class="anchor" href="#git-ls-remote--o"></a> <a class="anchor" href="#git-ls-remote--oltgt"></a>-o &lt;选项&gt; </dt>
+<dt class="hdlist1" id="git-ls-remote---server-optionltgt"> <a class="anchor" href="#git-ls-remote---server-option"></a> <a class="anchor" href="#git-ls-remote---server-optionltgt"></a>--server-option=&lt;选项&gt; </dt>
 <dd>
 <p>Transmit the given string to the server when communicating using protocol version 2. The given string must not contain a NUL or LF character. When multiple <code>--server-option=&lt;option&gt;</code> are given, they are all sent to the other side in the order listed on the command line. When no <code>--server-option=&lt;option&gt;</code> is given from the command line, the values of configuration variable <code>remote.&lt;name&gt;.serverOption</code> are used instead.</p>
 </dd>
-<dt class="hdlist1" id="git-ls-remote-ltgt"> <a class="anchor" href="#git-ls-remote-ltgt"></a>&lt;仓库&gt; </dt>
+<dt class="hdlist1" id="git-ls-remote-ltgt"> <a class="anchor" href="#git-ls-remote-"></a> <a class="anchor" href="#git-ls-remote-ltgt"></a>&lt;仓库&gt; </dt>
 <dd>
 <p>要查询的 "远程" 版本库。 这个参数可以是一个 URL，也可以是一个远程的名称（见 <a href='{{< relurl "docs/git-fetch/zh_HANS-CN" >}}'>git-fetch[1]</a> 的 GIT URLS 和远端部分）。</p>
 </dd>
-<dt class="hdlist1" id="git-ls-remote-ltgt82308203"> <a class="anchor" href="#git-ls-remote-ltgt82308203"></a>&lt;模式&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-ls-remote-ltgt82308203"> <a class="anchor" href="#git-ls-remote--1"></a> <a class="anchor" href="#git-ls-remote-ltgt82308203"></a>&lt;模式&gt;&#8230;&#8203; </dt>
 <dd>
 <p>当未指定时，在用 --heads 和 --tags 过滤后，所有引用都会被显示。 当 &lt;patterns&gt;&#8230;&#8203; 被指定时，只显示匹配一个或多个给定模式的引用。每个模式都被解释为一个 glob（见 <a href='{{< relurl "docs/gitglossary/zh_HANS-CN" >}}'>gitglossary[7]</a> 中的 <code>glob</code>），它与引用的 "尾巴" 相匹配，从引用的开头开始（所以像 <code>refs/heads/foo</code> 这样的全名匹配）或者从斜线分隔符开始（所以 <code>bar</code> 匹配 <code>refs/heads/bar</code>，而不是 <code>refs/heads/foobar</code>）。</p>
 </dd>

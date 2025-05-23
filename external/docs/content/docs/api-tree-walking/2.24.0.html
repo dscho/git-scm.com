@@ -26,12 +26,12 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codestructnameentrycode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codestructnameentrycode"></a><code>struct name_entry</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codestructnameentrycode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-structnameentry"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codestructnameentrycode"></a><code>struct name_entry</code> </dt>
 <dd>
 <p>An entry in a tree. Each entry has a sha1 identifier, pathname, and
 mode.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codestructtreedesccode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codestructtreedesccode"></a><code>struct tree_desc</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codestructtreedesccode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-structtreedesc"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codestructtreedesccode"></a><code>struct tree_desc</code> </dt>
 <dd>
 <p>A semi-opaque data structure used to maintain the current state of the
 walk.</p>
@@ -50,7 +50,7 @@ points at the current entry being visited.</p>
 </ul>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codestructtraverseinfocode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codestructtraverseinfocode"></a><code>struct traverse_info</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codestructtraverseinfocode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-structtraverseinfo"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codestructtraverseinfocode"></a><code>struct traverse_info</code> </dt>
 <dd>
 <p>A structure used to maintain the state of a traversal.</p>
 <div class="ulist">
@@ -91,19 +91,19 @@ information.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codeinittreedesccode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codeinittreedesccode"></a><code>init_tree_desc</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codeinittreedesccode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-inittreedesc"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codeinittreedesccode"></a><code>init_tree_desc</code> </dt>
 <dd>
 <p>Initialize a <code>tree_desc</code> and decode its first entry. The buffer and
 size parameters are assumed to be the same as the buffer and size
 members of <code>struct tree</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codefilltreedescriptorcode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codefilltreedescriptorcode"></a><code>fill_tree_descriptor</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codefilltreedescriptorcode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-filltreedescriptor"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codefilltreedescriptorcode"></a><code>fill_tree_descriptor</code> </dt>
 <dd>
 <p>Initialize a <code>tree_desc</code> and decode its first entry given the
 object ID of a tree. Returns the <code>buffer</code> member if the latter
 is a valid tree identifier and NULL otherwise.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codesetuptraverseinfocode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codesetuptraverseinfocode"></a><code>setup_traverse_info</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codesetuptraverseinfocode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-setuptraverseinfo"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codesetuptraverseinfocode"></a><code>setup_traverse_info</code> </dt>
 <dd>
 <p>Initialize a <code>traverse_info</code> given the pathname of the tree to start
 traversing from.</p>
@@ -117,31 +117,31 @@ traversing from.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetreeentrycode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetreeentrycode"></a><code>tree_entry</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetreeentrycode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-treeentry"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetreeentrycode"></a><code>tree_entry</code> </dt>
 <dd>
 <p>Visit the next entry in a tree. Returns 1 when there are more entries
 left to visit and 0 when all entries have been visited. This is
 commonly used in the test of a while loop.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetreeentrylencode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetreeentrylencode"></a><code>tree_entry_len</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetreeentrylencode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-treeentrylen"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetreeentrylencode"></a><code>tree_entry_len</code> </dt>
 <dd>
 <p>Calculate the length of a tree entry&#8217;s pathname. This utilizes the
 memory structure of a tree entry to avoid the overhead of using a
 generic strlen().</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codeupdatetreeentrycode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codeupdatetreeentrycode"></a><code>update_tree_entry</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codeupdatetreeentrycode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-updatetreeentry"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codeupdatetreeentrycode"></a><code>update_tree_entry</code> </dt>
 <dd>
 <p>Walk to the next entry in a tree. This is commonly used in conjunction
 with <code>tree_entry_extract</code> to inspect the current entry.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetreeentryextractcode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetreeentryextractcode"></a><code>tree_entry_extract</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetreeentryextractcode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-treeentryextract"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetreeentryextractcode"></a><code>tree_entry_extract</code> </dt>
 <dd>
 <p>Decode the entry currently being visited (the one pointed to by
 <code>tree_desc's</code> <code>entry</code> member) and return the sha1 of the entry. The
 <code>pathp</code> and <code>modep</code> arguments are set to the entry&#8217;s pathname and mode
 respectively.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codegettreeentrycode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codegettreeentrycode"></a><code>get_tree_entry</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codegettreeentrycode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-gettreeentry"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codegettreeentrycode"></a><code>get_tree_entry</code> </dt>
 <dd>
 <p>Find an entry in a tree given a pathname and the sha1 of a tree to
 search. Returns 0 if the entry is found and -1 otherwise. The third
@@ -157,12 +157,12 @@ respectively.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetraversetreescode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetraversetreescode"></a><code>traverse_trees</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetraversetreescode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-traversetrees"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetraversetreescode"></a><code>traverse_trees</code> </dt>
 <dd>
 <p>Traverse <code>n</code> number of trees in parallel. The <code>fn</code> callback member of
 <code>traverse_info</code> is called once for each tree entry.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetraversecallbacktcode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetraversecallbacktcode"></a><code>traverse_callback_t</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetraversecallbacktcode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-traversecallbackt"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetraversecallbacktcode"></a><code>traverse_callback_t</code> </dt>
 <dd>
 <p>The arguments passed to the traverse callback are as follows:</p>
 <div class="ulist">
@@ -191,20 +191,20 @@ will be updated and if the bit is not set the nth tree entry will be the
 same in the next callback invocation.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codemaketraversepathcode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codemaketraversepathcode"></a><code>make_traverse_path</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codemaketraversepathcode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-maketraversepath"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codemaketraversepathcode"></a><code>make_traverse_path</code> </dt>
 <dd>
 <p>Generate the full pathname of a tree entry based from the root of the
 traversal. For example, if the traversal has recursed into another
 tree named "bar" the pathname of an entry "baz" in the "bar"
 tree would be "bar/baz".</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetraversepathlencode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetraversepathlencode"></a><code>traverse_path_len</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codetraversepathlencode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-traversepathlen"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codetraversepathlencode"></a><code>traverse_path_len</code> </dt>
 <dd>
 <p>Calculate the length of a pathname returned by <code>make_traverse_path</code>.
 This utilizes the memory structure of a tree entry to avoid the
 overhead of using a generic strlen().</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codestrbufmaketraversepathcode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codestrbufmaketraversepathcode"></a><code>strbuf_make_traverse_path</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-tree-walking.txt-codestrbufmaketraversepathcode"> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-strbufmaketraversepath"></a> <a class="anchor" href="#Documentation/technical/api-tree-walking.txt-codestrbufmaketraversepathcode"></a><code>strbuf_make_traverse_path</code> </dt>
 <dd>
 <p>Convenience wrapper to <code>make_traverse_path</code> into a strbuf.</p>
 </dd>

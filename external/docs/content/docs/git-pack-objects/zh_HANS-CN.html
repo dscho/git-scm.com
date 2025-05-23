@@ -99,23 +99,23 @@ aliases:
 <p>与 <code>--unpack-unreachable</code>、 <code>--keep-unreachable</code>、 <code>--pack-loose-unreachable</code>、 <code>--stdin-packs</code>，以及其他暗示 <code>--revs</code> 的选项不兼容。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---cruft-expirationltgt"> <a class="anchor" href="#git-pack-objects---cruft-expirationltgt"></a>--cruft-expiration=&lt;近似值&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---cruft-expirationltgt"> <a class="anchor" href="#git-pack-objects---cruft-expiration"></a> <a class="anchor" href="#git-pack-objects---cruft-expirationltgt"></a>--cruft-expiration=&lt;近似值&gt; </dt>
 <dd>
 <p>如果指定了，且对象的 mtime 超过 <code>&lt;approxidate&gt;</code>，就会从 cruft 包中剔除。如果没有指定（并给出 <code>--cruft</code>），那么没有对象被淘汰。</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---windowltngt"> <a class="anchor" href="#git-pack-objects---windowltngt"></a>--window=&lt;n&gt; </dt>
-<dt class="hdlist1" id="git-pack-objects---depthltngt"> <a class="anchor" href="#git-pack-objects---depthltngt"></a>--depth=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---windowltngt"> <a class="anchor" href="#git-pack-objects---windown"></a> <a class="anchor" href="#git-pack-objects---windowltngt"></a>--window=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---depthltngt"> <a class="anchor" href="#git-pack-objects---depthn"></a> <a class="anchor" href="#git-pack-objects---depthltngt"></a>--depth=&lt;n&gt; </dt>
 <dd>
 <p>这两个选项影响了使用 delta 压缩法存储数据包中的对象的方式。 这些对象首先按照类型、大小和可选的名称进行内部排序，并与 --window 内的其他对象进行比较，看使用 delta 压缩是否节省了空间。 --depth 限制了最大的 delta 深度；使其过深会影响到解包方的性能，因为 delta 数据需要应用那么多次才能到达必要的对象。</p>
 <div class="paragraph">
 <p>--window 的默认值为 10，--depth 的默认值为 50。最大深度为 4095。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---window-memoryltngt"> <a class="anchor" href="#git-pack-objects---window-memoryltngt"></a>--window-memory=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---window-memoryltngt"> <a class="anchor" href="#git-pack-objects---window-memoryn"></a> <a class="anchor" href="#git-pack-objects---window-memoryltngt"></a>--window-memory=&lt;n&gt; </dt>
 <dd>
 <p>这个选项在 <code>--window</code> 的基础上提供了一个额外的限制；窗口的大小将动态地缩小，以便不占用超过 <em>&lt;n&gt;</em> 字节的内存。 这对有大有小的对象的存储库很有用，它不会因为大窗口而耗尽内存，但仍然能够利用大窗口来处理小对象。 大小可以以 "k"、"m "或 "g "为后缀。 <code>--window-memory=0</code> 使内存使用不受限制。 默认值取自`pack.windowMemory` 配置变量。</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---max-pack-sizeltngt"> <a class="anchor" href="#git-pack-objects---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---max-pack-sizeltngt"> <a class="anchor" href="#git-pack-objects---max-pack-sizen"></a> <a class="anchor" href="#git-pack-objects---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
 <dd>
 <p>在不寻常的情况下，你可能无法在你的文件系统上创建大于一定大小的文件，这个选项可以用来告诉命令将输出的 packfile 分割成多个独立的 packfile，每个 packfile 都不大于给定的大小。大小可以以 "k"、"m "或 "g "为后缀。允许的最小尺寸被限制为1 MiB。 默认是无限制的，除非配置变量`pack.packSizeLimit` 被设置。注意，这个选项可能会导致仓库变大变慢；参见 `pack.packSizeLimit`中的讨论。</p>
 </dd>
@@ -123,7 +123,7 @@ aliases:
 <dd>
 <p>这个标志会使一个已经在本地打包的对象被忽略，即使它本来会被打包。</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---keep-packltgt"> <a class="anchor" href="#git-pack-objects---keep-packltgt"></a>--keep-pack=&lt;包名&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---keep-packltgt"> <a class="anchor" href="#git-pack-objects---keep-pack"></a> <a class="anchor" href="#git-pack-objects---keep-packltgt"></a>--keep-pack=&lt;包名&gt; </dt>
 <dd>
 <p>这个标志使已经在给定包中的对象被忽略，即使它本来已经被打包。<code>&lt;pack-name&gt;</code> 是不带前导目录的包文件名（例如：<code>pack-123.pack</code>）。该选项可以被多次指定以保留多个包。</p>
 </dd>
@@ -163,7 +163,7 @@ aliases:
 <dd>
 <p>这个标志告诉命令不要重复使用现有的对象数据，包括非延迟对象，强迫重新压缩所有东西。 这意味着 --no-reuse-delta。只有在需要对打包的数据全盘执行不同的压缩级别的隐蔽情况下才有用。</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---compressionltngt"> <a class="anchor" href="#git-pack-objects---compressionltngt"></a>--compression=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---compressionltngt"> <a class="anchor" href="#git-pack-objects---compressionn"></a> <a class="anchor" href="#git-pack-objects---compressionltngt"></a>--compression=&lt;n&gt; </dt>
 <dd>
 <p>为生成的数据包中新压缩的数据指定压缩级别。 如果没有指定，数据包的压缩级别首先由 pack.compression 决定，然后由 core.compression 决定，如果两者都没有设置，则默认为 -1，即 zlib 默认值。 如果你想在所有的数据上强制使用统一的压缩级别，无论其来源如何，请添加 --no-reuse-object。</p>
 </dd>
@@ -189,11 +189,11 @@ aliases:
 <p>注意: 在现版本 Git 中，诸如 <code>git gc</code> (参见 <a href='{{< relurl "docs/git-gc/zh_HANS-CN" >}}'>git-gc[1]</a>)、<code>git repack</code> (参见 <a href='{{< relurl "docs/git-repack/zh_HANS-CN" >}}'>git-repack[1]</a>)之类的上层命令在将仓库中的对象放入打包文件时，默认会传递这个选项。 当 <code>git bundle</code> (参见 <a href='{{< relurl "docs/git-bundle/zh_HANS-CN" >}}'>git-bundle[1]</a>)创建一个捆绑包时也会这样做。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---threadsltngt"> <a class="anchor" href="#git-pack-objects---threadsltngt"></a>--threads=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---threadsltngt"> <a class="anchor" href="#git-pack-objects---threadsn"></a> <a class="anchor" href="#git-pack-objects---threadsltngt"></a>--threads=&lt;n&gt; </dt>
 <dd>
 <p>指定搜索最佳 delta 匹配时产生的线程数。 这要求 pack-objects 使用 pthreads 编译，否则该选项将被忽略并发出警告。 这样做的目的是在多处理器机器上减少打包时间。 然而，delta 搜索窗口所需的内存会乘以线程数。 指定 0 将导致 Git 自动检测 CPU 数量并相应设置线程数量。</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---index-versionltgtltgt"> <a class="anchor" href="#git-pack-objects---index-versionltgtltgt"></a>--index-version=&lt;版本&gt;[,&lt;偏移&gt;] </dt>
+<dt class="hdlist1" id="git-pack-objects---index-versionltgtltgt"> <a class="anchor" href="#git-pack-objects---index-version"></a> <a class="anchor" href="#git-pack-objects---index-versionltgtltgt"></a>--index-version=&lt;版本&gt;[,&lt;偏移&gt;] </dt>
 <dd>
 <p>这是为测试套件准备的。它允许为生成的数据包索引强制选择版本，并对位于给定偏移量以上的对象强制选择 64 位索引条目。</p>
 </dd>
@@ -201,7 +201,7 @@ aliases:
 <dd>
 <p>通过这种方法，被移植物覆盖的父母还是会被打包。</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---filterltgt"> <a class="anchor" href="#git-pack-objects---filterltgt"></a>--filter=&lt;过滤器定义&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---filterltgt"> <a class="anchor" href="#git-pack-objects---filter"></a> <a class="anchor" href="#git-pack-objects---filterltgt"></a>--filter=&lt;过滤器定义&gt; </dt>
 <dd>
 <p>从生成的包文件中省略某些对象（通常是 blob）。 有关有效的 <code>&lt;过滤规则&gt;</code> 形式，请参见 <a href='{{< relurl "docs/git-rev-list/zh_HANS-CN" >}}'>git-rev-list[1]</a>。</p>
 </dd>
@@ -209,7 +209,7 @@ aliases:
 <dd>
 <p>关闭之前的 <code>--filter=</code> 参数。</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---missingltgt"> <a class="anchor" href="#git-pack-objects---missingltgt"></a>--missing=&lt;缺失行为&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---missingltgt"> <a class="anchor" href="#git-pack-objects---missing"></a> <a class="anchor" href="#git-pack-objects---missingltgt"></a>--missing=&lt;缺失行为&gt; </dt>
 <dd>
 <p>一个调试选项，帮助未来的 "部分克隆 "开发。 这个选项指定了如何处理丢失的对象。</p>
 <div class="paragraph">
@@ -242,7 +242,7 @@ aliases:
 <dd>
 <p>根据 “岛屿” 限制增量匹配。请参阅下文的增量匹配。</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---name-hash-versionltngt"> <a class="anchor" href="#git-pack-objects---name-hash-versionltngt"></a>--name-hash-version=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-pack-objects---name-hash-versionltngt"> <a class="anchor" href="#git-pack-objects---name-hash-versionn"></a> <a class="anchor" href="#git-pack-objects---name-hash-versionltngt"></a>--name-hash-version=&lt;n&gt; </dt>
 <dd>
 <p>While performing delta compression, Git groups objects that may be similar based on heuristics using the path to that object. While grouping objects by an exact path match is good for paths with many versions, there are benefits for finding delta pairs across different full paths. Git collects objects by type and then by a "name hash" of the path and then by size, hoping to group objects that will compress well together.</p>
 <div class="paragraph">

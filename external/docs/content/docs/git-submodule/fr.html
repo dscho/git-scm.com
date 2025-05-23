@@ -56,7 +56,7 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-submodule-add-bltbranchegt-f--force--nameltnomgt--referenceltdptgt--ref-formatltformatgt--depthltprofondeurgt--ltdptgtltchemingt"> <a class="anchor" href="#git-submodule-add-bltbranchegt-f--force--nameltnomgt--referenceltdptgt--ref-formatltformatgt--depthltprofondeurgt--ltdptgtltchemingt"></a>add [-b &lt;branche&gt;] [-f|--force] [--name &lt;nom&gt;] [--reference &lt;dépôt&gt;] [--ref-format &lt;format&gt;] [--depth &lt;profondeur&gt;] [--] &lt;dépôt&gt; [&lt;chemin&gt;] </dt>
+<dt class="hdlist1" id="git-submodule-add-bltbranchegt-f--force--nameltnomgt--referenceltdptgt--ref-formatltformatgt--depthltprofondeurgt--ltdptgtltchemingt"> <a class="anchor" href="#git-submodule-add-bbranche-f--force--namenom--referencedpt--ref-formatformat--depthprofondeur--dptchemin"></a> <a class="anchor" href="#git-submodule-add-bltbranchegt-f--force--nameltnomgt--referenceltdptgt--ref-formatltformatgt--depthltprofondeurgt--ltdptgtltchemingt"></a>add [-b &lt;branche&gt;] [-f|--force] [--name &lt;nom&gt;] [--reference &lt;dépôt&gt;] [--ref-format &lt;format&gt;] [--depth &lt;profondeur&gt;] [--] &lt;dépôt&gt; [&lt;chemin&gt;] </dt>
 <dd>
 <p>Ajouter le dépôt donné comme sous-module au chemin donné vers les modifications à valider à côté du projet en cours : le projet en cours est appelé « superprojet ».</p>
 <div class="paragraph">
@@ -75,7 +75,7 @@ aliases:
 <p>Si <code>--ref-format &lt;format&gt;</code> est spécifié, le format de stockage des ref des sous-modules récemment clonés sera défini en conséquence.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-submodule-status--cached--recursive--ltchemingt82308203"> <a class="anchor" href="#git-submodule-status--cached--recursive--ltchemingt82308203"></a>status [--cached] [--recursive] [--] [&lt;chemin&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-submodule-status--cached--recursive--ltchemingt82308203"> <a class="anchor" href="#git-submodule-status--cached--recursive--chemin"></a> <a class="anchor" href="#git-submodule-status--cached--recursive--ltchemingt82308203"></a>status [--cached] [--recursive] [--] [&lt;chemin&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Afficher le statut des sous-modules. Cela affichera le SHA-1 du commit actuellement extrait pour chaque sous-module, ainsi que le chemin du sous-module et la sortie de <em>git describe</em> pour le SHA-1. Chaque SHA-1 sera éventuellement préfixé par <code>-</code> si le sous-module n&#8217;est pas initialisé, <code>+</code> si le commit du sous-module actuellement extrait ne correspond pas au SHA-1 trouvé dans l&#8217;index du dépôt contenant et <code>U</code> si le sous-module a des conflits de fusion.</p>
 <div class="paragraph">
@@ -88,7 +88,7 @@ aliases:
 <p>Si vous n&#8217;êtes intéressé que par les modifications des sous-modules actuellement initialisés par rapport au commit enregistré dans l&#8217;index ou dans HEAD, <a href='{{< relurl "docs/git-status/fr" >}}'>git-status[1]</a> et <a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a> vous fourniront également ces informations (et peuvent également signaler les modifications de l&#8217;arbre de travail d&#8217;un sous-module).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-submodule-init--ltchemingt82308203"> <a class="anchor" href="#git-submodule-init--ltchemingt82308203"></a>init [--] [&lt;chemin&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-submodule-init--ltchemingt82308203"> <a class="anchor" href="#git-submodule-init--chemin"></a> <a class="anchor" href="#git-submodule-init--ltchemingt82308203"></a>init [--] [&lt;chemin&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Initialiser les sous-modules enregistrés dans l&#8217;index (qui ont été ajoutés et validés ailleurs) en définissant <code>submodule.$nom.url</code> dans <code>.git/config</code>, en utilisant le même paramètre de <code>.gitmodules</code> comme modèle. Si l&#8217;URL est relative, elle sera résolue en utilisant le distant par défaut. S&#8217;il n&#8217;y a pas de distant par défaut, le dépôt actuel sera supposé être en amont.</p>
 <div class="paragraph">
@@ -104,7 +104,7 @@ aliases:
 <p>Voir la sous-commande d&#8217;ajout pour la définition du distant par défaut.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-submodule-deinit-f--force--all--ltchemingt82308203"> <a class="anchor" href="#git-submodule-deinit-f--force--all--ltchemingt82308203"></a>deinit [-f|--force] (--all|[--] &lt;chemin&gt;&#8230;&#8203;) </dt>
+<dt class="hdlist1" id="git-submodule-deinit-f--force--all--ltchemingt82308203"> <a class="anchor" href="#git-submodule-deinit-f--force--all--chemin"></a> <a class="anchor" href="#git-submodule-deinit-f--force--all--ltchemingt82308203"></a>deinit [-f|--force] (--all|[--] &lt;chemin&gt;&#8230;&#8203;) </dt>
 <dd>
 <p>Désenregistrez les sous-modules donnés, c&#8217;est-à-dire supprimez toute la section <code>submodule.$name</code> de .git/config ainsi que leur arborescence de travail. Les appels ultérieurs à <code>git submodule update</code>, <code>git submodule foreach</code> et <code>git submodule sync</code> ignoreront tous les sous-modules non enregistrés jusqu&#8217;à ce qu&#8217;ils soient initialisés à nouveau, donc utilisez cette commande si vous ne voulez plus avoir de vérification locale du sous-module dans votre arbre de travail.</p>
 <div class="paragraph">
@@ -117,7 +117,7 @@ aliases:
 <p>Si vous voulez vraiment supprimer un sous-module du dépôt et valider le résultat, utilisez plutôt <a href='{{< relurl "docs/git-rm/fr" >}}'>git-rm[1]</a>. Voir <a href='{{< relurl "docs/gitsubmodules/fr" >}}'>gitsubmodules[7]</a> pour les options de suppression.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-submodule-update--init--remote-N--no-fetch--no-recommend-shallow-f--force--checkout--rebase--merge--referenceltdptgt--ref-formatltformatgt--depthltprofondeurgt--recursive--jobsltngt--no-single-branch--filterltspc-de-filtregt--ltchemingt82308203"> <a class="anchor" href="#git-submodule-update--init--remote-N--no-fetch--no-recommend-shallow-f--force--checkout--rebase--merge--referenceltdptgt--ref-formatltformatgt--depthltprofondeurgt--recursive--jobsltngt--no-single-branch--filterltspc-de-filtregt--ltchemingt82308203"></a>update [--init] [--remote] [-N|--no-fetch] [--[no-]recommend-shallow] [-f|--force] [--checkout|--rebase|--merge] [--reference &lt;dépôt&gt;] [--ref-format &lt;format&gt;] [--depth &lt;profondeur&gt;] [--recursive] [--jobs &lt;n&gt;] [--[no-]single-branch] [--filter &lt;spéc-de-filtre&gt;] [--] [&lt;chemin&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-submodule-update--init--remote-N--no-fetch--no-recommend-shallow-f--force--checkout--rebase--merge--referenceltdptgt--ref-formatltformatgt--depthltprofondeurgt--recursive--jobsltngt--no-single-branch--filterltspc-de-filtregt--ltchemingt82308203"> <a class="anchor" href="#git-submodule-update--init--remote-N--no-fetch--no-recommend-shallow-f--force--checkout--rebase--merge--referencedpt--ref-formatformat--depthprofondeur--recursive--jobsn--no-single-branch--filterspc-de-filtre--chemin"></a> <a class="anchor" href="#git-submodule-update--init--remote-N--no-fetch--no-recommend-shallow-f--force--checkout--rebase--merge--referenceltdptgt--ref-formatltformatgt--depthltprofondeurgt--recursive--jobsltngt--no-single-branch--filterltspc-de-filtregt--ltchemingt82308203"></a>update [--init] [--remote] [-N|--no-fetch] [--[no-]recommend-shallow] [-f|--force] [--checkout|--rebase|--merge] [--reference &lt;dépôt&gt;] [--ref-format &lt;format&gt;] [--depth &lt;profondeur&gt;] [--recursive] [--jobs &lt;n&gt;] [--[no-]single-branch] [--filter &lt;spéc-de-filtre&gt;] [--] [&lt;chemin&gt;&#8230;&#8203;] </dt>
 <dd>
 <div class="openblock">
 <div class="content">
@@ -173,23 +173,23 @@ aliases:
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-submodule-set-branch-b--branchltbranchegt--ltchemingt"> <a class="anchor" href="#git-submodule-set-branch-b--branchltbranchegt--ltchemingt"></a>set-branch (-b|--branch) &lt;branche&gt; [--] &lt;chemin&gt; </dt>
-<dt class="hdlist1" id="git-submodule-set-branch-d--default--ltchemingt"> <a class="anchor" href="#git-submodule-set-branch-d--default--ltchemingt"></a>set-branch (-d|--default) [--] &lt;chemin&gt; </dt>
+<dt class="hdlist1" id="git-submodule-set-branch-b--branchltbranchegt--ltchemingt"> <a class="anchor" href="#git-submodule-set-branch-b--branchbranche--chemin"></a> <a class="anchor" href="#git-submodule-set-branch-b--branchltbranchegt--ltchemingt"></a>set-branch (-b|--branch) &lt;branche&gt; [--] &lt;chemin&gt; </dt>
+<dt class="hdlist1" id="git-submodule-set-branch-d--default--ltchemingt"> <a class="anchor" href="#git-submodule-set-branch-d--default--chemin"></a> <a class="anchor" href="#git-submodule-set-branch-d--default--ltchemingt"></a>set-branch (-d|--default) [--] &lt;chemin&gt; </dt>
 <dd>
 <p>Définir la branche distante par défaut pour le sous-module. L&#8217;option <code>--branch</code> permet de spécifier la branche distante. L&#8217;option <code>--default</code> supprime la clé de configuration submodule.&lt;nom&gt;.branch, ce qui fait que la branche de suivi par défaut est la branche <em>HEAD</em> distante .</p>
 </dd>
-<dt class="hdlist1" id="git-submodule-set-url--ltchemingtltnouvelle-urlgt"> <a class="anchor" href="#git-submodule-set-url--ltchemingtltnouvelle-urlgt"></a>set-url [--] &lt;chemin&gt; &lt;nouvelle-url&gt; </dt>
+<dt class="hdlist1" id="git-submodule-set-url--ltchemingtltnouvelle-urlgt"> <a class="anchor" href="#git-submodule-set-url--cheminnouvelle-url"></a> <a class="anchor" href="#git-submodule-set-url--ltchemingtltnouvelle-urlgt"></a>set-url [--] &lt;chemin&gt; &lt;nouvelle-url&gt; </dt>
 <dd>
 <p>Fixer l&#8217;URL du sous-module spécifié à &lt;nouvelle-url&gt;. Ensuite, il synchronisera automatiquement la nouvelle configuration de l&#8217;URL distante du sous-module.</p>
 </dd>
-<dt class="hdlist1" id="git-submodule-summary--cached--files-n--summary-limitltngtcommit--ltchemingt82308203"> <a class="anchor" href="#git-submodule-summary--cached--files-n--summary-limitltngtcommit--ltchemingt82308203"></a>summary [--cached|--files] [(-n|--summary-limit) &lt;n&gt;] [commit] [--] [&lt;chemin&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-submodule-summary--cached--files-n--summary-limitltngtcommit--ltchemingt82308203"> <a class="anchor" href="#git-submodule-summary--cached--files-n--summary-limitncommit--chemin"></a> <a class="anchor" href="#git-submodule-summary--cached--files-n--summary-limitltngtcommit--ltchemingt82308203"></a>summary [--cached|--files] [(-n|--summary-limit) &lt;n&gt;] [commit] [--] [&lt;chemin&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Afficher le résumé du commit entre le commit donné (par défaut HEAD) et l&#8217;arbre de travail/index. Pour un sous-module en question, une série de commits dans le sous-module entre le commit donné du super projet et l&#8217;index ou l&#8217;arbre de travail (commuté par <code>--cached</code>) sont affichés. Si l&#8217;option <code>--files</code> est donnée, afficher la série de commits dans le sous-module entre l&#8217;index du super projet et l&#8217;arbre de travail du sous-module (cette option ne permet pas d&#8217;utiliser l&#8217;option <code>--cached</code> ou de fournir un commit explicite).</p>
 <div class="paragraph">
 <p>L&#8217;utilisation de l&#8217;option <code>--submodule=log</code> avec <a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a> fournira également cette information.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-submodule-foreach--recursiveltcommandegt"> <a class="anchor" href="#git-submodule-foreach--recursiveltcommandegt"></a>foreach [--recursive] &lt;commande&gt; </dt>
+<dt class="hdlist1" id="git-submodule-foreach--recursiveltcommandegt"> <a class="anchor" href="#git-submodule-foreach--recursivecommande"></a> <a class="anchor" href="#git-submodule-foreach--recursiveltcommandegt"></a>foreach [--recursive] &lt;commande&gt; </dt>
 <dd>
 <p>Évaluer une commande shell arbitraire dans chaque sous-module extrait. La commande a accès aux variables $name, $sm_path, $displaypath, $sha1 et $toplevel : $name est le nom de la section du sous-module concernée dans <code>.gitmodules</code>, $sm_path est le chemin du sous-module tel qu&#8217;il est enregistré dans le superprojet immédiat, $displaypath contient le chemin relatif du répertoire de travail courant au répertoire racine du sous-modules, $sha1 est le commit tel qu&#8217;il est enregistré dans le superprojet immédiat, et $toplevel est le chemin absolu vers le niveau supérieur du superprojet immédiat. Notez que pour éviter les conflits avec <em>$PATH</em> sous Windows, la variable <em>$path</em> est maintenant un synonyme obsolète de la variable <em>$sm_path</em>. Tous les sous-modules définis dans le superprojet mais non extraits sont ignorés par cette commande. A moins qu&#8217;on ne lui donne <code>--quiet</code>, foreach imprime le nom de chaque sous-module avant d&#8217;évaluer la commande. Si la variable <code>--recursive</code> est donnée, les sous-modules sont parcourus de manière récursive (c&#8217;est-à-dire que la commande shell donnée est également évaluée dans les sous-modules imbriqués). Un retour non nul de la commande dans un sous-module quelconque entraîne l&#8217;arrêt du traitement. Il est possible d&#8217;y remédier en ajoutant <em>|| :</em> à la fin de la commande.</p>
 <div class="paragraph">
@@ -201,7 +201,7 @@ aliases:
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-submodule-sync--recursive--ltchemingt82308203"> <a class="anchor" href="#git-submodule-sync--recursive--ltchemingt82308203"></a>sync [--recursive] [--] [&lt;chemin&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-submodule-sync--recursive--ltchemingt82308203"> <a class="anchor" href="#git-submodule-sync--recursive--chemin"></a> <a class="anchor" href="#git-submodule-sync--recursive--ltchemingt82308203"></a>sync [--recursive] [--] [&lt;chemin&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Synchroniser le paramètre de configuration de l&#8217;URL distante des sous-modules à la valeur spécifiée dans <code>.gitmodules</code>. Cela n&#8217;affectera que les sous-modules qui ont déjà une entrée d&#8217;URL dans .git/config (c&#8217;est le cas lorsqu&#8217;ils sont initialisés ou fraîchement ajoutés). Ceci est utile lorsque les URL des sous-modules changent en amont et que vous devez mettre à jour vos dépôts locaux en conséquence.</p>
 <div class="paragraph">
@@ -243,8 +243,8 @@ aliases:
 <dd>
 <p>Cette option n&#8217;est valide que pour la commande deinit. Désenregistrer tous les sous-modules dans l&#8217;arbre de travail.</p>
 </dd>
-<dt class="hdlist1" id="git-submodule--bltbranchegt"> <a class="anchor" href="#git-submodule--bltbranchegt"></a>-b &lt;branche&gt; </dt>
-<dt class="hdlist1" id="git-submodule---branchltbranchegt"> <a class="anchor" href="#git-submodule---branchltbranchegt"></a>--branch &lt;branche&gt; </dt>
+<dt class="hdlist1" id="git-submodule--bltbranchegt"> <a class="anchor" href="#git-submodule--bbranche"></a> <a class="anchor" href="#git-submodule--bltbranchegt"></a>-b &lt;branche&gt; </dt>
+<dt class="hdlist1" id="git-submodule---branchltbranchegt"> <a class="anchor" href="#git-submodule---branchbranche"></a> <a class="anchor" href="#git-submodule---branchltbranchegt"></a>--branch &lt;branche&gt; </dt>
 <dd>
 <p>Branche du dépôt à ajouter comme sous-module. Le nom de la branche est enregistré comme <code>submodule.&lt;nom&gt;.branch</code> dans <code>.gitmodules</code> pour <code>update--remote</code>. Une valeur spéciale de <code>.</code> est utilisée pour indiquer que le nom de la branche dans le sous-module doit être le même que celui de la branche active dans le dépôt actuel. Si l&#8217;option n&#8217;est pas spécifiée, la valeur par défaut est <code>HEAD</code> distant.</p>
 </dd>
@@ -304,7 +304,7 @@ aliases:
 <dd>
 <p>Cette option n&#8217;est valable que pour la commande add. Elle fixe le nom du sous-module à la chaîne de caractères donnée au lieu de choisir par défaut son chemin d&#8217;accès. Le nom doit être valide en tant que nom de répertoire et ne peut pas se terminer par un "/".</p>
 </dd>
-<dt class="hdlist1" id="git-submodule---referenceltdptgt"> <a class="anchor" href="#git-submodule---referenceltdptgt"></a>--reference &lt;dépôt&gt; </dt>
+<dt class="hdlist1" id="git-submodule---referenceltdptgt"> <a class="anchor" href="#git-submodule---referencedpt"></a> <a class="anchor" href="#git-submodule---referenceltdptgt"></a>--reference &lt;dépôt&gt; </dt>
 <dd>
 <p>Cette option n&#8217;est valable que pour les commandes add et update. Ces commandes ont parfois besoin de cloner un dépôt distant. Dans ce cas, cette option sera passée à la commande <a href='{{< relurl "docs/git-clone/fr" >}}'>git-clone[1]</a>.</p>
 <div class="paragraph">
@@ -330,8 +330,8 @@ aliases:
 <dd>
 <p>Cette option n&#8217;est valable que pour la commande de mise à jour. Le clone initial d&#8217;un sous-module utilisera le <code>submodule.&lt;nom&gt;.shallow</code> recommandé, tel que fourni par le fichier <code>.gitmodules</code> par défaut. Pour ignorer les suggestions, utilisez <code>--no-recommend-shallow</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-submodule--jltngt"> <a class="anchor" href="#git-submodule--jltngt"></a>-j &lt;n&gt; </dt>
-<dt class="hdlist1" id="git-submodule---jobsltngt"> <a class="anchor" href="#git-submodule---jobsltngt"></a>--jobs &lt;n&gt; </dt>
+<dt class="hdlist1" id="git-submodule--jltngt"> <a class="anchor" href="#git-submodule--jn"></a> <a class="anchor" href="#git-submodule--jltngt"></a>-j &lt;n&gt; </dt>
+<dt class="hdlist1" id="git-submodule---jobsltngt"> <a class="anchor" href="#git-submodule---jobsn"></a> <a class="anchor" href="#git-submodule---jobsltngt"></a>--jobs &lt;n&gt; </dt>
 <dd>
 <p>Cette option n&#8217;est valable que pour la commande update. Cloner les nouveaux sous-modules en parallèle avec autant de tâches. L&#8217;option <code>submodule.fetchJobs</code> est utilisée par défaut.</p>
 </dd>
@@ -339,7 +339,7 @@ aliases:
 <dd>
 <p>Cette option n&#8217;est valable que pour la commande update. Cloner une seule branche pendant la mise à jour : HEAD ou une branche spécifiée par --branch.</p>
 </dd>
-<dt class="hdlist1" id="git-submodule-ltchemingt82308203"> <a class="anchor" href="#git-submodule-ltchemingt82308203"></a>&lt;chemin&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-submodule-ltchemingt82308203"> <a class="anchor" href="#git-submodule-chemin"></a> <a class="anchor" href="#git-submodule-ltchemingt82308203"></a>&lt;chemin&gt;&#8230;&#8203; </dt>
 <dd>
 <p>Chemins vers le(s) sous-module(s). Lorsque cela est spécifié, la commande ne fonctionnera que sur les sous-modules se trouvant sur les chemins spécifiés. (Cet argument est requis avec add).</p>
 </dd>

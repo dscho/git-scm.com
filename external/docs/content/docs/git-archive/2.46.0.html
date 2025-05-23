@@ -64,7 +64,7 @@ get-tar-commit-id</em>. In ZIP files it is stored as a file comment.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/git-archive.txt---formatltfmtgt"> <a class="anchor" href="#Documentation/git-archive.txt---formatltfmtgt"></a>--format=&lt;fmt&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt---formatltfmtgt"> <a class="anchor" href="#Documentation/git-archive.txt---formatfmt"></a> <a class="anchor" href="#Documentation/git-archive.txt---formatltfmtgt"></a>--format=&lt;fmt&gt; </dt>
 <dd>
 <p>Format of the resulting archive. Possible values are <code>tar</code>,
 <code>zip</code>, <code>tar.gz</code>, <code>tgz</code>, and any format defined using the
@@ -84,25 +84,25 @@ format is <code>tar</code>.</p>
 <dd>
 <p>Report progress to stderr.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt---prefixltprefixgt"> <a class="anchor" href="#Documentation/git-archive.txt---prefixltprefixgt"></a>--prefix=&lt;prefix&gt;/ </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt---prefixltprefixgt"> <a class="anchor" href="#Documentation/git-archive.txt---prefixprefix"></a> <a class="anchor" href="#Documentation/git-archive.txt---prefixltprefixgt"></a>--prefix=&lt;prefix&gt;/ </dt>
 <dd>
 <p>Prepend &lt;prefix&gt;/ to paths in the archive.  Can be repeated; its
 rightmost value is used for all tracked files.  See below which
 value gets used by <code>--add-file</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt--oltfilegt"> <a class="anchor" href="#Documentation/git-archive.txt--oltfilegt"></a>-o &lt;file&gt; </dt>
-<dt class="hdlist1" id="Documentation/git-archive.txt---outputltfilegt"> <a class="anchor" href="#Documentation/git-archive.txt---outputltfilegt"></a>--output=&lt;file&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt--oltfilegt"> <a class="anchor" href="#Documentation/git-archive.txt--ofile"></a> <a class="anchor" href="#Documentation/git-archive.txt--oltfilegt"></a>-o &lt;file&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt---outputltfilegt"> <a class="anchor" href="#Documentation/git-archive.txt---outputfile"></a> <a class="anchor" href="#Documentation/git-archive.txt---outputltfilegt"></a>--output=&lt;file&gt; </dt>
 <dd>
 <p>Write the archive to &lt;file&gt; instead of stdout.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt---add-fileltfilegt"> <a class="anchor" href="#Documentation/git-archive.txt---add-fileltfilegt"></a>--add-file=&lt;file&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt---add-fileltfilegt"> <a class="anchor" href="#Documentation/git-archive.txt---add-filefile"></a> <a class="anchor" href="#Documentation/git-archive.txt---add-fileltfilegt"></a>--add-file=&lt;file&gt; </dt>
 <dd>
 <p>Add a non-tracked file to the archive.  Can be repeated to add
 multiple files.  The path of the file in the archive is built by
 concatenating the value of the last <code>--prefix</code> option (if any)
 before this <code>--add-file</code> and the basename of &lt;file&gt;.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt---add-virtual-fileltpathgtltcontentgt"> <a class="anchor" href="#Documentation/git-archive.txt---add-virtual-fileltpathgtltcontentgt"></a>--add-virtual-file=&lt;path&gt;:&lt;content&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt---add-virtual-fileltpathgtltcontentgt"> <a class="anchor" href="#Documentation/git-archive.txt---add-virtual-filepathcontent"></a> <a class="anchor" href="#Documentation/git-archive.txt---add-virtual-fileltpathgtltcontentgt"></a>--add-virtual-file=&lt;path&gt;:&lt;content&gt; </dt>
 <dd>
 <p>Add the specified contents to the archive.  Can be repeated to add
 multiple files.</p>
@@ -130,18 +130,18 @@ the value of the option.</p>
 <p>Look for attributes in .gitattributes files in the working tree
 as well (see <a href="#ATTRIBUTES">ATTRIBUTES</a>).</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt---mtimelttimegt"> <a class="anchor" href="#Documentation/git-archive.txt---mtimelttimegt"></a>--mtime=&lt;time&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt---mtimelttimegt"> <a class="anchor" href="#Documentation/git-archive.txt---mtimetime"></a> <a class="anchor" href="#Documentation/git-archive.txt---mtimelttimegt"></a>--mtime=&lt;time&gt; </dt>
 <dd>
 <p>Set modification time of archive entries.  Without this option
 the committer time is used if <code>&lt;tree-ish&gt;</code> is a commit or tag,
 and the current time if it is a tree.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-ltextragt"> <a class="anchor" href="#Documentation/git-archive.txt-ltextragt"></a>&lt;extra&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-ltextragt"> <a class="anchor" href="#Documentation/git-archive.txt-extra"></a> <a class="anchor" href="#Documentation/git-archive.txt-ltextragt"></a>&lt;extra&gt; </dt>
 <dd>
 <p>This can be any options that the archiver backend understands.
 See next section.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt---remoteltrepogt"> <a class="anchor" href="#Documentation/git-archive.txt---remoteltrepogt"></a>--remote=&lt;repo&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt---remoteltrepogt"> <a class="anchor" href="#Documentation/git-archive.txt---remoterepo"></a> <a class="anchor" href="#Documentation/git-archive.txt---remoteltrepogt"></a>--remote=&lt;repo&gt; </dt>
 <dd>
 <p>Instead of making a tar archive from the local repository,
 retrieve a tar archive from a remote repository. Note that the
@@ -149,16 +149,16 @@ remote repository may place restrictions on which sha1
 expressions may be allowed in <code>&lt;tree-ish&gt;</code>. See
 <a href='{{< relurl "docs/git-upload-archive" >}}'>git-upload-archive[1]</a> for details.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt---execltgit-upload-archivegt"> <a class="anchor" href="#Documentation/git-archive.txt---execltgit-upload-archivegt"></a>--exec=&lt;git-upload-archive&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt---execltgit-upload-archivegt"> <a class="anchor" href="#Documentation/git-archive.txt---execgit-upload-archive"></a> <a class="anchor" href="#Documentation/git-archive.txt---execltgit-upload-archivegt"></a>--exec=&lt;git-upload-archive&gt; </dt>
 <dd>
 <p>Used with --remote to specify the path to the
 <em>git-upload-archive</em> on the remote side.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-lttree-ishgt"> <a class="anchor" href="#Documentation/git-archive.txt-lttree-ishgt"></a>&lt;tree-ish&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-lttree-ishgt"> <a class="anchor" href="#Documentation/git-archive.txt-tree-ish"></a> <a class="anchor" href="#Documentation/git-archive.txt-lttree-ishgt"></a>&lt;tree-ish&gt; </dt>
 <dd>
 <p>The tree or commit to produce an archive for.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-ltpathgt"> <a class="anchor" href="#Documentation/git-archive.txt-ltpathgt"></a>&lt;path&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-ltpathgt"> <a class="anchor" href="#Documentation/git-archive.txt-path"></a> <a class="anchor" href="#Documentation/git-archive.txt-ltpathgt"></a>&lt;path&gt; </dt>
 <dd>
 <p>Without an optional path parameter, all files and subdirectories
 of the current working directory are included in the archive.
@@ -175,7 +175,7 @@ If one or more paths are specified, only these are included.</p>
 <h3 id="_zip"><a class="anchor" href="#_zip"></a>zip</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/git-archive.txt--ltdigitgt"> <a class="anchor" href="#Documentation/git-archive.txt--ltdigitgt"></a>-&lt;digit&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt--ltdigitgt"> <a class="anchor" href="#Documentation/git-archive.txt--digit"></a> <a class="anchor" href="#Documentation/git-archive.txt--ltdigitgt"></a>-&lt;digit&gt; </dt>
 <dd>
 <p>Specify compression level.  Larger values allow the command
 to spend more time to compress to smaller size.  Supported
@@ -189,7 +189,7 @@ Default is <code>-6</code> if not given.</p>
 <h3 id="_tar"><a class="anchor" href="#_tar"></a>tar</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/git-archive.txt--ltnumbergt"> <a class="anchor" href="#Documentation/git-archive.txt--ltnumbergt"></a>-&lt;number&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt--ltnumbergt"> <a class="anchor" href="#Documentation/git-archive.txt--number"></a> <a class="anchor" href="#Documentation/git-archive.txt--ltnumbergt"></a>-&lt;number&gt; </dt>
 <dd>
 <p>Specify compression level. The value will be passed to the
 compression command configured in <code>tar.&lt;format&gt;.command</code>. See
@@ -215,7 +215,7 @@ archiving user&#8217;s umask will be used instead.  See umask(2) for
 details.  If <code>--remote</code> is used then only the configuration of
 the remote repository takes effect.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-tarltformatgtcommand"> <a class="anchor" href="#Documentation/git-archive.txt-tarltformatgtcommand"></a>tar.&lt;format&gt;.command </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-tarltformatgtcommand"> <a class="anchor" href="#Documentation/git-archive.txt-tarformatcommand"></a> <a class="anchor" href="#Documentation/git-archive.txt-tarltformatgtcommand"></a>tar.&lt;format&gt;.command </dt>
 <dd>
 <p>This variable specifies a shell command through which the tar
 output generated by <code>git archive</code> should be piped. The command
@@ -229,7 +229,7 @@ magic command <code>git archive gzip</code> by default, which invokes an interna
 implementation of gzip.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-tarltformatgtremote"> <a class="anchor" href="#Documentation/git-archive.txt-tarltformatgtremote"></a>tar.&lt;format&gt;.remote </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-tarltformatgtremote"> <a class="anchor" href="#Documentation/git-archive.txt-tarformatremote"></a> <a class="anchor" href="#Documentation/git-archive.txt-tarltformatgtremote"></a>tar.&lt;format&gt;.remote </dt>
 <dd>
 <p>If true, enable the format for use by remote clients via
 <a href='{{< relurl "docs/git-upload-archive" >}}'>git-upload-archive[1]</a>. Defaults to false for
@@ -274,47 +274,47 @@ while archiving any tree in your <code>$GIT_DIR/info/attributes</code> file.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--formattar--prefixjunkHEADcdvartmpampamptarxf-code"> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--formattar--prefixjunkHEADcdvartmpampamptarxf-code"></a><code>git archive --format=tar --prefix=junk/ HEAD | (cd /var/tmp/ &amp;&amp; tar xf -)</code> </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--formattar--prefixjunkHEADcdvartmpampamptarxf-code"> <a class="anchor" href="#Documentation/git-archive.txt-gitarchive--formattar--prefixjunkHEADcdvartmptarxf-"></a> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--formattar--prefixjunkHEADcdvartmpampamptarxf-code"></a><code>git archive --format=tar --prefix=junk/ HEAD | (cd /var/tmp/ &amp;&amp; tar xf -)</code> </dt>
 <dd>
 <p>Create a tar archive that contains the contents of the
 latest commit on the current branch, and extract it in the
 <code>/var/tmp/junk</code> directory.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--formattar--prefixgit-140v140gzipgtgit-140targzcode"> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--formattar--prefixgit-140v140gzipgtgit-140targzcode"></a><code>git archive --format=tar --prefix=git-1.4.0/ v1.4.0 | gzip &gt;git-1.4.0.tar.gz</code> </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--formattar--prefixgit-140v140gzipgtgit-140targzcode"> <a class="anchor" href="#Documentation/git-archive.txt-gitarchive--formattar--prefixgit-140v140gzipgit-140targz"></a> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--formattar--prefixgit-140v140gzipgtgit-140targzcode"></a><code>git archive --format=tar --prefix=git-1.4.0/ v1.4.0 | gzip &gt;git-1.4.0.tar.gz</code> </dt>
 <dd>
 <p>Create a compressed tarball for v1.4.0 release.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--formattargz--prefixgit-140v140gtgit-140targzcode"> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--formattargz--prefixgit-140v140gtgit-140targzcode"></a><code>git archive --format=tar.gz --prefix=git-1.4.0/ v1.4.0 &gt;git-1.4.0.tar.gz</code> </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--formattargz--prefixgit-140v140gtgit-140targzcode"> <a class="anchor" href="#Documentation/git-archive.txt-gitarchive--formattargz--prefixgit-140v140git-140targz"></a> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--formattargz--prefixgit-140v140gtgit-140targzcode"></a><code>git archive --format=tar.gz --prefix=git-1.4.0/ v1.4.0 &gt;git-1.4.0.tar.gz</code> </dt>
 <dd>
 <p>Same as above, but using the builtin tar.gz handling.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--prefixgit-140-ogit-140targzv140code"> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--prefixgit-140-ogit-140targzv140code"></a><code>git archive --prefix=git-1.4.0/ -o git-1.4.0.tar.gz v1.4.0</code> </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--prefixgit-140-ogit-140targzv140code"> <a class="anchor" href="#Documentation/git-archive.txt-gitarchive--prefixgit-140-ogit-140targzv140"></a> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--prefixgit-140-ogit-140targzv140code"></a><code>git archive --prefix=git-1.4.0/ -o git-1.4.0.tar.gz v1.4.0</code> </dt>
 <dd>
 <p>Same as above, but the format is inferred from the output file.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--formattar--prefixgit-140v140treegzipgtgit-140targzcode"> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--formattar--prefixgit-140v140treegzipgtgit-140targzcode"></a><code>git archive --format=tar --prefix=git-1.4.0/ v1.4.0^{tree} | gzip &gt;git-1.4.0.tar.gz</code> </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--formattar--prefixgit-140v140treegzipgtgit-140targzcode"> <a class="anchor" href="#Documentation/git-archive.txt-gitarchive--formattar--prefixgit-140v140treegzipgit-140targz"></a> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--formattar--prefixgit-140v140treegzipgtgit-140targzcode"></a><code>git archive --format=tar --prefix=git-1.4.0/ v1.4.0^{tree} | gzip &gt;git-1.4.0.tar.gz</code> </dt>
 <dd>
 <p>Create a compressed tarball for v1.4.0 release, but without a
 global extended pax header.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--formatzip--prefixgit-docsHEADDocumentationgtgit-140-docszipcode"> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--formatzip--prefixgit-docsHEADDocumentationgtgit-140-docszipcode"></a><code>git archive --format=zip --prefix=git-docs/ HEAD:Documentation/ &gt; git-1.4.0-docs.zip</code> </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive--formatzip--prefixgit-docsHEADDocumentationgtgit-140-docszipcode"> <a class="anchor" href="#Documentation/git-archive.txt-gitarchive--formatzip--prefixgit-docsHEADDocumentationgit-140-docszip"></a> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive--formatzip--prefixgit-docsHEADDocumentationgtgit-140-docszipcode"></a><code>git archive --format=zip --prefix=git-docs/ HEAD:Documentation/ &gt; git-1.4.0-docs.zip</code> </dt>
 <dd>
 <p>Put everything in the current head&#8217;s Documentation/ directory
 into <em>git-1.4.0-docs.zip</em>, with the prefix <em>git-docs/</em>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive-olatestzipHEADcode"> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive-olatestzipHEADcode"></a><code>git archive -o latest.zip HEAD</code> </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive-olatestzipHEADcode"> <a class="anchor" href="#Documentation/git-archive.txt-gitarchive-olatestzipHEAD"></a> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive-olatestzipHEADcode"></a><code>git archive -o latest.zip HEAD</code> </dt>
 <dd>
 <p>Create a Zip archive that contains the contents of the latest
 commit on the current branch. Note that the output format is
 inferred by the extension of the output file.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive-olatesttar--prefixbuild--add-fileconfigure--prefixHEADcode"> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive-olatesttar--prefixbuild--add-fileconfigure--prefixHEADcode"></a><code>git archive -o latest.tar --prefix=build/ --add-file=configure --prefix= HEAD</code> </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-codegitarchive-olatesttar--prefixbuild--add-fileconfigure--prefixHEADcode"> <a class="anchor" href="#Documentation/git-archive.txt-gitarchive-olatesttar--prefixbuild--add-fileconfigure--prefixHEAD"></a> <a class="anchor" href="#Documentation/git-archive.txt-codegitarchive-olatesttar--prefixbuild--add-fileconfigure--prefixHEADcode"></a><code>git archive -o latest.tar --prefix=build/ --add-file=configure --prefix= HEAD</code> </dt>
 <dd>
 <p>Creates a tar archive that contains the contents of the latest
 commit on the current branch with no prefix and the untracked
 file <em>configure</em> with the prefix <em>build/</em>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-archive.txt-codegitconfigtartarxzcommandxz-ccode"> <a class="anchor" href="#Documentation/git-archive.txt-codegitconfigtartarxzcommandxz-ccode"></a><code>git config tar.tar.xz.command "xz -c"</code> </dt>
+<dt class="hdlist1" id="Documentation/git-archive.txt-codegitconfigtartarxzcommandxz-ccode"> <a class="anchor" href="#Documentation/git-archive.txt-gitconfigtartarxzcommandxz-c"></a> <a class="anchor" href="#Documentation/git-archive.txt-codegitconfigtartarxzcommandxz-ccode"></a><code>git config tar.tar.xz.command "xz -c"</code> </dt>
 <dd>
 <p>Configure a "tar.xz" format for making LZMA-compressed tarfiles.
 You can use it specifying <code>--format=tar.xz</code>, or by creating an

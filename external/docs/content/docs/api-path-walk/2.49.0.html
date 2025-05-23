@@ -36,7 +36,7 @@ Let&#8217;s dig into the different options and their use.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-codepathfncodeandcodepathfndatacode"> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-codepathfncodeandcodepathfndatacode"></a><code>path_fn</code> and <code>path_fn_data</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-codepathfncodeandcodepathfndatacode"> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-pathfnandpathfndata"></a> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-codepathfncodeandcodepathfndatacode"></a><code>path_fn</code> and <code>path_fn_data</code> </dt>
 <dd>
 <p>The most important option is the <code>path_fn</code> option, which is a
 function pointer to the callback that can execute logic on the
@@ -45,7 +45,7 @@ also receives a <code>data</code> value that corresponds to the
 <code>path_fn_data</code> member, for providing custom data structures to
 this callback function.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-coderevscode"> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-coderevscode"></a><code>revs</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-coderevscode"> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-revs"></a> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-coderevscode"></a><code>revs</code> </dt>
 <dd>
 <p>To configure the exact details of the reachable set of objects,
 use the <code>revs</code> member and initialize it using the revision
@@ -60,7 +60,7 @@ the objects will be walked in a separate way based on those starting
 commits.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-codecommitscodecodeblobscodecodetreescodecodetagscode"> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-codecommitscodecodeblobscodecodetreescodecodetagscode"></a><code>commits</code>, <code>blobs</code>, <code>trees</code>, <code>tags</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-codecommitscodecodeblobscodecodetreescodecodetagscode"> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-commitsblobstreestags"></a> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-codecommitscodecodeblobscodecodetreescodecodetagscode"></a><code>commits</code>, <code>blobs</code>, <code>trees</code>, <code>tags</code> </dt>
 <dd>
 <p>By default, these members are enabled and signal that the path-walk
 API should call the <code>path_fn</code> on objects of these types. Specialized
@@ -71,7 +71,7 @@ the objects or to have fewer calls to <code>path_fn</code>.</p>
 better off using the revision walk API instead.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-codeprunealluninterestingcode"> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-codeprunealluninterestingcode"></a><code>prune_all_uninteresting</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-codeprunealluninterestingcode"> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-prunealluninteresting"></a> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-codeprunealluninterestingcode"></a><code>prune_all_uninteresting</code> </dt>
 <dd>
 <p>By default, all reachable paths are emitted by the path-walk API.
 This option allows consumers to declare that they are not
@@ -80,7 +80,7 @@ interested in paths where all included objects are marked with the
 the revision walk so that the walk emits commits marked with the
 <code>UNINTERESTING</code> flag.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-codeplcode"> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-codeplcode"></a><code>pl</code> </dt>
+<dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-codeplcode"> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-pl"></a> <a class="anchor" href="#Documentation/technical/api-path-walk.txt-codeplcode"></a><code>pl</code> </dt>
 <dd>
 <p>This pattern list pointer allows focusing the path-walk search to
 a set of patterns, only emitting paths that match the given

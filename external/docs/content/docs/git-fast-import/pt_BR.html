@@ -72,11 +72,11 @@ aliases:
 <h3 id="_opções_para_front_ends"><a class="anchor" href="#_opções_para_front_ends"></a>Opções para Front-ends</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import---cat-blob-fdltfdgt"> <a class="anchor" href="#git-fast-import---cat-blob-fdltfdgt"></a>--cat-blob-fd=&lt;fd&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---cat-blob-fdltfdgt"> <a class="anchor" href="#git-fast-import---cat-blob-fdfd"></a> <a class="anchor" href="#git-fast-import---cat-blob-fdltfdgt"></a>--cat-blob-fd=&lt;fd&gt; </dt>
 <dd>
 <p>Escreva as respostas às consultas <code>get-mark</code>, <code>cat-blob</code> e <code>ls</code> no descritor do arquivo <code>&lt;fd&gt;</code> em vez de <code>stdout</code>. Permite que a saída <code>progress</code> destinada ao usuário final seja separada de outras saídas.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---date-formatltfmtgt"> <a class="anchor" href="#git-fast-import---date-formatltfmtgt"></a>--date-format=&lt;fmt&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---date-formatltfmtgt"> <a class="anchor" href="#git-fast-import---date-formatfmt"></a> <a class="anchor" href="#git-fast-import---date-formatltfmtgt"></a>--date-format=&lt;fmt&gt; </dt>
 <dd>
 <p>Especifique o tipo de data que o "front-end" informará para a importação rápida nos comandos <code>author</code>, <code>committer</code> (quem fez o commit) e <code>tagger</code> (rotulador). Consulte &#8220;Formatos de data&#8221; abaixo para obter mais detalhes sobre quais os formatos são compatíveis e a sua sintaxe.</p>
 </dd>
@@ -91,15 +91,15 @@ aliases:
 <h3 id="_localizações_dos_arquivos_de_marcação"><a class="anchor" href="#_localizações_dos_arquivos_de_marcação"></a>Localizações dos arquivos de marcação</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import---export-marksltarquivogt"> <a class="anchor" href="#git-fast-import---export-marksltarquivogt"></a>--export-marks=&lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---export-marksltarquivogt"> <a class="anchor" href="#git-fast-import---export-marksarquivo"></a> <a class="anchor" href="#git-fast-import---export-marksltarquivogt"></a>--export-marks=&lt;arquivo&gt; </dt>
 <dd>
 <p>Despeja a tabela das marcas internas em <code>&lt;arquivo&gt;</code> quando for concluído. As marcas são gravadas uma por linha como <code>:markid SHA-1</code>. Os "front-ends" podem usar esse arquivo para validar as importações depois que elas forem concluídas ou para salvar a tabela de marcas em execuções incrementais. Como <code>&lt;arquivo&gt;</code> só é aberto e truncado no ponto de verificação (checkpoint), o mesmo caminho também pode ser usado com segurança com a opção <code>--import-marks</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---import-marksltarquivogt"> <a class="anchor" href="#git-fast-import---import-marksltarquivogt"></a>--import-marks=&lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---import-marksltarquivogt"> <a class="anchor" href="#git-fast-import---import-marksarquivo"></a> <a class="anchor" href="#git-fast-import---import-marksltarquivogt"></a>--import-marks=&lt;arquivo&gt; </dt>
 <dd>
 <p>Antes de processar qualquer entrada, carregue as marcas especificadas em &lt;arquivo&gt;. O arquivo de entrada deve existir, deve ser legível e deve usar o mesmo formato produzido pela opção <code>--export-marks</code>. Várias opções podem ser fornecidas para importar mais de um conjunto de marcações. Se uma marcação for definida com valores diferentes, o último arquivo vence.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---import-marks-if-existsltarquivogt"> <a class="anchor" href="#git-fast-import---import-marks-if-existsltarquivogt"></a>--import-marks-if-exists=&lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---import-marks-if-existsltarquivogt"> <a class="anchor" href="#git-fast-import---import-marks-if-existsarquivo"></a> <a class="anchor" href="#git-fast-import---import-marks-if-existsltarquivogt"></a>--import-marks-if-exists=&lt;arquivo&gt; </dt>
 <dd>
 <p>Como <code>--import-marks</code> porém caso não exista, em vez de exibir um erro, ignora silenciosamente o arquivo.</p>
 </dd>
@@ -117,8 +117,8 @@ aliases:
 <h3 id="_reescrita_do_submódulo"><a class="anchor" href="#_reescrita_do_submódulo"></a>Reescrita do submódulo</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import---rewrite-submodules-fromltnomegtltarquivogt"> <a class="anchor" href="#git-fast-import---rewrite-submodules-fromltnomegtltarquivogt"></a>--rewrite-submodules-from=&lt;nome&gt;:&lt;arquivo&gt; </dt>
-<dt class="hdlist1" id="git-fast-import---rewrite-submodules-toltnomegtltarquivogt"> <a class="anchor" href="#git-fast-import---rewrite-submodules-toltnomegtltarquivogt"></a>--rewrite-submodules-to=&lt;nome&gt;:&lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---rewrite-submodules-fromltnomegtltarquivogt"> <a class="anchor" href="#git-fast-import---rewrite-submodules-fromnomearquivo"></a> <a class="anchor" href="#git-fast-import---rewrite-submodules-fromltnomegtltarquivogt"></a>--rewrite-submodules-from=&lt;nome&gt;:&lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---rewrite-submodules-toltnomegtltarquivogt"> <a class="anchor" href="#git-fast-import---rewrite-submodules-tonomearquivo"></a> <a class="anchor" href="#git-fast-import---rewrite-submodules-toltnomegtltarquivogt"></a>--rewrite-submodules-to=&lt;nome&gt;:&lt;arquivo&gt; </dt>
 <dd>
 <p>Reescreve a ID dos objetos no submódulo especificado através do &lt;nome&gt; dos valores usados a partir de um &lt;arquivo&gt; para aqueles usados para o &lt;arquivo&gt;. As marcações de origem deveriam ter sido criadas por pelo comando <code>git fast-export</code> e as marcações to deveriam ter sido criadas pelo <code>git fast-import</code> durante a importação do mesmo submódulo.</p>
 <div class="paragraph">
@@ -135,23 +135,23 @@ aliases:
 <h3 id="_ajuste_de_desempenho_e_compactação"><a class="anchor" href="#_ajuste_de_desempenho_e_compactação"></a>Ajuste de desempenho e compactação</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import---active-branchesltngt"> <a class="anchor" href="#git-fast-import---active-branchesltngt"></a>--active-branches=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---active-branchesltngt"> <a class="anchor" href="#git-fast-import---active-branchesn"></a> <a class="anchor" href="#git-fast-import---active-branchesltngt"></a>--active-branches=&lt;n&gt; </dt>
 <dd>
 <p>A quantidade máxima de ramos que serão mantidas ativas ao mesmo tempo. Consulte &#8220;Memory Utilization&#8221; logo abaixo para mais detalhes. A predefinição é 5.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---big-file-thresholdltngt"> <a class="anchor" href="#git-fast-import---big-file-thresholdltngt"></a>--big-file-threshold=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---big-file-thresholdltngt"> <a class="anchor" href="#git-fast-import---big-file-thresholdn"></a> <a class="anchor" href="#git-fast-import---big-file-thresholdltngt"></a>--big-file-threshold=&lt;n&gt; </dt>
 <dd>
 <p>O tamanho máximo de uma bolha para onde o "fast-import" tentará criar um delta, ele é expresso em bytes. A predefinição é 512m (512 MiB). Alguns importadores podem querer diminuir esse valor em sistemas com limitações de memória.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---depthltngt"> <a class="anchor" href="#git-fast-import---depthltngt"></a>--depth=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---depthltngt"> <a class="anchor" href="#git-fast-import---depthn"></a> <a class="anchor" href="#git-fast-import---depthltngt"></a>--depth=&lt;n&gt; </dt>
 <dd>
 <p>Profundidade máxima do delta, para a "deltificação" das bolhas e das árvores. A predefinição é 50.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---export-pack-edgesltarquivogt"> <a class="anchor" href="#git-fast-import---export-pack-edgesltarquivogt"></a>--export-pack-edges=&lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---export-pack-edgesltarquivogt"> <a class="anchor" href="#git-fast-import---export-pack-edgesarquivo"></a> <a class="anchor" href="#git-fast-import---export-pack-edgesltarquivogt"></a>--export-pack-edges=&lt;arquivo&gt; </dt>
 <dd>
 <p>Após criar um arquivo pacote, imprima uma linha de dados em &lt;arquivo&gt; listando o nome do arquivo pacote e do último commit em cada ramo onde ele foi gravado nesse arquivo pacote. Estas informações podem ser úteis após a importação de projetos cujo conjunto total dos objetos exceda o limite de 4 GiB do arquivo pacote, pois estes commits podem ser usados como pontos de limite durante as chamadas para o comando <em>git pack-objects</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---max-pack-sizeltngt"> <a class="anchor" href="#git-fast-import---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fast-import---max-pack-sizeltngt"> <a class="anchor" href="#git-fast-import---max-pack-sizen"></a> <a class="anchor" href="#git-fast-import---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
 <dd>
 <p>O tamanho máximo de cada arquivo pacote gerado. A predefinição é ilimitado.</p>
 </dd>
@@ -230,7 +230,7 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import-coderawcode"> <a class="anchor" href="#git-fast-import-coderawcode"></a><code>raw</code> </dt>
+<dt class="hdlist1" id="git-fast-import-coderawcode"> <a class="anchor" href="#git-fast-import-raw"></a> <a class="anchor" href="#git-fast-import-coderawcode"></a><code>raw</code> </dt>
 <dd>
 <p>Este é o formato nativo do Git que é <code>&lt;time&gt; SP &lt;offutc&gt;</code>. Este também é o formato predefinida da importação rápida, caso a opção <code>--date-format</code> não tenha sido especificada.</p>
 <div class="paragraph">
@@ -246,11 +246,11 @@ aliases:
 <p>Diferente do formato <code>rfc2822</code>, este formato é muito rigoroso. Qualquer variação na formatação fará com que a importação rápida rejeite o valor e algumas verificações de sanidade nos valores numéricos também podem ser realizadas.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fast-import-coderaw-permissivecode"> <a class="anchor" href="#git-fast-import-coderaw-permissivecode"></a><code>raw-permissive</code> </dt>
+<dt class="hdlist1" id="git-fast-import-coderaw-permissivecode"> <a class="anchor" href="#git-fast-import-raw-permissive"></a> <a class="anchor" href="#git-fast-import-coderaw-permissivecode"></a><code>raw-permissive</code> </dt>
 <dd>
 <p>É o mesmo que <code>raw</code>, exceto pelo fato de que não são realizadas verificações de sanidade na época numérica e no offset local. Isso pode ser útil ao tentar filtrar ou importar um histórico existente com, por exemplo, valores falsos de fuso horário.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-coderfc2822code"> <a class="anchor" href="#git-fast-import-coderfc2822code"></a><code>rfc2822</code> </dt>
+<dt class="hdlist1" id="git-fast-import-coderfc2822code"> <a class="anchor" href="#git-fast-import-rfc2822"></a> <a class="anchor" href="#git-fast-import-coderfc2822code"></a><code>rfc2822</code> </dt>
 <dd>
 <p>This is the standard date format as described by RFC 2822.</p>
 <div class="paragraph">
@@ -269,7 +269,7 @@ aliases:
 <p>Os front-end devem preferir o formato <code>raw</code> (bruto) caso o material de origem já utilize o formato UNIX, pode ser atrativo fornecer datas nesse formato, ou o seu formato é facilmente convertível, pois não há ambiguidade na análise.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codenowcode"> <a class="anchor" href="#git-fast-import-codenowcode"></a><code>now</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codenowcode"> <a class="anchor" href="#git-fast-import-now"></a> <a class="anchor" href="#git-fast-import-codenowcode"></a><code>now</code> </dt>
 <dd>
 <p>Sempre use a hora e o fuso horário atual. O literal <code>now</code> sempre deve ser repassado para <code>&lt;quando&gt;</code>.</p>
 <div class="paragraph">
@@ -292,55 +292,55 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import-codecommitcode"> <a class="anchor" href="#git-fast-import-codecommitcode"></a><code>commit</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codecommitcode"> <a class="anchor" href="#git-fast-import-commit"></a> <a class="anchor" href="#git-fast-import-codecommitcode"></a><code>commit</code> </dt>
 <dd>
 <p>Cria uma nova ramificação ou atualiza uma ramificação existente, criando um novo commit e atualizando a ramificação para apontar para o commit recém criado.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codetagcode"> <a class="anchor" href="#git-fast-import-codetagcode"></a><code>tag</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codetagcode"> <a class="anchor" href="#git-fast-import-tag"></a> <a class="anchor" href="#git-fast-import-codetagcode"></a><code>tag</code> </dt>
 <dd>
 <p>Cria um objeto de etiqueta anotada a partir de um commit ou de um ramo já existente. As etiquetas simples não são compatíveis por esse comando, pois não são recomendadas para registrar pontos de tempo significativos.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-coderesetcode"> <a class="anchor" href="#git-fast-import-coderesetcode"></a><code>reset</code> </dt>
+<dt class="hdlist1" id="git-fast-import-coderesetcode"> <a class="anchor" href="#git-fast-import-reset"></a> <a class="anchor" href="#git-fast-import-coderesetcode"></a><code>reset</code> </dt>
 <dd>
 <p>Redefine um ramo existente (ou um novo ramo) para uma revisão específica. Esse comando deve ser usado para alterar uma ramificação para uma revisão específica sem fazer um commit nela.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeblobcode"> <a class="anchor" href="#git-fast-import-codeblobcode"></a><code>blob</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codeblobcode"> <a class="anchor" href="#git-fast-import-blob"></a> <a class="anchor" href="#git-fast-import-codeblobcode"></a><code>blob</code> </dt>
 <dd>
 <p>Converte os dados brutos do arquivo numa bolha, para uso futuro num comando <code>commit</code>. Esse comando é opcional e não é necessário para realizar uma importação.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codealiascode"> <a class="anchor" href="#git-fast-import-codealiascode"></a><code>alias</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codealiascode"> <a class="anchor" href="#git-fast-import-alias"></a> <a class="anchor" href="#git-fast-import-codealiascode"></a><code>alias</code> </dt>
 <dd>
 <p>Registre que uma marcação se refira a um determinado objeto sem primeiro criar nenhum novo objeto. O uso da opção <code>--import-marks</code> e a referência as marcações ausentes farão com que a importação rápida falhe, portanto, os pseudônimos podem fornecer uma maneira de definir os commits que, de outra maneira, seriam podados para um valor válido (o ancestral não podado mais próximo por exemplo).</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codecheckpointcode"> <a class="anchor" href="#git-fast-import-codecheckpointcode"></a><code>checkpoint</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codecheckpointcode"> <a class="anchor" href="#git-fast-import-checkpoint"></a> <a class="anchor" href="#git-fast-import-codecheckpointcode"></a><code>checkpoint</code> </dt>
 <dd>
 <p>Força a importação rápida a fechar o arquivo do pacote atual, gerar a sua soma de verificação e o índice SHA-1 exclusivos e iniciar um novo pacote de arquivos. Esse comando é opcional e não é necessário para realizar uma importação.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeprogresscode"> <a class="anchor" href="#git-fast-import-codeprogresscode"></a><code>progress</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codeprogresscode"> <a class="anchor" href="#git-fast-import-progress"></a> <a class="anchor" href="#git-fast-import-codeprogresscode"></a><code>progress</code> </dt>
 <dd>
 <p>Faz com que a importação rápida ecoe a linha inteira em sua própria saída predefinida. Esse comando é opcional e não é necessário para realizar uma importação.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codedonecode"> <a class="anchor" href="#git-fast-import-codedonecode"></a><code>done</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codedonecode"> <a class="anchor" href="#git-fast-import-done"></a> <a class="anchor" href="#git-fast-import-codedonecode"></a><code>done</code> </dt>
 <dd>
 <p>Faz a marcação do fim do fluxo. Este comando é opcional, a menos que o recurso <code>--done</code> tenha sido solicitado utilizando a opção de linha de comando <code>--done</code> ou o comando <code>feature done</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeget-markcode"> <a class="anchor" href="#git-fast-import-codeget-markcode"></a><code>get-mark</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codeget-markcode"> <a class="anchor" href="#git-fast-import-get-mark"></a> <a class="anchor" href="#git-fast-import-codeget-markcode"></a><code>get-mark</code> </dt>
 <dd>
 <p>Faz com que o <code>fast-import</code> imprima o SHA-1 correspondente a uma marcação no descritor do arquivo definido com <code>--cat-blob-fd</code> ou <code>stdout</code> caso não tenha sido especificado.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codecat-blobcode"> <a class="anchor" href="#git-fast-import-codecat-blobcode"></a><code>cat-blob</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codecat-blobcode"> <a class="anchor" href="#git-fast-import-cat-blob"></a> <a class="anchor" href="#git-fast-import-codecat-blobcode"></a><code>cat-blob</code> </dt>
 <dd>
 <p>Faz com que o <code>fast-import</code> imprima uma bolha no formato <em>cat-file --batch</em> no descritor do arquivo definido com <code>--cat-blob-fd</code> ou <code>stdout</code> caso não tenha sido especificado.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codelscode"> <a class="anchor" href="#git-fast-import-codelscode"></a><code>ls</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codelscode"> <a class="anchor" href="#git-fast-import-ls"></a> <a class="anchor" href="#git-fast-import-codelscode"></a><code>ls</code> </dt>
 <dd>
 <p>Faz com que o <code>fast-import</code> imprima uma linha que descreve uma entrada do diretório no formato <code>ls-tree</code> para o descritor do arquivo definido com <code>--cat-blob-fd</code> ou <code>stdout</code> caso não tenha sido especificado.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codefeaturecode"> <a class="anchor" href="#git-fast-import-codefeaturecode"></a><code>feature</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codefeaturecode"> <a class="anchor" href="#git-fast-import-feature"></a> <a class="anchor" href="#git-fast-import-codefeaturecode"></a><code>feature</code> </dt>
 <dd>
 <p>Ativa o recurso especificado. Isso requer que o <code>fast-import</code> ofereça compatibilidade ao recurso especificado, caso contrário, que seja abortado.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeoptioncode"> <a class="anchor" href="#git-fast-import-codeoptioncode"></a><code>option</code> </dt>
+<dt class="hdlist1" id="git-fast-import-codeoptioncode"> <a class="anchor" href="#git-fast-import-option"></a> <a class="anchor" href="#git-fast-import-codeoptioncode"></a><code>option</code> </dt>
 <dd>
 <p>Especifique qualquer uma das opções listadas em <code>OPTIONS</code> que não alterem a semântica do fluxo para atender às necessidades do front-end. Este comando é opcional, não sendo necessário para executar uma importação.</p>
 </dd>
@@ -1041,9 +1041,9 @@ from :938</pre>
 <dd>
 <p>Como --import-marks, exceto em três aspectos: primeiro, apenas um comando "feature import-marks" ou "feature import-marks-if-exists" é permitido por fluxo; segundo, uma opção de linha de comando <code>--import-marks=</code> ou <code>--import-marks-if-exists</code> substitui qualquer um desses comandos "feature" no fluxo; terceiro, "feature import-marks-if-exists", como uma opção de linha de comando correspondente, ignora silenciosamente um arquivo inexistente.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-get-mark"> <a class="anchor" href="#git-fast-import-get-mark"></a>get-mark </dt>
-<dt class="hdlist1" id="git-fast-import-cat-blob"> <a class="anchor" href="#git-fast-import-cat-blob"></a>cat-blob </dt>
-<dt class="hdlist1" id="git-fast-import-ls"> <a class="anchor" href="#git-fast-import-ls"></a>ls </dt>
+<dt class="hdlist1" id="git-fast-import-get-mark-1"> <a class="anchor" href="#git-fast-import-get-mark-1"></a>get-mark </dt>
+<dt class="hdlist1" id="git-fast-import-cat-blob-1"> <a class="anchor" href="#git-fast-import-cat-blob-1"></a>cat-blob </dt>
+<dt class="hdlist1" id="git-fast-import-ls-1"> <a class="anchor" href="#git-fast-import-ls-1"></a>ls </dt>
 <dd>
 <p>Exige que o "backend" seja compatível com os comandos <em>get-mark</em>, <em>cat-blob</em> ou <em>ls</em>, respectivamente. As versões da importação rápida que não sejam compatíveis com o comando especificado serão encerrados com uma mensagem indicando isso. Isso permite que o erro de importação seja corrigido antecipadamente com uma mensagem clara, evitando perder tempo na parte inicial de uma importação antes que o comando não compatível seja detectado.</p>
 </dd>
@@ -1051,7 +1051,7 @@ from :938</pre>
 <dd>
 <p>Requer que o backend ofereça suporte ao subcomando "notemodify" (N) para o comando "commit". As versões da importação rápida que não sejam compatíveis com anotações serão encerradas com uma mensagem indicando isso.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-done"> <a class="anchor" href="#git-fast-import-done"></a>done </dt>
+<dt class="hdlist1" id="git-fast-import-done-1"> <a class="anchor" href="#git-fast-import-done-1"></a>done </dt>
 <dd>
 <p>Ocorrerá um erro no caso de um fluxo seja encerrado sem um comando "done". Sem este recurso, os erros que fazem com que o frontend termine abruptamente num ponto conveniente do fluxo podem não ser detectados. Isso pode acontecer se, por exemplo, um frontend de importação for encerrado no meio da operação sem emitir um "SIGTERM" ou "SIGKILL" em sua instância subordinada do comando <code>git fast-import</code>.</p>
 </dd>

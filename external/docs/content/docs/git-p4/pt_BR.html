@@ -249,7 +249,7 @@ $ git p4 unshelve 12345
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-p4---git-dirltdirgt"> <a class="anchor" href="#git-p4---git-dirltdirgt"></a>--git-dir &lt;dir&gt; </dt>
+<dt class="hdlist1" id="git-p4---git-dirltdirgt"> <a class="anchor" href="#git-p4---git-dirdir"></a> <a class="anchor" href="#git-p4---git-dirltdirgt"></a>--git-dir &lt;dir&gt; </dt>
 <dd>
 <p>Defina a variável de ambiente <code>GIT_DIR</code>. Consulte <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a>.</p>
 </dd>
@@ -268,7 +268,7 @@ $ git p4 unshelve 12345
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-p4---branchltrefgt"> <a class="anchor" href="#git-p4---branchltrefgt"></a>--branch &lt;ref&gt; </dt>
+<dt class="hdlist1" id="git-p4---branchltrefgt"> <a class="anchor" href="#git-p4---branchref"></a> <a class="anchor" href="#git-p4---branchltrefgt"></a>--branch &lt;ref&gt; </dt>
 <dd>
 <p>Importar as alterações para <code>&lt;ref&gt;</code> em vez de <em>refs/remotes/p4/master</em>. Se <code>&lt;ref&gt;</code> começar com <em>refs/</em>, ele será usado como está. Caso contrário, se não começar com <em>p4/</em>, esse prefixo será adicionado.</p>
 <div class="paragraph">
@@ -291,7 +291,7 @@ $ git p4 unshelve 12345
 <dd>
 <p>Use o algoritmo de detecção de ramificação para encontrar novos caminhos em p4. Ele está documentado abaixo em "DETECÇÃO DO RAMO".</p>
 </dd>
-<dt class="hdlist1" id="git-p4---changesfileltarquivogt"> <a class="anchor" href="#git-p4---changesfileltarquivogt"></a>--changesfile &lt;arquivo&gt; </dt>
+<dt class="hdlist1" id="git-p4---changesfileltarquivogt"> <a class="anchor" href="#git-p4---changesfilearquivo"></a> <a class="anchor" href="#git-p4---changesfileltarquivogt"></a>--changesfile &lt;arquivo&gt; </dt>
 <dd>
 <p>Importe exatamente os números de alteração do p4 listados em <em>file</em>, um por linha. Normalmente, o <em>git p4</em> inspeciona o estado atual do repositório p4 e detecta as alterações que deve importar.</p>
 </dd>
@@ -311,11 +311,11 @@ $ git p4 unshelve 12345
 <dd>
 <p>É predefinido que as ramificações p4 sejam armazenadas em <em>refs/remotes/p4/</em>, onde serão tratadas como ramificações de rastreamento remoto pelo <a href='{{< relurl "docs/git-branch/pt_BR" >}}'>git-branch[1]</a> e outros comandos. Em vez disso, essa opção coloca as ramificações p4 em <em>refs/heads/p4/</em>. Observe que as futuras operações de sincronização também devem especificar a opção <code>--import-local</code> para que possam encontrar as ramificações do p4 em <em>refs/heads</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-p4---max-changesltngt"> <a class="anchor" href="#git-p4---max-changesltngt"></a>--max-changes &lt;n&gt; </dt>
+<dt class="hdlist1" id="git-p4---max-changesltngt"> <a class="anchor" href="#git-p4---max-changesn"></a> <a class="anchor" href="#git-p4---max-changesltngt"></a>--max-changes &lt;n&gt; </dt>
 <dd>
 <p>Importe no máximo <em>n</em> alterações, em vez de todo o intervalo de alterações incluído no especificador da revisão informado. Um uso comum seria utilizar <em>@all</em> como especificador da revisão, porém depois utilizar a opção <em>--max-changes 1000</em> para importar apenas as últimas 1000 revisões, em vez de todo o histórico.</p>
 </dd>
-<dt class="hdlist1" id="git-p4---changes-block-sizeltngt"> <a class="anchor" href="#git-p4---changes-block-sizeltngt"></a>--changes-block-size &lt;n&gt; </dt>
+<dt class="hdlist1" id="git-p4---changes-block-sizeltngt"> <a class="anchor" href="#git-p4---changes-block-sizen"></a> <a class="anchor" href="#git-p4---changes-block-sizeltngt"></a>--changes-block-size &lt;n&gt; </dt>
 <dd>
 <p>O tamanho do bloco interno que será utilizado ao converter um especificador da revisão como <em>@all</em> numa lista com a quantidade específica de alteração. Em vez de utilizar uma única chamada para <em>p4 changes</em> visando encontrar a lista completa das alterações para a conversão, há uma sequência de chamadas para <em>p4 changes -m</em>, cada uma das quais solicita um bloco de alterações com um tamanho definido. O tamanho padrão do bloco é 500, o que geralmente deve ser o suficiente.</p>
 </dd>
@@ -327,7 +327,7 @@ $ git p4 unshelve 12345
 <dd>
 <p>Use uma especificação de cliente para encontrar a lista de arquivos interessantes no p4. Consulte a seção "ESPECIFICAÇÃO DO CLIENTE" abaixo.</p>
 </dd>
-<dt class="hdlist1" id="git-p4--ltcaminhogt"> <a class="anchor" href="#git-p4--ltcaminhogt"></a>-/ &lt;caminho&gt; </dt>
+<dt class="hdlist1" id="git-p4--ltcaminhogt"> <a class="anchor" href="#git-p4--caminho"></a> <a class="anchor" href="#git-p4--ltcaminhogt"></a>-/ &lt;caminho&gt; </dt>
 <dd>
 <p>Exclua os caminhos selecionados do depósito durante a clonagem ou sincronização.</p>
 </dd>
@@ -341,7 +341,7 @@ $ git p4 unshelve 12345
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-p4---destinationltdiretriogt"> <a class="anchor" href="#git-p4---destinationltdiretriogt"></a>--destination &lt;diretório&gt; </dt>
+<dt class="hdlist1" id="git-p4---destinationltdiretriogt"> <a class="anchor" href="#git-p4---destinationdiretrio"></a> <a class="anchor" href="#git-p4---destinationltdiretriogt"></a>--destination &lt;diretório&gt; </dt>
 <dd>
 <p>Onde criar o repositório Git. Se não for informado, o último componente no caminho do depósito do p4 será usado para criar um novo diretório.</p>
 </dd>
@@ -359,7 +359,7 @@ $ git p4 unshelve 12345
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-p4---originltcommitgt"> <a class="anchor" href="#git-p4---originltcommitgt"></a>--origin &lt;commit&gt; </dt>
+<dt class="hdlist1" id="git-p4---originltcommitgt"> <a class="anchor" href="#git-p4---origincommit"></a> <a class="anchor" href="#git-p4---originltcommitgt"></a>--origin &lt;commit&gt; </dt>
 <dd>
 <p>O local upstream a partir de onde os commits são identificados para envio ao p4. É predefinido que este é o commit p4 mais recente acessível a partir do <code>HEAD</code>.</p>
 </dd>
@@ -396,11 +396,11 @@ $ git p4 unshelve 12345
 <dd>
 <p>Podem ocorrer conflitos ao aplicar um commit ao p4. Quando isso acontece, o comportamento predefinido ("ask") é lhe perguntar se você quer pular este commit e continuar ou encerrar. Essa opção pode ser usada para ignorar o aviso, fazendo com que os commits conflitantes sejam automaticamente ignorados, ou para parar de tentar aplicar os commits, sem aviso.</p>
 </dd>
-<dt class="hdlist1" id="git-p4---branchltramogt"> <a class="anchor" href="#git-p4---branchltramogt"></a>--branch &lt;ramo&gt; </dt>
+<dt class="hdlist1" id="git-p4---branchltramogt"> <a class="anchor" href="#git-p4---branchramo"></a> <a class="anchor" href="#git-p4---branchltramogt"></a>--branch &lt;ramo&gt; </dt>
 <dd>
 <p>Após o envio, sincronize este ramo nomeado em vez do <em>p4/master</em> predefinido. Para mais informações consulte a seção "Opções de sincronização" acima.</p>
 </dd>
-<dt class="hdlist1" id="git-p4---commitltsha1gtltsha1gtltsha1gt"> <a class="anchor" href="#git-p4---commitltsha1gtltsha1gtltsha1gt"></a>--commit (&lt;sha1&gt;|&lt;sha1&gt;..&lt;sha1&gt;) </dt>
+<dt class="hdlist1" id="git-p4---commitltsha1gtltsha1gtltsha1gt"> <a class="anchor" href="#git-p4---commitsha1sha1sha1"></a> <a class="anchor" href="#git-p4---commitltsha1gtltsha1gtltsha1gt"></a>--commit (&lt;sha1&gt;|&lt;sha1&gt;..&lt;sha1&gt;) </dt>
 <dd>
 <p>Envie apenas o commit ou o intervalo dos commits informados, em vez da lista completa de alterações que estão no ramo Git atual.</p>
 </dd>

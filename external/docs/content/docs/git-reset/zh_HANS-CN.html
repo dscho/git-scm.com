@@ -37,8 +37,8 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-reset-emgitresetem-qltgt--ltgt82308203"> <a class="anchor" href="#git-reset-emgitresetem-qltgt--ltgt82308203"></a><em>git reset</em> [-q] [&lt;目录树对象&gt;] [--] &lt;路径规范&gt;&#8230;&#8203; </dt>
-<dt class="hdlist1" id="git-reset-emgitresetem-q--pathspec-from-fileltgt--pathspec-file-nulltgt"> <a class="anchor" href="#git-reset-emgitresetem-q--pathspec-from-fileltgt--pathspec-file-nulltgt"></a><em>git reset</em> [-q] [--pathspec-from-file=&lt;文件&gt; [--pathspec-file-nul]] [&lt;目录树对象&gt;] </dt>
+<dt class="hdlist1" id="git-reset-emgitresetem-qltgt--ltgt82308203"> <a class="anchor" href="#git-reset-gitreset-q--"></a> <a class="anchor" href="#git-reset-emgitresetem-qltgt--ltgt82308203"></a><em>git reset</em> [-q] [&lt;目录树对象&gt;] [--] &lt;路径规范&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-reset-emgitresetem-q--pathspec-from-fileltgt--pathspec-file-nulltgt"> <a class="anchor" href="#git-reset-gitreset-q--pathspec-from-file--pathspec-file-nul"></a> <a class="anchor" href="#git-reset-emgitresetem-q--pathspec-from-fileltgt--pathspec-file-nulltgt"></a><em>git reset</em> [-q] [--pathspec-from-file=&lt;文件&gt; [--pathspec-file-nul]] [&lt;目录树对象&gt;] </dt>
 <dd>
 <p>这些形式将所有匹配 <code>&lt;路径规范&gt;</code> 的路径的索引条目重置为 <code>&lt;目录树对象&gt;</code> 时的状态。 (它不会影响工作目录树或当前分支。)</p>
 <div class="paragraph">
@@ -48,14 +48,14 @@ aliases:
 <p>运行 <code>git reset &lt;pathspec&gt;</code> 更新索引条目后，您可以使用 <a href='{{< relurl "docs/git-restore/zh_HANS-CN" >}}'>git-restore[1]</a> 将索引中的内容检出到工作树中。或者，使用 <a href='{{< relurl "docs/git-restore/zh_HANS-CN" >}}'>git-restore[1]</a> 并使用 <code>--source</code> 指定一个提交，您可以一次性将提交中某个路径的内容复制到索引和工作树中。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-emgitresetem--patch-pltgt--ltgt82308203"> <a class="anchor" href="#git-reset-emgitresetem--patch-pltgt--ltgt82308203"></a><em>git reset</em> (--patch | -p) [&lt;目录树对象&gt;] [--] [&lt;路径规范&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-reset-emgitresetem--patch-pltgt--ltgt82308203"> <a class="anchor" href="#git-reset-gitreset--patch-p--"></a> <a class="anchor" href="#git-reset-emgitresetem--patch-pltgt--ltgt82308203"></a><em>git reset</em> (--patch | -p) [&lt;目录树对象&gt;] [--] [&lt;路径规范&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>交互式选择索引和 <code>&lt;目录树对象&gt;</code> （默认为 <code>HEAD</code> ）之间差异的代码块。选择的代码块将逆序应用于索引。</p>
 <div class="paragraph">
 <p>这意味着 <code>git reset -p</code> 与 <code>git add -p</code> 相反，即您可以用它来有选择地重置代码块。参见 <a href='{{< relurl "docs/git-add/zh_HANS-CN" >}}'>git-add[1]</a> 的 "交互模式"部分，了解如何操作 <code>--patch</code> 模式。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-emgitresetemltgtltgt"> <a class="anchor" href="#git-reset-emgitresetemltgtltgt"></a><em>git reset</em> [&lt;模式&gt;] [&lt;提交&gt;] </dt>
+<dt class="hdlist1" id="git-reset-emgitresetemltgtltgt"> <a class="anchor" href="#git-reset-gitreset"></a> <a class="anchor" href="#git-reset-emgitresetemltgtltgt"></a><em>git reset</em> [&lt;模式&gt;] [&lt;提交&gt;] </dt>
 <dd>
 <p>这种形式将当前分支头重置为 <code>&lt;提交&gt;</code> ，并可能根据 <code>&lt;模式&gt;</code> 更新索引（将其重置为 <code>&lt;提交&gt;</code> 的树）和工作目录树。在操作之前， <code>ORIG_HEAD</code> 会被设置为当前分支的顶端。如果省略 <code>&lt;模式&gt;</code> ，则默认为 <code>--mixed</code> 。 <code>&lt;模式&gt;</code> 必须是以下之一：</p>
 <div class="openblock">
@@ -119,7 +119,7 @@ aliases:
 <dd>
 <p>在混合重置后刷新索引，默认启用。</p>
 </dd>
-<dt class="hdlist1" id="git-reset---pathspec-from-fileltfilegt"> <a class="anchor" href="#git-reset---pathspec-from-fileltfilegt"></a>--pathspec-from-file=&lt;file&gt; </dt>
+<dt class="hdlist1" id="git-reset---pathspec-from-fileltfilegt"> <a class="anchor" href="#git-reset---pathspec-from-filefile"></a> <a class="anchor" href="#git-reset---pathspec-from-fileltfilegt"></a>--pathspec-from-file=&lt;file&gt; </dt>
 <dd>
 <p>Pathspec 在 <code>&lt;文件&gt;</code> 中传递，而不是在命令行参数中传递。如果 <code>&lt;文件&gt;</code> 正好是 <code>-</code>，则使用标准输入。路径规范元素由 LF 或 CR/LF 分隔。可以引用配置变量 <code>core.quotePath</code> 的路径规范元素（请参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。另请参见 <code>--pathspec-file-nul</code> 和全局 <code>--literal-pathspecs</code>。</p>
 </dd>
@@ -131,7 +131,7 @@ aliases:
 <dd>
 <p>不将之后的参数解释为选项。</p>
 </dd>
-<dt class="hdlist1" id="git-reset-ltgt82308203"> <a class="anchor" href="#git-reset-ltgt82308203"></a>&lt;路径规范&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-reset-ltgt82308203"> <a class="anchor" href="#git-reset-"></a> <a class="anchor" href="#git-reset-ltgt82308203"></a>&lt;路径规范&gt;&#8230;&#8203; </dt>
 <dd>
 <p>限制受操作影响的路径。</p>
 <div class="paragraph">
@@ -147,7 +147,7 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-reset-"> <a class="anchor" href="#git-reset-"></a>撤销添加 </dt>
+<dt class="hdlist1" id="git-reset--1"> <a class="anchor" href="#git-reset--1"></a>撤销添加 </dt>
 <dd>
 <div class="listingblock">
 <div class="content">
@@ -175,7 +175,7 @@ $ git pull git://info.example.com/ nitfol  <b class="conum">(4)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset--1"> <a class="anchor" href="#git-reset--1"></a>撤销一个提交并重做 </dt>
+<dt class="hdlist1" id="git-reset--1-1"> <a class="anchor" href="#git-reset--1-1"></a>撤销一个提交并重做 </dt>
 <dd>
 <div class="listingblock">
 <div class="content">
@@ -202,7 +202,7 @@ $ git commit -a -c ORIG_HEAD  <b class="conum">(3)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset--1-1"> <a class="anchor" href="#git-reset--1-1"></a>撤销一个提交，使其成为一个主题分支 </dt>
+<dt class="hdlist1" id="git-reset--1-1-1"> <a class="anchor" href="#git-reset--1-1-1"></a>撤销一个提交，使其成为一个主题分支 </dt>
 <dd>
 <div class="listingblock">
 <div class="content">
@@ -225,7 +225,7 @@ $ git switch topic/wip          <b class="conum">(3)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset--1-1-1"> <a class="anchor" href="#git-reset--1-1-1"></a>永久撤销提交 </dt>
+<dt class="hdlist1" id="git-reset--1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1"></a>永久撤销提交 </dt>
 <dd>
 <div class="listingblock">
 <div class="content">
@@ -241,7 +241,7 @@ $ git reset --hard HEAD~3 <b class="conum">(1)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset--1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1"></a>撤销合并或拉动 </dt>
+<dt class="hdlist1" id="git-reset--1-1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1-1"></a>撤销合并或拉动 </dt>
 <dd>
 <div class="listingblock">
 <div class="content">
@@ -273,7 +273,7 @@ $ git reset --hard ORIG_HEAD       <b class="conum">(4)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset--1-1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1-1"></a>撤消合并或拉动肮脏的工作树的行为 </dt>
+<dt class="hdlist1" id="git-reset--1-1-1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1-1-1"></a>撤消合并或拉动肮脏的工作树的行为 </dt>
 <dd>
 <div class="listingblock">
 <div class="content">
@@ -296,7 +296,7 @@ $ git reset --merge ORIG_HEAD      <b class="conum">(2)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset--1-1-1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1-1-1"></a>中断的工作流程 </dt>
+<dt class="hdlist1" id="git-reset--1-1-1-1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1-1-1-1"></a>中断的工作流程 </dt>
 <dd>
 <div class="paragraph">
 <p>假设你在做一个大的改动时被一个紧急的修复请求打断了。 你工作树上的文件还没到可以提交的地步，但你需要到另一个分支去快速修复错误。</p>
@@ -331,7 +331,7 @@ $ git reset                                       <b class="conum">(3)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset--1-1-1-1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1-1-1-1"></a>重置索引中的单个文件 </dt>
+<dt class="hdlist1" id="git-reset--1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1-1-1-1-1"></a>重置索引中的单个文件 </dt>
 <dd>
 <div class="paragraph">
 <p>假设你在索引中添加了一个文件，但后来决定不想把它加入你的提交中。你可以用 <code>git reset</code> 将该文件从索引中删除，同时保留你的修改。</p>
@@ -357,7 +357,7 @@ $ git add frotz.c <b class="conum">(3)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset--1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1-1-1-1-1"></a>在工作树中保留修改，同时丢弃一些以前的提交内容 </dt>
+<dt class="hdlist1" id="git-reset--1-1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1-1-1-1-1-1"></a>在工作树中保留修改，同时丢弃一些以前的提交内容 </dt>
 <dd>
 <div class="paragraph">
 <p>假设你正在处理一些事情，并提交了它，然后你又继续做了一会儿，但现在你认为你在工作树中的内容应该位于另一个与您之前提交的内容无关的分支中。你可以启动一个新的分支并在保留工作树中更改的情况下重置它。</p>
@@ -387,7 +387,7 @@ $ git reset --keep start                    <b class="conum">(3)</b></pre>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset--1-1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1-1-1-1-1-1"></a>将一个提交分割成一连串的提交 </dt>
+<dt class="hdlist1" id="git-reset--1-1-1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-reset--1-1-1-1-1-1-1-1-1-1"></a>将一个提交分割成一连串的提交 </dt>
 <dd>
 <div class="paragraph">
 <p>假设你创建了很多逻辑上独立的修改，并将它们一起提交。然后，后来你决定让每个逻辑块与自己的提交相关联可能更好。你可以使用 git reset 来回溯历史，而不改变本地文件的内容，然后连续使用 <code>git add -p</code> 来交互式地选择哪些块包含在每个提交中，使用 <code>git commit -c</code> 来预先填入提交信息。</p>

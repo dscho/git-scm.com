@@ -112,13 +112,13 @@ are packed into a separate cruft pack. Unreachable objects can
 be pruned using the normal expiry rules with the next <code>git gc</code>
 invocation (see <a href='{{< relurl "docs/git-gc" >}}'>git-gc[1]</a>). Incompatible with <code>-k</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-repack.txt---cruft-expirationltapproxidategt"> <a class="anchor" href="#Documentation/git-repack.txt---cruft-expirationltapproxidategt"></a>--cruft-expiration=&lt;approxidate&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-repack.txt---cruft-expirationltapproxidategt"> <a class="anchor" href="#Documentation/git-repack.txt---cruft-expirationapproxidate"></a> <a class="anchor" href="#Documentation/git-repack.txt---cruft-expirationltapproxidategt"></a>--cruft-expiration=&lt;approxidate&gt; </dt>
 <dd>
 <p>Expire unreachable objects older than <code>&lt;approxidate&gt;</code>
 immediately instead of waiting for the next <code>git gc</code> invocation.
 Only useful with <code>--cruft -d</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-repack.txt---expire-toltdirgt"> <a class="anchor" href="#Documentation/git-repack.txt---expire-toltdirgt"></a>--expire-to=&lt;dir&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-repack.txt---expire-toltdirgt"> <a class="anchor" href="#Documentation/git-repack.txt---expire-todir"></a> <a class="anchor" href="#Documentation/git-repack.txt---expire-toltdirgt"></a>--expire-to=&lt;dir&gt; </dt>
 <dd>
 <p>Write a cruft pack containing pruned objects (if any) to the
 directory <code>&lt;dir&gt;</code>. This option is useful for keeping a copy of
@@ -154,8 +154,8 @@ updating local catalog files needed to publish
 this repository (or a direct copy of it)
 over HTTP or FTP.  See <a href='{{< relurl "docs/git-update-server-info" >}}'>git-update-server-info[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-repack.txt---windowltngt"> <a class="anchor" href="#Documentation/git-repack.txt---windowltngt"></a>--window=&lt;n&gt; </dt>
-<dt class="hdlist1" id="Documentation/git-repack.txt---depthltngt"> <a class="anchor" href="#Documentation/git-repack.txt---depthltngt"></a>--depth=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-repack.txt---windowltngt"> <a class="anchor" href="#Documentation/git-repack.txt---windown"></a> <a class="anchor" href="#Documentation/git-repack.txt---windowltngt"></a>--window=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-repack.txt---depthltngt"> <a class="anchor" href="#Documentation/git-repack.txt---depthn"></a> <a class="anchor" href="#Documentation/git-repack.txt---depthltngt"></a>--depth=&lt;n&gt; </dt>
 <dd>
 <p>These two options affect how the objects contained in the pack are
 stored using delta compression. The objects are first internally
@@ -169,11 +169,11 @@ to be applied that many times to get to the necessary object.</p>
 depth is 4095.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-repack.txt---threadsltngt"> <a class="anchor" href="#Documentation/git-repack.txt---threadsltngt"></a>--threads=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-repack.txt---threadsltngt"> <a class="anchor" href="#Documentation/git-repack.txt---threadsn"></a> <a class="anchor" href="#Documentation/git-repack.txt---threadsltngt"></a>--threads=&lt;n&gt; </dt>
 <dd>
 <p>This option is passed through to <code>git pack-objects</code>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-repack.txt---window-memoryltngt"> <a class="anchor" href="#Documentation/git-repack.txt---window-memoryltngt"></a>--window-memory=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-repack.txt---window-memoryltngt"> <a class="anchor" href="#Documentation/git-repack.txt---window-memoryn"></a> <a class="anchor" href="#Documentation/git-repack.txt---window-memoryltngt"></a>--window-memory=&lt;n&gt; </dt>
 <dd>
 <p>This option provides an additional limit on top of <code>--window</code>;
 the window size will dynamically scale down so as to not take
@@ -187,7 +187,7 @@ is taken from the <code>pack.windowMemory</code> configuration variable.
 Note that the actual memory usage will be the limit multiplied
 by the number of threads used by <a href='{{< relurl "docs/git-pack-objects" >}}'>git-pack-objects[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-repack.txt---max-pack-sizeltngt"> <a class="anchor" href="#Documentation/git-repack.txt---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-repack.txt---max-pack-sizeltngt"> <a class="anchor" href="#Documentation/git-repack.txt---max-pack-sizen"></a> <a class="anchor" href="#Documentation/git-repack.txt---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
 <dd>
 <p>Maximum size of each output pack file. The size can be suffixed with
 "k", "m", or "g". The minimum size allowed is limited to 1 MiB.
@@ -218,7 +218,7 @@ This option is generally only useful if you are writing bitmaps
 with <code>-b</code> or <code>repack.writeBitmaps</code>, as it ensures that the
 bitmapped packfile has the necessary objects.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-repack.txt---keep-packltpack-namegt"> <a class="anchor" href="#Documentation/git-repack.txt---keep-packltpack-namegt"></a>--keep-pack=&lt;pack-name&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-repack.txt---keep-packltpack-namegt"> <a class="anchor" href="#Documentation/git-repack.txt---keep-packpack-name"></a> <a class="anchor" href="#Documentation/git-repack.txt---keep-packltpack-namegt"></a>--keep-pack=&lt;pack-name&gt; </dt>
 <dd>
 <p>Exclude the given pack from repacking. This is the equivalent
 of having <code>.keep</code> file on the pack. <code>&lt;pack-name&gt;</code> is the
@@ -226,7 +226,7 @@ pack file name without leading directory (e.g. <code>pack-123.pack</code>).
 The option could be specified multiple times to keep multiple
 packs.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-repack.txt---unpack-unreachableltwhengt"> <a class="anchor" href="#Documentation/git-repack.txt---unpack-unreachableltwhengt"></a>--unpack-unreachable=&lt;when&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-repack.txt---unpack-unreachableltwhengt"> <a class="anchor" href="#Documentation/git-repack.txt---unpack-unreachablewhen"></a> <a class="anchor" href="#Documentation/git-repack.txt---unpack-unreachableltwhengt"></a>--unpack-unreachable=&lt;when&gt; </dt>
 <dd>
 <p>When loosening unreachable objects, do not bother loosening any
 objects older than <code>&lt;when&gt;</code>. This can be used to optimize out
@@ -247,8 +247,8 @@ be packed (and their loose counterparts removed).</p>
 <p>Pass the <code>--delta-islands</code> option to <code>git-pack-objects</code>, see
 <a href='{{< relurl "docs/git-pack-objects" >}}'>git-pack-objects[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-repack.txt--gltfactorgt"> <a class="anchor" href="#Documentation/git-repack.txt--gltfactorgt"></a>-g=&lt;factor&gt; </dt>
-<dt class="hdlist1" id="Documentation/git-repack.txt---geometricltfactorgt"> <a class="anchor" href="#Documentation/git-repack.txt---geometricltfactorgt"></a>--geometric=&lt;factor&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-repack.txt--gltfactorgt"> <a class="anchor" href="#Documentation/git-repack.txt--gfactor"></a> <a class="anchor" href="#Documentation/git-repack.txt--gltfactorgt"></a>-g=&lt;factor&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-repack.txt---geometricltfactorgt"> <a class="anchor" href="#Documentation/git-repack.txt---geometricfactor"></a> <a class="anchor" href="#Documentation/git-repack.txt---geometricltfactorgt"></a>--geometric=&lt;factor&gt; </dt>
 <dd>
 <p>Arrange resulting pack structure so that each successive pack
 contains at least <code>&lt;factor&gt;</code> times the number of objects as the

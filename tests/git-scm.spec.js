@@ -193,6 +193,16 @@ test('manual pages', async ({ page }) => {
   await expect(synopsis).not.toHaveText(/git remote renom.*<ancien> <nouveau>/)
 })
 
+test('anchor links in manual pages', async ({ page }) => {
+  // Test that anchor links work without HTML tags
+  const anchor = '#Documentation/git-clone.txt---recurse-submodulesltpathspecgt'
+  await page.goto(`${url}docs/git-clone${anchor}`)
+
+  // Find the anchored element that should be scrolled into view
+  const anchoredElement = await page.getByText(/^--recurse-submodules.*pathspec/)
+  await expect(anchoredElement).toBeVisible()
+})
+
 test('book', async ({ page }) => {
   await page.goto(`${url}book/`)
   await expect(page).toHaveURL(`${url}book/en/v2`)

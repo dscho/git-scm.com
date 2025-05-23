@@ -45,7 +45,7 @@ aliases:
 <dd>
 <p>Seja detalhado sobre o que está acontecendo, incluindo a condição geral do progresso.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack--oltarquivo-ndicegt"> <a class="anchor" href="#git-index-pack--oltarquivo-ndicegt"></a>-o &lt;arquivo-índice&gt; </dt>
+<dt class="hdlist1" id="git-index-pack--oltarquivo-ndicegt"> <a class="anchor" href="#git-index-pack--oarquivo-ndice"></a> <a class="anchor" href="#git-index-pack--oltarquivo-ndicegt"></a>-o &lt;arquivo-índice&gt; </dt>
 <dd>
 <p>Grava o índice do pacote gerado no arquivo especificado. Sem essa opção, o nome do índice do arquivo do pacote é construído a partir do nome do arquivo compactado, substituindo .pack por .idx (e o programa falhará se o nome do arquivo compactado não terminar com .pack).</p>
 </dd>
@@ -65,15 +65,15 @@ aliases:
 <dd>
 <p>Antes de mover o índice para seu destino final, crie um arquivo <em>.keep</em> vazio para o arquivo de pacote associado. Essa opção geralmente é necessária com <code>--stdin</code> para evitar que um processo simultâneo de <em>git repack</em> exclua o pacote e o índice recém-construídos antes que as referências possam ser atualizadas para usar os objetos contidos no pacote.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---keepltmsggt"> <a class="anchor" href="#git-index-pack---keepltmsggt"></a>--keep=&lt;msg&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---keepltmsggt"> <a class="anchor" href="#git-index-pack---keepmsg"></a> <a class="anchor" href="#git-index-pack---keepltmsggt"></a>--keep=&lt;msg&gt; </dt>
 <dd>
 <p>Como <code>--keep</code>, cria um arquivo <em>.keep</em> antes de mover o índice para seu destino final. No entanto, em vez de criar um arquivo vazio, coloque <em>&lt;msg&gt;</em> seguido de um LF no arquivo .keep. A mensagem "&lt;msg&gt;" pode ser pesquisada posteriormente em todos os arquivos <em>.keep</em> para localizar qualquer um que tenha perdido a sua utilidade.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---index-versionltversiongtltoffsetgt"> <a class="anchor" href="#git-index-pack---index-versionltversiongtltoffsetgt"></a>--index-version=&lt;version&gt;[,&lt;offset&gt;] </dt>
+<dt class="hdlist1" id="git-index-pack---index-versionltversiongtltoffsetgt"> <a class="anchor" href="#git-index-pack---index-versionversionoffset"></a> <a class="anchor" href="#git-index-pack---index-versionltversiongtltoffsetgt"></a>--index-version=&lt;version&gt;[,&lt;offset&gt;] </dt>
 <dd>
 <p>Isso foi pensado para ser utilizado apenas pelo conjunto de testes. Ele permite impor a versão do índice do pacote gerado e impor as entradas no índice com 64 bits nos objetos localizados acima da compensação informada.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---strictltmsg-idgtltgravidadegt82308203"> <a class="anchor" href="#git-index-pack---strictltmsg-idgtltgravidadegt82308203"></a>--strict[=&lt;msg-id&gt;=&lt;gravidade&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-index-pack---strictltmsg-idgtltgravidadegt82308203"> <a class="anchor" href="#git-index-pack---strictmsg-idgravidade"></a> <a class="anchor" href="#git-index-pack---strictltmsg-idgtltgravidadegt82308203"></a>--strict[=&lt;msg-id&gt;=&lt;gravidade&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Encerra se o pacote tiver objetos ou links quebrados. Uma lista opcional separada por vírgulas de <code>&lt;msg-id&gt;=&lt;gravidade&gt;</code> pode ser passada para alterar a gravidade de alguns problemas possíveis, por exemplo, <code>--strict="missingEmail=ignore,badTagName=error"</code>. Consulte a entrada para as opções de configuração <code>fsck.&lt;msg-id&gt;</code> do comando <a href='{{< relurl "docs/git-fsck/pt_BR" >}}'>git-fsck[1]</a> para obter mais informações sobre os possíveis valores de <code>&lt;msg-id&gt;</code> e <code>&lt;gravidade&gt;</code>.</p>
 </dd>
@@ -88,22 +88,22 @@ aliases:
 <dd>
 <p>Encerre caso o pacote contenha links quebrados. Apenas para utilização interna.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---fsck-objectsltmsg-idgtltgravidadegt82308203"> <a class="anchor" href="#git-index-pack---fsck-objectsltmsg-idgtltgravidadegt82308203"></a>--fsck-objects[=&lt;msg-id&gt;=&lt;gravidade&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-index-pack---fsck-objectsltmsg-idgtltgravidadegt82308203"> <a class="anchor" href="#git-index-pack---fsck-objectsmsg-idgravidade"></a> <a class="anchor" href="#git-index-pack---fsck-objectsltmsg-idgtltgravidadegt82308203"></a>--fsck-objects[=&lt;msg-id&gt;=&lt;gravidade&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Encerra se o pacote contiver objetos quebrados, mas, diferentemente do <code>--strict</code>, não se engasga com links quebrados. Se o pacote tiver uma árvore que aponte para uma bolha <em>.gitmodules</em> que não exista, imprima o hash dessa bolha (para que o chamador verifique) após o hash que vai para o nome do arquivo pack/idx (consulte "Notas").</p>
 <div class="paragraph">
 <p>Uma lista opcional separada por vírgulas de <code>&lt;msg-id&gt;=&lt;gravidade&gt;</code> pode ser passada para alterar a gravidade de alguns problemas possíveis, por exemplo, <code>--fsck-objects="missingEmail=ignore,badTagName=ignore"</code>. Consulte a entrada para as opções de configuração <code>fsck.&lt;msg-id&gt;</code> do comando <a href='{{< relurl "docs/git-fsck/pt_BR" >}}'>git-fsck[1]</a> para obter mais informações sobre os possíveis valores de <code>&lt;msg-id&gt;</code> e <code>&lt;gravidade&gt;</code>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-index-pack---threadsltngt"> <a class="anchor" href="#git-index-pack---threadsltngt"></a>--threads=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---threadsltngt"> <a class="anchor" href="#git-index-pack---threadsn"></a> <a class="anchor" href="#git-index-pack---threadsltngt"></a>--threads=&lt;n&gt; </dt>
 <dd>
 <p>Especifica a quantidade de threads a serem gerados ao resolver deltas. Isso exige que o <em>index-pack</em> seja compilado com pthreads; caso contrário, essa opção será ignorada com um aviso. O objetivo é reduzir o tempo de empacotamento em máquinas com vários processadores. No entanto, a quantidade de memória necessária para a janela de pesquisa delta é multiplicada pelo número de threads. Especificar 0 fará com que o Git detecte automaticamente o número de CPUs e use no máximo 3 threads.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---max-input-sizelttamanhogt"> <a class="anchor" href="#git-index-pack---max-input-sizelttamanhogt"></a>--max-input-size=&lt;tamanho&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---max-input-sizelttamanhogt"> <a class="anchor" href="#git-index-pack---max-input-sizetamanho"></a> <a class="anchor" href="#git-index-pack---max-input-sizelttamanhogt"></a>--max-input-size=&lt;tamanho&gt; </dt>
 <dd>
 <p>Encerre caso o pacote seja maior que &lt;tamanho&gt;.</p>
 </dd>
-<dt class="hdlist1" id="git-index-pack---object-formatlthash-algorithmgt"> <a class="anchor" href="#git-index-pack---object-formatlthash-algorithmgt"></a>--object-format=&lt;hash-algorithm&gt; </dt>
+<dt class="hdlist1" id="git-index-pack---object-formatlthash-algorithmgt"> <a class="anchor" href="#git-index-pack---object-formathash-algorithm"></a> <a class="anchor" href="#git-index-pack---object-formatlthash-algorithmgt"></a>--object-format=&lt;hash-algorithm&gt; </dt>
 <dd>
 <p>Especifique o formato de objeto fornecido (algoritmo de hash) para o pacote. Os valores válidos são <em>sha1</em> e (se ativado) <em>sha256</em>. A predefinição é o algoritmo do repositório atual (definido por <code>extensions.objectFormat</code>) ou <em>sha1</em> se nenhum valor for definido ou se estiver fora de um repositório.</p>
 <div class="paragraph">
@@ -120,7 +120,7 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-index-pack---promisorltmensagemgt"> <a class="anchor" href="#git-index-pack---promisorltmensagemgt"></a>--promisor[=&lt;mensagem&gt;] </dt>
+<dt class="hdlist1" id="git-index-pack---promisorltmensagemgt"> <a class="anchor" href="#git-index-pack---promisormensagem"></a> <a class="anchor" href="#git-index-pack---promisorltmensagemgt"></a>--promisor[=&lt;mensagem&gt;] </dt>
 <dd>
 <p>Antes fazer o commit do índice do pacote, crie um arquivo .promisor para este pacote. É particularmente útil ao escrever um pacote promissor com a opção <code>--fix-thin</code> já que o nome do pacote não é definitivo até que o pacote tenha sido totalmente escrito. Caso uma <code>&lt;menssagem&gt;</code> seja fornecida, esse conteúdo será gravado no arquivo .promisor para uma referência futura. Consulte o <a href="{{< relurl "docs/partial-clone/pt_BR" >}}">clone parcial</a> para obter mais informações.</p>
 <div class="paragraph">

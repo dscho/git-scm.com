@@ -82,7 +82,7 @@ uma alteração nas linhas exatas que foram adicionadas por exemplo.</p>
 <p>Isso é conhecido por <code>range-diff</code> como "coloração dupla". Use a opção <code>--no-dual-color</code> para reverter a cor de todas as linhas de acordo com os marcações diff externos (e ignorar completamente o diff interno quando se tratar de cor).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-range-diff---creation-factorltpercentualgt"> <a class="anchor" href="#git-range-diff---creation-factorltpercentualgt"></a>--creation-factor=&lt;percentual&gt; </dt>
+<dt class="hdlist1" id="git-range-diff---creation-factorltpercentualgt"> <a class="anchor" href="#git-range-diff---creation-factorpercentual"></a> <a class="anchor" href="#git-range-diff---creation-factorltpercentualgt"></a>--creation-factor=&lt;percentual&gt; </dt>
 <dd>
 <p>Defina o fator de correção do custo de criação/exclusão como <code>&lt;por-cento&gt;</code>. A predefinição é 60. Tente um valor maior se o comando <code>git range-diff</code> considerar erroneamente uma grande alteração como uma reescrita total (exclusão de um commit e adição de outro) e um valor menor no caso inverso. Consulte a seção ``Algoritmo`` abaixo para obter uma explicação do por que isso é necessário.</p>
 </dd>
@@ -94,7 +94,7 @@ uma alteração nas linhas exatas que foram adicionadas por exemplo.</p>
 <dd>
 <p>Suprime os commits que estão faltando no segundo intervalo informado (ou o "intervalo direito" ao usar o formato <code>&lt;rev1&gt;...&lt;rev2&gt;</code>).</p>
 </dd>
-<dt class="hdlist1" id="git-range-diff---diff-mergesltformatogt"> <a class="anchor" href="#git-range-diff---diff-mergesltformatogt"></a>--diff-merges=&lt;formato&gt; </dt>
+<dt class="hdlist1" id="git-range-diff---diff-mergesltformatogt"> <a class="anchor" href="#git-range-diff---diff-mergesformato"></a> <a class="anchor" href="#git-range-diff---diff-mergesltformatogt"></a>--diff-merges=&lt;formato&gt; </dt>
 <dd>
 <p>Instead of ignoring merge commits, generate diffs for them using the corresponding <code>--diff-merges=&lt;format&gt;</code> option of <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>, and include them in the comparison.</p>
 <div class="paragraph">
@@ -105,19 +105,19 @@ uma alteração nas linhas exatas que foram adicionadas por exemplo.</p>
 <dd>
 <p>Convenience option, equivalent to <code>--diff-merges=remerge</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-range-diff---no-notesltrefgt"> <a class="anchor" href="#git-range-diff---no-notesltrefgt"></a>--[no-]notes[=&lt;ref&gt;] </dt>
+<dt class="hdlist1" id="git-range-diff---no-notesltrefgt"> <a class="anchor" href="#git-range-diff---no-notesref"></a> <a class="anchor" href="#git-range-diff---no-notesltrefgt"></a>--[no-]notes[=&lt;ref&gt;] </dt>
 <dd>
 <p>Esta opção é repassada para o comando <code>git apply</code> que aplica as correções (patch) (consulte <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>).</p>
 </dd>
-<dt class="hdlist1" id="git-range-diff-ltintervalodareviso1gtltintervalodareviso2gt"> <a class="anchor" href="#git-range-diff-ltintervalodareviso1gtltintervalodareviso2gt"></a>&lt;intervalo da revisão1&gt; &lt;intervalo da revisão2&gt; </dt>
+<dt class="hdlist1" id="git-range-diff-ltintervalodareviso1gtltintervalodareviso2gt"> <a class="anchor" href="#git-range-diff-intervalodareviso1intervalodareviso2"></a> <a class="anchor" href="#git-range-diff-ltintervalodareviso1gtltintervalodareviso2gt"></a>&lt;intervalo da revisão1&gt; &lt;intervalo da revisão2&gt; </dt>
 <dd>
 <p>Compare os commits através dos dois intervalos, onde <code>&lt;intervalo1&gt;</code> é considerado uma versão mais antiga de <code>&lt;intervalo1&gt;</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-range-diff-ltrev1gt82308203ltrev2gt"> <a class="anchor" href="#git-range-diff-ltrev1gt82308203ltrev2gt"></a>&lt;rev1&gt;&#8230;&#8203;&lt;rev2&gt; </dt>
+<dt class="hdlist1" id="git-range-diff-ltrev1gt82308203ltrev2gt"> <a class="anchor" href="#git-range-diff-rev1rev2"></a> <a class="anchor" href="#git-range-diff-ltrev1gt82308203ltrev2gt"></a>&lt;rev1&gt;&#8230;&#8203;&lt;rev2&gt; </dt>
 <dd>
 <p>É o mesmo que passar <code>&lt;rev2&gt;..&lt;rev1&gt;</code> e <code>&lt;rev1&gt;..&lt;rev2&gt;</code>.</p>
 </dd>
-<dt class="hdlist1" id="git-range-diff-ltbasegtltrev1gtltrev2gt"> <a class="anchor" href="#git-range-diff-ltbasegtltrev1gtltrev2gt"></a>&lt;base&gt; &lt;rev1&gt; &lt;rev2&gt; </dt>
+<dt class="hdlist1" id="git-range-diff-ltbasegtltrev1gtltrev2gt"> <a class="anchor" href="#git-range-diff-baserev1rev2"></a> <a class="anchor" href="#git-range-diff-ltbasegtltrev1gtltrev2gt"></a>&lt;base&gt; &lt;rev1&gt; &lt;rev2&gt; </dt>
 <dd>
 <p>É o mesmo que passar <code>&lt;base&gt;..&lt;rev1&gt;</code> e <code>&lt;base&gt;..&lt;rev2&gt;</code>. Observe que <code>&lt;base&gt;</code> não precisa ser o ponto exato da ramificação das ramificações. Exemplo: após o rebase de uma ramificação <code>my-topic</code>, o comando <code>git range-diff my-topic@{u} my-topic@{1} my-topic</code> mostraria as diferenças introduzidas pelo rebase.</p>
 </dd>
