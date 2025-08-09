@@ -1,13 +1,11 @@
 {{ $headings := .Params.headings }}
 {{ if $headings }}
-<a class="dropdown-trigger" id="reference-toc-trigger" data-panel-id="toc-dropdown" href="#">Table of Contents ▾</a>
-<div class='dropdown-panel right' id='toc-dropdown'>
-  <div>
-    <ul class="toc">
-      {{ range $i, $item := $headings }}
-        <li><a href="#{{ .id }}">{{ .text }}</a></li>
-      {{ end }}
-    </ul>
-  </div>
+<div id='toc-box' class='toc-box'>
+  <div class='toc-box-header'>Table of Contents</div>
+  <ul class="toc-list">
+    {{ range $i, $item := $headings }}
+      <li><a href="#{{ .id }}">{{ .text }}</a></li>
+    {{ end }}
+  </ul>
 </div>
 {{ end }}

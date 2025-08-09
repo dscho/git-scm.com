@@ -111,19 +111,6 @@ h3.plumbing {
     &#reference-languages-trigger {
       float: right;
     }
-
-    // Ensure the TOC trigger floats right like topics/languages
-    &#reference-toc-trigger {
-      float: right;
-    }
-  }
-
-  // Place the "last updated" span inline next to the left-floating versions trigger
-  > span.light {
-    display: inline-block;
-    clear: none;
-    margin-left: 6px;
-    vertical-align: middle;
   }
 }
 
@@ -226,25 +213,65 @@ h3.plumbing {
   }
 }
 
-// Position the Table of Contents dropdown under the right-floated TOC trigger
-#toc-dropdown {
-  width: 300px;
-  right: 12px;
-  padding: 12px;
-  font-weight: normal;
-  line-height: 1;
+// New inline TOC box styles
+.toc-box {
+  float: right;
+  width: 200px;
+  margin: 0 0 15px 20px;
+  padding: 10px 12px;
+  font-size: 13px;
+  background-color: var(--callout-color);
+  border: 1px solid var(--base-border-color);
+  @include border-radius(3px);
 
-  ul {
-    margin: 0;
+  .toc-box-header {
+    font-weight: bold;
+    margin-bottom: 8px;
   }
 
-  li {
+  .toc-list {
+    margin: 0;
+    padding-left: 18px;
+    list-style: disc;
+  }
+
+  .toc-list li {
+    margin: 2px 0;
     line-height: $base-line-height * 0.8;
   }
 
-  a {
+  .toc-list a {
     font-weight: normal;
-    padding: 0;
+  }
+}
+
+// Ensure content can flow around the TOC naturally
+#documentation #main {
+  .sectionbody {
+    overflow: visible;
+  }
+
+  .verseblock {
+    overflow: visible;
+
+    .content {
+      overflow: visible;
+
+      pre {
+        overflow: visible;
+        white-space: pre-wrap;
+      }
+    }
+  }
+}
+
+// Stack TOC box full-width on small screens
+@media (max-width: $mobile-m) {
+  .toc-box {
+    float: none;
+    width: 80%;
+    max-width: none;
+    margin-right: 0;
   }
 }
 
