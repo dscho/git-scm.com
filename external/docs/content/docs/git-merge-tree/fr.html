@@ -9,6 +9,31 @@ docname: git-merge-tree
 lang: fr
 aliases:
 - "/docs/git-merge-tree/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: NEWMERGE
+- text: OPTIONS
+  id: _options
+- text: SORTIE
+  id: OUTPUT
+- text: STATUT DE SORTIE
+  id: _statut_de_sortie
+- text: NOTES D’UTILISATION
+  id: _notes_dutilisation
+- text: FORMAT D’ENTRÉE
+  id: INPUT
+- text: ERREURS À ÉVITER
+  id: _erreurs_à_éviter
+- text: DESCRIPTION DÉCONSEILLÉE
+  id: DEPMERGE
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -31,7 +56,7 @@ aliases:
 <h2 id="NEWMERGE"><a class="anchor" href="#NEWMERGE"></a>DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cette commande a un mode moderne <code>--write-tree</code> et un mode <code>--trivial-merge</code>. À l&#8217;exception de la section <a href="#DEPMERGE">DESCRIPTION OBSOL ÈTE</a> à la fin, le reste de cette documentation décrit le mode moderne <code>--write-tree</code>.</p>
+<p>Cette commande a un mode moderne <span class='synopsis'><code>--write-tree</code></span> et un mode <span class='synopsis'><code>--trivial-merge</code></span>. À l&#8217;exception de la section <a href="#DEPMERGE">DESCRIPTION OBSOL ÈTE</a> à la fin, le reste de cette documentation décrit le mode moderne <span class='synopsis'><code>--write-tree</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Exécute une fusion, mais ne fait pas de nouveaux commits et ne lit ni n&#8217;écrit ni l&#8217;arbre de travail ni l&#8217;index.</p>
@@ -59,7 +84,7 @@ aliases:
 </ul>
 </div>
 <div class="paragraph">
-<p>Une fois la fusion terminée, un nouvel objet d&#8217;arborescence est créé au sommet. Voir <code>SORTIE</code> ci-dessous pour plus de détails.</p>
+<p>Une fois la fusion terminée, un nouvel objet d&#8217;arborescence est créé au sommet. Voir <span class='synopsis'><code>SORTIE</code></span> ci-dessous pour plus de détails.</p>
 </div>
 </div>
 </div>
@@ -70,7 +95,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-merge-tree---stdin"> <a class="anchor" href="#git-merge-tree---stdin"></a>--stdin </dt>
 <dd>
-<p>Lire les commits à fusionner à partir de l&#8217;entrée standard plutôt que sur la ligne de commande. Voir <a href="#INPUT">FORMAT D&#8217;ENTRÉE</a> ci-dessous pour plus d&#8217;informations. Implique <code>-z</code>.</p>
+<p>Lire les commits à fusionner à partir de l&#8217;entrée standard plutôt que sur la ligne de commande. Voir <a href="#INPUT">FORMAT D&#8217;ENTRÉE</a> ci-dessous pour plus d&#8217;informations. Implique <span class='synopsis'><code>-z</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-merge-tree--z"> <a class="anchor" href="#git-merge-tree--z"></a>-z </dt>
 <dd>
@@ -94,7 +119,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-merge-tree---merge-baseltarbre-esquegt"> <a class="anchor" href="#git-merge-tree---merge-basearbre-esque"></a> <a class="anchor" href="#git-merge-tree---merge-baseltarbre-esquegt"></a>--merge-base=&lt;arbre-esque&gt; </dt>
 <dd>
-<p>Au lieu de trouver les bases de fustion pour la &lt;branche1&gt; et &lt;branche2&gt;, il n&#8217;y a pas de prise en charge pour spécifier une base de fusion pour la fusion et préciser plusieurs bases. Cette option est incompatible avec <code>--stdin</code>.</p>
+<p>Au lieu de trouver les bases de fustion pour la &lt;branche1&gt; et &lt;branche2&gt;, il n&#8217;y a pas de prise en charge pour spécifier une base de fusion pour la fusion et préciser plusieurs bases. Cette option est incompatible avec <span class='synopsis'><code>--stdin</code></span>.</p>
 <div class="paragraph">
 <p>Comme la base de fusion est fournie directement, &lt;branche1&gt; et &lt;branche2&gt; n&#8217;ont pas besoin de pointer des commits ; les arbres sont suffisants.</p>
 </div>
@@ -133,7 +158,7 @@ aliases:
 <p>Elles sont examinées individuellement ci-dessous.</p>
 </div>
 <div class="paragraph">
-<p>Cependant, il y a une exception. Si <code>--stdin</code> est passé, il y a une section supplémentaire au début, un caractère NUL à la fin, et toutes les sections se répètent pour chaque ligne d&#8217;entrée. Ainsi, si la première fusion est en conflit et que la seconde est propre, la production serait de la forme :</p>
+<p>Cependant, il y a une exception. Si <span class='synopsis'><code>--stdin</code></span> est passé, il y a une section supplémentaire au début, un caractère NUL à la fin, et toutes les sections se répètent pour chaque ligne d&#8217;entrée. Ainsi, si la première fusion est en conflit et que la seconde est propre, la production serait de la forme :</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -162,7 +187,7 @@ NUL</pre>
 <div class="sect2">
 <h3 id="OIDTLT"><a class="anchor" href="#OIDTLT"></a>OID de l&#8217;arbre supérieur</h3>
 <div class="paragraph">
-<p>C&#8217;est un objet d&#8217;arbre qui représente ce qui serait extrait dans l&#8217;arbre de travail à la fin de <code>git merge</code>. S&#8217;il y avait des conflits, alors les fichiers dans cet arbre peuvent avoir des marqueurs de conflit intégrés. Cette section est toujours suivie d&#8217;une nouvelle ligne (ou NUL si <code>-z</code> est passé).</p>
+<p>C&#8217;est un objet d&#8217;arbre qui représente ce qui serait extrait dans l&#8217;arbre de travail à la fin de <span class='synopsis'><code>git</code> <code>merge</code></span>. S&#8217;il y avait des conflits, alors les fichiers dans cet arbre peuvent avoir des marqueurs de conflit intégrés. Cette section est toujours suivie d&#8217;une nouvelle ligne (ou NUL si <span class='synopsis'><code>-z</code></span> est passé).</p>
 </div>
 </div>
 <div class="sect2">
@@ -176,16 +201,16 @@ NUL</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Le nom du fichier sera cité comme expliqué pour la variable de configuration <code>core.quotePath</code> (voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>). Cependant, si l&#8217;option <code>--name-only</code> est passée, le mode, l&#8217;objet, et l&#8217;étape seront omis. Si l&#8217;option <code>-z</code> est passée, les "lignes" sont terminées par un caractère NUL au lieu d&#8217;un caractère de nouvelle ligne.</p>
+<p>Le nom du fichier sera cité comme expliqué pour la variable de configuration <span class='synopsis'><code>core.quotePath</code></span> (voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>). Cependant, si l&#8217;option <span class='synopsis'><code>--name-only</code></span> est passée, le mode, l&#8217;objet, et l&#8217;étape seront omis. Si l&#8217;option <span class='synopsis'><code>-z</code></span> est passée, les "lignes" sont terminées par un caractère NUL au lieu d&#8217;un caractère de nouvelle ligne.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="IM"><a class="anchor" href="#IM"></a>Messages d&#8217;information</h3>
 <div class="paragraph">
-<p>Cette section fournit des messages d&#8217;information, généralement sur les conflits. Le format de la section varie considérablement selon que <code>-z</code> est passé.</p>
+<p>Cette section fournit des messages d&#8217;information, généralement sur les conflits. Le format de la section varie considérablement selon que <span class='synopsis'><code>-z</code></span> est passé.</p>
 </div>
 <div class="paragraph">
-<p>Si <code>-z</code> est passé :</p>
+<p>Si <span class='synopsis'><code>-z</code></span> est passé :</p>
 </div>
 <div class="paragraph">
 <p>Le format de sortie est zéro ou plus enregistrements d&#8217;information sur les conflits, chacun de la forme :</p>
@@ -242,7 +267,7 @@ NUL</pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>Si <code>-z</code> n&#8217;est PAS passé :</p>
+<p>Si <span class='synopsis'><code>-z</code></span> n&#8217;est PAS passé :</p>
 </div>
 <div class="paragraph">
 <p>Cette section commence par une ligne vierge pour la séparer des sections précédentes, puis ne contient que les informations &lt;message-de-conflit&gt; de la section précédente (séparées par des nouvelles lignes). Ce sont des chaînes non-stables qui ne doivent pas être analysées par des scripts, et sont simplement destinées à la consommation humaine. De plus, notez que si les chaînes &lt;message-de-conflit&gt; ne contiennent généralement pas de nouvelles lignes intégrées, elles le font parfois. (Cependant, les messages libres n&#8217;auront jamais de caractère NUL intégré). Ainsi, l&#8217;ensemble de l&#8217;information est destiné aux lecteurs humains comme une agglomération de tous les messages de conflit.</p>
@@ -279,7 +304,7 @@ git update-ref $BRANCH1 $NEWCOMMIT</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Notez que lorsque le statut de sortie est non-zéro, <code>NEWTREE</code> dans cette séquence contiendra beaucoup plus qu&#8217;un arbre.</p>
+<p>Notez que lorsque le statut de sortie est non-zéro, <span class='synopsis'><code>NEWTREE</code></span> dans cette séquence contiendra beaucoup plus qu&#8217;un arbre.</p>
 </div>
 <div class="paragraph">
 <p>Pour les conflits, la sortie comprend les mêmes informations que vous obtiendriez avec <a href='{{< relurl "docs/git-merge/fr" >}}'>git-merge[1]</a> :</p>
@@ -311,7 +336,7 @@ git update-ref $BRANCH1 $NEWCOMMIT</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Si une ligne est séparée par <code>--</code>, la chaîne précédant le séparateur est utilisée pour spécifier une base de fusion pour la fusion et la chaîne suivant le séparateur décrit les branches à fusionner.</p>
+<p>Si une ligne est séparée par <span class='synopsis'><code>--</code></span>, la chaîne précédant le séparateur est utilisée pour spécifier une base de fusion pour la fusion et la chaîne suivant le séparateur décrit les branches à fusionner.</p>
 </div>
 </div>
 </div>
@@ -342,10 +367,10 @@ git update-ref $BRANCH1 $NEWCOMMIT</pre>
 <h2 id="DEPMERGE"><a class="anchor" href="#DEPMERGE"></a>DESCRIPTION DÉCONSEILLÉE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Comme spécifié dans la section <a href="#NEWMERGE">DESCRIPTION</a> et contrairement au reste de la documentation, cette section décrit le mode déprécié <code>--trivial-merge</code>.</p>
+<p>Comme spécifié dans la section <a href="#NEWMERGE">DESCRIPTION</a> et contrairement au reste de la documentation, cette section décrit le mode déprécié <span class='synopsis'><code>--trivial-merge</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>À part l&#8217;option <code>--trivial-merge</code> optionnelle, ce mode n&#8217;accepte aucune option.</p>
+<p>À part l&#8217;option <span class='synopsis'><code>--trivial-merge</code></span> optionnelle, ce mode n&#8217;accepte aucune option.</p>
 </div>
 <div class="paragraph">
 <p>Ce mode lit trois arbres-esques, et produit des résultats triviaux de fusion et des étapes conflictuelles sur la sortie standard dans un format semi-diff. Comme cela a été conçu pour la consommation par des scripts de plus haut niveau et pour fusionner les résultats dans l&#8217;index, il omet les entrées qui correspondent à &lt;branche1&gt;. Le résultat de cette deuxième forme est semblable à ce que fait <em>git read-tree -m</em>, mais au lieu de stocker les résultats dans l&#8217;index, la commande produit les entrées sur la sortie standard.</p>

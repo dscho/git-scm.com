@@ -9,6 +9,23 @@ docname: git-apply
 lang: pt_BR
 aliases:
 - "/docs/git-apply/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: SUBMÓDULOS
+  id: _submódulos
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -38,7 +55,7 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Lê o resultado do diff fornecido (ou seja, "um patch") e o aplica aos arquivos. Ao executar a partir de um subdiretório num repositório, os caminhos corrigidos fora do diretório são ignorados. Com a opção <code>--index</code>, o patch também é aplicado no índice, já com a opção <code>--cached</code>, o patch é apenas aplicado no índice. Sem estas opções, o comando aplica o patch apenas aos arquivos e não exige que eles estejam num repositório Git.</p>
+<p>Lê o resultado do diff fornecido (ou seja, "um patch") e o aplica aos arquivos. Ao executar a partir de um subdiretório num repositório, os caminhos corrigidos fora do diretório são ignorados. Com a opção <span class='synopsis'><code>--index</code></span>, o patch também é aplicado no índice, já com a opção <span class='synopsis'><code>--cached</code></span>, o patch é apenas aplicado no índice. Sem estas opções, o comando aplica o patch apenas aos arquivos e não exige que eles estejam num repositório Git.</p>
 </div>
 <div class="paragraph">
 <p>Este comando aplica a correção, mas não cria um commit. Use <a href='{{< relurl "docs/git-am/pt_BR" >}}'>git-am[1]</a> para criar commits a partir dos patches que foram gerados pelo comando <a href='{{< relurl "docs/git-format-patch/pt_BR" >}}'>git-format-patch[1]</a> e/ou recebidos por e-mail.</p>
@@ -56,15 +73,15 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-apply---stat"> <a class="anchor" href="#git-apply---stat"></a>--stat </dt>
 <dd>
-<p>Em vez de aplicar a correção, gere o <code>diffstat</code>. Desativa a opção "apply".</p>
+<p>Em vez de aplicar a correção, gere o <span class='synopsis'><code>diffstat</code></span>. Desativa a opção "apply".</p>
 </dd>
 <dt class="hdlist1" id="git-apply---numstat"> <a class="anchor" href="#git-apply---numstat"></a>--numstat </dt>
 <dd>
-<p>Semelhante ao <code>--stat</code>, porém mostra a quantidade de linhas adicionadas e as linhas excluídas em notação decimal e o nome do caminho sem abreviação, tornando-o mais amigável ao computador. Para arquivos binários, produz dois <code>-</code> em vez de <code>0 0</code>. Desativa a opção "apply".</p>
+<p>Semelhante ao <span class='synopsis'><code>--stat</code></span>, porém mostra a quantidade de linhas adicionadas e as linhas excluídas em notação decimal e o nome do caminho sem abreviação, tornando-o mais amigável ao computador. Para arquivos binários, produz dois <span class='synopsis'><code>-</code></span> em vez de <span class='synopsis'><code>0</code> <code>0</code></span>. Desativa a opção "apply".</p>
 </dd>
 <dt class="hdlist1" id="git-apply---summary"> <a class="anchor" href="#git-apply---summary"></a>--summary </dt>
 <dd>
-<p>Em vez de aplicar o patch, produza um resumo condensado das informações obtidas dos cabeçalhos estendidos do <code>git diff</code>, como criações, renomeações e as alterações do modo. Desativa a opção "apply".</p>
+<p>Em vez de aplicar o patch, produza um resumo condensado das informações obtidas dos cabeçalhos estendidos do <span class='synopsis'><code>git</code> <code>diff</code></span>, como criações, renomeações e as alterações do modo. Desativa a opção "apply".</p>
 </dd>
 <dt class="hdlist1" id="git-apply---check"> <a class="anchor" href="#git-apply---check"></a>--check </dt>
 <dd>
@@ -72,20 +89,20 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-apply---index"> <a class="anchor" href="#git-apply---index"></a>--index </dt>
 <dd>
-<p>Aplica o patch ao índice e à árvore de trabalho (ou apenas verifica se ele se aplicaria corretamente em ambos caso <code>--check</code> esteja em uso). Observe que <code>--index</code> espera que as entradas do índice e as cópias da árvore de trabalho para os caminhos relevantes sejam idênticos (o seu conteúdo e seus metadados, como o modo arquivo, devem coincidir) e um erro será gerado caso não sejam mesmo que o patch seja aplicado corretamente no índice e na árvore de trabalho de forma isolada.</p>
+<p>Aplica o patch ao índice e à árvore de trabalho (ou apenas verifica se ele se aplicaria corretamente em ambos caso <span class='synopsis'><code>--check</code></span> esteja em uso). Observe que <span class='synopsis'><code>--index</code></span> espera que as entradas do índice e as cópias da árvore de trabalho para os caminhos relevantes sejam idênticos (o seu conteúdo e seus metadados, como o modo arquivo, devem coincidir) e um erro será gerado caso não sejam mesmo que o patch seja aplicado corretamente no índice e na árvore de trabalho de forma isolada.</p>
 </dd>
 <dt class="hdlist1" id="git-apply---cached"> <a class="anchor" href="#git-apply---cached"></a>--cached </dt>
 <dd>
-<p>Aplica o patch apenas no índice sem afetar a árvore de trabalho. Caso a opção <code>--check</code> esteja em vigor, basta verificar se ele se aplicaria de forma limpa à entrada do índice.</p>
+<p>Aplica o patch apenas no índice sem afetar a árvore de trabalho. Caso a opção <span class='synopsis'><code>--check</code></span> esteja em vigor, basta verificar se ele se aplicaria de forma limpa à entrada do índice.</p>
 </dd>
 <dt class="hdlist1" id="git-apply---intent-to-add"> <a class="anchor" href="#git-apply---intent-to-add"></a>--intent-to-add </dt>
 <dd>
-<p>Ao aplicar o patch apenas à árvore de trabalho, posteriormente, marque os novos arquivos que serão adicionados ao índice (consulte a opção <code>--intent-to-add</code> do comando <a href='{{< relurl "docs/git-add/pt_BR" >}}'>git-add[1]</a>). Essa opção é ignorada, a menos que seja executada num repositório Git e a opção <code>--index</code> não seja usada. Observe que <code>--index</code> pode estar implícito em outras opções, como <code>--cached</code> ou <code>--3way</code>.</p>
+<p>Ao aplicar o patch apenas à árvore de trabalho, posteriormente, marque os novos arquivos que serão adicionados ao índice (consulte a opção <span class='synopsis'><code>--intent-to-add</code></span> do comando <a href='{{< relurl "docs/git-add/pt_BR" >}}'>git-add[1]</a>). Essa opção é ignorada, a menos que seja executada num repositório Git e a opção <span class='synopsis'><code>--index</code></span> não seja usada. Observe que <span class='synopsis'><code>--index</code></span> pode estar implícito em outras opções, como <span class='synopsis'><code>--cached</code></span> ou <span class='synopsis'><code>--3way</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-apply--3"> <a class="anchor" href="#git-apply--3"></a>-3 </dt>
 <dt class="hdlist1" id="git-apply---3way"> <a class="anchor" href="#git-apply---3way"></a>--3way </dt>
 <dd>
-<p>Tente a mesclagem de três vias se o patch registrar a identidade das bolhas às quais ele deve ser aplicado e se tivermos essas bolhas disponíveis localmente, possivelmente deixando os rotuladores de conflito nos arquivos da árvore de trabalho para o usuário resolver. Essa opção implica o uso da opção <code>--index</code>, a menos que a opção <code>--cached</code> seja usada, porém, é incompatível com a opção <code>--reject</code>. Quando usado com a opção <code>--cached</code>, todos os conflitos são deixados em estágios mais altos no cache.</p>
+<p>Tente a mesclagem de três vias se o patch registrar a identidade das bolhas às quais ele deve ser aplicado e se tivermos essas bolhas disponíveis localmente, possivelmente deixando os rotuladores de conflito nos arquivos da árvore de trabalho para o usuário resolver. Essa opção implica o uso da opção <span class='synopsis'><code>--index</code></span>, a menos que a opção <span class='synopsis'><code>--cached</code></span> seja usada, porém, é incompatível com a opção <span class='synopsis'><code>--reject</code></span>. Quando usado com a opção <span class='synopsis'><code>--cached</code></span>, todos os conflitos são deixados em estágios mais altos no cache.</p>
 </dd>
 <dt class="hdlist1" id="git-apply---ours"> <a class="anchor" href="#git-apply---ours"></a>--ours </dt>
 <dt class="hdlist1" id="git-apply---theirs"> <a class="anchor" href="#git-apply---theirs"></a>--theirs </dt>
@@ -111,14 +128,14 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-apply--z"> <a class="anchor" href="#git-apply--z"></a>-z </dt>
 <dd>
-<p>Quando o comando <code>--numstat</code> for utilizado, não una os nomes dos caminhos, porém utilize um formato legível para a máquina e utilize caracteres <code>NUL</code> para a terminação.</p>
+<p>Quando o comando <span class='synopsis'><code>--numstat</code></span> for utilizado, não una os nomes dos caminhos, porém utilize um formato legível para a máquina e utilize caracteres <span class='synopsis'><code>NUL</code></span> para a terminação.</p>
 <div class="paragraph">
-<p>Sem esta opção, os nomes do caminho com caracteres "incomuns" são citados como explicado na variável de configuração <code>core.quotePath</code> (veja <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>).</p>
+<p>Sem esta opção, os nomes do caminho com caracteres "incomuns" são citados como explicado na variável de configuração <span class='synopsis'><code>core.quotePath</code></span> (veja <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-apply--pltngt"> <a class="anchor" href="#git-apply--pn"></a> <a class="anchor" href="#git-apply--pltngt"></a>-p&lt;n&gt; </dt>
 <dd>
-<p>Remova os <code>&lt;n&gt;</code> componentes do caminho principal (separados por barras) dos caminhos diff tradicionais. Com <code>-p2</code>, um patch contra` a/dir/file` será aplicado diretamente ao <code>file</code> por exemplo. A predefinição é 1.</p>
+<p>Remova os <span class='synopsis'><em>&lt;n&gt;</em></span> componentes do caminho principal (separados por barras) dos caminhos diff tradicionais. Com <span class='synopsis'><code>-p2</code></span>, um patch contra` a/dir/file` será aplicado diretamente ao <span class='synopsis'><code>file</code></span> por exemplo. A predefinição é 1.</p>
 </dd>
 <dt class="hdlist1" id="git-apply--Cltngt"> <a class="anchor" href="#git-apply--Cn"></a> <a class="anchor" href="#git-apply--Cltngt"></a>-C&lt;n&gt; </dt>
 <dd>
@@ -126,7 +143,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-apply---unidiff-zero"> <a class="anchor" href="#git-apply---unidiff-zero"></a>--unidiff-zero </dt>
 <dd>
-<p>É predefinido que o comando <em>git apply</em> aguarde que a correção que está sendo aplicada seja um diff unificado com pelo menos uma linha de contexto. Isso oferece boas medidas de segurança, mas falha ao aplicar um diff gerado com a opção <code>--unified=0</code>. Para contornar estas verificações use a opção <code>--unidiff-zero</code>.</p>
+<p>É predefinido que o comando <em>git apply</em> aguarde que a correção que está sendo aplicada seja um diff unificado com pelo menos uma linha de contexto. Isso oferece boas medidas de segurança, mas falha ao aplicar um diff gerado com a opção <span class='synopsis'><code>--unified=0</code></span>. Para contornar estas verificações use a opção <span class='synopsis'><code>--unidiff-zero</code></span>.</p>
 <div class="paragraph">
 <p>Observe que pelas razões expostas acima, a utilização de patches sem contexto é desencorajado.</p>
 </div>
@@ -152,39 +169,39 @@ aliases:
 <dd>
 <p>Aplique as alterações nos arquivos que coincidam com padrão do caminho informado. Pode ser útil ao importar os conjuntos dos patches, onde você queira incluir certos arquivos ou diretórios.</p>
 <div class="paragraph">
-<p>Quando os padrões <code>--exclude</code> e <code>--include</code> são usados, eles são examinados na ordem em que aparecem na linha de comando, e a primeira correspondência determina se uma correção para cada caminho será usado. É predefinido que uma correção para um caminho que não corresponda a nenhum padrão de inclusão/exclusão será usado caso não haja um padrão de inclusão na linha de comando e será ignorado se houver um padrão de inclusão.</p>
+<p>Quando os padrões <span class='synopsis'><code>--exclude</code></span> e <span class='synopsis'><code>--include</code></span> são usados, eles são examinados na ordem em que aparecem na linha de comando, e a primeira correspondência determina se uma correção para cada caminho será usado. É predefinido que uma correção para um caminho que não corresponda a nenhum padrão de inclusão/exclusão será usado caso não haja um padrão de inclusão na linha de comando e será ignorado se houver um padrão de inclusão.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-apply---ignore-space-change"> <a class="anchor" href="#git-apply---ignore-space-change"></a>--ignore-space-change </dt>
 <dt class="hdlist1" id="git-apply---ignore-whitespace"> <a class="anchor" href="#git-apply---ignore-whitespace"></a>--ignore-whitespace </dt>
 <dd>
-<p>Ao aplicar uma correção, ignore as alterações no espaço vazio nas linhas de contexto, caso seja necessário. As linhas de contexto preservarão seus espaços vazios e não sofrerão correções, independentemente do valor da opção <code>--whitespace</code>. No entanto, as novas linhas ainda continuarão sendo corrigidas.</p>
+<p>Ao aplicar uma correção, ignore as alterações no espaço vazio nas linhas de contexto, caso seja necessário. As linhas de contexto preservarão seus espaços vazios e não sofrerão correções, independentemente do valor da opção <span class='synopsis'><code>--whitespace</code></span>. No entanto, as novas linhas ainda continuarão sendo corrigidas.</p>
 </dd>
 <dt class="hdlist1" id="git-apply---whitespaceltaogt"> <a class="anchor" href="#git-apply---whitespaceao"></a> <a class="anchor" href="#git-apply---whitespaceltaogt"></a>--whitespace=&lt;ação&gt; </dt>
 <dd>
-<p>Ao aplicar uma correção, detecte uma linha nova ou alterada que tenha erros de espaços vazios. O que é considerado um erro de espaço vazio é controlado pela configuração <code>core.whitespace</code>. É predefinido que são considerados erros de espaço em branco os espaços vazios à direita (incluindo as linhas que consistem apenas de espaços vazios) e um caractere de espaço que é imediatamente seguido por um caractere de tabulação dentro do recuo inicial da linha.</p>
+<p>Ao aplicar uma correção, detecte uma linha nova ou alterada que tenha erros de espaços vazios. O que é considerado um erro de espaço vazio é controlado pela configuração <span class='synopsis'><code>core.whitespace</code></span>. É predefinido que são considerados erros de espaço em branco os espaços vazios à direita (incluindo as linhas que consistem apenas de espaços vazios) e um caractere de espaço que é imediatamente seguido por um caractere de tabulação dentro do recuo inicial da linha.</p>
 <div class="paragraph">
-<p>É predefinido que o comando gere mensagens de aviso, porém, aplique a correção. Quando o comando <code>git-apply</code> é usado para gerar estatísticas e não para aplicar uma correção, o padrão é o <code>nowarn</code>.</p>
+<p>É predefinido que o comando gere mensagens de aviso, porém, aplique a correção. Quando o comando <span class='synopsis'><code>git-apply</code></span> é usado para gerar estatísticas e não para aplicar uma correção, o padrão é o <span class='synopsis'><code>nowarn</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Você pode utilizar valores diferentes valores de controle para <code>&lt;ação&gt;</code>:</p>
+<p>Você pode utilizar valores diferentes valores de controle para <span class='synopsis'><em>&lt;ação&gt;</em></span>:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>nowarn</code> desativa o aviso de espaço à direita.</p>
+<p><span class='synopsis'><code>nowarn</code></span> desativa o aviso de espaço à direita.</p>
 </li>
 <li>
-<p><code>warn</code> envia avisos para alguns desses erros, mas aplica o patch como está (predefinido).</p>
+<p><span class='synopsis'><code>warn</code></span> envia avisos para alguns desses erros, mas aplica o patch como está (predefinido).</p>
 </li>
 <li>
-<p><code>fix</code> gera os avisos para alguns destes erros e aplica o patch após corrigí-los (o <code>strip</code> é um sinônimo&#8201;&#8212;&#8201;a ferramenta costumava considerar apenas os caracteres de espaço como erros e a correção envolvia em <em>removê-los</em>, porém os Gits mais modernos fazem mais que isso).</p>
+<p><span class='synopsis'><code>fix</code></span> gera os avisos para alguns destes erros e aplica o patch após corrigí-los (o <span class='synopsis'><code>strip</code></span> é um sinônimo&#8201;&#8212;&#8201;a ferramenta costumava considerar apenas os caracteres de espaço como erros e a correção envolvia em <em>removê-los</em>, porém os Gits mais modernos fazem mais que isso).</p>
 </li>
 <li>
-<p><code>error</code> gera os avisos para alguns destes erros e se recusa a aplicar o patch.</p>
+<p><span class='synopsis'><code>error</code></span> gera os avisos para alguns destes erros e se recusa a aplicar o patch.</p>
 </li>
 <li>
-<p><code>error-all</code> é semelhante ao <code>error</code>, porém exibe todos os erros.</p>
+<p><span class='synopsis'><code>error-all</code></span> é semelhante ao <span class='synopsis'><code>error</code></span>, porém exibe todos os erros.</p>
 </li>
 </ul>
 </div>
@@ -211,14 +228,14 @@ aliases:
 <dd>
 <p>Anexe &lt;root&gt; (raiz) em todos os nomes de arquivos. Caso "-p" também seja utilizado, ele é aplicado antes de anexar a nova raiz.</p>
 <div class="paragraph">
-<p>Por exemplo, um patch que seja utilizado para a atualização de <code>a/git-gui.sh</code> para <code>b/git-gui.sh</code>, pode ser aplicado ao arquivo na árvore de trabalho <code>modules/git-gui/git-gui.sh</code> ao executar o comando <code>git apply --directory=modules/git-gui</code>.</p>
+<p>Por exemplo, um patch que seja utilizado para a atualização de <span class='synopsis'><code>a/git-gui.sh</code></span> para <span class='synopsis'><code>b/git-gui.sh</code></span>, pode ser aplicado ao arquivo na árvore de trabalho <span class='synopsis'><code>modules/git-gui/git-gui.sh</code></span> ao executar o comando <span class='synopsis'><code>git</code> <code>apply</code> <code>--directory=modules/git-gui</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-apply---unsafe-paths"> <a class="anchor" href="#git-apply---unsafe-paths"></a>--unsafe-paths </dt>
 <dd>
 <p>É predefinido que um patch que tenha efeito fora da área de trabalho (uma árvore de trabalho controlada pelo Git ou um diretório de trabalho atual quando o "git apply" é utilizado como uma reposição do patch GNU) seja rejeitado como um erro (ou um dano).</p>
 <div class="paragraph">
-<p>Quando o comando <code>git apply</code> é usado como um "patch GNU melhor", o usuário pode usar a opção <code>--unsafe-paths</code> para substituir essa verificação de segurança. Essa opção não tem efeito quando a opção <code>--index</code> ou a opção <code>--cached</code> estiver em uso.</p>
+<p>Quando o comando <span class='synopsis'><code>git</code> <code>apply</code></span> é usado como um "patch GNU melhor", o usuário pode usar a opção <span class='synopsis'><code>--unsafe-paths</code></span> para substituir essa verificação de segurança. Essa opção não tem efeito quando a opção <span class='synopsis'><code>--index</code></span> ou a opção <span class='synopsis'><code>--cached</code></span> estiver em uso.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-apply---allow-empty"> <a class="anchor" href="#git-apply---allow-empty"></a>--allow-empty </dt>
@@ -243,7 +260,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/config/apply.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/config/apply.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -261,10 +278,10 @@ aliases:
 <p>Caso um patch contenha alguma alteração nos submódulos, o comando <em>git apply</em> tratará estas alterações da seguinte maneira.</p>
 </div>
 <div class="paragraph">
-<p>Se a opção <code>--index</code> for usada (explícita ou implicitamente), os commits do submódulo deverão corresponder exatamente ao índice para que a correção seja aplicada. Se algum dos submódulos forem "check-out", esses "check-outs" serão completamente ignorados, ou seja, não é necessário que estejam atualizados ou limpos e não serão atualizados.</p>
+<p>Se a opção <span class='synopsis'><code>--index</code></span> for usada (explícita ou implicitamente), os commits do submódulo deverão corresponder exatamente ao índice para que a correção seja aplicada. Se algum dos submódulos forem "check-out", esses "check-outs" serão completamente ignorados, ou seja, não é necessário que estejam atualizados ou limpos e não serão atualizados.</p>
 </div>
 <div class="paragraph">
-<p>Caso o <code>--index</code> não seja utilizado, os commit dos submódulos no patch serão ignorados e somente a ausência ou a presença do subdiretório coincidente será verificado e (se possível) atualizado.</p>
+<p>Caso o <span class='synopsis'><code>--index</code></span> não seja utilizado, os commit dos submódulos no patch serão ignorados e somente a ausência ou a presença do subdiretório coincidente será verificado e (se possível) atualizado.</p>
 </div>
 </div>
 </div>

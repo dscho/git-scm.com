@@ -9,6 +9,25 @@ docname: git-show-ref
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-show-ref/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 输出
+  id: _输出
+- text: 实例
+  id: _实例
+- text: 文件
+  id: _文件
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -43,13 +62,13 @@ aliases:
 <p>默认情况下，显示标签、标题和远程引用。</p>
 </div>
 <div class="paragraph">
-<p><code>--exclude-existing</code> 表单是一个反向过滤器。它从标准输入流中读取引用，每行一个引用，并显示那些不存在于本地仓库中的引用。</p>
+<p><span class='synopsis'><code>--exclude-existing</code></span> 表单是一个反向过滤器。它从标准输入流中读取引用，每行一个引用，并显示那些不存在于本地仓库中的引用。</p>
 </div>
 <div class="paragraph">
-<p><code>--exists</code> 表单可用于检查单个引用是否存在。此表单不会验证引用是否解析到实际对象。</p>
+<p><span class='synopsis'><code>--exists</code></span> 表单可用于检查单个引用是否存在。此表单不会验证引用是否解析到实际对象。</p>
 </div>
 <div class="paragraph">
-<p>我们鼓励使用该工具，而不是直接访问 <code>.git</code> 目录下的文件。</p>
+<p>我们鼓励使用该工具，而不是直接访问 <span class='synopsis'><code>.git</code></span> 目录下的文件。</p>
 </div>
 </div>
 </div>
@@ -65,21 +84,21 @@ aliases:
 <dt class="hdlist1" id="git-show-ref---branches"> <a class="anchor" href="#git-show-ref---branches"></a>--branches </dt>
 <dt class="hdlist1" id="git-show-ref---tags"> <a class="anchor" href="#git-show-ref---tags"></a>--tags </dt>
 <dd>
-<p>Limit to local branches and local tags, respectively. These options are not mutually exclusive; when given both, references stored in "refs/heads" and "refs/tags" are displayed. Note that <code>--heads</code> is a deprecated synonym for <code>--branches</code> and may be removed in the future.</p>
+<p>Limit to local branches and local tags, respectively. These options are not mutually exclusive; when given both, references stored in "refs/heads" and "refs/tags" are displayed. Note that <span class='synopsis'><code>--heads</code></span> is a deprecated synonym for <span class='synopsis'><code>--branches</code></span> and may be removed in the future.</p>
 </dd>
 <dt class="hdlist1" id="git-show-ref--d"> <a class="anchor" href="#git-show-ref--d"></a>-d </dt>
 <dt class="hdlist1" id="git-show-ref---dereference"> <a class="anchor" href="#git-show-ref---dereference"></a>--dereference </dt>
 <dd>
-<p>也可将引用标记转换为对象 ID。它们将以 <code>^{}</code> 的形式显示。</p>
+<p>也可将引用标记转换为对象 ID。它们将以 <span class='synopsis'><code>^{}</code></span> 的形式显示。</p>
 </dd>
 <dt class="hdlist1" id="git-show-ref--s"> <a class="anchor" href="#git-show-ref--s"></a>-s </dt>
 <dt class="hdlist1" id="git-show-ref---hashltngt"> <a class="anchor" href="#git-show-ref---hashn"></a> <a class="anchor" href="#git-show-ref---hashltngt"></a>--hash[=&lt;n&gt;] </dt>
 <dd>
-<p>只显示 OID（对象 ID），不显示引用名称。与 <code>--dereference</code> 结合使用时，在 OID 之后仍将显示取消引用的标记。</p>
+<p>只显示 OID（对象 ID），不显示引用名称。与 <span class='synopsis'><code>--dereference</code></span> 结合使用时，在 OID 之后仍将显示取消引用的标记。</p>
 </dd>
 <dt class="hdlist1" id="git-show-ref---verify"> <a class="anchor" href="#git-show-ref---verify"></a>--verify </dt>
 <dd>
-<p>通过要求精确的引用路径，启用更严格的引用检查。 除返回错误代码 1 外，如果未指定 <code>--quiet</code> ，还会打印错误信息。</p>
+<p>通过要求精确的引用路径，启用更严格的引用检查。 除返回错误代码 1 外，如果未指定 <span class='synopsis'><code>--quiet</code></span> ，还会打印错误信息。</p>
 </dd>
 <dt class="hdlist1" id="git-show-ref---exists"> <a class="anchor" href="#git-show-ref---exists"></a>--exists </dt>
 <dd>
@@ -87,17 +106,17 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-show-ref---abbrevltngt"> <a class="anchor" href="#git-show-ref---abbrevn"></a> <a class="anchor" href="#git-show-ref---abbrevltngt"></a>--abbrev[=&lt;n&gt;] </dt>
 <dd>
-<p>缩写对象名称。 使用 <code>--hash</code> 时，不必说 <code>--hash --abbrev</code> ; <code>--hash=n</code> 也可以。</p>
+<p>缩写对象名称。 使用 <span class='synopsis'><code>--hash</code></span> 时，不必说 <span class='synopsis'><code>--hash</code> <code>--abbrev</code></span> ; <span class='synopsis'><code>--hash=n</code></span> 也可以。</p>
 </dd>
 <dt class="hdlist1" id="git-show-ref--q"> <a class="anchor" href="#git-show-ref--q"></a>-q </dt>
 <dt class="hdlist1" id="git-show-ref---quiet"> <a class="anchor" href="#git-show-ref---quiet"></a>--quiet </dt>
 <dd>
-<p>不向标准输出流打印任何结果。可与 <code>--verify</code> 一起使用，静默检查引用是否存在。</p>
+<p>不向标准输出流打印任何结果。可与 <span class='synopsis'><code>--verify</code></span> 一起使用，静默检查引用是否存在。</p>
 </dd>
 <dt class="hdlist1" id="git-show-ref---exclude-existingltgt"> <a class="anchor" href="#git-show-ref---exclude-existing"></a> <a class="anchor" href="#git-show-ref---exclude-existingltgt"></a>--exclude-existing[=&lt;模式&gt;] </dt>
 <dd>
-<p>让 <code>git show-ref</code> 成为一个过滤器，从标准输入流中读取格式为 <code>^(?:&lt;任何东西&gt;\s)?&lt;引用名称&gt;(?:\^{})?$</code> 的多个引用，并对每个引用执行以下操作：
-(1) 如果行末有 <code>^{}</code> ，则在行末去掉 <code>^{}</code>；
+<p>让 <span class='synopsis'><code>git</code> <code>show-ref</code></span> 成为一个过滤器，从标准输入流中读取格式为 <span class='synopsis'><em>^(?:&lt;任何东西&gt;\s)?&lt;引用名称&gt;(?:\^{})?$</em></span> 的多个引用，并对每个引用执行以下操作：
+(1) 如果行末有 <span class='synopsis'><code>^{}</code></span> ，则在行末去掉 <span class='synopsis'><code>^{}</code></span>；
 (2) 如果提供的模式与引用名称不匹配，则忽略；
 (3) 如果引用名不是格式正确的引用名，则警告并跳过；
 (4) 如果引用名称是本地仓库中存在的引用，则忽略；
@@ -139,7 +158,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>使用 <code>--hash</code>（而不是 <code>--dereference</code>）选项时，输出格式为：</p>
+<p>使用 <span class='synopsis'><code>--hash</code></span>（而不是 <span class='synopsis'><code>--dereference</code></span>）选项时，输出格式为：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -175,7 +194,7 @@ aliases:
 <p>这不仅会显示 "refs/heads/master"，还会显示 "refs/remote/other-repo/master"（如果存在此类引用）。</p>
 </div>
 <div class="paragraph">
-<p>当使用 <code>--verify</code> 标志时，命令需要精确的路径：</p>
+<p>当使用 <span class='synopsis'><code>--verify</code></span> 标志时，命令需要精确的路径：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -186,10 +205,10 @@ aliases:
 <p>只会匹配名为 "master" 的确切分支。</p>
 </div>
 <div class="paragraph">
-<p>如果没有匹配的内容，<code>git show-ref</code> 将返回错误代码 1，在验证的情况下，它将显示一条错误信息。</p>
+<p>如果没有匹配的内容，<span class='synopsis'><code>git</code> <code>show-ref</code></span> 将返回错误代码 1，在验证的情况下，它将显示一条错误信息。</p>
 </div>
 <div class="paragraph">
-<p>在编写脚本时，可以使用 <code>--quiet</code> 标记要求它保持安静，这样就可以执行以下操作</p>
+<p>在编写脚本时，可以使用 <span class='synopsis'><code>--quiet</code></span> 标记要求它保持安静，这样就可以执行以下操作</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -201,10 +220,10 @@ aliases:
 <p>来检查某个分支是否存在（请注意，我们实际上并不想显示任何结果，而且我们希望使用完整的引用名称，以避免引发部分匹配不明确的问题）。</p>
 </div>
 <div class="paragraph">
-<p>To show only tags, or only proper branch heads, use <code>--tags</code> and/or <code>--branches</code> respectively (using both means that it shows tags and branches, but not other random references under the refs/ subdirectory).</p>
+<p>To show only tags, or only proper branch heads, use <span class='synopsis'><code>--tags</code></span> and/or <span class='synopsis'><code>--branches</code></span> respectively (using both means that it shows tags and branches, but not other random references under the refs/ subdirectory).</p>
 </div>
 <div class="paragraph">
-<p>要自动取消引用标记对象，请使用 <code>-d</code> 或 <code>--dereference</code> 标志，这样就可以执行</p>
+<p>要自动取消引用标记对象，请使用 <span class='synopsis'><code>-d</code></span> 或 <span class='synopsis'><code>--dereference</code></span> 标志，这样就可以执行</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -220,7 +239,7 @@ aliases:
 <h2 id="_文件"><a class="anchor" href="#_文件"></a>文件</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>.git/refs/*</code>, <code>.git/packed-refs</code></p>
+<p><span class='synopsis'><code>.git/refs/*</code></span>, <span class='synopsis'><code>.git/packed-refs</code></span></p>
 </div>
 </div>
 </div>

@@ -9,6 +9,21 @@ docname: git-difftool
 lang: ru
 aliases:
 - "/docs/git-difftool/ru/index.html"
+headings:
+- text: НАЗВАНИЕ
+  id: _название
+- text: ОБЗОР
+  id: _обзор
+- text: ОПИСАНИЕ
+  id: _описание
+- text: ПАРАМЕТРЫ
+  id: _параметры
+- text: КОНФИГУРАЦИЯ
+  id: _конфигурация
+- text: СМОТРИТЕ ТАКЖЕ
+  id: _смотрите_также
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_название"><a class="anchor" href="#_название"></a>НАЗВАНИЕ</h2>
@@ -30,7 +45,7 @@ aliases:
 <h2 id="_описание"><a class="anchor" href="#_описание"></a>ОПИСАНИЕ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>git difftool</code> — это команда Git, которая позволяет сравнивать файлы в различных редакциях и редактировать их с использованием обыкновенных для этого инструментов сравнения. <code>git difftool</code> является интерфейсом к <code>git diff</code> и принимает те же параметры и аргументы. См. <a href='{{< relurl "docs/git-diff/ru" >}}'>git-diff[1]</a>.</p>
+<p><span class='synopsis'><code>git</code> <code>difftool</code></span> — это команда Git, которая позволяет сравнивать файлы в различных редакциях и редактировать их с использованием обыкновенных для этого инструментов сравнения. <span class='synopsis'><code>git</code> <code>difftool</code></span> является интерфейсом к <span class='synopsis'><code>git</code> <code>diff</code></span> и принимает те же параметры и аргументы. См. <a href='{{< relurl "docs/git-diff/ru" >}}'>git-diff[1]</a>.</p>
 </div>
 </div>
 </div>
@@ -64,46 +79,46 @@ aliases:
 <dt class="hdlist1" id="git-difftool--tltgt"> <a class="anchor" href="#git-difftool--t"></a> <a class="anchor" href="#git-difftool--tltgt"></a>-t &lt;инструмент&gt; </dt>
 <dt class="hdlist1" id="git-difftool---toolltgt"> <a class="anchor" href="#git-difftool---tool"></a> <a class="anchor" href="#git-difftool---toolltgt"></a>--tool=&lt;инструмент&gt; </dt>
 <dd>
-<p>Использовать заданный &lt;инструмент&gt; сравнения. Допустимые значения по меньшей мере включают: emerge, kompare, meld и vimdiff. Выполните <code>git difftool --tool-help</code>, чтобы получить полный список допустимых вариантов для &lt;инструмента&gt;.</p>
+<p>Использовать заданный &lt;инструмент&gt; сравнения. Допустимые значения по меньшей мере включают: emerge, kompare, meld и vimdiff. Выполните <span class='synopsis'><code>git</code> <code>difftool</code> <code>--tool-help</code></span>, чтобы получить полный список допустимых вариантов для &lt;инструмента&gt;.</p>
 <div class="paragraph">
-<p>Если инструмент сравнения не задан, <code>git difftool</code> будет использовать тот, который задан в переменной конфигурации <code>diff.tool</code>. Если переменная конфигурации <code>diff.tool</code> не установлена, <code>git difftool</code> выберет подходящее значение по умолчанию.</p>
+<p>Если инструмент сравнения не задан, <span class='synopsis'><code>git</code> <code>difftool</code></span> будет использовать тот, который задан в переменной конфигурации <span class='synopsis'><code>diff.tool</code></span>. Если переменная конфигурации <span class='synopsis'><code>diff.tool</code></span> не установлена, <span class='synopsis'><code>git</code> <code>difftool</code></span> выберет подходящее значение по умолчанию.</p>
 </div>
 <div class="paragraph">
-<p>Вы можете явно указать полный путь к инструменту, установив переменную конфигурации <code>difftool.&lt;инструмент&gt;.path</code>. Например, вы можете настроить абсолютный путь к kdiff3, установив <code>difftool.kdiff3.path</code>. В противном случае <code>git difftool</code> предполагает, что инструмент доступен в PATH.</p>
+<p>Вы можете явно указать полный путь к инструменту, установив переменную конфигурации <span class='synopsis'><code>difftool.</code><em>&lt;инструмент&gt;</em><code>.path</code></span>. Например, вы можете настроить абсолютный путь к kdiff3, установив <span class='synopsis'><code>difftool.kdiff3.path</code></span>. В противном случае <span class='synopsis'><code>git</code> <code>difftool</code></span> предполагает, что инструмент доступен в PATH.</p>
 </div>
 <div class="paragraph">
-<p>Вместо запуска одного из известных инструментов сравнения можно настроить, чтобы <code>git difftool</code> запускал какую-нибудь другую программу, указав полную команду для её вызова в переменной конфигурации <code>difftool.&lt;инструмент&gt;.cmd</code>.</p>
+<p>Вместо запуска одного из известных инструментов сравнения можно настроить, чтобы <span class='synopsis'><code>git</code> <code>difftool</code></span> запускал какую-нибудь другую программу, указав полную команду для её вызова в переменной конфигурации <span class='synopsis'><code>difftool.</code><em>&lt;инструмент&gt;</em><code>.cmd</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Когда таковая утилиты вызывается <code>git difftool</code> (будь то из-за передачи параметра <code>-t</code> или <code>--tool</code>, либо из-за установки переменной конфигурации <code>diff.tool</code>), при вызове указанной команде будут доступными следующие переменные: <code>$LOCAL</code> — имя временного файла, содержащего исходную версию файла, <code>$REMOTE</code> — имя временного файла, содержащего итоговую версию, <code>$MERGED</code> — имя файла, с которым производится сравнение. А также (для совместимости с некоторыми нестандартными командами слияния) переменная <code>$BASE</code>, которая имеет то же значение, что и <code>$MERGED</code>.</p>
+<p>Когда таковая утилиты вызывается <span class='synopsis'><code>git</code> <code>difftool</code></span> (будь то из-за передачи параметра <span class='synopsis'><code>-t</code></span> или <span class='synopsis'><code>--tool</code></span>, либо из-за установки переменной конфигурации <span class='synopsis'><code>diff.tool</code></span>), при вызове указанной команде будут доступными следующие переменные: <span class='synopsis'><code>$LOCAL</code></span> — имя временного файла, содержащего исходную версию файла, <span class='synopsis'><code>$REMOTE</code></span> — имя временного файла, содержащего итоговую версию, <span class='synopsis'><code>$MERGED</code></span> — имя файла, с которым производится сравнение. А также (для совместимости с некоторыми нестандартными командами слияния) переменная <span class='synopsis'><code>$BASE</code></span>, которая имеет то же значение, что и <span class='synopsis'><code>$MERGED</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-difftool---tool-help"> <a class="anchor" href="#git-difftool---tool-help"></a>--tool-help </dt>
 <dd>
-<p>Вывести список утилит сравнения, которые можно использовать с параметром <code>--tool</code>.</p>
+<p>Вывести список утилит сравнения, которые можно использовать с параметром <span class='synopsis'><code>--tool</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-difftool---no-symlinks"> <a class="anchor" href="#git-difftool---no-symlinks"></a>--[no-]symlinks </dt>
 <dd>
-<p>По умолчанию <code>git difftool</code> создаёт ссылки на рабочий каталог при запуске в режиме <code>--dir-diff</code>, если правая часть сравнения имеет тоже содержимое, что и файл в рабочем каталоге.</p>
+<p>По умолчанию <span class='synopsis'><code>git</code> <code>difftool</code></span> создаёт ссылки на рабочий каталог при запуске в режиме <span class='synopsis'><code>--dir-diff</code></span>, если правая часть сравнения имеет тоже содержимое, что и файл в рабочем каталоге.</p>
 <div class="paragraph">
-<p>Указание <code>--no-symlinks</code> заставляет <em>git difftool</em> создавать копии файлов вместо ссылок. <code>--no-symlinks</code> является значением по умолчанию в Windows.</p>
+<p>Указание <span class='synopsis'><code>--no-symlinks</code></span> заставляет <em>git difftool</em> создавать копии файлов вместо ссылок. <span class='synopsis'><code>--no-symlinks</code></span> является значением по умолчанию в Windows.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-difftool--xltgt"> <a class="anchor" href="#git-difftool--x"></a> <a class="anchor" href="#git-difftool--xltgt"></a>-x &lt;команда&gt; </dt>
 <dt class="hdlist1" id="git-difftool---extcmdltgt"> <a class="anchor" href="#git-difftool---extcmd"></a> <a class="anchor" href="#git-difftool---extcmdltgt"></a>--extcmd=&lt;команда&gt; </dt>
 <dd>
-<p>Задаёт пользовательскую команду для просмотра различий. При указании данного параметра <em>git-difftool</em> игнорирует настройки по умолчанию и запускает <code>&lt;команда&gt; $LOCAL $REMOTE</code>. Кроме того, устанавливается переменная окружения <code>$BASE</code>.</p>
+<p>Задаёт пользовательскую команду для просмотра различий. При указании данного параметра <em>git-difftool</em> игнорирует настройки по умолчанию и запускает <span class='synopsis'><em>&lt;команда&gt;</em> <code>$LOCAL</code> <code>$REMOTE</code></span>. Кроме того, устанавливается переменная окружения <span class='synopsis'><code>$BASE</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-difftool--g"> <a class="anchor" href="#git-difftool--g"></a>-g </dt>
 <dt class="hdlist1" id="git-difftool---no-gui"> <a class="anchor" href="#git-difftool---no-gui"></a>--[no-]gui </dt>
 <dd>
-<p>При запуске <code>git-difftool</code> с параметром <code>-g</code> или <code>--gui</code>, по умолчанию используется инструмент сравнения, указанный в переменной конфигурации <code>diff.guitool</code>, вместо <code>diff.tool</code>. Такое поведение может быть настроено по умолчанию с помощью переменной конфигурации <code>difftool.guiDefault</code>. Параметр <code>--no-gui</code> может быть использована для переопределения подобных настроек. Если переменная <code>diff.guitool</code> не установлена, для выбора утилиты сравнения будут использоваться следующие переменные конфигурации (в порядке перечисления): <code>merge.guitool</code>, <code>diff.tool</code>, <code>merge.tool</code>.</p>
+<p>При запуске <span class='synopsis'><code>git-difftool</code></span> с параметром <span class='synopsis'><code>-g</code></span> или <span class='synopsis'><code>--gui</code></span>, по умолчанию используется инструмент сравнения, указанный в переменной конфигурации <span class='synopsis'><code>diff.guitool</code></span>, вместо <span class='synopsis'><code>diff.tool</code></span>. Такое поведение может быть настроено по умолчанию с помощью переменной конфигурации <span class='synopsis'><code>difftool.guiDefault</code></span>. Параметр <span class='synopsis'><code>--no-gui</code></span> может быть использована для переопределения подобных настроек. Если переменная <span class='synopsis'><code>diff.guitool</code></span> не установлена, для выбора утилиты сравнения будут использоваться следующие переменные конфигурации (в порядке перечисления): <span class='synopsis'><code>merge.guitool</code></span>, <span class='synopsis'><code>diff.tool</code></span>, <span class='synopsis'><code>merge.tool</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-difftool---no-trust-exit-code"> <a class="anchor" href="#git-difftool---no-trust-exit-code"></a>--[no-]trust-exit-code </dt>
 <dd>
-<p>По умолчанию ошибки, выводимые утилитой сравнения, игнорируются. При указании <code>--trust-exit-code</code>, <code>git-difftool</code> будет завершаться, когда вызванная утилита сравнения возвращает код выхода, отличный от нуля.</p>
+<p>По умолчанию ошибки, выводимые утилитой сравнения, игнорируются. При указании <span class='synopsis'><code>--trust-exit-code</code></span>, <span class='synopsis'><code>git-difftool</code></span> будет завершаться, когда вызванная утилита сравнения возвращает код выхода, отличный от нуля.</p>
 <div class="paragraph">
-<p>Когда используется <code>--trust-exit-code</code>, <code>git-difftool</code> будет также завершаться с тем же кодом, что и вызываемая утилита.</p>
+<p>Когда используется <span class='synopsis'><code>--trust-exit-code</code></span>, <span class='synopsis'><code>git-difftool</code></span> будет также завершаться с тем же кодом, что и вызываемая утилита.</p>
 </div>
 </dd>
 </dl>
@@ -117,7 +132,7 @@ aliases:
 <h2 id="_конфигурация"><a class="anchor" href="#_конфигурация"></a>КОНФИГУРАЦИЯ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>git difftool</code> будет использовать эквивалентные переменные конфигурации <code>git mergetool</code>, если её собственные переменные не были определены.</p>
+<p><span class='synopsis'><code>git</code> <code>difftool</code></span> будет использовать эквивалентные переменные конфигурации <span class='synopsis'><code>git</code> <code>mergetool</code></span>, если её собственные переменные не были определены.</p>
 </div>
 <div class="paragraph">
 <p>Дальнейшее содержание этого раздела (в отличие от того, что было описано до данной строки), повторяет то, что может быть найдено в <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>:</p>
@@ -130,7 +145,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>ru/config/difftool.adoc</code></p>
+<p>Missing <span class='synopsis'><code>ru/config/difftool.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

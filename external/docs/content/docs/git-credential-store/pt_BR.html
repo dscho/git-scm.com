@@ -9,6 +9,23 @@ docname: git-credential-store
 lang: pt_BR
 aliases:
 - "/docs/git-credential-store/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: ARQUIVOS
+  id: FILES
+- text: EXEMPLOS
+  id: _exemplos
+- text: FORMATO DE ARMAZENAMENTO
+  id: _formato_de_armazenamento
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -47,7 +64,7 @@ Ao usar este auxiliar as suas senhas são armazenadas de forma criptografada no 
 <p>Este comando armazena as credenciais indefinidamente no disco para uso futuro dos programas Git.</p>
 </div>
 <div class="paragraph">
-<p>Provavelmente você não vai querer invocar este comando diretamente; Ele deve ser utilizado pelas outras partes como um auxiliar da credencial do git. See <a href='{{< relurl "docs/gitcredentials/pt_BR" >}}'>gitcredentials[7]</a> or <code>EXAMPLES</code> below.</p>
+<p>Provavelmente você não vai querer invocar este comando diretamente; Ele deve ser utilizado pelas outras partes como um auxiliar da credencial do git. See <a href='{{< relurl "docs/gitcredentials/pt_BR" >}}'>gitcredentials[7]</a> or <span class='synopsis'><code>EXAMPLES</code></span> below.</p>
 </div>
 </div>
 </div>
@@ -58,7 +75,7 @@ Ao usar este auxiliar as suas senhas são armazenadas de forma criptografada no 
 <dl>
 <dt class="hdlist1" id="git-credential-store---fileltcaminhogt"> <a class="anchor" href="#git-credential-store---filecaminho"></a> <a class="anchor" href="#git-credential-store---fileltcaminhogt"></a>--file=&lt;caminho&gt; </dt>
 <dd>
-<p>Utilize <code>&lt;caminho&gt;</code> para localizar e armazenar as credenciais. O arquivo terá suas as permissões do sistema de arquivos definidos para impedir que os outros usuários no sistema o leiam, mas não serão criptografados ou protegidos. Caso não seja utilizado, as credenciais serão pesquisadas em <code>~/.git-credentials</code> e <code>$XDG_CONFIG_HOME/git/credentials</code>, as credenciais serão salvas em <code>~/.git-credentials</code> caso exista, ou <code>$XDG_CONFIG_HOME/git/credentials</code> caso exista e o primeiro não. Consulte também <a href="#FILES">ARQUIVOS</a>.</p>
+<p>Utilize <span class='synopsis'><em>&lt;caminho&gt;</em></span> para localizar e armazenar as credenciais. O arquivo terá suas as permissões do sistema de arquivos definidos para impedir que os outros usuários no sistema o leiam, mas não serão criptografados ou protegidos. Caso não seja utilizado, as credenciais serão pesquisadas em <span class='synopsis'><code>~/.git-credentials</code></span> e <span class='synopsis'><code>$XDG_CONFIG_HOME/git/credentials</code></span>, as credenciais serão salvas em <span class='synopsis'><code>~/.git-credentials</code></span> caso exista, ou <span class='synopsis'><code>$XDG_CONFIG_HOME/git/credentials</code></span> caso exista e o primeiro não. Consulte também <a href="#FILES">ARQUIVOS</a>.</p>
 </dd>
 </dl>
 </div>
@@ -68,7 +85,7 @@ Ao usar este auxiliar as suas senhas são armazenadas de forma criptografada no 
 <h2 id="FILES"><a class="anchor" href="#FILES"></a>ARQUIVOS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Caso não seja definido explicitamente com a opção <code>--file</code>, existem dois arquivos nos quais o comando <code>git-credential-store</code> procurará por credenciais em ordem de precedência:</p>
+<p>Caso não seja definido explicitamente com a opção <span class='synopsis'><code>--file</code></span>, existem dois arquivos nos quais o comando <span class='synopsis'><code>git-credential-store</code></span> procurará por credenciais em ordem de precedência:</p>
 </div>
 <div class="dlist">
 <dl>
@@ -78,7 +95,7 @@ Ao usar este auxiliar as suas senhas são armazenadas de forma criptografada no 
 </dd>
 <dt class="hdlist1" id="git-credential-store-XDGCONFIGHOMEgitcredentials"> <a class="anchor" href="#git-credential-store-XDGCONFIGHOMEgitcredentials"></a>$XDG_CONFIG_HOME/git/credentials </dt>
 <dd>
-<p>Arquivo de credenciais secundário específicas do usuário. Caso <em>$XDG_CONFIG_HOME</em> não seja utilizado ou esteja vazio, o <code>$HOME/.config/git/credentials</code> será utilizado. Quaisquer credenciais armazenadas neste arquivo não serão utilizadas caso <code>~/.git-credentials</code> também tiver uma credencial coincidente. É uma boa pratica não criar este arquivo caso você às vezes utilize versões mais antigas do Git que não são compatíveis.</p>
+<p>Arquivo de credenciais secundário específicas do usuário. Caso <em>$XDG_CONFIG_HOME</em> não seja utilizado ou esteja vazio, o <span class='synopsis'><code>$HOME/.config/git/credentials</code></span> será utilizado. Quaisquer credenciais armazenadas neste arquivo não serão utilizadas caso <span class='synopsis'><code>~/.git-credentials</code></span> também tiver uma credencial coincidente. É uma boa pratica não criar este arquivo caso você às vezes utilize versões mais antigas do Git que não são compatíveis.</p>
 </dd>
 </dl>
 </div>
@@ -86,7 +103,7 @@ Ao usar este auxiliar as suas senhas são armazenadas de forma criptografada no 
 <p>Para pesquisas das credenciais, os arquivos são lidos na ordem acima, com a primeira credencial coincidente que for encontrada tendo precedência sobre as credenciais encontradas nos arquivos mais abaixo na lista.</p>
 </div>
 <div class="paragraph">
-<p>Por predefinição o armazenamento das credenciais será gravado no primeiro arquivo existente na lista. Caso nenhum destes arquivos exista, serão criadas e gravadas em <code>~/.git-credentials</code>.</p>
+<p>Por predefinição o armazenamento das credenciais será gravado no primeiro arquivo existente na lista. Caso nenhum destes arquivos exista, serão criadas e gravadas em <span class='synopsis'><code>~/.git-credentials</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Ao apagar as credenciais, aquelas que forem coincidentes serão apagadas de todos os arquivos.</p>
@@ -117,7 +134,7 @@ $ git push http://example.com/repo.git
 <h2 id="_formato_de_armazenamento"><a class="anchor" href="#_formato_de_armazenamento"></a>FORMATO DE ARMAZENAMENTO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O arquivo <code>.git-credentials</code> é armazenado em texto puro sem formatação. Cada credencial é armazenada em sua própria linha como uma URL:</p>
+<p>O arquivo <span class='synopsis'><code>.git-credentials</code></span> é armazenado em texto puro sem formatação. Cada credencial é armazenada em sua própria linha como uma URL:</p>
 </div>
 <div class="listingblock">
 <div class="content">

@@ -9,6 +9,19 @@ docname: git-rerere
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-rerere/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 命令
+  id: _命令
+- text: 讨论
+  id: _讨论
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -42,7 +55,7 @@ aliases:
 <div class="title">Note</div>
 </td>
 <td class="content">
-您需要设置配置变量 <code>rerere.enabled</code> 才能启用该命令。
+您需要设置配置变量 <span class='synopsis'><code>rerere.enabled</code></span> 才能启用该命令。
 </td>
 </tr>
 </table>
@@ -79,7 +92,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-rerere-emgcem"> <a class="anchor" href="#git-rerere-gc"></a> <a class="anchor" href="#git-rerere-emgcem"></a><em>gc</em> </dt>
 <dd>
-<p>修剪很久以前发生的冲突合并记录。 默认情况下，超过 15 天的未解决冲突和超过 60 天的已解决冲突会被剪除。 这些默认值分别由 <code>gc.rerereUnresolved</code> 和 <code>gc.rerereResolved</code> 配置变量控制。</p>
+<p>修剪很久以前发生的冲突合并记录。 默认情况下，超过 15 天的未解决冲突和超过 60 天的已解决冲突会被剪除。 这些默认值分别由 <span class='synopsis'><code>gc.rerereUnresolved</code></span> 和 <span class='synopsis'><code>gc.rerereResolved</code></span> 配置变量控制。</p>
 </dd>
 </dl>
 </div>
@@ -112,10 +125,10 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>标有 <code>*</code> 的提交涉及同一文件中的同一区域；您需要在创建标有 <code>+</code> 的提交时解决冲突。 然后，您就可以测试结果，以确保您正在进行的工作仍能与最新的 master 中的内容一起运行。</p>
+<p>标有 <span class='synopsis'><code>*</code></span> 的提交涉及同一文件中的同一区域；您需要在创建标有 <span class='synopsis'><code>+</code></span> 的提交时解决冲突。 然后，您就可以测试结果，以确保您正在进行的工作仍能与最新的 master 中的内容一起运行。</p>
 </div>
 <div class="paragraph">
-<p>测试合并后，有两种方法可以继续主题工作。 最简单的方法是建立在测试合并提交 <code>+</code> 之上，当你在特性分支中的工作最终准备就绪时，将特性分支拉入主分支，和/或请求上游从你那里拉取。 不过，到那时，主分支或上游分支可能已经在测试合并 <code>+</code> 后提前了，在这种情况下，最终的提交图会是这样的：</p>
+<p>测试合并后，有两种方法可以继续主题工作。 最简单的方法是建立在测试合并提交 <span class='synopsis'><code>+</code></span> 之上，当你在特性分支中的工作最终准备就绪时，将特性分支拉入主分支，和/或请求上游从你那里拉取。 不过，到那时，主分支或上游分支可能已经在测试合并 <span class='synopsis'><code>+</code></span> 后提前了，在这种情况下，最终的提交图会是这样的：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -151,13 +164,13 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>这样，当你的特性分支最终准备就绪并合并到主分支时，就只剩下一个合并提交了。 这次合并需要解决标有 <code>*</code> 的提交所带来的冲突。 然而，这个冲突往往就是你在创建测试合并时解决的冲突。 <em>git rerere</em> 可以帮助你使用之前手工解决的信息来解决最终的冲突合并。</p>
+<p>这样，当你的特性分支最终准备就绪并合并到主分支时，就只剩下一个合并提交了。 这次合并需要解决标有 <span class='synopsis'><code>*</code></span> 的提交所带来的冲突。 然而，这个冲突往往就是你在创建测试合并时解决的冲突。 <em>git rerere</em> 可以帮助你使用之前手工解决的信息来解决最终的冲突合并。</p>
 </div>
 <div class="paragraph">
-<p>在自动合成冲突后立即运行 <em>git rerere</em> 命令，会记录下冲突的工作树文件，并在其中加上通常的冲突标记`&lt;&lt;&lt;&lt;&lt;&lt;&lt;<code>、</code>=======` 和 <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>。 稍后，当你解决完冲突后，再次运行 <em>git rerere</em> 就会记录下这些文件已解决的状态。 假设你在创建将 master 合并到主题分支的测试时做了这个操作。</p>
+<p>在自动合成冲突后立即运行 <em>git rerere</em> 命令，会记录下冲突的工作树文件，并在其中加上通常的冲突标记`&lt;&lt;&lt;&lt;&lt;&lt;&lt;<span class='synopsis'><em>、</em></span>=======` 和 <span class='synopsis'><em>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</em></span>。 稍后，当你解决完冲突后，再次运行 <em>git rerere</em> 就会记录下这些文件已解决的状态。 假设你在创建将 master 合并到主题分支的测试时做了这个操作。</p>
 </div>
 <div class="paragraph">
-<p>下一次，在看到相同的自动生成器冲突后，运行 <em>git rerere</em> 将在之前的自动生成器冲突、之前的手动解决和当前的自动生成器冲突之间执行一次三向合并。 如果这次三方合并解决得很干净，结果就会写入工作区的文件中，因此你就不必再手动解决了。 请注意，<em>git rerere</em> 不会影响索引文件，因此您仍需要使用 <code>git diff</code>（或 <code>git diff -c</code>）和 <code>git add</code> 进行最后的正确性检查。</p>
+<p>下一次，在看到相同的自动生成器冲突后，运行 <em>git rerere</em> 将在之前的自动生成器冲突、之前的手动解决和当前的自动生成器冲突之间执行一次三向合并。 如果这次三方合并解决得很干净，结果就会写入工作区的文件中，因此你就不必再手动解决了。 请注意，<em>git rerere</em> 不会影响索引文件，因此您仍需要使用 <span class='synopsis'><code>git</code> <code>diff</code></span>（或 <span class='synopsis'><code>git</code> <code>diff</code> <code>-c</code></span>）和 <span class='synopsis'><code>git</code> <code>add</code></span> 进行最后的正确性检查。</p>
 </div>
 <div class="paragraph">
 <p>为了方便起见，<em>git merge</em> 会在自动合并失败退出时自动调用 <em>git rerere</em>，如果是新的冲突，<em>git rerere</em> 会记录手工解析，如果不是，则重用之前的手工解析。 在提交合并结果时，<em>git commit</em> 也会调用 <em>git rerere</em> 。 这意味着，除了启用 rerere.enabled 配置变量外，你无需做任何特别的事情。</p>
@@ -182,10 +195,10 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>您可以运行 <code>git rebase master topic</code>，在您的主题准备好被发送到上游之前更新自己。 这将导致退回到三方合并，而且会和之前的测试合并产生冲突。 ' git rebase' 会运行 <em>git rerere</em> 来帮你解决这个冲突。</p>
+<p>您可以运行 <span class='synopsis'><code>git</code> <code>rebase</code> <code>master</code> <code>topic</code></span>，在您的主题准备好被发送到上游之前更新自己。 这将导致退回到三方合并，而且会和之前的测试合并产生冲突。 ' git rebase' 会运行 <em>git rerere</em> 来帮你解决这个冲突。</p>
 </div>
 <div class="paragraph">
-<p>[注意] <em>git rerere</em> 依靠文件中的冲突标记来检测冲突。 如果文件中已经包含了与冲突标记相同的行，<em>git rerere</em> 可能无法记录冲突解决。 要解决这个问题，可以使用 <a href='{{< relurl "docs/gitattributes/zh_HANS-CN" >}}'>gitattributes[5]</a> 中的 <code>conflict-marker-size</code> 设置。</p>
+<p>[注意] <em>git rerere</em> 依靠文件中的冲突标记来检测冲突。 如果文件中已经包含了与冲突标记相同的行，<em>git rerere</em> 可能无法记录冲突解决。 要解决这个问题，可以使用 <a href='{{< relurl "docs/gitattributes/zh_HANS-CN" >}}'>gitattributes[5]</a> 中的 <span class='synopsis'><code>conflict-marker-size</code></span> 设置。</p>
 </div>
 </div>
 </div>

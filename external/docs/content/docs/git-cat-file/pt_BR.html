@@ -9,6 +9,23 @@ docname: git-cat-file
 lang: pt_BR
 aliases:
 - "/docs/git-cat-file/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: SAÍDA
+  id: _saída
+- text: SAÍDA DO LOTE
+  id: _saída_do_lote
+- text: RESSALVAS
+  id: _ressalvas
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -39,7 +56,7 @@ aliases:
 <p>Emite o conteúdo ou outras propriedades, como o tamanho, o tipo ou informações delta de um ou mais objetos.</p>
 </div>
 <div class="paragraph">
-<p>Esse comando pode operar em dois modos, dependendo do fato de uma opção da família <code>--batch</code> ter sido especificada.</p>
+<p>Esse comando pode operar em dois modos, dependendo do fato de uma opção da família <span class='synopsis'><code>--batch</code></span> ter sido especificada.</p>
 </div>
 <div class="paragraph">
 <p>No modo não batch, o comando fornece informações sobre um objeto nomeado na linha de comando.</p>
@@ -60,23 +77,23 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cat-file--t"> <a class="anchor" href="#git-cat-file--t"></a>-t </dt>
 <dd>
-<p>Em vez do conteúdo, exiba o tipo do objeto identificado por <code>&lt;objeto&gt;</code>.</p>
+<p>Em vez do conteúdo, exiba o tipo do objeto identificado por <span class='synopsis'><em>&lt;objeto&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file--s"> <a class="anchor" href="#git-cat-file--s"></a>-s </dt>
 <dd>
-<p>Em vez do conteúdo, mostre o tamanho do objeto identificado pelo <code>&lt;objeto&gt;</code>. Caso seja utilizado com a opção <code>--use-mailmap</code>, mostrará o tamanho do objeto atualizado após a substituição dos "idents" usando o mecanismo do "mailmap".</p>
+<p>Em vez do conteúdo, mostre o tamanho do objeto identificado pelo <span class='synopsis'><em>&lt;objeto&gt;</em></span>. Caso seja utilizado com a opção <span class='synopsis'><code>--use-mailmap</code></span>, mostrará o tamanho do objeto atualizado após a substituição dos "idents" usando o mecanismo do "mailmap".</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file--e"> <a class="anchor" href="#git-cat-file--e"></a>-e </dt>
 <dd>
-<p>Encerre com a condição zero caso o <code>&lt;objeto&gt;</code> exista e seja um objeto válido. Caso o <code>&lt;objeto&gt;</code> tenha um formato inválido, encerre com um valor diferente de zero e emita uma mensagem de erro no "stderr".</p>
+<p>Encerre com a condição zero caso o <span class='synopsis'><em>&lt;objeto&gt;</em></span> exista e seja um objeto válido. Caso o <span class='synopsis'><em>&lt;objeto&gt;</em></span> tenha um formato inválido, encerre com um valor diferente de zero e emita uma mensagem de erro no "stderr".</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file--p"> <a class="anchor" href="#git-cat-file--p"></a>-p </dt>
 <dd>
-<p>Faça uma impressão bonita do conteúdo do <code>&lt;objeto&gt;</code> com base no seu tipo.</p>
+<p>Faça uma impressão bonita do conteúdo do <span class='synopsis'><em>&lt;objeto&gt;</em></span> com base no seu tipo.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file-lttipogt"> <a class="anchor" href="#git-cat-file-tipo"></a> <a class="anchor" href="#git-cat-file-lttipogt"></a>&lt;tipo&gt; </dt>
 <dd>
-<p>Normalmente, isso corresponde ao tipo real do <code>&lt;objeto&gt;</code>, mas também é permitido solicitar um tipo que possa ser trivialmente referenciado a partir do <code>&lt;objeto&gt;</code> informado. Um exemplo é solicitar uma "árvore" com o <code>&lt;objeto&gt;</code> sendo um objeto do comit que a contém, ou solicitar uma "bolha" com o <code>&lt;objeto&gt;</code> sendo uma etiqueta do objeto que aponte para ela.</p>
+<p>Normalmente, isso corresponde ao tipo real do <span class='synopsis'><em>&lt;objeto&gt;</em></span>, mas também é permitido solicitar um tipo que possa ser trivialmente referenciado a partir do <span class='synopsis'><em>&lt;objeto&gt;</em></span> informado. Um exemplo é solicitar uma "árvore" com o <span class='synopsis'><em>&lt;objeto&gt;</em></span> sendo um objeto do comit que a contém, ou solicitar uma "bolha" com o <span class='synopsis'><em>&lt;objeto&gt;</em></span> sendo uma etiqueta do objeto que aponte para ela.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file---no-mailmap"> <a class="anchor" href="#git-cat-file---no-mailmap"></a>--[no-]mailmap </dt>
 <dt class="hdlist1" id="git-cat-file---no-use-mailmap"> <a class="anchor" href="#git-cat-file---no-use-mailmap"></a>--[no-]use-mailmap </dt>
@@ -85,16 +102,16 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cat-file---textconv"> <a class="anchor" href="#git-cat-file---textconv"></a>--textconv </dt>
 <dd>
-<p>Exiba o conteúdo da maneira que foi transformado por um filtro textconv. Nesse caso, o <code>&lt;objeto&gt;</code> deve estar no formato <code>&lt;árvore&gt;:&lt;caminho&gt;</code> ou <code>:&lt;caminho&gt;</code> para aplicar o filtro ao conteúdo registrado no índice do <code>&lt;caminho&gt;</code>.</p>
+<p>Exiba o conteúdo da maneira que foi transformado por um filtro textconv. Nesse caso, o <span class='synopsis'><em>&lt;objeto&gt;</em></span> deve estar no formato <span class='synopsis'><em>&lt;árvore&gt;</em><code>:</code><em>&lt;caminho&gt;</em></span> ou <span class='synopsis'><code>:</code><em>&lt;caminho&gt;</em></span> para aplicar o filtro ao conteúdo registrado no índice do <span class='synopsis'><em>&lt;caminho&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file---filters"> <a class="anchor" href="#git-cat-file---filters"></a>--filters </dt>
 <dd>
-<p>Exiba o conteúdo conforme foi convertido pelos filtros configurados na árvore de trabalho atual para o <code>&lt;caminho&gt;</code> informado (por exemplo, filtros de manchas, conversão da quebra de linha, etc.). Nesse caso, o <code>&lt;objeto&gt;</code> deve estar no formato <code>&lt;árvore&gt;:&lt;caminho&gt;</code> ou <code>:&lt;caminho&gt;</code>.</p>
+<p>Exiba o conteúdo conforme foi convertido pelos filtros configurados na árvore de trabalho atual para o <span class='synopsis'><em>&lt;caminho&gt;</em></span> informado (por exemplo, filtros de manchas, conversão da quebra de linha, etc.). Nesse caso, o <span class='synopsis'><em>&lt;objeto&gt;</em></span> deve estar no formato <span class='synopsis'><em>&lt;árvore&gt;</em><code>:</code><em>&lt;caminho&gt;</em></span> ou <span class='synopsis'><code>:</code><em>&lt;caminho&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file---filterltfilter-specgt"> <a class="anchor" href="#git-cat-file---filterfilter-spec"></a> <a class="anchor" href="#git-cat-file---filterltfilter-specgt"></a>--filter=&lt;filter-spec&gt; </dt>
 <dt class="hdlist1" id="git-cat-file---no-filter"> <a class="anchor" href="#git-cat-file---no-filter"></a>--no-filter </dt>
 <dd>
-<p>Omit objects from the list of printed objects. This can only be used in combination with one of the batched modes. Excluded objects that have been explicitly requested via any of the batch modes that read objects via standard input (<code>--batch</code>, <code>--batch-check</code>) will be reported as "filtered". Excluded objects in <code>--batch-all-objects</code> mode will not be printed at all. The <em>&lt;filter-spec&gt;</em> may be one of the following:</p>
+<p>Omit objects from the list of printed objects. This can only be used in combination with one of the batched modes. Excluded objects that have been explicitly requested via any of the batch modes that read objects via standard input (<span class='synopsis'><code>--batch</code></span>, <span class='synopsis'><code>--batch-check</code></span>) will be reported as "filtered". Excluded objects in <span class='synopsis'><code>--batch-all-objects</code></span> mode will not be printed at all. The <em>&lt;filter-spec&gt;</em> may be one of the following:</p>
 <div class="paragraph">
 <p>O formulário <em>--filter=blob:none</em> omite todos as "bolhas".</p>
 </div>
@@ -107,21 +124,21 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cat-file---pathltcaminhogt"> <a class="anchor" href="#git-cat-file---pathcaminho"></a> <a class="anchor" href="#git-cat-file---pathltcaminhogt"></a>--path=&lt;caminho&gt; </dt>
 <dd>
-<p>Para a utilização com o comando <code>--textconv</code> ou <code>--filters</code>, permitindo a definição de um nome do objeto e um caminho separadamente, quando for difícil descobrir a revisão de onde a bolha veio por exemplo.</p>
+<p>Para a utilização com o comando <span class='synopsis'><code>--textconv</code></span> ou <span class='synopsis'><code>--filters</code></span>, permitindo a definição de um nome do objeto e um caminho separadamente, quando for difícil descobrir a revisão de onde a bolha veio por exemplo.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file---batch"> <a class="anchor" href="#git-cat-file---batch"></a>--batch </dt>
 <dt class="hdlist1" id="git-cat-file---batchltformatogt"> <a class="anchor" href="#git-cat-file---batchformato"></a> <a class="anchor" href="#git-cat-file---batchltformatogt"></a>--batch=&lt;formato&gt; </dt>
 <dd>
-<p>Exiba a informação do objeto e seu conteúdo para cada objeto informado no stdin. Talvez não possa ser combinado com nenhuma outra opção exceto <code>--textconv</code>, <code>--filters</code> ou <code>--use-mailmap</code>.</p>
+<p>Exiba a informação do objeto e seu conteúdo para cada objeto informado no stdin. Talvez não possa ser combinado com nenhuma outra opção exceto <span class='synopsis'><code>--textconv</code></span>, <span class='synopsis'><code>--filters</code></span> ou <span class='synopsis'><code>--use-mailmap</code></span>.</p>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Quando utilizado com <code>--textconv</code> ou <code>--filters</code>, as linhas da entrada devem informar o caminho, separado por espaços. Para mais detalhes consulte a seção <code>SAÍDA DO LOTE</code> abaixo.</p>
+<p>Quando utilizado com <span class='synopsis'><code>--textconv</code></span> ou <span class='synopsis'><code>--filters</code></span>, as linhas da entrada devem informar o caminho, separado por espaços. Para mais detalhes consulte a seção <span class='synopsis'><em>SAÍDA DO LOTE</em></span> abaixo.</p>
 </li>
 <li>
-<p>Quando usado com a opção <code>--use-mailmap</code>, para objetos commit e tag, a parte da saída do conteúdo mostra as identidades que foram substituídas usando o mecanismo do "mailmap", enquanto a parte da saída de informação, mostra o tamanho do objeto como se ele realmente fosse gravado fazendo a substituição das identidades.</p>
+<p>Quando usado com a opção <span class='synopsis'><code>--use-mailmap</code></span>, para objetos commit e tag, a parte da saída do conteúdo mostra as identidades que foram substituídas usando o mecanismo do "mailmap", enquanto a parte da saída de informação, mostra o tamanho do objeto como se ele realmente fosse gravado fazendo a substituição das identidades.</p>
 </li>
 </ul>
 </div>
@@ -131,18 +148,18 @@ aliases:
 <dt class="hdlist1" id="git-cat-file---batch-check"> <a class="anchor" href="#git-cat-file---batch-check"></a>--batch-check </dt>
 <dt class="hdlist1" id="git-cat-file---batch-checkltformatogt"> <a class="anchor" href="#git-cat-file---batch-checkformato"></a> <a class="anchor" href="#git-cat-file---batch-checkltformatogt"></a>--batch-check=&lt;formato&gt; </dt>
 <dd>
-<p>Exiba as informações do objeto para cada objeto informado no stdin. Talvez não possa ser combinado com nenhuma outra opção exceto <code>--textconv</code>, <code>--filters</code> ou <code>--use-mailmap</code>.</p>
+<p>Exiba as informações do objeto para cada objeto informado no stdin. Talvez não possa ser combinado com nenhuma outra opção exceto <span class='synopsis'><code>--textconv</code></span>, <span class='synopsis'><code>--filters</code></span> ou <span class='synopsis'><code>--use-mailmap</code></span>.</p>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Quando utilizado com <code>--textconv</code> ou <code>--filters</code>, as linhas da entrada devem
+<p>Quando utilizado com <span class='synopsis'><code>--textconv</code></span> ou <span class='synopsis'><code>--filters</code></span>, as linhas da entrada devem
 especificar o caminho, separado por espaço. Consulte a seção
-<code>SAÍDA DO LOTE</code> abaixo para mais detalhes.</p>
+<span class='synopsis'><em>SAÍDA DO LOTE</em></span> abaixo para mais detalhes.</p>
 </li>
 <li>
-<p>Quando usado com <code>--use-mailmap</code>, para objetos commit e tag, as informações impressas do objeto mostram o tamanho do objeto como se as identidades registradas nele fossem substituídas pelo mecanismo mailmap.</p>
+<p>Quando usado com <span class='synopsis'><code>--use-mailmap</code></span>, para objetos commit e tag, as informações impressas do objeto mostram o tamanho do objeto como se as identidades registradas nele fossem substituídas pelo mecanismo mailmap.</p>
 </li>
 </ul>
 </div>
@@ -152,23 +169,23 @@ especificar o caminho, separado por espaço. Consulte a seção
 <dt class="hdlist1" id="git-cat-file---batch-command"> <a class="anchor" href="#git-cat-file---batch-command"></a>--batch-command </dt>
 <dt class="hdlist1" id="git-cat-file---batch-commandltformatogt"> <a class="anchor" href="#git-cat-file---batch-commandformato"></a> <a class="anchor" href="#git-cat-file---batch-commandltformatogt"></a>--batch-command=&lt;formato&gt; </dt>
 <dd>
-<p>Insira um modo de comando que faça a leitura dos comandos e dos argumentos do stdin. Só pode ser combinado com <code>--buffer</code>, <code>--textconv</code>, <code>--use-mailmap</code> ou <code>--filters</code>.</p>
+<p>Insira um modo de comando que faça a leitura dos comandos e dos argumentos do stdin. Só pode ser combinado com <span class='synopsis'><code>--buffer</code></span>, <span class='synopsis'><code>--textconv</code></span>, <span class='synopsis'><code>--use-mailmap</code></span> ou <span class='synopsis'><code>--filters</code></span>.</p>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Quando utilizado com <code>--textconv</code> ou <code>--filters</code>, as linhas da entrada devem informar o caminho, separado por espaços. Para mais detalhes consulte a seção <code>SAÍDA DO LOTE</code> abaixo.</p>
+<p>Quando utilizado com <span class='synopsis'><code>--textconv</code></span> ou <span class='synopsis'><code>--filters</code></span>, as linhas da entrada devem informar o caminho, separado por espaços. Para mais detalhes consulte a seção <span class='synopsis'><em>SAÍDA DO LOTE</em></span> abaixo.</p>
 </li>
 <li>
-<p>Quando usado com <code>--use-mailmap</code>, para os objetos commit e tag, o comando <code>contents</code> mostra as identidades substituídas usando o mecanismo mailmap, enquanto o comando <code>info</code> mostra o tamanho do objeto como se ele realmente registrasse a substituição das identidades.</p>
+<p>Quando usado com <span class='synopsis'><code>--use-mailmap</code></span>, para os objetos commit e tag, o comando <span class='synopsis'><code>contents</code></span> mostra as identidades substituídas usando o mecanismo mailmap, enquanto o comando <span class='synopsis'><code>info</code></span> mostra o tamanho do objeto como se ele realmente registrasse a substituição das identidades.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>o <code>--batch-command</code> reconhece os seguintes comandos:</p>
+<p>o <span class='synopsis'><code>--batch-command</code></span> reconhece os seguintes comandos:</p>
 </div>
 <div class="openblock">
 <div class="content">
@@ -176,15 +193,15 @@ especificar o caminho, separado por espaço. Consulte a seção
 <dl>
 <dt class="hdlist1" id="git-cat-file-contedosltobjetogt"> <a class="anchor" href="#git-cat-file-contedosobjeto"></a> <a class="anchor" href="#git-cat-file-contedosltobjetogt"></a>conteúdos &lt;objeto&gt; </dt>
 <dd>
-<p>Imprime o conteúdo do objeto para a referência do objeto <code>&lt;objeto&gt;</code>. Isso corresponde à saída <code>--batch</code>.</p>
+<p>Imprime o conteúdo do objeto para a referência do objeto <span class='synopsis'><em>&lt;objeto&gt;</em></span>. Isso corresponde à saída <span class='synopsis'><code>--batch</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file-infoltobjetogt"> <a class="anchor" href="#git-cat-file-infoobjeto"></a> <a class="anchor" href="#git-cat-file-infoltobjetogt"></a>info &lt;objeto&gt; </dt>
 <dd>
-<p>Imprime as informações do objeto para a referência do objeto <code>&lt;objeto&gt;</code>. Isso corresponde à saída <code>--batch-check</code>.</p>
+<p>Imprime as informações do objeto para a referência do objeto <span class='synopsis'><em>&lt;objeto&gt;</em></span>. Isso corresponde à saída <span class='synopsis'><code>--batch-check</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file-flush"> <a class="anchor" href="#git-cat-file-flush"></a>flush </dt>
 <dd>
-<p>É utilizado com a opção <code>--buffer</code> para executar todos os comandos anteriores que foram emitidos desde o início ou desde que o último flush tenha sido feito. Quando a opção <code>--buffer</code> é utilizada, nenhuma saída virá até que um <code>flush</code> seja emitido. Quando <code>--buffer</code> não for utilizado, os comandos são liberados um por vez sem emitir um <code>flush</code>.</p>
+<p>É utilizado com a opção <span class='synopsis'><code>--buffer</code></span> para executar todos os comandos anteriores que foram emitidos desde o início ou desde que o último flush tenha sido feito. Quando a opção <span class='synopsis'><code>--buffer</code></span> é utilizada, nenhuma saída virá até que um <span class='synopsis'><code>flush</code></span> seja emitido. Quando <span class='synopsis'><code>--buffer</code></span> não for utilizado, os comandos são liberados um por vez sem emitir um <span class='synopsis'><code>flush</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -193,24 +210,24 @@ especificar o caminho, separado por espaço. Consulte a seção
 </dd>
 <dt class="hdlist1" id="git-cat-file---batch-all-objects"> <a class="anchor" href="#git-cat-file---batch-all-objects"></a>--batch-all-objects </dt>
 <dd>
-<p>Em vez de ler uma lista de objetos no stdin, execute a operação em lote solicitada em todos os objetos do repositório e em todos os armazenamentos alternativos de objetos (não apenas nos objetos acessíveis). É obrigatório o uso das opções <code>--batch</code> ou <code>--batch-check</code>. É predefinido os objetos seja visitados em ordem e classificados pelos seus hashes; consulte também a opção <code>--unordered</code> abaixo. Os objetos são apresentados no estado onde se encontram, sem respeitar o mecanismo de "substituição" do <a href='{{< relurl "docs/git-replace/pt_BR" >}}'>git-replace[1]</a>.</p>
+<p>Em vez de ler uma lista de objetos no stdin, execute a operação em lote solicitada em todos os objetos do repositório e em todos os armazenamentos alternativos de objetos (não apenas nos objetos acessíveis). É obrigatório o uso das opções <span class='synopsis'><code>--batch</code></span> ou <span class='synopsis'><code>--batch-check</code></span>. É predefinido os objetos seja visitados em ordem e classificados pelos seus hashes; consulte também a opção <span class='synopsis'><code>--unordered</code></span> abaixo. Os objetos são apresentados no estado onde se encontram, sem respeitar o mecanismo de "substituição" do <a href='{{< relurl "docs/git-replace/pt_BR" >}}'>git-replace[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file---buffer"> <a class="anchor" href="#git-cat-file---buffer"></a>--buffer </dt>
 <dd>
-<p>Normalmente, a saída do lote é liberada após a saída de cada objeto, para que um processo possa ler e gravar de forma interativa a partir do <code>cat-file</code>. Com esta opção, a saída utiliza uma memória intermédia normal no stdio; por ser muito mais eficiente ao invocar comando <code>--batch-check</code> ou <code>--batch-command</code> numa grande quantidade de objetos.</p>
+<p>Normalmente, a saída do lote é liberada após a saída de cada objeto, para que um processo possa ler e gravar de forma interativa a partir do <span class='synopsis'><code>cat-file</code></span>. Com esta opção, a saída utiliza uma memória intermédia normal no stdio; por ser muito mais eficiente ao invocar comando <span class='synopsis'><code>--batch-check</code></span> ou <span class='synopsis'><code>--batch-command</code></span> numa grande quantidade de objetos.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file---unordered"> <a class="anchor" href="#git-cat-file---unordered"></a>--unordered </dt>
 <dd>
-<p>Quando a opção <code>--batch-all-objects</code> estiver em uso, visite os objetos numa ordem que possa ser mais eficiente para acessar o conteúdo do objeto do que a ordem do hash. Os detalhes exatos da ordem não são especificados, porém caso não precise de uma ordem específica, isso geralmente resultará numa saída mais rápida, especialmente com a opção <code>--batch</code>. Observe que o comando <code>cat-file</code> ainda mostrará cada objeto apenas uma vez, ainda que ele esteja armazenado diversas vezes no repositório.</p>
+<p>Quando a opção <span class='synopsis'><code>--batch-all-objects</code></span> estiver em uso, visite os objetos numa ordem que possa ser mais eficiente para acessar o conteúdo do objeto do que a ordem do hash. Os detalhes exatos da ordem não são especificados, porém caso não precise de uma ordem específica, isso geralmente resultará numa saída mais rápida, especialmente com a opção <span class='synopsis'><code>--batch</code></span>. Observe que o comando <span class='synopsis'><code>cat-file</code></span> ainda mostrará cada objeto apenas uma vez, ainda que ele esteja armazenado diversas vezes no repositório.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file---follow-symlinks"> <a class="anchor" href="#git-cat-file---follow-symlinks"></a>--follow-symlinks </dt>
 <dd>
-<p>Com o comando <code>--batch</code> ou o <code>--batch-check</code>, siga os links simbólicos dentro do repositório ao solicitar os objetos com expressões SHA-1 estendidas com o formato tree-ish:path-in-tree. Em vez de fornecer a saída sobre o próprio link, forneça a saída sobre o objeto vinculado. Se um link simbólico apontar para fora da árvore (um link para <code>/foo</code> ou um link de nível raiz para <code>../foo</code> por exemplo), será impressa a parte do link que está fora da árvore.</p>
+<p>Com o comando <span class='synopsis'><code>--batch</code></span> ou o <span class='synopsis'><code>--batch-check</code></span>, siga os links simbólicos dentro do repositório ao solicitar os objetos com expressões SHA-1 estendidas com o formato tree-ish:path-in-tree. Em vez de fornecer a saída sobre o próprio link, forneça a saída sobre o objeto vinculado. Se um link simbólico apontar para fora da árvore (um link para <span class='synopsis'><code>/foo</code></span> ou um link de nível raiz para <span class='synopsis'><code>../foo</code></span> por exemplo), será impressa a parte do link que está fora da árvore.</p>
 <div class="paragraph">
-<p>Esta opção (atualmente) não funciona corretamente quando um objeto no índice seja definido (<code>:link</code> em vez do <code>HEAD:link</code> por exemplo) em vez de um na árvore.</p>
+<p>Esta opção (atualmente) não funciona corretamente quando um objeto no índice seja definido (<span class='synopsis'><code>:link</code></span> em vez do <span class='synopsis'><code>HEAD:link</code></span> por exemplo) em vez de um na árvore.</p>
 </div>
 <div class="paragraph">
-<p>Esta opção (atualmente) não pode ser utilizada, a menos que a opção <code>--batch</code> ou <code>--batch-check</code> seja utilizado.</p>
+<p>Esta opção (atualmente) não pode ser utilizada, a menos que a opção <span class='synopsis'><code>--batch</code></span> ou <span class='synopsis'><code>--batch-check</code></span> seja utilizado.</p>
 </div>
 <div class="paragraph">
 <p>Considere um repositório git contendo, por exemplo:</p>
@@ -229,7 +246,7 @@ alink: um link simbólico para /etc/passwd</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Para um arquivo normal <code>f</code>, <code>echo HEAD:f | git cat-file --batch</code> exibe</p>
+<p>Para um arquivo normal <span class='synopsis'><code>f</code></span>, <span class='synopsis'><code>echo</code> <code>HEAD:f</code> | <code>git</code> <code>cat-file</code> <code>--batch</code></span> exibe</p>
 </div>
 <div class="openblock">
 <div class="content">
@@ -241,10 +258,10 @@ alink: um link simbólico para /etc/passwd</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>E <code>echo HEAD:link | git cat-file --batch --follow-symlinks</code> exibiria a mesma coisa, assim como <code>HEAD:dir/link</code>, como ambos apontam para <code>HEAD:f</code>.</p>
+<p>E <span class='synopsis'><code>echo</code> <code>HEAD:link</code> | <code>git</code> <code>cat-file</code> <code>--batch</code> <code>--follow-symlinks</code></span> exibiria a mesma coisa, assim como <span class='synopsis'><code>HEAD:dir/link</code></span>, como ambos apontam para <span class='synopsis'><code>HEAD:f</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Sem a opção <code>--follow-symlinks</code>, eles imprimiriam dados sobre o próprio link simbólico. No caso de <code>HEAD:link</code>, você verá</p>
+<p>Sem a opção <span class='synopsis'><code>--follow-symlinks</code></span>, eles imprimiriam dados sobre o próprio link simbólico. No caso de <span class='synopsis'><code>HEAD:link</code></span>, você verá</p>
 </div>
 <div class="openblock">
 <div class="content">
@@ -256,7 +273,7 @@ alink: um link simbólico para /etc/passwd</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Ambos <code>plink</code> e <code>alink</code> apontam para fora da árvore, então eles imprimiriam respectivamente:</p>
+<p>Ambos <span class='synopsis'><code>plink</code></span> e <span class='synopsis'><code>alink</code></span> apontam para fora da árvore, então eles imprimiriam respectivamente:</p>
 </div>
 <div class="openblock">
 <div class="content">
@@ -277,11 +294,11 @@ alink: um link simbólico para /etc/passwd</pre>
 </dd>
 <dt class="hdlist1" id="git-cat-file--Z"> <a class="anchor" href="#git-cat-file--Z"></a>-Z </dt>
 <dd>
-<p>Só faz sentido com a opção <code>--batch</code>, <code>--batch-check</code>, ou <code>--batch-command</code>; a entrada e a saída é delimitada por um NUL em vez de ser delimitada por uma nova linha.</p>
+<p>Só faz sentido com a opção <span class='synopsis'><code>--batch</code></span>, <span class='synopsis'><code>--batch-check</code></span>, ou <span class='synopsis'><code>--batch-command</code></span>; a entrada e a saída é delimitada por um NUL em vez de ser delimitada por uma nova linha.</p>
 </dd>
 <dt class="hdlist1" id="git-cat-file--z"> <a class="anchor" href="#git-cat-file--z"></a>-z </dt>
 <dd>
-<p>Só faz sentido com a opção <code>--batch</code>, <code>--batch-check</code> ou <code>--batch-command</code>; a entrada é delimitada por um NUL em vez de ser delimitada por uma nova linha. Esta opção foi descontinuada em favor da opção <code>-Z</code> porque a saída pode ser ambígua.</p>
+<p>Só faz sentido com a opção <span class='synopsis'><code>--batch</code></span>, <span class='synopsis'><code>--batch-check</code></span> ou <span class='synopsis'><code>--batch-command</code></span>; a entrada é delimitada por um NUL em vez de ser delimitada por uma nova linha. Esta opção foi descontinuada em favor da opção <span class='synopsis'><code>-Z</code></span> porque a saída pode ser ambígua.</p>
 </dd>
 </dl>
 </div>
@@ -291,19 +308,19 @@ alink: um link simbólico para /etc/passwd</pre>
 <h2 id="_saída"><a class="anchor" href="#_saída"></a>SAÍDA</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Caso a opção <code>-t</code> seja utilizada, um do <code>&lt;tipo&gt;</code>.</p>
+<p>Caso a opção <span class='synopsis'><code>-t</code></span> seja utilizada, um do <span class='synopsis'><em>&lt;tipo&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
-<p>Caso a opção <code>-s</code> seja utilizada, o tamanho do <code>&lt;objeto&gt;</code> em bytes.</p>
+<p>Caso a opção <span class='synopsis'><code>-s</code></span> seja utilizada, o tamanho do <span class='synopsis'><em>&lt;objeto&gt;</em></span> em bytes.</p>
 </div>
 <div class="paragraph">
-<p>Caso a opção <code>-e</code> seja utilizada, nenhuma saída, a menos que o <code>&lt;objeto&gt;</code> esteja malformado.</p>
+<p>Caso a opção <span class='synopsis'><code>-e</code></span> seja utilizada, nenhuma saída, a menos que o <span class='synopsis'><em>&lt;objeto&gt;</em></span> esteja malformado.</p>
 </div>
 <div class="paragraph">
-<p>Caso a opção <code>-p</code> seja utilizada, o conteúdo de <code>&lt;objeto&gt;</code> será bem impresso.</p>
+<p>Caso a opção <span class='synopsis'><code>-p</code></span> seja utilizada, o conteúdo de <span class='synopsis'><em>&lt;objeto&gt;</em></span> será bem impresso.</p>
 </div>
 <div class="paragraph">
-<p>Caso um <code>&lt;tipo&gt;</code> seja utilizada, o conteúdo bruto (embora não compactado) do <code>&lt;objeto&gt;</code> será retornado.</p>
+<p>Caso um <span class='synopsis'><em>&lt;tipo&gt;</em></span> seja utilizada, o conteúdo bruto (embora não compactado) do <span class='synopsis'><em>&lt;objeto&gt;</em></span> será retornado.</p>
 </div>
 </div>
 </div>
@@ -311,50 +328,50 @@ alink: um link simbólico para /etc/passwd</pre>
 <h2 id="_saída_do_lote"><a class="anchor" href="#_saída_do_lote"></a>SAÍDA DO LOTE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If <code>--batch</code> or <code>--batch-check</code> is given, <code>cat-file</code> will read objects from stdin, one per line, and print information about them in the same order as they have been read. By default, the whole line is considered as an object, as if it were fed to <a href='{{< relurl "docs/git-rev-parse/pt_BR" >}}'>git-rev-parse[1]</a>.</p>
+<p>If <span class='synopsis'><code>--batch</code></span> or <span class='synopsis'><code>--batch-check</code></span> is given, <span class='synopsis'><code>cat-file</code></span> will read objects from stdin, one per line, and print information about them in the same order as they have been read. By default, the whole line is considered as an object, as if it were fed to <a href='{{< relurl "docs/git-rev-parse/pt_BR" >}}'>git-rev-parse[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Quando a opção <code>--batch-command</code> for dado, o <code>cat-file</code> fará a leitura dos comandos do stdin, um por linha, imprimindo informações com base no comando informado. Com o <code>--batch-command</code>, o comando <code>info</code> seguido de um objeto imprimirá as informações sobre o objeto da mesma maneira que a opção <code>--batch-check</code> faria, e o comando <code>contents</code> seguido de um conteúdo impresso do objeto igual ao que a opção <code>--batch</code> faria.</p>
+<p>Quando a opção <span class='synopsis'><code>--batch-command</code></span> for dado, o <span class='synopsis'><code>cat-file</code></span> fará a leitura dos comandos do stdin, um por linha, imprimindo informações com base no comando informado. Com o <span class='synopsis'><code>--batch-command</code></span>, o comando <span class='synopsis'><code>info</code></span> seguido de um objeto imprimirá as informações sobre o objeto da mesma maneira que a opção <span class='synopsis'><code>--batch-check</code></span> faria, e o comando <span class='synopsis'><code>contents</code></span> seguido de um conteúdo impresso do objeto igual ao que a opção <span class='synopsis'><code>--batch</code></span> faria.</p>
 </div>
 <div class="paragraph">
-<p>Você pode definir as informações exibidas para cada objeto utilizando um <code>&lt;formato&gt;</code> personalizado. O <code>&lt;formato&gt;</code> é copiado de forma literal para cada objeto no stdout, com espaços reservados no formato <code>%(atom)</code> expandidos, seguidos por uma nova linha. Os átomos que estão disponíveis são:</p>
+<p>Você pode definir as informações exibidas para cada objeto utilizando um <span class='synopsis'><em>&lt;formato&gt;</em></span> personalizado. O <span class='synopsis'><em>&lt;formato&gt;</em></span> é copiado de forma literal para cada objeto no stdout, com espaços reservados no formato <span class='synopsis'><code>%</code>(<code>atom</code>)</span> expandidos, seguidos por uma nova linha. Os átomos que estão disponíveis são:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-cat-file-codeobjectnamecode"> <a class="anchor" href="#git-cat-file-objectname"></a> <a class="anchor" href="#git-cat-file-codeobjectnamecode"></a><code>objectname</code> </dt>
+<dt class="hdlist1" id="git-cat-file-spanclasssynopsiscodeobjectnamecodespan"> <a class="anchor" href="#git-cat-file-objectname"></a> <a class="anchor" href="#git-cat-file-spanclasssynopsiscodeobjectnamecodespan"></a><span class='synopsis'><code>objectname</code></span> </dt>
 <dd>
 <p>A representação completa do hex do nome do objeto.</p>
 </dd>
-<dt class="hdlist1" id="git-cat-file-codeobjecttypecode"> <a class="anchor" href="#git-cat-file-objecttype"></a> <a class="anchor" href="#git-cat-file-codeobjecttypecode"></a><code>objecttype</code> </dt>
+<dt class="hdlist1" id="git-cat-file-spanclasssynopsiscodeobjecttypecodespan"> <a class="anchor" href="#git-cat-file-objecttype"></a> <a class="anchor" href="#git-cat-file-spanclasssynopsiscodeobjecttypecodespan"></a><span class='synopsis'><code>objecttype</code></span> </dt>
 <dd>
-<p>O tipo do objeto (o mesmo que os relatórios <code>cat-file -t</code>).</p>
+<p>O tipo do objeto (o mesmo que os relatórios <span class='synopsis'><code>cat-file</code> <code>-t</code></span>).</p>
 </dd>
-<dt class="hdlist1" id="git-cat-file-codeobjectsizecode"> <a class="anchor" href="#git-cat-file-objectsize"></a> <a class="anchor" href="#git-cat-file-codeobjectsizecode"></a><code>objectsize</code> </dt>
+<dt class="hdlist1" id="git-cat-file-spanclasssynopsiscodeobjectsizecodespan"> <a class="anchor" href="#git-cat-file-objectsize"></a> <a class="anchor" href="#git-cat-file-spanclasssynopsiscodeobjectsizecodespan"></a><span class='synopsis'><code>objectsize</code></span> </dt>
 <dd>
-<p>O tamanho, em bytes, do objeto (o mesmo que os relatórios <code>cat-file -s</code>).</p>
+<p>O tamanho, em bytes, do objeto (o mesmo que os relatórios <span class='synopsis'><code>cat-file</code> <code>-s</code></span>).</p>
 </dd>
-<dt class="hdlist1" id="git-cat-file-codeobjectsizediskcode"> <a class="anchor" href="#git-cat-file-objectsizedisk"></a> <a class="anchor" href="#git-cat-file-codeobjectsizediskcode"></a><code>objectsize:disk</code> </dt>
+<dt class="hdlist1" id="git-cat-file-spanclasssynopsiscodeobjectsizediskcodespan"> <a class="anchor" href="#git-cat-file-objectsizedisk"></a> <a class="anchor" href="#git-cat-file-spanclasssynopsiscodeobjectsizediskcodespan"></a><span class='synopsis'><code>objectsize:disk</code></span> </dt>
 <dd>
-<p>O tamanho, em bytes, que o objeto ocupa no disco. Consulte a nota sobre os tamanhos do disco na seção <code>RESSALVAS</code> abaixo.</p>
+<p>O tamanho, em bytes, que o objeto ocupa no disco. Consulte a nota sobre os tamanhos do disco na seção <span class='synopsis'><code>RESSALVAS</code></span> abaixo.</p>
 </dd>
-<dt class="hdlist1" id="git-cat-file-codedeltabasecode"> <a class="anchor" href="#git-cat-file-deltabase"></a> <a class="anchor" href="#git-cat-file-codedeltabasecode"></a><code>deltabase</code> </dt>
+<dt class="hdlist1" id="git-cat-file-spanclasssynopsiscodedeltabasecodespan"> <a class="anchor" href="#git-cat-file-deltabase"></a> <a class="anchor" href="#git-cat-file-spanclasssynopsiscodedeltabasecodespan"></a><span class='synopsis'><code>deltabase</code></span> </dt>
 <dd>
-<p>No caso do objeto estar armazenado como um delta no disco, isso se expande para a representação hexadecimal completa do nome do objeto com base delta. Caso contrário, expanda para OID null (tudo zero). Consulte <code>RESSALVAS</code> abaixo.</p>
+<p>No caso do objeto estar armazenado como um delta no disco, isso se expande para a representação hexadecimal completa do nome do objeto com base delta. Caso contrário, expanda para OID null (tudo zero). Consulte <span class='synopsis'><code>RESSALVAS</code></span> abaixo.</p>
 </dd>
-<dt class="hdlist1" id="git-cat-file-coderestcode"> <a class="anchor" href="#git-cat-file-rest"></a> <a class="anchor" href="#git-cat-file-coderestcode"></a><code>rest</code> </dt>
+<dt class="hdlist1" id="git-cat-file-spanclasssynopsiscoderestcodespan"> <a class="anchor" href="#git-cat-file-rest"></a> <a class="anchor" href="#git-cat-file-spanclasssynopsiscoderestcodespan"></a><span class='synopsis'><code>rest</code></span> </dt>
 <dd>
-<p>Caso este átomo seja utilizado na cadeia da saída, as linhas de entrada serão divididas no primeiro limite de espaço. Todos os caracteres anteriores a esse espaço são considerados como o nome do objeto; caracteres após a primeira execução do espaço (ou seja, o "resto" da linha) são exibidos no lugar do átomo <code>%(rest)</code>.</p>
+<p>Caso este átomo seja utilizado na cadeia da saída, as linhas de entrada serão divididas no primeiro limite de espaço. Todos os caracteres anteriores a esse espaço são considerados como o nome do objeto; caracteres após a primeira execução do espaço (ou seja, o "resto" da linha) são exibidos no lugar do átomo <span class='synopsis'><code>%</code>(<code>rest</code>)</span>.</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>Caso nenhum formato seja definido, o formato predefinido é <code>%(objectname) %(objecttype) %(objectsize)</code>.</p>
+<p>Caso nenhum formato seja definido, o formato predefinido é <span class='synopsis'><code>%</code>(<code>objectname</code>) <code>%</code>(<code>objecttype</code>) <code>%</code>(<code>objectsize</code>)</span>.</p>
 </div>
 <div class="paragraph">
-<p>Caso <code>--batch</code> seja utilizado, ou caso o <code>--batch-command</code> seja utilizado com o comando <code>contents</code>, as informações do objeto são seguidas pelo conteúdo do objeto (consistindo em <code>%(objectsize)</code> bytes), seguido por uma nova linha.</p>
+<p>Caso <span class='synopsis'><code>--batch</code></span> seja utilizado, ou caso o <span class='synopsis'><code>--batch-command</code></span> seja utilizado com o comando <span class='synopsis'><code>contents</code></span>, as informações do objeto são seguidas pelo conteúdo do objeto (consistindo em <span class='synopsis'><code>%</code>(<code>objectsize</code>)</span> bytes), seguido por uma nova linha.</p>
 </div>
 <div class="paragraph">
-<p>Por exemplo, o comando <code>--batch</code> sem um formato personalizado produziria:</p>
+<p>Por exemplo, o comando <span class='synopsis'><code>--batch</code></span> sem um formato personalizado produziria:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -363,7 +380,7 @@ alink: um link simbólico para /etc/passwd</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Considerando que <code>--batch-check='%(object-name) %(object-type)'</code> produziria:</p>
+<p>Considerando que <span class='synopsis'><code>--batch-check='%</code>(<code>object-name</code>) <code>%</code>(<code>object-type</code>)</span> produziria:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -371,7 +388,7 @@ alink: um link simbólico para /etc/passwd</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Caso um nome seja utilizado no stdin que não possa ser resolvido como um objeto no repositório, então o <code>cat-file</code> irá ignorar qualquer outro formato customizado e exibirá:</p>
+<p>Caso um nome seja utilizado no stdin que não possa ser resolvido como um objeto no repositório, então o <span class='synopsis'><code>cat-file</code></span> irá ignorar qualquer outro formato customizado e exibirá:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -379,7 +396,7 @@ alink: um link simbólico para /etc/passwd</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If a name is specified on stdin that is filtered out via <code>--filter=</code>, then <code>cat-file</code> will ignore any custom format and print:</p>
+<p>If a name is specified on stdin that is filtered out via <span class='synopsis'><code>--filter=</code></span>, then <span class='synopsis'><code>cat-file</code></span> will ignore any custom format and print:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -387,7 +404,7 @@ alink: um link simbólico para /etc/passwd</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Caso seja utilizado um nome que possa se referir a mais de um objeto (um SHA-1 curto e ambíguo), então o <code>cat-file</code> ignorará qualquer formato personalizado e exibirá:</p>
+<p>Caso seja utilizado um nome que possa se referir a mais de um objeto (um SHA-1 curto e ambíguo), então o <span class='synopsis'><code>cat-file</code></span> ignorará qualquer formato personalizado e exibirá:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -395,7 +412,7 @@ alink: um link simbólico para /etc/passwd</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Caso a opção <code>--follow-symlinks</code> seja utilizado e um link-simbólico no repositório apontar para fora do repositório, então o <code>cat-file</code> irá ignorar qualquer outro formato customizado e exibirá:</p>
+<p>Caso a opção <span class='synopsis'><code>--follow-symlinks</code></span> seja utilizado e um link-simbólico no repositório apontar para fora do repositório, então o <span class='synopsis'><code>cat-file</code></span> irá ignorar qualquer outro formato customizado e exibirá:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -404,10 +421,10 @@ alink: um link simbólico para /etc/passwd</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>O link simbólico será absoluto (começando com <code>/</code>) ou relativo à raiz da árvore. Por exemplo, se dir/link apontar para <code>../../foo</code>, então <code>&lt;link-simbólico&gt;</code> será <code>../foo</code>. <code>&lt;tamanho&gt;</code> é o tamanho do links simbólico em bytes.</p>
+<p>O link simbólico será absoluto (começando com <span class='synopsis'><code>/</code></span>) ou relativo à raiz da árvore. Por exemplo, se dir/link apontar para <span class='synopsis'><code>../../foo</code></span>, então <span class='synopsis'><em>&lt;link-simbólico&gt;</em></span> será <span class='synopsis'><code>../foo</code></span>. <span class='synopsis'><em>&lt;tamanho&gt;</em></span> é o tamanho do links simbólico em bytes.</p>
 </div>
 <div class="paragraph">
-<p>Caso a opção <code>--follow-symlinks</code> seja utilizado, as seguintes mensagens de erro serão exibidas:</p>
+<p>Caso a opção <span class='synopsis'><code>--follow-symlinks</code></span> seja utilizado, as seguintes mensagens de erro serão exibidas:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -445,7 +462,7 @@ alink: um link simbólico para /etc/passwd</pre>
 <p>é impresso quando, durante a resolução do link-simbólico, um arquivo é utilizado como um nome do diretório.</p>
 </div>
 <div class="paragraph">
-<p>Alternativamente, quando <code>-Z</code> é passado, os avanços da linha em qualquer um dos exemplos acima são substituídos por terminadores NUL. Isto assegura que a saída será passível de análise caso a saída em si tenha um espaço entre as linhas sendo portanto, recomendado para com scripts.</p>
+<p>Alternativamente, quando <span class='synopsis'><code>-Z</code></span> é passado, os avanços da linha em qualquer um dos exemplos acima são substituídos por terminadores NUL. Isto assegura que a saída será passível de análise caso a saída em si tenha um espaço entre as linhas sendo portanto, recomendado para com scripts.</p>
 </div>
 </div>
 </div>

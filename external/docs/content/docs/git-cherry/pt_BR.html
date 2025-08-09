@@ -9,6 +9,21 @@ docname: git-cherry
 lang: pt_BR
 aliases:
 - "/docs/git-cherry/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: EXEMPLOS
+  id: _exemplos
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -30,13 +45,13 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Determine se há commits em <code>&lt;head&gt;..&lt;upstream&gt;</code> que são equivalentes àqueles no intervalo <code>&lt;limite&gt;..&lt;head&gt;</code>.</p>
+<p>Determine se há commits em <span class='synopsis'><em>&lt;head&gt;</em><code>..</code><em>&lt;upstream&gt;</em></span> que são equivalentes àqueles no intervalo <span class='synopsis'><em>&lt;limite&gt;</em><code>..</code><em>&lt;head&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
 <p>O teste de equivalência tem como base no diff, após a remoção de espaços vazios e os números de linha. Portanto, o git-cherry detecta quando os commits foram "copiados" por através de <a href='{{< relurl "docs/git-cherry-pick/pt_BR" >}}'>git-cherry-pick[1]</a>, <a href='{{< relurl "docs/git-am/pt_BR" >}}'>git-am[1]</a> ou <a href='{{< relurl "docs/git-rebase/pt_BR" >}}'>git-rebase[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Gera o SHA1 de cada commit em <code>&lt;limite&gt;..&lt;head&gt;</code>, prefixado com <code>-</code> para os commits que possuam um equivalente no <code>&lt;upstream&gt;</code> e <code>+</code> para os commits que não tiverem.</p>
+<p>Gera o SHA1 de cada commit em <span class='synopsis'><em>&lt;limite&gt;</em><code>..</code><em>&lt;head&gt;</em></span>, prefixado com <span class='synopsis'><code>-</code></span> para os commits que possuam um equivalente no <span class='synopsis'><em>&lt;upstream&gt;</em></span> e <span class='synopsis'><code>+</code></span> para os commits que não tiverem.</p>
 </div>
 </div>
 </div>
@@ -51,11 +66,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cherry-ltupstreamgt"> <a class="anchor" href="#git-cherry-upstream"></a> <a class="anchor" href="#git-cherry-ltupstreamgt"></a>&lt;upstream&gt; </dt>
 <dd>
-<p>O ramo "upstream" para fazer as procuras de commits equivalentes. A predefinição é o ramo "upstream" do <code>HEAD</code>.</p>
+<p>O ramo "upstream" para fazer as procuras de commits equivalentes. A predefinição é o ramo "upstream" do <span class='synopsis'><code>HEAD</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-ltheadgt"> <a class="anchor" href="#git-cherry-head"></a> <a class="anchor" href="#git-cherry-ltheadgt"></a>&lt;head&gt; </dt>
 <dd>
-<p>Ramo de trabalho; A predefinição retorna para <code>HEAD</code>.</p>
+<p>Ramo de trabalho; A predefinição retorna para <span class='synopsis'><code>HEAD</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-ltlimitegt"> <a class="anchor" href="#git-cherry-limite"></a> <a class="anchor" href="#git-cherry-ltlimitegt"></a>&lt;limite&gt; </dt>
 <dd>
@@ -71,7 +86,7 @@ aliases:
 <div class="sect2">
 <h3 id="_fluxos_de_trabalho_de_patch"><a class="anchor" href="#_fluxos_de_trabalho_de_patch"></a>Fluxos de trabalho de patch</h3>
 <div class="paragraph">
-<p>O <code>git-cherry</code> é frequentemente usado em fluxos de trabalho com base em correções (consulte <a href='{{< relurl "docs/gitworkflows/pt_BR" >}}'>gitworkflows[7]</a>) para determinar se uma série de correções foi aplicada pelo mantenedor "upstream". Neste fluxo de trabalho, você pode criar e enviar um tópico de ramificação como este:</p>
+<p>O <span class='synopsis'><code>git-cherry</code></span> é frequentemente usado em fluxos de trabalho com base em correções (consulte <a href='{{< relurl "docs/gitworkflows/pt_BR" >}}'>gitworkflows[7]</a>) para determinar se uma série de correções foi aplicada pelo mantenedor "upstream". Neste fluxo de trabalho, você pode criar e enviar um tópico de ramificação como este:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -82,7 +97,7 @@ $ git send-email ... 00*</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Mais tarde, você pode ver se suas alterações foram aplicadas dizendo (ainda em <code>topic</code>):</p>
+<p>Mais tarde, você pode ver se suas alterações foram aplicadas dizendo (ainda em <span class='synopsis'><code>topic</code></span>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -123,7 +138,7 @@ o 1234567 branch point</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Aqui, vemos que os commits A e C (marcados com <code>-</code>) podem ser removidos de sua ramificação` topic` quando você rebase em cima de <code>origidm/master</code>, enquanto o commit B (marcado com <code>+</code>) ainda precisa ser mantido para que seja enviado para ser aplicado a <code>origem/ master</code>.</p>
+<p>Aqui, vemos que os commits A e C (marcados com <span class='synopsis'><code>-</code></span>) podem ser removidos de sua ramificação` topic` quando você rebase em cima de <span class='synopsis'><code>origidm/master</code></span>, enquanto o commit B (marcado com <span class='synopsis'><code>+</code></span>) ainda precisa ser mantido para que seja enviado para ser aplicado a <span class='synopsis'><code>origem/</code> <code>master</code></span>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -150,7 +165,7 @@ o 1234567 merge-base between upstream and topic</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Especificando <code>base</code> como limite, você pode evitar listar commits entre` base` e <code>topic</code>:</p>
+<p>Especificando <span class='synopsis'><code>base</code></span> como limite, você pode evitar listar commits entre` base` e <span class='synopsis'><code>topic</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">

@@ -9,6 +9,23 @@ docname: git-credential-cache
 lang: pt_BR
 aliases:
 - "/docs/git-credential-cache/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: CONTROLANDO O DAEMON
+  id: _controlando_o_daemon
+- text: EXEMPLOS
+  id: _exemplos
+- text: PERSONAL ACCESS TOKENS
+  id: _personal_access_tokens
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -35,7 +52,7 @@ aliases:
 <p>Esse comando armazena em cache as credenciais para uso em futuros programas Git. As credenciais armazenadas são mantidas na memória do processo <em>cache-daemon</em> (em vez de serem gravadas emn um arquivo) e são esquecidas após um tempo limite que pode ser configurável. As credenciais são esquecidas mais cedo se o <em>cache-daemon</em> morrer, por exemplo, quando o sistema é reiniciado. O cache pode ser acessado por meio de um soquete de domínio Unix, restrito ao usuário atual através das permissões do sistema de arquivos.</p>
 </div>
 <div class="paragraph">
-<p>Provavelmente você não vai querer invocar este comando diretamente; Ele deve ser utilizado pelas outras partes como um auxiliar da credencial do Git. See <a href='{{< relurl "docs/gitcredentials/pt_BR" >}}'>gitcredentials[7]</a> or <code>EXAMPLES</code> below.</p>
+<p>Provavelmente você não vai querer invocar este comando diretamente; Ele deve ser utilizado pelas outras partes como um auxiliar da credencial do Git. See <a href='{{< relurl "docs/gitcredentials/pt_BR" >}}'>gitcredentials[7]</a> or <span class='synopsis'><code>EXAMPLES</code></span> below.</p>
 </div>
 </div>
 </div>
@@ -50,7 +67,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-credential-cache---socketltcaminhogt"> <a class="anchor" href="#git-credential-cache---socketcaminho"></a> <a class="anchor" href="#git-credential-cache---socketltcaminhogt"></a>--socket &lt;caminho&gt; </dt>
 <dd>
-<p>Use <code>&lt;caminho&gt;</code> para entrar em contato com um cache <em>daemon</em> em execução (ou inicie um novo cache <em>daemon</em> se um não tiver sido iniciado). A predefinição é <code>$XDG_CACHE_HOME/git/credential/socket</code>, a menos que <code>~/.git-credential-cache/</code> exista, e nesse caso, <code>~/.git-credential-cache/socket</code> seja usado. Se o seu diretório pessoal estiver emnum sistema de arquivos montado na rede, talvez seja necessário alterá-lo para um sistema de arquivos local. É necessário especificar um caminho absoluto.</p>
+<p>Use <span class='synopsis'><em>&lt;caminho&gt;</em></span> para entrar em contato com um cache <em>daemon</em> em execução (ou inicie um novo cache <em>daemon</em> se um não tiver sido iniciado). A predefinição é <span class='synopsis'><code>$XDG_CACHE_HOME/git/credential/socket</code></span>, a menos que <span class='synopsis'><code>~/.git-credential-cache/</code></span> exista, e nesse caso, <span class='synopsis'><code>~/.git-credential-cache/socket</code></span> seja usado. Se o seu diretório pessoal estiver emnum sistema de arquivos montado na rede, talvez seja necessário alterá-lo para um sistema de arquivos local. É necessário especificar um caminho absoluto.</p>
 </dd>
 </dl>
 </div>
@@ -60,7 +77,7 @@ aliases:
 <h2 id="_controlando_o_daemon"><a class="anchor" href="#_controlando_o_daemon"></a>CONTROLANDO O DAEMON</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Se você deseja que o daemon encerre antes esquecendo todas as credenciais em cache antes do tempo limite, você pode emitir uma ação <code>exit</code>:</p>
+<p>Se você deseja que o daemon encerre antes esquecendo todas as credenciais em cache antes do tempo limite, você pode emitir uma ação <span class='synopsis'><code>exit</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -88,7 +105,7 @@ $ git push http://example.com/repo.git
 </div>
 </div>
 <div class="paragraph">
-<p>Você pode utilizar as opções através da variável de configuração <code>credential.helper</code> (este exemplo incrementa o cache a cada 1 hora):</p>
+<p>Você pode utilizar as opções através da variável de configuração <span class='synopsis'><code>credential.helper</code></span> (este exemplo incrementa o cache a cada 1 hora):</p>
 </div>
 <div class="listingblock">
 <div class="content">

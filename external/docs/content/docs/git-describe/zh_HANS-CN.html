@@ -9,6 +9,23 @@ docname: git-describe
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-describe/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 实例
+  id: _实例
+- text: 搜索策略
+  id: _搜索策略
+- text: 漏洞
+  id: _漏洞
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -38,7 +55,7 @@ aliases:
 <p>默认情况下（没有 --all 或 --tags）`git describe`只显示有注释的标签。 关于创建注释标签的更多信息，请参见<a href='{{< relurl "docs/git-tag/zh_HANS-CN" >}}'>git-tag[1]</a>的-a和-s选项。</p>
 </div>
 <div class="paragraph">
-<p>如果给定的对象指的是一个blob，它将被描述为`&lt;commit-ish&gt;:&lt;path&gt;<code>，这样就可以在</code>&lt;commit-ish&gt;<code>中的</code>&lt;path&gt;`找到这个blob，而这个blob本身就描述了从HEAD反向修订中出现的第一个提交。</p>
+<p>如果给定的对象指的是一个blob，它将被描述为`&lt;commit-ish&gt;:&lt;path&gt;<span class='synopsis'><em>，这样就可以在</em></span>&lt;commit-ish&gt;<span class='synopsis'><em>中的</em></span>&lt;path&gt;`找到这个blob，而这个blob本身就描述了从HEAD反向修订中出现的第一个提交。</p>
 </div>
 </div>
 </div>
@@ -90,11 +107,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-describe---matchltgt"> <a class="anchor" href="#git-describe---match"></a> <a class="anchor" href="#git-describe---matchltgt"></a>--match &lt;模式&gt; </dt>
 <dd>
-<p>只考虑与给定的 <code>glob(7)</code> 模式匹配的标签，不包括 "refs/tags/" 前缀。如果和`--all`一起使用，它也会考虑匹配该模式的本地分支和远程跟踪引用，分别排除 "refs/heads/"和 "refs/remotes/"前缀；其他类型的引用永远不会被考虑。如果给出多次，将积累一个模式列表，匹配任何模式的标签都会被考虑。 使用`--no-match`来清除和重置模式列表。</p>
+<p>只考虑与给定的 <span class='synopsis'><code>glob</code>(<code>7</code>)</span> 模式匹配的标签，不包括 "refs/tags/" 前缀。如果和`--all`一起使用，它也会考虑匹配该模式的本地分支和远程跟踪引用，分别排除 "refs/heads/"和 "refs/remotes/"前缀；其他类型的引用永远不会被考虑。如果给出多次，将积累一个模式列表，匹配任何模式的标签都会被考虑。 使用`--no-match`来清除和重置模式列表。</p>
 </dd>
 <dt class="hdlist1" id="git-describe---excludeltgt"> <a class="anchor" href="#git-describe---exclude"></a> <a class="anchor" href="#git-describe---excludeltgt"></a>--exclude &lt;模式&gt; </dt>
 <dd>
-<p>不考虑与给定的 <code>glob(7)</code> 模式匹配的标签，排除 "refs/tags/"前缀。如果和`--all`一起使用，也不考虑匹配模式的本地分支和远程跟踪引用，分别排除 "refs/heads/"和 "refs/remotes/"前缀；其他类型的引用从不考虑。如果给定多次，将积累一个模式列表，匹配任何模式的标签将被排除。当与&#8212;&#8203;match结合时，当一个标签至少匹配一个&#8212;&#8203;match模式且不匹配任何&#8212;&#8203;exclude模式时，将被考虑。使用`--no-exclude`来清除和重置模式列表。</p>
+<p>不考虑与给定的 <span class='synopsis'><code>glob</code>(<code>7</code>)</span> 模式匹配的标签，排除 "refs/tags/"前缀。如果和`--all`一起使用，也不考虑匹配模式的本地分支和远程跟踪引用，分别排除 "refs/heads/"和 "refs/remotes/"前缀；其他类型的引用从不考虑。如果给定多次，将积累一个模式列表，匹配任何模式的标签将被排除。当与&#8212;&#8203;match结合时，当一个标签至少匹配一个&#8212;&#8203;match模式且不匹配任何&#8212;&#8203;exclude模式时，将被考虑。使用`--no-exclude`来清除和重置模式列表。</p>
 </dd>
 <dt class="hdlist1" id="git-describe---always"> <a class="anchor" href="#git-describe---always"></a>--always </dt>
 <dd>
@@ -124,7 +141,7 @@ v1.0.4-14-g2414721</pre>
 <p>也就是说，我的 "父 "分支的当前头部是基于v1.0.4的，但由于它在此基础上有一些提交，所以describe在最后添加了额外的提交数量（"14"）和提交本身的缩写对象名称（"2414721"）。</p>
 </div>
 <div class="paragraph">
-<p>额外提交的次数是 "git log v1.0.4.parent" 显示的提交次数。 哈希后缀是"-g" + 父提交（即 <code>2414721b194453f058079d897d13c4e377f92dc6</code> ）顶端提交的明确缩写。缩写的长度会随着仓库的增长而缩减，使用的是仓库中对象的大致数量和生日悖论的数学计算方法，默认最小长度为 7。"g" 前缀代表 "git" ，用于根据管理软件的 SCM 来描述软件的版本。这在人们使用不同 SCM 的环境中非常有用。</p>
+<p>额外提交的次数是 "git log v1.0.4.parent" 显示的提交次数。 哈希后缀是"-g" + 父提交（即 <span class='synopsis'><code>2414721b194453f058079d897d13c4e377f92dc6</code></span> ）顶端提交的明确缩写。缩写的长度会随着仓库的增长而缩减，使用的是仓库中对象的大致数量和生日悖论的数学计算方法，默认最小长度为 7。"g" 前缀代表 "git" ，用于根据管理软件的 SCM 来描述软件的版本。这在人们使用不同 SCM 的环境中非常有用。</p>
 </div>
 <div class="paragraph">
 <p>对一个标签名做 <em>git describe</em>，只会显示标签名：</p>
@@ -171,7 +188,7 @@ tags/v1.0.0</pre>
 <p>对于提供的每个提交，'git describe&#8217;将首先寻找一个标签，该标签正是该提交的标签。 有注释的标签总是比轻量级的标签更受欢迎，日期较新的标签总是比日期较老的标签更受欢迎。 如果找到一个完全匹配的标签，它的名字就会被输出，搜索就会停止。</p>
 </div>
 <div class="paragraph">
-<p>如果没有找到完全匹配的，'git describe&#8217;会回溯提交历史，找到一个已经被标记的祖先提交。 该祖先的标签将与输入的提交的SHA-1的缩写一起被输出。如果指定了 <code>--first-parent</code>，那么回溯将只考虑每个提交的第一个父级。</p>
+<p>如果没有找到完全匹配的，'git describe&#8217;会回溯提交历史，找到一个已经被标记的祖先提交。 该祖先的标签将与输入的提交的SHA-1的缩写一起被输出。如果指定了 <span class='synopsis'><code>--first-parent</code></span>，那么回溯将只考虑每个提交的第一个父级。</p>
 </div>
 <div class="paragraph">
 <p>如果在行走过程中发现了多个标签，那么将选择与输入的commit-ish相差最少的标签并输出。 这里，最小的提交差异被定义为 "git log tag&#8230;&#8203;input "所显示的提交数量将是最小的提交数量。</p>

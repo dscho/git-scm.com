@@ -9,6 +9,29 @@ docname: git-rev-parse
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-rev-parse/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 规定修订
+  id: _规定修订
+- text: 指定范围
+  id: _指定范围
+- text: 修订范围摘要
+  id: _修订范围摘要
+- text: PARSEOPT
+  id: _parseopt
+- text: SQ-QUOTE
+  id: _sq_quote
+- text: 实例
+  id: _实例
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -53,7 +76,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-rev-parse---sq-quote"> <a class="anchor" href="#git-rev-parse---sq-quote"></a>--sq-quote </dt>
 <dd>
-<p>Use <em>git rev-parse</em> in shell quoting mode (see SQ-QUOTE section below). In contrast to the <code>--sq</code> option below, this mode only does quoting. Nothing else is done to command input. The command in this mode can be used outside a repository or a working tree controlled by a repository.</p>
+<p>Use <em>git rev-parse</em> in shell quoting mode (see SQ-QUOTE section below). In contrast to the <span class='synopsis'><code>--sq</code></span> option below, this mode only does quoting. Nothing else is done to command input. The command in this mode can be used outside a repository or a working tree controlled by a repository.</p>
 </dd>
 </dl>
 </div>
@@ -64,15 +87,15 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-rev-parse---keep-dashdash"> <a class="anchor" href="#git-rev-parse---keep-dashdash"></a>--keep-dashdash </dt>
 <dd>
-<p>仅在 <code>--parseopt</code> 模式下有效。告诉选项解析器回显第一个`--` 而不是跳过它。</p>
+<p>仅在 <span class='synopsis'><code>--parseopt</code></span> 模式下有效。告诉选项解析器回显第一个`--` 而不是跳过它。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---stop-at-non-option"> <a class="anchor" href="#git-rev-parse---stop-at-non-option"></a>--stop-at-non-option </dt>
 <dd>
-<p>仅在 <code>--parseopt</code> 模式下有效。 让选项解析器在第一个非选项参数时停止。 这可用于解析本身包含选项的子命令。</p>
+<p>仅在 <span class='synopsis'><code>--parseopt</code></span> 模式下有效。 让选项解析器在第一个非选项参数时停止。 这可用于解析本身包含选项的子命令。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---stuck-long"> <a class="anchor" href="#git-rev-parse---stuck-long"></a>--stuck-long </dt>
 <dd>
-<p>仅在 <code>--parseopt</code> 模式下有效。如果有的话，以长形式输出选项，并保留参数。</p>
+<p>仅在 <span class='synopsis'><code>--parseopt</code></span> 模式下有效。如果有的话，以长形式输出选项，并保留参数。</p>
 </dd>
 </dl>
 </div>
@@ -106,11 +129,11 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-rev-parse---defaultltgt"> <a class="anchor" href="#git-rev-parse---default"></a> <a class="anchor" href="#git-rev-parse---defaultltgt"></a>--default &lt;参数&gt; </dt>
 <dd>
-<p>如果用户没有提供参数，则使用 <code>&lt;参数&gt;</code> 代替。</p>
+<p>如果用户没有提供参数，则使用 <span class='synopsis'><em>&lt;参数&gt;</em></span> 代替。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---prefixltgt"> <a class="anchor" href="#git-rev-parse---prefix"></a> <a class="anchor" href="#git-rev-parse---prefixltgt"></a>--prefix &lt;参数&gt; </dt>
 <dd>
-<p>就像从工作树的 <code>&lt;参数&gt;</code> 子目录调用 'git rev-parse&#8217;一样。 任何相对文件名都会被解析为以 <code>&lt;参数&gt;</code> 为前缀，并以这种形式打印。</p>
+<p>就像从工作树的 <span class='synopsis'><em>&lt;参数&gt;</em></span> 子目录调用 'git rev-parse&#8217;一样。 任何相对文件名都会被解析为以 <span class='synopsis'><em>&lt;参数&gt;</em></span> 为前缀，并以这种形式打印。</p>
 <div class="paragraph">
 <p>这可用于转换在子目录中运行的命令的参数，以便在移动到仓库顶层后仍可使用。 例如：</p>
 </div>
@@ -127,24 +150,24 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 <dd>
 <p>验证是否正好提供了一个参数，并且该参数可以转化为原始的 20 字节 SHA-1 用于访问对象数据库。如果可以，则将其输出到标准输出；否则，出错。</p>
 <div class="paragraph">
-<p>如果您想确保输出结果确实命名了对象数据库中的对象，并且/或者可以用作您需要的特定类型的对象，您可以在参数中添加 <code>^{type}</code> 剥离运算符。 例如，<code>git rev-parse "$VAR^{commit}"</code> 将确保 <code>$VAR</code> 命名的现有对象是一个类似提交的对象（即一个提交，或一个指向提交的注释标记）。 要确保 <code>$VAR</code> 命名的是任何类型的现有对象，可以使用 `git rev-parse "$VAR^{object}"。</p>
+<p>如果您想确保输出结果确实命名了对象数据库中的对象，并且/或者可以用作您需要的特定类型的对象，您可以在参数中添加 <span class='synopsis'><code>^{type}</code></span> 剥离运算符。 例如，<span class='synopsis'><code>git</code> <code>rev-parse</code> <code>"$VAR^{commit}"</code></span> 将确保 <span class='synopsis'><code>$VAR</code></span> 命名的现有对象是一个类似提交的对象（即一个提交，或一个指向提交的注释标记）。 要确保 <span class='synopsis'><code>$VAR</code></span> 命名的是任何类型的现有对象，可以使用 `git rev-parse "$VAR^{object}"。</p>
 </div>
 <div class="paragraph">
-<p>请注意，如果要验证来自不可信来源的名称，最好使用 <code>--end-of-options</code>，以免名称参数被误认为其他选项。</p>
+<p>请注意，如果要验证来自不可信来源的名称，最好使用 <span class='synopsis'><code>--end-of-options</code></span>，以免名称参数被误认为其他选项。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-parse--q"> <a class="anchor" href="#git-rev-parse--q"></a>-q </dt>
 <dt class="hdlist1" id="git-rev-parse---quiet"> <a class="anchor" href="#git-rev-parse---quiet"></a>--quiet </dt>
 <dd>
-<p>仅在 <code>--verify</code> 模式下有效。如果第一个参数不是有效的对象名，则不输出错误信息；而是以非零状态无声退出。 成功时，有效对象名称的 SHA-1 会打印到标准输出流。</p>
+<p>仅在 <span class='synopsis'><code>--verify</code></span> 模式下有效。如果第一个参数不是有效的对象名，则不输出错误信息；而是以非零状态无声退出。 成功时，有效对象名称的 SHA-1 会打印到标准输出流。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---sq"> <a class="anchor" href="#git-rev-parse---sq"></a>--sq </dt>
 <dd>
-<p>通常情况下，每个标志和参数的输出为一行。 该选项使输出成为单行，并适当加引号供 shell 使用。 当你希望你的参数包含空格和换行符时（例如在使用 pickaxe <code>-S</code> 和 'git diff-*'时），这个选项很有用。与 <code>--sq-quote</code> 选项相反，命令输入仍按常规解释。</p>
+<p>通常情况下，每个标志和参数的输出为一行。 该选项使输出成为单行，并适当加引号供 shell 使用。 当你希望你的参数包含空格和换行符时（例如在使用 pickaxe <span class='synopsis'><code>-S</code></span> 和 'git diff-*'时），这个选项很有用。与 <span class='synopsis'><code>--sq-quote</code></span> 选项相反，命令输入仍按常规解释。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---shortltlengthgt"> <a class="anchor" href="#git-rev-parse---shortlength"></a> <a class="anchor" href="#git-rev-parse---shortltlengthgt"></a>--short[=&lt;length&gt;] </dt>
 <dd>
-<p>与 <code>--verify</code> 模式相同，但会将对象名称缩短为至少包含 <code>长度</code> 字符的唯一前缀。最小长度为 4，默认值为配置变量 <code>core.abbrev</code> 的有效值（参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。</p>
+<p>与 <span class='synopsis'><code>--verify</code></span> 模式相同，但会将对象名称缩短为至少包含 <span class='synopsis'><em>长度</em></span> 字符的唯一前缀。最小长度为 4，默认值为配置变量 <span class='synopsis'><code>core.abbrev</code></span> 的有效值（参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---not"> <a class="anchor" href="#git-rev-parse---not"></a>--not </dt>
 <dd>
@@ -190,31 +213,31 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 <dl>
 <dt class="hdlist1" id="git-rev-parse---all"> <a class="anchor" href="#git-rev-parse---all"></a>--all </dt>
 <dd>
-<p>显示在 <code>refs/</code> 中找到的所有引用。</p>
+<p>显示在 <span class='synopsis'><code>refs/</code></span> 中找到的所有引用。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---branchesltgt"> <a class="anchor" href="#git-rev-parse---branches"></a> <a class="anchor" href="#git-rev-parse---branchesltgt"></a>--branches[=&lt;模式&gt;] </dt>
 <dt class="hdlist1" id="git-rev-parse---tagsltgt"> <a class="anchor" href="#git-rev-parse---tags"></a> <a class="anchor" href="#git-rev-parse---tagsltgt"></a>--tags[=&lt;模式&gt;] </dt>
 <dt class="hdlist1" id="git-rev-parse---remotesltgt"> <a class="anchor" href="#git-rev-parse---remotes"></a> <a class="anchor" href="#git-rev-parse---remotesltgt"></a>--remotes[=&lt;模式&gt;] </dt>
 <dd>
-<p>分别显示所有分支、标记或远程跟踪分支（即分别在 <code>refs/heads</code>、<code>refs/tags</code> 或 `refs/remotes`中找到的引用）。</p>
+<p>分别显示所有分支、标记或远程跟踪分支（即分别在 <span class='synopsis'><code>refs/heads</code></span>、<span class='synopsis'><code>refs/tags</code></span> 或 `refs/remotes`中找到的引用）。</p>
 <div class="paragraph">
-<p>如果给定了 <code>pattern</code>, 则只显示与给定 shell glob 匹配的引用。 如果模式不包含 globing 字符（ <code>?</code>、 <code>*</code> 或 <code>[</code> ），则通过添加 <code>/*</code> 将其转换为前缀匹配。</p>
+<p>如果给定了 <span class='synopsis'><code>pattern</code></span>, 则只显示与给定 shell glob 匹配的引用。 如果模式不包含 globing 字符（ <span class='synopsis'><em>?</em></span>、 <span class='synopsis'><code>*</code></span> 或 <span class='synopsis'>[</span> ），则通过添加 <span class='synopsis'><code>/*</code></span> 将其转换为前缀匹配。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---globltpatterngt"> <a class="anchor" href="#git-rev-parse---globpattern"></a> <a class="anchor" href="#git-rev-parse---globltpatterngt"></a>--glob=&lt;pattern&gt; </dt>
 <dd>
-<p>显示与 shell glob 模式 <code>模式</code> 匹配的所有引用。如果模式不以 <code>refs/</code> 开头，则会自动预输入。 如果模式不包含 globing 字符（ <code>?</code> 、 <code>*</code> 或 <code>[</code> ），则会通过添加 <code>/*</code> 将其转换为前缀匹配。</p>
+<p>显示与 shell glob 模式 <span class='synopsis'><em>模式</em></span> 匹配的所有引用。如果模式不以 <span class='synopsis'><code>refs/</code></span> 开头，则会自动预输入。 如果模式不包含 globing 字符（ <span class='synopsis'><em>?</em></span> 、 <span class='synopsis'><code>*</code></span> 或 <span class='synopsis'>[</span> ），则会通过添加 <span class='synopsis'><code>/*</code></span> 将其转换为前缀匹配。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---excludeltgt"> <a class="anchor" href="#git-rev-parse---exclude"></a> <a class="anchor" href="#git-rev-parse---excludeltgt"></a>--exclude=&lt;通配符模式&gt; </dt>
 <dd>
-<p>不包括匹配"&lt;glob-pattern&gt;"的参考文献，否则下一个`--all`、<code>--branches</code>、<code>--tags</code>、<code>--remotes`或</code>--glob`会考虑这些参考文献。重复这个选项可以累积排除模式，直到下一个`----all`、<code>---branches</code>、<code>---tags</code>、<code>---remotes`或</code>---glob`选项（其他选项或参数不清除累积模式）。</p>
+<p>不包括匹配"&lt;glob-pattern&gt;"的参考文献，否则下一个`--all`、<span class='synopsis'><code>--branches</code></span>、<span class='synopsis'><code>--tags</code></span>、<span class='synopsis'><em>--remotes`或</em></span>--glob`会考虑这些参考文献。重复这个选项可以累积排除模式，直到下一个`----all`、<span class='synopsis'><code>---branches</code></span>、<span class='synopsis'><code>---tags</code></span>、<span class='synopsis'><em>---remotes`或</em></span>---glob`选项（其他选项或参数不清除累积模式）。</p>
 <div class="paragraph">
-<p>当应用于 <code>--branches</code>、 <code>--tags</code> 或 <code>--remotes</code> 时，所给出的模式不应以 <code>refs/heads</code>、<code>refs/tags</code> 或 <code>refs/remotes</code> 开头；当应用于 <code>--glob</code> 或 <code>--all</code> 选项时，必须以 <code>refs/</code> 开头。如果要使用尾部的 <em>/*</em>，则必须明确给出。</p>
+<p>当应用于 <span class='synopsis'><code>--branches</code></span>、 <span class='synopsis'><code>--tags</code></span> 或 <span class='synopsis'><code>--remotes</code></span> 时，所给出的模式不应以 <span class='synopsis'><code>refs/heads</code></span>、<span class='synopsis'><code>refs/tags</code></span> 或 <span class='synopsis'><code>refs/remotes</code></span> 开头；当应用于 <span class='synopsis'><code>--glob</code></span> 或 <span class='synopsis'><code>--all</code></span> 选项时，必须以 <span class='synopsis'><code>refs/</code></span> 开头。如果要使用尾部的 <em>/*</em>，则必须明确给出。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---exclude-hiddenfetchreceiveuploadpack"> <a class="anchor" href="#git-rev-parse---exclude-hiddenfetchreceiveuploadpack"></a>--exclude-hidden=(fetch|receive|uploadpack) </dt>
 <dd>
-<p>通过查阅相应的 <code>fetch.hideRefs</code> 、<code>receive.hideRefs</code> 或 <code>uploadpack.hideRefs</code> 配置和 <code>transfer.hideRefs</code> 配置（参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>），不要包含会被 <code>git-fetch</code> 、<code>git-receive-pack</code> 或 <code>git-upload-pack</code> 隐藏的引用。该选项会影响下一个伪引用选项 <code>--all</code> 或 <code>--glob</code>，并在处理后清除。</p>
+<p>通过查阅相应的 <span class='synopsis'><code>fetch.hideRefs</code></span> 、<span class='synopsis'><code>receive.hideRefs</code></span> 或 <span class='synopsis'><code>uploadpack.hideRefs</code></span> 配置和 <span class='synopsis'><code>transfer.hideRefs</code></span> 配置（参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>），不要包含会被 <span class='synopsis'><code>git-fetch</code></span> 、<span class='synopsis'><code>git-receive-pack</code></span> 或 <span class='synopsis'><code>git-upload-pack</code></span> 隐藏的引用。该选项会影响下一个伪引用选项 <span class='synopsis'><code>--all</code></span> 或 <span class='synopsis'><code>--glob</code></span>，并在处理后清除。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---disambiguateltgt"> <a class="anchor" href="#git-rev-parse---disambiguate"></a> <a class="anchor" href="#git-rev-parse---disambiguateltgt"></a>--disambiguate=&lt;前缀&gt; </dt>
 <dd>
@@ -241,20 +264,20 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 </dl>
 </div>
 <div class="paragraph">
-<p>以下选项会被 <code>--path-format</code> 修改：</p>
+<p>以下选项会被 <span class='synopsis'><code>--path-format</code></span> 修改：</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-rev-parse---git-dir"> <a class="anchor" href="#git-rev-parse---git-dir"></a>--git-dir </dt>
 <dd>
-<p>如果已定义，则显示 <code>$GIT_DIR</code>。否则显示 .git 目录的路径。如果是相对路径，则显示当前工作目录的相对路径。</p>
+<p>如果已定义，则显示 <span class='synopsis'><code>$GIT_DIR</code></span>。否则显示 .git 目录的路径。如果是相对路径，则显示当前工作目录的相对路径。</p>
 <div class="paragraph">
-<p>如果未定义 <code>$GIT_DIR</code>，且未检测到当前目录位于 Git 仓库或工作区中，则向标准错误流打印一条信息，并以非零状态退出。</p>
+<p>如果未定义 <span class='synopsis'><code>$GIT_DIR</code></span>，且未检测到当前目录位于 Git 仓库或工作区中，则向标准错误流打印一条信息，并以非零状态退出。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---git-common-dir"> <a class="anchor" href="#git-rev-parse---git-common-dir"></a>--git-common-dir </dt>
 <dd>
-<p>如果定义了 <code>$GIT_COMMON_DIR</code>，则显示 <code>$GIT_COMMON_DIR</code> ，否则显示 <code>$GIT_DIR</code>。</p>
+<p>如果定义了 <span class='synopsis'><code>$GIT_COMMON_DIR</code></span>，则显示 <span class='synopsis'><code>$GIT_COMMON_DIR</code></span> ，否则显示 <span class='synopsis'><code>$GIT_DIR</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---resolve-git-dirltgt"> <a class="anchor" href="#git-rev-parse---resolve-git-dir"></a> <a class="anchor" href="#git-rev-parse---resolve-git-dirltgt"></a>--resolve-git-dir &lt;路径&gt; </dt>
 <dd>
@@ -279,13 +302,13 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 </dl>
 </div>
 <div class="paragraph">
-<p>以下选项不受 <code>--path-format</code> 影响：</p>
+<p>以下选项不受 <span class='synopsis'><code>--path-format</code></span> 影响：</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-rev-parse---absolute-git-dir"> <a class="anchor" href="#git-rev-parse---absolute-git-dir"></a>--absolute-git-dir </dt>
 <dd>
-<p>类似于 <code>--git-dir</code>，但其输出始终是规范化的绝对路径。</p>
+<p>类似于 <span class='synopsis'><code>--git-dir</code></span>，但其输出始终是规范化的绝对路径。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---is-inside-git-dir"> <a class="anchor" href="#git-rev-parse---is-inside-git-dir"></a>--is-inside-git-dir </dt>
 <dd>
@@ -313,7 +336,7 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---show-object-formatstorageinputoutput"> <a class="anchor" href="#git-rev-parse---show-object-formatstorageinputoutput"></a>--show-object-format[=(storage|input|output)] </dt>
 <dd>
-<p>显示用于存储在 <code>.git</code> 目录内、输入或输出的仓库的对象格式（散列算法）。对于输入，可打印多种算法，以空格分隔。 如果未指定，默认为 “存储”。</p>
+<p>显示用于存储在 <span class='synopsis'><code>.git</code></span> 目录内、输入或输出的仓库的对象格式（散列算法）。对于输入，可打印多种算法，以空格分隔。 如果未指定，默认为 “存储”。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---show-ref-format"> <a class="anchor" href="#git-rev-parse---show-ref-format"></a>--show-ref-format </dt>
 <dd>
@@ -371,7 +394,7 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-parse-emltdescribeOutputgtememv1742-679-g3bee7fbem"> <a class="anchor" href="#git-rev-parse-describeOutputv1742-679-g3bee7fb"></a> <a class="anchor" href="#git-rev-parse-emltdescribeOutputgtememv1742-679-g3bee7fbem"></a><em>&lt;describeOutput（描述输出）&gt;</em>，例如 <em>v1.7.4.2-679-g3bee7fb</em> </dt>
 <dd>
-<p>来自 <code>git describe</code> 的输出；即一个最接近的标记，后面可选择一个破折号和提交次数，再后面是一个破折号、一个 <em>g</em> 和一个缩写的对象名称。</p>
+<p>来自 <span class='synopsis'><code>git</code> <code>describe</code></span> 的输出；即一个最接近的标记，后面可选择一个破折号和提交次数，再后面是一个破折号、一个 <em>g</em> 和一个缩写的对象名称。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse-emltgtememmasterememheadsmasterememrefsheadsmasterem"> <a class="anchor" href="#git-rev-parse-masterheadsmasterrefsheadsmaster"></a> <a class="anchor" href="#git-rev-parse-emltgtememmasterememheadsmasterememrefsheadsmasterem"></a><em>&lt;引用名&gt;</em>， 例如 <em>master</em>, <em>heads/master</em>, <em>refs/heads/master</em> </dt>
 <dd>
@@ -379,7 +402,7 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>如果'$GIT_DIR/&lt;引用名&gt;' 存在，这就是你的意思（这通常只对 <code>HEAD</code>、<code>FETCH_HEAD</code>、<code>ORIG_HEAD</code>、<code>MERGE_HEAD</code>、<code>REBASE_HEAD</code>、<code>REVERT_HEAD</code>、<code>CHERRY_PICK_HEAD</code>、<code>BISECT_HEAD</code> 和 <code>AUTO_MERGE</code> 有用）;</p>
+<p>如果'$GIT_DIR/&lt;引用名&gt;' 存在，这就是你的意思（这通常只对 <span class='synopsis'><code>HEAD</code></span>、<span class='synopsis'><code>FETCH_HEAD</code></span>、<span class='synopsis'><code>ORIG_HEAD</code></span>、<span class='synopsis'><code>MERGE_HEAD</code></span>、<span class='synopsis'><code>REBASE_HEAD</code></span>、<span class='synopsis'><code>REVERT_HEAD</code></span>、<span class='synopsis'><code>CHERRY_PICK_HEAD</code></span>、<span class='synopsis'><code>BISECT_HEAD</code></span> 和 <span class='synopsis'><code>AUTO_MERGE</code></span> 有用）;</p>
 </li>
 <li>
 <p>否则，如果存在，则使用 <em>refs/&lt;引用名&gt;</em>;</p>
@@ -397,48 +420,48 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 <p>否则，如果存在 <em>refs/remotes/&lt;引用名&gt;/HEAD</em>，则使用 <em>refs/remotes/&lt;引用名&gt;/HEAD</em>。</p>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rev-parse-codeHEADcode"> <a class="anchor" href="#git-rev-parse-HEAD"></a> <a class="anchor" href="#git-rev-parse-codeHEADcode"></a><code>HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsiscodeHEADcodespan"> <a class="anchor" href="#git-rev-parse-HEAD"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsiscodeHEADcodespan"></a><span class='synopsis'><code>HEAD</code></span> </dt>
 <dd>
 <p>命名工作区中的更改所基于的提交。</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeFETCHHEADcode"> <a class="anchor" href="#git-rev-parse-FETCHHEAD"></a> <a class="anchor" href="#git-rev-parse-codeFETCHHEADcode"></a><code>FETCH_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsiscodeFETCHHEADcodespan"> <a class="anchor" href="#git-rev-parse-FETCHHEAD"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsiscodeFETCHHEADcodespan"></a><span class='synopsis'><code>FETCH_HEAD</code></span> </dt>
 <dd>
-<p>记录您上次调用 <code>git fetch</code> 时
+<p>记录您上次调用 <span class='synopsis'><code>git</code> <code>fetch</code></span> 时
 从远程仓库获取的分支。</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeORIGHEADcode"> <a class="anchor" href="#git-rev-parse-ORIGHEAD"></a> <a class="anchor" href="#git-rev-parse-codeORIGHEADcode"></a><code>ORIG_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsiscodeORIGHEADcodespan"> <a class="anchor" href="#git-rev-parse-ORIGHEAD"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsiscodeORIGHEADcodespan"></a><span class='synopsis'><code>ORIG_HEAD</code></span> </dt>
 <dd>
-<p>命令（<code>git am</code>、<code>git merge</code>、<code>git rebase</code>、<code>git reset</code>）时创建的，
+<p>命令（<span class='synopsis'><code>git</code> <code>am</code></span>、<span class='synopsis'><code>git</code> <code>merge</code></span>、<span class='synopsis'><code>git</code> <code>rebase</code></span>、<span class='synopsis'><code>git</code> <code>reset</code></span>）时创建的，
 用于记录这些命令执行前`HEAD`的位置，
 以便于将分支的顶端
 改回执行这些命令前的状态。</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeMERGEHEADcode"> <a class="anchor" href="#git-rev-parse-MERGEHEAD"></a> <a class="anchor" href="#git-rev-parse-codeMERGEHEADcode"></a><code>MERGE_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsiscodeMERGEHEADcodespan"> <a class="anchor" href="#git-rev-parse-MERGEHEAD"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsiscodeMERGEHEADcodespan"></a><span class='synopsis'><code>MERGE_HEAD</code></span> </dt>
 <dd>
-<p>记录您在运行 <code>git merge</code> 时
+<p>记录您在运行 <span class='synopsis'><code>git</code> <code>merge</code></span> 时
 要合并到分支中的提交。</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeREBASEHEADcode"> <a class="anchor" href="#git-rev-parse-REBASEHEAD"></a> <a class="anchor" href="#git-rev-parse-codeREBASEHEADcode"></a><code>REBASE_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsiscodeREBASEHEADcodespan"> <a class="anchor" href="#git-rev-parse-REBASEHEAD"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsiscodeREBASEHEADcodespan"></a><span class='synopsis'><code>REBASE_HEAD</code></span> </dt>
 <dd>
 <p>会记录当前停止操作的提交，
 原因可能是冲突或
-交互式变基中的 <code>edit</code> 命令。</p>
+交互式变基中的 <span class='synopsis'><code>edit</code></span> 命令。</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeREVERTHEADcode"> <a class="anchor" href="#git-rev-parse-REVERTHEAD"></a> <a class="anchor" href="#git-rev-parse-codeREVERTHEADcode"></a><code>REVERT_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsiscodeREVERTHEADcodespan"> <a class="anchor" href="#git-rev-parse-REVERTHEAD"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsiscodeREVERTHEADcodespan"></a><span class='synopsis'><code>REVERT_HEAD</code></span> </dt>
 <dd>
-<p>记录您在运行 <code>git revert</code> 时要还原的提交。</p>
+<p>记录您在运行 <span class='synopsis'><code>git</code> <code>revert</code></span> 时要还原的提交。</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeCHERRYPICKHEADcode"> <a class="anchor" href="#git-rev-parse-CHERRYPICKHEAD"></a> <a class="anchor" href="#git-rev-parse-codeCHERRYPICKHEADcode"></a><code>CHERRY_PICK_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsiscodeCHERRYPICKHEADcodespan"> <a class="anchor" href="#git-rev-parse-CHERRYPICKHEAD"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsiscodeCHERRYPICKHEADcodespan"></a><span class='synopsis'><code>CHERRY_PICK_HEAD</code></span> </dt>
 <dd>
-<p>会记录您在运行 <code>git cherry-pick</code> 时
+<p>会记录您在运行 <span class='synopsis'><code>git</code> <code>cherry-pick</code></span> 时
 要 cherry-pick 的提交。</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeBISECTHEADcode"> <a class="anchor" href="#git-rev-parse-BISECTHEAD"></a> <a class="anchor" href="#git-rev-parse-codeBISECTHEADcode"></a><code>BISECT_HEAD</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsiscodeBISECTHEADcodespan"> <a class="anchor" href="#git-rev-parse-BISECTHEAD"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsiscodeBISECTHEADcodespan"></a><span class='synopsis'><code>BISECT_HEAD</code></span> </dt>
 <dd>
-<p>记录运行 <code>git bisect --no-checkout</code> 时
+<p>记录运行 <span class='synopsis'><code>git</code> <code>bisect</code> <code>--no-checkout</code></span> 时
 要测试的当前提交。</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeAUTOMERGEcode"> <a class="anchor" href="#git-rev-parse-AUTOMERGE"></a> <a class="anchor" href="#git-rev-parse-codeAUTOMERGEcode"></a><code>AUTO_MERGE</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsiscodeAUTOMERGEcodespan"> <a class="anchor" href="#git-rev-parse-AUTOMERGE"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsiscodeAUTOMERGEcodespan"></a><span class='synopsis'><code>AUTO_MERGE</code></span> </dt>
 <dd>
 <p>当合并操作导致冲突时，
 记录与 <em>ort</em> 合并策略写入工作树的状态
@@ -450,16 +473,16 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 </ol>
 </div>
 <div class="paragraph">
-<p>请注意，上述任何 <em>refs/*</em> 都可能来自 <code>$GIT_DIR/refs</code> 目录或 <code>$GIT_DIR/packed-refs</code> 文件。 虽然引用名称编码未指定，但 UTF-8 是首选，因为某些输出处理可能会假定引用名称为 UTF-8 编码。</p>
+<p>请注意，上述任何 <em>refs/*</em> 都可能来自 <span class='synopsis'><code>$GIT_DIR/refs</code></span> 目录或 <span class='synopsis'><code>$GIT_DIR/packed-refs</code></span> 文件。 虽然引用名称编码未指定，但 UTF-8 是首选，因为某些输出处理可能会假定引用名称为 UTF-8 编码。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-parse-emem"> <a class="anchor" href="#git-rev-parse-"></a> <a class="anchor" href="#git-rev-parse-emem"></a><em>@</em> </dt>
 <dd>
-<p><em>@</em> 本身就是 <code>HEAD</code> 的快捷方式。</p>
+<p><em>@</em> 本身就是 <span class='synopsis'><code>HEAD</code></span> 的快捷方式。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse-emltgtltgtememmasteryesterdayememHEAD5minutesagoem"> <a class="anchor" href="#git-rev-parse-masteryesterdayHEAD5minutesago"></a> <a class="anchor" href="#git-rev-parse-emltgtltgtememmasteryesterdayememHEAD5minutesagoem"></a><em>[&lt;引用名&gt;]@{&lt;日期&gt;}</em>, 例如： <em>master@{yesterday}</em>, <em>HEAD@{5 minutes ago}</em> </dt>
 <dd>
-<p>在后缀为'@' 的引用后，用一对括号括起来的日期说明（例如 <em>\{yesterday/}</em>、<em>{1 个月 2 周 3 天 1 小时 1 秒前}</em> 或 <em>{1979-02-26 18:30:00}</em>）指定了引用在之前某个时间点的值。 该后缀只能紧跟在引用名称之后使用，且引用必须有现存日志（<em>$GIT_DIR/logs/&lt;ref&gt;</em>）。需要注意的是，这个后缀查找的是*本地*引用在给定时间内的状态；例如，上周本地 <em>master</em> 分支中的情况。如果要查看特定时间内的提交，请参阅 <code>--since</code> 和 <code>--until</code>。</p>
+<p>在后缀为'@' 的引用后，用一对括号括起来的日期说明（例如 <em>\{yesterday/}</em>、<em>{1 个月 2 周 3 天 1 小时 1 秒前}</em> 或 <em>{1979-02-26 18:30:00}</em>）指定了引用在之前某个时间点的值。 该后缀只能紧跟在引用名称之后使用，且引用必须有现存日志（<em>$GIT_DIR/logs/&lt;ref&gt;</em>）。需要注意的是，这个后缀查找的是*本地*引用在给定时间内的状态；例如，上周本地 <em>master</em> 分支中的情况。如果要查看特定时间内的提交，请参阅 <span class='synopsis'><code>--since</code></span> 和 <span class='synopsis'><code>--until</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse-emltgtltngtemegemmaster1em"> <a class="anchor" href="#git-rev-parse-negmaster1"></a> <a class="anchor" href="#git-rev-parse-emltgtltngtemegemmaster1em"></a><em>&lt;引用名&gt;@{&lt;n&gt;}</em>, e.g. <em>master@{1}</em> </dt>
 <dd>
@@ -475,11 +498,11 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-parse-emltgtupstreamemegemmasterupstreamememuem"> <a class="anchor" href="#git-rev-parse-upstreamegmasterupstreamu"></a> <a class="anchor" href="#git-rev-parse-emltgtupstreamemegemmasterupstreamememuem"></a><em>[&lt;分支名&gt;]@{upstream}</em>, e.g. <em>master@{upstream}</em>, <em>@{u}</em> </dt>
 <dd>
-<p>分支 B 可以设置为在远程 R 的分支 X（使用 <code>branch.&lt;名称&gt;.merge</code> 配置）（使用 <code>branch.&lt;名称&gt;.remote`配置）之上构建。B@{u} 指的是远程 R 分支 X 的远程跟踪分支，通常位于 `refs/remotes/R/X</code>。</p>
+<p>分支 B 可以设置为在远程 R 的分支 X（使用 <span class='synopsis'><code>branch.</code><em>&lt;名称&gt;</em><code>.merge</code></span> 配置）（使用 <span class='synopsis'><em>branch.&lt;名称&gt;.remote`配置）之上构建。B@{u} 指的是远程 R 分支 X 的远程跟踪分支，通常位于 `refs/remotes/R/X</em></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse-emltgtpushemegemmasterpushemempushem"> <a class="anchor" href="#git-rev-parse-pushegmasterpushpush"></a> <a class="anchor" href="#git-rev-parse-emltgtpushemegemmasterpushemempushem"></a><em>[&lt;分支名&gt;]@{push}</em>, e.g. <em>master@{push}</em>, <em>@{push}</em> </dt>
 <dd>
-<p>后缀 <em>@{push}</em> 报告的是在 <code>branchname</code> 签出时运行 <code>git push</code> 时 “我们会推送到哪里” 的分支（如果没有指定分支名，则报告当前的 <code>HEAD</code>）。就像 <em>@{upstream}</em> 一样，我们会报告与该分支相对应的远程跟踪分支。</p>
+<p>后缀 <em>@{push}</em> 报告的是在 <span class='synopsis'><code>branchname</code></span> 签出时运行 <span class='synopsis'><code>git</code> <code>push</code></span> 时 “我们会推送到哪里” 的分支（如果没有指定分支名，则报告当前的 <span class='synopsis'><code>HEAD</code></span>）。就像 <em>@{upstream}</em> 一样，我们会报告与该分支相对应的远程跟踪分支。</p>
 <div class="paragraph">
 <p>这里有一个例子，可以更清楚地说明这一点:</p>
 </div>
@@ -580,10 +603,10 @@ J = F^2  = B^3^2   = A^^3^2</pre>
 <h2 id="_指定范围"><a class="anchor" href="#_指定范围"></a>指定范围</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>历史记录遍历命令，如 <code>git log</code> 会对一组提交进行操作，而不仅仅是单个提交。</p>
+<p>历史记录遍历命令，如 <span class='synopsis'><code>git</code> <code>log</code></span> 会对一组提交进行操作，而不仅仅是单个提交。</p>
 </div>
 <div class="paragraph">
-<p>对于这些命令，使用上一节中描述的符号指定一个修订版本，意味着从给定的提交开始 <code>可达到</code> 的一组提交。</p>
+<p>对于这些命令，使用上一节中描述的符号指定一个修订版本，意味着从给定的提交开始 <span class='synopsis'><em>可达到</em></span> 的一组提交。</p>
 </div>
 <div class="paragraph">
 <p>指定多个修订版本指的是可从任何给定的提交版本到达的提交版本集。</p>
@@ -677,11 +700,11 @@ J = F^2  = B^3^2   = A^^3^2</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-parse-emltrev1gtltrev2gtem"> <a class="anchor" href="#git-rev-parse-rev1rev2"></a> <a class="anchor" href="#git-rev-parse-emltrev1gtltrev2gtem"></a><em>&lt;rev1&gt;..&lt;rev2&gt;</em> </dt>
 <dd>
-<p>包括可从 &lt;修订号2&gt; 进入的提交，但不包括可从 &lt;修订号1&gt; 进入的提交。 如果省略 &lt;修订号1&gt; 或 &lt;修订号2&gt;，则默认为 <code>HEAD</code>。</p>
+<p>包括可从 &lt;修订号2&gt; 进入的提交，但不包括可从 &lt;修订号1&gt; 进入的提交。 如果省略 &lt;修订号1&gt; 或 &lt;修订号2&gt;，则默认为 <span class='synopsis'><code>HEAD</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse-emlt1gtlt2gtem"> <a class="anchor" href="#git-rev-parse-12"></a> <a class="anchor" href="#git-rev-parse-emlt1gtlt2gtem"></a><em>&lt;修订号1&gt;...&lt;修订号2&gt;</em> </dt>
 <dd>
-<p>包括 &lt;修订号1&gt; 或 &lt;修订号2&gt; 均可访问的提交，但不包括 &lt;修订号1&gt; 和 &lt;修订号2&gt; 均可访问的提交。 省略 &lt;修订号1&gt; 或 &lt;修订号2&gt; 时，默认为 <code>HEAD</code>。</p>
+<p>包括 &lt;修订号1&gt; 或 &lt;修订号2&gt; 均可访问的提交，但不包括 &lt;修订号1&gt; 和 &lt;修订号2&gt; 均可访问的提交。 省略 &lt;修订号1&gt; 或 &lt;修订号2&gt; 时，默认为 <span class='synopsis'><code>HEAD</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse-emltgtemegemHEADem"> <a class="anchor" href="#git-rev-parse-egHEAD"></a> <a class="anchor" href="#git-rev-parse-emltgtemegemHEADem"></a><em>&lt;修订&gt;^@</em>, e.g. <em>HEAD^@</em> </dt>
 <dd>
@@ -732,18 +755,18 @@ J = F^2  = B^3^2   = A^^3^2</pre>
 <h2 id="_parseopt"><a class="anchor" href="#_parseopt"></a>PARSEOPT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在 <code>--parseopt</code> 模式下，<em>git rev-parse</em> 可以帮助处理选项，为 shell 脚本带来与 C 语言内置程序相同的功能。它可以作为一个选项规范化器工作（例如分割单值和总值），有点像 <code>getopt(1)</code>。</p>
+<p>在 <span class='synopsis'><code>--parseopt</code></span> 模式下，<em>git rev-parse</em> 可以帮助处理选项，为 shell 脚本带来与 C 语言内置程序相同的功能。它可以作为一个选项规范化器工作（例如分割单值和总值），有点像 <span class='synopsis'><code>getopt</code>(<code>1</code>)</span>。</p>
 </div>
 <div class="paragraph">
-<p>它在标准输入端接收要解析和理解的选项说明，并在标准输出端回声一个适合 <code>sh(1)</code> <code>eval</code> 的字符串，以便用规范化参数替换参数。 如果出现错误，它会在标准错误流中输出使用情况，并以代码 129 退出。</p>
+<p>它在标准输入端接收要解析和理解的选项说明，并在标准输出端回声一个适合 <span class='synopsis'><code>sh</code>(<code>1</code>)</span> <span class='synopsis'><code>eval</code></span> 的字符串，以便用规范化参数替换参数。 如果出现错误，它会在标准错误流中输出使用情况，并以代码 129 退出。</p>
 </div>
 <div class="paragraph">
-<p>注意：在将结果传递给 <code>eval</code> 时，请务必加上引号。 请参阅下面的示例。</p>
+<p>注意：在将结果传递给 <span class='synopsis'><code>eval</code></span> 时，请务必加上引号。 请参阅下面的示例。</p>
 </div>
 <div class="sect2">
 <h3 id="_输入格式"><a class="anchor" href="#_输入格式"></a>输入格式</h3>
 <div class="paragraph">
-<p><em>git rev-parse --parseopt</em> 输入格式完全基于文本。它由两部分组成，中间用只包含 <code>--</code> 的行隔开。分隔符前的几行（应为一行或多行）用于说明用法。 分隔符之后的行描述选项。</p>
+<p><em>git rev-parse --parseopt</em> 输入格式完全基于文本。它由两部分组成，中间用只包含 <span class='synopsis'><code>--</code></span> 的行隔开。分隔符前的几行（应为一行或多行）用于说明用法。 分隔符之后的行描述选项。</p>
 </div>
 <div class="paragraph">
 <p>每行选项的格式如下：</p>
@@ -755,33 +778,33 @@ J = F^2  = B^3^2   = A^^3^2</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rev-parse-codeltopt-specgtcode"> <a class="anchor" href="#git-rev-parse-opt-spec"></a> <a class="anchor" href="#git-rev-parse-codeltopt-specgtcode"></a><code>&lt;opt-spec&gt;</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsisemltopt-specgtemspan"> <a class="anchor" href="#git-rev-parse-opt-spec"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsisemltopt-specgtemspan"></a><span class='synopsis'><em>&lt;opt-spec&gt;</em></span> </dt>
 <dd>
-<p>其格式是短选项字符，然后是用逗号分隔的长选项名称。两部分都不是必需的，但至少有一部分是必需的。不得包含任何 <code>&lt;标记&gt;</code> 字符。 <code>h,help</code> 、 <code>dry-run</code> 和 <code>f</code> 是正确的 <code>&lt;指定选项&gt;</code> 的例子。</p>
+<p>其格式是短选项字符，然后是用逗号分隔的长选项名称。两部分都不是必需的，但至少有一部分是必需的。不得包含任何 <span class='synopsis'><em>&lt;标记&gt;</em></span> 字符。 <span class='synopsis'><code>h,help</code></span> 、 <span class='synopsis'><code>dry-run</code></span> 和 <span class='synopsis'><code>f</code></span> 是正确的 <span class='synopsis'><em>&lt;指定选项&gt;</em></span> 的例子。</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeltgtcode"> <a class="anchor" href="#git-rev-parse--1-1-1-1"></a> <a class="anchor" href="#git-rev-parse-codeltgtcode"></a><code>&lt;标志&gt;</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsisemltgtemspan"> <a class="anchor" href="#git-rev-parse--1-1-1-1"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsisemltgtemspan"></a><span class='synopsis'><em>&lt;标志&gt;</em></span> </dt>
 <dd>
-<p><code>&lt;标志&gt;</code> 是 <code>*</code>, <code>=</code>, <code>?</code> 或 <code>!</code> 其中一个。</p>
+<p><span class='synopsis'><em>&lt;标志&gt;</em></span> 是 <span class='synopsis'><code>*</code></span>, <span class='synopsis'><code>=</code></span>, <span class='synopsis'><em>?</em></span> 或 <span class='synopsis'><code>!</code></span> 其中一个。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>如果选项需要一个参数，则使用 <code>=</code>。</p>
+<p>如果选项需要一个参数，则使用 <span class='synopsis'><code>=</code></span>。</p>
 </li>
 <li>
-<p>使用 <code>?</code> 表示选项包含一个可选参数。你可能希望使用 <code>--stuck-long</code> 模式来明确地解析可选参数。</p>
+<p>使用 <span class='synopsis'><em>?</em></span> 表示选项包含一个可选参数。你可能希望使用 <span class='synopsis'><code>--stuck-long</code></span> 模式来明确地解析可选参数。</p>
 </li>
 <li>
-<p>使用 <code>*</code> 表示该选项不应列在为 <code>-h</code> 参数生成的用法中。<a href='{{< relurl "docs/gitcli/zh_HANS-CN" >}}'>gitcli[7]</a> 中记录了 <code>--help-all</code> 的用法。</p>
+<p>使用 <span class='synopsis'><code>*</code></span> 表示该选项不应列在为 <span class='synopsis'><code>-h</code></span> 参数生成的用法中。<a href='{{< relurl "docs/gitcli/zh_HANS-CN" >}}'>gitcli[7]</a> 中记录了 <span class='synopsis'><code>--help-all</code></span> 的用法。</p>
 </li>
 <li>
-<p>使用 <code>!</code> 不提供相应的否定长选项。</p>
+<p>使用 <span class='synopsis'><code>!</code></span> 不提供相应的否定长选项。</p>
 </li>
 </ul>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rev-parse-codeltgtcode-1"> <a class="anchor" href="#git-rev-parse--1-1-1-1-1"></a> <a class="anchor" href="#git-rev-parse-codeltgtcode-1"></a><code>&lt;参数提示&gt;</code> </dt>
+<dt class="hdlist1" id="git-rev-parse-spanclasssynopsisemltgtemspan-1"> <a class="anchor" href="#git-rev-parse--1-1-1-1-1"></a> <a class="anchor" href="#git-rev-parse-spanclasssynopsisemltgtemspan-1"></a><span class='synopsis'><em>&lt;参数提示&gt;</em></span> </dt>
 <dd>
-<p>如果指定了 <code>&lt;arg-hint&gt;</code>，则在帮助输出中用作参数的名称。<code>&lt;arg-hint&gt;</code> 以第一个空格结束。 通常使用破折号分隔多字参数提示中的单词。</p>
+<p>如果指定了 <span class='synopsis'><em>&lt;arg-hint&gt;</em></span>，则在帮助输出中用作参数的名称。<span class='synopsis'><em>&lt;arg-hint&gt;</em></span> 以第一个空格结束。 通常使用破折号分隔多字参数提示中的单词。</p>
 </dd>
 </dl>
 </div>
@@ -815,7 +838,7 @@ eval "$(echo "$OPTS_SPEC" | git rev-parse --parseopt -- "$@" || echo exit $?)"</
 <div class="sect2">
 <h3 id="_使用文本"><a class="anchor" href="#_使用文本"></a>使用文本</h3>
 <div class="paragraph">
-<p>当 <code>"$@"</code> 为上例中的 <code>-h`或 `--help</code> 时，将显示以下使用文本：</p>
+<p>当 <span class='synopsis'><code>"$@"</code></span> 为上例中的 <span class='synopsis'><em>-h`或 `--help</em></span> 时，将显示以下使用文本：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -840,10 +863,10 @@ eval "$(echo "$OPTS_SPEC" | git rev-parse --parseopt -- "$@" || echo exit $?)"</
 <h2 id="_sq_quote"><a class="anchor" href="#_sq_quote"></a>SQ-QUOTE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在 <code>--sq-quote</code> 模式下，<em>git rev-parse</em> 会在标准输出中输出一行适合 <code>sh(1)</code> <code>eval</code> 的参数。这一行是通过将 <code>--sq-quote</code> 后面的参数规范化而生成的。除了给参数加引号之外，不会做任何其他操作。</p>
+<p>在 <span class='synopsis'><code>--sq-quote</code></span> 模式下，<em>git rev-parse</em> 会在标准输出中输出一行适合 <span class='synopsis'><code>sh</code>(<code>1</code>)</span> <span class='synopsis'><code>eval</code></span> 的参数。这一行是通过将 <span class='synopsis'><code>--sq-quote</code></span> 后面的参数规范化而生成的。除了给参数加引号之外，不会做任何其他操作。</p>
 </div>
 <div class="paragraph">
-<p>如果希望在输出被 shell 引述之前，<em>git rev-parse</em> 仍能像往常一样解释命令输入，请参阅 <code>--sq</code> 选项。</p>
+<p>如果希望在输出被 shell 引述之前，<em>git rev-parse</em> 仍能像往常一样解释命令输入，请参阅 <span class='synopsis'><code>--sq</code></span> 选项。</p>
 </div>
 <div class="sect2">
 <h3 id="_示例_2"><a class="anchor" href="#_示例_2"></a>示例</h3>

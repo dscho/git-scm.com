@@ -9,6 +9,27 @@ docname: git-remote
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-remote/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 命令
+  id: _命令
+- text: 讨论
+  id: _讨论
+- text: 退出状态码
+  id: _退出状态码
+- text: 实例
+  id: _实例
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -54,7 +75,7 @@ aliases:
 <dt class="hdlist1" id="git-remote--v"> <a class="anchor" href="#git-remote--v"></a>-v </dt>
 <dt class="hdlist1" id="git-remote---verbose"> <a class="anchor" href="#git-remote---verbose"></a>--verbose </dt>
 <dd>
-<p>Be a little more verbose and show remote url after name. For promisor remotes, also show which filters (<code>blob:none</code> etc.) are configured. NOTE: This must be placed between <code>remote</code> and subcommand.</p>
+<p>Be a little more verbose and show remote url after name. For promisor remotes, also show which filters (<span class='synopsis'><code>blob:none</code></span> etc.) are configured. NOTE: This must be placed between <span class='synopsis'><code>remote</code></span> and subcommand.</p>
 </dd>
 </dl>
 </div>
@@ -72,35 +93,35 @@ aliases:
 <dd>
 <p>在 &lt;URL&gt; 为存储库添加一个名为 &lt;名称&gt; 的远程名称。然后可以使用命令 `git get &lt;名称&gt;`创建和更新远程跟踪分支 &lt;名称&gt;/&lt;分支&gt; 。</p>
 <div class="paragraph">
-<p>使用 <code>-f</code> 选项，在设置远程信息之后立即运行 <code>git get &lt;名称&gt;</code>。</p>
+<p>使用 <span class='synopsis'><code>-f</code></span> 选项，在设置远程信息之后立即运行 <span class='synopsis'><code>git</code> <code>get</code> <em>&lt;名称&gt;</em></span>。</p>
 </div>
 <div class="paragraph">
-<p>使用 <code>--tags</code> 选项，<code>git get &lt;名称&gt;</code> 从远程仓库导入每个标记。</p>
+<p>使用 <span class='synopsis'><code>--tags</code></span> 选项，<span class='synopsis'><code>git</code> <code>get</code> <em>&lt;名称&gt;</em></span> 从远程仓库导入每个标记。</p>
 </div>
 <div class="paragraph">
-<p>使用 <code>--no-tags</code> 选项，<code>git fetch &lt;名称&gt;</code> 不会从远程仓库导入标签。</p>
+<p>使用 <span class='synopsis'><code>--no-tags</code></span> 选项，<span class='synopsis'><code>git</code> <code>fetch</code> <em>&lt;名称&gt;</em></span> 不会从远程仓库导入标签。</p>
 </div>
 <div class="paragraph">
 <p>默认情况下，只导入获取的分支上的标记（参见 <a href='{{< relurl "docs/git-fetch/zh_HANS-CN" >}}'>git-fetch[1]</a>）。</p>
 </div>
 <div class="paragraph">
-<p>使用 <code>-t &lt;分支&gt;</code> 选项，将创建一个仅跟踪 <code>refs/remotes/&lt;名称&gt;/</code> 命名空间下的所有分支的引用规范，而不是用于远程跟踪的默认引用规范通配符。您可以提供多个 <code>-t &lt;分支&gt;</code> 来跟踪多个分支，而不需要获取所有分支。</p>
+<p>使用 <span class='synopsis'><code>-t</code> <em>&lt;分支&gt;</em></span> 选项，将创建一个仅跟踪 <span class='synopsis'><code>refs/remotes/</code><em>&lt;名称&gt;</em><code>/</code></span> 命名空间下的所有分支的引用规范，而不是用于远程跟踪的默认引用规范通配符。您可以提供多个 <span class='synopsis'><code>-t</code> <em>&lt;分支&gt;</em></span> 来跟踪多个分支，而不需要获取所有分支。</p>
 </div>
 <div class="paragraph">
-<p>使用 <code>-m &lt;master&gt;</code> 选项，可以设置一个符号引用 <code>/remotes/&lt;名称&gt;/HEAD</code> 来指向远程仓库的 <code>&lt;master&gt;</code> 分支。另请参见 set-head 命令。</p>
+<p>使用 <span class='synopsis'><code>-m</code> <em>&lt;master&gt;</em></span> 选项，可以设置一个符号引用 <span class='synopsis'><code>/remotes/</code><em>&lt;名称&gt;</em><code>/HEAD</code></span> 来指向远程仓库的 <span class='synopsis'><em>&lt;master&gt;</em></span> 分支。另请参见 set-head 命令。</p>
 </div>
 <div class="paragraph">
-<p>当用 <code>--mirror=fetch</code> 创建一个 fetch 镜像时， 引用不会被存储在 <em>refs/remotes/</em> 命名空间中，而是远程的 <em>refs/</em> 中的所有内容将直接被镜像到本地版本库的 <em>refs/</em> 中。这个选项只有在裸库中才有意义，因为获取会覆盖任何本地提交。</p>
+<p>当用 <span class='synopsis'><code>--mirror=fetch</code></span> 创建一个 fetch 镜像时， 引用不会被存储在 <em>refs/remotes/</em> 命名空间中，而是远程的 <em>refs/</em> 中的所有内容将直接被镜像到本地版本库的 <em>refs/</em> 中。这个选项只有在裸库中才有意义，因为获取会覆盖任何本地提交。</p>
 </div>
 <div class="paragraph">
-<p>当用 <code>--mirror=push</code> 创建推送镜像时，<code>git push</code> 的行为就像传递 <code>--mirror</code> 一样。</p>
+<p>当用 <span class='synopsis'><code>--mirror=push</code></span> 创建推送镜像时，<span class='synopsis'><code>git</code> <code>push</code></span> 的行为就像传递 <span class='synopsis'><code>--mirror</code></span> 一样。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-remote-emrebaseem"> <a class="anchor" href="#git-remote-rebase"></a> <a class="anchor" href="#git-remote-emrebaseem"></a><em>rebase</em> </dt>
 <dd>
 <p>将名为 &lt; 旧名称 &gt; 的远程重命名为 &lt; 新名称 &gt; 。所有远程跟踪的分支和远程的配置设置都被更新。</p>
 <div class="paragraph">
-<p>如果 &lt;旧名称 &gt;和&lt; 新名称 &gt;相同，并且&lt; 旧名称 &gt;是 <code>$GIT_DIR/remotes</code> 或 <code>$GIT_DIR/branches</code> 下的文件，远程将被转换为配置文件格式。</p>
+<p>如果 &lt;旧名称 &gt;和&lt; 新名称 &gt;相同，并且&lt; 旧名称 &gt;是 <span class='synopsis'><code>$GIT_DIR/remotes</code></span> 或 <span class='synopsis'><code>$GIT_DIR/branches</code></span> 下的文件，远程将被转换为配置文件格式。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-remote-emremoveem"> <a class="anchor" href="#git-remote-remove"></a> <a class="anchor" href="#git-remote-emremoveem"></a><em>remove</em> </dt>
@@ -110,32 +131,32 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-remote-emset-headem"> <a class="anchor" href="#git-remote-set-head"></a> <a class="anchor" href="#git-remote-emset-headem"></a><em>set-head</em> </dt>
 <dd>
-<p>设置或删除命名远程仓库的默认分支（即符号引用 <code>refs/remotes/&lt;名称&gt;/HEAD</code> 的目标）。不需要为远程仓库设置默认分支，但允许指定远程仓库的名称来代替特定分支。例如，如果 <code>origin</code> 的默认分支设置为 <code>master</code>，则可以在通常指定 <code>origin/master</code> 的任何位置指定 <code>origin</code>。</p>
+<p>设置或删除命名远程仓库的默认分支（即符号引用 <span class='synopsis'><code>refs/remotes/</code><em>&lt;名称&gt;</em><code>/HEAD</code></span> 的目标）。不需要为远程仓库设置默认分支，但允许指定远程仓库的名称来代替特定分支。例如，如果 <span class='synopsis'><code>origin</code></span> 的默认分支设置为 <span class='synopsis'><code>master</code></span>，则可以在通常指定 <span class='synopsis'><code>origin/master</code></span> 的任何位置指定 <span class='synopsis'><code>origin</code></span>。</p>
 <div class="paragraph">
-<p>设置 <code>-d</code> 或 <code>--delete</code> 选项，符号引用 <code>refs/remotes/&lt;名称&gt;/HEAD</code> 将被删除.</p>
+<p>设置 <span class='synopsis'><code>-d</code></span> 或 <span class='synopsis'><code>--delete</code></span> 选项，符号引用 <span class='synopsis'><code>refs/remotes/</code><em>&lt;名称&gt;</em><code>/HEAD</code></span> 将被删除.</p>
 </div>
 <div class="paragraph">
-<p>使用 <code>-a</code> 或 <code>--auto</code>，查询远程仓库以确定其 <code>HEAD</code>，然后将符号引用 <code>refs/remotes/&lt;名称&gt;/HEAD</code> 设置为同一分支。 例如，如果远程 <code>HEAD</code> 指向`next`，<code>git remote set-head origin -a`会将符号引用 `refs/remotes/origin/HEAD</code> 设置为 <code>refs/remotes/origin/next</code>。这仅在 <code>refs/remotes/origin/next</code> 已经存在时才有效；如果不是，则必须首先获取它。</p>
+<p>使用 <span class='synopsis'><code>-a</code></span> 或 <span class='synopsis'><code>--auto</code></span>，查询远程仓库以确定其 <span class='synopsis'><code>HEAD</code></span>，然后将符号引用 <span class='synopsis'><code>refs/remotes/</code><em>&lt;名称&gt;</em><code>/HEAD</code></span> 设置为同一分支。 例如，如果远程 <span class='synopsis'><code>HEAD</code></span> 指向`next`，<span class='synopsis'><em>git remote set-head origin -a`会将符号引用 `refs/remotes/origin/HEAD</em></span> 设置为 <span class='synopsis'><code>refs/remotes/origin/next</code></span>。这仅在 <span class='synopsis'><code>refs/remotes/origin/next</code></span> 已经存在时才有效；如果不是，则必须首先获取它。</p>
 </div>
 <div class="paragraph">
-<p>使用 <code>&lt;branch&gt;</code> 显式地设置符号引用 <code>refs/remotes/&lt;名称&gt;/HEAD</code>。例如，<code>git remote set-head source master</code> 会将这个符号引用 ` refs/remotes/source/HEAD`设置为 <code>ref/remotes/source/master</code>。这只有在 <code>refs/remote/source/master</code> 已经存在的情况下才能工作；如果不存在，则必须首先获取它。</p>
+<p>使用 <span class='synopsis'><em>&lt;branch&gt;</em></span> 显式地设置符号引用 <span class='synopsis'><code>refs/remotes/</code><em>&lt;名称&gt;</em><code>/HEAD</code></span>。例如，<span class='synopsis'><code>git</code> <code>remote</code> <code>set-head</code> <code>source</code> <code>master</code></span> 会将这个符号引用 ` refs/remotes/source/HEAD`设置为 <span class='synopsis'><code>ref/remotes/source/master</code></span>。这只有在 <span class='synopsis'><code>refs/remote/source/master</code></span> 已经存在的情况下才能工作；如果不存在，则必须首先获取它。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-remote-emset-branchesem"> <a class="anchor" href="#git-remote-set-branches"></a> <a class="anchor" href="#git-remote-emset-branchesem"></a><em>set-branches</em> </dt>
 <dd>
 <p>改变命名的远程所追踪的分支列表。 这可以用来在最初设置一个远程分支后，追踪一个可用的远程分支子集。</p>
 <div class="paragraph">
-<p>被命名的分支将被解释为在 <code>git remote add`命令中用 `-t</code> 选项指定的。</p>
+<p>被命名的分支将被解释为在 <span class='synopsis'><em>git remote add`命令中用 `-t</em></span> 选项指定的。</p>
 </div>
 <div class="paragraph">
-<p>使用 <code>--add</code>，不是替换当前跟踪分支列表，而是添加到该列表中。</p>
+<p>使用 <span class='synopsis'><code>--add</code></span>，不是替换当前跟踪分支列表，而是添加到该列表中。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-remote-emget-urlem"> <a class="anchor" href="#git-remote-get-url"></a> <a class="anchor" href="#git-remote-emget-urlem"></a><em>get-url</em> </dt>
 <dd>
-<p>检索一个远程的 URLs。<code>insteadOf</code> 和 <code>pushInsteadOf</code> 的配置在此列出。默认情况下，只有第一个 URL 被列出。</p>
+<p>检索一个远程的 URLs。<span class='synopsis'><code>insteadOf</code></span> 和 <span class='synopsis'><code>pushInsteadOf</code></span> 的配置在此列出。默认情况下，只有第一个 URL 被列出。</p>
 <div class="paragraph">
-<p>使用 <code>--push</code>，查询的是推送的URLs，而不是获取的URLs。</p>
+<p>使用 <span class='synopsis'><code>--push</code></span>，查询的是推送的URLs，而不是获取的URLs。</p>
 </div>
 <div class="paragraph">
 <p>使用 `--all`选项，远程仓库的所有 URL 将被列出。</p>
@@ -145,10 +166,10 @@ aliases:
 <dd>
 <p>改变远程的URLs。将远程 &lt;名称&gt; 的第一个匹配正则表达式 &lt;旧url&gt; 的URL（如果没有给出 &lt;旧url&gt;，则为第一个URL）设置为 &lt;新url&gt;。如果 &lt;旧url&gt; 不匹配任何URL，就会发生错误，并且什么都不会被改变。</p>
 <div class="paragraph">
-<p>使用 <code>--push</code> ，推送 URLs 被操作，而不是获取 URLs。</p>
+<p>使用 <span class='synopsis'><code>--push</code></span> ，推送 URLs 被操作，而不是获取 URLs。</p>
 </div>
 <div class="paragraph">
-<p>使用 <code>--add</code>，不改变现有的 URLs，而是添加新的 URL。</p>
+<p>使用 <span class='synopsis'><code>--add</code></span>，不改变现有的 URLs，而是添加新的 URL。</p>
 </div>
 <div class="paragraph">
 <p>使用 `--delete`选项，不是改变现有的 URL，而是删除远程 &lt;名称&gt; 的所有正则匹配 &lt;URL&gt; 的 URL。 试图删除所有非推送 URLs 是错的。</p>
@@ -161,24 +182,24 @@ aliases:
 <dd>
 <p>提供关于远程 &lt;名称&gt; 的一些信息。</p>
 <div class="paragraph">
-<p>使用 <code>-n</code> 选项，就不会先用 <code>git ls-remote &lt;名称&gt;</code> 查询远程头指针，而是使用缓存的信息。</p>
+<p>使用 <span class='synopsis'><code>-n</code></span> 选项，就不会先用 <span class='synopsis'><code>git</code> <code>ls-remote</code> <em>&lt;名称&gt;</em></span> 查询远程头指针，而是使用缓存的信息。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-remote-empruneem"> <a class="anchor" href="#git-remote-prune"></a> <a class="anchor" href="#git-remote-empruneem"></a><em>prune</em> </dt>
 <dd>
-<p>删除与 &lt;名称&gt; 相关的陈旧引用。默认情况下，&lt;名称&gt;下的陈旧远程跟踪分支会被删除，但根据全局配置和远程的配置，我们甚至可能修剪没有被推送到那里的本地标签。相当于 <code>git fetch --prune &lt;名称&gt;</code>，只是不会取到新的引用。</p>
+<p>删除与 &lt;名称&gt; 相关的陈旧引用。默认情况下，&lt;名称&gt;下的陈旧远程跟踪分支会被删除，但根据全局配置和远程的配置，我们甚至可能修剪没有被推送到那里的本地标签。相当于 <span class='synopsis'><code>git</code> <code>fetch</code> <code>--prune</code> <em>&lt;名称&gt;</em></span>，只是不会取到新的引用。</p>
 <div class="paragraph">
 <p>参见 <a href='{{< relurl "docs/git-fetch/zh_HANS-CN" >}}'>git-fetch[1]</a> 的剪枝部分，了解它将根据不同的配置修剪什么。</p>
 </div>
 <div class="paragraph">
-<p>使用 <code>--dry-run</code> 选项，报告哪些分支将被修剪，但实际上不修剪它们。</p>
+<p>使用 <span class='synopsis'><code>--dry-run</code></span> 选项，报告哪些分支将被修剪，但实际上不修剪它们。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-remote-emupdateem"> <a class="anchor" href="#git-remote-update"></a> <a class="anchor" href="#git-remote-emupdateem"></a><em>update</em> </dt>
 <dd>
-<p>为仓库中由 <code>remotes.&lt;组&gt;</code> 定义的远程或远程组获取更新。如果在命令行中既没有指定组也没有指定远程，将使用配置参数 remotes.default；如果没有定义 remotes.default，所有没有将配置参数 <code>remote.&lt;名称&gt;.skipDefaultUpdate</code> 设置为 true 的远程将被更新。 (参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。</p>
+<p>为仓库中由 <span class='synopsis'><code>remotes.</code><em>&lt;组&gt;</em></span> 定义的远程或远程组获取更新。如果在命令行中既没有指定组也没有指定远程，将使用配置参数 remotes.default；如果没有定义 remotes.default，所有没有将配置参数 <span class='synopsis'><code>remote.</code><em>&lt;名称&gt;</em><code>.skipDefaultUpdate</code></span> 设置为 true 的远程将被更新。 (参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。</p>
 <div class="paragraph">
-<p>使用 <code>--prune</code> 选项，对所有被更新的远程进行修剪。</p>
+<p>使用 <span class='synopsis'><code>--prune</code></span> 选项，对所有被更新的远程进行修剪。</p>
 </div>
 </dd>
 </dl>
@@ -189,7 +210,7 @@ aliases:
 <h2 id="_讨论"><a class="anchor" href="#_讨论"></a>讨论</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>远程配置是通过 <code>remote.origin.url</code> 和 <code>remote.origin.fetch</code> 配置变量实现的。 (见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。</p>
+<p>远程配置是通过 <span class='synopsis'><code>remote.origin.url</code></span> 和 <span class='synopsis'><code>remote.origin.fetch</code></span> 配置变量实现的。 (见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。</p>
 </div>
 </div>
 </div>
@@ -197,10 +218,10 @@ aliases:
 <h2 id="_退出状态码"><a class="anchor" href="#_退出状态码"></a>退出状态码</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>成功的时候，退出状态码为 <code>0</code>。</p>
+<p>成功的时候，退出状态码为 <span class='synopsis'><code>0</code></span>。</p>
 </div>
 <div class="paragraph">
-<p>当诸如 <em>add</em>、<em>rename</em> 和 <em>remove</em> 等子命令不能找到相关的远程，退出状态码为 <code>2</code>。当远程已经存在时，退出状态码是 <code>3</code>。</p>
+<p>当诸如 <em>add</em>、<em>rename</em> 和 <em>remove</em> 等子命令不能找到相关的远程，退出状态码为 <span class='synopsis'><code>2</code></span>。当远程已经存在时，退出状态码是 <span class='synopsis'><code>3</code></span>。</p>
 </div>
 <div class="paragraph">
 <p>对于其他错误，退出状态码可能是任何其他非零值。</p>

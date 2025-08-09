@@ -9,6 +9,29 @@ docname: git-filter-branch
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-filter-branch/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 警告
+  id: _警告
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 退出状态码
+  id: _退出状态码
+- text: 实例
+  id: _实例
+- text: 缩减仓库的清单
+  id: _缩减仓库的清单
+- text: 性能
+  id: PERFORMANCE
+- text: 安全性
+  id: SAFETY
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -50,7 +73,7 @@ aliases:
 <p>该命令只会重写命令行中提到的 <em>positive</em> refs（例如，如果您传递 <em>a..b</em>，则只会重写 <em>b</em>）。 如果不指定过滤器，提交将在不做任何改动的情况下重新提交，这通常不会产生任何影响。 不过，这在将来补偿某些 Git bug 或类似问题时可能会有用，因此允许使用这种方法。</p>
 </div>
 <div class="paragraph">
-<p><strong>注意</strong>： 此命令尊重 <code>.git/info/grafts</code> 文件和 <code>refs/replace/</code> 命名空间中的引用。如果您定义了任何移植物或替换引用，运行此命令将使其永久生效。</p>
+<p><strong>注意</strong>： 此命令尊重 <span class='synopsis'><code>.git/info/grafts</code></span> 文件和 <span class='synopsis'><code>refs/replace/</code></span> 命名空间中的引用。如果您定义了任何移植物或替换引用，运行此命令将使其永久生效。</p>
 </div>
 <div class="paragraph">
 <p><strong>警告</strong>！重写后的历史记录中，所有对象的名称都会不同，并且不会与原始分支趋同。对象的名称也会不同，并且不会与原始分支一致。 您将无法在原始分支的基础上推送和分发重写分支。原始分支。 如果不了解该命令的全部影响，请不要使用它。如果简单的单次提交就能解决您的问题，请尽量避免使用该命令。就能解决问题的话，请避免使用该命令。 (请参阅 <a href='{{< relurl "docs/git-rebase/zh_HANS-CN" >}}'>git-rebase[1]</a> 中的 "RECOVERING FROM UPSTREAM" 重写已发布历史。）</p>
@@ -59,12 +82,12 @@ aliases:
 <p>请务必验证重写版本是否正确：原始参考文件（如果与重写版本不同）将存储在命名空间 <em>refs/original/</em> 中。</p>
 </div>
 <div class="paragraph">
-<p>需要注意的是，由于该操作的 I/O 成本很高，因此最好使用 <code>-d</code> 选项将临时目录重定向到磁盘外，例如在 tmpfs 上。 据报道，速度提升非常明显。</p>
+<p>需要注意的是，由于该操作的 I/O 成本很高，因此最好使用 <span class='synopsis'><code>-d</code></span> 选项将临时目录重定向到磁盘外，例如在 tmpfs 上。 据报道，速度提升非常明显。</p>
 </div>
 <div class="sect2">
 <h3 id="_筛选"><a class="anchor" href="#_筛选"></a>筛选</h3>
 <div class="paragraph">
-<p>过滤器的应用顺序如下。 &lt;命令&gt; 参数总是在 shell 上下文中使用 <em>eval</em> 命令进行评估（由于技术原因，提交过滤器是个明显的例外）。 在此之前，<code>$GIT_COMMIT</code> 环境变量将被设置为包含被改写提交的 id。 此外，GIT_AUTHOR_NAME、GIT_AUTHOR_EMAIL、GIT_AUTHOR_DATE、GIT_COMMITTER_NAME、GIT_COMMITTER_EMAIL 和 GIT_COMMITTER_DATE 会从当前提交中提取并导出到环境中，以便在过滤器运行后影响 <a href='{{< relurl "docs/git-commit-tree/zh_HANS-CN" >}}'>git-commit-tree[1]</a> 创建的替换提交的作者和提交者身份。</p>
+<p>过滤器的应用顺序如下。 &lt;命令&gt; 参数总是在 shell 上下文中使用 <em>eval</em> 命令进行评估（由于技术原因，提交过滤器是个明显的例外）。 在此之前，<span class='synopsis'><code>$GIT_COMMIT</code></span> 环境变量将被设置为包含被改写提交的 id。 此外，GIT_AUTHOR_NAME、GIT_AUTHOR_EMAIL、GIT_AUTHOR_DATE、GIT_COMMITTER_NAME、GIT_COMMITTER_EMAIL 和 GIT_COMMITTER_DATE 会从当前提交中提取并导出到环境中，以便在过滤器运行后影响 <a href='{{< relurl "docs/git-commit-tree/zh_HANS-CN" >}}'>git-commit-tree[1]</a> 创建的替换提交的作者和提交者身份。</p>
 </div>
 <div class="paragraph">
 <p>如果对 &lt;命令&gt; 的任何评估返回非零的退出状态，则整个操作将被终止。</p>
@@ -118,7 +141,7 @@ aliases:
 <p>您可以在此过滤器中使用 <em>map</em> 便利函数，也可以使用其他便利函数。 例如，调用 <em>skip_commit "$@"</em> 会忽略当前提交（但不会忽略其更改！如果想这样做，请使用 <em>git rebase</em>）。</p>
 </div>
 <div class="paragraph">
-<p>如果不希望保留单父提交，也可以使用 <code>git_commit_non_empty_tree "$@"</code> 代替 <code>git commit-tree "$@"</code>，这样不会对提交树造成任何改变。</p>
+<p>如果不希望保留单父提交，也可以使用 <span class='synopsis'><code>git_commit_non_empty_tree</code> <code>"$@"</code></span> 代替 <span class='synopsis'><code>git</code> <code>commit-tree</code> <code>"$@"</code></span>，这样不会对提交树造成任何改变。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-filter-branch---tag-name-filterltgt"> <a class="anchor" href="#git-filter-branch---tag-name-filter"></a> <a class="anchor" href="#git-filter-branch---tag-name-filterltgt"></a>--tag-name-filter &lt;命令&gt; </dt>
@@ -133,7 +156,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-filter-branch---prune-empty"> <a class="anchor" href="#git-filter-branch---prune-empty"></a>--prune-empty </dt>
 <dd>
-<p>某些过滤器会产生空提交，从而使树保持原样。 此选项指示 git-filter-branch，如果这些提交的父提交中正好有一个或零个未剪枝，则删除这些提交；因此，合并提交将保持不变。 此选项不能与 <code>--commit-filter</code> 一起使用，不过在提交过滤器中使用所提供的 <code>git_commit_non_empty_tree</code> 函数可以达到同样的效果。</p>
+<p>某些过滤器会产生空提交，从而使树保持原样。 此选项指示 git-filter-branch，如果这些提交的父提交中正好有一个或零个未剪枝，则删除这些提交；因此，合并提交将保持不变。 此选项不能与 <span class='synopsis'><code>--commit-filter</code></span> 一起使用，不过在提交过滤器中使用所提供的 <span class='synopsis'><code>git_commit_non_empty_tree</code></span> 函数可以达到同样的效果。</p>
 </dd>
 <dt class="hdlist1" id="git-filter-branch---originalltgt"> <a class="anchor" href="#git-filter-branch---original"></a> <a class="anchor" href="#git-filter-branch---originalltgt"></a>--original &lt;命名空间&gt; </dt>
 <dd>
@@ -154,7 +177,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-filter-branch-ltgt82308203"> <a class="anchor" href="#git-filter-branch-"></a> <a class="anchor" href="#git-filter-branch-ltgt82308203"></a>&lt;版本列表选项&gt;&#8230;&#8203; </dt>
 <dd>
-<p><em>git rev-list</em> 的参数。 这些选项包含的所有正引用都会被重写。 您也可以指定诸如 <code>--all</code> 之类的选项，但必须使用 <code>--</code> 将它们与 <em>git filter-branch</em> 选项分开。隐含 <a href="#Remap_to_ancestor">重映射到祖先</a>。</p>
+<p><em>git rev-list</em> 的参数。 这些选项包含的所有正引用都会被重写。 您也可以指定诸如 <span class='synopsis'><code>--all</code></span> 之类的选项，但必须使用 <span class='synopsis'><code>--</code></span> 将它们与 <em>git filter-branch</em> 选项分开。隐含 <a href="#Remap_to_ancestor">重映射到祖先</a>。</p>
 </dd>
 </dl>
 </div>
@@ -170,7 +193,7 @@ aliases:
 <h2 id="_退出状态码"><a class="anchor" href="#_退出状态码"></a>退出状态码</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>成功时，退出状态为 <code>0</code>。 如果过滤器找不到要重写的提交，则退出状态为 <code>2</code>。 如果出现其他错误，退出状态可能是任何其他非零值。</p>
+<p>成功时，退出状态为 <span class='synopsis'><code>0</code></span>。 如果过滤器找不到要重写的提交，则退出状态为 <span class='synopsis'><code>2</code></span>。 如果出现其他错误，退出状态可能是任何其他非零值。</p>
 </div>
 </div>
 </div>
@@ -186,10 +209,10 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>但是，如果某个提交的树中没有该文件，那么简单的 <code>rm filename</code> 就会在该树和提交中失败。 因此，你可能需要使用 <code>rm -f filename</code> 作为脚本。</p>
+<p>但是，如果某个提交的树中没有该文件，那么简单的 <span class='synopsis'><code>rm</code> <code>filename</code></span> 就会在该树和提交中失败。 因此，你可能需要使用 <span class='synopsis'><code>rm</code> <code>-f</code> <code>filename</code></span> 作为脚本。</p>
 </div>
 <div class="paragraph">
-<p>将 <code>--index-filter</code> 与 <em>git rm</em> 一起使用，速度会快很多。 和使用 <code>rm filename</code> 一样，如果文件不在提交树中，<code>git rm --cached filename</code> 也会失败。 如果你想 “完全遗忘 ” 一个文件，它何时进入历史并不重要，所以我们还添加了 <code>--ignore-unmatch</code>：</p>
+<p>将 <span class='synopsis'><code>--index-filter</code></span> 与 <em>git rm</em> 一起使用，速度会快很多。 和使用 <span class='synopsis'><code>rm</code> <code>filename</code></span> 一样，如果文件不在提交树中，<span class='synopsis'><code>git</code> <code>rm</code> <code>--cached</code> <code>filename</code></span> 也会失败。 如果你想 “完全遗忘 ” 一个文件，它何时进入历史并不重要，所以我们还添加了 <span class='synopsis'><code>--ignore-unmatch</code></span>：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -200,7 +223,7 @@ aliases:
 <p>现在，您将获得保存在 HEAD 中的改写历史记录。</p>
 </div>
 <div class="paragraph">
-<p>重写仓库，使其看起来就像 <code>foodir/</code> 是其项目根目录，并丢弃所有其他历史记录：</p>
+<p>重写仓库，使其看起来就像 <span class='synopsis'><code>foodir/</code></span> 是其项目根目录，并丢弃所有其他历史记录：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -208,7 +231,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>这样，你就可以把一个库子目录变成自己的仓库。 请注意 <code>--</code> 将 <em>filter-branch</em> 选项与修订选项分开，而 <code>--all</code> 则用于重写所有分支和标记。</p>
+<p>这样，你就可以把一个库子目录变成自己的仓库。 请注意 <span class='synopsis'><code>--</code></span> 将 <em>filter-branch</em> 选项与修订选项分开，而 <span class='synopsis'><code>--all</code></span> 则用于重写所有分支和标记。</p>
 </div>
 <div class="paragraph">
 <p>将一个提交（通常位于另一个历史记录的顶端）设置为当前初始提交的父提交，以便将另一个历史记录粘贴到当前历史记录的后面：</p>
@@ -274,7 +297,7 @@ git filter-branch $graft-id..HEAD</pre>
 <p><strong>注意</strong> 这些提交所引入的变更，如果没有被后续提交所还原的改动仍将保留在重写分支中。如果你想要把_改动_连同提交一起扔掉，应该使用交互式的 <em>git rebase</em>。</p>
 </div>
 <div class="paragraph">
-<p>你可以使用 <code>--msg-filter</code> 重写提交日志信息。 例如，<em>git svn</em> 创建的仓库中的 <em>git svn-id</em> 字符串就可以用这种方法删除：</p>
+<p>你可以使用 <span class='synopsis'><code>--msg-filter</code></span> 重写提交日志信息。 例如，<em>git svn</em> 创建的仓库中的 <em>git svn-id</em> 字符串就可以用这种方法删除：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -295,7 +318,7 @@ git filter-branch $graft-id..HEAD</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><code>--env-filter</code> 选项可用于修改提交者和/或作者身份。 例如，如果你发现由于 user.email 配置错误而导致提交者身份错误，你可以在发布项目之前像这样进行更正：</p>
+<p><span class='synopsis'><code>--env-filter</code></span> 选项可用于修改提交者和/或作者身份。 例如，如果你发现由于 user.email 配置错误而导致提交者身份错误，你可以在发布项目之前像这样进行更正：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -359,15 +382,15 @@ git filter-branch ... D..H --not C</pre>
 <h2 id="_缩减仓库的清单"><a class="anchor" href="#_缩减仓库的清单"></a>缩减仓库的清单</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>git-filter-branch 可以用来去掉一部分文件，通常与 <code>--index-filter</code> 和 <code>--subdirectory-filter</code> 结合使用。 人们希望生成的仓库比原始仓库更小，但实际上还需要一些步骤才能使仓库更小，因为 Git 会尽量避免丢失对象，直到你让它这么做为止。 首先确保：</p>
+<p>git-filter-branch 可以用来去掉一部分文件，通常与 <span class='synopsis'><code>--index-filter</code></span> 和 <span class='synopsis'><code>--subdirectory-filter</code></span> 结合使用。 人们希望生成的仓库比原始仓库更小，但实际上还需要一些步骤才能使仓库更小，因为 Git 会尽量避免丢失对象，直到你让它这么做为止。 首先确保：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>如果一个 blob 在其生命周期内被移动过，你就真的删除了文件名的所有变体。 <code>git log --name-only --follow --all -- filename</code> 可以帮你找到重命名。</p>
+<p>如果一个 blob 在其生命周期内被移动过，你就真的删除了文件名的所有变体。 <span class='synopsis'><code>git</code> <code>log</code> <code>--name-only</code> <code>--follow</code> <code>--all</code> <code>--</code> <code>filename</code></span> 可以帮你找到重命名。</p>
 </li>
 <li>
-<p>你真的过滤了所有引用：在调用 git-filter-branch 时使用 <code>--tag-name-filter cat ----all</code> 。</p>
+<p>你真的过滤了所有引用：在调用 git-filter-branch 时使用 <span class='synopsis'><code>--tag-name-filter</code> <code>cat</code> <code>----all</code></span> 。</p>
 </li>
 </ul>
 </div>
@@ -377,7 +400,7 @@ git filter-branch ... D..H --not C</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>使用 <code>git clone file:///path/to/repo</code> 克隆它。 克隆后将不会有被删除的对象。 参见 <a href='{{< relurl "docs/git-clone/zh_HANS-CN" >}}'>git-clone[1]</a>。 (注意，用纯路径克隆只会硬链接一切！）</p>
+<p>使用 <span class='synopsis'><code>git</code> <code>clone</code> <code>file:///path/to/repo</code></span> 克隆它。 克隆后将不会有被删除的对象。 参见 <a href='{{< relurl "docs/git-clone/zh_HANS-CN" >}}'>git-clone[1]</a>。 (注意，用纯路径克隆只会硬链接一切！）</p>
 </li>
 </ul>
 </div>
@@ -387,13 +410,13 @@ git filter-branch ... D..H --not C</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>删除由 git-filter-branch 支持的原始参考文件：说 <code>git for-each-ref --format="%(引用名称)" refs/original/ | xargs -n 1 git update-ref -d</code>.</p>
+<p>删除由 git-filter-branch 支持的原始参考文件：说 <span class='synopsis'><em>git for-each-ref --format="%(引用名称)" refs/original/ | xargs -n 1 git update-ref -d</em></span>.</p>
 </li>
 <li>
-<p>使用 <code>git reflog expire --expire=now --all</code> 过期所有引用日志。</p>
+<p>使用 <span class='synopsis'><code>git</code> <code>reflog</code> <code>expire</code> <code>--expire=now</code> <code>--all</code></span> 过期所有引用日志。</p>
 </li>
 <li>
-<p>使用 <code>git gc --prune=now</code> 清理所有未引用的对象（如果你的 git-gc 还不够新，不支持 <code>--prune</code> 的参数，则使用 <code>git repack -ad; git prune</code> 代替）。</p>
+<p>使用 <span class='synopsis'><code>git</code> <code>gc</code> <code>--prune=now</code></span> 清理所有未引用的对象（如果你的 git-gc 还不够新，不支持 <span class='synopsis'><code>--prune</code></span> 的参数，则使用 <span class='synopsis'><em>git repack -ad; git prune</em></span> 代替）。</p>
 </li>
 </ul>
 </div>
@@ -408,7 +431,7 @@ git filter-branch ... D..H --not C</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>在编辑文件时，git-filter-branch 会检查原始仓库中的每个提交。 如果你的仓库有 <code>10^5</code> 个文件和 <code>10^5</code> 次提交，但每次提交只修改了五个文件，那么 git-filter-branch 会让你做 <code>10^10</code> 次修改，尽管（最多）只有 <code>5*10^5</code> 个唯一的 blob。</p>
+<p>在编辑文件时，git-filter-branch 会检查原始仓库中的每个提交。 如果你的仓库有 <span class='synopsis'><code>10^5</code></span> 个文件和 <span class='synopsis'><code>10^5</code></span> 次提交，但每次提交只修改了五个文件，那么 git-filter-branch 会让你做 <span class='synopsis'><code>10^10</code></span> 次修改，尽管（最多）只有 <span class='synopsis'><code>5*10^5</code></span> 个唯一的 blob。</p>
 </li>
 <li>
 <p>如果你试图作弊，让 git-filter-branch 只对提交中修改过的文件起作用，那么会发生两种情况</p>
@@ -464,7 +487,7 @@ git filter-branch ... D..H --not C</pre>
 <p>带有空格的文件名通常会被 shell 片段错误处理，因为它们会给 shell 管道带来问题。 并非每个人都熟悉 find -print0、xargs -0、git-ls-files -z 等。 即使是熟悉这些的人，也可能会认为这些标记无关紧要，因为早在进行过滤的人加入项目之前，就有人重命名了他们的 repo 中的任何此类文件。 即使是熟悉处理带空格参数的人，也可能不会这么做，因为他们没有考虑到所有可能出错的地方。</p>
 </li>
 <li>
-<p>非英文字符串的文件名即使在想要的目录中，也会被悄悄移除。 只保留想要的路径通常是使用底层命令来完成的，如 <code>git ls-files | grep -v ^WANTED_DIR/ | xargs git rm</code>。 ls-files 只在需要时才会引用文件名，因此人们可能不会注意到其中一个文件与通配符不匹配（至少在为时已晚之前不会注意到）。 是的，知道 core.quotePath 的人可以避免这种情况（除非他们有其他特殊字符，如 \t、\n 或 " ），使用 ls-files -z 而不是 grep 的人也可以避免这种情况，但这并不意味着他们会这样做。</p>
+<p>非英文字符串的文件名即使在想要的目录中，也会被悄悄移除。 只保留想要的路径通常是使用底层命令来完成的，如 <span class='synopsis'><code>git</code> <code>ls-files</code> | <code>grep</code> <code>-v</code> <code>^WANTED_DIR/</code> | <code>xargs</code> <code>git</code> <code>rm</code></span>。 ls-files 只在需要时才会引用文件名，因此人们可能不会注意到其中一个文件与通配符不匹配（至少在为时已晚之前不会注意到）。 是的，知道 core.quotePath 的人可以避免这种情况（除非他们有其他特殊字符，如 \t、\n 或 " ），使用 ls-files -z 而不是 grep 的人也可以避免这种情况，但这并不意味着他们会这样做。</p>
 </li>
 <li>
 <p>同样，在移动文件时，我们会发现带有非字符串或特殊字符的文件名最终会出现在不同的目录中，其中包括一个双引号字符。 (从技术上讲，这与上面的引号问题是一样的，但也许是一个有趣的不同方式，它可以并已经表现为一个问题）</p>

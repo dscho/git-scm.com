@@ -9,6 +9,23 @@ docname: git-cherry-pick
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-cherry-pick/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 序列器子命令
+  id: _序列器子命令
+- text: 实例
+  id: _实例
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -40,16 +57,16 @@ aliases:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>当前的分支和 <code>HEAD</code> 指针保持在最后一次成功提交的位置。</p>
+<p>当前的分支和 <span class='synopsis'><code>HEAD</code></span> 指针保持在最后一次成功提交的位置。</p>
 </li>
 <li>
-<p><code>CHERRY_PICK_HEAD</code> 引用被设置为指向引入难以应用的修改的提交。</p>
+<p><span class='synopsis'><code>CHERRY_PICK_HEAD</code></span> 引用被设置为指向引入难以应用的修改的提交。</p>
 </li>
 <li>
 <p>在索引文件和你的工作区中，更改应用得很干净的路径都被更新。</p>
 </li>
 <li>
-<p>对于冲突的路径，索引文件最多记录三个版本，如 <a href='{{< relurl "docs/git-merge/zh_HANS-CN" >}}'>git-merge[1]</a> 的 “正确的合并” 部分所述。 工作区文件将包括对冲突的描述，括号里是通常的冲突标记 <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> 和 <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>。</p>
+<p>对于冲突的路径，索引文件最多记录三个版本，如 <a href='{{< relurl "docs/git-merge/zh_HANS-CN" >}}'>git-merge[1]</a> 的 “正确的合并” 部分所述。 工作区文件将包括对冲突的描述，括号里是通常的冲突标记 <span class='synopsis'><em>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</em></span> 和 <span class='synopsis'><em>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</em></span>。</p>
 </li>
 <li>
 <p>不做其他修改。</p>
@@ -68,7 +85,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-cherry-pick-ltgt82308203"> <a class="anchor" href="#git-cherry-pick-"></a> <a class="anchor" href="#git-cherry-pick-ltgt82308203"></a>&lt;提交&gt;&#8230;&#8203; </dt>
 <dd>
-<p>拣选（cherry-pick）的提交。 更完整的拼写提交的方法列表，见 <a href='{{< relurl "docs/gitrevisions/zh_HANS-CN" >}}'>gitrevisions[7]</a>。 可以传递提交集，但默认不做遍历，就像指定了 <code>--no-walk</code> 选项一样，见 <a href='{{< relurl "docs/git-rev-list/zh_HANS-CN" >}}'>git-rev-list[1]</a>。注意，指定一个范围会把所有 &lt;提交&gt;&#8230;&#8203; 参数送入一个单一的修订版（见后面的例子，使用 <em>maint master&#8230;&#8203;next</em>）。</p>
+<p>拣选（cherry-pick）的提交。 更完整的拼写提交的方法列表，见 <a href='{{< relurl "docs/gitrevisions/zh_HANS-CN" >}}'>gitrevisions[7]</a>。 可以传递提交集，但默认不做遍历，就像指定了 <span class='synopsis'><code>--no-walk</code></span> 选项一样，见 <a href='{{< relurl "docs/git-rev-list/zh_HANS-CN" >}}'>git-rev-list[1]</a>。注意，指定一个范围会把所有 &lt;提交&gt;&#8230;&#8203; 参数送入一个单一的修订版（见后面的例子，使用 <em>maint master&#8230;&#8203;next</em>）。</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick--e"> <a class="anchor" href="#git-cherry-pick--e"></a>-e </dt>
 <dt class="hdlist1" id="git-cherry-pick---edit"> <a class="anchor" href="#git-cherry-pick---edit"></a>--edit </dt>
@@ -77,7 +94,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---cleanupltgt"> <a class="anchor" href="#git-cherry-pick---cleanup"></a> <a class="anchor" href="#git-cherry-pick---cleanupltgt"></a>--cleanup=&lt;模式&gt; </dt>
 <dd>
-<p>这个选项决定了提交信息在传递给提交机制之前将如何进行清理。更多细节见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a>。特别是，如果 <em>&lt;模式&gt;</em> 的值为 <code>scissors</code>，那么在发生冲突时，<code>scissors</code> 将被附加到 <code>MERGE_MSG</code> 上。</p>
+<p>这个选项决定了提交信息在传递给提交机制之前将如何进行清理。更多细节见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a>。特别是，如果 <em>&lt;模式&gt;</em> 的值为 <span class='synopsis'><code>scissors</code></span>，那么在发生冲突时，<span class='synopsis'><code>scissors</code></span> 将被附加到 <span class='synopsis'><code>MERGE_MSG</code></span> 上。</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick--x"> <a class="anchor" href="#git-cherry-pick--x"></a>-x </dt>
 <dd>
@@ -85,7 +102,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cherry-pick--r"> <a class="anchor" href="#git-cherry-pick--r"></a>-r </dt>
 <dd>
-<p>过去，该命令默认为做上述的 <code>-x</code>，<code>-r</code> 是禁用它。 现在默认是不做 <code>-x</code> ，所以这个选项是一个无用的选项。</p>
+<p>过去，该命令默认为做上述的 <span class='synopsis'><code>-x</code></span>，<span class='synopsis'><code>-r</code></span> 是禁用它。 现在默认是不做 <span class='synopsis'><code>-x</code></span> ，所以这个选项是一个无用的选项。</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick--mltgt"> <a class="anchor" href="#git-cherry-pick--m"></a> <a class="anchor" href="#git-cherry-pick--mltgt"></a>-m &lt;父提交数量&gt; </dt>
 <dt class="hdlist1" id="git-cherry-pick---mainlineltgt"> <a class="anchor" href="#git-cherry-pick---mainline"></a> <a class="anchor" href="#git-cherry-pick---mainlineltgt"></a>--mainline &lt;父提交数量&gt; </dt>
@@ -103,13 +120,13 @@ aliases:
 <dt class="hdlist1" id="git-cherry-pick--s"> <a class="anchor" href="#git-cherry-pick--s"></a>-s </dt>
 <dt class="hdlist1" id="git-cherry-pick---signoff"> <a class="anchor" href="#git-cherry-pick---signoff"></a>--signoff </dt>
 <dd>
-<p>在提交信息的末尾添加一个 <code>Signed-off-by</code> 的尾注。 更多信息见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a> 中的 signoff 选项。</p>
+<p>在提交信息的末尾添加一个 <span class='synopsis'><code>Signed-off-by</code></span> 的尾注。 更多信息见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a> 中的 signoff 选项。</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick--Sltkeyidgt"> <a class="anchor" href="#git-cherry-pick--Skeyid"></a> <a class="anchor" href="#git-cherry-pick--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
 <dt class="hdlist1" id="git-cherry-pick---gpg-signltIDgt"> <a class="anchor" href="#git-cherry-pick---gpg-signID"></a> <a class="anchor" href="#git-cherry-pick---gpg-signltIDgt"></a>--gpg-sign[=&lt;键 ID&gt;] </dt>
 <dt class="hdlist1" id="git-cherry-pick---no-gpg-sign"> <a class="anchor" href="#git-cherry-pick---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
-<p>GPG 签名提交。<code>keyid</code> 参数是可选的，默认为提交者身份；如果指定了，则必须与选项相连，不加空格。<code>--no-gpg-sign</code> 用于还原 <code>commit.gpgSign</code> 配置变量和先前的 <code>--gpg-sign</code>。</p>
+<p>GPG 签名提交。<span class='synopsis'><code>keyid</code></span> 参数是可选的，默认为提交者身份；如果指定了，则必须与选项相连，不加空格。<span class='synopsis'><code>--no-gpg-sign</code></span> 用于还原 <span class='synopsis'><code>commit.gpgSign</code></span> 配置变量和先前的 <span class='synopsis'><code>--gpg-sign</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---ff"> <a class="anchor" href="#git-cherry-pick---ff"></a>--ff </dt>
 <dd>
@@ -117,7 +134,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---allow-empty"> <a class="anchor" href="#git-cherry-pick---allow-empty"></a>--allow-empty </dt>
 <dd>
-<p>By default, cherry-picking an empty commit will fail, indicating that an explicit invocation of <code>git commit --allow-empty</code> is required. This option overrides that behavior, allowing empty commits to be preserved automatically in a cherry-pick. Note that when "--ff" is in effect, empty commits that meet the "fast-forward" requirement will be kept even without this option. Note also, that use of this option only keeps commits that were initially empty (i.e. the commit recorded the same tree as its parent). Commits which are made empty due to a previous commit will cause the cherry-pick to fail. To force the inclusion of those commits, use <code>--empty=keep</code>.</p>
+<p>By default, cherry-picking an empty commit will fail, indicating that an explicit invocation of <span class='synopsis'><code>git</code> <code>commit</code> <code>--allow-empty</code></span> is required. This option overrides that behavior, allowing empty commits to be preserved automatically in a cherry-pick. Note that when "--ff" is in effect, empty commits that meet the "fast-forward" requirement will be kept even without this option. Note also, that use of this option only keeps commits that were initially empty (i.e. the commit recorded the same tree as its parent). Commits which are made empty due to a previous commit will cause the cherry-pick to fail. To force the inclusion of those commits, use <span class='synopsis'><code>--empty=keep</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---allow-empty-message"> <a class="anchor" href="#git-cherry-pick---allow-empty-message"></a>--allow-empty-message </dt>
 <dd>
@@ -130,15 +147,15 @@ aliases:
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-cherry-pick-codedropcode"> <a class="anchor" href="#git-cherry-pick-drop"></a> <a class="anchor" href="#git-cherry-pick-codedropcode"></a><code>drop</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodedropcodespan"> <a class="anchor" href="#git-cherry-pick-drop"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodedropcodespan"></a><span class='synopsis'><code>drop</code></span> </dt>
 <dd>
 <p>这个提交会被丢弃。</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codekeepcode"> <a class="anchor" href="#git-cherry-pick-keep"></a> <a class="anchor" href="#git-cherry-pick-codekeepcode"></a><code>keep</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodekeepcodespan"> <a class="anchor" href="#git-cherry-pick-keep"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodekeepcodespan"></a><span class='synopsis'><code>keep</code></span> </dt>
 <dd>
-<p>这个提交会被保留。暗含 <code>--allow-empty</code> 选项。</p>
+<p>这个提交会被保留。暗含 <span class='synopsis'><code>--allow-empty</code></span> 选项。</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codestopcode"> <a class="anchor" href="#git-cherry-pick-stop"></a> <a class="anchor" href="#git-cherry-pick-codestopcode"></a><code>stop</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodestopcodespan"> <a class="anchor" href="#git-cherry-pick-stop"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodestopcodespan"></a><span class='synopsis'><code>stop</code></span> </dt>
 <dd>
 <p>当提交被应用时，挑拣操作将停止，允许您检查该提交。这是默认行为。</p>
 </dd>
@@ -147,12 +164,12 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>请注意，<code>--empty=drop</code> 和 <code>--empty=stop</code> 仅指定如何处理最初不是空的提交，而是由于之前的提交而变为空的情况。除非指定了 <code>--empty=keep</code> 或 <code>--allow-empty</code> 选项，否则最初就是空的提交仍然会导致挑拣操作失败。</p>
+<p>请注意，<span class='synopsis'><code>--empty=drop</code></span> 和 <span class='synopsis'><code>--empty=stop</code></span> 仅指定如何处理最初不是空的提交，而是由于之前的提交而变为空的情况。除非指定了 <span class='synopsis'><code>--empty=keep</code></span> 或 <span class='synopsis'><code>--allow-empty</code></span> 选项，否则最初就是空的提交仍然会导致挑拣操作失败。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---keep-redundant-commits"> <a class="anchor" href="#git-cherry-pick---keep-redundant-commits"></a>--keep-redundant-commits </dt>
 <dd>
-<p>Deprecated synonym for <code>--empty=keep</code>.</p>
+<p>Deprecated synonym for <span class='synopsis'><code>--empty=keep</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---strategyltgt"> <a class="anchor" href="#git-cherry-pick---strategy"></a> <a class="anchor" href="#git-cherry-pick---strategyltgt"></a>--strategy=&lt;策略&gt; </dt>
 <dd>
@@ -166,7 +183,7 @@ aliases:
 <dt class="hdlist1" id="git-cherry-pick---rerere-autoupdate"> <a class="anchor" href="#git-cherry-pick---rerere-autoupdate"></a>--rerere-autoupdate </dt>
 <dt class="hdlist1" id="git-cherry-pick---no-rerere-autoupdate"> <a class="anchor" href="#git-cherry-pick---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
 <dd>
-<p>在 rerere 机制重用当前冲突的记录解析来更新工作树中的文件后，允许它也用解析的结果来更新索引。 <code>--no-rerere-autoupdate`是一个很好的方法，在用单独的 `git add</code> 提交结果到索引之前，可以反复检查 <code>rerere</code> 所做的事情，并抓住潜在的错误合并。</p>
+<p>在 rerere 机制重用当前冲突的记录解析来更新工作树中的文件后，允许它也用解析的结果来更新索引。 <span class='synopsis'><em>--no-rerere-autoupdate`是一个很好的方法，在用单独的 `git add</em></span> 提交结果到索引之前，可以反复检查 <span class='synopsis'><code>rerere</code></span> 所做的事情，并抓住潜在的错误合并。</p>
 </dd>
 </dl>
 </div>
@@ -202,33 +219,33 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmastercode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmastercode"></a><code>git cherry-pick master</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemastercodespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemastercodespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>master</code></span> </dt>
 <dd>
 <p>应用主分支顶端的提交所引入的修改，并以这个修改创建一个新的提交。</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmastercode-1"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster-1"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmastercode-1"></a><code>git cherry-pick ..master</code> </dt>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickHEADmastercode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickHEADmaster"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickHEADmastercode"></a><code>git cherry-pick ^HEAD master</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemastercodespan-1"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster-1"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemastercodespan-1"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>..master</code></span> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodeHEADcodecodemastercodespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickHEADmaster"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodeHEADcodecodemastercodespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>^HEAD</code> <code>master</code></span> </dt>
 <dd>
 <p>应用所有属于 master 但不属于 HEAD 的祖先的提交所带来的变化，产生新的提交。</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaintnextmastercode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaintnextmaster"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaintnextmastercode"></a><code>git cherry-pick maint next ^master</code> </dt>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaintmasternextcode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaintmasternext"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaintmasternextcode"></a><code>git cherry-pick maint master..next</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemaintcodecodenextcodecodemastercodespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaintnextmaster"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemaintcodecodenextcodecodemastercodespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>maint</code> <code>next</code> <code>^master</code></span> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemaintcodecodemasternextcodespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaintmasternext"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemaintcodecodemasternextcodespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>maint</code> <code>master..next</code></span> </dt>
 <dd>
-<p>应用所有属于 maint 或 next 的祖先的提交所带来的变化，但不包括 master 或其任何祖先。 注意，后者不是指 <code>maint</code> 和 <code>master</code> 与 <code>next</code> 之间的一切；具体来说，如果 <code>maint</code> 包含在 <code>master</code> 中，则不会被使用。</p>
+<p>应用所有属于 maint 或 next 的祖先的提交所带来的变化，但不包括 master 或其任何祖先。 注意，后者不是指 <span class='synopsis'><code>maint</code></span> 和 <span class='synopsis'><code>master</code></span> 与 <span class='synopsis'><code>next</code></span> 之间的一切；具体来说，如果 <span class='synopsis'><code>maint</code></span> 包含在 <span class='synopsis'><code>master</code></span> 中，则不会被使用。</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaster4master2code"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster4master2"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaster4master2code"></a><code>git cherry-pick master~4 master~2</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemaster4codecodemaster2codespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster4master2"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemaster4codecodemaster2codespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>master~4</code> <code>master~2</code></span> </dt>
 <dd>
 <p>应用 master 指向的第五次和最后第三次提交所带来的变化，并根据这些变化创建两个新的提交。</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pick-nmaster1nextcode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pick-nmaster1next"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pick-nmaster1nextcode"></a><code>git cherry-pick -n master~1 next</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecode-ncodecodemaster1codecodenextcodespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pick-nmaster1next"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecode-ncodecodemaster1codecodenextcodespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>-n</code> <code>master~1</code> <code>next</code></span> </dt>
 <dd>
 <p>在工作区和索引中应用 master 指向的倒数第二个提交和 next 指向的最后一个提交所带来的变化，但不要用这些变化创建任何提交。</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pick--ffnextcode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pick--ffnext"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pick--ffnextcode"></a><code>git cherry-pick --ff ..next</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecode--ffcodecodenextcodespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pick--ffnext"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecode--ffcodecodenextcodespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>--ff</code> <code>..next</code></span> </dt>
 <dd>
 <p>如果历史是线性的，并且 HEAD 是 next 的祖先，则更新工作区并将 HEAD 指针向前推进以匹配 next。 否则，将那些在 next 但不在 HEAD 中的提交所带来的变化应用到当前分支，为每个新变化创建一个新的提交。</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitrev-list--reversemaster--READMEgitcherry-pick-n--stdincode"> <a class="anchor" href="#git-cherry-pick-gitrev-list--reversemaster--READMEgitcherry-pick-n--stdin"></a> <a class="anchor" href="#git-cherry-pick-codegitrev-list--reversemaster--READMEgitcherry-pick-n--stdincode"></a><code>git rev-list --reverse master -- README | git cherry-pick -n --stdin</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecoderev-listcodecode--reversecodecodemastercodecode--codecodeREADMEcodecodegitcodecodecherry-pickcodecode-ncodecode--stdincodespan"> <a class="anchor" href="#git-cherry-pick-gitrev-list--reversemaster--READMEgitcherry-pick-n--stdin"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecoderev-listcodecode--reversecodecodemastercodecode--codecodeREADMEcodecodegitcodecodecherry-pickcodecode-ncodecode--stdincodespan"></a><span class='synopsis'><code>git</code> <code>rev-list</code> <code>--reverse</code> <code>master</code> <code>--</code> <code>README</code> | <code>git</code> <code>cherry-pick</code> <code>-n</code> <code>--stdin</code></span> </dt>
 <dd>
 <p>将主干分支上所有触及 README 的提交所带来的变化应用到工作区和索引中，这样就可以检查结果，并在合适的时候做成一个新的提交。</p>
 </dd>
@@ -248,7 +265,7 @@ $ git cherry-pick -Xpatience topic^  <b class="conum">(4)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>应用将由 <code>git show topic^</code> 显示的变化。 在这个例子中，补丁没有干净地应用，所以冲突的信息被写入索引和工作树，没有新的提交结果。</p>
+<p>应用将由 <span class='synopsis'><code>git</code> <code>show</code> <code>topic^</code></span> 显示的变化。 在这个例子中，补丁没有干净地应用，所以冲突的信息被写入索引和工作树，没有新的提交结果。</p>
 </li>
 <li>
 <p>总结需要调节的变化</p>
@@ -257,7 +274,7 @@ $ git cherry-pick -Xpatience topic^  <b class="conum">(4)</b></pre>
 <p>取消 cherry-pick。 换句话说，返回到 cherry-pick 前的状态，保留你在工作区上的任何本地修改。</p>
 </li>
 <li>
-<p>尝试再次应用由 <code>topic^</code> 引入的修改，花费额外的时间来避免基于不正确匹配的上下文行的错误。</p>
+<p>尝试再次应用由 <span class='synopsis'><code>topic^</code></span> 引入的修改，花费额外的时间来避免基于不正确匹配的上下文行的错误。</p>
 </li>
 </ol>
 </div>

@@ -9,6 +9,21 @@ docname: git-checkout-index
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-checkout-index/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 使用 --temp 或 --stage=all
+  id: _使用_temp_或_stageall
+- text: 实例
+  id: _实例
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -62,7 +77,7 @@ aliases:
 <dt class="hdlist1" id="git-checkout-index--a"> <a class="anchor" href="#git-checkout-index--a"></a>-a </dt>
 <dt class="hdlist1" id="git-checkout-index---all"> <a class="anchor" href="#git-checkout-index---all"></a>--all </dt>
 <dd>
-<p>检查索引中的所有文件，但设置了跳过工作树位的文件除外（参见 <code>--ignore-skip-worktree-bits</code>）。 不能与显式文件名一起使用。</p>
+<p>检查索引中的所有文件，但设置了跳过工作树位的文件除外（参见 <span class='synopsis'><code>--ignore-skip-worktree-bits</code></span>）。 不能与显式文件名一起使用。</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-index--n"> <a class="anchor" href="#git-checkout-index--n"></a>-n </dt>
 <dt class="hdlist1" id="git-checkout-index---no-create"> <a class="anchor" href="#git-checkout-index---no-create"></a>--no-create </dt>
@@ -91,7 +106,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-checkout-index--z"> <a class="anchor" href="#git-checkout-index--z"></a>-z </dt>
 <dd>
-<p>只对 <code>--stdin</code> 有意义；路径用 NUL 字符分隔，而不用 LF。</p>
+<p>只对 <span class='synopsis'><code>--stdin</code></span> 有意义；路径用 NUL 字符分隔，而不用 LF。</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-index---"> <a class="anchor" href="#git-checkout-index---"></a>-- </dt>
 <dd>
@@ -103,7 +118,7 @@ aliases:
 <p>标志的顺序曾经很重要，但现在已经不重要了。</p>
 </div>
 <div class="paragraph">
-<p>只做 <code>git checkout-index`什么也做不了。你可能是指 `git checkout-index -a</code>。如果你想强制执行，就需要 <code>git checkout-index -f -a</code>。</p>
+<p>只做 <span class='synopsis'><em>git checkout-index`什么也做不了。你可能是指 `git checkout-index -a</em></span>。如果你想强制执行，就需要 <span class='synopsis'><code>git</code> <code>checkout-index</code> <code>-f</code> <code>-a</code></span>。</p>
 </div>
 <div class="paragraph">
 <p>直观性不是目的。可重复性才是。“没有参数就意味着没有工作” 这一行为的原因是，脚本应该能够实现以下功能：</p>
@@ -114,7 +129,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>会强制将所有现有的 <code>*.h</code> 文件替换为其缓存副本。如果空命令行意味着 "all"，那么这将强制刷新索引中的所有内容，而这并不是重点。 但由于 "git checkout-index" 接受 --stdin，因此使用起来会更快：</p>
+<p>会强制将所有现有的 <span class='synopsis'><code>*.h</code></span> 文件替换为其缓存副本。如果空命令行意味着 "all"，那么这将强制刷新索引中的所有内容，而这并不是重点。 但由于 "git checkout-index" 接受 --stdin，因此使用起来会更快：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -122,7 +137,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>当你知道其余的都是文件名时，<code>--</code> 是一个好主意；它可以防止出现文件名为 <code>-a</code> 的问题。 在脚本中使用 <code>--</code> 可能是个好主意。</p>
+<p>当你知道其余的都是文件名时，<span class='synopsis'><code>--</code></span> 是一个好主意；它可以防止出现文件名为 <span class='synopsis'><code>-a</code></span> 的问题。 在脚本中使用 <span class='synopsis'><code>--</code></span> 可能是个好主意。</p>
 </div>
 </div>
 </div>
@@ -130,7 +145,7 @@ aliases:
 <h2 id="_使用_temp_或_stageall"><a class="anchor" href="#_使用_temp_或_stageall"></a>使用 --temp 或 --stage=all</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>当使用了 <code>--temp</code>（或由 `--stage=all`隐含）时，"git checkout-index" 将为每个被检出的索引条目创建一个临时文件。 索引不会更新统计信息。 如果调用者需要所有未合并条目的所有阶段，以便外部合并工具可以处理这些未合并文件，那么这些选项会很有用。</p>
+<p>当使用了 <span class='synopsis'><code>--temp</code></span>（或由 `--stage=all`隐含）时，"git checkout-index" 将为每个被检出的索引条目创建一个临时文件。 索引不会更新统计信息。 如果调用者需要所有未合并条目的所有阶段，以便外部合并工具可以处理这些未合并文件，那么这些选项会很有用。</p>
 </div>
 <div class="paragraph">
 <p>将向标准输出流写入一个列表，提供临时文件名与跟踪路径名之间的关联。 列表格式有两种：</p>
@@ -140,13 +155,13 @@ aliases:
 <li>
 <p>临时名称 TAB 路径 RS</p>
 <div class="paragraph">
-<p>语类型：纯文本 第一种格式是省略 <code>--stage</code> 或不使用 <code>--stage=all</code> 时使用的格式。字段临时名称是保存文件内容的临时文件名，路劲是索引中的跟踪路径名。 只输出所请求的条目。</p>
+<p>语类型：纯文本 第一种格式是省略 <span class='synopsis'><code>--stage</code></span> 或不使用 <span class='synopsis'><code>--stage=all</code></span> 时使用的格式。字段临时名称是保存文件内容的临时文件名，路劲是索引中的跟踪路径名。 只输出所请求的条目。</p>
 </div>
 </li>
 <li>
 <p>阶段一缓存 SP 阶段二缓存 SP 阶段三缓存 TAB 路径 RS</p>
 <div class="paragraph">
-<p>第二种格式是在 <code>--stage=all</code> 时使用的格式。 如果索引中有阶段条目，三个阶段临时字段（阶段一缓存、阶段二缓存、阶段三换粗）会列出临时文件的名称；如果没有阶段条目，则会列出 <code>.</code>。 只有阶段 0 条目的路径将始终从输出中省略。</p>
+<p>第二种格式是在 <span class='synopsis'><code>--stage=all</code></span> 时使用的格式。 如果索引中有阶段条目，三个阶段临时字段（阶段一缓存、阶段二缓存、阶段三换粗）会列出临时文件的名称；如果没有阶段条目，则会列出 <span class='synopsis'><code>.</code></span>。 只有阶段 0 条目的路径将始终从输出中省略。</p>
 </div>
 </li>
 </ol>
@@ -181,7 +196,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p><code>git checkout-index</code> 会将索引 “导出” 到指定目录。</p>
+<p><span class='synopsis'><code>git</code> <code>checkout-index</code></span> 会将索引 “导出” 到指定目录。</p>
 </div>
 <div class="paragraph">
 <p>最后的 "/" 很重要。导出的名称实际上只是指定字符串的前缀。 这与下面的示例形成鲜明对比。</p>
@@ -195,7 +210,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>这将把当前缓存的 <code>Makefile</code> 副本签出到文件 <code>.merged-Makefile</code> 中。</p>
+<p>这将把当前缓存的 <span class='synopsis'><code>Makefile</code></span> 副本签出到文件 <span class='synopsis'><code>.merged-Makefile</code></span> 中。</p>
 </div>
 </dd>
 </dl>

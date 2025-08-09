@@ -9,6 +9,29 @@ docname: git-fsck
 lang: fr
 aliases:
 - "/docs/git-fsck/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: CONFIGURATION
+  id: _configuration
+- text: DISCUSSION
+  id: _discussion
+- text: Diagnostics extraits
+  id: _diagnostics_extraits
+- text: MESSAGES FSCK
+  id: _messages_fsck
+- text: Variables d’environnement
+  id: _variables_denvironnement
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -46,7 +69,7 @@ aliases:
 <dd>
 <p>Un objet à traiter comme la tête d&#8217;une trace d&#8217;inaccessibilité.</p>
 <div class="paragraph">
-<p>Si aucun objet n’est donné, <em>git fsck</em> utilise par défaut le fichier d’index, toutes les références SHA-1 dans l’espace de noms <code>refs</code> et tous les reflogs (sauf si --no-reflogs est donné) comme têtes.</p>
+<p>Si aucun objet n’est donné, <em>git fsck</em> utilise par défaut le fichier d’index, toutes les références SHA-1 dans l’espace de noms <span class='synopsis'><code>refs</code></span> et tous les reflogs (sauf si --no-reflogs est donné) comme têtes.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fsck---unreachable"> <a class="anchor" href="#git-fsck---unreachable"></a>--unreachable </dt>
@@ -55,7 +78,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fsck---no-dangling"> <a class="anchor" href="#git-fsck---no-dangling"></a>--[no-]dangling </dt>
 <dd>
-<p>Affiche les objets qui existent mais qui ne sont jamais <em>directement</em> utilisés (par défaut). <code>--no-dangling</code> peut être utilisé pour omettre cette information de la sortie.</p>
+<p>Affiche les objets qui existent mais qui ne sont jamais <em>directement</em> utilisés (par défaut). <span class='synopsis'><code>--no-dangling</code></span> peut être utilisé pour omettre cette information de la sortie.</p>
 </dd>
 <dt class="hdlist1" id="git-fsck---root"> <a class="anchor" href="#git-fsck---root"></a>--root </dt>
 <dd>
@@ -81,7 +104,7 @@ aliases:
 <dd>
 <p>Vérifie uniquement la connectivité des objets accessibles, en s&#8217;assurant que tous les objets référencés par une étiquette, un commit ou un arbre accessible sont présents. Cela accélère l&#8217;opération en évitant de lire entièrement les blobs (bien qu&#8217;il soit toujours vérifié que les blobs référencés existent). Cela détectera la corruption dans les commits et les arbres, mais ne fera aucune vérification sémantique (par exemple, pour les erreurs de format). La corruption dans les objets blob ne sera pas du tout détectée.</p>
 <div class="paragraph">
-<p>Les tags, commits et arbres inaccessibles seront également accédés pour trouver les bouts de segments d&#8217;histoire qui pendent. Utilisez <code>--no-dangling</code> si vous ne vous souciez pas de cette sortie et que vous voulez l&#8217;accélérer davantage.</p>
+<p>Les tags, commits et arbres inaccessibles seront également accédés pour trouver les bouts de segments d&#8217;histoire qui pendent. Utilisez <span class='synopsis'><code>--no-dangling</code></span> si vous ne vous souciez pas de cette sortie et que vous voulez l&#8217;accélérer davantage.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fsck---strict"> <a class="anchor" href="#git-fsck---strict"></a>--strict </dt>
@@ -98,7 +121,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fsck---name-objects"> <a class="anchor" href="#git-fsck---name-objects"></a>--name-objects </dt>
 <dd>
-<p>Lors de l&#8217;affichage des noms des objets atteignables, en plus du SHA-1, afficher également un nom qui décrit <strong>comment</strong> ils sont atteignables, compatible avec <a href='{{< relurl "docs/git-rev-parse/fr" >}}'>git-rev-parse[1]</a>, par exemple <code>HEAD@{1234567890}~25^2:src/</code>.</p>
+<p>Lors de l&#8217;affichage des noms des objets atteignables, en plus du SHA-1, afficher également un nom qui décrit <strong>comment</strong> ils sont atteignables, compatible avec <a href='{{< relurl "docs/git-rev-parse/fr" >}}'>git-rev-parse[1]</a>, par exemple <span class='synopsis'><code>HEAD@{1234567890}~25^2:src/</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-fsck---no-progress"> <a class="anchor" href="#git-fsck---no-progress"></a>--[no-]progress </dt>
 <dd>
@@ -126,7 +149,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/fsck.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/fsck.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -141,7 +164,7 @@ aliases:
 <h2 id="_discussion"><a class="anchor" href="#_discussion"></a>DISCUSSION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>git-fsck teste le SHA-1 et l&#8217;intégrité générale des objets, et il fait un suivi complet de l&#8217;accessibilité et de tout le reste. Il affiche toute corruption qu&#8217;il trouve (objets manquants ou mauvais), et si vous utilisez le drapeau <code>--unreachable</code>, il affichera également les objets qui existent mais qui ne sont pas atteignables depuis l&#8217;un des noeuds de tête spécifiés (ou le jeu par défaut, comme mentionné ci-dessus).</p>
+<p>git-fsck teste le SHA-1 et l&#8217;intégrité générale des objets, et il fait un suivi complet de l&#8217;accessibilité et de tout le reste. Il affiche toute corruption qu&#8217;il trouve (objets manquants ou mauvais), et si vous utilisez le drapeau <span class='synopsis'><code>--unreachable</code></span>, il affichera également les objets qui existent mais qui ne sont pas atteignables depuis l&#8217;un des noeuds de tête spécifiés (ou le jeu par défaut, comme mentionné ci-dessus).</p>
 </div>
 <div class="paragraph">
 <p>Tous les objets corrompus que vous devrez trouver dans les sauvegardes ou autres archives (c’est-à-dire que vous pouvez simplement les supprimer et faire une « rsync » avec un autre site dans l’espoir que quelqu’un d’autre a l’objet corrompu que vous avez).</p>
@@ -180,7 +203,7 @@ aliases:
 <h2 id="_messages_fsck"><a class="anchor" href="#_messages_fsck"></a>MESSAGES FSCK</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>La liste suivante énumère les types d&#8217;erreurs que <code>git fsck</code> détecte et ce que chaque erreur signifie, avec leur sévérité par défaut. La gravité de l&#8217;erreur, autre que celles qui sont marquées comme "(FATAL)", peut être modifiée en définissant la variable de configuration <code>fsck.&lt;id-msg&gt;</code> correspondante.</p>
+<p>La liste suivante énumère les types d&#8217;erreurs que <span class='synopsis'><code>git</code> <code>fsck</code></span> détecte et ce que chaque erreur signifie, avec leur sévérité par défaut. La gravité de l&#8217;erreur, autre que celles qui sont marquées comme "(FATAL)", peut être modifiée en définissant la variable de configuration <span class='synopsis'><code>fsck.</code><em>&lt;id-msg&gt;</em></span> correspondante.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -190,7 +213,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/fsck-msgids.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/fsck-msgids.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

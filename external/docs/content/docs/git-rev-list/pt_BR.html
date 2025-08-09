@@ -9,6 +9,21 @@ docname: git-rev-list
 lang: pt_BR
 aliases:
 - "/docs/git-rev-list/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: FORMATOS BONITOS
+  id: _formatos_bonitos
+- text: EXEMPLOS
+  id: _exemplos
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -30,7 +45,7 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Liste os commits que podem ser acessados seguindo os links <code>parent</code> do(s) commit(s) mencionado(s), mas exclua os commits que podem ser acessados a partir do(s) commit(s) mencionado(s) com um <em>^</em> na frente deles. É predefinido que a saída é fornecida em ordem cronológica inversa.</p>
+<p>Liste os commits que podem ser acessados seguindo os links <span class='synopsis'><code>parent</code></span> do(s) commit(s) mencionado(s), mas exclua os commits que podem ser acessados a partir do(s) commit(s) mencionado(s) com um <em>^</em> na frente deles. É predefinido que a saída é fornecida em ordem cronológica inversa.</p>
 </div>
 <div class="paragraph">
 <p>Você pode pensar nisso como uma operação de conjunto. Os commits acessíveis a partir de qualquer um dos commits fornecidos na linha de comando formam um conjunto e, em seguida, os commits acessíveis a partir de qualquer um dos fornecidos com <em>^</em> na frente são subtraídos desse conjunto. Os commits restantes são o que aparece na saída do comando. Várias outras opções e parâmetros de caminhos podem ser usados para limitar ainda mais o resultado.</p>
@@ -78,10 +93,10 @@ $ git rev-list A...B</pre>
 <p>Além de especificar uma série de commits que devem ser listados utilizando as notações especiais explicadas na descrição, podem ser aplicadas limitações adicionais ao commit.</p>
 </div>
 <div class="paragraph">
-<p>O uso de mais opções geralmente limita ainda mais a saída (por exemplo, <code>--since=&lt;date1&gt;</code> limita os commits mais recentes do que <code>&lt;date1&gt;</code>, e ao usá-lo com <code>--grep=&lt;pattern&gt;</code> limita ainda mais os commits cuja mensagem de registro tenha uma linha que corresponda a <code>&lt;padrão&gt;</code>), a menos que seja indicado o contrário.</p>
+<p>O uso de mais opções geralmente limita ainda mais a saída (por exemplo, <span class='synopsis'><code>--since=</code><em>&lt;date1&gt;</em></span> limita os commits mais recentes do que <span class='synopsis'><em>&lt;date1&gt;</em></span>, e ao usá-lo com <span class='synopsis'><code>--grep=</code><em>&lt;pattern&gt;</em></span> limita ainda mais os commits cuja mensagem de registro tenha uma linha que corresponda a <span class='synopsis'><em>&lt;padrão&gt;</em></span>), a menos que seja indicado o contrário.</p>
 </div>
 <div class="paragraph">
-<p>Observe que eles são aplicados antes da organização do commit e das opções de formatação como <code>--reverse</code>.</p>
+<p>Observe que eles são aplicados antes da organização do commit e das opções de formatação como <span class='synopsis'><code>--reverse</code></span>.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -117,23 +132,23 @@ $ git rev-list A...B</pre>
 <dt class="hdlist1" id="git-rev-list---authorltpadrogt"> <a class="anchor" href="#git-rev-list---authorpadro"></a> <a class="anchor" href="#git-rev-list---authorltpadrogt"></a>--author=&lt;padrão&gt; </dt>
 <dt class="hdlist1" id="git-rev-list---committerltpadrogt"> <a class="anchor" href="#git-rev-list---committerpadro"></a> <a class="anchor" href="#git-rev-list---committerltpadrogt"></a>--committer=&lt;padrão&gt; </dt>
 <dd>
-<p>Limite a saída dos commits àqueles com linhas de cabeçalho do autor/aque que fez o commit que correspondam ao padrão especificado (expressão regular). Com mais de um <code>--author=&lt;padrão&gt;</code>, os commits cujo autor corresponda a qualquer um dos padrões fornecidos são escolhidos (da mesma maneira para vários <code>--committer=&lt;padrão&gt;</code>).</p>
+<p>Limite a saída dos commits àqueles com linhas de cabeçalho do autor/aque que fez o commit que correspondam ao padrão especificado (expressão regular). Com mais de um <span class='synopsis'><code>--author=</code><em>&lt;padrão&gt;</em></span>, os commits cujo autor corresponda a qualquer um dos padrões fornecidos são escolhidos (da mesma maneira para vários <span class='synopsis'><code>--committer=</code><em>&lt;padrão&gt;</em></span>).</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---grep-reflogltpadrogt"> <a class="anchor" href="#git-rev-list---grep-reflogpadro"></a> <a class="anchor" href="#git-rev-list---grep-reflogltpadrogt"></a>--grep-reflog=&lt;padrão&gt; </dt>
 <dd>
-<p>Limite a saída dos commits àqueles com entradas de reflog que correspondam ao padrão especificado (expressão regular). Com mais de um <code>--grep-reflog</code>, são escolhidos os commits cuja mensagem de reflog corresponda a qualquer um dos padrões fornecidos. É um erro usar essa opção, a menos que a opção <code>--walk-reflogs</code> esteja em uso.</p>
+<p>Limite a saída dos commits àqueles com entradas de reflog que correspondam ao padrão especificado (expressão regular). Com mais de um <span class='synopsis'><code>--grep-reflog</code></span>, são escolhidos os commits cuja mensagem de reflog corresponda a qualquer um dos padrões fornecidos. É um erro usar essa opção, a menos que a opção <span class='synopsis'><code>--walk-reflogs</code></span> esteja em uso.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---grepltpadrogt"> <a class="anchor" href="#git-rev-list---greppadro"></a> <a class="anchor" href="#git-rev-list---grepltpadrogt"></a>--grep=&lt;padrão&gt; </dt>
 <dd>
-<p>Limite a saída dos commits àqueles com uma mensagem de registro que corresponda ao padrão especificado (expressão regular). Com mais de um <code>--grep=&lt;padrão&gt;</code>, os commits cuja mensagem corresponda a qualquer um dos padrões fornecidos são escolhidos (porém, consulte a opção <code>--all-match</code>).</p>
+<p>Limite a saída dos commits àqueles com uma mensagem de registro que corresponda ao padrão especificado (expressão regular). Com mais de um <span class='synopsis'><code>--grep=</code><em>&lt;padrão&gt;</em></span>, os commits cuja mensagem corresponda a qualquer um dos padrões fornecidos são escolhidos (porém, consulte a opção <span class='synopsis'><code>--all-match</code></span>).</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---all-match"> <a class="anchor" href="#git-rev-list---all-match"></a>--all-match </dt>
 <dd>
-<p>Limita a saída dos commits para aqueles que coincidam com todos os comandos <code>--grep</code> utilizado, em vez daqueles que coincidam com apenas um.</p>
+<p>Limita a saída dos commits para aqueles que coincidam com todos os comandos <span class='synopsis'><code>--grep</code></span> utilizado, em vez daqueles que coincidam com apenas um.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---invert-grep"> <a class="anchor" href="#git-rev-list---invert-grep"></a>--invert-grep </dt>
 <dd>
-<p>Limita a saída dos commits para aqueles com uma mensagem de um registro log que não coincida com o padrão utilizado em com o comando <code>--grep=&lt;padrão&gt;</code>.</p>
+<p>Limita a saída dos commits para aqueles com uma mensagem de um registro log que não coincida com o padrão utilizado em com o comando <span class='synopsis'><code>--grep=</code><em>&lt;padrão&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list--i"> <a class="anchor" href="#git-rev-list--i"></a>-i </dt>
 <dt class="hdlist1" id="git-rev-list---regexp-ignore-case"> <a class="anchor" href="#git-rev-list---regexp-ignore-case"></a>--regexp-ignore-case </dt>
@@ -168,20 +183,20 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---merges"> <a class="anchor" href="#git-rev-list---merges"></a>--merges </dt>
 <dd>
-<p>Exiba apenas os commits que foram mesclados. É exatamente o mesmo que a opção <code>--min-parents=2</code>.</p>
+<p>Exiba apenas os commits que foram mesclados. É exatamente o mesmo que a opção <span class='synopsis'><code>--min-parents=2</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---no-merges"> <a class="anchor" href="#git-rev-list---no-merges"></a>--no-merges </dt>
 <dd>
-<p>Não imprima os commits com mais de um pai. É exatamente o mesmo que a opção <code>--max-parents=1</code>.</p>
+<p>Não imprima os commits com mais de um pai. É exatamente o mesmo que a opção <span class='synopsis'><code>--max-parents=1</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---min-parentsltquantidadegt"> <a class="anchor" href="#git-rev-list---min-parentsquantidade"></a> <a class="anchor" href="#git-rev-list---min-parentsltquantidadegt"></a>--min-parents=&lt;quantidade&gt; </dt>
 <dt class="hdlist1" id="git-rev-list---max-parentsltquantidadegt"> <a class="anchor" href="#git-rev-list---max-parentsquantidade"></a> <a class="anchor" href="#git-rev-list---max-parentsltquantidadegt"></a>--max-parents=&lt;quantidade&gt; </dt>
 <dt class="hdlist1" id="git-rev-list---no-min-parents"> <a class="anchor" href="#git-rev-list---no-min-parents"></a>--no-min-parents </dt>
 <dt class="hdlist1" id="git-rev-list---no-max-parents"> <a class="anchor" href="#git-rev-list---no-max-parents"></a>--no-max-parents </dt>
 <dd>
-<p>Mostra apenas os commits que tenham pelo menos (ou no máximo) esta quantidade principal de commits. Em particular, a opção <code>--max-parents=1</code> é o mesmo que <code>--no-merges</code>, já a opção <code>--min-parents=2</code> é o mesmo que <code>--merges</code>. <code>--max-parents=0</code> fornece todos os commits raiz e <code>--min-parents=3</code> todas as mesclagens Octopus.</p>
+<p>Mostra apenas os commits que tenham pelo menos (ou no máximo) esta quantidade principal de commits. Em particular, a opção <span class='synopsis'><code>--max-parents=1</code></span> é o mesmo que <span class='synopsis'><code>--no-merges</code></span>, já a opção <span class='synopsis'><code>--min-parents=2</code></span> é o mesmo que <span class='synopsis'><code>--merges</code></span>. <span class='synopsis'><code>--max-parents=0</code></span> fornece todos os commits raiz e <span class='synopsis'><code>--min-parents=3</code></span> todas as mesclagens Octopus.</p>
 <div class="paragraph">
-<p><code>--no-min-parents</code> e <code>--no-max-parents</code> redefinem estes limites (para nenhum limite) novamente. As formas equivalentes são <code>--min-parents=0</code> (qualquer commit tem 0 ou mais ramos principais) e <code>--max-parents=-1</code> (números negativos denotam que não há limite superior).</p>
+<p><span class='synopsis'><code>--no-min-parents</code></span> e <span class='synopsis'><code>--no-max-parents</code></span> redefinem estes limites (para nenhum limite) novamente. As formas equivalentes são <span class='synopsis'><code>--min-parents=0</code></span> (qualquer commit tem 0 ou mais ramos principais) e <span class='synopsis'><code>--max-parents=-1</code></span> (números negativos denotam que não há limite superior).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list---first-parent"> <a class="anchor" href="#git-rev-list---first-parent"></a>--first-parent </dt>
@@ -194,23 +209,23 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---not"> <a class="anchor" href="#git-rev-list---not"></a>--not </dt>
 <dd>
-<p>Inverte o significado do prefixo <em>^</em> (ou a falta dele) para todos os especificadores de revisão seguintes, até o próximo <code>--not</code>. Quando usado na linha de comando antes de <code>--stdin</code>, as revisões passadas por stdin não serão afetadas por ele. Por outro lado, quando encaminhadas pela entrada predefinida, as revisões passadas na linha de comando não serão afetadas por ela.</p>
+<p>Inverte o significado do prefixo <em>^</em> (ou a falta dele) para todos os especificadores de revisão seguintes, até o próximo <span class='synopsis'><code>--not</code></span>. Quando usado na linha de comando antes de <span class='synopsis'><code>--stdin</code></span>, as revisões passadas por stdin não serão afetadas por ele. Por outro lado, quando encaminhadas pela entrada predefinida, as revisões passadas na linha de comando não serão afetadas por ela.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---all"> <a class="anchor" href="#git-rev-list---all"></a>--all </dt>
 <dd>
-<p>Finja como se todos os refs em <code>refs/</code> junto com <code>HEAD</code> estejam listados na linha de comando como <em>&lt;commit&gt;</em>.</p>
+<p>Finja como se todos os refs em <span class='synopsis'><code>refs/</code></span> junto com <span class='synopsis'><code>HEAD</code></span> estejam listados na linha de comando como <em>&lt;commit&gt;</em>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---branchesltpadrogt"> <a class="anchor" href="#git-rev-list---branchespadro"></a> <a class="anchor" href="#git-rev-list---branchesltpadrogt"></a>--branches[=&lt;padrão&gt;] </dt>
 <dd>
-<p>Finja como se todas as refs no <code>refs/heads</code> estejam listadas na linha de comando como <em>&lt;commit&gt;</em>. Caso <em>&lt;padrão&gt;</em> seja utilizado, limite os ramos para aqueles que coincidam com a "shell blob" informada. Caso o padrão não tenha <em>?</em>, <em>*, ou '[</em>, <em>/*</em> no final é implícito.</p>
+<p>Finja como se todas as refs no <span class='synopsis'><code>refs/heads</code></span> estejam listadas na linha de comando como <em>&lt;commit&gt;</em>. Caso <em>&lt;padrão&gt;</em> seja utilizado, limite os ramos para aqueles que coincidam com a "shell blob" informada. Caso o padrão não tenha <em>?</em>, <em>*, ou '[</em>, <em>/*</em> no final é implícito.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---tagsltpadrogt"> <a class="anchor" href="#git-rev-list---tagspadro"></a> <a class="anchor" href="#git-rev-list---tagsltpadrogt"></a>--tags[=&lt;padrão&gt;] </dt>
 <dd>
-<p>Finja como se todas as refs no <code>refs/remotes</code> estejam listados na linha de comando como <em>&lt;commit&gt;</em>. Caso <em>&lt;padrão&gt;</em> seja utilizado, limite os ramos para aqueles que coincidam com a "shell blob" informada. Caso o padrão não tenha <em>?</em>, <em>*</em>, ou <em>[</em>, <em>/*</em> no final é implícito.</p>
+<p>Finja como se todas as refs no <span class='synopsis'><code>refs/remotes</code></span> estejam listados na linha de comando como <em>&lt;commit&gt;</em>. Caso <em>&lt;padrão&gt;</em> seja utilizado, limite os ramos para aqueles que coincidam com a "shell blob" informada. Caso o padrão não tenha <em>?</em>, <em>*</em>, ou <em>[</em>, <em>/*</em> no final é implícito.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---remotesltpadrogt"> <a class="anchor" href="#git-rev-list---remotespadro"></a> <a class="anchor" href="#git-rev-list---remotesltpadrogt"></a>--remotes[=&lt;padrão&gt;] </dt>
 <dd>
-<p>Finja que todas as refs em <code>refs/remotes</code> estão listadas na linha de comando como <em>&lt;commit&gt;</em>. Se o <em>&lt;padrão&gt;</em> for fornecido, limita o rastreamento das ramificações remotas àquelas que correspondam ao glob do shell informado. Se o padrão não tiver <em>?</em>, <em>*</em> ou <em>[</em>, <em>/*</em> no final, então ficará implícito.</p>
+<p>Finja que todas as refs em <span class='synopsis'><code>refs/remotes</code></span> estão listadas na linha de comando como <em>&lt;commit&gt;</em>. Se o <em>&lt;padrão&gt;</em> for fornecido, limita o rastreamento das ramificações remotas àquelas que correspondam ao glob do shell informado. Se o padrão não tiver <em>?</em>, <em>*</em> ou <em>[</em>, <em>/*</em> no final, então ficará implícito.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---globltglob-patterngt"> <a class="anchor" href="#git-rev-list---globglob-pattern"></a> <a class="anchor" href="#git-rev-list---globltglob-patterngt"></a>--glob=&lt;glob-pattern&gt; </dt>
 <dd>
@@ -218,26 +233,26 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---excludeltglob-patterngt"> <a class="anchor" href="#git-rev-list---excludeglob-pattern"></a> <a class="anchor" href="#git-rev-list---excludeltglob-patterngt"></a>--exclude=&lt;glob-pattern&gt; </dt>
 <dd>
-<p>Não inclua as refs que coincidam com <code>&lt;glob-pattern&gt;</code> em que as próximas opções <code>--all</code>, <code>--branches</code>, <code>--tags</code>, <code>--remotes</code> ou <code>--glob</code> considerariam de outra forma. As repetições destas opções acumulam padrões de exclusão até a próxima opção <code>--all</code>, <code>--branches</code>, <code>--tags</code>, <code>--remotes</code> ou <code>--glob</code> (outras opções ou argumentos não limpam os padrões acumulados).</p>
+<p>Não inclua as refs que coincidam com <span class='synopsis'><em>&lt;glob-pattern&gt;</em></span> em que as próximas opções <span class='synopsis'><code>--all</code></span>, <span class='synopsis'><code>--branches</code></span>, <span class='synopsis'><code>--tags</code></span>, <span class='synopsis'><code>--remotes</code></span> ou <span class='synopsis'><code>--glob</code></span> considerariam de outra forma. As repetições destas opções acumulam padrões de exclusão até a próxima opção <span class='synopsis'><code>--all</code></span>, <span class='synopsis'><code>--branches</code></span>, <span class='synopsis'><code>--tags</code></span>, <span class='synopsis'><code>--remotes</code></span> ou <span class='synopsis'><code>--glob</code></span> (outras opções ou argumentos não limpam os padrões acumulados).</p>
 <div class="paragraph">
-<p>Os padrões informados não devem começar com <code>refs/heads</code>, <code>refs/tags</code>, ou <code>refs/remotes</code> quando aplicadas as opções <code>--branches</code>, <code>--tags</code>, ou <code>--remotes</code> respectivamente, e devem começar com <code>refs/</code> quando for aplicado ao <code>--glob</code> ou <code>--all</code>. Se a intenção for um delimitador <em>/*</em>, este deve ser utilizado de forma explicita.</p>
+<p>Os padrões informados não devem começar com <span class='synopsis'><code>refs/heads</code></span>, <span class='synopsis'><code>refs/tags</code></span>, ou <span class='synopsis'><code>refs/remotes</code></span> quando aplicadas as opções <span class='synopsis'><code>--branches</code></span>, <span class='synopsis'><code>--tags</code></span>, ou <span class='synopsis'><code>--remotes</code></span> respectivamente, e devem começar com <span class='synopsis'><code>refs/</code></span> quando for aplicado ao <span class='synopsis'><code>--glob</code></span> ou <span class='synopsis'><code>--all</code></span>. Se a intenção for um delimitador <em>/*</em>, este deve ser utilizado de forma explicita.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list---exclude-hiddenfetchreceiveuploadpack"> <a class="anchor" href="#git-rev-list---exclude-hiddenfetchreceiveuploadpack"></a>--exclude-hidden=[fetch|receive|uploadpack] </dt>
 <dd>
-<p>Não inclua refs que seriam ocultados por <code>git-fetch</code>, <code>git-receive-pack</code> ou <code>git-upload-pack</code> durante a consulta da configuração apropriada de <code>fetch.hideRefs</code>, <code>receive.hideRefs</code> ou <code>uploadpack.hideRefs</code> junto com <code>transfer.hideRefs</code> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Esta opção afeta a próxima opção pseudo-ref <code>--all</code> ou <code>--glob</code> e é zerada após o processamento.</p>
+<p>Não inclua refs que seriam ocultados por <span class='synopsis'><code>git-fetch</code></span>, <span class='synopsis'><code>git-receive-pack</code></span> ou <span class='synopsis'><code>git-upload-pack</code></span> durante a consulta da configuração apropriada de <span class='synopsis'><code>fetch.hideRefs</code></span>, <span class='synopsis'><code>receive.hideRefs</code></span> ou <span class='synopsis'><code>uploadpack.hideRefs</code></span> junto com <span class='synopsis'><code>transfer.hideRefs</code></span> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Esta opção afeta a próxima opção pseudo-ref <span class='synopsis'><code>--all</code></span> ou <span class='synopsis'><code>--glob</code></span> e é zerada após o processamento.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---reflog"> <a class="anchor" href="#git-rev-list---reflog"></a>--reflog </dt>
 <dd>
-<p>Finja que todos os objetos mencionados pelos <code>reflogs</code> estejam listados na linha de comando como <code>&lt;commit&gt;</code>.</p>
+<p>Finja que todos os objetos mencionados pelos <span class='synopsis'><code>reflogs</code></span> estejam listados na linha de comando como <span class='synopsis'><em>&lt;commit&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---alternate-refs"> <a class="anchor" href="#git-rev-list---alternate-refs"></a>--alternate-refs </dt>
 <dd>
-<p>Faça de conta que todos os objetos mencionados como dicas de referência de repositórios alternativos foram listados na linha de comando. Um repositório alternativo é qualquer repositório cujo diretório de objetos esteja especificado em <code>objects/info/alternates</code>. O conjunto de objetos incluídos pode ser modificado por <code>core.alternateRefsCommand</code>, etc. Consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+<p>Faça de conta que todos os objetos mencionados como dicas de referência de repositórios alternativos foram listados na linha de comando. Um repositório alternativo é qualquer repositório cujo diretório de objetos esteja especificado em <span class='synopsis'><code>objects/info/alternates</code></span>. O conjunto de objetos incluídos pode ser modificado por <span class='synopsis'><code>core.alternateRefsCommand</code></span>, etc. Consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---single-worktree"> <a class="anchor" href="#git-rev-list---single-worktree"></a>--single-worktree </dt>
 <dd>
-<p>É predefinido que todas as árvores de trabalho serão examinadas através das seguintes opções quando houver mais de uma (consulte <a href='{{< relurl "docs/git-worktree/pt_BR" >}}'>git-worktree[1]</a>): <code>--all</code>, <code>--reflog</code> e <code>--indexed-objects</code>. Esta opção impõem que o exame seja feito apenas na árvore de trabalho atual.</p>
+<p>É predefinido que todas as árvores de trabalho serão examinadas através das seguintes opções quando houver mais de uma (consulte <a href='{{< relurl "docs/git-worktree/pt_BR" >}}'>git-worktree[1]</a>): <span class='synopsis'><code>--all</code></span>, <span class='synopsis'><code>--reflog</code></span> e <span class='synopsis'><code>--indexed-objects</code></span>. Esta opção impõem que o exame seja feito apenas na árvore de trabalho atual.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---ignore-missing"> <a class="anchor" href="#git-rev-list---ignore-missing"></a>--ignore-missing </dt>
 <dd>
@@ -245,59 +260,59 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---stdin"> <a class="anchor" href="#git-rev-list---stdin"></a>--stdin </dt>
 <dd>
-<p>Além de obter argumentos da linha de comando, leia-os também da entrada padrão. Isso faz aceitar commits e pseudo-opções como <code>--all</code> e <code>--glob=</code>. Quando um separador <code>--</code> é visto, a próxima entrada é tratada como caminhos e usada para limitar o resultado. Sinalizadores como <code>--not</code>, que são lidos por meio da entrada padrão, são respeitados apenas com argumentos passados da mesma forma e não influenciarão nenhum argumento subsequente da linha de comando.</p>
+<p>Além de obter argumentos da linha de comando, leia-os também da entrada padrão. Isso faz aceitar commits e pseudo-opções como <span class='synopsis'><code>--all</code></span> e <span class='synopsis'><code>--glob=</code></span>. Quando um separador <span class='synopsis'><code>--</code></span> é visto, a próxima entrada é tratada como caminhos e usada para limitar o resultado. Sinalizadores como <span class='synopsis'><code>--not</code></span>, que são lidos por meio da entrada padrão, são respeitados apenas com argumentos passados da mesma forma e não influenciarão nenhum argumento subsequente da linha de comando.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---quiet"> <a class="anchor" href="#git-rev-list---quiet"></a>--quiet </dt>
 <dd>
-<p>Não imprima nada na saída predefinida. Este formulário tem como objetivo principal permitir que aquele que invoque faça o teste da condição de saída para ver se um intervalo de objetos está totalmente conectado (ou não). É mais rápido do que redirecionar o stdout para <code>/dev/null</code>, pois a saída não precisa ser formatada.</p>
+<p>Não imprima nada na saída predefinida. Este formulário tem como objetivo principal permitir que aquele que invoque faça o teste da condição de saída para ver se um intervalo de objetos está totalmente conectado (ou não). É mais rápido do que redirecionar o stdout para <span class='synopsis'><code>/dev/null</code></span>, pois a saída não precisa ser formatada.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---disk-usage"> <a class="anchor" href="#git-rev-list---disk-usage"></a>--disk-usage </dt>
 <dt class="hdlist1" id="git-rev-list---disk-usagehuman"> <a class="anchor" href="#git-rev-list---disk-usagehuman"></a>--disk-usage=human </dt>
 <dd>
-<p>Suprime a saída normal; em vez disso, imprime a soma dos bytes usados para armazenamento em disco pelos commits ou pelos objetos selecionados. Isso é equivalente a canalizar a saída para o comando <code>git cat-file --batch-check='%(objectsize:disk)'</code>, exceto pelo fato de ser executado muito mais rapidamente (especialmente com a opção <code>--use-bitmap-index</code>). Consulte a seção <code>RESSALVAS</code> do comando <a href='{{< relurl "docs/git-cat-file/pt_BR" >}}'>git-cat-file[1]</a> para conhecer as limitações do que significa "armazenamento em disco". Com o valor <code>human</code> opcional, o tamanho do armazenamento em disco é mostrado numa string legível para humanos (por exemplo, 12.24 Kib, 3.50 Mib).</p>
+<p>Suprime a saída normal; em vez disso, imprime a soma dos bytes usados para armazenamento em disco pelos commits ou pelos objetos selecionados. Isso é equivalente a canalizar a saída para o comando <span class='synopsis'><code>git</code> <code>cat-file</code> <code>--batch-check='%</code>(<code>objectsize:disk</code>)</span>, exceto pelo fato de ser executado muito mais rapidamente (especialmente com a opção <span class='synopsis'><code>--use-bitmap-index</code></span>). Consulte a seção <span class='synopsis'><code>RESSALVAS</code></span> do comando <a href='{{< relurl "docs/git-cat-file/pt_BR" >}}'>git-cat-file[1]</a> para conhecer as limitações do que significa "armazenamento em disco". Com o valor <span class='synopsis'><code>human</code></span> opcional, o tamanho do armazenamento em disco é mostrado numa string legível para humanos (por exemplo, 12.24 Kib, 3.50 Mib).</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---cherry-mark"> <a class="anchor" href="#git-rev-list---cherry-mark"></a>--cherry-mark </dt>
 <dd>
-<p>Como <code>--cherry-pick</code> (veja abaixo), porém marque os commits equivalentes com <code>=</code> ao invés de omiti-los e equivalentes com <code>+</code>.</p>
+<p>Como <span class='synopsis'><code>--cherry-pick</code></span> (veja abaixo), porém marque os commits equivalentes com <span class='synopsis'><code>=</code></span> ao invés de omiti-los e equivalentes com <span class='synopsis'><code>+</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---cherry-pick"> <a class="anchor" href="#git-rev-list---cherry-pick"></a>--cherry-pick </dt>
 <dd>
 <p>Omitir qualquer commit que apresente a mesma alteração como em outro commit do ``outro lado" quando o conjunto de commits são limitadas com diferença simétrica.</p>
 <div class="paragraph">
-<p>Como por exemplo, caso você tenha dois ramos, <code>A</code> e <code>B</code>, uma maneira comum de listar todos os commits em apenas um lado deles é com a opção <code>--left-right</code> (veja o exemplo abaixo na descrição da opção <code>--left-right</code>). No entanto, exibe os commits que foram selecionados de forma seletiva no outro ramo (por exemplo, &#8220;3º no b&#8221; pode ser a escolha seletiva do ramo <code>A</code>). Com esta opção, estes pares de commits são excluídos da saída.</p>
+<p>Como por exemplo, caso você tenha dois ramos, <span class='synopsis'><code>A</code></span> e <span class='synopsis'><code>B</code></span>, uma maneira comum de listar todos os commits em apenas um lado deles é com a opção <span class='synopsis'><code>--left-right</code></span> (veja o exemplo abaixo na descrição da opção <span class='synopsis'><code>--left-right</code></span>). No entanto, exibe os commits que foram selecionados de forma seletiva no outro ramo (por exemplo, &#8220;3º no b&#8221; pode ser a escolha seletiva do ramo <span class='synopsis'><code>A</code></span>). Com esta opção, estes pares de commits são excluídos da saída.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list---left-only"> <a class="anchor" href="#git-rev-list---left-only"></a>--left-only </dt>
 <dt class="hdlist1" id="git-rev-list---right-only"> <a class="anchor" href="#git-rev-list---right-only"></a>--right-only </dt>
 <dd>
-<p>Liste apenas os commits nos respectivos lados de um "diff" simétrico, ou seja, apenas aqueles que seriam marcados como <code>&lt;</code> resp. <code>&gt;</code> por <code>--left-right</code>.</p>
+<p>Liste apenas os commits nos respectivos lados de um "diff" simétrico, ou seja, apenas aqueles que seriam marcados como <span class='synopsis'><em>&lt;</em></span> resp. <span class='synopsis'><em>&gt;</em></span> por <span class='synopsis'><code>--left-right</code></span>.</p>
 <div class="paragraph">
-<p>Por exemplo, a opção <code>--cherry-pick --right-only A...B</code> omite os commits de <code>B</code> que estão em <code>A</code> ou são equivalentes a um patch de um commit em <code>A</code>. Em outras palavras, isso lista os commits <code>+</code> do <code>git cherry A B</code>. Mais precisamente, as opções <code>--cherry-pick --right-only --no-merges</code> fornece a lista exata.</p>
+<p>Por exemplo, a opção <span class='synopsis'><code>--cherry-pick</code> <code>--right-only</code> <code>A...B</code></span> omite os commits de <span class='synopsis'><code>B</code></span> que estão em <span class='synopsis'><code>A</code></span> ou são equivalentes a um patch de um commit em <span class='synopsis'><code>A</code></span>. Em outras palavras, isso lista os commits <span class='synopsis'><code>+</code></span> do <span class='synopsis'><code>git</code> <code>cherry</code> <code>A</code> <code>B</code></span>. Mais precisamente, as opções <span class='synopsis'><code>--cherry-pick</code> <code>--right-only</code> <code>--no-merges</code></span> fornece a lista exata.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list---cherry"> <a class="anchor" href="#git-rev-list---cherry"></a>--cherry </dt>
 <dd>
-<p>Um sinônimo para <code>--right-only --cherry-mark --no-merges</code>; útil para limitar a saída dos commits do nosso lado e marcar aqueles que forem marcados no histórico bifurcado do outro lado com <code>git log --cherry upstream...meu-ramo</code>, semelhante ao <code>git cherry upstream meu-ramo</code>.</p>
+<p>Um sinônimo para <span class='synopsis'><code>--right-only</code> <code>--cherry-mark</code> <code>--no-merges</code></span>; útil para limitar a saída dos commits do nosso lado e marcar aqueles que forem marcados no histórico bifurcado do outro lado com <span class='synopsis'><code>git</code> <code>log</code> <code>--cherry</code> <code>upstream...meu-ramo</code></span>, semelhante ao <span class='synopsis'><code>git</code> <code>cherry</code> <code>upstream</code> <code>meu-ramo</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list--g"> <a class="anchor" href="#git-rev-list--g"></a>-g </dt>
 <dt class="hdlist1" id="git-rev-list---walk-reflogs"> <a class="anchor" href="#git-rev-list---walk-reflogs"></a>--walk-reflogs </dt>
 <dd>
 <p>Em vez de percorrer a cadeia de ancestralidade do commit, percorra as entradas do reflog desde a mais recente até as mais antigas. Quando esta opção é usada, você não pode especificar commits que serão excluídos (ou seja, as notações <em>^commit</em>, <em>commit1..commit2</em> e <em>commit1...commit2</em> não podem ser usadas).</p>
 <div class="paragraph">
-<p>With <code>--pretty</code> format other than <code>oneline</code> and <code>reference</code> (for obvious reasons), this causes the output to have two extra lines of information taken from the reflog. The reflog designator in the output may be shown as <code>ref@{&lt;Nth&gt;}</code> (where <em>&lt;Nth&gt;</em> is the reverse-chronological index in the reflog) or as <code>ref@{&lt;timestamp&gt;}</code> (with the <em>&lt;timestamp&gt;</em> for that entry), depending on a few rules:</p>
+<p>With <span class='synopsis'><code>--pretty</code></span> format other than <span class='synopsis'><code>oneline</code></span> and <span class='synopsis'><code>reference</code></span> (for obvious reasons), this causes the output to have two extra lines of information taken from the reflog. The reflog designator in the output may be shown as <span class='synopsis'><code>ref@{</code><em>&lt;Nth&gt;</em><code>}</code></span> (where <em>&lt;Nth&gt;</em> is the reverse-chronological index in the reflog) or as <span class='synopsis'><code>ref@{</code><em>&lt;timestamp&gt;</em><code>}</code></span> (with the <em>&lt;timestamp&gt;</em> for that entry), depending on a few rules:</p>
 </div>
 <div class="openblock">
 <div class="content">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>If the starting point is specified as <code>ref@{&lt;Nth&gt;}</code>, show the index format.</p>
+<p>If the starting point is specified as <span class='synopsis'><code>ref@{</code><em>&lt;Nth&gt;</em><code>}</code></span>, show the index format.</p>
 </li>
 <li>
-<p>Caso o ponto inicial seja utilizado como <code>ref@{now}</code>, exiba o formato do registro de data e hora.</p>
+<p>Caso o ponto inicial seja utilizado como <span class='synopsis'><code>ref@{now}</code></span>, exiba o formato do registro de data e hora.</p>
 </li>
 <li>
-<p>Caso nenhum deles tenha sido utilizado, mas a opção <code>--date</code> foi utilizado na linha de comando, exibe o registro de data e hora no formato solicitado por <code>--date</code>.</p>
+<p>Caso nenhum deles tenha sido utilizado, mas a opção <span class='synopsis'><code>--date</code></span> foi utilizado na linha de comando, exibe o registro de data e hora no formato solicitado por <span class='synopsis'><code>--date</code></span>.</p>
 </li>
 <li>
 <p>Caso contrário, exibe o formato do índice.</p>
@@ -307,27 +322,27 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Em <code>--pretty=oneline</code>, a mensagem do commit é prefixada com essas informações na mesma linha. Esta opção não pode ser combinada com a opção <code>--reverse</code>. Consulte também o comando <a href='{{< relurl "docs/git-reflog/pt_BR" >}}'>git-reflog[1]</a>.</p>
+<p>Em <span class='synopsis'><code>--pretty=oneline</code></span>, a mensagem do commit é prefixada com essas informações na mesma linha. Esta opção não pode ser combinada com a opção <span class='synopsis'><code>--reverse</code></span>. Consulte também o comando <a href='{{< relurl "docs/git-reflog/pt_BR" >}}'>git-reflog[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Esta informação não será exibida de forma alguma sob <code>--pretty=reference</code>.</p>
+<p>Esta informação não será exibida de forma alguma sob <span class='synopsis'><code>--pretty=reference</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list---merge"> <a class="anchor" href="#git-rev-list---merge"></a>--merge </dt>
 <dd>
-<p>Show commits touching conflicted paths in the range <code>HEAD...&lt;other&gt;</code>, where <code>&lt;other&gt;</code> is the first existing pseudoref in <code>MERGE_HEAD</code>, <code>CHERRY_PICK_HEAD</code>, <code>REVERT_HEAD</code> or <code>REBASE_HEAD</code>. Only works when the index has unmerged entries. This option can be used to show relevant commits when resolving conflicts from a 3-way merge.</p>
+<p>Show commits touching conflicted paths in the range <span class='synopsis'><code>HEAD...</code><em>&lt;other&gt;</em></span>, where <span class='synopsis'><em>&lt;other&gt;</em></span> is the first existing pseudoref in <span class='synopsis'><code>MERGE_HEAD</code></span>, <span class='synopsis'><code>CHERRY_PICK_HEAD</code></span>, <span class='synopsis'><code>REVERT_HEAD</code></span> or <span class='synopsis'><code>REBASE_HEAD</code></span>. Only works when the index has unmerged entries. This option can be used to show relevant commits when resolving conflicts from a 3-way merge.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---boundary"> <a class="anchor" href="#git-rev-list---boundary"></a>--boundary </dt>
 <dd>
-<p>O limite da exclusão dos commits que forem gerados. Os limites entre os commits são prefixados com <code>-</code>.</p>
+<p>O limite da exclusão dos commits que forem gerados. Os limites entre os commits são prefixados com <span class='synopsis'><code>-</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---use-bitmap-index"> <a class="anchor" href="#git-rev-list---use-bitmap-index"></a>--use-bitmap-index </dt>
 <dd>
-<p>Tente acelerar a passagem usando o índice do pacote bitmap (caso haja um disponível). Observe que ao percorrer com <code>--objects</code>, as árvores e as bolhas não terão o seu caminho associado impresso.</p>
+<p>Tente acelerar a passagem usando o índice do pacote bitmap (caso haja um disponível). Observe que ao percorrer com <span class='synopsis'><code>--objects</code></span>, as árvores e as bolhas não terão o seu caminho associado impresso.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---progressltheadergt"> <a class="anchor" href="#git-rev-list---progressheader"></a> <a class="anchor" href="#git-rev-list---progressltheadergt"></a>--progress=&lt;header&gt; </dt>
 <dd>
-<p>Exibe os relatórios de progresso no stderr à medida que os objetos são considerados. O texto <code>&lt;header&gt;</code> será impresso a cada atualização do progresso.</p>
+<p>Exibe os relatórios de progresso no stderr à medida que os objetos são considerados. O texto <span class='synopsis'><em>&lt;header&gt;</em></span> será impresso a cada atualização do progresso.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list--z"> <a class="anchor" href="#git-rev-list--z"></a>-z </dt>
 <dd>
@@ -338,7 +353,7 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Additional object metadata, such as object paths or boundary objects, is printed using the <code>&lt;token&gt;=&lt;value&gt;</code> form. Token values are printed as-is without any encoding/truncation. An OID entry never contains a <em>=</em> character and thus is used to signal the start of a new object record. Examples:</p>
+<p>Additional object metadata, such as object paths or boundary objects, is printed using the <span class='synopsis'><em>&lt;token&gt;</em><code>=</code><em>&lt;value&gt;</em></span> form. Token values are printed as-is without any encoding/truncation. An OID entry never contains a <em>=</em> character and thus is used to signal the start of a new object record. Examples:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -349,7 +364,7 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This mode is only compatible with the <code>--objects</code>, <code>--boundary</code>, and <code>--missing</code> output options.</p>
+<p>This mode is only compatible with the <span class='synopsis'><code>--objects</code></span>, <span class='synopsis'><code>--boundary</code></span>, and <span class='synopsis'><code>--missing</code></span> output options.</p>
 </div>
 </dd>
 </dl>
@@ -405,7 +420,7 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---simplify-merges"> <a class="anchor" href="#git-rev-list---simplify-merges"></a>--simplify-merges </dt>
 <dd>
-<p>Opção adicional para <code>--full-history</code> para remover algumas mesclagens desnecessárias do histórico resultante, pois não há commits selecionados contribuindo para essa mesclagem.</p>
+<p>Opção adicional para <span class='synopsis'><code>--full-history</code></span> para remover algumas mesclagens desnecessárias do histórico resultante, pois não há commits selecionados contribuindo para essa mesclagem.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---ancestry-pathltcommitgt"> <a class="anchor" href="#git-rev-list---ancestry-pathcommit"></a> <a class="anchor" href="#git-rev-list---ancestry-pathltcommitgt"></a>--ancestry-path[=&lt;commit&gt;] </dt>
 <dd>
@@ -417,10 +432,10 @@ $ git rev-list A...B</pre>
 <p>Segue explicações com mais detalhes.</p>
 </div>
 <div class="paragraph">
-<p>Suponha que você tenha especificado <code>foo</code> como <em>&lt;caminhos&gt;</em>. Chamaremos os commits que modificam o <code>foo</code> de !TREESAME, e o restante de TREESAME. (Num diff filtrado para <code>foo</code>, eles parecem diferentes e iguais, respectivamente.)</p>
+<p>Suponha que você tenha especificado <span class='synopsis'><code>foo</code></span> como <em>&lt;caminhos&gt;</em>. Chamaremos os commits que modificam o <span class='synopsis'><code>foo</code></span> de !TREESAME, e o restante de TREESAME. (Num diff filtrado para <span class='synopsis'><code>foo</code></span>, eles parecem diferentes e iguais, respectivamente.)</p>
 </div>
 <div class="paragraph">
-<p>A seguir, sempre nos referiremos ao mesmo exemplo do histórico para ilustrar as diferenças entre as configurações da simplificação. Presumimos que você esteja filtrando um arquivo <code>foo</code> neste gráfico de commits:</p>
+<p>A seguir, sempre nos referiremos ao mesmo exemplo do histórico para ilustrar as diferenças entre as configurações da simplificação. Presumimos que você esteja filtrando um arquivo <span class='synopsis'><code>foo</code></span> neste gráfico de commits:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -437,36 +452,36 @@ $ git rev-list A...B</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>O <code>I</code> é o commit inicial onde <code>foo</code> existe com o conteúdo &#8220;asdf&#8221; e existe um arquivo <code>quux</code> com o conteúdo` <code>quux ''. Os commits iniciais são comparados com uma árvore vazia, então o `I</code> é !TREESAME.</p>
+<p>O <span class='synopsis'><code>I</code></span> é o commit inicial onde <span class='synopsis'><code>foo</code></span> existe com o conteúdo &#8220;asdf&#8221; e existe um arquivo <span class='synopsis'><code>quux</code></span> com o conteúdo` <span class='synopsis'><em>quux ''. Os commits iniciais são comparados com uma árvore vazia, então o `I</em></span> é !TREESAME.</p>
 </li>
 <li>
-<p>Em <code>A</code>, <code>foo</code> contém apenas &#8220;foo&#8221;.</p>
+<p>Em <span class='synopsis'><code>A</code></span>, <span class='synopsis'><code>foo</code></span> contém apenas &#8220;foo&#8221;.</p>
 </li>
 <li>
-<p><code>B</code> contém a mesma alteração que <code>A</code>. A sua fusão <code>M</code> é trivial e, portanto, TREESAME para todos os principais.</p>
+<p><span class='synopsis'><code>B</code></span> contém a mesma alteração que <span class='synopsis'><code>A</code></span>. A sua fusão <span class='synopsis'><code>M</code></span> é trivial e, portanto, TREESAME para todos os principais.</p>
 </li>
 <li>
-<p>O <code>C</code> não muda <code>foo</code>, mas a sua mesclagem <code>N</code> o altera para &#8220;foobar&#8221;, portanto não é <em>TREESAME</em> para nenhum dos pais.</p>
+<p>O <span class='synopsis'><code>C</code></span> não muda <span class='synopsis'><code>foo</code></span>, mas a sua mesclagem <span class='synopsis'><code>N</code></span> o altera para &#8220;foobar&#8221;, portanto não é <em>TREESAME</em> para nenhum dos pais.</p>
 </li>
 <li>
-<p><code>D</code> define <code>foo</code> para &#8220;baz&#8221;. Mescla <code>O</code> combinado com textos vindos de ` N` e <code>D</code> a &#8220;foobarbaz&#8221;; ou seja, não é "TREESAME" para nenhuma das origens.</p>
+<p><span class='synopsis'><code>D</code></span> define <span class='synopsis'><code>foo</code></span> para &#8220;baz&#8221;. Mescla <span class='synopsis'><code>O</code></span> combinado com textos vindos de ` N` e <span class='synopsis'><code>D</code></span> a &#8220;foobarbaz&#8221;; ou seja, não é "TREESAME" para nenhuma das origens.</p>
 </li>
 <li>
-<p>O <code>E</code> altera <code>quux</code> para &#8220;xyzzy&#8221; e a sua mesclagem <code>P</code> combina as sequências dos caracteres para &#8220;quux xyzzy&#8221;. O <code>P</code> é <em>TREESAME</em> para <code>O</code>, porém não para <code>E</code>.</p>
+<p>O <span class='synopsis'><code>E</code></span> altera <span class='synopsis'><code>quux</code></span> para &#8220;xyzzy&#8221; e a sua mesclagem <span class='synopsis'><code>P</code></span> combina as sequências dos caracteres para &#8220;quux xyzzy&#8221;. O <span class='synopsis'><code>P</code></span> é <em>TREESAME</em> para <span class='synopsis'><code>O</code></span>, porém não para <span class='synopsis'><code>E</code></span>.</p>
 </li>
 <li>
-<p>O <code>X</code> é um commit raiz independente que adicionou um novo arquivo <code>side</code>, e <code>Y</code> o alterou. O <code>Y</code> é <em>TREESAME</em> para <code>X</code>. Mescla <code>Q</code> adicionou <code>side</code> para <code>P</code>, e <code>Q</code> e <em>TREESAME</em> para <code>P</code>, mas não para <code>Y</code>.</p>
+<p>O <span class='synopsis'><code>X</code></span> é um commit raiz independente que adicionou um novo arquivo <span class='synopsis'><code>side</code></span>, e <span class='synopsis'><code>Y</code></span> o alterou. O <span class='synopsis'><code>Y</code></span> é <em>TREESAME</em> para <span class='synopsis'><code>X</code></span>. Mescla <span class='synopsis'><code>Q</code></span> adicionou <span class='synopsis'><code>side</code></span> para <span class='synopsis'><code>P</code></span>, e <span class='synopsis'><code>Q</code></span> e <em>TREESAME</em> para <span class='synopsis'><code>P</code></span>, mas não para <span class='synopsis'><code>Y</code></span>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>O <code>rev list</code> retrocede no histórico, incluindo ou excluindo os commits com base no uso do <code>--full-history</code> e/ou na reescrita dos pais (através da opção <code>--parents</code> ou <code>--children</code>). As seguintes configurações estão disponíveis.</p>
+<p>O <span class='synopsis'><code>rev</code> <code>list</code></span> retrocede no histórico, incluindo ou excluindo os commits com base no uso do <span class='synopsis'><code>--full-history</code></span> e/ou na reescrita dos pais (através da opção <span class='synopsis'><code>--parents</code></span> ou <span class='synopsis'><code>--children</code></span>). As seguintes configurações estão disponíveis.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-rev-list-Modopredefinido-1"> <a class="anchor" href="#git-rev-list-Modopredefinido-1"></a>Modo predefinido </dt>
 <dd>
-<p>Os commits são incluídos se não forem TREESAME para qualquer ramo principal (embora isso possa ser alterado, consulte a opção <code>--sparse</code> abaixo). Se o commit foi uma mesclagem e foi TREESAME para uma origem, siga apenas esta origem. (Mesmo que haja vários pais TREESAME, siga apenas um deles.) Caso contrário, siga todos os ramos principais.</p>
+<p>Os commits são incluídos se não forem TREESAME para qualquer ramo principal (embora isso possa ser alterado, consulte a opção <span class='synopsis'><code>--sparse</code></span> abaixo). Se o commit foi uma mesclagem e foi TREESAME para uma origem, siga apenas esta origem. (Mesmo que haja vários pais TREESAME, siga apenas um deles.) Caso contrário, siga todos os ramos principais.</p>
 <div class="paragraph">
 <p>Isso resulta em:</p>
 </div>
@@ -478,13 +493,13 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Observe como a regra de seguir apenas o principal TREESAME, se houver um disponível, removeu o <code>B</code> completamente da consideração. O <code>C</code> foi considerado via <code>N</code>, mas é TREESAME. Os commits principais são comparados a uma árvore vazia, portanto, <code>I</code> é !TREESAME.</p>
+<p>Observe como a regra de seguir apenas o principal TREESAME, se houver um disponível, removeu o <span class='synopsis'><code>B</code></span> completamente da consideração. O <span class='synopsis'><code>C</code></span> foi considerado via <span class='synopsis'><code>N</code></span>, mas é TREESAME. Os commits principais são comparados a uma árvore vazia, portanto, <span class='synopsis'><code>I</code></span> é !TREESAME.</p>
 </div>
 <div class="paragraph">
-<p>As relações entre pai/filho são visíveis apenas com <code>--parents</code>, porém isso não afeta os commits selecionados no modo predefinido, portanto, mostramos as linhas dos pais.</p>
+<p>As relações entre pai/filho são visíveis apenas com <span class='synopsis'><code>--parents</code></span>, porém isso não afeta os commits selecionados no modo predefinido, portanto, mostramos as linhas dos pais.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rev-list-code--full-historycodesemreescritaanterior"> <a class="anchor" href="#git-rev-list---full-historysemreescritaanterior"></a> <a class="anchor" href="#git-rev-list-code--full-historycodesemreescritaanterior"></a><code>--full-history</code> sem reescrita anterior </dt>
+<dt class="hdlist1" id="git-rev-list-spanclasssynopsiscode--full-historycodespansemreescritaanterior"> <a class="anchor" href="#git-rev-list---full-historysemreescritaanterior"></a> <a class="anchor" href="#git-rev-list-spanclasssynopsiscode--full-historycodespansemreescritaanterior"></a><span class='synopsis'><code>--full-history</code></span> sem reescrita anterior </dt>
 <dd>
 <p>Este modo difere do predefinido num ponto: sempre segue todos os pais de uma mesclagem, mesmo que seja TREESAME para um deles. Mesmo que mais de um lado da mesclagem tenha commits incluídos, isso não significa que a mesclagem em si esteja! No exemplo, nós temos</p>
 <div class="listingblock">
@@ -493,15 +508,15 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>O <code>M</code> foi excluído porque é TREESAME para ambos os ramos principais. <code>E</code>, <code>C</code> e <code>B</code> foram todos percorridos, mas apenas <code>B</code> era !TREESAME, então os outros não aparecem.</p>
+<p>O <span class='synopsis'><code>M</code></span> foi excluído porque é TREESAME para ambos os ramos principais. <span class='synopsis'><code>E</code></span>, <span class='synopsis'><code>C</code></span> e <span class='synopsis'><code>B</code></span> foram todos percorridos, mas apenas <span class='synopsis'><code>B</code></span> era !TREESAME, então os outros não aparecem.</p>
 </div>
 <div class="paragraph">
 <p>Observe que, sem reescrever os pais, não é realmente possível falar sobre os relacionamentos pai/filho entre os commits, portanto, mostramos-lhes desconectados.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rev-list-code--full-historycodecomreescritaanterior"> <a class="anchor" href="#git-rev-list---full-historycomreescritaanterior"></a> <a class="anchor" href="#git-rev-list-code--full-historycodecomreescritaanterior"></a><code>--full-history</code> com reescrita anterior </dt>
+<dt class="hdlist1" id="git-rev-list-spanclasssynopsiscode--full-historycodespancomreescritaanterior"> <a class="anchor" href="#git-rev-list---full-historycomreescritaanterior"></a> <a class="anchor" href="#git-rev-list-spanclasssynopsiscode--full-historycodespancomreescritaanterior"></a><span class='synopsis'><code>--full-history</code></span> com reescrita anterior </dt>
 <dd>
-<p>Os commits comuns são incluídos apenas se forem <em>!TREESAME</em> (embora é possível alterar isso, consulte <code>--sparse</code> abaixo).</p>
+<p>Os commits comuns são incluídos apenas se forem <em>!TREESAME</em> (embora é possível alterar isso, consulte <span class='synopsis'><code>--sparse</code></span> abaixo).</p>
 <div class="paragraph">
 <p>As mesclagens são sempre incluídas. No entanto, a sua lista principal é reescrita: Ao longo de cada ramo principal, elimine os commits que não estão incluídos. Isso resulta em</p>
 </div>
@@ -515,7 +530,7 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Compare com a opção <code>--full-history</code> sem reescrever acima. Observe que <code>E</code> foi eliminado porque é TREESAME, mas a lista dos principais de P foi reescrito para conter o principal de <code>E</code>, <code>I</code>. O mesmo aconteceu com <code>C</code> e <code>N</code>, e <code>X</code>, <code>Y</code> e <code>Q</code>.</p>
+<p>Compare com a opção <span class='synopsis'><code>--full-history</code></span> sem reescrever acima. Observe que <span class='synopsis'><code>E</code></span> foi eliminado porque é TREESAME, mas a lista dos principais de P foi reescrito para conter o principal de <span class='synopsis'><code>E</code></span>, <span class='synopsis'><code>I</code></span>. O mesmo aconteceu com <span class='synopsis'><code>C</code></span> e <span class='synopsis'><code>N</code></span>, e <span class='synopsis'><code>X</code></span>, <span class='synopsis'><code>Y</code></span> e <span class='synopsis'><code>Q</code></span>.</p>
 </div>
 </dd>
 </dl>
@@ -533,34 +548,34 @@ $ git rev-list A...B</pre>
 <dd>
 <p>Todos os commits que forem passados serão incluidos.</p>
 <div class="paragraph">
-<p>Observe que sem o <code>--full-history</code>, isso ainda simplifica as mesclagens: caso um dos pais seja <em>TREESAME</em>, seguiremos apenas este, para que os outros lados da mesclagem nunca sejam percorridos.</p>
+<p>Observe que sem o <span class='synopsis'><code>--full-history</code></span>, isso ainda simplifica as mesclagens: caso um dos pais seja <em>TREESAME</em>, seguiremos apenas este, para que os outros lados da mesclagem nunca sejam percorridos.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list---simplify-merges-1"> <a class="anchor" href="#git-rev-list---simplify-merges-1"></a>--simplify-merges </dt>
 <dd>
-<p>Primeiro, construa um grafo do histórico da mesma maneira que <code>--full-history</code> com a reescrita dos parentes (veja acima).</p>
+<p>Primeiro, construa um grafo do histórico da mesma maneira que <span class='synopsis'><code>--full-history</code></span> com a reescrita dos parentes (veja acima).</p>
 <div class="paragraph">
-<p>Simplifique cada commit <code>C</code> para a sua reposição <code>C'</code> no histórico final, de acordo com as seguintes regras:</p>
+<p>Simplifique cada commit <span class='synopsis'><code>C</code></span> para a sua reposição <span class='synopsis'><code>C'</code></span> no histórico final, de acordo com as seguintes regras:</p>
 </div>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Defina <code>C'</code> para <code>C</code>.</p>
+<p>Defina <span class='synopsis'><code>C'</code></span> para <span class='synopsis'><code>C</code></span>.</p>
 </li>
 <li>
-<p>Substitua cada principal <code>P</code> de <code>C'</code> pela sua simplificação <code>P'</code>. No processo, elimine os principais que são ancestrais de outros principais ou que são raiz, transfira TREESAME para uma árvore vazia e remova as duplicatas, mas tome cuidado para nunca eliminar todos os principais onde somos TREESAME.</p>
+<p>Substitua cada principal <span class='synopsis'><code>P</code></span> de <span class='synopsis'><code>C'</code></span> pela sua simplificação <span class='synopsis'><code>P'</code></span>. No processo, elimine os principais que são ancestrais de outros principais ou que são raiz, transfira TREESAME para uma árvore vazia e remova as duplicatas, mas tome cuidado para nunca eliminar todos os principais onde somos TREESAME.</p>
 </li>
 <li>
-<p>Se, após essa reescrita dos pais, <code>C'</code> for um commit raiz ou de mesclagem (tem zero ou &gt;1 principais), um commit de limite ou !TREESAME, ele permanecerá. Caso contrário, ele é substituído por seu único principal.</p>
+<p>Se, após essa reescrita dos pais, <span class='synopsis'><code>C'</code></span> for um commit raiz ou de mesclagem (tem zero ou &gt;1 principais), um commit de limite ou !TREESAME, ele permanecerá. Caso contrário, ele é substituído por seu único principal.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>O efeito disso é melhor mostrado por meio da comparação com o <code>--full-history</code> com reescrita principal. O exemplo se torna:</p>
+<p>O efeito disso é melhor mostrado por meio da comparação com o <span class='synopsis'><code>--full-history</code></span> com reescrita principal. O exemplo se torna:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -572,20 +587,20 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Observe que as maiores diferenças entre <code>N</code>, <code>P</code>, e <code>Q</code> sobre <code>--full-history</code>:</p>
+<p>Observe que as maiores diferenças entre <span class='synopsis'><code>N</code></span>, <span class='synopsis'><code>P</code></span>, e <span class='synopsis'><code>Q</code></span> sobre <span class='synopsis'><code>--full-history</code></span>:</p>
 </div>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>A lista do ramo principal <code>N</code> teve o <code>I</code> removido, porque ele é um ancestral do outro ramo principal <code>M</code>. Ainda assim, o <code>N</code> permaneceu porque é !TREESAME.</p>
+<p>A lista do ramo principal <span class='synopsis'><code>N</code></span> teve o <span class='synopsis'><code>I</code></span> removido, porque ele é um ancestral do outro ramo principal <span class='synopsis'><code>M</code></span>. Ainda assim, o <span class='synopsis'><code>N</code></span> permaneceu porque é !TREESAME.</p>
 </li>
 <li>
-<p>A lista principal de <code>P</code> também teve o <code>I</code> removido. O <code>P</code> foi então removido completamente, porque tinha um ramo principal e é TREESAME.</p>
+<p>A lista principal de <span class='synopsis'><code>P</code></span> também teve o <span class='synopsis'><code>I</code></span> removido. O <span class='synopsis'><code>P</code></span> foi então removido completamente, porque tinha um ramo principal e é TREESAME.</p>
 </li>
 <li>
-<p>A lista de pais de <code>Q</code> tinha` Y` simplificado para <code>X</code>. O <code>X</code> foi então removido, porque era uma raiz <em>TREESAME</em>. O <code>Q</code> foi removido completamente, porque tinha um pai e é <em>TREESAME</em>.</p>
+<p>A lista de pais de <span class='synopsis'><code>Q</code></span> tinha` Y` simplificado para <span class='synopsis'><code>X</code></span>. O <span class='synopsis'><code>X</code></span> foi então removido, porque era uma raiz <em>TREESAME</em>. O <span class='synopsis'><code>Q</code></span> foi removido completamente, porque tinha um pai e é <em>TREESAME</em>.</p>
 </li>
 </ul>
 </div>
@@ -615,10 +630,10 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Um <em>D..M</em> regular calcula o conjunto dos commits que são ancestrais do <code>M</code>, mas exclui os que são ancestrais do <code>D</code>. Isso é útil para ver o que aconteceu com a história que levou a <code>M</code> desde o <code>D</code>, no sentido que &#8220;o que <code>M</code> possui e que não existia em <code>D</code>&#8221;. O resultado neste exemplo seria todos os commits, exceto <code>A</code> e <code>B</code> (e <code>D</code>, obviamente).</p>
+<p>Um <em>D..M</em> regular calcula o conjunto dos commits que são ancestrais do <span class='synopsis'><code>M</code></span>, mas exclui os que são ancestrais do <span class='synopsis'><code>D</code></span>. Isso é útil para ver o que aconteceu com a história que levou a <span class='synopsis'><code>M</code></span> desde o <span class='synopsis'><code>D</code></span>, no sentido que &#8220;o que <span class='synopsis'><code>M</code></span> possui e que não existia em <span class='synopsis'><code>D</code></span>&#8221;. O resultado neste exemplo seria todos os commits, exceto <span class='synopsis'><code>A</code></span> e <span class='synopsis'><code>B</code></span> (e <span class='synopsis'><code>D</code></span>, obviamente).</p>
 </div>
 <div class="paragraph">
-<p>No entanto, quando quisermos descobrir quais commits em <code>M</code> estão contaminados com o bug introduzido por <code>D</code> e precisam ser corrigidos, talvez seja do nosso interesse visualizar apenas o subconjunto <em>D..M</em> que são realmente descendentes de <code>D</code>, ou seja, excluindo <code>C</code> e <code>K</code>. Isso é exatamente o que a opção <code>--ancestry-path</code> faz. Aplicado ao intervalo <em>D..M</em>, o resultado é:</p>
+<p>No entanto, quando quisermos descobrir quais commits em <span class='synopsis'><code>M</code></span> estão contaminados com o bug introduzido por <span class='synopsis'><code>D</code></span> e precisam ser corrigidos, talvez seja do nosso interesse visualizar apenas o subconjunto <em>D..M</em> que são realmente descendentes de <span class='synopsis'><code>D</code></span>, ou seja, excluindo <span class='synopsis'><code>C</code></span> e <span class='synopsis'><code>K</code></span>. Isso é exatamente o que a opção <span class='synopsis'><code>--ancestry-path</code></span> faz. Aplicado ao intervalo <em>D..M</em>, o resultado é:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -630,10 +645,10 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Também podemos usar <code>--ancestry-path=D</code> em vez de <code>--ancestry-path</code> que significa a mesma coisa quando é aplicado ao intervalo <em>D..M</em>, porém, é apenas mais explícito.</p>
+<p>Também podemos usar <span class='synopsis'><code>--ancestry-path=D</code></span> em vez de <span class='synopsis'><code>--ancestry-path</code></span> que significa a mesma coisa quando é aplicado ao intervalo <em>D..M</em>, porém, é apenas mais explícito.</p>
 </div>
 <div class="paragraph">
-<p>Se, em vez disso, estivermos interessados num determinado tópico dentro deste intervalo e em todos os commits afetados por este tópico, talvez seja do nosso interesse visualizar apenas o subconjunto <code>D...M</code> que contém esse tópico em seu caminho de ancestralidade. Portanto, usar <code>--ancestry-path=H D...M</code>, por exemplo, resultaria em:</p>
+<p>Se, em vez disso, estivermos interessados num determinado tópico dentro deste intervalo e em todos os commits afetados por este tópico, talvez seja do nosso interesse visualizar apenas o subconjunto <span class='synopsis'><code>D...M</code></span> que contém esse tópico em seu caminho de ancestralidade. Portanto, usar <span class='synopsis'><code>--ancestry-path=H</code> <code>D...M</code></span>, por exemplo, resultaria em:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -645,7 +660,7 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Onde <code>--ancestry-path=K D..M</code> resultará em</p>
+<p>Onde <span class='synopsis'><code>--ancestry-path=K</code> <code>D..M</code></span> resultará em</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -656,10 +671,10 @@ $ git rev-list A...B</pre>
 </dl>
 </div>
 <div class="paragraph">
-<p>Antes de discutir outra opção, <code>--show-pulls</code>, precisamos criar um novo histórico de exemplo.</p>
+<p>Antes de discutir outra opção, <span class='synopsis'><code>--show-pulls</code></span>, precisamos criar um novo histórico de exemplo.</p>
 </div>
 <div class="paragraph">
-<p>Um problema comum que os usuários enfrentam ao examinar o histórico simplificado é que um commit que eles conhecem alterou um arquivo e que de alguma maneira não aparece no histórico simplificado do arquivo. Vamos demonstrar um novo exemplo e exibir como as opções como <code>--full-history</code> e <code>--simplify-merges</code> funcionam neste caso:</p>
+<p>Um problema comum que os usuários enfrentam ao examinar o histórico simplificado é que um commit que eles conhecem alterou um arquivo e que de alguma maneira não aparece no histórico simplificado do arquivo. Vamos demonstrar um novo exemplo e exibir como as opções como <span class='synopsis'><code>--full-history</code></span> e <span class='synopsis'><code>--simplify-merges</code></span> funcionam neste caso:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -672,10 +687,10 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Para este exemplo, suponha que <code>I</code> tenha criado o arquivo <code>file.txt</code> que foi alterado por <code>A</code>, <code>B</code> e <code>X</code> de maneiras diferentes. Os commits do único ramo principal <code>C</code>, <code>Z</code> e <code>Y</code> não alteram o arquivo <code>file.txt</code>. O commit de mesclagem <code>M</code> foi criado ao solucionar o conflito de mesclagem para incluir ambas as alterações de <code>A</code> e <code>B</code> e, portanto, não é TREESAME para nenhum deles. A mesclagem do commit <code>R</code>, no entanto, foi criado ignorando o conteúdo do arquivo <code>file.txt</code> em <code>M</code> e pegando apenas o conteúdo do arquivo <code>file.txt</code> em <code>X</code>. Portanto, <code>R</code> é TREESAME para <code>X</code>, mas não para <code>M</code>. Por fim, a resolução da mesclagem natural para criar <code>N</code> é pegar o conteúdo do arquivo <code>file.txt</code> em <code>R</code>, de modo que <code>N</code> é TREESAME para <code>R</code>, mas não para <code>C</code>. A mesclagem dos commits <code>O</code> e <code>P</code> são TREESAME para os seus primeiros ramos principais, mas não para os seus os ramos principais secundários, <code>Z</code> e <code>Y</code> respectivamente.</p>
+<p>Para este exemplo, suponha que <span class='synopsis'><code>I</code></span> tenha criado o arquivo <span class='synopsis'><code>file.txt</code></span> que foi alterado por <span class='synopsis'><code>A</code></span>, <span class='synopsis'><code>B</code></span> e <span class='synopsis'><code>X</code></span> de maneiras diferentes. Os commits do único ramo principal <span class='synopsis'><code>C</code></span>, <span class='synopsis'><code>Z</code></span> e <span class='synopsis'><code>Y</code></span> não alteram o arquivo <span class='synopsis'><code>file.txt</code></span>. O commit de mesclagem <span class='synopsis'><code>M</code></span> foi criado ao solucionar o conflito de mesclagem para incluir ambas as alterações de <span class='synopsis'><code>A</code></span> e <span class='synopsis'><code>B</code></span> e, portanto, não é TREESAME para nenhum deles. A mesclagem do commit <span class='synopsis'><code>R</code></span>, no entanto, foi criado ignorando o conteúdo do arquivo <span class='synopsis'><code>file.txt</code></span> em <span class='synopsis'><code>M</code></span> e pegando apenas o conteúdo do arquivo <span class='synopsis'><code>file.txt</code></span> em <span class='synopsis'><code>X</code></span>. Portanto, <span class='synopsis'><code>R</code></span> é TREESAME para <span class='synopsis'><code>X</code></span>, mas não para <span class='synopsis'><code>M</code></span>. Por fim, a resolução da mesclagem natural para criar <span class='synopsis'><code>N</code></span> é pegar o conteúdo do arquivo <span class='synopsis'><code>file.txt</code></span> em <span class='synopsis'><code>R</code></span>, de modo que <span class='synopsis'><code>N</code></span> é TREESAME para <span class='synopsis'><code>R</code></span>, mas não para <span class='synopsis'><code>C</code></span>. A mesclagem dos commits <span class='synopsis'><code>O</code></span> e <span class='synopsis'><code>P</code></span> são TREESAME para os seus primeiros ramos principais, mas não para os seus os ramos principais secundários, <span class='synopsis'><code>Z</code></span> e <span class='synopsis'><code>Y</code></span> respectivamente.</p>
 </div>
 <div class="paragraph">
-<p>Ao utilizar os modos predefinidos, ambos os <code>N</code> e <code>R</code> tem um pai TREESAME, então aquelas bordas são percorridas e outras são ignoradas. E o grafo resultante no histórico é:</p>
+<p>Ao utilizar os modos predefinidos, ambos os <span class='synopsis'><code>N</code></span> e <span class='synopsis'><code>R</code></span> tem um pai TREESAME, então aquelas bordas são percorridas e outras são ignoradas. E o grafo resultante no histórico é:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -683,7 +698,7 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Ao utilizar a opção <code>--full-history</code>, O Git percorre cada canto. Descobre se os commits <code>A</code>, <code>B</code> e o mesclado <code>M</code>, porém também revela se o commit mesclado <code>O</code> e <code>P</code>. Com a reescrita do pai, o resultado do grafo é:</p>
+<p>Ao utilizar a opção <span class='synopsis'><code>--full-history</code></span>, O Git percorre cada canto. Descobre se os commits <span class='synopsis'><code>A</code></span>, <span class='synopsis'><code>B</code></span> e o mesclado <span class='synopsis'><code>M</code></span>, porém também revela se o commit mesclado <span class='synopsis'><code>O</code></span> e <span class='synopsis'><code>P</code></span>. Com a reescrita do pai, o resultado do grafo é:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -696,10 +711,10 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Aqui, a mesclagem do commit <code>O</code> e <code>P</code> contribuem com um ruído extra, pois na verdade não contribuíram com uma alteração no <code>file.txt</code>. Eles mesclaram apenas um <em>topic</em> com base numa versão mais antiga do <code>file.txt</code>. Este é um problema comum em repositórios que utilizam um fluxo de trabalho onde que muitos colaboradores trabalham em paralelo e mesclam as suas ramificações dos tópicos em um único tronco: muitas mesclagens não relacionadas aparecem nos resultados da opção <code>--full-history</code>.</p>
+<p>Aqui, a mesclagem do commit <span class='synopsis'><code>O</code></span> e <span class='synopsis'><code>P</code></span> contribuem com um ruído extra, pois na verdade não contribuíram com uma alteração no <span class='synopsis'><code>file.txt</code></span>. Eles mesclaram apenas um <em>topic</em> com base numa versão mais antiga do <span class='synopsis'><code>file.txt</code></span>. Este é um problema comum em repositórios que utilizam um fluxo de trabalho onde que muitos colaboradores trabalham em paralelo e mesclam as suas ramificações dos tópicos em um único tronco: muitas mesclagens não relacionadas aparecem nos resultados da opção <span class='synopsis'><code>--full-history</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Ao utilizar a opção <code>--simplify-merges</code>, os commits <code>O</code> e <code>P</code> desaparecem dos resultados. Pois as reescritas do segundo pai de <code>O</code> e <code>P</code> são acessíveis a partir dos seus primeiros pais. Estes cantos são removidos e então os commits se parecem com commits com pai singular só que são TREESAME em relação aos seus pais. Isso também acontece ao commit <code>N</code>, resultando no histórico a seguir:</p>
+<p>Ao utilizar a opção <span class='synopsis'><code>--simplify-merges</code></span>, os commits <span class='synopsis'><code>O</code></span> e <span class='synopsis'><code>P</code></span> desaparecem dos resultados. Pois as reescritas do segundo pai de <span class='synopsis'><code>O</code></span> e <span class='synopsis'><code>P</code></span> são acessíveis a partir dos seus primeiros pais. Estes cantos são removidos e então os commits se parecem com commits com pai singular só que são TREESAME em relação aos seus pais. Isso também acontece ao commit <span class='synopsis'><code>N</code></span>, resultando no histórico a seguir:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -712,13 +727,13 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Nesta visão, vemos todas as alterações importantes da única origem vindas de <code>A</code>, <code>B</code> e <code>X</code>. Também vemos a mesclagem cuidadosamente resolvida de <code>M</code> e a mesclagem nem tão bem resolvida do <code>R</code>. Geralmente são informações suficientes para determinar por que os commit <code>A</code> e <code>B</code> "desapareceram" do histórico na visualização predefinida. No entanto, existem alguns problemas com esta abordagem.</p>
+<p>Nesta visão, vemos todas as alterações importantes da única origem vindas de <span class='synopsis'><code>A</code></span>, <span class='synopsis'><code>B</code></span> e <span class='synopsis'><code>X</code></span>. Também vemos a mesclagem cuidadosamente resolvida de <span class='synopsis'><code>M</code></span> e a mesclagem nem tão bem resolvida do <span class='synopsis'><code>R</code></span>. Geralmente são informações suficientes para determinar por que os commit <span class='synopsis'><code>A</code></span> e <span class='synopsis'><code>B</code></span> "desapareceram" do histórico na visualização predefinida. No entanto, existem alguns problemas com esta abordagem.</p>
 </div>
 <div class="paragraph">
-<p>O primeiro problema é o desempenho. Diferente das opções anteriores, a opção <code>--simplify-merges</code> precisa percorrer todo o histórico do commit antes de retornar um único resultado. Isso pode fazer com que a opção seja difícil de usar em repositórios muito grandes.</p>
+<p>O primeiro problema é o desempenho. Diferente das opções anteriores, a opção <span class='synopsis'><code>--simplify-merges</code></span> precisa percorrer todo o histórico do commit antes de retornar um único resultado. Isso pode fazer com que a opção seja difícil de usar em repositórios muito grandes.</p>
 </div>
 <div class="paragraph">
-<p>O segundo problema é a auditoria. Quando muitos colaboradores estão trabalhando no mesmo repositório, é importante saber qual mesclagem do commit introduziu uma importante alteração no ramo. A mesclagem problemática <code>R</code> acima não parece ser o commit mesclado que foi utilizado na mesclagem de um ramo importante. Em vez disso, a mesclagem <code>N</code> foi utilizada para mesclar <code>R</code> e <code>X</code> em um importante ramo. Este commit por ter informação sobre o por que do <code>X</code> chegou a substituir as alterações do <code>A</code> e <code>B</code> em suas mensagens do commit.</p>
+<p>O segundo problema é a auditoria. Quando muitos colaboradores estão trabalhando no mesmo repositório, é importante saber qual mesclagem do commit introduziu uma importante alteração no ramo. A mesclagem problemática <span class='synopsis'><code>R</code></span> acima não parece ser o commit mesclado que foi utilizado na mesclagem de um ramo importante. Em vez disso, a mesclagem <span class='synopsis'><code>N</code></span> foi utilizada para mesclar <span class='synopsis'><code>R</code></span> e <span class='synopsis'><code>X</code></span> em um importante ramo. Este commit por ter informação sobre o por que do <span class='synopsis'><code>X</code></span> chegou a substituir as alterações do <span class='synopsis'><code>A</code></span> e <span class='synopsis'><code>B</code></span> em suas mensagens do commit.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -726,7 +741,7 @@ $ git rev-list A...B</pre>
 <dd>
 <p>Além dos commits exibidos no histórico predefinido, exiba cada mesclagem do commit que não seja <em>TREESAME</em> para o primeiro parente, porém que seja <em>TREESAME</em> para um parente posterior.</p>
 <div class="paragraph">
-<p>Quando a mesclagem de um commit é incluso através da opção <code>--show-pulls</code>, a mesclagem é tratada como tivesse "capturado" as alterações de um outro ramo. Ao usar a opção <code>--show-pulls</code> nest exemplo (e em nenhuma outra opção) o grafo resultante será:</p>
+<p>Quando a mesclagem de um commit é incluso através da opção <span class='synopsis'><code>--show-pulls</code></span>, a mesclagem é tratada como tivesse "capturado" as alterações de um outro ramo. Ao usar a opção <span class='synopsis'><code>--show-pulls</code></span> nest exemplo (e em nenhuma outra opção) o grafo resultante será:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -734,10 +749,10 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Aqui, a mesclagem do commit <code>R</code> e <code>N</code> são incluídos porque obtiveram os commits <code>X</code> e <code>R</code> para o ramo base, respectivamente. Essas mesclagens são a razão pela qual os commits <code>A</code> e <code>B</code> não aparecem no histórico predefinido.</p>
+<p>Aqui, a mesclagem do commit <span class='synopsis'><code>R</code></span> e <span class='synopsis'><code>N</code></span> são incluídos porque obtiveram os commits <span class='synopsis'><code>X</code></span> e <span class='synopsis'><code>R</code></span> para o ramo base, respectivamente. Essas mesclagens são a razão pela qual os commits <span class='synopsis'><code>A</code></span> e <span class='synopsis'><code>B</code></span> não aparecem no histórico predefinido.</p>
 </div>
 <div class="paragraph">
-<p>Quando a opção <code>--show-pulls</code> for usado em conjunto com <code>--simplify-merges</code>, o grafo incluí todas as informações necessárias:</p>
+<p>Quando a opção <span class='synopsis'><code>--show-pulls</code></span> for usado em conjunto com <span class='synopsis'><code>--simplify-merges</code></span>, o grafo incluí todas as informações necessárias:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -750,13 +765,13 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Repare que desde que <code>M</code> seja acessível de <code>R</code>, o canto de <code>N</code> para <code>M</code> foi simplificado. No entanto, o <code>N</code> ainda aparece no histórico como um commit importante porque ele "obteve" as alterações vindas de <code>R</code> para o ramo principal.</p>
+<p>Repare que desde que <span class='synopsis'><code>M</code></span> seja acessível de <span class='synopsis'><code>R</code></span>, o canto de <span class='synopsis'><code>N</code></span> para <span class='synopsis'><code>M</code></span> foi simplificado. No entanto, o <span class='synopsis'><code>N</code></span> ainda aparece no histórico como um commit importante porque ele "obteve" as alterações vindas de <span class='synopsis'><code>R</code></span> para o ramo principal.</p>
 </div>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>A opção <code>--simplify-by-decoration</code> permite que você veja apenas o quadro geral da topologia do histórico, omitindo os commits que não são mencionados pelas etiquetas. Os commits são marcados como !TREESAME (em outras palavras, mantidos após as regras de simplificação do histórico descritas acima) se (1) forem mencionados pelas etiquetas ou (2) alterarem o conteúdo dos caminhos fornecidos na linha de comando. Todos os outros commits são marcados como TREESAME (que estão sujeitos a serem simplificados).</p>
+<p>A opção <span class='synopsis'><code>--simplify-by-decoration</code></span> permite que você veja apenas o quadro geral da topologia do histórico, omitindo os commits que não são mencionados pelas etiquetas. Os commits são marcados como !TREESAME (em outras palavras, mantidos após as regras de simplificação do histórico descritas acima) se (1) forem mencionados pelas etiquetas ou (2) alterarem o conteúdo dos caminhos fornecidos na linha de comando. Todos os outros commits são marcados como TREESAME (que estão sujeitos a serem simplificados).</p>
 </div>
 </div>
 <div class="sect2">
@@ -765,7 +780,7 @@ $ git rev-list A...B</pre>
 <dl>
 <dt class="hdlist1" id="git-rev-list---bisect"> <a class="anchor" href="#git-rev-list---bisect"></a>--bisect </dt>
 <dd>
-<p>Limite a geração do objeto para um único commit, que fica aproximadamente a meio caminho entre os commits incluídos e excluídos. Observe que a bisseção da "ref" ruim <code>refs/bisect/bad</code> é adicionada aos commits incluídos (caso existam) e a bisseção das boas refs <code>refs/bisect/good-*</code> é adicionada aos commits excluídos (caso existam). Assim, supondo que não haja nenhuma refs em <code>refs/bisect/</code>, se</p>
+<p>Limite a geração do objeto para um único commit, que fica aproximadamente a meio caminho entre os commits incluídos e excluídos. Observe que a bisseção da "ref" ruim <span class='synopsis'><code>refs/bisect/bad</code></span> é adicionada aos commits incluídos (caso existam) e a bisseção das boas refs <span class='synopsis'><code>refs/bisect/good-*</code></span> é adicionada aos commits excluídos (caso existam). Assim, supondo que não haja nenhuma refs em <span class='synopsis'><code>refs/bisect/</code></span>, se</p>
 <div class="listingblock">
 <div class="content">
 <pre>	$ git rev-list --bisect foo ^bar ^baz</pre>
@@ -786,16 +801,16 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---bisect-vars"> <a class="anchor" href="#git-rev-list---bisect-vars"></a>--bisect-vars </dt>
 <dd>
-<p>Calcula o mesmo que <code>--bisect</code>, exceto que as refs no <code>refs/bisect/</code> não são usados e a menos que isso gere um texto pronto para ser avaliado pelo shell. Essas linhas atribuirão o nome da revisão do ponto intermediário à variável <code>bisect_rev</code>, e a quantidade esperada dos commits que serão testados depois que <code>bisect_rev</code> for testado como <code>bisect_nr</code>, a quantidade esperada dos commits que serão testados caso <code>bisect_rev</code> acabe sendo bom para <code>bisect_good</code>, a quantidade esperada dos commits que serão testados caso <code>bisect_rev</code> acabe sendo ruim para <code>bisect_bad</code>, a quantidade esperada dos commits que agora estamos fazendo o bisseção para <code>bisect_all</code>.</p>
+<p>Calcula o mesmo que <span class='synopsis'><code>--bisect</code></span>, exceto que as refs no <span class='synopsis'><code>refs/bisect/</code></span> não são usados e a menos que isso gere um texto pronto para ser avaliado pelo shell. Essas linhas atribuirão o nome da revisão do ponto intermediário à variável <span class='synopsis'><code>bisect_rev</code></span>, e a quantidade esperada dos commits que serão testados depois que <span class='synopsis'><code>bisect_rev</code></span> for testado como <span class='synopsis'><code>bisect_nr</code></span>, a quantidade esperada dos commits que serão testados caso <span class='synopsis'><code>bisect_rev</code></span> acabe sendo bom para <span class='synopsis'><code>bisect_good</code></span>, a quantidade esperada dos commits que serão testados caso <span class='synopsis'><code>bisect_rev</code></span> acabe sendo ruim para <span class='synopsis'><code>bisect_bad</code></span>, a quantidade esperada dos commits que agora estamos fazendo o bisseção para <span class='synopsis'><code>bisect_all</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---bisect-all"> <a class="anchor" href="#git-rev-list---bisect-all"></a>--bisect-all </dt>
 <dd>
-<p>Gera todos os objetos commit entre os commits incluídos e excluídos, ordenadas pela distância entre os commits incluídos e excluídos. As referências em <code>refs/bisect/</code> não são usadas. O mais distante deles é exibido primeiro. (Este é o único exibido através do <code>--bisect</code>.)</p>
+<p>Gera todos os objetos commit entre os commits incluídos e excluídos, ordenadas pela distância entre os commits incluídos e excluídos. As referências em <span class='synopsis'><code>refs/bisect/</code></span> não são usadas. O mais distante deles é exibido primeiro. (Este é o único exibido através do <span class='synopsis'><code>--bisect</code></span>.)</p>
 <div class="paragraph">
 <p>Isso é útil porque facilita a escolha de um bom commit para testar quando quiser evitar o teste de alguns deles por algum motivo (por eles não poderem ser compilados, por exemplo).</p>
 </div>
 <div class="paragraph">
-<p>Esta opção pode ser utilizada junto com <code>--bisect-vars</code>, neste caso, quando todos os objetos commits forem classificados, haverá o mesmo texto como se <code>--bisect-vars</code> tivesse sido utilizado sozinho.</p>
+<p>Esta opção pode ser utilizada junto com <span class='synopsis'><code>--bisect-vars</code></span>, neste caso, quando todos os objetos commits forem classificados, haverá o mesmo texto como se <span class='synopsis'><code>--bisect-vars</code></span> tivesse sido utilizado sozinho.</p>
 </div>
 </dd>
 </dl>
@@ -830,15 +845,15 @@ $ git rev-list A...B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>onde os números indicam a ordem dos registros de data e hora do commit, o comando <code>git rev-list</code> e seus amigos <code>--date-order</code> exibem os commits na ordem de registro de data e hora: 8 7 6 5 4 3 2 1.</p>
+<p>onde os números indicam a ordem dos registros de data e hora do commit, o comando <span class='synopsis'><code>git</code> <code>rev-list</code></span> e seus amigos <span class='synopsis'><code>--date-order</code></span> exibem os commits na ordem de registro de data e hora: 8 7 6 5 4 3 2 1.</p>
 </div>
 <div class="paragraph">
-<p>Com <code>--topo-order</code>, eles demonstrariam 8 6 5 3 7 4 2 1 (ou 8 7 4 2 6 5 3 1); alguns commits mais antigos são exibidos antes dos mais recentes, a fim de se evitar exibir os commits das duas trilhas de desenvolvimento paralelas misturadas juntas.</p>
+<p>Com <span class='synopsis'><code>--topo-order</code></span>, eles demonstrariam 8 6 5 3 7 4 2 1 (ou 8 7 4 2 6 5 3 1); alguns commits mais antigos são exibidos antes dos mais recentes, a fim de se evitar exibir os commits das duas trilhas de desenvolvimento paralelas misturadas juntas.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list---reverse"> <a class="anchor" href="#git-rev-list---reverse"></a>--reverse </dt>
 <dd>
-<p>Envie os commits escolhidos para serem exibidos (consulte a seção Limite do Commit acima) na ordem inversa. Não pode ser combinado com <code>--walk-reflogs</code>.</p>
+<p>Envie os commits escolhidos para serem exibidos (consulte a seção Limite do Commit acima) na ordem inversa. Não pode ser combinado com <span class='synopsis'><code>--walk-reflogs</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -852,7 +867,7 @@ $ git rev-list A...B</pre>
 <dl>
 <dt class="hdlist1" id="git-rev-list---objects"> <a class="anchor" href="#git-rev-list---objects"></a>--objects </dt>
 <dd>
-<p>Imprima as IDs do objeto de qualquer objeto mencionado pelos commits listados. <code>--objects foo ^bar</code> significa, portanto, &#8220;envie-me todas as IDs dos objetos que preciso baixar se eu tiver o commit do objeto <em>bar</em>, mas não <em>foo</em>&#8221;. Consulte também <code>--object-names</code> abaixo.</p>
+<p>Imprima as IDs do objeto de qualquer objeto mencionado pelos commits listados. <span class='synopsis'><code>--objects</code> <code>foo</code> <code>^bar</code></span> significa, portanto, &#8220;envie-me todas as IDs dos objetos que preciso baixar se eu tiver o commit do objeto <em>bar</em>, mas não <em>foo</em>&#8221;. Consulte também <span class='synopsis'><code>--object-names</code></span> abaixo.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---in-commit-order"> <a class="anchor" href="#git-rev-list---in-commit-order"></a>--in-commit-order </dt>
 <dd>
@@ -860,31 +875,31 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---objects-edge"> <a class="anchor" href="#git-rev-list---objects-edge"></a>--objects-edge </dt>
 <dd>
-<p>Semelhante ao <code>--objects</code>, mas também imprime as IDs dos commits que foram excluídos e prefixados com um caractere &#8220;-&#8221;. Isso é usado pelo comando <a href='{{< relurl "docs/git-pack-objects/pt_BR" >}}'>git-pack-objects[1]</a> para criar um pacote &#8220;fino&#8221;, que registra os objetos de maneira deltificada (delta) com base nos objetos contidos nestes commits que foram excluídos para reduzir o tráfego na rede.</p>
+<p>Semelhante ao <span class='synopsis'><code>--objects</code></span>, mas também imprime as IDs dos commits que foram excluídos e prefixados com um caractere &#8220;-&#8221;. Isso é usado pelo comando <a href='{{< relurl "docs/git-pack-objects/pt_BR" >}}'>git-pack-objects[1]</a> para criar um pacote &#8220;fino&#8221;, que registra os objetos de maneira deltificada (delta) com base nos objetos contidos nestes commits que foram excluídos para reduzir o tráfego na rede.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---objects-edge-aggressive"> <a class="anchor" href="#git-rev-list---objects-edge-aggressive"></a>--objects-edge-aggressive </dt>
 <dd>
-<p>É semelhante ao <code>--objects-edge</code>, mas se esforça mais para encontrar os commits que foram excluídos gastando mais tempo. É usado em vez da opção <code>--objects-edge</code> para criar pacotes &#8220;finos&#8221; para os repositórios rasos.</p>
+<p>É semelhante ao <span class='synopsis'><code>--objects-edge</code></span>, mas se esforça mais para encontrar os commits que foram excluídos gastando mais tempo. É usado em vez da opção <span class='synopsis'><code>--objects-edge</code></span> para criar pacotes &#8220;finos&#8221; para os repositórios rasos.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---indexed-objects"> <a class="anchor" href="#git-rev-list---indexed-objects"></a>--indexed-objects </dt>
 <dd>
-<p>Faça de conta que todas as árvores e as bolhas usadas pelo índice estão listadas na linha de comando. Observe que você provavelmente também desejará usar a opção <code>--objects</code>.</p>
+<p>Faça de conta que todas as árvores e as bolhas usadas pelo índice estão listadas na linha de comando. Observe que você provavelmente também desejará usar a opção <span class='synopsis'><code>--objects</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---unpacked"> <a class="anchor" href="#git-rev-list---unpacked"></a>--unpacked </dt>
 <dd>
-<p>Útil apenas com a opção <code>--objects</code>; imprima as IDs do objeto que não estejam nos pacotes.</p>
+<p>Útil apenas com a opção <span class='synopsis'><code>--objects</code></span>; imprima as IDs do objeto que não estejam nos pacotes.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---object-names"> <a class="anchor" href="#git-rev-list---object-names"></a>--object-names </dt>
 <dd>
-<p>Útil apenas com a opção <code>--objects</code>; imprima os nomes das IDs dos objetos encontrados. Este é o comportamento padrão. Observe que o "nome" de cada objeto é ambíguo e destina-se principalmente como uma dica para empacotar os objetos. Em particular: nenhuma distinção é feita entre os nomes de tags, árvores e blobs; os nomes do caminho podem ser alterados para remover novas linhas; e se um objeto aparecer várias vezes com nomes diferentes, apenas um nome será mostrado.</p>
+<p>Útil apenas com a opção <span class='synopsis'><code>--objects</code></span>; imprima os nomes das IDs dos objetos encontrados. Este é o comportamento padrão. Observe que o "nome" de cada objeto é ambíguo e destina-se principalmente como uma dica para empacotar os objetos. Em particular: nenhuma distinção é feita entre os nomes de tags, árvores e blobs; os nomes do caminho podem ser alterados para remover novas linhas; e se um objeto aparecer várias vezes com nomes diferentes, apenas um nome será mostrado.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---no-object-names"> <a class="anchor" href="#git-rev-list---no-object-names"></a>--no-object-names </dt>
 <dd>
-<p>Útil apenas com a opção <code>--objects</code>; não imprima os nomes das IDs dos objetos que forem encontrados. Isto inverte a opção <code>--object-names</code>. Esta opção permite que a saída seja analisada mais facilmente por comandos como <a href='{{< relurl "docs/git-cat-file/pt_BR" >}}'>git-cat-file[1]</a>.</p>
+<p>Útil apenas com a opção <span class='synopsis'><code>--objects</code></span>; não imprima os nomes das IDs dos objetos que forem encontrados. Isto inverte a opção <span class='synopsis'><code>--object-names</code></span>. Esta opção permite que a saída seja analisada mais facilmente por comandos como <a href='{{< relurl "docs/git-cat-file/pt_BR" >}}'>git-cat-file[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---filterltfilter-specgt"> <a class="anchor" href="#git-rev-list---filterfilter-spec"></a> <a class="anchor" href="#git-rev-list---filterltfilter-specgt"></a>--filter=&lt;filter-spec&gt; </dt>
 <dd>
-<p>É útil apenas com um dos <code>--objects*</code>; omite os objetos (geralmente as bolhas) da lista de objetos impressos. O comando <em>&lt;filter-spec&gt;</em> pode ser um dos seguintes:</p>
+<p>É útil apenas com um dos <span class='synopsis'><code>--objects*</code></span>; omite os objetos (geralmente as bolhas) da lista de objetos impressos. O comando <em>&lt;filter-spec&gt;</em> pode ser um dos seguintes:</p>
 <div class="paragraph">
 <p>O formulário <em>--filter=blob:none</em> omite todos as "bolhas".</p>
 </div>
@@ -904,10 +919,10 @@ $ git rev-list A...B</pre>
 <p>Observe que o formulário <em>--filter=sparse:path=&lt;caminho&gt;</em> deseja ler de um caminho arbitrário no sistema de arquivos que foi descartado por motivos de segurança.</p>
 </div>
 <div class="paragraph">
-<p>Várias opções <code>--filter=</code> podem ser utilizados para fazer a combinação dos filtros. Somente os objetos que são aceitos por todos os filtros serão incluídos.</p>
+<p>Várias opções <span class='synopsis'><code>--filter=</code></span> podem ser utilizados para fazer a combinação dos filtros. Somente os objetos que são aceitos por todos os filtros serão incluídos.</p>
 </div>
 <div class="paragraph">
-<p>A opção <em>--filter=combine:&lt;filtro1&gt;+&lt;filtro2&gt;+&#8230;&#8203;&lt;filtroN&gt;</em> também pode ser usado para combinar vários filtros, mas isso é mais difícil do que apenas repetir a opção <em>--filter</em> e geralmente é desnecessário. Os filtros são unidos por <em>&#43;</em> e os filtros individuais são codificados em % (ou seja, codificados pela URL). Além dos caracteres <em>&#43;</em> e <em>%</em>, os seguintes caracteres são reservados e também devem ser codificados: <code>~!@#$^&amp;*()[]{}\;",&lt;&gt;?</code><code>&#39;&#96;</code> bem como todos os caracteres com código ASCII &lt;= <code>0x20</code>, que inclui o espaço e uma nova linha.</p>
+<p>A opção <em>--filter=combine:&lt;filtro1&gt;+&lt;filtro2&gt;+&#8230;&#8203;&lt;filtroN&gt;</em> também pode ser usado para combinar vários filtros, mas isso é mais difícil do que apenas repetir a opção <em>--filter</em> e geralmente é desnecessário. Os filtros são unidos por <em>&#43;</em> e os filtros individuais são codificados em % (ou seja, codificados pela URL). Além dos caracteres <em>&#43;</em> e <em>%</em>, os seguintes caracteres são reservados e também devem ser codificados: <span class='synopsis'><em>~!@#$^&amp;*()[]{}\;",&lt;&gt;?</em></span><span class='synopsis'><em>&#39;&#96;</em></span> bem como todos os caracteres com código ASCII &lt;= <span class='synopsis'><code>0x20</code></span>, que inclui o espaço e uma nova linha.</p>
 </div>
 <div class="paragraph">
 <p>Outros caracteres arbitrários também podem ser codificados. Por exemplo, <em>combine:tree:3+blob:none</em> e <em>combine:tree%3A3+blob%3Anone</em> são equivalentes.</p>
@@ -915,15 +930,15 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---no-filter"> <a class="anchor" href="#git-rev-list---no-filter"></a>--no-filter </dt>
 <dd>
-<p>Desligue qualquer opção <code>--filter=</code> utilizada anteriormente.</p>
+<p>Desligue qualquer opção <span class='synopsis'><code>--filter=</code></span> utilizada anteriormente.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---filter-provided-objects"> <a class="anchor" href="#git-rev-list---filter-provided-objects"></a>--filter-provided-objects </dt>
 <dd>
-<p>Filtre a lista dos objetos explicitamente informados, que, de outra forma, sempre seriam exibidos, ainda que não correspondam a nenhum dos filtros. Útil apenas com <code>--filter=</code>.</p>
+<p>Filtre a lista dos objetos explicitamente informados, que, de outra forma, sempre seriam exibidos, ainda que não correspondam a nenhum dos filtros. Útil apenas com <span class='synopsis'><code>--filter=</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---filter-print-omitted"> <a class="anchor" href="#git-rev-list---filter-print-omitted"></a>--filter-print-omitted </dt>
 <dd>
-<p>Útil apenas com a opção <code>--filter=</code>; imprime uma lista dos objetos que foram omitidos pelo filtro. As IDs dos objetos são prefixadas com um caractere &#8220;~&#8221;.</p>
+<p>Útil apenas com a opção <span class='synopsis'><code>--filter=</code></span>; imprime uma lista dos objetos que foram omitidos pelo filtro. As IDs dos objetos são prefixadas com um caractere &#8220;~&#8221;.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---missingltmissing-actiongt"> <a class="anchor" href="#git-rev-list---missingmissing-action"></a> <a class="anchor" href="#git-rev-list---missingltmissing-actiongt"></a>--missing=&lt;missing-action&gt; </dt>
 <dd>
@@ -932,26 +947,26 @@ $ git rev-list A...B</pre>
 <p>A opção <em>--missing=error</em> solicita que a "rev-list" pare com um erro caso um objeto que esteja ausente seja encontrado. Esta é a ação predefinida.</p>
 </div>
 <div class="paragraph">
-<p>A opção <code>--missing=allow-any</code> permitirá que o encaminhamento do objeto continue no caso de um objeto ausente ter sido encontrado. Os objetos ausentes serão silenciosamente omitidos dos resultados.</p>
+<p>A opção <span class='synopsis'><code>--missing=allow-any</code></span> permitirá que o encaminhamento do objeto continue no caso de um objeto ausente ter sido encontrado. Os objetos ausentes serão silenciosamente omitidos dos resultados.</p>
 </div>
 <div class="paragraph">
-<p>A opção <code>--missing=allow-promisor</code> é como <em>allow-any</em>, mas só permitirá que o encaminhamento do objeto continue para os objetos ausentes e ESPERADOS do promissor. Será gerado um erro nos objetos inesperados que estão ausentes.</p>
+<p>A opção <span class='synopsis'><code>--missing=allow-promisor</code></span> é como <em>allow-any</em>, mas só permitirá que o encaminhamento do objeto continue para os objetos ausentes e ESPERADOS do promissor. Será gerado um erro nos objetos inesperados que estão ausentes.</p>
 </div>
 <div class="paragraph">
 <p>A opção <em>--missing=print</em> é como <em>allow-any</em>, mas também mostrará uma lista dos objetos que estão ausentes. As IDs dos objetos são prefixadas com um caractere &#8220;?&#8221;.</p>
 </div>
 <div class="paragraph">
-<p>The form <em>--missing=print-info</em> is like <em>print</em>, but will also print additional information about the missing object inferred from its containing object. The information is all printed on the same line with the missing object ID in the form: <code>?&lt;oid&gt; [&lt;token&gt;=&lt;value&gt;]...</code>. The <code>&lt;token&gt;=&lt;value&gt;</code> pairs containing additional information are separated from each other by a SP. The value is encoded in a token specific fashion, but SP or LF contained in value are always expected to be represented in such a way that the resulting encoded value does not have either of these two problematic bytes. Each <code>&lt;token&gt;=&lt;value&gt;</code> may be one of the following:</p>
+<p>The form <em>--missing=print-info</em> is like <em>print</em>, but will also print additional information about the missing object inferred from its containing object. The information is all printed on the same line with the missing object ID in the form: <span class='synopsis'><em>?&lt;oid&gt; [&lt;token&gt;=&lt;value&gt;]...</em></span>. The <span class='synopsis'><em>&lt;token&gt;</em><code>=</code><em>&lt;value&gt;</em></span> pairs containing additional information are separated from each other by a SP. The value is encoded in a token specific fashion, but SP or LF contained in value are always expected to be represented in such a way that the resulting encoded value does not have either of these two problematic bytes. Each <span class='synopsis'><em>&lt;token&gt;</em><code>=</code><em>&lt;value&gt;</em></span> may be one of the following:</p>
 </div>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>path=&lt;path&gt;</code> shows the path of the missing object inferred from a containing object. A path containing SP or special characters is enclosed in double-quotes in the C style as needed.</p>
+<p>The <span class='synopsis'><code>path=</code><em>&lt;path&gt;</em></span> shows the path of the missing object inferred from a containing object. A path containing SP or special characters is enclosed in double-quotes in the C style as needed.</p>
 </li>
 <li>
-<p>The <code>type=&lt;type&gt;</code> shows the type of the missing object inferred from a containing object.</p>
+<p>The <span class='synopsis'><code>type=</code><em>&lt;type&gt;</em></span> shows the type of the missing object inferred from a containing object.</p>
 </li>
 </ul>
 </div>
@@ -963,15 +978,15 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---exclude-promisor-objects"> <a class="anchor" href="#git-rev-list---exclude-promisor-objects"></a>--exclude-promisor-objects </dt>
 <dd>
-<p>(Apenas para uso interno.) Pré-filtro transversal do objeto no limite do "promisor". É usado com o clone parcial. Isso é mais forte do que o uso da opção <code>--missing=allow-promisor</code> porque limita a passagem, em vez de apenas silenciar os erros sobre os objetos que estão ausentes.</p>
+<p>(Apenas para uso interno.) Pré-filtro transversal do objeto no limite do "promisor". É usado com o clone parcial. Isso é mais forte do que o uso da opção <span class='synopsis'><code>--missing=allow-promisor</code></span> porque limita a passagem, em vez de apenas silenciar os erros sobre os objetos que estão ausentes.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---no-walksortedunsorted"> <a class="anchor" href="#git-rev-list---no-walksortedunsorted"></a>--no-walk[=(sorted|unsorted)] </dt>
 <dd>
-<p>Mostra apenas os commits mencionados, mas não percorre os seus ancestrais. Isso não terá efeito se um intervalo for especificado. Se a opção <code>unsorted</code> for usado, os commits serão mostrados na ordem em que foram fornecidos na linha de comando. Caso contrário (se <code>sorted</code> ou nenhuma opção for fornecido), os commits serão mostrados em ordem cronológica reversa de acordo com a hora do commit. Não pode ser combinado com a opção <code>--graph</code>.</p>
+<p>Mostra apenas os commits mencionados, mas não percorre os seus ancestrais. Isso não terá efeito se um intervalo for especificado. Se a opção <span class='synopsis'><code>unsorted</code></span> for usado, os commits serão mostrados na ordem em que foram fornecidos na linha de comando. Caso contrário (se <span class='synopsis'><code>sorted</code></span> ou nenhuma opção for fornecido), os commits serão mostrados em ordem cronológica reversa de acordo com a hora do commit. Não pode ser combinado com a opção <span class='synopsis'><code>--graph</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---do-walk"> <a class="anchor" href="#git-rev-list---do-walk"></a>--do-walk </dt>
 <dd>
-<p>Substitui um <code>--no-walk</code> anterior.</p>
+<p>Substitui um <span class='synopsis'><code>--no-walk</code></span> anterior.</p>
 </dd>
 </dl>
 </div>
@@ -998,12 +1013,12 @@ $ git rev-list A...B</pre>
 <dd>
 <p>Em vez de mostrar o nome hexadecimal com 40 bytes completo do objeto commit, mostre um prefixo que nomeie o objeto de maneira exclusiva. A opção <em>--abbrev=&lt;n&gt;</em> (que também modifica a saída do diff, se for exibida) pode ser usada para especificar o comprimento mínimo do prefixo.</p>
 <div class="paragraph">
-<p>Isso deve tornar <code>--pretty=oneline</code> muito mais legível para pessoas que usam terminais com 80 colunas.</p>
+<p>Isso deve tornar <span class='synopsis'><code>--pretty=oneline</code></span> muito mais legível para pessoas que usam terminais com 80 colunas.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list---no-abbrev-commit"> <a class="anchor" href="#git-rev-list---no-abbrev-commit"></a>--no-abbrev-commit </dt>
 <dd>
-<p>Exibe o nome do objeto commit completo com 40 bytes hexadecimais. Isso nega o a opção <code>--abbrev-commit</code>, de forma explícita ou implícita pelas outras opções como "--oneline". Ele também substitui a variável <code>log.abbrevCommit</code>.</p>
+<p>Exibe o nome do objeto commit completo com 40 bytes hexadecimais. Isso nega o a opção <span class='synopsis'><code>--abbrev-commit</code></span>, de forma explícita ou implícita pelas outras opções como "--oneline". Ele também substitui a variável <span class='synopsis'><code>log.abbrevCommit</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---oneline"> <a class="anchor" href="#git-rev-list---oneline"></a>--oneline </dt>
 <dd>
@@ -1011,20 +1026,20 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---encodingltcodificaogt"> <a class="anchor" href="#git-rev-list---encodingcodificao"></a> <a class="anchor" href="#git-rev-list---encodingltcodificaogt"></a>--encoding=&lt;codificação&gt; </dt>
 <dd>
-<p>Os objetos commit registram a codificação dos caracteres usado para a mensagem de registro log em seu cabeçalho de codificação; esta opção pode ser usada para informar ao comando para recodificar a mensagem de registro log do commit na codificação preferida pelo usuário. Para comandos que não sejam para redirecionamento, o padrão é UTF-8. Observe que, se um objeto alegar ser codificado em <code>X</code> e estivermos produzindo em <code>X</code>, produziremos o objeto literalmente; isso significa que as sequências inválidas no commit original podem ser copiadas para o objeto criado. Da mesma maneira, se o iconv(3) não conseguir converter o commit, faremos o envio literal do objeto original.</p>
+<p>Os objetos commit registram a codificação dos caracteres usado para a mensagem de registro log em seu cabeçalho de codificação; esta opção pode ser usada para informar ao comando para recodificar a mensagem de registro log do commit na codificação preferida pelo usuário. Para comandos que não sejam para redirecionamento, o padrão é UTF-8. Observe que, se um objeto alegar ser codificado em <span class='synopsis'><code>X</code></span> e estivermos produzindo em <span class='synopsis'><code>X</code></span>, produziremos o objeto literalmente; isso significa que as sequências inválidas no commit original podem ser copiadas para o objeto criado. Da mesma maneira, se o iconv(3) não conseguir converter o commit, faremos o envio literal do objeto original.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---expand-tabsltngt"> <a class="anchor" href="#git-rev-list---expand-tabsn"></a> <a class="anchor" href="#git-rev-list---expand-tabsltngt"></a>--expand-tabs=&lt;n&gt; </dt>
 <dt class="hdlist1" id="git-rev-list---expand-tabs"> <a class="anchor" href="#git-rev-list---expand-tabs"></a>--expand-tabs </dt>
 <dt class="hdlist1" id="git-rev-list---no-expand-tabs"> <a class="anchor" href="#git-rev-list---no-expand-tabs"></a>--no-expand-tabs </dt>
 <dd>
-<p>Execute uma expansão de tabulação (substitua cada tabulação por espaços suficientes para preencher a próxima coluna de exibição que seja um múltiplo de <em>&lt;n&gt;</em>) na mensagem de registro antes de mostrá-la na saída. A opção <code>--expand-tabs</code> é uma abreviação de <code>--expand-tabs=8</code> e <code>--no-expand-tabs</code> é uma abreviação de <code>--expand-tabs=0</code>, que desativa a expansão das guias.</p>
+<p>Execute uma expansão de tabulação (substitua cada tabulação por espaços suficientes para preencher a próxima coluna de exibição que seja um múltiplo de <em>&lt;n&gt;</em>) na mensagem de registro antes de mostrá-la na saída. A opção <span class='synopsis'><code>--expand-tabs</code></span> é uma abreviação de <span class='synopsis'><code>--expand-tabs=8</code></span> e <span class='synopsis'><code>--no-expand-tabs</code></span> é uma abreviação de <span class='synopsis'><code>--expand-tabs=0</code></span>, que desativa a expansão das guias.</p>
 <div class="paragraph">
 <p>È predefinido que as guias sejam expandidas em formatos bonitos que recuam a mensagem de registro em 4 espaços (ou seja, a predefinição <em>medium</em>, <em>full</em> e <em>fuller</em>).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list---show-signature"> <a class="anchor" href="#git-rev-list---show-signature"></a>--show-signature </dt>
 <dd>
-<p>Verifique a validade de um objeto commit assinado, passando a assinatura para <code>gpg --verify</code> e exibe a sua saída.</p>
+<p>Verifique a validade de um objeto commit assinado, passando a assinatura para <span class='synopsis'><code>gpg</code> <code>--verify</code></span> e exibe a sua saída.</p>
 </dd>
 </dl>
 </div>
@@ -1032,26 +1047,26 @@ $ git rev-list A...B</pre>
 <dl>
 <dt class="hdlist1" id="git-rev-list---relative-date"> <a class="anchor" href="#git-rev-list---relative-date"></a>--relative-date </dt>
 <dd>
-<p>É um sinônimo para <code>--date=relative</code>.</p>
+<p>É um sinônimo para <span class='synopsis'><code>--date=relative</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---dateltformatogt"> <a class="anchor" href="#git-rev-list---dateformato"></a> <a class="anchor" href="#git-rev-list---dateltformatogt"></a>--date=&lt;formato&gt; </dt>
 <dd>
-<p>Somente entra em vigor para as datas demonstradas no formato legível para as pessoas como utilizada na opção <code>--pretty</code>. A variável de configuração <code>log.date</code> define um valor predefinido para a opção <code>--date</code> do comando do registro log. É predefinido que os horários sejam exibidas no fuso horário original (do autor do commit ou do autor). Caso <code>-local</code> seja anexado ao formato (por exemplo,<code>iso-local</code>), o fuso horário local do usuário será utilizado.</p>
+<p>Somente entra em vigor para as datas demonstradas no formato legível para as pessoas como utilizada na opção <span class='synopsis'><code>--pretty</code></span>. A variável de configuração <span class='synopsis'><code>log.date</code></span> define um valor predefinido para a opção <span class='synopsis'><code>--date</code></span> do comando do registro log. É predefinido que os horários sejam exibidas no fuso horário original (do autor do commit ou do autor). Caso <span class='synopsis'><code>-local</code></span> seja anexado ao formato (por exemplo,<span class='synopsis'><code>iso-local</code></span>), o fuso horário local do usuário será utilizado.</p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p>A opção <code>--date=relative</code> exibe as datas relativas à hora atual, por exemplo, &#8220;2 horas atrás&#8221;. A opção <code>-local</code> não tem efeito para <code>--date=relative</code>.</p>
+<p>A opção <span class='synopsis'><code>--date=relative</code></span> exibe as datas relativas à hora atual, por exemplo, &#8220;2 horas atrás&#8221;. A opção <span class='synopsis'><code>-local</code></span> não tem efeito para <span class='synopsis'><code>--date=relative</code></span>.</p>
 </div>
 <div class="paragraph">
-<p><code>--date=local</code> é um apelido para <code>--date=default-local</code>.</p>
+<p><span class='synopsis'><code>--date=local</code></span> é um apelido para <span class='synopsis'><code>--date=default-local</code></span>.</p>
 </div>
 <div class="paragraph">
-<p><code>--date=iso</code> (ou <code>--date=iso8601</code>) mostra os registros de data e hora num formato semelhante ao ISO 8601. As diferenças em relação ao formato estrito da ISO 8601 são:</p>
+<p><span class='synopsis'><code>--date=iso</code></span> (ou <span class='synopsis'><code>--date=iso8601</code></span>) mostra os registros de data e hora num formato semelhante ao ISO 8601. As diferenças em relação ao formato estrito da ISO 8601 são:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>um espaço em vez do <code>T</code> para delimitar data/hora</p>
+<p>um espaço em vez do <span class='synopsis'><code>T</code></span> para delimitar data/hora</p>
 </li>
 <li>
 <p>um espaço entre a hora e o fuso horário</p>
@@ -1062,35 +1077,35 @@ $ git rev-list A...B</pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>a opção <code>--date=iso-strict</code> (ou <code>--date=iso8601-strict</code>) exibe o registro de data e hora com formato ISO 8601 restrito.</p>
+<p>a opção <span class='synopsis'><code>--date=iso-strict</code></span> (ou <span class='synopsis'><code>--date=iso8601-strict</code></span>) exibe o registro de data e hora com formato ISO 8601 restrito.</p>
 </div>
 <div class="paragraph">
-<p>a opção <code>--date=rfc</code> (ou <code>--date=rfc2822</code>) exibe o registro de data e hora no formato RFC 2822, geralmente encontrado nas mensagens de e-mail.</p>
+<p>a opção <span class='synopsis'><code>--date=rfc</code></span> (ou <span class='synopsis'><code>--date=rfc2822</code></span>) exibe o registro de data e hora no formato RFC 2822, geralmente encontrado nas mensagens de e-mail.</p>
 </div>
 <div class="paragraph">
-<p><code>--date=short</code> exibe apenas a data em formato <code>AAAA-MM-DD</code> porém não a hora.</p>
+<p><span class='synopsis'><code>--date=short</code></span> exibe apenas a data em formato <span class='synopsis'><code>AAAA-MM-DD</code></span> porém não a hora.</p>
 </div>
 <div class="paragraph">
-<p>A opção <code>--date=raw</code> mostra a data como segundos desde a partir da época (1970-01-01 00:00:00 UTC), seguida por um espaço e, em seguida, o fuso horário como um offset do UTC (apresentado com um <code>+</code> ou <code>-</code> com quatro dígitos; os dois primeiros são horas e os dois segundos são minutos). Ou seja, como se o registro de data e hora fosse formatado com <code>strftime("%s %z")</code>). Observe que a opção <code>-local</code> não afeta o valor de "seconds-since-epoch" (que é sempre medido em UTC), mas altera o valor do fuso horário que o acompanha.</p>
+<p>A opção <span class='synopsis'><code>--date=raw</code></span> mostra a data como segundos desde a partir da época (1970-01-01 00:00:00 UTC), seguida por um espaço e, em seguida, o fuso horário como um offset do UTC (apresentado com um <span class='synopsis'><code>+</code></span> ou <span class='synopsis'><code>-</code></span> com quatro dígitos; os dois primeiros são horas e os dois segundos são minutos). Ou seja, como se o registro de data e hora fosse formatado com <span class='synopsis'><code>strftime</code>(<code>"%s</code> <code>%z"</code>)</span>). Observe que a opção <span class='synopsis'><code>-local</code></span> não afeta o valor de "seconds-since-epoch" (que é sempre medido em UTC), mas altera o valor do fuso horário que o acompanha.</p>
 </div>
 <div class="paragraph">
-<p>A opção <code>--date=human</code> mostra o fuso horário se o fuso horário não corresponder ao fuso horário atual e não mostra a data inteira se houver correspondência (ou seja, não mostra o ano para datas que são "deste ano", mas também não mostra a data inteira se ela estiver nos últimos dias e pudermos apenas dizer que dia da semana foi). A hora e o minuto também são omitidos para datas mais antigas.</p>
+<p>A opção <span class='synopsis'><code>--date=human</code></span> mostra o fuso horário se o fuso horário não corresponder ao fuso horário atual e não mostra a data inteira se houver correspondência (ou seja, não mostra o ano para datas que são "deste ano", mas também não mostra a data inteira se ela estiver nos últimos dias e pudermos apenas dizer que dia da semana foi). A hora e o minuto também são omitidos para datas mais antigas.</p>
 </div>
 <div class="paragraph">
-<p>A opção <code>--date=unix</code> mostra a data como um registro de data e hora da época Unix (segundos desde 1970). Assim como no caso do <code>--raw</code>, ele está sempre em UTC e, portanto, a opção <code>-local</code> não tem efeito.</p>
+<p>A opção <span class='synopsis'><code>--date=unix</code></span> mostra a data como um registro de data e hora da época Unix (segundos desde 1970). Assim como no caso do <span class='synopsis'><code>--raw</code></span>, ele está sempre em UTC e, portanto, a opção <span class='synopsis'><code>-local</code></span> não tem efeito.</p>
 </div>
 <div class="paragraph">
-<p>A opção <code>--date=format:...</code> alimenta o formato <code>...</code> em seu sistema <code>strftime</code>, com exceção de <em>%s</em>, <em>%z</em> e <em>%Z</em>, que são tratados internamente. Use <code>--date=format:%c</code> para mostrar a data no formato preferido da localidade do seu sistema. Consulte o manual do <code>strftime</code> para obter uma lista completa dos marcadores de formato. Ao usar <code>-local</code>, a sintaxe correta é <code>--date=format-local:...</code>.</p>
+<p>A opção <span class='synopsis'><code>--date=format:...</code></span> alimenta o formato <span class='synopsis'>...</span> em seu sistema <span class='synopsis'><code>strftime</code></span>, com exceção de <em>%s</em>, <em>%z</em> e <em>%Z</em>, que são tratados internamente. Use <span class='synopsis'><code>--date=format:%c</code></span> para mostrar a data no formato preferido da localidade do seu sistema. Consulte o manual do <span class='synopsis'><code>strftime</code></span> para obter uma lista completa dos marcadores de formato. Ao usar <span class='synopsis'><code>-local</code></span>, a sintaxe correta é <span class='synopsis'><code>--date=format-local:...</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>A opção <code>--date=default</code> é o formato predefinido e tem como base na saída do ctime(3). Ele mostra uma única linha com três letras do dia da semana, três letras do mês, dia do mês, hora-minuto-segundos no formato "HH:MM:SS", seguido pelo ano de quatro dígitos, além de informações de fuso horário, a menos que o fuso horário local seja usado, por exemplo, <code>Thu Jan 1 00:00:00 1970 +0000</code>.</p>
+<p>A opção <span class='synopsis'><code>--date=default</code></span> é o formato predefinido e tem como base na saída do ctime(3). Ele mostra uma única linha com três letras do dia da semana, três letras do mês, dia do mês, hora-minuto-segundos no formato "HH:MM:SS", seguido pelo ano de quatro dígitos, além de informações de fuso horário, a menos que o fuso horário local seja usado, por exemplo, <span class='synopsis'><code>Thu</code> <code>Jan</code> <code>1</code> <code>00:00:00</code> <code>1970</code> <code>+0000</code></span>.</p>
 </div>
 </div>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list---header"> <a class="anchor" href="#git-rev-list---header"></a>--header </dt>
 <dd>
-<p>Exiba o conteúdo dos commits em formato bruto; cada registro é separado por um caractere <code>NUL</code>.</p>
+<p>Exiba o conteúdo dos commits em formato bruto; cada registro é separado por um caractere <span class='synopsis'><code>NUL</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---no-commit-header"> <a class="anchor" href="#git-rev-list---no-commit-header"></a>--no-commit-header </dt>
 <dd>
@@ -1098,7 +1113,7 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---commit-header"> <a class="anchor" href="#git-rev-list---commit-header"></a>--commit-header </dt>
 <dd>
-<p>Substitui um <code>--no-commit-header</code> anterior.</p>
+<p>Substitui um <span class='synopsis'><code>--no-commit-header</code></span> anterior.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---parents"> <a class="anchor" href="#git-rev-list---parents"></a>--parents </dt>
 <dd>
@@ -1114,7 +1129,7 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---left-right"> <a class="anchor" href="#git-rev-list---left-right"></a>--left-right </dt>
 <dd>
-<p>Marca de que lado de uma diferença simétrica um commit pode ser acessado. Os commits do lado esquerdo são marcados com <code>&lt;</code> e os do lado direito com <code>&gt;</code>. Se combinados com <code>--boundary</code>, estes commits são marcados com <code>-</code>.</p>
+<p>Marca de que lado de uma diferença simétrica um commit pode ser acessado. Os commits do lado esquerdo são marcados com <span class='synopsis'><em>&lt;</em></span> e os do lado direito com <span class='synopsis'><em>&gt;</em></span>. Se combinados com <span class='synopsis'><code>--boundary</code></span>, estes commits são marcados com <span class='synopsis'><code>-</code></span>.</p>
 <div class="paragraph">
 <p>Por exemplo, caso tenha essa topologia:</p>
 </div>
@@ -1145,21 +1160,21 @@ $ git rev-list A...B</pre>
 </dd>
 <dt class="hdlist1" id="git-rev-list---graph"> <a class="anchor" href="#git-rev-list---graph"></a>--graph </dt>
 <dd>
-<p>Desenhe uma representação gráfica em texto do histórico do commit no lado esquerdo da saída. Isso pode fazer com que linhas extras sejam mostradas entre os commits, para que o histórico do gráfico seja desenhado corretamente. Não pode ser combinado com a opção <code>--no-walk</code>.</p>
+<p>Desenhe uma representação gráfica em texto do histórico do commit no lado esquerdo da saída. Isso pode fazer com que linhas extras sejam mostradas entre os commits, para que o histórico do gráfico seja desenhado corretamente. Não pode ser combinado com a opção <span class='synopsis'><code>--no-walk</code></span>.</p>
 <div class="paragraph">
 <p>Permite a reescrita dos pais, consulte <em>Simplificação do Histórico</em> acima.</p>
 </div>
 <div class="paragraph">
-<p>É predefinido que seja implícito o uso da opção <code>--topo-order</code>, porém a opção <code>--date-order</code> também possa ser utilizada.</p>
+<p>É predefinido que seja implícito o uso da opção <span class='synopsis'><code>--topo-order</code></span>, porém a opção <span class='synopsis'><code>--date-order</code></span> também possa ser utilizada.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list---show-linear-breakltbarreiragt"> <a class="anchor" href="#git-rev-list---show-linear-breakbarreira"></a> <a class="anchor" href="#git-rev-list---show-linear-breakltbarreiragt"></a>--show-linear-break[=&lt;barreira&gt;] </dt>
 <dd>
-<p>Quando a opção <code>--graph</code> não é utilizado, todas as ramificações do histórico são achatadas, o que dificulta a visualização onde dois commits consecutivos não pertençam em um ramo linear. Neste caso, esta opção coloca uma barreira entre eles. Caso <code>&lt;barreira&gt;</code> seja utilizado, é a string que será exibida em vez do que estiver predefinido.</p>
+<p>Quando a opção <span class='synopsis'><code>--graph</code></span> não é utilizado, todas as ramificações do histórico são achatadas, o que dificulta a visualização onde dois commits consecutivos não pertençam em um ramo linear. Neste caso, esta opção coloca uma barreira entre eles. Caso <span class='synopsis'><em>&lt;barreira&gt;</em></span> seja utilizado, é a string que será exibida em vez do que estiver predefinido.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list---count"> <a class="anchor" href="#git-rev-list---count"></a>--count </dt>
 <dd>
-<p>Mostra um número informando quantos commits teriam sido listados e suprime todas as outras saídas. Quando usado junto com a opção <code>--left-right</code>, mostra as contagens dos commits da esquerda e da direita, separadas por uma tabulação. Quando usado junto com a opção <code>--cherry-mark</code>, omite os commits equivalentes a correções (patch) destas contagens e mostra a contagem dos commits equivalentes separados por uma tabulação.</p>
+<p>Mostra um número informando quantos commits teriam sido listados e suprime todas as outras saídas. Quando usado junto com a opção <span class='synopsis'><code>--left-right</code></span>, mostra as contagens dos commits da esquerda e da direita, separadas por uma tabulação. Quando usado junto com a opção <span class='synopsis'><code>--cherry-mark</code></span>, omite os commits equivalentes a correções (patch) destas contagens e mostra a contagem dos commits equivalentes separados por uma tabulação.</p>
 </dd>
 </dl>
 </div>
@@ -1173,7 +1188,7 @@ $ git rev-list A...B</pre>
 <p>Se o commit for uma mesclagem e se o formato "pretty" não for <em>oneline</em>, <em>email</em> ou <em>raw</em>, uma linha adicional será inserida antes da linha <em>Author:</em>. Essa linha começa com "Merge: " e os hashes dos commits ancestrais são impressos e separados por espaços. Observe que os commits listados podem não ser necessariamente a lista dos commits principais <strong>diretos</strong> se você tiver limitado a sua visão do histórico: se estiver interessado apenas nas alterações relacionadas a um determinado diretório ou arquivo por exemplo.</p>
 </div>
 <div class="paragraph">
-<p>Existem vários formatos incorporados e você pode definir formatos adicionais ao definir uma opção da configuração <code>pretty.&lt;nome&gt;</code> para um outro nome de formato ou uma string <em>format:</em>, conforme descrito abaixo (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Aqui estão os detalhes dos formatos incorporados: Aqui estão os detalhes dos formatos incorporados:</p>
+<p>Existem vários formatos incorporados e você pode definir formatos adicionais ao definir uma opção da configuração <span class='synopsis'><code>pretty.</code><em>&lt;nome&gt;</em></span> para um outro nome de formato ou uma string <em>format:</em>, conforme descrito abaixo (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Aqui estão os detalhes dos formatos incorporados: Aqui estão os detalhes dos formatos incorporados:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1272,7 +1287,7 @@ CommitDate: &lt;a-data-de-quem-fez-o-commit&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Este formato é usado para fazer referência a outro commit numa mensagem de commit e é o mesmo que <code>--pretty='format:%C(auto)%h (%s, %ad)'</code>. É predefinido que a data seja formatada com a opção <code>--date=short</code>, a menos que uma outra opção <code>--date</code> seja explicitamente especificada. Assim como qualquer <code>format:</code> com marcadores de formato, o que é gerado por ele não é afetado por outras opções como <code>--decorate</code> e <code>--walk-reflogs</code>.</p>
+<p>Este formato é usado para fazer referência a outro commit numa mensagem de commit e é o mesmo que <span class='synopsis'><code>--pretty='format:%C</code>(<code>auto</code>)<code>%h</code> (<code>%s,</code> <code>%ad</code>)</span>. É predefinido que a data seja formatada com a opção <span class='synopsis'><code>--date=short</code></span>, a menos que uma outra opção <span class='synopsis'><code>--date</code></span> seja explicitamente especificada. Assim como qualquer <span class='synopsis'><code>format:</code></span> com marcadores de formato, o que é gerado por ele não é afetado por outras opções como <span class='synopsis'><code>--decorate</code></span> e <span class='synopsis'><code>--walk-reflogs</code></span>.</p>
 </div>
 </li>
 <li>
@@ -1300,7 +1315,7 @@ Subject: [PATCH] &lt;linha-do-título&gt;</pre>
 <li>
 <p><em>raw</em></p>
 <div class="paragraph">
-<p>O formato <em>raw</em> mostra o commit inteiro exatamente como armazenado no objeto de commit. Notavelmente, os hashes são exibidos na íntegra, independentemente do uso da opção --abbrev ou --no-abbrev, e as informações de <em>parents</em> mostram os verdadeiros commits principais, sem levar em conta os enxertos ou a simplificação do histórico. Observe que este formato afeta a forma como os commits são exibidos, mas não a forma como o diff é exibido, por exemplo, com o comando <code>git log --raw</code>. Para obter os nomes completos dos objetos num formato diff bruto, use <code>--no-abbrev</code>.</p>
+<p>O formato <em>raw</em> mostra o commit inteiro exatamente como armazenado no objeto de commit. Notavelmente, os hashes são exibidos na íntegra, independentemente do uso da opção --abbrev ou --no-abbrev, e as informações de <em>parents</em> mostram os verdadeiros commits principais, sem levar em conta os enxertos ou a simplificação do histórico. Observe que este formato afeta a forma como os commits são exibidos, mas não a forma como o diff é exibido, por exemplo, com o comando <span class='synopsis'><code>git</code> <code>log</code> <code>--raw</code></span>. Para obter os nomes completos dos objetos num formato diff bruto, use <span class='synopsis'><code>--no-abbrev</code></span>.</p>
 </div>
 </li>
 <li>
@@ -1363,19 +1378,19 @@ O título era &gt;&gt;t4119: test autocomputing -p&lt;n&gt; for traditional diff
 </dd>
 <dt class="hdlist1" id="git-rev-list-emC82308203em"> <a class="anchor" href="#git-rev-list-C"></a> <a class="anchor" href="#git-rev-list-emC82308203em"></a><em>%C(&#8230;&#8203;)</em> </dt>
 <dd>
-<p>Conforme foi descrito em Valores na seção "ARQUIVO DE CONFIGURAÇÃO" do comando <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>. É predefinido que as cores são mostradas somente quando ativadas para a saída de registro (por <code>color.diff</code>, <code>color.ui</code> ou <code>--color</code>, respeitando as configurações <code>auto</code> do primeiro se estivermos indo para um terminal). O <code>%C(auto,...)</code> é aceito como sinônimo histórico do padrão (por exemplo, <code>%C(auto,red)</code>). Ao especificar <code>%C(always,...)</code> exibirá as cores mesmo quando a cor não estiver ativada (considere utilizar apenas a opção <code>--color=always</code> para ativar a cor para toda a saída, incluindo este formato e qualquer outra coisa que o git possa colorir). A opção <code>auto</code> sozinha (ou seja, <code>%C(auto)</code>) ativará a coloração automática nos próximos marcadores até que a cor seja trocada novamente.</p>
+<p>Conforme foi descrito em Valores na seção "ARQUIVO DE CONFIGURAÇÃO" do comando <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>. É predefinido que as cores são mostradas somente quando ativadas para a saída de registro (por <span class='synopsis'><code>color.diff</code></span>, <span class='synopsis'><code>color.ui</code></span> ou <span class='synopsis'><code>--color</code></span>, respeitando as configurações <span class='synopsis'><code>auto</code></span> do primeiro se estivermos indo para um terminal). O <span class='synopsis'><code>%C</code>(<code>auto,...</code>)</span> é aceito como sinônimo histórico do padrão (por exemplo, <span class='synopsis'><code>%C</code>(<code>auto,red</code>)</span>). Ao especificar <span class='synopsis'><code>%C</code>(<code>always,...</code>)</span> exibirá as cores mesmo quando a cor não estiver ativada (considere utilizar apenas a opção <span class='synopsis'><code>--color=always</code></span> para ativar a cor para toda a saída, incluindo este formato e qualquer outra coisa que o git possa colorir). A opção <span class='synopsis'><code>auto</code></span> sozinha (ou seja, <span class='synopsis'><code>%C</code>(<code>auto</code>)</span>) ativará a coloração automática nos próximos marcadores até que a cor seja trocada novamente.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emmem"> <a class="anchor" href="#git-rev-list-m"></a> <a class="anchor" href="#git-rev-list-emmem"></a><em>%m</em> </dt>
 <dd>
-<p>marca esquerda (<code>&lt;</code>), direita (<code>&gt;</code>) ou limite (<code>-</code>)</p>
+<p>marca esquerda (<span class='synopsis'><em>&lt;</em></span>), direita (<span class='synopsis'><em>&gt;</em></span>) ou limite (<span class='synopsis'><code>-</code></span>)</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emwltwgtlti1gtlti2gtem"> <a class="anchor" href="#git-rev-list-wwi1i2"></a> <a class="anchor" href="#git-rev-list-emwltwgtlti1gtlti2gtem"></a><em>%w([&lt;w&gt;[,&lt;i1&gt;[,&lt;i2&gt;]]])</em> </dt>
 <dd>
-<p>alterna a quebra da linha, como na opção <code>-w</code> do <a href='{{< relurl "docs/git-shortlog/pt_BR" >}}'>git-shortlog[1]</a>.</p>
+<p>alterna a quebra da linha, como na opção <span class='synopsis'><code>-w</code></span> do <a href='{{< relurl "docs/git-shortlog/pt_BR" >}}'>git-shortlog[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emltltNgttruncltruncmtruncem"> <a class="anchor" href="#git-rev-list-Ntruncltruncmtrunc"></a> <a class="anchor" href="#git-rev-list-emltltNgttruncltruncmtruncem"></a><em>%&lt;( &lt;N&gt; [,trunc|ltrunc|mtrunc])</em> </dt>
 <dd>
-<p>Faz com que o próximo marcador ocupe pelo menos N larguras de coluna, preenchendo espaços à direita, se necessário. Opcionalmente, trunque (com reticências <em>&#8230;&#8203;</em>) à esquerda (ltrunc) <code>..ft</code>, no meio (mtrunc) <code>mi..le</code> ou no final (trunc) <code>rig..</code>, se a saída for maior que N colunas. Observação 1: esse truncamento só funciona corretamente com N &gt;= 2. Observação 2: os espaços ao redor dos valores N e M (veja abaixo) são opcionais. Observação 3: Os emojis e outros caracteres longos ocuparão duas colunas de exibição, o que pode ultrapassar os limites da coluna. Observação 4: as marcas de combinação de caracteres decompostos podem estar mal posicionadas nos limites do preenchimento.</p>
+<p>Faz com que o próximo marcador ocupe pelo menos N larguras de coluna, preenchendo espaços à direita, se necessário. Opcionalmente, trunque (com reticências <em>&#8230;&#8203;</em>) à esquerda (ltrunc) <span class='synopsis'><code>..ft</code></span>, no meio (mtrunc) <span class='synopsis'><code>mi..le</code></span> ou no final (trunc) <span class='synopsis'><code>rig..</code></span>, se a saída for maior que N colunas. Observação 1: esse truncamento só funciona corretamente com N &gt;= 2. Observação 2: os espaços ao redor dos valores N e M (veja abaixo) são opcionais. Observação 3: Os emojis e outros caracteres longos ocuparão duas colunas de exibição, o que pode ultrapassar os limites da coluna. Observação 4: as marcas de combinação de caracteres decompostos podem estar mal posicionadas nos limites do preenchimento.</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emltltMgtem"> <a class="anchor" href="#git-rev-list-M"></a> <a class="anchor" href="#git-rev-list-emltltMgtem"></a><em>%&lt;|( &lt;M&gt; )</em> </dt>
 <dd>
@@ -1474,11 +1489,11 @@ O título era &gt;&gt;t4119: test autocomputing -p&lt;n&gt; for traditional diff
 </dd>
 <dt class="hdlist1" id="git-rev-list-emasem"> <a class="anchor" href="#git-rev-list-as"></a> <a class="anchor" href="#git-rev-list-emasem"></a><em>%as</em> </dt>
 <dd>
-<p>data do autor, formato curto (<code>AAAA-MM-DD</code>)</p>
+<p>data do autor, formato curto (<span class='synopsis'><code>AAAA-MM-DD</code></span>)</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emahem"> <a class="anchor" href="#git-rev-list-ah"></a> <a class="anchor" href="#git-rev-list-emahem"></a><em>%ah</em> </dt>
 <dd>
-<p>data da autoria, compreensível para pessoas (como a opção <code>--date=human</code> do <a href='{{< relurl "docs/git-rev-list/pt_BR" >}}'>git-rev-list[1]</a>)</p>
+<p>data da autoria, compreensível para pessoas (como a opção <span class='synopsis'><code>--date=human</code></span> do <a href='{{< relurl "docs/git-rev-list/pt_BR" >}}'>git-rev-list[1]</a>)</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emcnem"> <a class="anchor" href="#git-rev-list-cn"></a> <a class="anchor" href="#git-rev-list-emcnem"></a><em>%cn</em> </dt>
 <dd>
@@ -1530,11 +1545,11 @@ O título era &gt;&gt;t4119: test autocomputing -p&lt;n&gt; for traditional diff
 </dd>
 <dt class="hdlist1" id="git-rev-list-emcsem"> <a class="anchor" href="#git-rev-list-cs"></a> <a class="anchor" href="#git-rev-list-emcsem"></a><em>%cs</em> </dt>
 <dd>
-<p>data do commit, formato curto (<code>AAAA-MM-DD</code>)</p>
+<p>data do commit, formato curto (<span class='synopsis'><code>AAAA-MM-DD</code></span>)</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emchem"> <a class="anchor" href="#git-rev-list-ch"></a> <a class="anchor" href="#git-rev-list-emchem"></a><em>%ch</em> </dt>
 <dd>
-<p>a data de quem fez o commit, compreensível para pessoas (como a opção <code>--date=human</code> do <a href='{{< relurl "docs/git-rev-list/pt_BR" >}}'>git-rev-list[1]</a>)</p>
+<p>a data de quem fez o commit, compreensível para pessoas (como a opção <span class='synopsis'><code>--date=human</code></span> do <a href='{{< relurl "docs/git-rev-list/pt_BR" >}}'>git-rev-list[1]</a>)</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emdem"> <a class="anchor" href="#git-rev-list-d"></a> <a class="anchor" href="#git-rev-list-emdem"></a><em>%d</em> </dt>
 <dd>
@@ -1546,24 +1561,24 @@ O título era &gt;&gt;t4119: test autocomputing -p&lt;n&gt; for traditional diff
 </dd>
 <dt class="hdlist1" id="git-rev-list-emdecorateltopesgtem"> <a class="anchor" href="#git-rev-list-decorateopes"></a> <a class="anchor" href="#git-rev-list-emdecorateltopesgtem"></a><em>%(decorate[:&lt;opções&gt;])</em> </dt>
 <dd>
-<p>nomes de ref com decorações personalizadas. A string <code>decorate</code> pode ser seguida por dois pontos e zero ou mais opções separadas por vírgulas. Os valores das opções podem conter códigos de formatação literais. Eles devem ser usados para vírgulas (<code>%x2C</code>) e parênteses de fechamento (<code>%x29</code>), devido à sua função na sintaxe da opção.</p>
+<p>nomes de ref com decorações personalizadas. A string <span class='synopsis'><code>decorate</code></span> pode ser seguida por dois pontos e zero ou mais opções separadas por vírgulas. Os valores das opções podem conter códigos de formatação literais. Eles devem ser usados para vírgulas (<span class='synopsis'><code>%x2C</code></span>) e parênteses de fechamento (<span class='synopsis'><code>%x29</code></span>), devido à sua função na sintaxe da opção.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>O <em>prefix=&lt;valor&gt;</em>: Exibido antes da lista de nomes ref. A predefinição é "&#160;<code>(</code>".</p>
+<p>O <em>prefix=&lt;valor&gt;</em>: Exibido antes da lista de nomes ref. A predefinição é "&#160;<span class='synopsis'>(</span>".</p>
 </li>
 <li>
-<p>O <em>prefix=&lt;valor&gt;</em>: Exibido antes da lista de nomes ref. A predefinição é "<code>)</code>".</p>
+<p>O <em>prefix=&lt;valor&gt;</em>: Exibido antes da lista de nomes ref. A predefinição é "<span class='synopsis'>)</span>".</p>
 </li>
 <li>
-<p>O <em>separator=&lt;valor&gt;</em>: Mostrado entre os nomes refs. A predefinição é "<code>,</code>&#160;".</p>
+<p>O <em>separator=&lt;valor&gt;</em>: Mostrado entre os nomes refs. A predefinição é "<span class='synopsis'><code>,</code></span>&#160;".</p>
 </li>
 <li>
 <p><em>pointer=&lt;valor&gt;</em>: Mostrado entre HEAD e o ramo para o qual aponta, se houver.
-A predefinição é "&#160;<code>-&gt;</code>&#160;".</p>
+A predefinição é "&#160;<span class='synopsis'><em>-&gt;</em></span>&#160;".</p>
 </li>
 <li>
-<p><em>tag=&lt;valor&gt;</em>: Mostrado antes dos nomes das tags. A predefinição é "<code>tag:</code>&#160;".</p>
+<p><em>tag=&lt;valor&gt;</em>: Mostrado antes dos nomes das tags. A predefinição é "<span class='synopsis'><code>tag:</code></span>&#160;".</p>
 </li>
 </ul>
 </div>
@@ -1578,33 +1593,33 @@ A predefinição é "&#160;<code>-&gt;</code>&#160;".</p>
 </div>
 <div class="paragraph">
 <p>+
-<code>%(decorate:prefix=,suffix=,tag=,separator= )</code></p>
+<span class='synopsis'><code>%</code>(<code>decorate:prefix=,suffix=,tag=,separator=</code> )</span></p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-rev-list-emdescribeltopesgtem"> <a class="anchor" href="#git-rev-list-describeopes"></a> <a class="anchor" href="#git-rev-list-emdescribeltopesgtem"></a><em>%(describe[:&lt;opções&gt;])</em> </dt>
 <dd>
-<p>Um nome legível para humanos, como <a href='{{< relurl "docs/git-describe/pt_BR" >}}'>git-describe[1]</a>; string vazia para commits sem descrição. A string <code>describe</code> pode ser seguida por dois-pontos, zero ou mais opções separadas por vírgulas. As descrições podem ser inconsistentes quando as etiquetas são adicionadas ou são removidas ao mesmo tempo.</p>
+<p>Um nome legível para humanos, como <a href='{{< relurl "docs/git-describe/pt_BR" >}}'>git-describe[1]</a>; string vazia para commits sem descrição. A string <span class='synopsis'><code>describe</code></span> pode ser seguida por dois-pontos, zero ou mais opções separadas por vírgulas. As descrições podem ser inconsistentes quando as etiquetas são adicionadas ou são removidas ao mesmo tempo.</p>
 <div class="ulist">
 <ul>
 <li>
 <p><em>tags[=&lt;bool-value&gt;]</em>: Em vez de considerar apenas as tags anotadas, considere também as lightweight tags.</p>
 </li>
 <li>
-<p><em>abbrev=&lt;número&gt;</em>: Em vez de usar o número padrão com dígitos hexadecimais (que variam de acordo com a quantidade dos objetos no repositório com um padrão de 7) do nome abreviado do objeto, utilize <code>&lt;número&gt;</code> dígitos ou quantos dígitos forem necessários para formar um nome do objeto que seja único.</p>
+<p><em>abbrev=&lt;número&gt;</em>: Em vez de usar o número padrão com dígitos hexadecimais (que variam de acordo com a quantidade dos objetos no repositório com um padrão de 7) do nome abreviado do objeto, utilize <span class='synopsis'><em>&lt;número&gt;</em></span> dígitos ou quantos dígitos forem necessários para formar um nome do objeto que seja único.</p>
 </li>
 <li>
-<p><em>match=&lt;pattern&gt;</em>: Considere apenas as etiquetas que coincidam com o padrão <code>glob(7)</code> informado, excluindo o prefixo "refs/tags/".</p>
+<p><em>match=&lt;pattern&gt;</em>: Considere apenas as etiquetas que coincidam com o padrão <span class='synopsis'><code>glob</code>(<code>7</code>)</span> informado, excluindo o prefixo "refs/tags/".</p>
 </li>
 <li>
-<p><em>exclude=&lt;pattern&gt;</em>: Desconsidere as etiquetas que coincidam com o padrão <code>glob(7)</code> informado, excluindo o prefixo "refs/tags/".</p>
+<p><em>exclude=&lt;pattern&gt;</em>: Desconsidere as etiquetas que coincidam com o padrão <span class='synopsis'><code>glob</code>(<code>7</code>)</span> informado, excluindo o prefixo "refs/tags/".</p>
 </li>
 </ul>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emSem"> <a class="anchor" href="#git-rev-list-S"></a> <a class="anchor" href="#git-rev-list-emSem"></a><em>%S</em> </dt>
 <dd>
-<p>os nomes "ref" dado na linha de comando pela qual o commit foi alcançado (como <code>git log --source</code>), só funciona com o comando <code>git log</code></p>
+<p>os nomes "ref" dado na linha de comando pela qual o commit foi alcançado (como <span class='synopsis'><code>git</code> <code>log</code> <code>--source</code></span>), só funciona com o comando <span class='synopsis'><code>git</code> <code>log</code></span></p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emeem"> <a class="anchor" href="#git-rev-list-e"></a> <a class="anchor" href="#git-rev-list-emeem"></a><em>%e</em> </dt>
 <dd>
@@ -1656,11 +1671,11 @@ A predefinição é "&#160;<code>-&gt;</code>&#160;".</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emgDem"> <a class="anchor" href="#git-rev-list-gD"></a> <a class="anchor" href="#git-rev-list-emgDem"></a><em>%gD</em> </dt>
 <dd>
-<p>seletor do reflog, como por exemplo, <code>refs/stash@{1}</code> or <code>refs/stash@{2 minutos atrás}</code>; o formato segue as regras descritas para a opção <code>-g</code>. A parte antes ao <code>@</code> é o "refname", conforme indicado na linha de comando (portanto, <code>git log -g refs/heads/master</code> produziria <code>refs/heads/master@{0}</code>).</p>
+<p>seletor do reflog, como por exemplo, <span class='synopsis'><code>refs/stash@{1}</code></span> or <span class='synopsis'><em>refs/stash@{2 minutos atrás}</em></span>; o formato segue as regras descritas para a opção <span class='synopsis'><code>-g</code></span>. A parte antes ao <span class='synopsis'><code>@</code></span> é o "refname", conforme indicado na linha de comando (portanto, <span class='synopsis'><code>git</code> <code>log</code> <code>-g</code> <code>refs/heads/master</code></span> produziria <span class='synopsis'><code>refs/heads/master@{0}</code></span>).</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emgdem"> <a class="anchor" href="#git-rev-list-gd"></a> <a class="anchor" href="#git-rev-list-emgdem"></a><em>%gd</em> </dt>
 <dd>
-<p>o encurtamento do seletor do reflog; o mesmo que <code>%gD</code>, porém a parte do refname é reduzida visando a legibilidade humana (assim, o <code>refs/heads/master</code> se torna apenas <code>master</code>).</p>
+<p>o encurtamento do seletor do reflog; o mesmo que <span class='synopsis'><code>%gD</code></span>, porém a parte do refname é reduzida visando a legibilidade humana (assim, o <span class='synopsis'><code>refs/heads/master</code></span> se torna apenas <span class='synopsis'><code>master</code></span>).</p>
 </dd>
 <dt class="hdlist1" id="git-rev-list-emgnem"> <a class="anchor" href="#git-rev-list-gn"></a> <a class="anchor" href="#git-rev-list-emgnem"></a><em>%gn</em> </dt>
 <dd>
@@ -1688,16 +1703,16 @@ A predefinição é "&#160;<code>-&gt;</code>&#160;".</p>
 <div class="ulist">
 <ul>
 <li>
-<p>A <em>key=&lt;chave&gt;</em>: mostra apenas os caracteres de resposta com a &lt;chave&gt; especificada. A correspondência é feita sem distinção entre maiúsculas e minúsculas, os dois-pontos finais são opcionais. Se a opção for usada várias vezes, serão mostradas as linhas dos caracteres de resposta que correspondem a qualquer uma das chaves. Esta opção ativa automaticamente a opção <code>only</code> para que as linhas que não tenham caracteres de resposta no bloco oculto com caracteres de resposta. Se isso não for desejado, desative com <code>only=false</code>. Por exemplo, <code>%(trailers:key=Revisado-por)</code> mostra as linhas do trailer com a chave <code>Revisado-por</code>.</p>
+<p>A <em>key=&lt;chave&gt;</em>: mostra apenas os caracteres de resposta com a &lt;chave&gt; especificada. A correspondência é feita sem distinção entre maiúsculas e minúsculas, os dois-pontos finais são opcionais. Se a opção for usada várias vezes, serão mostradas as linhas dos caracteres de resposta que correspondem a qualquer uma das chaves. Esta opção ativa automaticamente a opção <span class='synopsis'><code>only</code></span> para que as linhas que não tenham caracteres de resposta no bloco oculto com caracteres de resposta. Se isso não for desejado, desative com <span class='synopsis'><code>only=false</code></span>. Por exemplo, <span class='synopsis'><code>%</code>(<code>trailers:key=Revisado-por</code>)</span> mostra as linhas do trailer com a chave <span class='synopsis'><code>Revisado-por</code></span>.</p>
 </li>
 <li>
 <p><em>only[=&lt;bool&gt;]</em>: selecione se as linhas não relacionadas à resposta a partir do bloco de resposta, devem ser incluídas ou não.</p>
 </li>
 <li>
-<p><em>separator=&lt;sep&gt;</em>: specify the separator inserted between trailer lines. Defaults to a line feed character. The string &lt;sep&gt; may contain the literal formatting codes described above. To use comma as separator one must use <code>%x2C</code> as it would otherwise be parsed as next option. E.g., <code>%(trailers:key=Ticket,separator=%x2C )</code> shows all trailer lines whose key is "Ticket" separated by a comma and a space.</p>
+<p><em>separator=&lt;sep&gt;</em>: specify the separator inserted between trailer lines. Defaults to a line feed character. The string &lt;sep&gt; may contain the literal formatting codes described above. To use comma as separator one must use <span class='synopsis'><code>%x2C</code></span> as it would otherwise be parsed as next option. E.g., <span class='synopsis'><code>%</code>(<code>trailers:key=Ticket,separator=%x2C</code> )</span> shows all trailer lines whose key is "Ticket" separated by a comma and a space.</p>
 </li>
 <li>
-<p><em>unfold[=&lt;bool&gt;]</em>: faça com que se comporte como se a opção <code>--unfold</code> do caracteres de resposta tenha sido passado. Por exemplo, <code>%(trailers:only,unfold=true)</code> desdobra e mostra todas as linhas de resposta.</p>
+<p><em>unfold[=&lt;bool&gt;]</em>: faça com que se comporte como se a opção <span class='synopsis'><code>--unfold</code></span> do caracteres de resposta tenha sido passado. Por exemplo, <span class='synopsis'><code>%</code>(<code>trailers:only,unfold=true</code>)</span> desdobra e mostra todas as linhas de resposta.</p>
 </li>
 <li>
 <p><em>keyonly[=&lt;bool&gt;]</em>: mostra apenas a parte principal da resposta.</p>
@@ -1723,19 +1738,19 @@ A predefinição é "&#160;<code>-&gt;</code>&#160;".</p>
 <div class="title">Note</div>
 </td>
 <td class="content">
-Alguns espaços reservados podem depender das outras opções passadas para o motor percorrer a revisão. Por exemplo o opção <code>%g*</code> do reflog insere um espaço vazio a menos que estejamos percorrendo as entradas do reflog (exemplo, através do comando <code>git log -g</code>). Os espaços reservados <code>%d</code> e <code>%D</code> usarão o formato de decoração "curta" caso a opção <code>--decorate</code> já não esteja sendo utilizada na linha de comando.
+Alguns espaços reservados podem depender das outras opções passadas para o motor percorrer a revisão. Por exemplo o opção <span class='synopsis'><code>%g*</code></span> do reflog insere um espaço vazio a menos que estejamos percorrendo as entradas do reflog (exemplo, através do comando <span class='synopsis'><code>git</code> <code>log</code> <code>-g</code></span>). Os espaços reservados <span class='synopsis'><code>%d</code></span> e <span class='synopsis'><code>%D</code></span> usarão o formato de decoração "curta" caso a opção <span class='synopsis'><code>--decorate</code></span> já não esteja sendo utilizada na linha de comando.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The boolean options accept an optional value <code>[=&lt;bool-value&gt;]</code>. The values taken by <code>--type=bool</code> git-config[1], like <code>yes</code> and <code>off</code>, are all accepted. Giving a boolean option without <code>=&lt;value&gt;</code> is equivalent to giving it with <code>=true</code>.</p>
+<p>The boolean options accept an optional value <span class='synopsis'>[<code>=</code><em>&lt;bool-value&gt;</em>]</span>. The values taken by <span class='synopsis'><code>--type=bool</code></span> git-config[1], like <span class='synopsis'><code>yes</code></span> and <span class='synopsis'><code>off</code></span>, are all accepted. Giving a boolean option without <span class='synopsis'><code>=</code><em>&lt;value&gt;</em></span> is equivalent to giving it with <span class='synopsis'><code>=true</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Caso adicionemos um <code>+</code> (sinal de adição) após o <em>%</em> de um espaço reservado, um feed de linha será inserido imediatamente antes da expansão, se e somente se o espaço reservado se expandir para uma sequência de caracteres não vazio.</p>
+<p>Caso adicionemos um <span class='synopsis'><code>+</code></span> (sinal de adição) após o <em>%</em> de um espaço reservado, um feed de linha será inserido imediatamente antes da expansão, se e somente se o espaço reservado se expandir para uma sequência de caracteres não vazio.</p>
 </div>
 <div class="paragraph">
-<p>Caso adicione um <code>-</code> (sinal de menos) após o <em>%</em> de um espaço reservado, imediatamente todos os feeds consecutivos das linhas anteriores à expansão serão excluídos caso e somente caso o espaço reservado se expanda para um texto vazio.</p>
+<p>Caso adicione um <span class='synopsis'><code>-</code></span> (sinal de menos) após o <em>%</em> de um espaço reservado, imediatamente todos os feeds consecutivos das linhas anteriores à expansão serão excluídos caso e somente caso o espaço reservado se expanda para um texto vazio.</p>
 </div>
 <div class="paragraph">
 <p>Caso adicionemos um ` ` (espaço) após o <em>%</em> de um espaço reservado, um espaço será inserido imediatamente antes da expansão, se e somente se o espaço reservado se expandir para uma sequência de caracteres não vazios.</p>
@@ -1761,7 +1776,7 @@ $ git log -2 --pretty=tformat:%h 4da45bef \
 </div>
 </div>
 <div class="paragraph">
-<p>Além disso, qualquer string não reconhecida que tenha um <code>%</code> é interpretada como se tivesse <code>tformat:</code> na frente. Por exemplo, estes dois são equivalentes:</p>
+<p>Além disso, qualquer string não reconhecida que tenha um <span class='synopsis'><code>%</code></span> é interpretada como se tivesse <span class='synopsis'><code>tformat:</code></span> na frente. Por exemplo, estes dois são equivalentes:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1813,7 +1828,7 @@ git diff-tree --stdin --format=medium -p</pre>
 </div>
 </li>
 <li>
-<p>Imprime a lista dos commits no ramo atual que tenha tocado em qualquer arquivo no diretório <code>Documentação</code>.</p>
+<p>Imprime a lista dos commits no ramo atual que tenha tocado em qualquer arquivo no diretório <span class='synopsis'><em>Documentação</em></span>.</p>
 <div class="listingblock">
 <div class="content">
 <pre>git rev-list HEAD -- Documentação/</pre>
@@ -1837,7 +1852,7 @@ git diff-tree --stdin --format=medium -p</pre>
 </div>
 </li>
 <li>
-<p>Compare o tamanho do disco de todos os objetos alcançáveis, versus aqueles alcançáveis a partir dos reflogs, versus o tamanho compactado total. Isso pode informar se a execução do comando <code>git repack -ad</code> pode reduzir o tamanho do repositório (eliminando objetos inacessíveis) e se os reflogs que estão para expirar podem servir de alguma assistência.</p>
+<p>Compare o tamanho do disco de todos os objetos alcançáveis, versus aqueles alcançáveis a partir dos reflogs, versus o tamanho compactado total. Isso pode informar se a execução do comando <span class='synopsis'><code>git</code> <code>repack</code> <code>-ad</code></span> pode reduzir o tamanho do repositório (eliminando objetos inacessíveis) e se os reflogs que estão para expirar podem servir de alguma assistência.</p>
 <div class="listingblock">
 <div class="content">
 <pre># objetos acessíveis
@@ -1866,7 +1881,7 @@ sort -n</pre>
 </div>
 </li>
 <li>
-<p>Compare o tamanho das ramificações no disco em um conjunto de refs, excluindo outro. Caso misture objetos de vários repositórios remotos em um único repositório, isso pode mostrar quais deles estão contribuindo para o aumento do tamanho do repositório (tomando o tamanho de <code>origin</code> como base).</p>
+<p>Compare o tamanho das ramificações no disco em um conjunto de refs, excluindo outro. Caso misture objetos de vários repositórios remotos em um único repositório, isso pode mostrar quais deles estão contribuindo para o aumento do tamanho do repositório (tomando o tamanho de <span class='synopsis'><code>origin</code></span> como base).</p>
 <div class="listingblock">
 <div class="content">
 <pre>git rev-list --disk-usage --objects --remotes=$suspect --not --remotes=origin</pre>

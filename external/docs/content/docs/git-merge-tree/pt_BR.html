@@ -9,6 +9,29 @@ docname: git-merge-tree
 lang: pt_BR
 aliases:
 - "/docs/git-merge-tree/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: NEWMERGE
+- text: OPÇÕES
+  id: _opções
+- text: SAÍDA
+  id: OUTPUT
+- text: CONDIÇÃO DE ENCERRAMENTO
+  id: _condição_de_encerramento
+- text: OBSERVAÇÕES SOBRE A UTILIZAÇÃO
+  id: _observações_sobre_a_utilização
+- text: FORMATO DE ENTRADA
+  id: INPUT
+- text: ERROS A SEREM EVITADOS
+  id: _erros_a_serem_evitados
+- text: DESCRIÇÃO DESCONTINUADA
+  id: DEPMERGE
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -31,7 +54,7 @@ aliases:
 <h2 id="NEWMERGE"><a class="anchor" href="#NEWMERGE"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Este comando tem um modo moderno <code>--write-tree</code> e um modo obsoleto <code>--trivial-merge</code>. Com exceção da seção <a href="#DEPMERGE">DESCRIÇÃO DESCONTINUADA</a> no final, o restante desta documentação descreve o modo moderno <code>--write-tree</code>.</p>
+<p>Este comando tem um modo moderno <span class='synopsis'><code>--write-tree</code></span> e um modo obsoleto <span class='synopsis'><code>--trivial-merge</code></span>. Com exceção da seção <a href="#DEPMERGE">DESCRIÇÃO DESCONTINUADA</a> no final, o restante desta documentação descreve o modo moderno <span class='synopsis'><code>--write-tree</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Executa uma mesclagem, mas não faz novos commits e não lê ou grava na árvore de trabalho ou no índice.</p>
@@ -70,7 +93,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-merge-tree---stdin"> <a class="anchor" href="#git-merge-tree---stdin"></a>--stdin </dt>
 <dd>
-<p>Read the commits to merge from the standard input rather than the command-line. See <a href="#INPUT">INPUT FORMAT</a> below for more information. Implies <code>-z</code>.</p>
+<p>Read the commits to merge from the standard input rather than the command-line. See <a href="#INPUT">INPUT FORMAT</a> below for more information. Implies <span class='synopsis'><code>-z</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-merge-tree--z"> <a class="anchor" href="#git-merge-tree--z"></a>-z </dt>
 <dd>
@@ -94,7 +117,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-merge-tree---merge-baselttree-ishgt"> <a class="anchor" href="#git-merge-tree---merge-basetree-ish"></a> <a class="anchor" href="#git-merge-tree---merge-baselttree-ishgt"></a>--merge-base=&lt;tree-ish&gt; </dt>
 <dd>
-<p>Em vez de encontrar as bases de mesclagem para &lt;ramo1&gt; e &lt;ramo2&gt;, especifique uma base de mesclagem para uma mesclagem, no momento, a especificação de várias bases não é suportada. Esta opção é incompatível com <code>--stdin</code>.</p>
+<p>Em vez de encontrar as bases de mesclagem para &lt;ramo1&gt; e &lt;ramo2&gt;, especifique uma base de mesclagem para uma mesclagem, no momento, a especificação de várias bases não é suportada. Esta opção é incompatível com <span class='synopsis'><code>--stdin</code></span>.</p>
 <div class="paragraph">
 <p>As the merge-base is provided directly, &lt;branch1&gt; and &lt;branch2&gt; do not need to specify commits; trees are enough.</p>
 </div>
@@ -133,7 +156,7 @@ aliases:
 <p>Estes são discutidos individualmente abaixo.</p>
 </div>
 <div class="paragraph">
-<p>Entretanto, há uma exceção. Se a opção <code>--stdin</code> for usada, haverá uma seção extra no início, um caractere NUL no final e, em seguida, todas as seções serão repetidas para cada linha de entrada. Portanto, se a primeira mesclagem estiver em conflito e a segunda estiver limpa, a saída será do tipo:</p>
+<p>Entretanto, há uma exceção. Se a opção <span class='synopsis'><code>--stdin</code></span> for usada, haverá uma seção extra no início, um caractere NUL no final e, em seguida, todas as seções serão repetidas para cada linha de entrada. Portanto, se a primeira mesclagem estiver em conflito e a segunda estiver limpa, a saída será do tipo:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -162,7 +185,7 @@ NUL</pre>
 <div class="sect2">
 <h3 id="OIDTLT"><a class="anchor" href="#OIDTLT"></a>OID do cume da árvore</h3>
 <div class="paragraph">
-<p>Esse é um objeto de árvore que representa o que seria verificado na árvore de trabalho no final do comando <code>git merge</code>. Se houver conflitos, os arquivos dessa árvore poderão ter marcadores de conflito incorporados. Esta seção é sempre seguida por uma nova linha (ou NUL se <code>-z</code> for usado).</p>
+<p>Esse é um objeto de árvore que representa o que seria verificado na árvore de trabalho no final do comando <span class='synopsis'><code>git</code> <code>merge</code></span>. Se houver conflitos, os arquivos dessa árvore poderão ter marcadores de conflito incorporados. Esta seção é sempre seguida por uma nova linha (ou NUL se <span class='synopsis'><code>-z</code></span> for usado).</p>
 </div>
 </div>
 <div class="sect2">
@@ -176,16 +199,16 @@ NUL</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>O nome do arquivo será citado conforme explicado na variável de configuração <code>core.quotePath</code> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). No entanto, se a opção <code>--name-only</code> for usada, o modo, o objeto e o estágio serão omitidos. Se <code>-z</code> for usado, as "linhas" serão terminadas com um caractere NUL em vez de um caractere de nova linha.</p>
+<p>O nome do arquivo será citado conforme explicado na variável de configuração <span class='synopsis'><code>core.quotePath</code></span> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). No entanto, se a opção <span class='synopsis'><code>--name-only</code></span> for usada, o modo, o objeto e o estágio serão omitidos. Se <span class='synopsis'><code>-z</code></span> for usado, as "linhas" serão terminadas com um caractere NUL em vez de um caractere de nova linha.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="IM"><a class="anchor" href="#IM"></a>Mensagens de Informação</h3>
 <div class="paragraph">
-<p>Esta seção fornece mensagens informativas, geralmente sobre os conflitos. O formato da seção varia significativamente, dependendo se <code>-z</code> for usado.</p>
+<p>Esta seção fornece mensagens informativas, geralmente sobre os conflitos. O formato da seção varia significativamente, dependendo se <span class='synopsis'><code>-z</code></span> for usado.</p>
 </div>
 <div class="paragraph">
-<p>Caso <code>-z</code> seja utilizado:</p>
+<p>Caso <span class='synopsis'><code>-z</code></span> seja utilizado:</p>
 </div>
 <div class="paragraph">
 <p>O formato da saída é zero ou registros informativos adicionais do conflito, cada um no formato:</p>
@@ -242,7 +265,7 @@ NUL</pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>Caso <code>-z</code> NÃO seja utilizado:</p>
+<p>Caso <span class='synopsis'><code>-z</code></span> NÃO seja utilizado:</p>
 </div>
 <div class="paragraph">
 <p>Esta seção começa com uma linha em branco para separá-la das seções anteriores e, em seguida, contém apenas as informações &lt;mensagem-de-conflito&gt; da seção anterior (que são separadas por novas linhas). Essas são cadeias de caracteres não estáveis que não devem ser analisadas por scripts e são destinadas apenas para avaliação humana. Além disso, observe que, embora as cadeias de caracteres &lt;mensagem-de-conflito&gt; normalmente não contenham novas linhas incorporadas, às vezes elas contêm. (No entanto, as mensagens de formato livre nunca terão um caractere NUL incorporado). Portanto, todo o bloco de informações é destinado a avaliação humana como uma aglomeração de todas as mensagens de conflito.</p>
@@ -254,7 +277,7 @@ NUL</pre>
 <h2 id="_condição_de_encerramento"><a class="anchor" href="#_condição_de_encerramento"></a>CONDIÇÃO DE ENCERRAMENTO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Para uma mesclagem bem-sucedida e sem conflitos, a condição de encerramento é 0. Quando a mesclagem tem conflitos, a condição de encerramento é 1. Se a mesclagem não puder ser concluída (ou iniciada) devido a algum tipo de erro, a condição de encerramento será algo diferente de 0 ou 1 (e a saída não será especificada). Quando a opção <code>--stdin</code> é usada, a condição de retorno é 0 para mesclagens bem-sucedidas e conflitantes, algo diferente de 0 ou 1 se não for possível concluir todas as mesclagens solicitadas.</p>
+<p>Para uma mesclagem bem-sucedida e sem conflitos, a condição de encerramento é 0. Quando a mesclagem tem conflitos, a condição de encerramento é 1. Se a mesclagem não puder ser concluída (ou iniciada) devido a algum tipo de erro, a condição de encerramento será algo diferente de 0 ou 1 (e a saída não será especificada). Quando a opção <span class='synopsis'><code>--stdin</code></span> é usada, a condição de retorno é 0 para mesclagens bem-sucedidas e conflitantes, algo diferente de 0 ou 1 se não for possível concluir todas as mesclagens solicitadas.</p>
 </div>
 </div>
 </div>
@@ -279,7 +302,7 @@ git update-ref $BRANCH1 $NEWCOMMIT</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Observe que quando o status de saída for diferente de zero, <code>NEWTREE</code> nesta sequência conterá muito mais saída do que apenas uma árvore.</p>
+<p>Observe que quando o status de saída for diferente de zero, <span class='synopsis'><code>NEWTREE</code></span> nesta sequência conterá muito mais saída do que apenas uma árvore.</p>
 </div>
 <div class="paragraph">
 <p>Para conflitos, a saída inclui as mesmas informações que você obteria com <a href='{{< relurl "docs/git-merge/pt_BR" >}}'>git-merge[1]</a>:</p>
@@ -311,7 +334,7 @@ git update-ref $BRANCH1 $NEWCOMMIT</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Caso uma linha seja separada por <code>--</code>, o texto antes do separador é usado para definir uma base de mesclagem para uma mesclagem e o texto após o separador, descreve as ramificações que serão mescladas.</p>
+<p>Caso uma linha seja separada por <span class='synopsis'><code>--</code></span>, o texto antes do separador é usado para definir uma base de mesclagem para uma mesclagem e o texto após o separador, descreve as ramificações que serão mescladas.</p>
 </div>
 </div>
 </div>
@@ -342,10 +365,10 @@ git update-ref $BRANCH1 $NEWCOMMIT</pre>
 <h2 id="DEPMERGE"><a class="anchor" href="#DEPMERGE"></a>DESCRIÇÃO DESCONTINUADA</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>De acordo com <a href="#NEWMERGE">DESCRIÇÃO</a> e diferente do restante desta documentação, esta seção descreve um modo da opção <code>--trivial-merge</code> já descontinuado.</p>
+<p>De acordo com <a href="#NEWMERGE">DESCRIÇÃO</a> e diferente do restante desta documentação, esta seção descreve um modo da opção <span class='synopsis'><code>--trivial-merge</code></span> já descontinuado.</p>
 </div>
 <div class="paragraph">
-<p>Além da opção opcional <code>--trivial-merge</code>, este modo não aceita opções.</p>
+<p>Além da opção opcional <span class='synopsis'><code>--trivial-merge</code></span>, este modo não aceita opções.</p>
 </div>
 <div class="paragraph">
 <p>Esse modo lê três árvores e gera resultados de mesclagem triviais e estágios conflitantes na saída padrão num formato de semi-difusão. Como isso foi projetado para que scripts do cume consumam e mesclem os resultados de volta ao índice, ele omite entradas que correspondem a &lt;branch1&gt;. O resultado dessa segunda forma é semelhante ao que o comando de três vias que o comando <em>git read-tree -m</em> faz, mas, em vez de armazenar os resultados no índice, o comando envia as entradas para a saída padrão.</p>

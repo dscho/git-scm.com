@@ -9,6 +9,27 @@ docname: git-revert
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-revert/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 序列器子命令
+  id: _序列器子命令
+- text: 实例
+  id: _实例
+- text: 讨论
+  id: _讨论
+- text: 配置
+  id: _配置
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -34,7 +55,7 @@ aliases:
 <p>给定一个或多个现有提交，还原相关补丁引入的更改，并记录一些新提交来记录这些更改。 这要求你的工作区是干净的（没有对 HEAD 提交的修改）。</p>
 </div>
 <div class="paragraph">
-<p>注意：<em>git revert</em> 用于记录一些新的提交，以扭转先前提交（通常只是错误的提交）的影响。 如果您想丢弃工作目录中所有未提交的改动，请参阅 <a href='{{< relurl "docs/git-reset/zh_HANS-CN" >}}'>git-reset[1]</a>，尤其是 <code>--hard</code> 选项。 如果你想提取其他提交中的特定文件，请参阅 <a href='{{< relurl "docs/git-restore/zh_HANS-CN" >}}'>git-restore[1]</a>，尤其是 `--source`选项。使用这些选项时要小心，因为它们都会丢弃工作目录中未提交的改动。</p>
+<p>注意：<em>git revert</em> 用于记录一些新的提交，以扭转先前提交（通常只是错误的提交）的影响。 如果您想丢弃工作目录中所有未提交的改动，请参阅 <a href='{{< relurl "docs/git-reset/zh_HANS-CN" >}}'>git-reset[1]</a>，尤其是 <span class='synopsis'><code>--hard</code></span> 选项。 如果你想提取其他提交中的特定文件，请参阅 <a href='{{< relurl "docs/git-restore/zh_HANS-CN" >}}'>git-restore[1]</a>，尤其是 `--source`选项。使用这些选项时要小心，因为它们都会丢弃工作目录中未提交的改动。</p>
 </div>
 <div class="paragraph">
 <p>关于这三个命令的区别，见<a href='{{< relurl "docs/git/zh_HANS-CN" >}}'>git[1]</a>中的 "重置、恢复和还原"。</p>
@@ -72,7 +93,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-revert---cleanupltgt"> <a class="anchor" href="#git-revert---cleanup"></a> <a class="anchor" href="#git-revert---cleanupltgt"></a>--cleanup=&lt;模式&gt; </dt>
 <dd>
-<p>这个选项决定了提交信息在传递给提交机制之前将如何进行清理。更多细节见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a>。特别是，如果 <em>&lt;模式&gt;</em> 的值为 <code>scissors</code>，那么在发生冲突时，<code>scissors</code> 将被附加到 <code>MERGE_MSG</code> 上。</p>
+<p>这个选项决定了提交信息在传递给提交机制之前将如何进行清理。更多细节见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a>。特别是，如果 <em>&lt;模式&gt;</em> 的值为 <span class='synopsis'><code>scissors</code></span>，那么在发生冲突时，<span class='synopsis'><code>scissors</code></span> 将被附加到 <span class='synopsis'><code>MERGE_MSG</code></span> 上。</p>
 </dd>
 <dt class="hdlist1" id="git-revert--n"> <a class="anchor" href="#git-revert--n"></a>-n </dt>
 <dt class="hdlist1" id="git-revert---no-commit"> <a class="anchor" href="#git-revert---no-commit"></a>--no-commit </dt>
@@ -86,12 +107,12 @@ aliases:
 <dt class="hdlist1" id="git-revert---gpg-signltIDgt"> <a class="anchor" href="#git-revert---gpg-signID"></a> <a class="anchor" href="#git-revert---gpg-signltIDgt"></a>--gpg-sign[=&lt;键 ID&gt;] </dt>
 <dt class="hdlist1" id="git-revert---no-gpg-sign"> <a class="anchor" href="#git-revert---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
-<p>GPG 签名提交。<code>keyid</code> 参数是可选的，默认为提交者身份；如果指定了，则必须与选项相连，不加空格。<code>--no-gpg-sign</code> 用于还原 <code>commit.gpgSign</code> 配置变量和先前的 <code>--gpg-sign</code>。</p>
+<p>GPG 签名提交。<span class='synopsis'><code>keyid</code></span> 参数是可选的，默认为提交者身份；如果指定了，则必须与选项相连，不加空格。<span class='synopsis'><code>--no-gpg-sign</code></span> 用于还原 <span class='synopsis'><code>commit.gpgSign</code></span> 配置变量和先前的 <span class='synopsis'><code>--gpg-sign</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-revert--s"> <a class="anchor" href="#git-revert--s"></a>-s </dt>
 <dt class="hdlist1" id="git-revert---signoff"> <a class="anchor" href="#git-revert---signoff"></a>--signoff </dt>
 <dd>
-<p>在提交信息的末尾添加一个 <code>Signed-off-by</code> 的尾注。 更多信息见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a> 中的 signoff 选项。</p>
+<p>在提交信息的末尾添加一个 <span class='synopsis'><code>Signed-off-by</code></span> 的尾注。 更多信息见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a> 中的 signoff 选项。</p>
 </dd>
 <dt class="hdlist1" id="git-revert---strategyltgt"> <a class="anchor" href="#git-revert---strategy"></a> <a class="anchor" href="#git-revert---strategyltgt"></a>--strategy=&lt;策略&gt; </dt>
 <dd>
@@ -105,7 +126,7 @@ aliases:
 <dt class="hdlist1" id="git-revert---rerere-autoupdate"> <a class="anchor" href="#git-revert---rerere-autoupdate"></a>--rerere-autoupdate </dt>
 <dt class="hdlist1" id="git-revert---no-rerere-autoupdate"> <a class="anchor" href="#git-revert---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
 <dd>
-<p>在 rerere 机制重用当前冲突的记录解析来更新工作树中的文件后，允许它也用解析的结果来更新索引。 <code>--no-rerere-autoupdate`是一个很好的方法，在用单独的 `git add</code> 提交结果到索引之前，可以反复检查 <code>rerere</code> 所做的事情，并抓住潜在的错误合并。</p>
+<p>在 rerere 机制重用当前冲突的记录解析来更新工作树中的文件后，允许它也用解析的结果来更新索引。 <span class='synopsis'><em>--no-rerere-autoupdate`是一个很好的方法，在用单独的 `git add</em></span> 提交结果到索引之前，可以反复检查 <span class='synopsis'><code>rerere</code></span> 所做的事情，并抓住潜在的错误合并。</p>
 </dd>
 </dl>
 </div>
@@ -113,7 +134,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-revert---reference"> <a class="anchor" href="#git-revert---reference"></a>--reference </dt>
 <dd>
-<p>而不是以 “他还原了 &lt;完整的提交对象名称&gt;。” 作为日志信息的开头，而是使用 "--pretty=reference" 格式来引用提交（参见 <a href='{{< relurl "docs/git-log/zh_HANS-CN" >}}'>git-log[1]</a>）。 <code>revert.reference</code> 配置变量可用于默认启用此选项。</p>
+<p>而不是以 “他还原了 &lt;完整的提交对象名称&gt;。” 作为日志信息的开头，而是使用 "--pretty=reference" 格式来引用提交（参见 <a href='{{< relurl "docs/git-log/zh_HANS-CN" >}}'>git-log[1]</a>）。 <span class='synopsis'><code>revert.reference</code></span> 配置变量可用于默认启用此选项。</p>
 </dd>
 </dl>
 </div>
@@ -149,11 +170,11 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-revert-codegitrevertHEAD3code"> <a class="anchor" href="#git-revert-gitrevertHEAD3"></a> <a class="anchor" href="#git-revert-codegitrevertHEAD3code"></a><code>git revert HEAD~3</code> </dt>
+<dt class="hdlist1" id="git-revert-spanclasssynopsiscodegitcodecoderevertcodecodeHEAD3codespan"> <a class="anchor" href="#git-revert-gitrevertHEAD3"></a> <a class="anchor" href="#git-revert-spanclasssynopsiscodegitcodecoderevertcodecodeHEAD3codespan"></a><span class='synopsis'><code>git</code> <code>revert</code> <code>HEAD~3</code></span> </dt>
 <dd>
 <p>还原 HEAD 中倒数第四个提交指定的更改，并创建一个包含还原更改的新提交。</p>
 </dd>
-<dt class="hdlist1" id="git-revert-codegitrevert-nmaster5master2code"> <a class="anchor" href="#git-revert-gitrevert-nmaster5master2"></a> <a class="anchor" href="#git-revert-codegitrevert-nmaster5master2code"></a><code>git revert -n master~5..master~2</code> </dt>
+<dt class="hdlist1" id="git-revert-spanclasssynopsiscodegitcodecoderevertcodecode-ncodecodemaster5master2codespan"> <a class="anchor" href="#git-revert-gitrevert-nmaster5master2"></a> <a class="anchor" href="#git-revert-spanclasssynopsiscodegitcodecoderevertcodecode-ncodecodemaster5master2codespan"></a><span class='synopsis'><code>git</code> <code>revert</code> <code>-n</code> <code>master~5..master~2</code></span> </dt>
 <dd>
 <p>将 master 中倒数第五次提交（包含）到 master 中倒数第三次提交（包含）的改动还原，但不创建任何包含还原改动的提交。还原只会修改工作区和索引。</p>
 </dd>
@@ -183,7 +204,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>zh_HANS-CN/config/revert.adoc</code></p>
+<p>Missing <span class='synopsis'><code>zh_HANS-CN/config/revert.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

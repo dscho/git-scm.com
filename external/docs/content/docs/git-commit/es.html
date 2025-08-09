@@ -9,6 +9,33 @@ docname: git-commit
 lang: es
 aliases:
 - "/docs/git-commit/es/index.html"
+headings:
+- text: NOMBRE
+  id: _nombre
+- text: SINOPSIS
+  id: _sinopsis
+- text: DESCRIPCIÓN
+  id: _descripción
+- text: OPCIONES
+  id: _opciones
+- text: EJEMPLOS
+  id: _ejemplos
+- text: INFORMACIÓN DE CONFIRMACIÓN
+  id: _información_de_confirmación
+- text: FORMATOS DE FECHA
+  id: _formatos_de_fecha
+- text: DISCUSIÓN
+  id: _discusión
+- text: VARIABLES DE AMBIENTE Y DE CONFIGURACIÓN
+  id: _variables_de_ambiente_y_de_configuración
+- text: GANCHOS
+  id: _ganchos
+- text: FICHEROS
+  id: _ficheros
+- text: VER TAMBIÉN
+  id: _ver_también
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nombre"><a class="anchor" href="#_nombre"></a>NOMBRE</h2>
@@ -21,15 +48,15 @@ aliases:
 <div class="sect1">
 <h2 id="_sinopsis"><a class="anchor" href="#_sinopsis"></a>SINOPSIS</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>git commit [-a | --interactive | --patch] [-s] [-v] [-u[&lt;modo&gt;]] [--amend]
-	   [--dry-run] [(-c | -C | --squash) &lt;confirmación&gt; | --fixup [(amend|reword):]&lt;confirmación&gt;]
-	   [-F &lt;fichero&gt; | -m &lt;mensaje&gt;] [--reset-author] [--allow-empty]
-	   [--allow-empty-message] [--no-verify] [-e] [--author=&lt;autor&gt;]
-	   [--date=&lt;fecha&gt;] [--cleanup=&lt;modo&gt;] [--[no-]status]
-	   [-i | -o] [--pathspec-from-file=&lt;fichero&gt; [--pathspec-file-nul]]
-	   [(--trailer &lt;token&gt;[(=|:)&lt;valor&gt;])&#8230;&#8203;] [-S[&lt;id-clave&gt;]]
-	   [--] [&lt;especificación-de-ruta&gt;&#8230;&#8203;]</p>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>commit</code></span> [<span class='synopsis'><code>-a</code></span> | <span class='synopsis'><code>--interactive</code></span> | <span class='synopsis'><code>--patch</code></span>] [<span class='synopsis'><code>-s</code></span>] [<span class='synopsis'><code>-v</code></span>] [<span class='synopsis'><code>-u</code></span>[<em>&lt;modo&gt;</em>]] [<span class='synopsis'><code>--amend</code></span>]
+	   [<span class='synopsis'><code>--dry-run</code></span>] <em class="(<span class='synopsis'><code>-c</code></span> | <span class='synopsis'><code>-C</code></span> | <span class='synopsis'><code>--squash</code></span>) <em>_&lt;confirmación&gt;_</em> | <span class='synopsis'><code>--fixup</code></span> [(<span class='synopsis'><code>amend</code></span>|<span class='synopsis'><code>reword</code></span>)<span class='synopsis'><code>:</code></span>">&lt;confirmación&gt;</em>]
+	   [<span class='synopsis'><code>-F</code></span> <em>&lt;fichero&gt;</em> | <span class='synopsis'><code>-m</code></span> <em>&lt;mensaje&gt;</em>] [<span class='synopsis'><code>--reset-author</code></span>] [<span class='synopsis'><code>--allow-empty</code></span>]
+	   [<span class='synopsis'><code>--allow-empty-message</code></span>] [<span class='synopsis'><code>--no-verify</code></span>] [<span class='synopsis'><code>-e</code></span>] [<span class='synopsis'><code>--author=</code></span><em>&lt;autor&gt;</em>]
+	   [<span class='synopsis'><code>--date=</code></span><em>&lt;fecha&gt;</em>] [<span class='synopsis'><code>--cleanup=</code></span><em>&lt;modo&gt;</em>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>status</code></span>]
+	   [<span class='synopsis'><code>-i</code></span> | <span class='synopsis'><code>-o</code></span>] [<span class='synopsis'><code>--pathspec-from-file=</code></span><em>&lt;fichero&gt;</em> [<span class='synopsis'><code>--pathspec-file-nul</code></span>]]
+	   [(<span class='synopsis'><code>--trailer</code></span> <em>&lt;token&gt;</em>[(<span class='synopsis'><code>=</code></span>|<span class='synopsis'><code>:</code></span>)<em>&lt;valor&gt;</em>])&#8230;&#8203;] [<span class='synopsis'><code>-S</code></span>[<em>&lt;id-clave&gt;</em>]]
+	   [<span class='synopsis'><code>--</code></span>] [<em>&lt;especificación-de-ruta&gt;</em>&#8230;&#8203;]</pre>
 </div>
 </div>
 </div>
@@ -37,7 +64,7 @@ aliases:
 <h2 id="_descripción"><a class="anchor" href="#_descripción"></a>DESCRIPCIÓN</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Crea una nueva confirmación con el contenido actual del índice y el mensaje de bitácora dado que describe los cambios. La nueva confirmación es un hijo directo de HEAD, usualmente la punta de la rama actual, y la rama es actualizada para apuntar a ella (a menos que no haya una rama asociada con el árbol de trabajo, en cuyo caso <code>HEAD</code> se "desprende" como se describe <a href='{{< relurl "docs/git-checkout/es" >}}'>git-checkout[1]</a>).</p>
+<p>Crea una nueva confirmación con el contenido actual del índice y el mensaje de bitácora dado que describe los cambios. La nueva confirmación es un hijo directo de HEAD, usualmente la punta de la rama actual, y la rama es actualizada para apuntar a ella (a menos que no haya una rama asociada con el árbol de trabajo, en cuyo caso <span class='synopsis'><code>HEAD</code></span> se "desprende" como se describe <a href='{{< relurl "docs/git-checkout/es" >}}'>git-checkout[1]</a>).</p>
 </div>
 <div class="paragraph">
 <p>El contenido a ser confirmado puede especificarse de varias maneras:</p>
@@ -45,27 +72,27 @@ aliases:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>usando <a href='{{< relurl "docs/git-add/es" >}}'>git-add[1]</a> para "agregar" incrementalmente cambios al índice antes de usar el comando <code>commit</code> (Nota: incluso ficheros modificados deben ser "agregados");</p>
+<p>usando <a href='{{< relurl "docs/git-add/es" >}}'>git-add[1]</a> para "agregar" incrementalmente cambios al índice antes de usar el comando <span class='synopsis'><code>commit</code></span> (Nota: incluso ficheros modificados deben ser "agregados");</p>
 </li>
 <li>
-<p>usando <a href='{{< relurl "docs/git-rm/es" >}}'>git-rm[1]</a> para remover ficheros del árbol de trabajo y el índice, también antes de usar el comando <code>commit</code>;</p>
+<p>usando <a href='{{< relurl "docs/git-rm/es" >}}'>git-rm[1]</a> para remover ficheros del árbol de trabajo y el índice, también antes de usar el comando <span class='synopsis'><code>commit</code></span>;</p>
 </li>
 <li>
-<p>listando ficheros como argumentos al comando <code>commit</code> (sin alguna de las opciones <code>--interactive</code> o <code>--patch</code>), en cuyo caso la confirmación ignorará cambios presentados en el índice, y en su lugar registrará el contenido actual de la lista de ficheros (la cual ya debe ser del conocimiento de Git);</p>
+<p>listando ficheros como argumentos al comando <span class='synopsis'><code>commit</code></span> (sin alguna de las opciones <span class='synopsis'><code>--interactive</code></span> o <span class='synopsis'><code>--patch</code></span>), en cuyo caso la confirmación ignorará cambios presentados en el índice, y en su lugar registrará el contenido actual de la lista de ficheros (la cual ya debe ser del conocimiento de Git);</p>
 </li>
 <li>
-<p>usando el modificador <code>-a</code> con el comando <code>commit</code> para "agregar" automáticamente cambios de todos los ficheros conocidos (ej. todos los ficheros que ya están listados en el índice) y "remover" automáticamente los ficheros en el índice quitados del árbol de trabajo, y entonces realizar la confirmación actual;</p>
+<p>usando el modificador <span class='synopsis'><code>-a</code></span> con el comando <span class='synopsis'><code>commit</code></span> para "agregar" automáticamente cambios de todos los ficheros conocidos (ej. todos los ficheros que ya están listados en el índice) y "remover" automáticamente los ficheros en el índice quitados del árbol de trabajo, y entonces realizar la confirmación actual;</p>
 </li>
 <li>
-<p>usando los modificadores <code>--interactive</code> o <code>--patch</code> con el comando <code>commit</code> para decidir uno por uno cuáles ficheros o pedazos deberán ser parte de la confirmación además del contenido en el índice, antes de finalizar la operación. Ver la sección ``Modo Interactivo" de <a href='{{< relurl "docs/git-add/es" >}}'>git-add[1]</a> para aprender cómo operar esos modos.</p>
+<p>usando los modificadores <span class='synopsis'><code>--interactive</code></span> o <span class='synopsis'><code>--patch</code></span> con el comando <span class='synopsis'><code>commit</code></span> para decidir uno por uno cuáles ficheros o pedazos deberán ser parte de la confirmación además del contenido en el índice, antes de finalizar la operación. Ver la sección ``Modo Interactivo" de <a href='{{< relurl "docs/git-add/es" >}}'>git-add[1]</a> para aprender cómo operar esos modos.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>La opción <code>--dry-run</code> puede usarse para obtener un resumen de lo que se incluirá en cualquiera de los anteriores para la confirmación siguiente dando el mismo conjunto de parámetros (opciones y rutas).</p>
+<p>La opción <span class='synopsis'><code>--dry-run</code></span> puede usarse para obtener un resumen de lo que se incluirá en cualquiera de los anteriores para la confirmación siguiente dando el mismo conjunto de parámetros (opciones y rutas).</p>
 </div>
 <div class="paragraph">
-<p>Si haces una confirmación y luego encuentras un error inmediatamente después, puedes recuperarte de él con <code>git reset</code>.</p>
+<p>Si haces una confirmación y luego encuentras un error inmediatamente después, puedes recuperarte de él con <span class='synopsis'><code>git</code> <code>reset</code></span>.</p>
 </div>
 </div>
 </div>
@@ -74,100 +101,102 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-commit-code-acode"> <a class="anchor" href="#git-commit--a"></a> <a class="anchor" href="#git-commit-code-acode"></a><code>-a</code> </dt>
-<dt class="hdlist1" id="git-commit-code--allcode"> <a class="anchor" href="#git-commit---all"></a> <a class="anchor" href="#git-commit-code--allcode"></a><code>--all</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-acodespan"> <a class="anchor" href="#git-commit--a"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-acodespan"></a><span class='synopsis'><code>-a</code></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--allcodespan"> <a class="anchor" href="#git-commit---all"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--allcodespan"></a><span class='synopsis'><code>--all</code></span> </dt>
 <dd>
 <p>Presenta automáticamente los ficheros que han sido modificados y eliminados, pero los ficheros nuevos que no le has enterado a Git no son afectados.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code-pcode"> <a class="anchor" href="#git-commit--p"></a> <a class="anchor" href="#git-commit-code-pcode"></a><code>-p</code> </dt>
-<dt class="hdlist1" id="git-commit-code--patchcode"> <a class="anchor" href="#git-commit---patch"></a> <a class="anchor" href="#git-commit-code--patchcode"></a><code>--patch</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-pcodespan"> <a class="anchor" href="#git-commit--p"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-pcodespan"></a><span class='synopsis'><code>-p</code></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--patchcodespan"> <a class="anchor" href="#git-commit---patch"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--patchcodespan"></a><span class='synopsis'><code>--patch</code></span> </dt>
 <dd>
 <p>Usa la interfase de selección de parche interactiva para elegir cuáles cambios se confirmarán. Ver <a href='{{< relurl "docs/git-add/es" >}}'>git-add[1]</a> para detalles.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code-Cltconfirmacingtcode"> <a class="anchor" href="#git-commit--Cconfirmacin"></a> <a class="anchor" href="#git-commit-code-Cltconfirmacingtcode"></a><code>-C &lt;confirmación&gt;</code> </dt>
-<dt class="hdlist1" id="git-commit-code--reuse-messageltconfirmacingtcode"> <a class="anchor" href="#git-commit---reuse-messageconfirmacin"></a> <a class="anchor" href="#git-commit-code--reuse-messageltconfirmacingtcode"></a><code>--reuse-message=&lt;confirmación&gt;</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-Ccodeemltconfirmacingtemspan"> <a class="anchor" href="#git-commit--Cconfirmacin"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-Ccodeemltconfirmacingtemspan"></a><span class='synopsis'><code>-C</code> <em>&lt;confirmación&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--reuse-messagecodeemltconfirmacingtemspan"> <a class="anchor" href="#git-commit---reuse-messageconfirmacin"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--reuse-messagecodeemltconfirmacingtemspan"></a><span class='synopsis'><code>--reuse-message=</code><em>&lt;confirmación&gt;</em></span> </dt>
 <dd>
 <p>Toma un objeto &lt;confirmación&gt; existente, y reusa el mensaje de registro y la información de autoría (incluyendo la marca de tiempo) cuando se crea la confirmación.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code-cltconfirmacingtcode"> <a class="anchor" href="#git-commit--cconfirmacin"></a> <a class="anchor" href="#git-commit-code-cltconfirmacingtcode"></a><code>-c &lt;confirmación&gt;</code> </dt>
-<dt class="hdlist1" id="git-commit-code--reedit-messageltconfirmacingtcode"> <a class="anchor" href="#git-commit---reedit-messageconfirmacin"></a> <a class="anchor" href="#git-commit-code--reedit-messageltconfirmacingtcode"></a><code>--reedit-message=&lt;confirmación&gt;</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-ccodeemltconfirmacingtemspan"> <a class="anchor" href="#git-commit--cconfirmacin"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-ccodeemltconfirmacingtemspan"></a><span class='synopsis'><code>-c</code> <em>&lt;confirmación&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--reedit-messagecodeemltconfirmacingtemspan"> <a class="anchor" href="#git-commit---reedit-messageconfirmacin"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--reedit-messagecodeemltconfirmacingtemspan"></a><span class='synopsis'><code>--reedit-message=</code><em>&lt;confirmación&gt;</em></span> </dt>
 <dd>
-<p>Como <code>-C</code>, pero con <code>-c</code> se invoca al editor, de tal manera que el usuario pueda editar posteriormente el mensaje de confirmación.</p>
+<p>Como <span class='synopsis'><code>-C</code></span>, pero con <span class='synopsis'><code>-c</code></span> se invoca al editor, de tal manera que el usuario pueda editar posteriormente el mensaje de confirmación.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--fixupamendrewordltconfirmacingtcode"> <a class="anchor" href="#git-commit---fixupamendrewordconfirmacin"></a> <a class="anchor" href="#git-commit-code--fixupamendrewordltconfirmacingtcode"></a><code>--fixup=[(amend|reword):]&lt;confirmación&gt;</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--fixupcodecodeamendcodecoderewordcodecodecodeemltconfirmacingtemspan"> <a class="anchor" href="#git-commit---fixupamendrewordconfirmacin"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--fixupcodecodeamendcodecoderewordcodecodecodeemltconfirmacingtemspan"></a><span class='synopsis'><code>--fixup=</code>[(<code>amend</code>|<code>reword</code>)<code>:</code>]<em>&lt;confirmación&gt;</em></span> </dt>
 <dd>
-<p>Crea una nueva confirmación que "arregla" <em>&lt;confirmación&gt;</em> cuando se aplica con <code>git rebase --autosquash</code>. Un <code>--fixup=&lt;confirmación&gt;</code> de plano crea una confirmación "arreglo" que modifica el contenido de <em>&lt;commit&gt;</em> pero sin tocar su mensaje de registro. <code>--fixup=amend:&lt;confirmación&gt;</code> es similar pero crea una confirmación "enmieda" la cual además reemplaza el mensaje de registro de <em>&lt;confirmación&gt;</em> con el mensaje de la confirmación "enmienda". <code>--fixup=reword:&lt;confirmación&gt;</code> crea una confirmación "enmienda" que reemplaza el mensaje de registro de <em>&lt;confirmación&gt;</em> con su propio mensaje pero sin hacer cambios al contenido de <em>&lt;confirmación&gt;</em>.</p>
+<p>Crea una nueva confirmación que "arregla" <em>&lt;confirmación&gt;</em> cuando se aplica con <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span>. Un <span class='synopsis'><code>--fixup=</code><em>&lt;confirmación&gt;</em></span> de plano crea una confirmación "arreglo" que modifica el contenido de <em>&lt;commit&gt;</em> pero sin tocar su mensaje de registro. <span class='synopsis'><code>--fixup=amend:</code><em>&lt;confirmación&gt;</em></span> es similar pero crea una confirmación "enmieda" la cual además reemplaza el mensaje de registro de <em>&lt;confirmación&gt;</em> con el mensaje de la confirmación "enmienda". <span class='synopsis'><code>--fixup=reword:</code><em>&lt;confirmación&gt;</em></span> crea una confirmación "enmienda" que reemplaza el mensaje de registro de <em>&lt;confirmación&gt;</em> con su propio mensaje pero sin hacer cambios al contenido de <em>&lt;confirmación&gt;</em>.</p>
 <div class="paragraph">
-<p>La confirmación creada por <code>--fixup=&lt;confirmación&gt;`plano tiene un título compuesto de "fixup!" seguido por el título de _&lt;confirmación&gt;_, y es reconocido especialmente por `git rebase --autosquash</code>. La opción <code>-m</code> puede usarse para suplir el mensaje de la confirmación creada, pero el comentario adicional será tirado una vez que la confirmación "arreglo" aplaste <em>&lt;confirmación&gt;</em> por <code>git rebase --autosquash</code>.</p>
+<p>La confirmación creada por <span class='synopsis'><em>--fixup=&lt;confirmación&gt;`plano tiene un título compuesto de "fixup!" seguido por el título de _&lt;confirmación&gt;_, y es reconocido especialmente por `git rebase --autosquash</em></span>. La opción <span class='synopsis'><code>-m</code></span> puede usarse para suplir el mensaje de la confirmación creada, pero el comentario adicional será tirado una vez que la confirmación "arreglo" aplaste <em>&lt;confirmación&gt;</em> por <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>La confirmación creada por <code>--fixup=amend:&lt;confirmación&gt;</code> es similar pero su título es prefijado con "amend!". El mensaje de <em>&lt;confirmación&gt;</em> es copiado en el mensaje de registro de la confirmación "amend!" y se abre en un editor para que se pueda refinar. Cuando <code>git rebase --autosquash</code> aplasta la confirmación "amend!" en <em>&lt;confirmación&gt;</em>, el mensaje de <em>&lt;confirmación&gt;</em> es reemplazado por el mensaje de registro refinado de la confirmación "amend!". Es un error para el mensaje de registro de la confirmación "amend!" que esté vacío a menos que se especifique <code>--allow-empty-message</code>.</p>
+<p>La confirmación creada por <span class='synopsis'><code>--fixup=amend:</code><em>&lt;confirmación&gt;</em></span> es similar pero su título es prefijado con "amend!". El mensaje de <em>&lt;confirmación&gt;</em> es copiado en el mensaje de registro de la confirmación "amend!" y se abre en un editor para que se pueda refinar. Cuando <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span> aplasta la confirmación "amend!" en <em>&lt;confirmación&gt;</em>, el mensaje de <em>&lt;confirmación&gt;</em> es reemplazado por el mensaje de registro refinado de la confirmación "amend!". Es un error para el mensaje de registro de la confirmación "amend!" que esté vacío a menos que se especifique <span class='synopsis'><code>--allow-empty-message</code></span>.</p>
 </div>
 <div class="paragraph">
-<p><code>--fixup=reword:&lt;confirmación&gt;</code> es un atajo de <code>--fixup=amend:&lt;confirmación&gt;
- --only</code>. Crea una confirmación "amend!" con sólo un mensaje de registro
-(ignorando cualquier cambio presentado al índice). Cuando es aplastado por <code>git
-rebase --autosquash</code>, reemplaza el mensaje de registro de <em>&lt;confirmación&gt;</em>
+<p><span class='synopsis'><code>--fixup=reword:</code><em>&lt;confirmación&gt;</em></span> es un atajo de <span class='synopsis'><code>--fixup=amend:</code><em>&lt;confirmación&gt;</em>
+
+ <code>--only</code></span>. Crea una confirmación "amend!" con sólo un mensaje de registro
+(ignorando cualquier cambio presentado al índice). Cuando es aplastado por <span class='synopsis'><code>git</code>
+
+<code>rebase</code> <code>--autosquash</code></span>, reemplaza el mensaje de registro de <em>&lt;confirmación&gt;</em>
 sin hacer algún otro cambio.</p>
 </div>
 <div class="paragraph">
-<p>Ninguna de las confirmaciones "fixup!" o "amend!" cambia la autoría de <em>&lt;confirmación&gt;</em> cuando es aplicado por <code>git rebase --autosquash</code>. Ver <a href='{{< relurl "docs/git-rebase/es" >}}'>git-rebase[1]</a> para detalles.</p>
+<p>Ninguna de las confirmaciones "fixup!" o "amend!" cambia la autoría de <em>&lt;confirmación&gt;</em> cuando es aplicado por <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span>. Ver <a href='{{< relurl "docs/git-rebase/es" >}}'>git-rebase[1]</a> para detalles.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-commit-code--squashltconfirmacingtcode"> <a class="anchor" href="#git-commit---squashconfirmacin"></a> <a class="anchor" href="#git-commit-code--squashltconfirmacingtcode"></a><code>--squash=&lt;confirmación&gt;</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--squashcodeemltconfirmacingtemspan"> <a class="anchor" href="#git-commit---squashconfirmacin"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--squashcodeemltconfirmacingtemspan"></a><span class='synopsis'><code>--squash=</code><em>&lt;confirmación&gt;</em></span> </dt>
 <dd>
-<p>Construye un mensaje de confirmación para usarse con <code>git rebase --autosquash</code>. El título del mensaje de confirmación se toma de la confirmación especificada con un prefijo "squash!". Puede usarse con opciones adicionales de mensaje de confirmación (<code>-m</code>/<code>-c</code>/<code>-C</code>/<code>-F</code>). Ver <a href='{{< relurl "docs/git-rebase/es" >}}'>git-rebase[1]</a> para detalles.</p>
+<p>Construye un mensaje de confirmación para usarse con <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span>. El título del mensaje de confirmación se toma de la confirmación especificada con un prefijo "squash!". Puede usarse con opciones adicionales de mensaje de confirmación (<span class='synopsis'><code>-m</code></span>/<span class='synopsis'><code>-c</code></span>/<span class='synopsis'><code>-C</code></span>/<span class='synopsis'><code>-F</code></span>). Ver <a href='{{< relurl "docs/git-rebase/es" >}}'>git-rebase[1]</a> para detalles.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--reset-authorcode"> <a class="anchor" href="#git-commit---reset-author"></a> <a class="anchor" href="#git-commit-code--reset-authorcode"></a><code>--reset-author</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--reset-authorcodespan"> <a class="anchor" href="#git-commit---reset-author"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--reset-authorcodespan"></a><span class='synopsis'><code>--reset-author</code></span> </dt>
 <dd>
-<p>Cuando se usa con las opciones <code>-C</code>/<code>-c</code>/<code>--amend</code>, o cuando se confirma después de una cherry-pick conflictiva, declara que la autoría de la confirmación resultante ahora pertenece al confirmante. Esto también renueva la marca de tiempo del autor.</p>
+<p>Cuando se usa con las opciones <span class='synopsis'><code>-C</code></span>/<span class='synopsis'><code>-c</code></span>/<span class='synopsis'><code>--amend</code></span>, o cuando se confirma después de una cherry-pick conflictiva, declara que la autoría de la confirmación resultante ahora pertenece al confirmante. Esto también renueva la marca de tiempo del autor.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--shortcode"> <a class="anchor" href="#git-commit---short"></a> <a class="anchor" href="#git-commit-code--shortcode"></a><code>--short</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--shortcodespan"> <a class="anchor" href="#git-commit---short"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--shortcodespan"></a><span class='synopsis'><code>--short</code></span> </dt>
 <dd>
-<p>Cuando se corre en seco, da la salida en formato corto. Ver <a href='{{< relurl "docs/git-status/es" >}}'>git-status[1]</a> para detalles. Implica <code>--dry-run</code>.</p>
+<p>Cuando se corre en seco, da la salida en formato corto. Ver <a href='{{< relurl "docs/git-status/es" >}}'>git-status[1]</a> para detalles. Implica <span class='synopsis'><code>--dry-run</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--branchcode"> <a class="anchor" href="#git-commit---branch"></a> <a class="anchor" href="#git-commit-code--branchcode"></a><code>--branch</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--branchcodespan"> <a class="anchor" href="#git-commit---branch"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--branchcodespan"></a><span class='synopsis'><code>--branch</code></span> </dt>
 <dd>
 <p>Muestra la rama y la información de rastreo también en formato corto.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--porcelaincode"> <a class="anchor" href="#git-commit---porcelain"></a> <a class="anchor" href="#git-commit-code--porcelaincode"></a><code>--porcelain</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--porcelaincodespan"> <a class="anchor" href="#git-commit---porcelain"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--porcelaincodespan"></a><span class='synopsis'><code>--porcelain</code></span> </dt>
 <dd>
-<p>Cuando se corre en seco, da la salida en un formato para porcelana. Ver <a href='{{< relurl "docs/git-status/es" >}}'>git-status[1]</a> para detalles. Implica <code>--dry-run</code>.</p>
+<p>Cuando se corre en seco, da la salida en un formato para porcelana. Ver <a href='{{< relurl "docs/git-status/es" >}}'>git-status[1]</a> para detalles. Implica <span class='synopsis'><code>--dry-run</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--longcode"> <a class="anchor" href="#git-commit---long"></a> <a class="anchor" href="#git-commit-code--longcode"></a><code>--long</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--longcodespan"> <a class="anchor" href="#git-commit---long"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--longcodespan"></a><span class='synopsis'><code>--long</code></span> </dt>
 <dd>
-<p>Cuando se corre en seco, da la salida en el formato largo. Implica <code>--dry-run</code>.</p>
+<p>Cuando se corre en seco, da la salida en el formato largo. Implica <span class='synopsis'><code>--dry-run</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code-zcode"> <a class="anchor" href="#git-commit--z"></a> <a class="anchor" href="#git-commit-code-zcode"></a><code>-z</code> </dt>
-<dt class="hdlist1" id="git-commit-code--nullcode"> <a class="anchor" href="#git-commit---null"></a> <a class="anchor" href="#git-commit-code--nullcode"></a><code>--null</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-zcodespan"> <a class="anchor" href="#git-commit--z"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-zcodespan"></a><span class='synopsis'><code>-z</code></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--nullcodespan"> <a class="anchor" href="#git-commit---null"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--nullcodespan"></a><span class='synopsis'><code>--null</code></span> </dt>
 <dd>
-<p>Cuando se muestra el estatus de salida <code>short</code> o <code>porcelain</code>, imprime el nombre del fichero verbosamente y termina las entradas con <em>NUL</em>, en lugar de con <em>LF</em>. Si no se da un formato, implica el formato de salida <code>--porcelain</code>. Sin la opción <code>-z</code>, los nombre de fichero con caracteres "inusuales" son entrecomillados como se explica para la variable de configuración <code>core.quotePath</code> (ver <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>).</p>
+<p>Cuando se muestra el estatus de salida <span class='synopsis'><code>short</code></span> o <span class='synopsis'><code>porcelain</code></span>, imprime el nombre del fichero verbosamente y termina las entradas con <em>NUL</em>, en lugar de con <em>LF</em>. Si no se da un formato, implica el formato de salida <span class='synopsis'><code>--porcelain</code></span>. Sin la opción <span class='synopsis'><code>-z</code></span>, los nombre de fichero con caracteres "inusuales" son entrecomillados como se explica para la variable de configuración <span class='synopsis'><code>core.quotePath</code></span> (ver <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>).</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code-Fltficherogtcode"> <a class="anchor" href="#git-commit--Ffichero"></a> <a class="anchor" href="#git-commit-code-Fltficherogtcode"></a><code>-F &lt;fichero&gt;</code> </dt>
-<dt class="hdlist1" id="git-commit-code--fileltficherogtcode"> <a class="anchor" href="#git-commit---filefichero"></a> <a class="anchor" href="#git-commit-code--fileltficherogtcode"></a><code>--file=&lt;fichero&gt;</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-Fcodeemltficherogtemspan"> <a class="anchor" href="#git-commit--Ffichero"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-Fcodeemltficherogtemspan"></a><span class='synopsis'><code>-F</code> <em>&lt;fichero&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--filecodeemltficherogtemspan"> <a class="anchor" href="#git-commit---filefichero"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--filecodeemltficherogtemspan"></a><span class='synopsis'><code>--file=</code><em>&lt;fichero&gt;</em></span> </dt>
 <dd>
 <p>Toma el mensaje de confirmación de <em>&lt;fichero&gt;</em>. Use <em>-</em> para leer el mensaje de la entrada estándar.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--authorltautorgtcode"> <a class="anchor" href="#git-commit---authorautor"></a> <a class="anchor" href="#git-commit-code--authorltautorgtcode"></a><code>--author=&lt;autor&gt;</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--authorcodeemltautorgtemspan"> <a class="anchor" href="#git-commit---authorautor"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--authorcodeemltautorgtemspan"></a><span class='synopsis'><code>--author=</code><em>&lt;autor&gt;</em></span> </dt>
 <dd>
-<p>Anula el autor de la confirmación. Especifica un autor explícito usando el formato estándar <code>A U Tor &lt;autor@ejemplo.com&gt;</code>. De lo contrario se asume <em>&lt;autor&gt;</em> como un patrón y se usa para buscar una confirmación existente por ese autor (ej. <code>git rev-list --all -i --author=&lt;autor&gt;</code>); el autor de la confirmación es copiado de la primer confirmación encontrada.</p>
+<p>Anula el autor de la confirmación. Especifica un autor explícito usando el formato estándar <span class='synopsis'><em>A U Tor &lt;autor@ejemplo.com&gt;</em></span>. De lo contrario se asume <em>&lt;autor&gt;</em> como un patrón y se usa para buscar una confirmación existente por ese autor (ej. <span class='synopsis'><code>git</code> <code>rev-list</code> <code>--all</code> <code>-i</code> <code>--author=</code><em>&lt;autor&gt;</em></span>); el autor de la confirmación es copiado de la primer confirmación encontrada.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--dateltfechagtcode"> <a class="anchor" href="#git-commit---datefecha"></a> <a class="anchor" href="#git-commit-code--dateltfechagtcode"></a><code>--date=&lt;fecha&gt;</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--datecodeemltfechagtemspan"> <a class="anchor" href="#git-commit---datefecha"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--datecodeemltfechagtemspan"></a><span class='synopsis'><code>--date=</code><em>&lt;fecha&gt;</em></span> </dt>
 <dd>
 <p>Anula la fecha de autoría usada en la confirmación.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code-mltmensajegtcode"> <a class="anchor" href="#git-commit--mmensaje"></a> <a class="anchor" href="#git-commit-code-mltmensajegtcode"></a><code>-m &lt;mensaje&gt;</code> </dt>
-<dt class="hdlist1" id="git-commit-code--messageltmensajegtcode"> <a class="anchor" href="#git-commit---messagemensaje"></a> <a class="anchor" href="#git-commit-code--messageltmensajegtcode"></a><code>--message=&lt;mensaje&gt;</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-mcodeemltmensajegtemspan"> <a class="anchor" href="#git-commit--mmensaje"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-mcodeemltmensajegtemspan"></a><span class='synopsis'><code>-m</code> <em>&lt;mensaje&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--messagecodeemltmensajegtemspan"> <a class="anchor" href="#git-commit---messagemensaje"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--messagecodeemltmensajegtemspan"></a><span class='synopsis'><code>--message=</code><em>&lt;mensaje&gt;</em></span> </dt>
 <dd>
-<p>Usa <em>&lt;mensaje&gt;</em> como mensaje de confirmación. Si se dan múltiples opciones <code>-m</code>, sus valores son concatenados como párrafos separados.</p>
+<p>Usa <em>&lt;mensaje&gt;</em> como mensaje de confirmación. Si se dan múltiples opciones <span class='synopsis'><code>-m</code></span>, sus valores son concatenados como párrafos separados.</p>
 <div class="paragraph">
-<p>La opción <code>-m</code> es mutuamente excluyente con <code>-c</code>, <code>-C</code>, y <code>-F</code>.</p>
+<p>La opción <span class='synopsis'><code>-m</code></span> es mutuamente excluyente con <span class='synopsis'><code>-c</code></span>, <span class='synopsis'><code>-C</code></span>, y <span class='synopsis'><code>-F</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-commit-code-tltficherogtcode"> <a class="anchor" href="#git-commit--tfichero"></a> <a class="anchor" href="#git-commit-code-tltficherogtcode"></a><code>-t &lt;fichero&gt;</code> </dt>
-<dt class="hdlist1" id="git-commit-code--templateltficherogtcode"> <a class="anchor" href="#git-commit---templatefichero"></a> <a class="anchor" href="#git-commit-code--templateltficherogtcode"></a><code>--template=&lt;fichero&gt;</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-tcodeemltficherogtemspan"> <a class="anchor" href="#git-commit--tfichero"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-tcodeemltficherogtemspan"></a><span class='synopsis'><code>-t</code> <em>&lt;fichero&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--templatecodeemltficherogtemspan"> <a class="anchor" href="#git-commit---templatefichero"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--templatecodeemltficherogtemspan"></a><span class='synopsis'><code>--template=</code><em>&lt;fichero&gt;</em></span> </dt>
 <dd>
-<p>Al editar el mensaje de confirmación, inicia el editor con el contenido de <em>&lt;fichero&gt;</em>. Se usa a menudo la variable de configuración <code>commit.template</code> para dar implícitamente esta opción al comando. Este mecanismo puede ser usado por proyectos que quieran guiar a los participantes con algunas sugerencias sobre qué escribir en el mensaje y en qué orden. Si el usuario sale del editor sin editar el mensaje, se aborta la confirmación. Esto no surte efecto cuando el mensaje se proporciona por otros medios, ej. con las opciones <code>-m</code> o <code>-F</code>.</p>
+<p>Al editar el mensaje de confirmación, inicia el editor con el contenido de <em>&lt;fichero&gt;</em>. Se usa a menudo la variable de configuración <span class='synopsis'><code>commit.template</code></span> para dar implícitamente esta opción al comando. Este mecanismo puede ser usado por proyectos que quieran guiar a los participantes con algunas sugerencias sobre qué escribir en el mensaje y en qué orden. Si el usuario sale del editor sin editar el mensaje, se aborta la confirmación. Esto no surte efecto cuando el mensaje se proporciona por otros medios, ej. con las opciones <span class='synopsis'><code>-m</code></span> o <span class='synopsis'><code>-F</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -179,7 +208,7 @@ sin hacer algún otro cambio.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>es/signoff-option.adoc</code></p>
+<p>Missing <span class='synopsis'><code>es/signoff-option.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -190,75 +219,75 @@ sin hacer algún otro cambio.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-commit-code--trailerlttokengtltvalorgtcode"> <a class="anchor" href="#git-commit---trailertokenvalor"></a> <a class="anchor" href="#git-commit-code--trailerlttokengtltvalorgtcode"></a><code>--trailer &lt;token&gt;[(=|:)&lt;valor&gt;]</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--trailercodeemlttokengtemcodecodecodecodeemltvalorgtemspan"> <a class="anchor" href="#git-commit---trailertokenvalor"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--trailercodeemlttokengtemcodecodecodecodeemltvalorgtemspan"></a><span class='synopsis'><code>--trailer</code> <em>&lt;token&gt;</em>[(<code>=</code>|<code>:</code>)<em>&lt;valor&gt;</em>]</span> </dt>
 <dd>
-<p>Especifica un par (<em>&lt;token&gt;</em>, <em>&lt;valor&gt;</em>) que será aplicado como colofón. (ej. <code>git commit --trailer "Firmado-por:C O Mitter \ &lt;confirmante@ejemplo.com&gt;" --trailer "Ayudado-por:C O Mitter \ &lt;confirmante@ejemplo.com&gt;"</code> agregará los remolques <code>Firmado-por</code> y <code>Ayudado-por</code> al mensaje de confirmación). Se pueden usar las variables de configuración <code>trailer.*</code>(<a href='{{< relurl "docs/git-interpret-trailers/es" >}}'>git-interpret-trailers[1]</a>) para definir si un colofón duplicado se omite, si debe aparecer cada colofón al correr los colofones, y otros detalles.</p>
+<p>Especifica un par (<em>&lt;token&gt;</em>, <em>&lt;valor&gt;</em>) que será aplicado como colofón. (ej. <span class='synopsis'><em>git commit --trailer "Firmado-por:C O Mitter \ &lt;confirmante@ejemplo.com&gt;" --trailer "Ayudado-por:C O Mitter \ &lt;confirmante@ejemplo.com&gt;"</em></span> agregará los remolques <span class='synopsis'><code>Firmado-por</code></span> y <span class='synopsis'><code>Ayudado-por</code></span> al mensaje de confirmación). Se pueden usar las variables de configuración <span class='synopsis'><code>trailer.*</code></span>(<a href='{{< relurl "docs/git-interpret-trailers/es" >}}'>git-interpret-trailers[1]</a>) para definir si un colofón duplicado se omite, si debe aparecer cada colofón al correr los colofones, y otros detalles.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code-ncode"> <a class="anchor" href="#git-commit--n"></a> <a class="anchor" href="#git-commit-code-ncode"></a><code>-n</code> </dt>
-<dt class="hdlist1" id="git-commit-code--no-verifycode"> <a class="anchor" href="#git-commit---no-verify"></a> <a class="anchor" href="#git-commit-code--no-verifycode"></a><code>--[no-]verify</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-ncodespan"> <a class="anchor" href="#git-commit--n"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-ncodespan"></a><span class='synopsis'><code>-n</code></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--codecodeno-codecodeverifycodespan"> <a class="anchor" href="#git-commit---no-verify"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--codecodeno-codecodeverifycodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>verify</code></span> </dt>
 <dd>
-<p>Evita los ganchos <code>pre-commit</code> y <code>commit-msg</code>. Ver también <a href='{{< relurl "docs/githooks/es" >}}'>githooks[5]</a>.</p>
+<p>Evita los ganchos <span class='synopsis'><code>pre-commit</code></span> y <span class='synopsis'><code>commit-msg</code></span>. Ver también <a href='{{< relurl "docs/githooks/es" >}}'>githooks[5]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--allow-emptycode"> <a class="anchor" href="#git-commit---allow-empty"></a> <a class="anchor" href="#git-commit-code--allow-emptycode"></a><code>--allow-empty</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--allow-emptycodespan"> <a class="anchor" href="#git-commit---allow-empty"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--allow-emptycodespan"></a><span class='synopsis'><code>--allow-empty</code></span> </dt>
 <dd>
 <p>Usualmente registrar una confirmación que tenga exactamente el mismo árbol como su único antecesor es un error, y el comando te previene de hacer tal confirmación. Esta opción omite la seguridad, y es primordialmente para ser usada por scripts de interfase de SCM foráneos.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--allow-empty-messagecode"> <a class="anchor" href="#git-commit---allow-empty-message"></a> <a class="anchor" href="#git-commit-code--allow-empty-messagecode"></a><code>--allow-empty-message</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--allow-empty-messagecodespan"> <a class="anchor" href="#git-commit---allow-empty-message"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--allow-empty-messagecodespan"></a><span class='synopsis'><code>--allow-empty-message</code></span> </dt>
 <dd>
-<p>Crea una confirmación con un mensaje de confirmación vacío sin usar comandos plomería como <a href='{{< relurl "docs/git-commit-tree/es" >}}'>git-commit-tree[1]</a>. Como <code>--allow-empty</code>, este comando es primordialmente para ser usado por scripts de interface de SCM externos.</p>
+<p>Crea una confirmación con un mensaje de confirmación vacío sin usar comandos plomería como <a href='{{< relurl "docs/git-commit-tree/es" >}}'>git-commit-tree[1]</a>. Como <span class='synopsis'><code>--allow-empty</code></span>, este comando es primordialmente para ser usado por scripts de interface de SCM externos.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--cleanupltmodogtcode"> <a class="anchor" href="#git-commit---cleanupmodo"></a> <a class="anchor" href="#git-commit-code--cleanupltmodogtcode"></a><code>--cleanup=&lt;modo&gt;</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--cleanupcodeemltmodogtemspan"> <a class="anchor" href="#git-commit---cleanupmodo"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--cleanupcodeemltmodogtemspan"></a><span class='synopsis'><code>--cleanup=</code><em>&lt;modo&gt;</em></span> </dt>
 <dd>
-<p>Determina cómo debería ser limpiado el mensaje de confirmación proporcionado antes confirmar. El <em>&lt;modo&gt;</em> puede ser <code>strip</code>, <code>whitespace</code>, <code>verbatim</code>, <code>scissors</code> o <code>default</code>.</p>
+<p>Determina cómo debería ser limpiado el mensaje de confirmación proporcionado antes confirmar. El <em>&lt;modo&gt;</em> puede ser <span class='synopsis'><code>strip</code></span>, <span class='synopsis'><code>whitespace</code></span>, <span class='synopsis'><code>verbatim</code></span>, <span class='synopsis'><code>scissors</code></span> o <span class='synopsis'><code>default</code></span>.</p>
 <div class="openblock">
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-commit-codestripcode"> <a class="anchor" href="#git-commit-strip"></a> <a class="anchor" href="#git-commit-codestripcode"></a><code>strip</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodestripcodespan"> <a class="anchor" href="#git-commit-strip"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodestripcodespan"></a><span class='synopsis'><code>strip</code></span> </dt>
 <dd>
 <p>Quita líneas vacías iniciales y finales, espacios en blanco al final, comentarios y colapsa líneas vacías consecutivas.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-codewhitespacecode"> <a class="anchor" href="#git-commit-whitespace"></a> <a class="anchor" href="#git-commit-codewhitespacecode"></a><code>whitespace</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodewhitespacecodespan"> <a class="anchor" href="#git-commit-whitespace"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodewhitespacecodespan"></a><span class='synopsis'><code>whitespace</code></span> </dt>
 <dd>
-<p>Lo mismo que <code>strip</code> excepto que #comentario no se quita.</p>
+<p>Lo mismo que <span class='synopsis'><code>strip</code></span> excepto que #comentario no se quita.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-codeverbatimcode"> <a class="anchor" href="#git-commit-verbatim"></a> <a class="anchor" href="#git-commit-codeverbatimcode"></a><code>verbatim</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodeverbatimcodespan"> <a class="anchor" href="#git-commit-verbatim"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodeverbatimcodespan"></a><span class='synopsis'><code>verbatim</code></span> </dt>
 <dd>
 <p>No cambia el mensaje en absoluto.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-codescissorscode"> <a class="anchor" href="#git-commit-scissors"></a> <a class="anchor" href="#git-commit-codescissorscode"></a><code>scissors</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodescissorscodespan"> <a class="anchor" href="#git-commit-scissors"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodescissorscodespan"></a><span class='synopsis'><code>scissors</code></span> </dt>
 <dd>
-<p>Lo mismo que <code>whitespace</code> excepto que todo desde (incluyendo) la línea encontrada abajo es truncada, si el mensaje va a editarse. "<code>#</code>" puede personalizarse con <code>core.commentChar</code>.</p>
+<p>Lo mismo que <span class='synopsis'><code>whitespace</code></span> excepto que todo desde (incluyendo) la línea encontrada abajo es truncada, si el mensaje va a editarse. "<span class='synopsis'><code>#</code></span>" puede personalizarse con <span class='synopsis'><code>core.commentChar</code></span>.</p>
 <div class="literalblock">
 <div class="content">
 <pre># ------------------------ &gt;8 ------------------------</pre>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-commit-codedefaultcode"> <a class="anchor" href="#git-commit-default"></a> <a class="anchor" href="#git-commit-codedefaultcode"></a><code>default</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodedefaultcodespan"> <a class="anchor" href="#git-commit-default"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodedefaultcodespan"></a><span class='synopsis'><code>default</code></span> </dt>
 <dd>
-<p>Lo mismo que <code>strip</code> si el mensaje va a editarse. De lo contrario <code>whitespace</code>.</p>
+<p>Lo mismo que <span class='synopsis'><code>strip</code></span> si el mensaje va a editarse. De lo contrario <span class='synopsis'><code>whitespace</code></span>.</p>
 </dd>
 </dl>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>El predeterminado puede cambiarse con la variable de configuración <code>commit.cleanup</code> (ver <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>).</p>
+<p>El predeterminado puede cambiarse con la variable de configuración <span class='synopsis'><code>commit.cleanup</code></span> (ver <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-commit-code-ecode"> <a class="anchor" href="#git-commit--e"></a> <a class="anchor" href="#git-commit-code-ecode"></a><code>-e</code> </dt>
-<dt class="hdlist1" id="git-commit-code--editcode"> <a class="anchor" href="#git-commit---edit"></a> <a class="anchor" href="#git-commit-code--editcode"></a><code>--edit</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-ecodespan"> <a class="anchor" href="#git-commit--e"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-ecodespan"></a><span class='synopsis'><code>-e</code></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--editcodespan"> <a class="anchor" href="#git-commit---edit"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--editcodespan"></a><span class='synopsis'><code>--edit</code></span> </dt>
 <dd>
-<p>Permite al usuario editar más adelante el mensaje tomado de <em>&lt;fichero&gt;</em> con <code>-F &lt;fichero&gt;</code>, de la línea de comando con <code>-m &lt;mensaje&gt;</code>, y de <em>&lt;confirmación&gt;</em> con `-C &lt;confirmación&gt;.</p>
+<p>Permite al usuario editar más adelante el mensaje tomado de <em>&lt;fichero&gt;</em> con <span class='synopsis'><code>-F</code> <em>&lt;fichero&gt;</em></span>, de la línea de comando con <span class='synopsis'><code>-m</code> <em>&lt;mensaje&gt;</em></span>, y de <em>&lt;confirmación&gt;</em> con `-C &lt;confirmación&gt;.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--no-editcode"> <a class="anchor" href="#git-commit---no-edit"></a> <a class="anchor" href="#git-commit-code--no-editcode"></a><code>--no-edit</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--no-editcodespan"> <a class="anchor" href="#git-commit---no-edit"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--no-editcodespan"></a><span class='synopsis'><code>--no-edit</code></span> </dt>
 <dd>
-<p>Usa el mensaje de confirmación seleccionado sin lanzar un editor. Por ejemplo, <code>git commit --amend --no-edit</code> enmienda una confirmación sin cambiar su mensaje de confirmación.</p>
+<p>Usa el mensaje de confirmación seleccionado sin lanzar un editor. Por ejemplo, <span class='synopsis'><code>git</code> <code>commit</code> <code>--amend</code> <code>--no-edit</code></span> enmienda una confirmación sin cambiar su mensaje de confirmación.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--amendcode"> <a class="anchor" href="#git-commit---amend"></a> <a class="anchor" href="#git-commit-code--amendcode"></a><code>--amend</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--amendcodespan"> <a class="anchor" href="#git-commit---amend"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--amendcodespan"></a><span class='synopsis'><code>--amend</code></span> </dt>
 <dd>
-<p>Reemplaza la punta de la rama actual creando una nueva confirmación. El árbol registrado se prepara como siempre (incluyendo el efecto de las opciones <code>-i</code> y <code>-o</code> y especificaciones de ruta explícitas), y el mensaje de la confirmación original se usa como el punto inicial, en lugar de un mensaje vacío, cuando no se especifica otro mensaje desde la línea de comandos mediante opciones como <code>-m</code>, <code>-F</code>, <code>-c</code>, etc. La nueva confirmación tiene los mismos antecesores y autor que la actual (la opción <code>--reset-author</code> puede contraordenar esto).</p>
+<p>Reemplaza la punta de la rama actual creando una nueva confirmación. El árbol registrado se prepara como siempre (incluyendo el efecto de las opciones <span class='synopsis'><code>-i</code></span> y <span class='synopsis'><code>-o</code></span> y especificaciones de ruta explícitas), y el mensaje de la confirmación original se usa como el punto inicial, en lugar de un mensaje vacío, cuando no se especifica otro mensaje desde la línea de comandos mediante opciones como <span class='synopsis'><code>-m</code></span>, <span class='synopsis'><code>-F</code></span>, <span class='synopsis'><code>-c</code></span>, etc. La nueva confirmación tiene los mismos antecesores y autor que la actual (la opción <span class='synopsis'><code>--reset-author</code></span> puede contraordenar esto).</p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
@@ -280,98 +309,98 @@ sin hacer algún otro cambio.</p>
 <p>Deberías entender las implicaciones de reescribir el historial si enmiendas una confirmación que ya ha sido publicada. (ver la sección "RECUPERANDOSE DE UN REBASE DE UPSTREAM" en <a href='{{< relurl "docs/git-rebase/es" >}}'>git-rebase[1]</a>.)</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-commit-code--no-post-rewritecode"> <a class="anchor" href="#git-commit---no-post-rewrite"></a> <a class="anchor" href="#git-commit-code--no-post-rewritecode"></a><code>--no-post-rewrite</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--no-post-rewritecodespan"> <a class="anchor" href="#git-commit---no-post-rewrite"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--no-post-rewritecodespan"></a><span class='synopsis'><code>--no-post-rewrite</code></span> </dt>
 <dd>
-<p>Evita el gancho <code>post-rewrite</code>.</p>
+<p>Evita el gancho <span class='synopsis'><code>post-rewrite</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code-icode"> <a class="anchor" href="#git-commit--i"></a> <a class="anchor" href="#git-commit-code-icode"></a><code>-i</code> </dt>
-<dt class="hdlist1" id="git-commit-code--includecode"> <a class="anchor" href="#git-commit---include"></a> <a class="anchor" href="#git-commit-code--includecode"></a><code>--include</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-icodespan"> <a class="anchor" href="#git-commit--i"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-icodespan"></a><span class='synopsis'><code>-i</code></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--includecodespan"> <a class="anchor" href="#git-commit---include"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--includecodespan"></a><span class='synopsis'><code>--include</code></span> </dt>
 <dd>
 <p>Antes de hacer una confirmación con el contenido presentado al momento, presenta también el contenido de las rutas proporcionadas en la línea de comandos. Esto no es normalmente lo que quieres, a menos que estes concluyendo una fusión con conflictos.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code-ocode"> <a class="anchor" href="#git-commit--o"></a> <a class="anchor" href="#git-commit-code-ocode"></a><code>-o</code> </dt>
-<dt class="hdlist1" id="git-commit-code--onlycode"> <a class="anchor" href="#git-commit---only"></a> <a class="anchor" href="#git-commit-code--onlycode"></a><code>--only</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-ocodespan"> <a class="anchor" href="#git-commit--o"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-ocodespan"></a><span class='synopsis'><code>-o</code></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--onlycodespan"> <a class="anchor" href="#git-commit---only"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--onlycodespan"></a><span class='synopsis'><code>--only</code></span> </dt>
 <dd>
-<p>Crea una confirmación tomando el contenido actualizado del árbol de trabajo de las rutas especificadas en la línea de comandos, descartando cualquier contenido que haya sido presentado por otras rutas. Este es el modo de operación predeterminado de <code>git commit</code> si se da alguna ruta en la línea de comandos, en cuyo caso esta opción puede omitirse. Si esta opción se especifica junto con <code>--amend</code>, entonces no hay necesidad de especificar rutas que puedan usarse para enmendar la última confirmación sin confirmar cambios que ya hayan sido presentados. Si se usa junto con <code>--allow-empty</code>, tampoco se requieren rutas y se creará una confirmación vacía.</p>
+<p>Crea una confirmación tomando el contenido actualizado del árbol de trabajo de las rutas especificadas en la línea de comandos, descartando cualquier contenido que haya sido presentado por otras rutas. Este es el modo de operación predeterminado de <span class='synopsis'><code>git</code> <code>commit</code></span> si se da alguna ruta en la línea de comandos, en cuyo caso esta opción puede omitirse. Si esta opción se especifica junto con <span class='synopsis'><code>--amend</code></span>, entonces no hay necesidad de especificar rutas que puedan usarse para enmendar la última confirmación sin confirmar cambios que ya hayan sido presentados. Si se usa junto con <span class='synopsis'><code>--allow-empty</code></span>, tampoco se requieren rutas y se creará una confirmación vacía.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--pathspec-from-fileltficherogtcode"> <a class="anchor" href="#git-commit---pathspec-from-filefichero"></a> <a class="anchor" href="#git-commit-code--pathspec-from-fileltficherogtcode"></a><code>--pathspec-from-file=&lt;fichero&gt;</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--pathspec-from-filecodeemltficherogtemspan"> <a class="anchor" href="#git-commit---pathspec-from-filefichero"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--pathspec-from-filecodeemltficherogtemspan"></a><span class='synopsis'><code>--pathspec-from-file=</code><em>&lt;fichero&gt;</em></span> </dt>
 <dd>
-<p>Pasa la especificación de ruta en <em>&lt;fichero&gt;</em> y no como argumento en la línea de comandos. Si <em>&lt;fichero&gt;</em> es exactamente <code>-</code> entonces se usa la entrada estándar. Los elementos de la especificación de ruta se separan por <em>LF</em> o <em>CR</em>/<em>LF</em>. Los elementos de la especificación de ruta pueden ser entrecomillados como se explica para la variable de configuración <code>core.quotePath</code> (ver <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>). Ver también <code>--pathspec-file-nul</code> y <code>--literal-pathspecs</code> global.</p>
+<p>Pasa la especificación de ruta en <em>&lt;fichero&gt;</em> y no como argumento en la línea de comandos. Si <em>&lt;fichero&gt;</em> es exactamente <span class='synopsis'><code>-</code></span> entonces se usa la entrada estándar. Los elementos de la especificación de ruta se separan por <em>LF</em> o <em>CR</em>/<em>LF</em>. Los elementos de la especificación de ruta pueden ser entrecomillados como se explica para la variable de configuración <span class='synopsis'><code>core.quotePath</code></span> (ver <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>). Ver también <span class='synopsis'><code>--pathspec-file-nul</code></span> y <span class='synopsis'><code>--literal-pathspecs</code></span> global.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--pathspec-file-nulcode"> <a class="anchor" href="#git-commit---pathspec-file-nul"></a> <a class="anchor" href="#git-commit-code--pathspec-file-nulcode"></a><code>--pathspec-file-nul</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--pathspec-file-nulcodespan"> <a class="anchor" href="#git-commit---pathspec-file-nul"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--pathspec-file-nulcodespan"></a><span class='synopsis'><code>--pathspec-file-nul</code></span> </dt>
 <dd>
-<p>Sólo significativo con <code>--pathspec-from-file</code>. Los elementos de la especificación de ruta se separan con el caracter <em>NUL</em> y todos los otros caracteres se toman literalmente (incluyendo saltos de línea y entrecomillados).</p>
+<p>Sólo significativo con <span class='synopsis'><code>--pathspec-from-file</code></span>. Los elementos de la especificación de ruta se separan con el caracter <em>NUL</em> y todos los otros caracteres se toman literalmente (incluyendo saltos de línea y entrecomillados).</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code-ultmodogtcode"> <a class="anchor" href="#git-commit--umodo"></a> <a class="anchor" href="#git-commit-code-ultmodogtcode"></a><code>-u[&lt;modo&gt;]</code> </dt>
-<dt class="hdlist1" id="git-commit-code--untracked-filesltmodogtcode"> <a class="anchor" href="#git-commit---untracked-filesmodo"></a> <a class="anchor" href="#git-commit-code--untracked-filesltmodogtcode"></a><code>--untracked-files[=&lt;modo&gt;]</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-ucodeemltmodogtemspan"> <a class="anchor" href="#git-commit--umodo"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-ucodeemltmodogtemspan"></a><span class='synopsis'><code>-u</code>[<em>&lt;modo&gt;</em>]</span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--untracked-filescodecodecodeemltmodogtemspan"> <a class="anchor" href="#git-commit---untracked-filesmodo"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--untracked-filescodecodecodeemltmodogtemspan"></a><span class='synopsis'><code>--untracked-files</code>[<code>=</code><em>&lt;modo&gt;</em>]</span> </dt>
 <dd>
 <p>Muestra los ficheros sin seguimiento.</p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p>El parámetro <em>&lt;modo&gt;</em> es opcional (predeterminado a <code>all</code>), y es usado para especificar el manejo de ficheros sin seguimiento; cuando no se usa <code>-u</code>, el predeterminado es <code>normal</code>, ej. muestra ficheros sin seguimiento y directorios.</p>
+<p>El parámetro <em>&lt;modo&gt;</em> es opcional (predeterminado a <span class='synopsis'><code>all</code></span>), y es usado para especificar el manejo de ficheros sin seguimiento; cuando no se usa <span class='synopsis'><code>-u</code></span>, el predeterminado es <span class='synopsis'><code>normal</code></span>, ej. muestra ficheros sin seguimiento y directorios.</p>
 </div>
 <div class="paragraph">
 <p>Las opciones posibles son:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-commit-codenocode"> <a class="anchor" href="#git-commit-no"></a> <a class="anchor" href="#git-commit-codenocode"></a><code>no</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodenocodespan"> <a class="anchor" href="#git-commit-no"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodenocodespan"></a><span class='synopsis'><code>no</code></span> </dt>
 <dd>
 <p>Muestra los ficheros con seguimiento</p>
 </dd>
-<dt class="hdlist1" id="git-commit-codenormalcode"> <a class="anchor" href="#git-commit-normal"></a> <a class="anchor" href="#git-commit-codenormalcode"></a><code>normal</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodenormalcodespan"> <a class="anchor" href="#git-commit-normal"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodenormalcodespan"></a><span class='synopsis'><code>normal</code></span> </dt>
 <dd>
 <p>Muestra ficheros sin seguimiento y directorios</p>
 </dd>
-<dt class="hdlist1" id="git-commit-codeallcode"> <a class="anchor" href="#git-commit-all"></a> <a class="anchor" href="#git-commit-codeallcode"></a><code>all</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodeallcodespan"> <a class="anchor" href="#git-commit-all"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodeallcodespan"></a><span class='synopsis'><code>all</code></span> </dt>
 <dd>
 <p>Además muestra ficheros individuales en directorios sin seguimiento.</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>Todas los formas comunes de escribir el valor boleano <code>true</code> se toman como <code>normal</code> y <code>false</code> como <code>no</code>. El predeterminado puede cambiarse usando la variable de configuración <code>status.showUntrackedFiles</code> documentada en <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>.</p>
+<p>Todas los formas comunes de escribir el valor boleano <span class='synopsis'><code>true</code></span> se toman como <span class='synopsis'><code>normal</code></span> y <span class='synopsis'><code>false</code></span> como <span class='synopsis'><code>no</code></span>. El predeterminado puede cambiarse usando la variable de configuración <span class='synopsis'><code>status.showUntrackedFiles</code></span> documentada en <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>.</p>
 </div>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-commit-code-vcode"> <a class="anchor" href="#git-commit--v"></a> <a class="anchor" href="#git-commit-code-vcode"></a><code>-v</code> </dt>
-<dt class="hdlist1" id="git-commit-code--verbosecode"> <a class="anchor" href="#git-commit---verbose"></a> <a class="anchor" href="#git-commit-code--verbosecode"></a><code>--verbose</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-vcodespan"> <a class="anchor" href="#git-commit--v"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-vcodespan"></a><span class='synopsis'><code>-v</code></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--verbosecodespan"> <a class="anchor" href="#git-commit---verbose"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--verbosecodespan"></a><span class='synopsis'><code>--verbose</code></span> </dt>
 <dd>
-<p>Muestra una diferencia unificada entre <code>HEAD</code> de la confirmación y lo que será confirmado al final de la plantilla del mensaje de confirmación; esto para ayudarle al usuario a describir la confirmación recordándole qué cambios contiene. Nota que esta salida de diferencia no tiene sus líneas con el prefijo <code>#</code>. Esta diferencia no será parte del mensaje de confirmación. Ver la variable de configuración <code>commit.verbose</code> en <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>.</p>
+<p>Muestra una diferencia unificada entre <span class='synopsis'><code>HEAD</code></span> de la confirmación y lo que será confirmado al final de la plantilla del mensaje de confirmación; esto para ayudarle al usuario a describir la confirmación recordándole qué cambios contiene. Nota que esta salida de diferencia no tiene sus líneas con el prefijo <span class='synopsis'><code>#</code></span>. Esta diferencia no será parte del mensaje de confirmación. Ver la variable de configuración <span class='synopsis'><code>commit.verbose</code></span> en <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>.</p>
 <div class="paragraph">
 <p>Si se especifica dos veces, muestra adicionalmente la diferencia unificada entre lo que será confirmado y los ficheros del árbol de trabajo, ej. los cambios no presentados a ficheros rastreados.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-commit-code-qcode"> <a class="anchor" href="#git-commit--q"></a> <a class="anchor" href="#git-commit-code-qcode"></a><code>-q</code> </dt>
-<dt class="hdlist1" id="git-commit-code--quietcode"> <a class="anchor" href="#git-commit---quiet"></a> <a class="anchor" href="#git-commit-code--quietcode"></a><code>--quiet</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-qcodespan"> <a class="anchor" href="#git-commit--q"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-qcodespan"></a><span class='synopsis'><code>-q</code></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--quietcodespan"> <a class="anchor" href="#git-commit---quiet"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--quietcodespan"></a><span class='synopsis'><code>--quiet</code></span> </dt>
 <dd>
 <p>Suprime mensaje de resumen de confirmación.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--dry-runcode"> <a class="anchor" href="#git-commit---dry-run"></a> <a class="anchor" href="#git-commit-code--dry-runcode"></a><code>--dry-run</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--dry-runcodespan"> <a class="anchor" href="#git-commit---dry-run"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--dry-runcodespan"></a><span class='synopsis'><code>--dry-run</code></span> </dt>
 <dd>
 <p>No crea una confirmación, pero muestra una lista de rutas que no serán confirmadas, rutas con cambios locales que se dejarán sin confirmar y rutas que están sin seguimiento.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--statuscode"> <a class="anchor" href="#git-commit---status"></a> <a class="anchor" href="#git-commit-code--statuscode"></a><code>--status</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--statuscodespan"> <a class="anchor" href="#git-commit---status"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--statuscodespan"></a><span class='synopsis'><code>--status</code></span> </dt>
 <dd>
-<p>Incluye la salida de <a href='{{< relurl "docs/git-status/es" >}}'>git-status[1]</a> en la plantilla de mensaje de confirmación cuando se usa un editor para preparar el mensaje de confirmación. Predeterminado a on, pero puede usarse para anular la variable de configuración <code>commit.status</code>.</p>
+<p>Incluye la salida de <a href='{{< relurl "docs/git-status/es" >}}'>git-status[1]</a> en la plantilla de mensaje de confirmación cuando se usa un editor para preparar el mensaje de confirmación. Predeterminado a on, pero puede usarse para anular la variable de configuración <span class='synopsis'><code>commit.status</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--no-statuscode"> <a class="anchor" href="#git-commit---no-status"></a> <a class="anchor" href="#git-commit-code--no-statuscode"></a><code>--no-status</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--no-statuscodespan"> <a class="anchor" href="#git-commit---no-status"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--no-statuscodespan"></a><span class='synopsis'><code>--no-status</code></span> </dt>
 <dd>
 <p>No incluye la salida de <a href='{{< relurl "docs/git-status/es" >}}'>git-status[1]</a> en la plantilla de mensaje de confirmación cuando se usa un editor para preparar el mensaje de confirmación predeterminado.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code-Sltidentificador-de-clavegtcode"> <a class="anchor" href="#git-commit--Sidentificador-de-clave"></a> <a class="anchor" href="#git-commit-code-Sltidentificador-de-clavegtcode"></a><code>-S[&lt;identificador-de-clave&gt;]</code> </dt>
-<dt class="hdlist1" id="git-commit-code--gpg-signltidentificador-de-clavegtcode"> <a class="anchor" href="#git-commit---gpg-signidentificador-de-clave"></a> <a class="anchor" href="#git-commit-code--gpg-signltidentificador-de-clavegtcode"></a><code>--gpg-sign[=&lt;identificador-de-clave&gt;]</code> </dt>
-<dt class="hdlist1" id="git-commit-code--no-gpg-signcode"> <a class="anchor" href="#git-commit---no-gpg-sign"></a> <a class="anchor" href="#git-commit-code--no-gpg-signcode"></a><code>--no-gpg-sign</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-Scodeemltidentificador-de-clavegtemspan"> <a class="anchor" href="#git-commit--Sidentificador-de-clave"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-Scodeemltidentificador-de-clavegtemspan"></a><span class='synopsis'><code>-S</code>[<em>&lt;identificador-de-clave&gt;</em>]</span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--gpg-signcodecodecodeemltidentificador-de-clavegtemspan"> <a class="anchor" href="#git-commit---gpg-signidentificador-de-clave"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--gpg-signcodecodecodeemltidentificador-de-clavegtemspan"></a><span class='synopsis'><code>--gpg-sign</code>[<code>=</code><em>&lt;identificador-de-clave&gt;</em>]</span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--no-gpg-signcodespan"> <a class="anchor" href="#git-commit---no-gpg-sign"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--no-gpg-signcodespan"></a><span class='synopsis'><code>--no-gpg-sign</code></span> </dt>
 <dd>
-<p>GPG-sign commits. The <em>&lt;key-id&gt;</em> is optional and defaults to the committer identity; if specified, it must be stuck to the option without a space. <code>--no-gpg-sign</code> is useful to countermand both <code>commit.gpgSign</code> configuration variable, and earlier <code>--gpg-sign</code>.</p>
+<p>GPG-sign commits. The <em>&lt;key-id&gt;</em> is optional and defaults to the committer identity; if specified, it must be stuck to the option without a space. <span class='synopsis'><code>--no-gpg-sign</code></span> is useful to countermand both <span class='synopsis'><code>commit.gpgSign</code></span> configuration variable, and earlier <span class='synopsis'><code>--gpg-sign</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-code--code"> <a class="anchor" href="#git-commit---"></a> <a class="anchor" href="#git-commit-code--code"></a><code>--</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--codespan"> <a class="anchor" href="#git-commit---"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--codespan"></a><span class='synopsis'><code>--</code></span> </dt>
 <dd>
 <p>No interpreta ningún argumento mas como opciones.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-codeltespecificacin-de-rutagtcode"> <a class="anchor" href="#git-commit-especificacin-de-ruta"></a> <a class="anchor" href="#git-commit-codeltespecificacin-de-rutagtcode"></a><code>&lt;especificación-de-ruta&gt;...</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsisemltespecificacin-de-rutagtemspan"> <a class="anchor" href="#git-commit-especificacin-de-ruta"></a> <a class="anchor" href="#git-commit-spanclasssynopsisemltespecificacin-de-rutagtemspan"></a><span class='synopsis'><em>&lt;especificación-de-ruta&gt;</em>...</span> </dt>
 <dd>
 <p>Cuando se da <em>&lt;especificación-de-ruta&gt;</em> en la línea de comandos, confirma el contenido de los ficheros que coinciden con la especificación de ruta sin registrar los cambios ya agregados al índice. El contenido de esos ficheros también es presentado para la siguiente confirmación por encima de lo que se ha presentado antes.</p>
 <div class="paragraph">
@@ -386,7 +415,7 @@ sin hacer algún otro cambio.</p>
 <h2 id="_ejemplos"><a class="anchor" href="#_ejemplos"></a>EJEMPLOS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cuando grabas tu propio trabajo, el contenido de los ficheros modificados en tu árbol de trabajo es almacenado temporalmente en un área de presentación llamada "índice" con <code>git add</code>. Un fichero puede ser revertido, sólo en el índice mas no en el árbol de trabajo, hasta la última confirmación con <code>git restore --staged &lt;fichero&gt;</code>, lo cual revierte efectivamente <code>git add</code> y previene que los cambios a este fichero participen en la siguiente confirmación. Después de construir el estado a ser confirmado incrementalmente con esos comandos, se usa <code>git commit</code>(sin algún parámetro de nombre de ruta) para registrar lo que ha sido presentado al momento. Esta es la forma más básica del comando. Un ejemplo:</p>
+<p>Cuando grabas tu propio trabajo, el contenido de los ficheros modificados en tu árbol de trabajo es almacenado temporalmente en un área de presentación llamada "índice" con <span class='synopsis'><code>git</code> <code>add</code></span>. Un fichero puede ser revertido, sólo en el índice mas no en el árbol de trabajo, hasta la última confirmación con <span class='synopsis'><code>git</code> <code>restore</code> <code>--staged</code> <em>&lt;fichero&gt;</em></span>, lo cual revierte efectivamente <span class='synopsis'><code>git</code> <code>add</code></span> y previene que los cambios a este fichero participen en la siguiente confirmación. Después de construir el estado a ser confirmado incrementalmente con esos comandos, se usa <span class='synopsis'><code>git</code> <code>commit</code></span>(sin algún parámetro de nombre de ruta) para registrar lo que ha sido presentado al momento. Esta es la forma más básica del comando. Un ejemplo:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -397,7 +426,7 @@ $ git commit</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>En lugar de presentar ficheros después de cada cambio individual, puedes decirle a <code>git commit</code> que note los cambios en los ficheros cuyo contenido tiene seguimiento en tu árbol de trabajo y haga los <code>git add</code> y <code>git rm</code> correspondientes por ti. Esto es, este ejemplo hace lo mismo que el ejemplo anterior si no hay otro cambio en tu árbol de trabajo:</p>
+<p>En lugar de presentar ficheros después de cada cambio individual, puedes decirle a <span class='synopsis'><code>git</code> <code>commit</code></span> que note los cambios en los ficheros cuyo contenido tiene seguimiento en tu árbol de trabajo y haga los <span class='synopsis'><code>git</code> <code>add</code></span> y <span class='synopsis'><code>git</code> <code>rm</code></span> correspondientes por ti. Esto es, este ejemplo hace lo mismo que el ejemplo anterior si no hay otro cambio en tu árbol de trabajo:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -407,10 +436,10 @@ $ git commit -a</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>El comando <code>git commit -a</code> mira primero en tu árbol de trabajo, nota que has modificado <code>hola.c</code> y removido <code>adios.c</code>, y realiza los <code>gitt add</code> y <code>git rm</code> por tí.</p>
+<p>El comando <span class='synopsis'><code>git</code> <code>commit</code> <code>-a</code></span> mira primero en tu árbol de trabajo, nota que has modificado <span class='synopsis'><code>hola.c</code></span> y removido <span class='synopsis'><code>adios.c</code></span>, y realiza los <span class='synopsis'><code>gitt</code> <code>add</code></span> y <span class='synopsis'><code>git</code> <code>rm</code></span> por tí.</p>
 </div>
 <div class="paragraph">
-<p>Después de presentar cambios a varios ficheros, puedes alterar el orden en que se registran los cambios, proporcionando nombres de rutas a <code>git commit</code>. Cuando se dan nombres de rutas, el comando hace una confirmación que sólo registra los cambios hechos a las rutas nombradas:</p>
+<p>Después de presentar cambios a varios ficheros, puedes alterar el orden en que se registran los cambios, proporcionando nombres de rutas a <span class='synopsis'><code>git</code> <code>commit</code></span>. Cuando se dan nombres de rutas, el comando hace una confirmación que sólo registra los cambios hechos a las rutas nombradas:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -421,7 +450,7 @@ $ git commit HazFichero</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Esto hace una confirmación que registra la modificación a <code>HazFichero</code>. Los cambios presentado para <code>hola.c</code> y <code>hola.h</code> no se incluyen en la confirmación resultante. Sin embargo, sus cambios no se pierden&#8201;&#8212;&#8201;aún están presentados y meramente retenidos. Después de la secuencia anterior, si haces:</p>
+<p>Esto hace una confirmación que registra la modificación a <span class='synopsis'><code>HazFichero</code></span>. Los cambios presentado para <span class='synopsis'><code>hola.c</code></span> y <span class='synopsis'><code>hola.h</code></span> no se incluyen en la confirmación resultante. Sin embargo, sus cambios no se pierden&#8201;&#8212;&#8201;aún están presentados y meramente retenidos. Después de la secuencia anterior, si haces:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -429,10 +458,10 @@ $ git commit HazFichero</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>la segunda confirmación registrará los cambios a <code>hola.c</code> y <code>hola.h</code> como es de esperarse.</p>
+<p>la segunda confirmación registrará los cambios a <span class='synopsis'><code>hola.c</code></span> y <span class='synopsis'><code>hola.h</code></span> como es de esperarse.</p>
 </div>
 <div class="paragraph">
-<p>Después que una fusión (iniciada por <code>git merge</code> o <code>git pull</code>) se detiene por conflictos, las rutas fusionadas limpiamente ya estarán presentadas para que las confirmes, y las rutas con conflicto se dejan en un estado sin fusionar. Tendrías que revisar primero qué rutas están en conflicto con <code>git status</code> para después arreglarlas manualmente en tu árbol de trabajo y presentar el resultado como de costumbre con <code>git add</code>:</p>
+<p>Después que una fusión (iniciada por <span class='synopsis'><code>git</code> <code>merge</code></span> o <span class='synopsis'><code>git</code> <code>pull</code></span>) se detiene por conflictos, las rutas fusionadas limpiamente ya estarán presentadas para que las confirmes, y las rutas con conflicto se dejan en un estado sin fusionar. Tendrías que revisar primero qué rutas están en conflicto con <span class='synopsis'><code>git</code> <code>status</code></span> para después arreglarlas manualmente en tu árbol de trabajo y presentar el resultado como de costumbre con <span class='synopsis'><code>git</code> <code>add</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -443,7 +472,7 @@ $ git add hola.c</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Después de resolver conflictos y presentar el resultado, <code>git ls-files -u</code> dejará de mencionar la ruta en conflicto. Cuando hayas terminado, ejecuta <code>git commit</code> para grabar finalmente la fusión:</p>
+<p>Después de resolver conflictos y presentar el resultado, <span class='synopsis'><code>git</code> <code>ls-files</code> <code>-u</code></span> dejará de mencionar la ruta en conflicto. Cuando hayas terminado, ejecuta <span class='synopsis'><code>git</code> <code>commit</code></span> para grabar finalmente la fusión:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -451,7 +480,7 @@ $ git add hola.c</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Como en el caso de grabar tus propios cambios, puedes usar la opción <code>-a</code> para ahorrar tecleo. Una diferencia es que durante una resolución de conflictos, no puedes usar <code>git commit</code> con nombres de rutas para alterar el orden en que se confirman los cambios, debido a que la fusión debe ser grabada en una sola confirmación. De hecho, el comando se niega a ejecutarse cuando se dan nombres de ruta (pero ver la opción <code>-i</code>).</p>
+<p>Como en el caso de grabar tus propios cambios, puedes usar la opción <span class='synopsis'><code>-a</code></span> para ahorrar tecleo. Una diferencia es que durante una resolución de conflictos, no puedes usar <span class='synopsis'><code>git</code> <code>commit</code></span> con nombres de rutas para alterar el orden en que se confirman los cambios, debido a que la fusión debe ser grabada en una sola confirmación. De hecho, el comando se niega a ejecutarse cuando se dan nombres de ruta (pero ver la opción <span class='synopsis'><code>-i</code></span>).</p>
 </div>
 </div>
 </div>
@@ -464,22 +493,22 @@ $ git add hola.c</pre>
 <div class="ulist">
 <ul>
 <li>
-<p><code>GIT_AUTHOR_NAME</code></p>
+<p><span class='synopsis'><code>GIT_AUTHOR_NAME</code></span></p>
 </li>
 <li>
-<p><code>GIT_AUTHOR_EMAIL</code></p>
+<p><span class='synopsis'><code>GIT_AUTHOR_EMAIL</code></span></p>
 </li>
 <li>
-<p><code>GIT_AUTHOR_DATE</code></p>
+<p><span class='synopsis'><code>GIT_AUTHOR_DATE</code></span></p>
 </li>
 <li>
-<p><code>GIT_COMMITTER_NAME</code></p>
+<p><span class='synopsis'><code>GIT_COMMITTER_NAME</code></span></p>
 </li>
 <li>
-<p><code>GIT_COMMITTER_EMAIL</code></p>
+<p><span class='synopsis'><code>GIT_COMMITTER_EMAIL</code></span></p>
 </li>
 <li>
-<p><code>GIT_COMMITTER_DATE</code></p>
+<p><span class='synopsis'><code>GIT_COMMITTER_DATE</code></span></p>
 </li>
 </ul>
 </div>
@@ -487,16 +516,16 @@ $ git add hola.c</pre>
 <p>(nb "&lt;", "&gt;" y "\n" se quitan)</p>
 </div>
 <div class="paragraph">
-<p>Por convención, los nombres de autor y confirmador son una forma de nombre personal (esto es, el nombre por el cual otros humanos se refieren a ti), aunque Git no impone o requiere una forma particular. Se puede usar Unicode arbitrario, sujeto a las restricciones listadas arriba. Este nombre no tiene efecto en la autenticación; para eso, ver la variable <code>credential.username</code> en <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>.</p>
+<p>Por convención, los nombres de autor y confirmador son una forma de nombre personal (esto es, el nombre por el cual otros humanos se refieren a ti), aunque Git no impone o requiere una forma particular. Se puede usar Unicode arbitrario, sujeto a las restricciones listadas arriba. Este nombre no tiene efecto en la autenticación; para eso, ver la variable <span class='synopsis'><code>credential.username</code></span> en <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>En caso de que (algunas de) esas variables de ambiente no son asignadas, la información se toma de los elementos de configuración <code>user.name</code> y <code>user.email</code>, o, si no están presentes, la variable de ambiente <code>EMAIL</code>, o, si no esta asignada, el nombre de usuario de sistema y el nombre del host usado para el correo de salida (tomado de <code>/etc/mailname</code> o de plano en el nombre completamente calificado del host cuando dicho fichero no existe).</p>
+<p>En caso de que (algunas de) esas variables de ambiente no son asignadas, la información se toma de los elementos de configuración <span class='synopsis'><code>user.name</code></span> y <span class='synopsis'><code>user.email</code></span>, o, si no están presentes, la variable de ambiente <span class='synopsis'><code>EMAIL</code></span>, o, si no esta asignada, el nombre de usuario de sistema y el nombre del host usado para el correo de salida (tomado de <span class='synopsis'><code>/etc/mailname</code></span> o de plano en el nombre completamente calificado del host cuando dicho fichero no existe).</p>
 </div>
 <div class="paragraph">
-<p><code>author.name</code> y <code>committer.name</code> y sus correspondientes opciones de correo electrónico anulan <code>user.name</code> y <code>user.email</code> si se asignan y son sobrescritos por si mismos por las variables de ambiente.</p>
+<p><span class='synopsis'><code>author.name</code></span> y <span class='synopsis'><code>committer.name</code></span> y sus correspondientes opciones de correo electrónico anulan <span class='synopsis'><code>user.name</code></span> y <span class='synopsis'><code>user.email</code></span> si se asignan y son sobrescritos por si mismos por las variables de ambiente.</p>
 </div>
 <div class="paragraph">
-<p>El uso típico es asignar solamente las variables <code>user.name</code> y <code>user.email</code>; las otras opciones se proporcionan para casos de uso mas complejos.</p>
+<p>El uso típico es asignar solamente las variables <span class='synopsis'><code>user.name</code></span> y <span class='synopsis'><code>user.email</code></span>; las otras opciones se proporcionan para casos de uso mas complejos.</p>
 </div>
 </div>
 </div>
@@ -504,21 +533,21 @@ $ git add hola.c</pre>
 <h2 id="_formatos_de_fecha"><a class="anchor" href="#_formatos_de_fecha"></a>FORMATOS DE FECHA</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Las variables de ambiente <code>GIT_AUTHOR_DATE</code> y <code>GIT_COMMITTER_DATE</code> soportan las formatos de fecha siguientes:</p>
+<p>Las variables de ambiente <span class='synopsis'><code>GIT_AUTHOR_DATE</code></span> y <span class='synopsis'><code>GIT_COMMITTER_DATE</code></span> soportan las formatos de fecha siguientes:</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-commit-FormatointernodeGit"> <a class="anchor" href="#git-commit-FormatointernodeGit"></a>Formato interno de Git </dt>
 <dd>
-<p>Es <code>&lt;marca-de-tiempo-unix&gt; &lt;diferencia-zona-horaria&gt;</code>, donde <code>&lt;marca-de-tiempo-unix&gt;</code> es el número de segundos desde tiempo UNIX. <code>&lt;diferencia-zona-horaria&gt;</code> es una diferencia positiva o negativa desde UTC. Por ejemplo CET (que es 1 hora adelantada a UTC) es <code>+0100</code>.</p>
+<p>Es <span class='synopsis'><em>&lt;marca-de-tiempo-unix&gt;</em> <em>&lt;diferencia-zona-horaria&gt;</em></span>, donde <span class='synopsis'><em>&lt;marca-de-tiempo-unix&gt;</em></span> es el número de segundos desde tiempo UNIX. <span class='synopsis'><em>&lt;diferencia-zona-horaria&gt;</em></span> es una diferencia positiva o negativa desde UTC. Por ejemplo CET (que es 1 hora adelantada a UTC) es <span class='synopsis'><code>+0100</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-commit-RFC2822"> <a class="anchor" href="#git-commit-RFC2822"></a>RFC 2822 </dt>
 <dd>
-<p>El formato estándar de fecha como se describe en el RFC 2822, por ejemplo <code>Thu, 07 Apr 2005 22:13:13 +0200</code>.</p>
+<p>El formato estándar de fecha como se describe en el RFC 2822, por ejemplo <span class='synopsis'><code>Thu,</code> <code>07</code> <code>Apr</code> <code>2005</code> <code>22:13:13</code> <code>+0200</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-commit-ISO8601"> <a class="anchor" href="#git-commit-ISO8601"></a>ISO 8601 </dt>
 <dd>
-<p>Fecha y hora especificadas por el estándar ISO 8601, por ejemplo <code>2005-04-07T22:13:13</code>. El parseador también acepta un espacio en lugar del caracter <code>T</code>. Las fracciones de segundo será ignoradas, por ejemplo <code>2005-04-07T22:13:13.019</code> se tratará como <code>2005-04-07T22:13:13</code>.</p>
+<p>Fecha y hora especificadas por el estándar ISO 8601, por ejemplo <span class='synopsis'><code>2005-04-07T22:13:13</code></span>. El parseador también acepta un espacio en lugar del caracter <span class='synopsis'><code>T</code></span>. Las fracciones de segundo será ignoradas, por ejemplo <span class='synopsis'><code>2005-04-07T22:13:13.019</code></span> se tratará como <span class='synopsis'><code>2005-04-07T22:13:13</code></span>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -526,7 +555,7 @@ $ git add hola.c</pre>
 <div class="title">Note</div>
 </td>
 <td class="content">
-Adicionalmente, la parte de fecha se acepta en los formatos siguientes: <code>AAAA.MM.DD</code>, <code>MM/DD/AAAA</code> and <code>DD.MM.AAAA</code>.
+Adicionalmente, la parte de fecha se acepta en los formatos siguientes: <span class='synopsis'><code>AAAA.MM.DD</code></span>, <span class='synopsis'><code>MM/DD/AAAA</code></span> and <span class='synopsis'><code>DD.MM.AAAA</code></span>.
 </td>
 </tr>
 </table>
@@ -535,7 +564,7 @@ Adicionalmente, la parte de fecha se acepta en los formatos siguientes: <code>AA
 </dl>
 </div>
 <div class="paragraph">
-<p>Además de reconocer los formatos de fecha anteriores, la opción <code>--date</code> tratará de encontrar sentido de otros formatos de fecha más centrados en el humano, como fechas relativas como "yesterday" o "last Friday at noon".</p>
+<p>Además de reconocer los formatos de fecha anteriores, la opción <span class='synopsis'><code>--date</code></span> tratará de encontrar sentido de otros formatos de fecha más centrados en el humano, como fechas relativas como "yesterday" o "last Friday at noon".</p>
 </div>
 </div>
 </div>
@@ -553,7 +582,7 @@ Adicionalmente, la parte de fecha se acepta en los formatos siguientes: <code>AA
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>es/i18n.adoc</code></p>
+<p>Missing <span class='synopsis'><code>es/i18n.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -568,7 +597,7 @@ Adicionalmente, la parte de fecha se acepta en los formatos siguientes: <code>AA
 <h2 id="_variables_de_ambiente_y_de_configuración"><a class="anchor" href="#_variables_de_ambiente_y_de_configuración"></a>VARIABLES DE AMBIENTE Y DE CONFIGURACIÓN</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>El editor utilizado para editar el mensaje de confirmación será elegido desde la variable de ambiente <code>GIT_EDITOR</code>, la variable de configuración <code>core.editor</code>, la variable de ambiente <code>VISUAL</code>, o la variable de ambiente <code>EDITOR</code> (en ese orden). Ver <a href='{{< relurl "docs/git-var/es" >}}'>git-var[1]</a> para detalles.</p>
+<p>El editor utilizado para editar el mensaje de confirmación será elegido desde la variable de ambiente <span class='synopsis'><code>GIT_EDITOR</code></span>, la variable de configuración <span class='synopsis'><code>core.editor</code></span>, la variable de ambiente <span class='synopsis'><code>VISUAL</code></span>, o la variable de ambiente <span class='synopsis'><code>EDITOR</code></span> (en ese orden). Ver <a href='{{< relurl "docs/git-var/es" >}}'>git-var[1]</a> para detalles.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -578,7 +607,7 @@ Adicionalmente, la parte de fecha se acepta en los formatos siguientes: <code>AA
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>es/includes/cmd-config-section-rest.adoc</code></p>
+<p>Missing <span class='synopsis'><code>es/includes/cmd-config-section-rest.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -595,7 +624,7 @@ Adicionalmente, la parte de fecha se acepta en los formatos siguientes: <code>AA
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>es/config/commit.adoc</code></p>
+<p>Missing <span class='synopsis'><code>es/config/commit.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -610,7 +639,7 @@ Adicionalmente, la parte de fecha se acepta en los formatos siguientes: <code>AA
 <h2 id="_ganchos"><a class="anchor" href="#_ganchos"></a>GANCHOS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Este comando puede correr los ganchos <code>commit-msg</code>, <code>prepare-commit-msg</code>, <code>pre-commit</code>, <code>post-commit</code> y <code>post-rewrite</code>. Ver <a href='{{< relurl "docs/githooks/es" >}}'>githooks[5]</a> para mas información.</p>
+<p>Este comando puede correr los ganchos <span class='synopsis'><code>commit-msg</code></span>, <span class='synopsis'><code>prepare-commit-msg</code></span>, <span class='synopsis'><code>pre-commit</code></span>, <span class='synopsis'><code>post-commit</code></span> y <span class='synopsis'><code>post-rewrite</code></span>. Ver <a href='{{< relurl "docs/githooks/es" >}}'>githooks[5]</a> para mas información.</p>
 </div>
 </div>
 </div>
@@ -619,9 +648,9 @@ Adicionalmente, la parte de fecha se acepta en los formatos siguientes: <code>AA
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-commit-codeGITDIRCOMMITEDITMSGcode"> <a class="anchor" href="#git-commit-GITDIRCOMMITEDITMSG"></a> <a class="anchor" href="#git-commit-codeGITDIRCOMMITEDITMSGcode"></a><code>$GIT_DIR/COMMIT_EDITMSG</code> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodeGITDIRCOMMITEDITMSGcodespan"> <a class="anchor" href="#git-commit-GITDIRCOMMITEDITMSG"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodeGITDIRCOMMITEDITMSGcodespan"></a><span class='synopsis'><code>$GIT_DIR/COMMIT_EDITMSG</code></span> </dt>
 <dd>
-<p>Este fichero contiene el mensaje de una confirmación en progreso. Si <code>git commit</code> termina por un error antes de crear la confirmación, cualquier mensaje de confirmación que haya sido proporcionado por el usuario (ej. en una sesión de editor) estará disponible en este fichero, pero será sobrescrito por la siguiente invocación de <code>git commit</code>.</p>
+<p>Este fichero contiene el mensaje de una confirmación en progreso. Si <span class='synopsis'><code>git</code> <code>commit</code></span> termina por un error antes de crear la confirmación, cualquier mensaje de confirmación que haya sido proporcionado por el usuario (ej. en una sesión de editor) estará disponible en este fichero, pero será sobrescrito por la siguiente invocación de <span class='synopsis'><code>git</code> <code>commit</code></span>.</p>
 </dd>
 </dl>
 </div>

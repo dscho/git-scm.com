@@ -9,6 +9,29 @@ docname: git-receive-pack
 lang: pt_BR
 aliases:
 - "/docs/git-receive-pack/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: O GANCHO DE PRÉ-RECEBIMENTO
+  id: _o_gancho_de_pré_recebimento
+- text: GANCHO DE ATUALIZAÇÃO
+  id: _gancho_de_atualização
+- text: O GANCHO DO PÓS-RECEBIMENTO
+  id: _o_gancho_do_pós_recebimento
+- text: O GANCHO DE PÓS-ATUALIZAÇÃO
+  id: _o_gancho_de_pós_atualização
+- text: AMBIENTE DE QUARENTENA
+  id: _ambiente_de_quarentena
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -36,13 +59,13 @@ aliases:
 <p>Normalmente, este comando não é invocado diretamente pelo usuário final. A interface do usuário do protocolo está no lado do comando <em>git send-pack</em>, e o par de programas deve ser usado para enviar as atualizações para um repositório remoto. Para operações <em>pull</em>, consulte <a href='{{< relurl "docs/git-fetch-pack/pt_BR" >}}'>git-fetch-pack[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>O comando permite a criação e o encaminhamento rápido de refs sha1 (cabeçalhos/etiquetas) no lado remoto (a rigor, é o comando <code>git-receive-pack</code> do lado local que é executado, mas para o usuário que está no lado local do envio do pacote, ele está atualizando o lado remoto. Confuso?)</p>
+<p>O comando permite a criação e o encaminhamento rápido de refs sha1 (cabeçalhos/etiquetas) no lado remoto (a rigor, é o comando <span class='synopsis'><code>git-receive-pack</code></span> do lado local que é executado, mas para o usuário que está no lado local do envio do pacote, ele está atualizando o lado remoto. Confuso?)</p>
 </div>
 <div class="paragraph">
 <p>Existem outros exemplos no mundo real da utilização dos ganchos de atualização e pós-atualização encontrados no diretório <em>Documentation/howto</em>.</p>
 </div>
 <div class="paragraph">
-<p>O coamndo <em>git-receive-pack</em> respeita a opção de configuração <code>receive.denyNonFastForwards</code>, que informa se as atualizações de uma "ref" devem ser negadas caso não sejam rápidas.</p>
+<p>O coamndo <em>git-receive-pack</em> respeita a opção de configuração <span class='synopsis'><code>receive.denyNonFastForwards</code></span>, que informa se as atualizações de uma "ref" devem ser negadas caso não sejam rápidas.</p>
 </div>
 <div class="paragraph">
 <p>Uma quantidade de outras opções de configurações receive.* estão disponíveis para ajustar o seu comportamento, consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
@@ -60,7 +83,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-receive-pack---http-backend-info-refs"> <a class="anchor" href="#git-receive-pack---http-backend-info-refs"></a>--http-backend-info-refs </dt>
 <dd>
-<p>Utilizado por <a href='{{< relurl "docs/git-http-backend/pt_BR" >}}'>git-http-backend[1]</a> para servir até os pedido <code>$GIT_URL/info/refs?service=git-receive-pack</code>. Consulte <code>--http-backend-info-refs</code> em <a href='{{< relurl "docs/git-upload-pack/pt_BR" >}}'>git-upload-pack[1]</a>.</p>
+<p>Utilizado por <a href='{{< relurl "docs/git-http-backend/pt_BR" >}}'>git-http-backend[1]</a> para servir até os pedido <span class='synopsis'><em>$GIT_URL/info/refs?service=git-receive-pack</em></span>. Consulte <span class='synopsis'><code>--http-backend-info-refs</code></span> em <a href='{{< relurl "docs/git-upload-pack/pt_BR" >}}'>git-upload-pack[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-receive-pack---skip-connectivity-check"> <a class="anchor" href="#git-receive-pack---skip-connectivity-check"></a>--skip-connectivity-check </dt>
 <dd>
@@ -74,7 +97,7 @@ aliases:
 <h2 id="_o_gancho_de_pré_recebimento"><a class="anchor" href="#_o_gancho_de_pré_recebimento"></a>O GANCHO DE PRÉ-RECEBIMENTO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Antes que qualquer ref seja atualizada, se o arquivo <code>$GIT_DIR/hooks/pre-receive</code> existir e for executável, ele será invocado uma vez sem parâmetros. A entrada predefinida do gancho será uma linha por ref que será atualizada:</p>
+<p>Antes que qualquer ref seja atualizada, se o arquivo <span class='synopsis'><code>$GIT_DIR/hooks/pre-receive</code></span> existir e for executável, ele será invocado uma vez sem parâmetros. A entrada predefinida do gancho será uma linha por ref que será atualizada:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -82,59 +105,59 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>O valor do refname é relativo a <code>$GIT_DIR</code>; por exemplo, para o cabeçalho principal, é <code>refs/heads/master</code>. Os dois valores sha1 antes de cada refname são os nomes de objeto para o refname antes e depois da atualização. As referências que serão criadas terão <em>sha1-old</em> igual a <code>0\{40}</code>, enquanto as referências que serão excluídas terão o <em>sha1-new</em> igual a <code>0\{40}</code>; caso contrário, <em>sha1-old</em> e o <em>sha1-new</em> devem ser objetos válidos no repositório.</p>
+<p>O valor do refname é relativo a <span class='synopsis'><code>$GIT_DIR</code></span>; por exemplo, para o cabeçalho principal, é <span class='synopsis'><code>refs/heads/master</code></span>. Os dois valores sha1 antes de cada refname são os nomes de objeto para o refname antes e depois da atualização. As referências que serão criadas terão <em>sha1-old</em> igual a <span class='synopsis'><em>0\{40}</em></span>, enquanto as referências que serão excluídas terão o <em>sha1-new</em> igual a <span class='synopsis'><em>0\{40}</em></span>; caso contrário, <em>sha1-old</em> e o <em>sha1-new</em> devem ser objetos válidos no repositório.</p>
 </div>
 <div class="paragraph">
-<p>Ao aceitar um <code>push</code> assinado (consulte <a href='{{< relurl "docs/git-push/pt_BR" >}}'>git-push[1]</a>), o certificado do <code>push</code> assinado é armazenado num bolha e uma variável de ambiente <code>GIT_PUSH_CERT</code> pode ser consultada para obter o nome do objeto. Consulte a descrição do gancho <code>post-receive</code> para ver um exemplo. Além disso, o certificado é verificado usando GPG e o resultado é exportado com as seguintes variáveis de ambiente:</p>
+<p>Ao aceitar um <span class='synopsis'><code>push</code></span> assinado (consulte <a href='{{< relurl "docs/git-push/pt_BR" >}}'>git-push[1]</a>), o certificado do <span class='synopsis'><code>push</code></span> assinado é armazenado num bolha e uma variável de ambiente <span class='synopsis'><code>GIT_PUSH_CERT</code></span> pode ser consultada para obter o nome do objeto. Consulte a descrição do gancho <span class='synopsis'><code>post-receive</code></span> para ver um exemplo. Além disso, o certificado é verificado usando GPG e o resultado é exportado com as seguintes variáveis de ambiente:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-receive-pack-codeGITPUSHCERTSIGNERcode"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTSIGNER"></a> <a class="anchor" href="#git-receive-pack-codeGITPUSHCERTSIGNERcode"></a><code>GIT_PUSH_CERT_SIGNER</code> </dt>
+<dt class="hdlist1" id="git-receive-pack-spanclasssynopsiscodeGITPUSHCERTSIGNERcodespan"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTSIGNER"></a> <a class="anchor" href="#git-receive-pack-spanclasssynopsiscodeGITPUSHCERTSIGNERcodespan"></a><span class='synopsis'><code>GIT_PUSH_CERT_SIGNER</code></span> </dt>
 <dd>
 <p>O nome e o endereço do e-mail do proprietário da chave que assinou o certificado push.</p>
 </dd>
-<dt class="hdlist1" id="git-receive-pack-codeGITPUSHCERTKEYcode"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTKEY"></a> <a class="anchor" href="#git-receive-pack-codeGITPUSHCERTKEYcode"></a><code>GIT_PUSH_CERT_KEY</code> </dt>
+<dt class="hdlist1" id="git-receive-pack-spanclasssynopsiscodeGITPUSHCERTKEYcodespan"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTKEY"></a> <a class="anchor" href="#git-receive-pack-spanclasssynopsiscodeGITPUSHCERTKEYcodespan"></a><span class='synopsis'><code>GIT_PUSH_CERT_KEY</code></span> </dt>
 <dd>
 <p>O ID da chave GPG da chave que assinou o certificado "push".</p>
 </dd>
-<dt class="hdlist1" id="git-receive-pack-codeGITPUSHCERTSTATUScode"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTSTATUS"></a> <a class="anchor" href="#git-receive-pack-codeGITPUSHCERTSTATUScode"></a><code>GIT_PUSH_CERT_STATUS</code> </dt>
+<dt class="hdlist1" id="git-receive-pack-spanclasssynopsiscodeGITPUSHCERTSTATUScodespan"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTSTATUS"></a> <a class="anchor" href="#git-receive-pack-spanclasssynopsiscodeGITPUSHCERTSTATUScodespan"></a><span class='synopsis'><code>GIT_PUSH_CERT_STATUS</code></span> </dt>
 <dd>
-<p>A condição da verificação do certificado GPG do impulsionamento utiliza o mesmo processo mnemônico de como é utilizado em <code>%G?</code>, formato da família de comandos <code>git log</code> (consulte <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>).</p>
+<p>A condição da verificação do certificado GPG do impulsionamento utiliza o mesmo processo mnemônico de como é utilizado em <span class='synopsis'><em>%G?</em></span>, formato da família de comandos <span class='synopsis'><code>git</code> <code>log</code></span> (consulte <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>).</p>
 </dd>
-<dt class="hdlist1" id="git-receive-pack-codeGITPUSHCERTNONCEcode"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTNONCE"></a> <a class="anchor" href="#git-receive-pack-codeGITPUSHCERTNONCEcode"></a><code>GIT_PUSH_CERT_NONCE</code> </dt>
+<dt class="hdlist1" id="git-receive-pack-spanclasssynopsiscodeGITPUSHCERTNONCEcodespan"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTNONCE"></a> <a class="anchor" href="#git-receive-pack-spanclasssynopsiscodeGITPUSHCERTNONCEcodespan"></a><span class='synopsis'><code>GIT_PUSH_CERT_NONCE</code></span> </dt>
 <dd>
-<p>A string "nonce" que o processo solicitou ao signatário para incluir no certificado do <code>push</code>. Se isso não corresponder ao valor registrado no cabeçalho "nonce" do certificado do <code>push</code>, isso pode indicar que o certificado é válido e está sendo reproduzido a partir de uma sessão separada do <code>git push</code>.</p>
+<p>A string "nonce" que o processo solicitou ao signatário para incluir no certificado do <span class='synopsis'><code>push</code></span>. Se isso não corresponder ao valor registrado no cabeçalho "nonce" do certificado do <span class='synopsis'><code>push</code></span>, isso pode indicar que o certificado é válido e está sendo reproduzido a partir de uma sessão separada do <span class='synopsis'><code>git</code> <code>push</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-receive-pack-codeGITPUSHCERTNONCESTATUScode"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTNONCESTATUS"></a> <a class="anchor" href="#git-receive-pack-codeGITPUSHCERTNONCESTATUScode"></a><code>GIT_PUSH_CERT_NONCE_STATUS</code> </dt>
+<dt class="hdlist1" id="git-receive-pack-spanclasssynopsiscodeGITPUSHCERTNONCESTATUScodespan"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTNONCESTATUS"></a> <a class="anchor" href="#git-receive-pack-spanclasssynopsiscodeGITPUSHCERTNONCESTATUScodespan"></a><span class='synopsis'><code>GIT_PUSH_CERT_NONCE_STATUS</code></span> </dt>
 <dd>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-receive-pack-codeUNSOLICITEDcode"> <a class="anchor" href="#git-receive-pack-UNSOLICITED"></a> <a class="anchor" href="#git-receive-pack-codeUNSOLICITEDcode"></a><code>UNSOLICITED</code> </dt>
+<dt class="hdlist1" id="git-receive-pack-spanclasssynopsiscodeUNSOLICITEDcodespan"> <a class="anchor" href="#git-receive-pack-UNSOLICITED"></a> <a class="anchor" href="#git-receive-pack-spanclasssynopsiscodeUNSOLICITEDcodespan"></a><span class='synopsis'><code>UNSOLICITED</code></span> </dt>
 <dd>
 <p>O comando "git push --signed" enviou um nonce quando não pedimos para enviar um.</p>
 </dd>
-<dt class="hdlist1" id="git-receive-pack-codeMISSINGcode"> <a class="anchor" href="#git-receive-pack-MISSING"></a> <a class="anchor" href="#git-receive-pack-codeMISSINGcode"></a><code>MISSING</code> </dt>
+<dt class="hdlist1" id="git-receive-pack-spanclasssynopsiscodeMISSINGcodespan"> <a class="anchor" href="#git-receive-pack-MISSING"></a> <a class="anchor" href="#git-receive-pack-spanclasssynopsiscodeMISSINGcodespan"></a><span class='synopsis'><code>MISSING</code></span> </dt>
 <dd>
 <p>O comando "git push --signed" não enviou nenhum cabeçalho nonce.</p>
 </dd>
-<dt class="hdlist1" id="git-receive-pack-codeBADcode"> <a class="anchor" href="#git-receive-pack-BAD"></a> <a class="anchor" href="#git-receive-pack-codeBADcode"></a><code>BAD</code> </dt>
+<dt class="hdlist1" id="git-receive-pack-spanclasssynopsiscodeBADcodespan"> <a class="anchor" href="#git-receive-pack-BAD"></a> <a class="anchor" href="#git-receive-pack-spanclasssynopsiscodeBADcodespan"></a><span class='synopsis'><code>BAD</code></span> </dt>
 <dd>
 <p>O comando "git push --signed" enviou um falso nonce.</p>
 </dd>
-<dt class="hdlist1" id="git-receive-pack-codeOKcode"> <a class="anchor" href="#git-receive-pack-OK"></a> <a class="anchor" href="#git-receive-pack-codeOKcode"></a><code>OK</code> </dt>
+<dt class="hdlist1" id="git-receive-pack-spanclasssynopsiscodeOKcodespan"> <a class="anchor" href="#git-receive-pack-OK"></a> <a class="anchor" href="#git-receive-pack-spanclasssynopsiscodeOKcodespan"></a><span class='synopsis'><code>OK</code></span> </dt>
 <dd>
 <p>O comando "git push --signed" enviou o nonce que pedimos para ser enviado.</p>
 </dd>
-<dt class="hdlist1" id="git-receive-pack-codeSLOPcode"> <a class="anchor" href="#git-receive-pack-SLOP"></a> <a class="anchor" href="#git-receive-pack-codeSLOPcode"></a><code>SLOP</code> </dt>
+<dt class="hdlist1" id="git-receive-pack-spanclasssynopsiscodeSLOPcodespan"> <a class="anchor" href="#git-receive-pack-SLOP"></a> <a class="anchor" href="#git-receive-pack-spanclasssynopsiscodeSLOPcodespan"></a><span class='synopsis'><code>SLOP</code></span> </dt>
 <dd>
-<p>O comando <code>git push --signed</code> enviou um "nonce" diferente do que pedimos para enviar agora, porém, numa sessão anterior. Consulte a variável de ambiente <code>GIT_PUSH_CERT_NONCE_SLOP</code>.</p>
+<p>O comando <span class='synopsis'><code>git</code> <code>push</code> <code>--signed</code></span> enviou um "nonce" diferente do que pedimos para enviar agora, porém, numa sessão anterior. Consulte a variável de ambiente <span class='synopsis'><code>GIT_PUSH_CERT_NONCE_SLOP</code></span>.</p>
 </dd>
 </dl>
 </div>
 </dd>
-<dt class="hdlist1" id="git-receive-pack-codeGITPUSHCERTNONCESLOPcode"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTNONCESLOP"></a> <a class="anchor" href="#git-receive-pack-codeGITPUSHCERTNONCESLOPcode"></a><code>GIT_PUSH_CERT_NONCE_SLOP</code> </dt>
+<dt class="hdlist1" id="git-receive-pack-spanclasssynopsiscodeGITPUSHCERTNONCESLOPcodespan"> <a class="anchor" href="#git-receive-pack-GITPUSHCERTNONCESLOP"></a> <a class="anchor" href="#git-receive-pack-spanclasssynopsiscodeGITPUSHCERTNONCESLOPcodespan"></a><span class='synopsis'><code>GIT_PUSH_CERT_NONCE_SLOP</code></span> </dt>
 <dd>
-<p>O comando <code>git push --signed</code> enviou agora um "nonce" diferente do que pedimos para enviar, mas numa sessão diferente, cujo horário de início é diferente em tantos segundos da sessão atual. Só tem sentido quando <code>GIT_PUSH_CERT_NONCE_STATUS</code> diz <code>SLOP</code>. Leia também sobre a variável <code>receive.certNonceSlop</code> do comando <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+<p>O comando <span class='synopsis'><code>git</code> <code>push</code> <code>--signed</code></span> enviou agora um "nonce" diferente do que pedimos para enviar, mas numa sessão diferente, cujo horário de início é diferente em tantos segundos da sessão atual. Só tem sentido quando <span class='synopsis'><code>GIT_PUSH_CERT_NONCE_STATUS</code></span> diz <span class='synopsis'><code>SLOP</code></span>. Leia também sobre a variável <span class='synopsis'><code>receive.certNonceSlop</code></span> do comando <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 </dd>
 </dl>
 </div>
@@ -161,7 +184,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>O parâmetro "refname" é relativo a variável <code>$GIT_DIR</code>; por exemplo, para o cabeçalho principal, é "refs/heads/master". Os dois argumentos sha1 são os nomes do objeto para o refname antes e depois da atualização. Observe que o gancho é invocado antes que o refname seja atualizado, portanto, ou <em>sha1-old</em> é <code>0\{40}</code> (o que significa que ainda não existe tal ref) ou deve corresponder ao que está registrado em refname.</p>
+<p>O parâmetro "refname" é relativo a variável <span class='synopsis'><code>$GIT_DIR</code></span>; por exemplo, para o cabeçalho principal, é "refs/heads/master". Os dois argumentos sha1 são os nomes do objeto para o refname antes e depois da atualização. Observe que o gancho é invocado antes que o refname seja atualizado, portanto, ou <em>sha1-old</em> é <span class='synopsis'><em>0\{40}</em></span> (o que significa que ainda não existe tal ref) ou deve corresponder ao que está registrado em refname.</p>
 </div>
 <div class="paragraph">
 <p>O gancho deve encerrar com uma condição diferente de zero se quiser impedir a atualização da referência informada. Caso contrário, ele deve encerrar com zero.</p>
@@ -175,7 +198,7 @@ aliases:
 <h2 id="_o_gancho_do_pós_recebimento"><a class="anchor" href="#_o_gancho_do_pós_recebimento"></a>O GANCHO DO PÓS-RECEBIMENTO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Depois que todas as refs forem atualizadas (ou tentarem ser atualizadas), se alguma atualização de ref for bem-sucedida, se o arquivo <code>$GIT_DIR/hooks/post-receive</code> existir e for executável, ele será invocado uma vez sem parâmetros. A entrada predefinida do gancho será uma linha para cada ref. atualizada com sucesso:</p>
+<p>Depois que todas as refs forem atualizadas (ou tentarem ser atualizadas), se alguma atualização de ref for bem-sucedida, se o arquivo <span class='synopsis'><code>$GIT_DIR/hooks/post-receive</code></span> existir e for executável, ele será invocado uma vez sem parâmetros. A entrada predefinida do gancho será uma linha para cada ref. atualizada com sucesso:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -183,13 +206,13 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>O valor do refname é relativo a <code>$GIT_DIR</code>; por exemplo, para o cabeçalho principal, é <code>refs/heads/master</code>. Os dois valores sha1 antes de cada refname são os nomes de objeto para o refname antes e depois da atualização. As referências que foram criadas terão o <em>sha1-old</em> igual a <code>0\{40}</code>, enquanto as referências que foram excluídas terão o <em>sha1-new</em> igual a <code>0\{40}</code>; caso contrário, o <em>sha1-old</em> e o <em>sha1-new</em> devem ser objetos válidos no repositório.</p>
+<p>O valor do refname é relativo a <span class='synopsis'><code>$GIT_DIR</code></span>; por exemplo, para o cabeçalho principal, é <span class='synopsis'><code>refs/heads/master</code></span>. Os dois valores sha1 antes de cada refname são os nomes de objeto para o refname antes e depois da atualização. As referências que foram criadas terão o <em>sha1-old</em> igual a <span class='synopsis'><em>0\{40}</em></span>, enquanto as referências que foram excluídas terão o <em>sha1-new</em> igual a <span class='synopsis'><em>0\{40}</em></span>; caso contrário, o <em>sha1-old</em> e o <em>sha1-new</em> devem ser objetos válidos no repositório.</p>
 </div>
 <div class="paragraph">
-<p>As variáveis de ambiente <code>GIT_PUSH_CERT*</code> podem ser inspecionadas, assim como no gancho de <code>pré-recebimento</code>, após aceitar um "push" assinado.</p>
+<p>As variáveis de ambiente <span class='synopsis'><code>GIT_PUSH_CERT*</code></span> podem ser inspecionadas, assim como no gancho de <span class='synopsis'><em>pré-recebimento</em></span>, após aceitar um "push" assinado.</p>
 </div>
 <div class="paragraph">
-<p>Usando esse gancho, é fácil gerar e-mails descrevendo as atualizações do repositório. Este script de exemplo envia uma mensagem de e-mail por ref listando os commits enviados para o repositório e registra os certificados do <code>push</code> realizado dos envios assinados com as assinaturas para um serviço de registro log:</p>
+<p>Usando esse gancho, é fácil gerar e-mails descrevendo as atualizações do repositório. Este script de exemplo envia uma mensagem de e-mail por ref listando os commits enviados para o repositório e registra os certificados do <span class='synopsis'><code>push</code></span> realizado dos envios assinados com as assinaturas para um serviço de registro log:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -230,13 +253,13 @@ exit 0</pre>
 <h2 id="_o_gancho_de_pós_atualização"><a class="anchor" href="#_o_gancho_de_pós_atualização"></a>O GANCHO DE PÓS-ATUALIZAÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Após todos os outros processamentos, se pelo menos uma ref tiver sido atualizada e se o arquivo <code>$GIT_DIR/hooks/post-update</code> existir e for executável, o "post-update" será invocado com a lista de referências que foram atualizadas. Isso pode ser utilizado para implementar qualquer outra tarefa de limpeza em todo o repositório.</p>
+<p>Após todos os outros processamentos, se pelo menos uma ref tiver sido atualizada e se o arquivo <span class='synopsis'><code>$GIT_DIR/hooks/post-update</code></span> existir e for executável, o "post-update" será invocado com a lista de referências que foram atualizadas. Isso pode ser utilizado para implementar qualquer outra tarefa de limpeza em todo o repositório.</p>
 </div>
 <div class="paragraph">
 <p>O código de saída deste gancho de chamada é ignorado; a única coisa que resta para o <em>git-receive-pack</em> nesse ponto é encerrar de qualquer maneira.</p>
 </div>
 <div class="paragraph">
-<p>Este gancho pode ser utilizado, por exemplo, para executar <code>git update-server-info</code> caso o repositório esteja empacotado e seja servido através de um transporte burro.</p>
+<p>Este gancho pode ser utilizado, por exemplo, para executar <span class='synopsis'><code>git</code> <code>update-server-info</code></span> caso o repositório esteja empacotado e seja servido através de um transporte burro.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -250,7 +273,7 @@ exec git update-server-info</pre>
 <h2 id="_ambiente_de_quarentena"><a class="anchor" href="#_ambiente_de_quarentena"></a>AMBIENTE DE QUARENTENA</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Quando o <code>receive-pack</code> recebe os objetos, eles são colocados num diretório temporário de "quarentena" dentro do diretório <code>$GIT_DIR/objects</code> e migrados para o armazenamento dos objetos principais somente após a conclusão do gancho <code>pré-recebimento</code>. Caso o envio falhe antes, o diretório temporário será removido completamente.</p>
+<p>Quando o <span class='synopsis'><code>receive-pack</code></span> recebe os objetos, eles são colocados num diretório temporário de "quarentena" dentro do diretório <span class='synopsis'><code>$GIT_DIR/objects</code></span> e migrados para o armazenamento dos objetos principais somente após a conclusão do gancho <span class='synopsis'><em>pré-recebimento</em></span>. Caso o envio falhe antes, o diretório temporário será removido completamente.</p>
 </div>
 <div class="paragraph">
 <p>Isso tem alguns efeitos e advertências visíveis ao usuário:</p>
@@ -258,13 +281,13 @@ exec git update-server-info</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Os impulsionamentos que falharem devido aos problemas com o pacote recebido, os objetos ausentes ou devido ao gancho do <code>pré-recebimento</code> não deixarão nenhum dado no disco. Geralmente é útil para impedir que impulsionamentos sem sucesso e de forma repetida preencham o seu disco, porém podem tornar a depuração muito mais desafiadora.</p>
+<p>Os impulsionamentos que falharem devido aos problemas com o pacote recebido, os objetos ausentes ou devido ao gancho do <span class='synopsis'><em>pré-recebimento</em></span> não deixarão nenhum dado no disco. Geralmente é útil para impedir que impulsionamentos sem sucesso e de forma repetida preencham o seu disco, porém podem tornar a depuração muito mais desafiadora.</p>
 </li>
 <li>
-<p>Quaisquer objetos criados pelo gancho <code>pre-receive</code> (recebimento prévio) serão criados no diretório de quarentena (e migrados apenas caso sejam bem-sucedidos).</p>
+<p>Quaisquer objetos criados pelo gancho <span class='synopsis'><code>pre-receive</code></span> (recebimento prévio) serão criados no diretório de quarentena (e migrados apenas caso sejam bem-sucedidos).</p>
 </li>
 <li>
-<p>O gancho <code>pre-receive</code> NÃO DEVE atualizar nenhuma refs para apontar para os objetos em quarentena. Outros programas que acessam o repositório não poderão ver os objetos (e se o gancho do "pre-receive" falhar, estes refs serão corrompidos). Por questões de segurança, qualquer atualização do "ref" dento do <code>pre-receive</code> são rejeitadas automaticamente.</p>
+<p>O gancho <span class='synopsis'><code>pre-receive</code></span> NÃO DEVE atualizar nenhuma refs para apontar para os objetos em quarentena. Outros programas que acessam o repositório não poderão ver os objetos (e se o gancho do "pre-receive" falhar, estes refs serão corrompidos). Por questões de segurança, qualquer atualização do "ref" dento do <span class='synopsis'><code>pre-receive</code></span> são rejeitadas automaticamente.</p>
 </li>
 </ol>
 </div>

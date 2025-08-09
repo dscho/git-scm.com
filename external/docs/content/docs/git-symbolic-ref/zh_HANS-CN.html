@@ -9,6 +9,21 @@ docname: git-symbolic-ref
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-symbolic-ref/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 注释
+  id: _注释
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -32,16 +47,16 @@ aliases:
 <h2 id="_描述"><a class="anchor" href="#_描述"></a>描述</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>给定一个参数，读取给定符号引用指向的分支头，并输出其相对于 <code>.git/</code> 目录的路径。 通常情况下，你会将 <code>HEAD</code> 作为 &lt;名称&gt; 参数，以查看工作区所在的分支。</p>
+<p>给定一个参数，读取给定符号引用指向的分支头，并输出其相对于 <span class='synopsis'><code>.git/</code></span> 目录的路径。 通常情况下，你会将 <span class='synopsis'><code>HEAD</code></span> 作为 &lt;名称&gt; 参数，以查看工作区所在的分支。</p>
 </div>
 <div class="paragraph">
 <p>在给定两个参数的情况下，创建或更新符号引用 &lt;名称&gt; 以指向给定的分支 &lt;引用&gt;。</p>
 </div>
 <div class="paragraph">
-<p>给定 <code>--delete</code> 和一个附加参数，删除给定的符号引用。</p>
+<p>给定 <span class='synopsis'><code>--delete</code></span> 和一个附加参数，删除给定的符号引用。</p>
 </div>
 <div class="paragraph">
-<p>符号引用是一个存储以 <code>ref: refs/</code> 开头的字符串的常规文件。 例如，你的 <code>.git/HEAD</code> 就是一个内容为 <code>ref: refs/heads/master</code> 的常规文件。</p>
+<p>符号引用是一个存储以 <span class='synopsis'><code>ref:</code> <code>refs/</code></span> 开头的字符串的常规文件。 例如，你的 <span class='synopsis'><code>.git/HEAD</code></span> 就是一个内容为 <span class='synopsis'><code>ref:</code> <code>refs/heads/master</code></span> 的常规文件。</p>
 </div>
 </div>
 </div>
@@ -62,12 +77,12 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-symbolic-ref---short"> <a class="anchor" href="#git-symbolic-ref---short"></a>--short </dt>
 <dd>
-<p>将 &lt;名称&gt; 的值作为符号引用显示时，请尽量缩短该值，例如将 <code>refs/heads/master</code> 改为 <code>master</code>。</p>
+<p>将 &lt;名称&gt; 的值作为符号引用显示时，请尽量缩短该值，例如将 <span class='synopsis'><code>refs/heads/master</code></span> 改为 <span class='synopsis'><code>master</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-symbolic-ref---recurse"> <a class="anchor" href="#git-symbolic-ref---recurse"></a>--recurse </dt>
 <dt class="hdlist1" id="git-symbolic-ref---no-recurse"> <a class="anchor" href="#git-symbolic-ref---no-recurse"></a>--no-recurse </dt>
 <dd>
-<p>在以符号引用形式显示 &lt;名称&gt; 的值时，如果 &lt;名称&gt; 指向了另一个符号引用，则跟踪该符号引用链，直到结果不再指向一个符号引用为止（ <code>--recurse</code> ，这是默认设置）。 而 <code>--no-recurse</code> 只在取消引用单级符号引用后停止。</p>
+<p>在以符号引用形式显示 &lt;名称&gt; 的值时，如果 &lt;名称&gt; 指向了另一个符号引用，则跟踪该符号引用链，直到结果不再指向一个符号引用为止（ <span class='synopsis'><code>--recurse</code></span> ，这是默认设置）。 而 <span class='synopsis'><code>--no-recurse</code></span> 只在取消引用单级符号引用后停止。</p>
 </dd>
 <dt class="hdlist1" id="git-symbolic-ref--m"> <a class="anchor" href="#git-symbolic-ref--m"></a>-m </dt>
 <dd>
@@ -81,7 +96,7 @@ aliases:
 <h2 id="_注释"><a class="anchor" href="#_注释"></a>注释</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In the past, <code>.git/HEAD</code> was a symbolic link pointing at <code>refs/heads/master</code>. When we wanted to switch to another branch, we did <code>ln -sf refs/heads/newbranch .git/HEAD</code>, and when we wanted to find out which branch we are on, we did <code>readlink .git/HEAD</code>. But symbolic links are not entirely portable, so they are now deprecated and symbolic refs (as described above) are used by default.</p>
+<p>In the past, <span class='synopsis'><code>.git/HEAD</code></span> was a symbolic link pointing at <span class='synopsis'><code>refs/heads/master</code></span>. When we wanted to switch to another branch, we did <span class='synopsis'><code>ln</code> <code>-sf</code> <code>refs/heads/newbranch</code> <code>.git/HEAD</code></span>, and when we wanted to find out which branch we are on, we did <span class='synopsis'><code>readlink</code> <code>.git/HEAD</code></span>. But symbolic links are not entirely portable, so they are now deprecated and symbolic refs (as described above) are used by default.</p>
 </div>
 <div class="paragraph">
 <p>如果符号引用的内容打印正确，<em>git symbolic-ref</em> 将以状态 0 退出；如果请求的名称不是符号引用，则以状态 1 退出；如果出现其他错误，则以 128 退出。</p>

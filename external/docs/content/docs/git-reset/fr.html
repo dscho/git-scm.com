@@ -9,6 +9,23 @@ docname: git-reset
 lang: fr
 aliases:
 - "/docs/git-reset/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: EXEMPLES
+  id: _exemples
+- text: DISCUSSION
+  id: _discussion
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -21,11 +38,11 @@ aliases:
 <div class="sect1">
 <h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>git reset [-q] [&lt;arbre-esque&gt;] [--] &lt;spec-de-chemin&gt;&#8230;&#8203;
-git reset [-q] [--pathspec-from-file=&lt;fichier&gt; [--pathspec-file-nul]] [&lt;arbre-esque&gt;]
-git reset (--patch | -p) [&lt;arbre-esque&gt;] [--] [&lt;spec-de-chemin&gt;&#8230;&#8203;]
-git reset [--soft | --mixed [-N] | --hard | --merge | --keep] [-q] [&lt;commit&gt;]</p>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>reset</code></span> [<span class='synopsis'><code>-q</code></span>] [<em>&lt;arbre-esque&gt;</em>] [<span class='synopsis'><code>--</code></span>] <em>&lt;spec-de-chemin&gt;</em>&#8230;&#8203;
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>reset</code></span> [<span class='synopsis'><code>-q</code></span>] [<span class='synopsis'><code>--pathspec-from-file=</code></span><em>&lt;fichier&gt;</em> [<span class='synopsis'><code>--pathspec-file-nul</code></span>]] [<em>&lt;arbre-esque&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>reset</code></span> (<span class='synopsis'><code>--patch</code></span> | <span class='synopsis'><code>-p</code></span>) [<em>&lt;arbre-esque&gt;</em>] [<span class='synopsis'><code>--</code></span>] [<em>&lt;spec-de-chemin&gt;</em>&#8230;&#8203;]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>reset</code></span> [<span class='synopsis'><code>--soft</code></span> | <span class='synopsis'><code>--mixed</code></span> [<span class='synopsis'><code>-N</code></span>] | <span class='synopsis'><code>--hard</code></span> | <span class='synopsis'><code>--merge</code></span> | <span class='synopsis'><code>--keep</code></span>] [<span class='synopsis'><code>-q</code></span>] [<em>&lt;commit&gt;</em>]</pre>
 </div>
 </div>
 </div>
@@ -33,64 +50,64 @@ git reset [--soft | --mixed [-N] | --hard | --merge | --keep] [-q] [&lt;commit&g
 <h2 id="_description"><a class="anchor" href="#_description"></a>DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Dans la première et la troisième forme, cette commande copie les entrées depuis <code>&lt;arbre-esque&gt;</code> vers l&#8217;index. Dans la dernière forme, elle amène le sommet de la branche actuelle (<code>HEAD</code>) à <code>&lt;commit&gt;</code>, optionnellement en modifiant l&#8217;index et l&#8217;arbre de travail en correspondance. L'<code>&lt;arbre-esque&gt;</code>/<code>&lt;commit&gt;</code> vaut par défaut <code>HEAD</code> dans toutes les formes.</p>
+<p>Dans la première et la troisième forme, cette commande copie les entrées depuis <span class='synopsis'><em>&lt;arbre-esque&gt;</em></span> vers l&#8217;index. Dans la dernière forme, elle amène le sommet de la branche actuelle (<span class='synopsis'><code>HEAD</code></span>) à <span class='synopsis'><em>&lt;commit&gt;</em></span>, optionnellement en modifiant l&#8217;index et l&#8217;arbre de travail en correspondance. L'<span class='synopsis'><em>&lt;arbre-esque&gt;</em></span>/<span class='synopsis'><em>&lt;commit&gt;</em></span> vaut par défaut <span class='synopsis'><code>HEAD</code></span> dans toutes les formes.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-reset-codegitreset-qltarbre-esquegt--ltspec-de-chemingtcode"> <a class="anchor" href="#git-reset-gitreset-qarbre-esque--spec-de-chemin"></a> <a class="anchor" href="#git-reset-codegitreset-qltarbre-esquegt--ltspec-de-chemingtcode"></a><code>git reset [-q] [&lt;arbre-esque&gt;] [--] &lt;spec-de-chemin&gt;...</code> </dt>
-<dt class="hdlist1" id="git-reset-codegitreset-q--pathspec-from-fileltfichiergt--pathspec-file-nulltarbre-esquegtcode"> <a class="anchor" href="#git-reset-gitreset-q--pathspec-from-filefichier--pathspec-file-nularbre-esque"></a> <a class="anchor" href="#git-reset-codegitreset-q--pathspec-from-fileltfichiergt--pathspec-file-nulltarbre-esquegtcode"></a><code>git reset [-q] [--pathspec-from-file=&lt;fichier&gt; [--pathspec-file-nul]] [&lt;arbre-esque&gt;]</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscodegitcodecoderesetcodecode-qcodeemltarbre-esquegtemcode--codeemltspec-de-chemingtemspan"> <a class="anchor" href="#git-reset-gitreset-qarbre-esque--spec-de-chemin"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscodegitcodecoderesetcodecode-qcodeemltarbre-esquegtemcode--codeemltspec-de-chemingtemspan"></a><span class='synopsis'><code>git</code> <code>reset</code> [<code>-q</code>] [<em>&lt;arbre-esque&gt;</em>] [<code>--</code>] <em>&lt;spec-de-chemin&gt;</em>...</span> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscodegitcodecoderesetcodecode-qcodecode--pathspec-from-filecodeemltfichiergtemcode--pathspec-file-nulcodeemltarbre-esquegtemspan"> <a class="anchor" href="#git-reset-gitreset-q--pathspec-from-filefichier--pathspec-file-nularbre-esque"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscodegitcodecoderesetcodecode-qcodecode--pathspec-from-filecodeemltfichiergtemcode--pathspec-file-nulcodeemltarbre-esquegtemspan"></a><span class='synopsis'><code>git</code> <code>reset</code> [<code>-q</code>] [<code>--pathspec-from-file=</code><em>&lt;fichier&gt;</em> [<code>--pathspec-file-nul</code>]] [<em>&lt;arbre-esque&gt;</em>]</span> </dt>
 <dd>
 <p>Ces formes réinitialisent les entrées d&#8217;index pour tous fichiers correspondant à <em>&lt;spec-de-chemin&gt;</em> à leur état de <em>&lt;arbre-esque&gt;</em> (ceci n&#8217;affecte pas l&#8217;arbre de travail ou la branche actuelle.)</p>
 <div class="paragraph">
-<p>Cela signifie que <code>git reset &lt;spec-de-chemin&gt;</code> est l&#8217;opposé de <code>git add &lt;spec-de-chemin&gt;</code>. Cette commande est équivalent à <code>git restore [--source=&lt;arbre-esque&gt;] --staged &lt;spec-de-chemin&gt;...</code>.</p>
+<p>Cela signifie que <span class='synopsis'><code>git</code> <code>reset</code> <em>&lt;spec-de-chemin&gt;</em></span> est l&#8217;opposé de <span class='synopsis'><code>git</code> <code>add</code> <em>&lt;spec-de-chemin&gt;</em></span>. Cette commande est équivalent à <span class='synopsis'><code>git</code> <code>restore</code> [<code>--source=</code><em>&lt;arbre-esque&gt;</em>] <code>--staged</code> <em>&lt;spec-de-chemin&gt;</em>...</span>.</p>
 </div>
 <div class="paragraph">
-<p>Après avoir lancé <code>git reset &lt;spec-de-chemin&gt;</code> pour mettre à jour l&#8217;entrée d&#8217;index, vous pouvez <a href='{{< relurl "docs/git-restore/fr" >}}'>git-restore[1]</a> pour extraire le contenu de l&#8217;index dans l&#8217;arbre de travail. Alternativement, en utilisant <a href='{{< relurl "docs/git-restore/fr" >}}'>git-restore[1]</a> et en spécifiant un commit avec <code>--source</code>, vous pouvez copier le contenu d&#8217;un chemin d&#8217;un commit vers l&#8217;index et l&#8217;arbre de travail d&#8217;une seule traite.</p>
+<p>Après avoir lancé <span class='synopsis'><code>git</code> <code>reset</code> <em>&lt;spec-de-chemin&gt;</em></span> pour mettre à jour l&#8217;entrée d&#8217;index, vous pouvez <a href='{{< relurl "docs/git-restore/fr" >}}'>git-restore[1]</a> pour extraire le contenu de l&#8217;index dans l&#8217;arbre de travail. Alternativement, en utilisant <a href='{{< relurl "docs/git-restore/fr" >}}'>git-restore[1]</a> et en spécifiant un commit avec <span class='synopsis'><code>--source</code></span>, vous pouvez copier le contenu d&#8217;un chemin d&#8217;un commit vers l&#8217;index et l&#8217;arbre de travail d&#8217;une seule traite.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-codegitreset--patch-pltarbre-esquegt--ltspec-de-chemingtcode"> <a class="anchor" href="#git-reset-gitreset--patch-parbre-esque--spec-de-chemin"></a> <a class="anchor" href="#git-reset-codegitreset--patch-pltarbre-esquegt--ltspec-de-chemingtcode"></a><code>git reset' (--patch | -p) [&lt;arbre-esque&gt;] [--] [&lt;spec-de-chemin&gt;...]</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscodegitcodecoderesetcodecode--patchcodecode-pcodeemltarbre-esquegtemcode--codeemltspec-de-chemingtemspan"> <a class="anchor" href="#git-reset-gitreset--patch-parbre-esque--spec-de-chemin"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscodegitcodecoderesetcodecode--patchcodecode-pcodeemltarbre-esquegtemcode--codeemltspec-de-chemingtemspan"></a><span class='synopsis'><code>git</code> <code>reset'</code> (<code>--patch</code> | <code>-p</code>) [<em>&lt;arbre-esque&gt;</em>] [<code>--</code>] [<em>&lt;spec-de-chemin&gt;</em>...]</span> </dt>
 <dd>
-<p>Sélectionner interactivement les sections dans la différence entre l&#8217;index et l'<em>&lt;arbre-esque&gt;</em> (par défaut <code>HEAD</code>). Les sections choisies sont ensuite appliquées en ordre inversé à l&#8217;index.</p>
+<p>Sélectionner interactivement les sections dans la différence entre l&#8217;index et l'<em>&lt;arbre-esque&gt;</em> (par défaut <span class='synopsis'><code>HEAD</code></span>). Les sections choisies sont ensuite appliquées en ordre inversé à l&#8217;index.</p>
 <div class="paragraph">
-<p>Ceci signifie que <code>git reset -p</code> est l&#8217;opposé de <code>git add -p</code>, autrement dit, vous pouvez l&#8217;utiliser pour réinitialiser sélectivement les sections. Voir la section « Mode interactif » de <a href='{{< relurl "docs/git-add/fr" >}}'>git-add[1]</a> pour apprendre comment utiliser le mode <code>--patch</code>.</p>
+<p>Ceci signifie que <span class='synopsis'><code>git</code> <code>reset</code> <code>-p</code></span> est l&#8217;opposé de <span class='synopsis'><code>git</code> <code>add</code> <code>-p</code></span>, autrement dit, vous pouvez l&#8217;utiliser pour réinitialiser sélectivement les sections. Voir la section « Mode interactif » de <a href='{{< relurl "docs/git-add/fr" >}}'>git-add[1]</a> pour apprendre comment utiliser le mode <span class='synopsis'><code>--patch</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-codegitresetltmodegtltcommitgtcode"> <a class="anchor" href="#git-reset-gitresetmodecommit"></a> <a class="anchor" href="#git-reset-codegitresetltmodegtltcommitgtcode"></a><code>git reset' [&lt;mode&gt;] [&lt;commit&gt;]</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscodegitcodecoderesetcodeemltmodegtememltcommitgtemspan"> <a class="anchor" href="#git-reset-gitresetmodecommit"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscodegitcodecoderesetcodeemltmodegtememltcommitgtemspan"></a><span class='synopsis'><code>git</code> <code>reset'</code> [<em>&lt;mode&gt;</em>] [<em>&lt;commit&gt;</em>]</span> </dt>
 <dd>
-<p>Cette forme réinitialise le sommet de la branche actuelle à <em>&lt;commit&gt;</em> et met à jour l&#8217;index éventuellement (en le réinitialisant à l&#8217;arbre de <em>&lt;commit&gt;</em>) et l&#8217;arbre de travail en fonction de <em>&lt;mode&gt;</em>. Avant l&#8217;opération, <code>ORIG_HEAD</code> est définie sur le sommet de la branche actuelle. Si <em>&lt;mode&gt;</em> est omis, l&#8217;option par défaut est <code>--mixed</code>. Le <em>&lt;mode&gt;</em> est une valeur parmi :</p>
+<p>Cette forme réinitialise le sommet de la branche actuelle à <em>&lt;commit&gt;</em> et met à jour l&#8217;index éventuellement (en le réinitialisant à l&#8217;arbre de <em>&lt;commit&gt;</em>) et l&#8217;arbre de travail en fonction de <em>&lt;mode&gt;</em>. Avant l&#8217;opération, <span class='synopsis'><code>ORIG_HEAD</code></span> est définie sur le sommet de la branche actuelle. Si <em>&lt;mode&gt;</em> est omis, l&#8217;option par défaut est <span class='synopsis'><code>--mixed</code></span>. Le <em>&lt;mode&gt;</em> est une valeur parmi :</p>
 <div class="openblock">
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-reset-code--softcode"> <a class="anchor" href="#git-reset---soft"></a> <a class="anchor" href="#git-reset-code--softcode"></a><code>--soft</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--softcodespan"> <a class="anchor" href="#git-reset---soft"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--softcodespan"></a><span class='synopsis'><code>--soft</code></span> </dt>
 <dd>
-<p>Ne pas toucher du tout le fichier d&#8217;index ou l&#8217;arbre de travail (mais réinitialise le sommet à <em>&lt;commit&gt;</em>, juste comme le font tous les modes). Cela laisse tous vos fichiers modifiés « Modifications qui seront validées », comme l&#8217;indiquerait <code>git status</code>.</p>
+<p>Ne pas toucher du tout le fichier d&#8217;index ou l&#8217;arbre de travail (mais réinitialise le sommet à <em>&lt;commit&gt;</em>, juste comme le font tous les modes). Cela laisse tous vos fichiers modifiés « Modifications qui seront validées », comme l&#8217;indiquerait <span class='synopsis'><code>git</code> <code>status</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-reset-code--mixedcode"> <a class="anchor" href="#git-reset---mixed"></a> <a class="anchor" href="#git-reset-code--mixedcode"></a><code>--mixed</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--mixedcodespan"> <a class="anchor" href="#git-reset---mixed"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--mixedcodespan"></a><span class='synopsis'><code>--mixed</code></span> </dt>
 <dd>
 <p>Réinitialiser l&#8217;index mais pas l&#8217;arbre de travail (c&#8217;est-à-dire, les fichiers modifiés sont préservés mais marqués pour la validation) et affiche ce qui n&#8217;a pas été mis à jour. C&#8217;est l&#8217;action par défaut.</p>
 <div class="paragraph">
-<p>Si <code>-N</code> est spécifié, les chemins supprimés sont marqués comme « à ajouter » (voir <a href='{{< relurl "docs/git-add/fr" >}}'>git-add[1]</a>).</p>
+<p>Si <span class='synopsis'><code>-N</code></span> est spécifié, les chemins supprimés sont marqués comme « à ajouter » (voir <a href='{{< relurl "docs/git-add/fr" >}}'>git-add[1]</a>).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-code--hardcode"> <a class="anchor" href="#git-reset---hard"></a> <a class="anchor" href="#git-reset-code--hardcode"></a><code>--hard</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--hardcodespan"> <a class="anchor" href="#git-reset---hard"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--hardcodespan"></a><span class='synopsis'><code>--hard</code></span> </dt>
 <dd>
 <p>Réinitialiser l&#8217;index et l&#8217;arbre de travail. Toute modification sur les fichiers suivis dans l&#8217;arbre de travail depuis <em>&lt;commit&gt;</em> est supprimée. Tous les fichiers ou répertoires non suivis qui empêchent l&#8217;écriture des fichiers suivis sont simplement supprimés.</p>
 </dd>
-<dt class="hdlist1" id="git-reset-code--mergecode"> <a class="anchor" href="#git-reset---merge"></a> <a class="anchor" href="#git-reset-code--mergecode"></a><code>--merge</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--mergecodespan"> <a class="anchor" href="#git-reset---merge"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--mergecodespan"></a><span class='synopsis'><code>--merge</code></span> </dt>
 <dd>
-<p>Réinitialiser l&#8217;index et mettre à jour les fichiers de l&#8217;arbre de travail qui sont différents entre <em>&lt;commit&gt;</em> et <code>HEAD</code>, mais conserver ceux qui sont différents entre l&#8217;index et l&#8217;arbre de travail (c-à-d qui ont des modifications qui n&#8217;ont pas été indexés). Si un fichier qui est différent entre <em>&lt;commit&gt;</em> et l&#8217;index a des modifications non indexées, la réinitialisation est annulée.</p>
+<p>Réinitialiser l&#8217;index et mettre à jour les fichiers de l&#8217;arbre de travail qui sont différents entre <em>&lt;commit&gt;</em> et <span class='synopsis'><code>HEAD</code></span>, mais conserver ceux qui sont différents entre l&#8217;index et l&#8217;arbre de travail (c-à-d qui ont des modifications qui n&#8217;ont pas été indexés). Si un fichier qui est différent entre <em>&lt;commit&gt;</em> et l&#8217;index a des modifications non indexées, la réinitialisation est annulée.</p>
 <div class="paragraph">
-<p>En d&#8217;autres termes, <code>--merge</code> fait quelque chose comme <code>git read-tree -u -m &lt;commit&gt;</code>, mais transfère les entrées d&#8217;index non indexées.</p>
+<p>En d&#8217;autres termes, <span class='synopsis'><code>--merge</code></span> fait quelque chose comme <span class='synopsis'><code>git</code> <code>read-tree</code> <code>-u</code> <code>-m</code> <em>&lt;commit&gt;</em></span>, mais transfère les entrées d&#8217;index non indexées.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-reset-code--keepcode"> <a class="anchor" href="#git-reset---keep"></a> <a class="anchor" href="#git-reset-code--keepcode"></a><code>--keep</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--keepcodespan"> <a class="anchor" href="#git-reset---keep"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--keepcodespan"></a><span class='synopsis'><code>--keep</code></span> </dt>
 <dd>
-<p>Réinitialiser les entrées d&#8217;index et mettre à jour les fichiers dans l&#8217;arbre de travail qui sont différents entre <em>&lt;commit&gt;</em> et <code>HEAD</code>. Si un fichier qui est différent entre <em>&lt;commit&gt;</em> et <code>HEAD</code> a des modifications locales, la réinitialisation est annulée.</p>
+<p>Réinitialiser les entrées d&#8217;index et mettre à jour les fichiers dans l&#8217;arbre de travail qui sont différents entre <em>&lt;commit&gt;</em> et <span class='synopsis'><code>HEAD</code></span>. Si un fichier qui est différent entre <em>&lt;commit&gt;</em> et <span class='synopsis'><code>HEAD</code></span> a des modifications locales, la réinitialisation est annulée.</p>
 </dd>
-<dt class="hdlist1" id="git-reset-code--no-recurse-submodulescode"> <a class="anchor" href="#git-reset---no-recurse-submodules"></a> <a class="anchor" href="#git-reset-code--no-recurse-submodulescode"></a><code>--[no-]recurse-submodules</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--codecodeno-codecoderecurse-submodulescodespan"> <a class="anchor" href="#git-reset---no-recurse-submodules"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--codecodeno-codecoderecurse-submodulescodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>recurse-submodules</code></span> </dt>
 <dd>
-<p>Lorsque l&#8217;arbre de travail est mis à jour, l&#8217;utilisation de <code>--recurse-submodules</code> réinitialisera également de manière récursive l&#8217;arbre de travail de tous les sous-modules actifs en fonction du commit enregistré dans le superprojet, en définissant également la <code>HEAD</code> des sous-modules à détacher à ce commit.</p>
+<p>Lorsque l&#8217;arbre de travail est mis à jour, l&#8217;utilisation de <span class='synopsis'><code>--recurse-submodules</code></span> réinitialisera également de manière récursive l&#8217;arbre de travail de tous les sous-modules actifs en fonction du commit enregistré dans le superprojet, en définissant également la <span class='synopsis'><code>HEAD</code></span> des sous-modules à détacher à ce commit.</p>
 </dd>
 </dl>
 </div>
@@ -109,29 +126,29 @@ git reset [--soft | --mixed [-N] | --hard | --merge | --keep] [-q] [&lt;commit&g
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-reset-code-qcode"> <a class="anchor" href="#git-reset--q"></a> <a class="anchor" href="#git-reset-code-qcode"></a><code>-q</code> </dt>
-<dt class="hdlist1" id="git-reset-code--quietcode"> <a class="anchor" href="#git-reset---quiet"></a> <a class="anchor" href="#git-reset-code--quietcode"></a><code>--quiet</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode-qcodespan"> <a class="anchor" href="#git-reset--q"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode-qcodespan"></a><span class='synopsis'><code>-q</code></span> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--quietcodespan"> <a class="anchor" href="#git-reset---quiet"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--quietcodespan"></a><span class='synopsis'><code>--quiet</code></span> </dt>
 <dd>
 <p>mode silencieux, n&#8217;afficher que les messages d&#8217;erreur.</p>
 </dd>
-<dt class="hdlist1" id="git-reset-code--refreshcode"> <a class="anchor" href="#git-reset---refresh"></a> <a class="anchor" href="#git-reset-code--refreshcode"></a><code>--refresh</code> </dt>
-<dt class="hdlist1" id="git-reset-code--no-refreshcode"> <a class="anchor" href="#git-reset---no-refresh"></a> <a class="anchor" href="#git-reset-code--no-refreshcode"></a><code>--no-refresh</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--refreshcodespan"> <a class="anchor" href="#git-reset---refresh"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--refreshcodespan"></a><span class='synopsis'><code>--refresh</code></span> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--no-refreshcodespan"> <a class="anchor" href="#git-reset---no-refresh"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--no-refreshcodespan"></a><span class='synopsis'><code>--no-refresh</code></span> </dt>
 <dd>
 <p>Rafraîchir l&#8217;index après une réinitialisation mixte. Activé par défaut.</p>
 </dd>
-<dt class="hdlist1" id="git-reset-code--pathspec-from-fileltfichiergtcode"> <a class="anchor" href="#git-reset---pathspec-from-filefichier"></a> <a class="anchor" href="#git-reset-code--pathspec-from-fileltfichiergtcode"></a><code>--pathspec-from-file=&lt;fichier&gt;</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--pathspec-from-filecodeemltfichiergtemspan"> <a class="anchor" href="#git-reset---pathspec-from-filefichier"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--pathspec-from-filecodeemltfichiergtemspan"></a><span class='synopsis'><code>--pathspec-from-file=</code><em>&lt;fichier&gt;</em></span> </dt>
 <dd>
-<p>Le spécificateur de chemin est passé dans <em>&lt;fichier&gt;</em> au lieu des arguments de la ligne de commande. Si <em>&lt;fichier&gt;</em> vaut <code>-</code> alors l&#8217;entrée standard est utilisée. Les éléments du spécificateur de chemin sont séparés par <em>LF</em> ou <em>CR</em>/<em>LF</em>. Les éléments du spécificateur de chemin peuvent être cités comme expliqué pour la variable de configuration <code>core.quotePath</code> (voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>). Voir aussi l&#8217;option <code>--pathspec-file-nul</code> et l&#8217;option globale <code>--literal-pathspecs</code>.</p>
+<p>Le spécificateur de chemin est passé dans <em>&lt;fichier&gt;</em> au lieu des arguments de la ligne de commande. Si <em>&lt;fichier&gt;</em> vaut <span class='synopsis'><code>-</code></span> alors l&#8217;entrée standard est utilisée. Les éléments du spécificateur de chemin sont séparés par <em>LF</em> ou <em>CR</em>/<em>LF</em>. Les éléments du spécificateur de chemin peuvent être cités comme expliqué pour la variable de configuration <span class='synopsis'><code>core.quotePath</code></span> (voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>). Voir aussi l&#8217;option <span class='synopsis'><code>--pathspec-file-nul</code></span> et l&#8217;option globale <span class='synopsis'><code>--literal-pathspecs</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-reset-code--pathspec-file-nulcode"> <a class="anchor" href="#git-reset---pathspec-file-nul"></a> <a class="anchor" href="#git-reset-code--pathspec-file-nulcode"></a><code>--pathspec-file-nul</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--pathspec-file-nulcodespan"> <a class="anchor" href="#git-reset---pathspec-file-nul"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--pathspec-file-nulcodespan"></a><span class='synopsis'><code>--pathspec-file-nul</code></span> </dt>
 <dd>
-<p>Uniquement significatif avec <code>--pathspec-from-file</code>. Les éléments du spécificateur de chemin sont séparés par le caractère <em>NUL</em> et tous les autres caractères sont utilisés littéralement (y compris les retours à la ligne et les guillemets).</p>
+<p>Uniquement significatif avec <span class='synopsis'><code>--pathspec-from-file</code></span>. Les éléments du spécificateur de chemin sont séparés par le caractère <em>NUL</em> et tous les autres caractères sont utilisés littéralement (y compris les retours à la ligne et les guillemets).</p>
 </dd>
-<dt class="hdlist1" id="git-reset-code--code"> <a class="anchor" href="#git-reset---"></a> <a class="anchor" href="#git-reset-code--code"></a><code>--</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsiscode--codespan"> <a class="anchor" href="#git-reset---"></a> <a class="anchor" href="#git-reset-spanclasssynopsiscode--codespan"></a><span class='synopsis'><code>--</code></span> </dt>
 <dd>
 <p>Ne pas interpréter les arguments qui suivent comme options.</p>
 </dd>
-<dt class="hdlist1" id="git-reset-codeltspcificateur-de-chemingtcode"> <a class="anchor" href="#git-reset-spcificateur-de-chemin"></a> <a class="anchor" href="#git-reset-codeltspcificateur-de-chemingtcode"></a><code>&lt;spécificateur-de-chemin&gt;...</code> </dt>
+<dt class="hdlist1" id="git-reset-spanclasssynopsisemltspcificateur-de-chemingtemspan"> <a class="anchor" href="#git-reset-spcificateur-de-chemin"></a> <a class="anchor" href="#git-reset-spanclasssynopsisemltspcificateur-de-chemingtemspan"></a><span class='synopsis'><em>&lt;spécificateur-de-chemin&gt;</em>...</span> </dt>
 <dd>
 <p>Limite les chemins affectés par l&#8217;opération.</p>
 <div class="paragraph">
@@ -161,16 +178,16 @@ $ git pull git://info.example.com/ nitfol  <b class="conum">(4)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>Vous travaillez joyeusement sur quelque chose, et trouvez que les modifications dans ces fichiers sont prêtes. Vous ne voulez pas les voir lorsque vous lancez <code>git diff</code>, parce que vous allez travailler sur d&#8217;autres fichiers et les modifications à ces fichiers vous distrairaient de votre travail.</p>
+<p>Vous travaillez joyeusement sur quelque chose, et trouvez que les modifications dans ces fichiers sont prêtes. Vous ne voulez pas les voir lorsque vous lancez <span class='synopsis'><code>git</code> <code>diff</code></span>, parce que vous allez travailler sur d&#8217;autres fichiers et les modifications à ces fichiers vous distrairaient de votre travail.</p>
 </li>
 <li>
 <p>Quelqu&#8217;un vous demande de tirer, et les modifications paraissent valoir le coup d&#8217;être fusionnées.</p>
 </li>
 <li>
-<p>Cependant, vous avez déjà sali l&#8217;index (c-à-d votre index ne correspond pas au commit <code>HEAD</code>). Mais vous savez que le tirage que vous allez faire n&#8217;affecte ni <code>frotz.c</code> ni <code>filfre.c</code>, donc vous rembobinez les modifications de l&#8217;index pour ces deux fichiers. Vos modifications dans l&#8217;arbre de travail restent là.</p>
+<p>Cependant, vous avez déjà sali l&#8217;index (c-à-d votre index ne correspond pas au commit <span class='synopsis'><code>HEAD</code></span>). Mais vous savez que le tirage que vous allez faire n&#8217;affecte ni <span class='synopsis'><code>frotz.c</code></span> ni <span class='synopsis'><code>filfre.c</code></span>, donc vous rembobinez les modifications de l&#8217;index pour ces deux fichiers. Vos modifications dans l&#8217;arbre de travail restent là.</p>
 </li>
 <li>
-<p>Puis vous pouvez tirer et fusionner, en laissant les modifications à <code>frotz.c</code> et <code>filfre.c</code> dans l&#8217;arbre de travail.</p>
+<p>Puis vous pouvez tirer et fusionner, en laissant les modifications à <span class='synopsis'><code>frotz.c</code></span> et <span class='synopsis'><code>filfre.c</code></span> dans l&#8217;arbre de travail.</p>
 </li>
 </ol>
 </div>
@@ -194,9 +211,9 @@ $ git commit -a -c ORIG_HEAD  <b class="conum">(3)</b></pre>
 <p>Corrige les fichiers de l&#8217;arbre de travail.</p>
 </li>
 <li>
-<p>"reset" copie l&#8217;ancienne HEAD vers <code>.git/ORIG_HEAD</code> ; refait le commit en démarrant par son message de validation. Si vous n&#8217;avez pas besoin d&#8217;éditer plus le message, vous pouvez plutôt passer l&#8217;option <code>-C</code>.</p>
+<p>"reset" copie l&#8217;ancienne HEAD vers <span class='synopsis'><code>.git/ORIG_HEAD</code></span> ; refait le commit en démarrant par son message de validation. Si vous n&#8217;avez pas besoin d&#8217;éditer plus le message, vous pouvez plutôt passer l&#8217;option <span class='synopsis'><code>-C</code></span>.</p>
 <div class="paragraph">
-<p>Voir aussi l&#8217;option <code>--amend</code> de <a href='{{< relurl "docs/git-commit/fr" >}}'>git-commit[1]</a>.</p>
+<p>Voir aussi l&#8217;option <span class='synopsis'><code>--amend</code></span> de <a href='{{< relurl "docs/git-commit/fr" >}}'>git-commit[1]</a>.</p>
 </div>
 </li>
 </ol>
@@ -214,13 +231,13 @@ $ git switch theme/wip   <b class="conum">(3)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>Vous avez fait des commits, mais vous vous êtes aperçu qu&#8217;ils étaient prématurés pour la branche <code>master</code>. Vous voulez continuer à le polir dans une branche thématique, donc vous créez la branche <code>theme/wip</code> de la <code>HEAD</code> actuelle.</p>
+<p>Vous avez fait des commits, mais vous vous êtes aperçu qu&#8217;ils étaient prématurés pour la branche <span class='synopsis'><code>master</code></span>. Vous voulez continuer à le polir dans une branche thématique, donc vous créez la branche <span class='synopsis'><code>theme/wip</code></span> de la <span class='synopsis'><code>HEAD</code></span> actuelle.</p>
 </li>
 <li>
-<p>Rembobinez la branche <code>master</code> pour en éliminer ces trois commits.</p>
+<p>Rembobinez la branche <span class='synopsis'><code>master</code></span> pour en éliminer ces trois commits.</p>
 </li>
 <li>
-<p>Basculez sur la branche <code>theme/wip</code> et continuez à travailler.</p>
+<p>Basculez sur la branche <span class='synopsis'><code>theme/wip</code></span> et continuez à travailler.</p>
 </li>
 </ol>
 </div>
@@ -236,7 +253,7 @@ $ git reset --hard HEAD~3   <b class="conum">(1)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>Les trois derniers commits (<code>HEAD</code>, <code>HEAD^</code> et <code>HEAD~2</code>) étaient mauvais et vous ne plus jamais les voir. <strong>Ne faites pas</strong> ceci si vous avez déjà fourni ces commits à quelqu&#8217;un d&#8217;autre. (Voir la section « RÉPARER UN REBASAGE AMONT » dans <a href='{{< relurl "docs/git-rebase/fr" >}}'>git-rebase[1]</a> pour les implications d&#8217;une telle action.)</p>
+<p>Les trois derniers commits (<span class='synopsis'><code>HEAD</code></span>, <span class='synopsis'><code>HEAD^</code></span> et <span class='synopsis'><code>HEAD~2</code></span>) étaient mauvais et vous ne plus jamais les voir. <strong>Ne faites pas</strong> ceci si vous avez déjà fourni ces commits à quelqu&#8217;un d&#8217;autre. (Voir la section « RÉPARER UN REBASAGE AMONT » dans <a href='{{< relurl "docs/git-rebase/fr" >}}'>git-rebase[1]</a> pour les implications d&#8217;une telle action.)</p>
 </li>
 </ol>
 </div>
@@ -262,13 +279,13 @@ $ git reset --hard ORIG_HEAD       <b class="conum">(4)</b></pre>
 <p>L&#8217;essai de mettre à jour depuis l&#8217;amont a apporté beaucoup de conflits ; vous n&#8217;êtes pas prêt à passer beaucoup de temps à les fusionner maintenant, donc vous décidez de le faire plus tard.</p>
 </li>
 <li>
-<p>"pull" n&#8217;a pas créé de commit de fusion, donc <code>git reset --hard</code> qui est synonyme de <code>git reset --hard HEAD</code> nettoie le bazar dans l&#8217;index et l&#8217;arbre de travail.</p>
+<p>"pull" n&#8217;a pas créé de commit de fusion, donc <span class='synopsis'><code>git</code> <code>reset</code> <code>--hard</code></span> qui est synonyme de <span class='synopsis'><code>git</code> <code>reset</code> <code>--hard</code> <code>HEAD</code></span> nettoie le bazar dans l&#8217;index et l&#8217;arbre de travail.</p>
 </li>
 <li>
 <p>Fusionne une branche thématique dans la branche actuelle, qui a résulté en une avance rapide.</p>
 </li>
 <li>
-<p>Mais vous avez décidé que la branche thématique n&#8217;est pas encore prête pour la publication. "pull" et "merge" laissent toujours le sommet originel de la branche actuelle dans <code>ORIG_HEAD</code>, donc la réinitialisation dure sur elle remet votre fichier d&#8217;index et l&#8217;arbre de travail à cet état et réinitialise le sommet de la branche à ce commit.</p>
+<p>Mais vous avez décidé que la branche thématique n&#8217;est pas encore prête pour la publication. "pull" et "merge" laissent toujours le sommet originel de la branche actuelle dans <span class='synopsis'><code>ORIG_HEAD</code></span>, donc la réinitialisation dure sur elle remet votre fichier d&#8217;index et l&#8217;arbre de travail à cet état et réinitialise le sommet de la branche à ce commit.</p>
 </li>
 </ol>
 </div>
@@ -288,10 +305,10 @@ $ git reset --merge ORIG_HEAD      <b class="conum">(2)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>Même si vous pouviez avoir des modifications locales dans votre arbre de travail, vous pouvez lancer <code>git pull</code> en toute sécurité quand vous savez que les modifications dans l&#8217;autre branche n&#8217;entrent pas en conflit avec elles.</p>
+<p>Même si vous pouviez avoir des modifications locales dans votre arbre de travail, vous pouvez lancer <span class='synopsis'><code>git</code> <code>pull</code></span> en toute sécurité quand vous savez que les modifications dans l&#8217;autre branche n&#8217;entrent pas en conflit avec elles.</p>
 </li>
 <li>
-<p>Après inspection du résultat de la fusion, vous pouvez trouver que cette modification dans l&#8217;autre branche n&#8217;est pas satisfaisante. Lancer <code>git reset --hard ORIG_HEAD</code> vous ramènera à l&#8217;état antérieur, mais cela éliminera aussi vos modifications locales, ce que vous ne désirez pas. <code>git reset --merge</code> conserve vos modifications locales.</p>
+<p>Après inspection du résultat de la fusion, vous pouvez trouver que cette modification dans l&#8217;autre branche n&#8217;est pas satisfaisante. Lancer <span class='synopsis'><code>git</code> <code>reset</code> <code>--hard</code> <code>ORIG_HEAD</code></span> vous ramènera à l&#8217;état antérieur, mais cela éliminera aussi vos modifications locales, ce que vous ne désirez pas. <span class='synopsis'><code>git</code> <code>reset</code> <code>--merge</code></span> conserve vos modifications locales.</p>
 </li>
 </ol>
 </div>
@@ -376,13 +393,13 @@ $ git reset --keep debut                    <b class="conum">(3)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>Ceci valide vos premières éditions dans <code>branche1</code>.</p>
+<p>Ceci valide vos premières éditions dans <span class='synopsis'><code>branche1</code></span>.</p>
 </li>
 <li>
-<p>Dans un monde idéal, vous pourriez avoir réalisé que le commit précédent n&#8217;appartenait pas au nouveau sujet quand vous avez créé et avez basculé sur <code>branche2</code> (c-à-d <code>git switch -c branche2 debut</code>), mais personne n&#8217;est parfait.</p>
+<p>Dans un monde idéal, vous pourriez avoir réalisé que le commit précédent n&#8217;appartenait pas au nouveau sujet quand vous avez créé et avez basculé sur <span class='synopsis'><code>branche2</code></span> (c-à-d <span class='synopsis'><code>git</code> <code>switch</code> <code>-c</code> <code>branche2</code> <code>debut</code></span>), mais personne n&#8217;est parfait.</p>
 </li>
 <li>
-<p>Mais vous pouvez utiliser <code>reset --keep</code> pour retirer le commit non voulu après avoir basculé sur <code>branche2</code>.</p>
+<p>Mais vous pouvez utiliser <span class='synopsis'><code>reset</code> <code>--keep</code></span> pour retirer le commit non voulu après avoir basculé sur <span class='synopsis'><code>branche2</code></span>.</p>
 </li>
 </ol>
 </div>
@@ -390,7 +407,7 @@ $ git reset --keep debut                    <b class="conum">(3)</b></pre>
 <dt class="hdlist1" id="git-reset-Dcouperuncommitenunesquencedecommits"> <a class="anchor" href="#git-reset-Dcouperuncommitenunesquencedecommits"></a>Découper un commit en une séquence de commits </dt>
 <dd>
 <div class="paragraph">
-<p>Supposons que vous avez créé de nombreuses modifications logiquement atomiques et les avez toutes validées ensemble. Plus tard, vous décidez qu&#8217;il serait mieux d&#8217;avoir chaque section logique associée à son propre commit. Vous pouvez utiliser git reset pour rembobiner l&#8217;historique sans changer le contenu de vos fichiers locaux, puis successivement utiliser <code>git add -p</code> pour sélectionner interactivement quelles sections inclure dans chaque validation, en utilisant <code>git commit -c</code> pour pré-charger le message de validation.</p>
+<p>Supposons que vous avez créé de nombreuses modifications logiquement atomiques et les avez toutes validées ensemble. Plus tard, vous décidez qu&#8217;il serait mieux d&#8217;avoir chaque section logique associée à son propre commit. Vous pouvez utiliser git reset pour rembobiner l&#8217;historique sans changer le contenu de vos fichiers locaux, puis successivement utiliser <span class='synopsis'><code>git</code> <code>add</code> <code>-p</code></span> pour sélectionner interactivement quelles sections inclure dans chaque validation, en utilisant <span class='synopsis'><code>git</code> <code>commit</code> <code>-c</code></span> pour pré-charger le message de validation.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -407,22 +424,22 @@ $ git commit ...                            <b class="conum">(8)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>Réinitialise d&#8217;abord l&#8217;historique en arrière d&#8217;un commit de manière à retirer le commit original, mais laisse l&#8217;arbre de travail avec toutes ses modifications. Le drapeau <code>-N</code> garantit que tous les nouveaux fichiers ajoutés avec <code>HEAD</code> sont toujours marqués de telle manière que <code>git add -p</code> les trouve.</p>
+<p>Réinitialise d&#8217;abord l&#8217;historique en arrière d&#8217;un commit de manière à retirer le commit original, mais laisse l&#8217;arbre de travail avec toutes ses modifications. Le drapeau <span class='synopsis'><code>-N</code></span> garantit que tous les nouveaux fichiers ajoutés avec <span class='synopsis'><code>HEAD</code></span> sont toujours marqués de telle manière que <span class='synopsis'><code>git</code> <code>add</code> <code>-p</code></span> les trouve.</p>
 </li>
 <li>
-<p>Ensuite, on sélectionne interactivement les sections de diff à ajouter en utilisant <code>git add -p</code>. Ceci vous demandera pour chaque section de diff l&#8217;une après l&#8217;autre et vous pouvez répondre simplement « oui, à inclure », « non, ne pas inclure » ou même utiliser la fonctionnalité puissante d&#8217;édition de la section.</p>
+<p>Ensuite, on sélectionne interactivement les sections de diff à ajouter en utilisant <span class='synopsis'><code>git</code> <code>add</code> <code>-p</code></span>. Ceci vous demandera pour chaque section de diff l&#8217;une après l&#8217;autre et vous pouvez répondre simplement « oui, à inclure », « non, ne pas inclure » ou même utiliser la fonctionnalité puissante d&#8217;édition de la section.</p>
 </li>
 <li>
-<p>Une fois satisfait des sections à inclure, vous devriez vérifier ce qui a été préparé pour la première validation en utilisant <code>git diff --cached</code>. Cela montre toutes les modifications qui ont été indexées et sont sur le point d&#8217;être validées.</p>
+<p>Une fois satisfait des sections à inclure, vous devriez vérifier ce qui a été préparé pour la première validation en utilisant <span class='synopsis'><code>git</code> <code>diff</code> <code>--cached</code></span>. Cela montre toutes les modifications qui ont été indexées et sont sur le point d&#8217;être validées.</p>
 </li>
 <li>
-<p>Ensuite, valider les modifications stockées dans l&#8217;index. L&#8217;option <code>-c</code> indique de pré-remplir le message de validation avec le message original qui a servi au premier commit. C&#8217;est utile pour éviter de le retaper. Le <code>HEAD@{1}</code> est une notation spéciale pour le commit que <code>HEAD</code> a été avant le commit original réinitialisé (il y a une modification). Voir <a href='{{< relurl "docs/git-reflog/fr" >}}'>git-reflog[1]</a> pour plus de détails. Vous pouvez aussi utiliser une référence à tout autre commit valide.</p>
+<p>Ensuite, valider les modifications stockées dans l&#8217;index. L&#8217;option <span class='synopsis'><code>-c</code></span> indique de pré-remplir le message de validation avec le message original qui a servi au premier commit. C&#8217;est utile pour éviter de le retaper. Le <span class='synopsis'><code>HEAD@{1}</code></span> est une notation spéciale pour le commit que <span class='synopsis'><code>HEAD</code></span> a été avant le commit original réinitialisé (il y a une modification). Voir <a href='{{< relurl "docs/git-reflog/fr" >}}'>git-reflog[1]</a> pour plus de détails. Vous pouvez aussi utiliser une référence à tout autre commit valide.</p>
 </li>
 <li>
 <p>Vous pouvez répéter les étapes 2 à 4 plusieurs fois pour scinder le code original en un certain nombre de commits.</p>
 </li>
 <li>
-<p>Maintenant, vous avez séparé beaucoup des modifications dans leurs propres commits, et pourriez ne plus utiliser le mode patch du <code>git add</code> pour sélectionner toutes les modifications non validées restantes.</p>
+<p>Maintenant, vous avez séparé beaucoup des modifications dans leurs propres commits, et pourriez ne plus utiliser le mode patch du <span class='synopsis'><code>git</code> <code>add</code></span> pour sélectionner toutes les modifications non validées restantes.</p>
 </li>
 <li>
 <p>Une fois de plus, vérifiez que vous avez inclus ce que vous souhaitez. Vous souhaitez peut-être vérifier que git diff ne montre aucune modification restante à valider plus tard.</p>
@@ -449,10 +466,10 @@ $ git commit ...                            <b class="conum">(8)</b></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>pour réinitialiser <code>HEAD</code> à un autre commit (<code>cible</code>) avec des options de réinitialisation en fonction de l&#8217;état des fichiers.</p>
+<p>pour réinitialiser <span class='synopsis'><code>HEAD</code></span> à un autre commit (<span class='synopsis'><code>cible</code></span>) avec des options de réinitialisation en fonction de l&#8217;état des fichiers.</p>
 </div>
 <div class="paragraph">
-<p>Dans ces tableaux, <code>A</code>, <code>B</code>, <code>C</code> et <code>D</code> sont différents états d&#8217;un fichier. Par exemple, la première ligne du premier tableau signifie que si un fichier est dans l&#8217;état <code>A</code> dans l&#8217;arbre de travail, dans l&#8217;état <code>B</code> dans l&#8217;index, dans l&#8217;état <code>C</code> dans <code>HEAD</code> et dans l&#8217;état <code>D</code> dans la cible, alors <code>git reset --soft cible</code> laissera le fichier dans l&#8217;arbre de travail dans l&#8217;état <code>A</code> et dans l&#8217;index dans l&#8217;état <code>B</code>. Il réinitialise (c-à-d déplace) la <code>HEAD</code> (en d&#8217;autres termes le sommet de la branche actuelle, si vous êtes dessus) à <code>cible</code> (qui a le fichier dans l&#8217;état <code>D</code>).</p>
+<p>Dans ces tableaux, <span class='synopsis'><code>A</code></span>, <span class='synopsis'><code>B</code></span>, <span class='synopsis'><code>C</code></span> et <span class='synopsis'><code>D</code></span> sont différents états d&#8217;un fichier. Par exemple, la première ligne du premier tableau signifie que si un fichier est dans l&#8217;état <span class='synopsis'><code>A</code></span> dans l&#8217;arbre de travail, dans l&#8217;état <span class='synopsis'><code>B</code></span> dans l&#8217;index, dans l&#8217;état <span class='synopsis'><code>C</code></span> dans <span class='synopsis'><code>HEAD</code></span> et dans l&#8217;état <span class='synopsis'><code>D</code></span> dans la cible, alors <span class='synopsis'><code>git</code> <code>reset</code> <code>--soft</code> <code>cible</code></span> laissera le fichier dans l&#8217;arbre de travail dans l&#8217;état <span class='synopsis'><code>A</code></span> et dans l&#8217;index dans l&#8217;état <span class='synopsis'><code>B</code></span>. Il réinitialise (c-à-d déplace) la <span class='synopsis'><code>HEAD</code></span> (en d&#8217;autres termes le sommet de la branche actuelle, si vous êtes dessus) à <span class='synopsis'><code>cible</code></span> (qui a le fichier dans l&#8217;état <span class='synopsis'><code>D</code></span>).</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -521,10 +538,10 @@ $ git commit ...                            <b class="conum">(8)</b></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><code>git reset --merge</code> est fait pour être utilisé lors de la réinitialisation d&#8217;une fusion conflictuelle. Toute opération de type fusion garantit que le fichier de l&#8217;arbre de travail qui est impliqué dans une fusion ne subit pas de modification locale par rapport à l&#8217;index avant son démarrage, et qu&#8217;elle écrit le résultat dans l&#8217;arbre de travail. Donc si nous voyons des différences entre l&#8217;index et la cible et aussi entre l&#8217;index et l&#8217;arbre de travail, alors cela signifie que nous ne réinitialisons pas depuis un état qu&#8217;une opération de type fusion a laissé après un échec de conflit. C&#8217;est pourquoi l&#8217;option <code>--merge</code> est interdite dans ce cas.</p>
+<p><span class='synopsis'><code>git</code> <code>reset</code> <code>--merge</code></span> est fait pour être utilisé lors de la réinitialisation d&#8217;une fusion conflictuelle. Toute opération de type fusion garantit que le fichier de l&#8217;arbre de travail qui est impliqué dans une fusion ne subit pas de modification locale par rapport à l&#8217;index avant son démarrage, et qu&#8217;elle écrit le résultat dans l&#8217;arbre de travail. Donc si nous voyons des différences entre l&#8217;index et la cible et aussi entre l&#8217;index et l&#8217;arbre de travail, alors cela signifie que nous ne réinitialisons pas depuis un état qu&#8217;une opération de type fusion a laissé après un échec de conflit. C&#8217;est pourquoi l&#8217;option <span class='synopsis'><code>--merge</code></span> est interdite dans ce cas.</p>
 </div>
 <div class="paragraph">
-<p><code>git reset --keep</code> est fait pour être utilisé lors de la suppression d&#8217;un certain nombre des derniers commits dans la branche actuelle tout en conservant les modifications dans l&#8217;arbre de travail. S&#8217;il pouvait y avoir conflit entre les modifications dans le commit que nous souhaitons retirer et les modifications dans l&#8217;arbre de travail que nous souhaitons conserver, la réinitialisation est interdite. C&#8217;est pourquoi il est interdit s&#8217;il y a des modifications à la fois dans l&#8217;arbre de travail et dans <code>HEAD</code>, et entre <code>HEAD</code> et la cible. Pour plus de sécurité, c&#8217;est aussi interdit quand des entrées sont non fusionnées.</p>
+<p><span class='synopsis'><code>git</code> <code>reset</code> <code>--keep</code></span> est fait pour être utilisé lors de la suppression d&#8217;un certain nombre des derniers commits dans la branche actuelle tout en conservant les modifications dans l&#8217;arbre de travail. S&#8217;il pouvait y avoir conflit entre les modifications dans le commit que nous souhaitons retirer et les modifications dans l&#8217;arbre de travail que nous souhaitons conserver, la réinitialisation est interdite. C&#8217;est pourquoi il est interdit s&#8217;il y a des modifications à la fois dans l&#8217;arbre de travail et dans <span class='synopsis'><code>HEAD</code></span>, et entre <span class='synopsis'><code>HEAD</code></span> et la cible. Pour plus de sécurité, c&#8217;est aussi interdit quand des entrées sont non fusionnées.</p>
 </div>
 <div class="paragraph">
 <p>Le tableau suivant montre ce qui arrive quand il y a des entrées non fusionnées :</p>
@@ -552,7 +569,7 @@ $ git commit ...                            <b class="conum">(8)</b></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><code>X</code> signifie n&#8217;importe quel état et <code>U</code> signifie un index non fusionné.</p>
+<p><span class='synopsis'><code>X</code></span> signifie n&#8217;importe quel état et <span class='synopsis'><code>U</code></span> signifie un index non fusionné.</p>
 </div>
 </div>
 </div>

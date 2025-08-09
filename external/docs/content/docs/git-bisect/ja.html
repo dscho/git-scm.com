@@ -9,6 +9,21 @@ docname: git-bisect
 lang: ja
 aliases:
 - "/docs/git-bisect/ja/index.html"
+headings:
+- text: NAME
+  id: _name
+- text: 概要
+  id: _概要
+- text: 説明
+  id: _説明
+- text: オプション
+  id: _オプション
+- text: 例
+  id: _例
+- text: 関連項目
+  id: _関連項目
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
@@ -49,15 +64,15 @@ git bisect help</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>このコマンドはバイナリサーチ（2分探索）アルゴリズムを使って、プロジェクト履歴のどのコミットでバグが導入されたかを特定します。まず、バグが含まれていることが分かっている「bad」なコミットと、バグがまだ存在しないことが分かっている「good」なコミットを指定します。すると <code>git bisect</code> はその2点の間のコミットを選び、そのコミットが「good」か「bad」かを尋ねてきます。この範囲を絞り込む操作を繰り返し、最終的にバグを導入した正確なコミットを特定します。</p>
+<p>このコマンドはバイナリサーチ（2分探索）アルゴリズムを使って、プロジェクト履歴のどのコミットでバグが導入されたかを特定します。まず、バグが含まれていることが分かっている「bad」なコミットと、バグがまだ存在しないことが分かっている「good」なコミットを指定します。すると <span class='synopsis'><code>git</code> <code>bisect</code></span> はその2点の間のコミットを選び、そのコミットが「good」か「bad」かを尋ねてきます。この範囲を絞り込む操作を繰り返し、最終的にバグを導入した正確なコミットを特定します。</p>
 </div>
 <div class="paragraph">
-<p>実際には、<code>git bisect</code> はプロジェクトの <strong>任意の</strong> 性質が変化したコミットを特定するためにも使えます。たとえば、バグを修正したコミットや、ベンチマークの性能が向上したコミットなどです。このような一般的な用途に対応するため、「good」「bad」の代わりに「old」「new」などの用語を使ったり、独自の用語を指定することもできます。詳細は後述の「用語のカスタマイズ」セクションを参照してください。</p>
+<p>実際には、<span class='synopsis'><code>git</code> <code>bisect</code></span> はプロジェクトの <strong>任意の</strong> 性質が変化したコミットを特定するためにも使えます。たとえば、バグを修正したコミットや、ベンチマークの性能が向上したコミットなどです。このような一般的な用途に対応するため、「good」「bad」の代わりに「old」「new」などの用語を使ったり、独自の用語を指定することもできます。詳細は後述の「用語のカスタマイズ」セクションを参照してください。</p>
 </div>
 <div class="sect2">
 <h3 id="_基本的なバイセクトコマンド_start_bad_good"><a class="anchor" href="#_基本的なバイセクトコマンド_start_bad_good"></a>基本的なバイセクトコマンド: start, bad, good</h3>
 <div class="paragraph">
-<p>例として、バージョン <code>v2.6.13-rc2</code> で正常に動作していた機能が、どのコミットで壊れたかを調べたいとします。バイセクトセッションは次のように開始します:</p>
+<p>例として、バージョン <span class='synopsis'><code>v2.6.13-rc2</code></span> で正常に動作していた機能が、どのコミットで壊れたかを調べたいとします。バイセクトセッションは次のように開始します:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -67,7 +82,7 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 は正常であることが分か
 </div>
 </div>
 <div class="paragraph">
-<p>bad と good のコミットをそれぞれ1つ以上指定すると、<code>git bisect</code> はその範囲の中間にあるコミットを選択してチェックアウトし、次のようなメッセージを出力します:</p>
+<p>bad と good のコミットをそれぞれ1つ以上指定すると、<span class='synopsis'><code>git</code> <code>bisect</code></span> はその範囲の中間にあるコミットを選択してチェックアウトし、次のようなメッセージを出力します:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -91,7 +106,7 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 は正常であることが分か
 </div>
 </div>
 <div class="paragraph">
-<p>すると <code>git bisect</code> は次のようなメッセージを表示します</p>
+<p>すると <span class='synopsis'><code>git</code> <code>bisect</code></span> は次のようなメッセージを表示します</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -99,10 +114,10 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 は正常であることが分か
 </div>
 </div>
 <div class="paragraph">
-<p>この手順を繰り返します。ツリーをビルドしてテストし、正常なら <code>git bisect good</code>、不具合があれば <code>git bisect bad</code> を実行して、次にテストすべきコミットを指定します。</p>
+<p>この手順を繰り返します。ツリーをビルドしてテストし、正常なら <span class='synopsis'><code>git</code> <code>bisect</code> <code>good</code></span>、不具合があれば <span class='synopsis'><code>git</code> <code>bisect</code> <code>bad</code></span> を実行して、次にテストすべきコミットを指定します。</p>
 </div>
 <div class="paragraph">
-<p>最終的に調査すべきリビジョンがなくなると、コマンドは最初に不具合が導入されたコミットの説明を表示します。このとき <code>refs/bisect/bad</code> 参照がそのコミットを指すようになります。</p>
+<p>最終的に調査すべきリビジョンがなくなると、コマンドは最初に不具合が導入されたコミットの説明を表示します。このとき <span class='synopsis'><code>refs/bisect/bad</code></span> 参照がそのコミットを指すようになります。</p>
 </div>
 </div>
 <div class="sect2">
@@ -116,7 +131,7 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 は正常であることが分か
 </div>
 </div>
 <div class="paragraph">
-<p>デフォルトでは、これにより <code>git bisect start</code> を実行する前にチェックアウトされていたコミットにツリーが戻ります。（新しく <code>git bisect start</code> を実行した場合も同様に、古い bisection 状態をクリーンアップします。）</p>
+<p>デフォルトでは、これにより <span class='synopsis'><code>git</code> <code>bisect</code> <code>start</code></span> を実行する前にチェックアウトされていたコミットにツリーが戻ります。（新しく <span class='synopsis'><code>git</code> <code>bisect</code> <code>start</code></span> を実行した場合も同様に、古い bisection 状態をクリーンアップします。）</p>
 </div>
 <div class="paragraph">
 <p>オプションの引数を指定すると、代わりに別のコミットに戻ることができます：</p>
@@ -127,7 +142,7 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 は正常であることが分か
 </div>
 </div>
 <div class="paragraph">
-<p>例えば、<code>git bisect reset bisect/bad</code> は最初のバッドリビジョンをチェックアウトし、<code>git bisect reset HEAD</code> は現在のバイセクションコミットに留まり、全くコミットを切り替えないことになります。</p>
+<p>例えば、<span class='synopsis'><code>git</code> <code>bisect</code> <code>reset</code> <code>bisect/bad</code></span> は最初のバッドリビジョンをチェックアウトし、<span class='synopsis'><code>git</code> <code>bisect</code> <code>reset</code> <code>HEAD</code></span> は現在のバイセクションコミットに留まり、全くコミットを切り替えないことになります。</p>
 </div>
 </div>
 <div class="sect2">
@@ -139,10 +154,10 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 は正常であることが分か
 <p>このような場合、「変更前の状態」と「変更後の状態」を指すのに「good」と「bad」という用語を使うと非常に紛らわしくなることがあります。そこで代わりに、「good」と「bad」の代わりにそれぞれ「old」と「new」という用語を使用できます（ただし、一つのセッション内で「good」と「bad」を「old」と「new」と混在させることはできないことに注意してください。）</p>
 </div>
 <div class="paragraph">
-<p>この、より一般的な使用方法では、ある特性を持つ「new」コミットと、その特性を持たない「old」コミットを <code>git bisect</code> に提供します。<code>git bisect</code> がコミットをチェックアウトするたびに、そのコミットがその特性を持っているかどうかをテストします。持っている場合は、そのコミットを「new」とマークし、そうでない場合は「old」とマークします。bisection が完了すると、<code>git bisect</code> はどのコミットがその特性を導入したかを報告します。</p>
+<p>この、より一般的な使用方法では、ある特性を持つ「new」コミットと、その特性を持たない「old」コミットを <span class='synopsis'><code>git</code> <code>bisect</code></span> に提供します。<span class='synopsis'><code>git</code> <code>bisect</code></span> がコミットをチェックアウトするたびに、そのコミットがその特性を持っているかどうかをテストします。持っている場合は、そのコミットを「new」とマークし、そうでない場合は「old」とマークします。bisection が完了すると、<span class='synopsis'><code>git</code> <code>bisect</code></span> はどのコミットがその特性を導入したかを報告します。</p>
 </div>
 <div class="paragraph">
-<p>「good」と「bad」の代わりに「old」と「new」を使用するには、引数としてコミットを指定せずに <code>git bisect start</code> を実行し、その後、コミットを追加するために次のコマンドを実行する必要があります：</p>
+<p>「good」と「bad」の代わりに「old」と「new」を使用するには、引数としてコミットを指定せずに <span class='synopsis'><code>git</code> <code>bisect</code> <code>start</code></span> を実行し、その後、コミットを追加するために次のコマンドを実行する必要があります：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -169,10 +184,10 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 は正常であることが分か
 </div>
 </div>
 <div class="paragraph">
-<p>古い状態を表す用語だけを確認するには <code>git bisect terms --term-old</code> または <code>git bisect terms --term-good</code> を使用します。<code>git bisect terms --term-new</code> と <code>git bisect terms --term-bad</code> は、探している変更よりも新しいコミットをどう呼ぶかを確認するために使用できます。</p>
+<p>古い状態を表す用語だけを確認するには <span class='synopsis'><code>git</code> <code>bisect</code> <code>terms</code> <code>--term-old</code></span> または <span class='synopsis'><code>git</code> <code>bisect</code> <code>terms</code> <code>--term-good</code></span> を使用します。<span class='synopsis'><code>git</code> <code>bisect</code> <code>terms</code> <code>--term-new</code></span> と <span class='synopsis'><code>git</code> <code>bisect</code> <code>terms</code> <code>--term-bad</code></span> は、探している変更よりも新しいコミットをどう呼ぶかを確認するために使用できます。</p>
 </div>
 <div class="paragraph">
-<p>「bad」/「good」または「new」/「old」の代わりに独自の用語を使用したい場合は、次のように bisection を開始することで、任意の名前を選択できます（ただし、<code>reset</code>、<code>start</code> などの既存の bisect サブコマンドは除きます）</p>
+<p>「bad」/「good」または「new」/「old」の代わりに独自の用語を使用したい場合は、次のように bisection を開始することで、任意の名前を選択できます（ただし、<span class='synopsis'><code>reset</code></span>、<span class='synopsis'><code>start</code></span> などの既存の bisect サブコマンドは除きます）</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -196,13 +211,13 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 は正常であることが分か
 </div>
 </div>
 <div class="paragraph">
-<p>そして、コミットをマークするには <code>git bisect good</code> と <code>git bisect bad</code> の代わりに <code>git bisect &lt;古い状態の用語&gt;</code> と <code>git bisect &lt;新しい状態の用語&gt;</code> を使用します。</p>
+<p>そして、コミットをマークするには <span class='synopsis'><code>git</code> <code>bisect</code> <code>good</code></span> と <span class='synopsis'><code>git</code> <code>bisect</code> <code>bad</code></span> の代わりに <span class='synopsis'><code>git</code> <code>bisect</code> <em>&lt;古い状態の用語&gt;</em></span> と <span class='synopsis'><code>git</code> <code>bisect</code> <em>&lt;新しい状態の用語&gt;</em></span> を使用します。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_bisect_の可視化表示"><a class="anchor" href="#_bisect_の可視化表示"></a>Bisect の可視化/表示</h3>
 <div class="paragraph">
-<p>bisection プロセス中に、現在残っている候補を <em>gitk</em> で確認するには、次のコマンドを実行します（サブコマンド <code>view</code> を <code>visualize</code> の代わりに使用することもできます）：</p>
+<p>bisection プロセス中に、現在残っている候補を <em>gitk</em> で確認するには、次のコマンドを実行します（サブコマンド <span class='synopsis'><code>view</code></span> を <span class='synopsis'><code>visualize</code></span> の代わりに使用することもできます）：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -210,10 +225,10 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 は正常であることが分か
 </div>
 </div>
 <div class="paragraph">
-<p>Git はさまざまな環境変数を通じてグラフィカル環境を検出します：Unix システムの X Window System 環境で設定される <code>DISPLAY</code>、Cygwin の対話的デスクトップセッションで設定される <code>SESSIONNAME</code>、Msys2 および Git for Windows で設定される <code>MSYSTEM</code>、macOS の対話的デスクトップセッションで設定される可能性がある <code>SECURITYSESSIONID</code> などです。</p>
+<p>Git はさまざまな環境変数を通じてグラフィカル環境を検出します：Unix システムの X Window System 環境で設定される <span class='synopsis'><code>DISPLAY</code></span>、Cygwin の対話的デスクトップセッションで設定される <span class='synopsis'><code>SESSIONNAME</code></span>、Msys2 および Git for Windows で設定される <span class='synopsis'><code>MSYSTEM</code></span>、macOS の対話的デスクトップセッションで設定される可能性がある <span class='synopsis'><code>SECURITYSESSIONID</code></span> などです。</p>
 </div>
 <div class="paragraph">
-<p>これらの環境変数が一つも設定されていない場合は、代わりに <em>git log</em> が使用されます。また、<code>-p</code> や <code>--stat</code> などのコマンドラインオプションを指定することもできます。</p>
+<p>これらの環境変数が一つも設定されていない場合は、代わりに <em>git log</em> が使用されます。また、<span class='synopsis'><code>-p</code></span> や <span class='synopsis'><code>--stat</code></span> などのコマンドラインオプションを指定することもできます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -284,7 +299,7 @@ $ git reset --hard HEAD~3		# 提案された内容の3つ前の
 </div>
 </div>
 <div class="paragraph">
-<p>これは bisect プロセスに対して、<code>v2.5</code> より後のコミットから <code>v2.6</code> までを含むすべてのコミットをテストしないよう指示します。</p>
+<p>これは bisect プロセスに対して、<span class='synopsis'><code>v2.5</code></span> より後のコミットから <span class='synopsis'><code>v2.6</code></span> までを含むすべてのコミットをテストしないよう指示します。</p>
 </div>
 <div class="paragraph">
 <p>範囲の最初のコミットもスキップしたい場合は、次のコマンドを実行します：</p>
@@ -295,13 +310,13 @@ $ git reset --hard HEAD~3		# 提案された内容の3つ前の
 </div>
 </div>
 <div class="paragraph">
-<p>これは bisect プロセスに対して、<code>v2.5</code> から <code>v2.6</code> までのコミット（両端を含む）をスキップするよう指示します。</p>
+<p>これは bisect プロセスに対して、<span class='synopsis'><code>v2.5</code></span> から <span class='synopsis'><code>v2.6</code></span> までのコミット（両端を含む）をスキップするよう指示します。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_bisect_start_に追加パラメータを与えて_bisect_の範囲を狭める"><a class="anchor" href="#_bisect_start_に追加パラメータを与えて_bisect_の範囲を狭める"></a>bisect start に追加パラメータを与えて bisect の範囲を狭める</h3>
 <div class="paragraph">
-<p>問題に関係するツリーの部分が分かっている場合は、<code>bisect start</code> コマンドを実行する際に pathspec パラメータを指定することで、試行回数をさらに減らすことができます：</p>
+<p>問題に関係するツリーの部分が分かっている場合は、<span class='synopsis'><code>bisect</code> <code>start</code></span> コマンドを実行する際に pathspec パラメータを指定することで、試行回数をさらに減らすことができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -309,7 +324,7 @@ $ git reset --hard HEAD~3		# 提案された内容の3つ前の
 </div>
 </div>
 <div class="paragraph">
-<p>あらかじめ複数の正常なコミットが分かっている場合は、<code>bisect start</code> コマンドを実行する際に、異常なコミットの直後にすべての正常なコミットを指定することで、bisect の探索範囲を狭めることができます：</p>
+<p>あらかじめ複数の正常なコミットが分かっている場合は、<span class='synopsis'><code>bisect</code> <code>start</code></span> コマンドを実行する際に、異常なコミットの直後にすべての正常なコミットを指定することで、bisect の探索範囲を狭めることができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -330,19 +345,19 @@ $ git reset --hard HEAD~3		# 提案された内容の3つ前の
 </div>
 </div>
 <div class="paragraph">
-<p>スクリプト（上記の例では <code>my_script</code>）は、現在のソースコードが good/old の場合はコード 0 で終了し、現在のソースコードが bad/new の場合は 125 を除く 1〜127（両端を含む）の間のコードで終了する必要があることに注意してください。</p>
+<p>スクリプト（上記の例では <span class='synopsis'><code>my_script</code></span>）は、現在のソースコードが good/old の場合はコード 0 で終了し、現在のソースコードが bad/new の場合は 125 を除く 1〜127（両端を含む）の間のコードで終了する必要があることに注意してください。</p>
 </div>
 <div class="paragraph">
-<p>他の終了コードは bisect プロセスを中断します。<code>exit(-1)</code> で終了するプログラムは $? = 255 となることに注意してください（exit(3) マニュアルページを参照）。これは値が <code>&amp; 0377</code> で切り詰められるためです。</p>
+<p>他の終了コードは bisect プロセスを中断します。<span class='synopsis'><code>exit</code>(<code>-1</code>)</span> で終了するプログラムは $? = 255 となることに注意してください（exit(3) マニュアルページを参照）。これは値が <span class='synopsis'><em>&amp; 0377</em></span> で切り詰められるためです。</p>
 </div>
 <div class="paragraph">
-<p>現在のソースコードがテストできない場合は、特別な終了コード 125 を使用します。スクリプトがこのコードで終了すると、現在のリビジョンはスキップされます（上記の <code>git bisect skip</code> を参照）。125 がこの目的で使用する最も高い妥当な値として選ばれたのは、126 と 127 が POSIX シェルで特定のエラー状態を示すために使用されているためです（127 はコマンドが見つからない場合、126 はコマンドは見つかったが実行可能でない場合に使用されます&#8201;&#8212;&#8201;<code>bisect run</code> に関する限り、これらの詳細は重要ではなく、スクリプト内の通常のエラーとして扱われます）。</p>
+<p>現在のソースコードがテストできない場合は、特別な終了コード 125 を使用します。スクリプトがこのコードで終了すると、現在のリビジョンはスキップされます（上記の <span class='synopsis'><code>git</code> <code>bisect</code> <code>skip</code></span> を参照）。125 がこの目的で使用する最も高い妥当な値として選ばれたのは、126 と 127 が POSIX シェルで特定のエラー状態を示すために使用されているためです（127 はコマンドが見つからない場合、126 はコマンドは見つかったが実行可能でない場合に使用されます&#8201;&#8212;&#8201;<span class='synopsis'><code>bisect</code> <code>run</code></span> に関する限り、これらの詳細は重要ではなく、スクリプト内の通常のエラーとして扱われます）。</p>
 </div>
 <div class="paragraph">
 <p>bisect セッション中に、テスト対象のリビジョンに一時的な修正を適用したい場合があるでしょう（例えば、ヘッダファイル内の「s/#define DEBUG 0/#define DEBUG 1/」や、「このコミットを持たないリビジョンでは、この bisect が対象としていない別の問題を回避するためにこのパッチを適用する必要がある」など）。</p>
 </div>
 <div class="paragraph">
-<p>こうした状況に対応するために、内部の <em>git bisect</em> が次にテストするリビジョンを見つけた後、スクリプトはコンパイル前にパッチを適用し、実際のテストを実行し、その後リビジョン（必要なパッチを適用した状態）がテストに合格したかどうかを判断して、ツリーを元の状態に戻すことができます。最終的に、スクリプトは実際のテストのステータスで終了し、<code>git bisect run</code> コマンドのループが bisect セッションの最終的な結果を判断できるようにします。</p>
+<p>こうした状況に対応するために、内部の <em>git bisect</em> が次にテストするリビジョンを見つけた後、スクリプトはコンパイル前にパッチを適用し、実際のテストを実行し、その後リビジョン（必要なパッチを適用した状態）がテストに合格したかどうかを判断して、ツリーを元の状態に戻すことができます。最終的に、スクリプトは実際のテストのステータスで終了し、<span class='synopsis'><code>git</code> <code>bisect</code> <code>run</code></span> コマンドのループが bisect セッションの最終的な結果を判断できるようにします。</p>
 </div>
 </div>
 </div>
@@ -355,13 +370,13 @@ $ git reset --hard HEAD~3		# 提案された内容の3つ前の
 <dt class="hdlist1" id="git-bisect---no-checkout"> <a class="anchor" href="#git-bisect---no-checkout"></a>--no-checkout </dt>
 <dd>
 <div class="paragraph">
-<p>バイセクション処理の各反復で新しい作業ツリーをチェックアウトしません。代わりに、<code>BISECT_HEAD</code> という名前の参照を更新し、テスト対象のコミットを指すようにします。</p>
+<p>バイセクション処理の各反復で新しい作業ツリーをチェックアウトしません。代わりに、<span class='synopsis'><code>BISECT_HEAD</code></span> という名前の参照を更新し、テスト対象のコミットを指すようにします。</p>
 </div>
 <div class="paragraph">
 <p>各ステップで実行するテストが作業ツリーのチェックアウトを必要としない場合、このオプションが役立ちます。</p>
 </div>
 <div class="paragraph">
-<p>リポジトリがベアリポジトリの場合は、<code>--no-checkout</code> が自動的に有効になります。</p>
+<p>リポジトリがベアリポジトリの場合は、<span class='synopsis'><code>--no-checkout</code></span> が自動的に有効になります。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-bisect---first-parent"> <a class="anchor" href="#git-bisect---first-parent"></a>--first-parent </dt>
@@ -419,10 +434,10 @@ $ git bisect reset                   # バイセクトセッションを終了</
 </div>
 </div>
 <div class="paragraph">
-<p>ここでは <code>test.sh</code> というカスタムスクリプトを使っています。このスクリプトでは、<code>make</code> が失敗した場合はそのコミットをスキップします。<code>check_test_case.sh</code> はテストケースが通れば <code>exit 0</code>、失敗すれば <code>exit 1</code> を返すようにしてください。</p>
+<p>ここでは <span class='synopsis'><code>test.sh</code></span> というカスタムスクリプトを使っています。このスクリプトでは、<span class='synopsis'><code>make</code></span> が失敗した場合はそのコミットをスキップします。<span class='synopsis'><code>check_test_case.sh</code></span> はテストケースが通れば <span class='synopsis'><code>exit</code> <code>0</code></span>、失敗すれば <span class='synopsis'><code>exit</code> <code>1</code></span> を返すようにしてください。</p>
 </div>
 <div class="paragraph">
-<p>バイセクトや make、テスト処理とスクリプトの間で予期しない干渉を防ぐため、<code>test.sh</code> と <code>check_test_case.sh</code> の両方をリポジトリの外に置くほうが安全です。</p>
+<p>バイセクトや make、テスト処理とスクリプトの間で予期しない干渉を防ぐため、<span class='synopsis'><code>test.sh</code></span> と <span class='synopsis'><code>check_test_case.sh</code></span> の両方をリポジトリの外に置くほうが安全です。</p>
 </div>
 </li>
 <li>
@@ -453,7 +468,7 @@ exit $status</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>これは各テスト実行前にホットフィックスブランチの修正を適用します。たとえば、ビルドやテスト環境が変わり、古いリビジョンには修正が必要だが新しいリビジョンには不要な場合などに使います。（ホットフィックスブランチはバイセクト対象のすべてのリビジョンに含まれるコミットから分岐していることを確認し、マージで余計な変更が入らないようにするか、<code>git merge</code> の代わりに <code>git cherry-pick</code> を使ってください。）</p>
+<p>これは各テスト実行前にホットフィックスブランチの修正を適用します。たとえば、ビルドやテスト環境が変わり、古いリビジョンには修正が必要だが新しいリビジョンには不要な場合などに使います。（ホットフィックスブランチはバイセクト対象のすべてのリビジョンに含まれるコミットから分岐していることを確認し、マージで余計な変更が入らないようにするか、<span class='synopsis'><code>git</code> <code>merge</code></span> の代わりに <span class='synopsis'><code>git</code> <code>cherry-pick</code></span> を使ってください。）</p>
 </div>
 </li>
 <li>
@@ -514,7 +529,7 @@ $ git bisect broken HEAD~10</pre>
 <div class="sect2">
 <h3 id="_ヘルプの参照"><a class="anchor" href="#_ヘルプの参照"></a>ヘルプの参照</h3>
 <div class="paragraph">
-<p><code>git bisect</code> を実行すると簡単な使い方が表示されます。詳細な説明は <code>git bisect help</code> または <code>git bisect -h</code> を参照してください。</p>
+<p><span class='synopsis'><code>git</code> <code>bisect</code></span> を実行すると簡単な使い方が表示されます。詳細な説明は <span class='synopsis'><code>git</code> <code>bisect</code> <code>help</code></span> または <span class='synopsis'><code>git</code> <code>bisect</code> <code>-h</code></span> を参照してください。</p>
 </div>
 </div>
 </div>

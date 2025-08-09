@@ -9,6 +9,25 @@ docname: git-init
 lang: fr
 aliases:
 - "/docs/git-init/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: DOSSIER MODÈLE
+  id: _dossier_modèle
+- text: EXEMPLES
+  id: _exemples
+- text: CONFIGURATION
+  id: _configuration
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -21,12 +40,12 @@ aliases:
 <div class="sect1">
 <h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>git init [-q | --quiet] [--bare] [--template=&lt;répertoire-de-modèles&gt;]
-	 [--separate-git-dir &lt;répertoire-git&gt;] [--object-format=&lt;format&gt;]
-	 [--ref-format=&lt;format&gt;]
-	 [-b &lt;nom-de-branche&gt; | --initial-branch=&lt;nom-de-branche&gt;]
-	 [--shared[=&lt;permissions&gt;]] [&lt;répertoire&gt;]</p>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>init</code></span> [<span class='synopsis'><code>-q</code></span> | <span class='synopsis'><code>--quiet</code></span>] [<span class='synopsis'><code>--bare</code></span>] [<span class='synopsis'><code>--template=</code></span><em>&lt;répertoire-de-modèles&gt;</em>]
+	 [<span class='synopsis'><code>--separate-git-dir</code></span> <em>&lt;répertoire-git&gt;</em>] [<span class='synopsis'><code>--object-format=</code></span><em>&lt;format&gt;</em>]
+	 [<span class='synopsis'><code>--ref-format=</code></span><em>&lt;format&gt;</em>]
+	 [<span class='synopsis'><code>-b</code></span> <em>&lt;nom-de-branche&gt;</em> | <span class='synopsis'><code>--initial-branch=</code></span><em>&lt;nom-de-branche&gt;</em>]
+	 [<span class='synopsis'><code>--shared</code></span>[<span class='synopsis'><code>=</code></span><em>&lt;permissions&gt;</em>]] [<em>&lt;répertoire&gt;</em>]</pre>
 </div>
 </div>
 </div>
@@ -34,16 +53,16 @@ aliases:
 <h2 id="_description"><a class="anchor" href="#_description"></a>DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cette commande crée un dépôt Git vide - essentiellement un répertoire <code>.git</code> avec des sous-répertoires pour les fichiers <code>objects</code>, <code>refs/heads</code>, <code>refs/tags</code> et les fichiers de modèle. Une branche initiale sans aucun commit sera créée (voir l&#8217;option <code>--initial-branch</code> ci-dessous pour son nom).</p>
+<p>Cette commande crée un dépôt Git vide - essentiellement un répertoire <span class='synopsis'><code>.git</code></span> avec des sous-répertoires pour les fichiers <span class='synopsis'><code>objects</code></span>, <span class='synopsis'><code>refs/heads</code></span>, <span class='synopsis'><code>refs/tags</code></span> et les fichiers de modèle. Une branche initiale sans aucun commit sera créée (voir l&#8217;option <span class='synopsis'><code>--initial-branch</code></span> ci-dessous pour son nom).</p>
 </div>
 <div class="paragraph">
-<p>Si la variable d&#8217;environnement <code>GIT_DIR</code> est définie, alors elle spécifie un chemin à utiliser au lieu de <code>./.git</code> comme base du dépôt.</p>
+<p>Si la variable d&#8217;environnement <span class='synopsis'><code>GIT_DIR</code></span> est définie, alors elle spécifie un chemin à utiliser au lieu de <span class='synopsis'><code>./.git</code></span> comme base du dépôt.</p>
 </div>
 <div class="paragraph">
-<p>Si le répertoire de stockage d&#8217;objets est spécifié via la variable d&#8217;environnement <code>GIT_OBJECT_DIRECTORY</code>, alors les répertoires sha1 sont créés dedans ; sinon le répertoire par défaut <code>$GIT_DIR/objects</code> est utilisé.</p>
+<p>Si le répertoire de stockage d&#8217;objets est spécifié via la variable d&#8217;environnement <span class='synopsis'><code>GIT_OBJECT_DIRECTORY</code></span>, alors les répertoires sha1 sont créés dedans ; sinon le répertoire par défaut <span class='synopsis'><code>$GIT_DIR/objects</code></span> est utilisé.</p>
 </div>
 <div class="paragraph">
-<p>Exécuter <code>git init</code> dans un dépôt existant est sécurisé. Cela n&#8217;écrasera pas des choses qui sont déjà dedans. La raison principale de ré-exécuter <code>git init</code> est de récupérer les modèles récemment ajoutés (ou de déplacer le dépôt ailleurs si <code>--separate-git-dir</code> est fourni).</p>
+<p>Exécuter <span class='synopsis'><code>git</code> <code>init</code></span> dans un dépôt existant est sécurisé. Cela n&#8217;écrasera pas des choses qui sont déjà dedans. La raison principale de ré-exécuter <span class='synopsis'><code>git</code> <code>init</code></span> est de récupérer les modèles récemment ajoutés (ou de déplacer le dépôt ailleurs si <span class='synopsis'><code>--separate-git-dir</code></span> est fourni).</p>
 </div>
 </div>
 </div>
@@ -52,18 +71,18 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-init-code-qcode"> <a class="anchor" href="#git-init--q"></a> <a class="anchor" href="#git-init-code-qcode"></a><code>-q</code> </dt>
-<dt class="hdlist1" id="git-init-code--quietcode"> <a class="anchor" href="#git-init---quiet"></a> <a class="anchor" href="#git-init-code--quietcode"></a><code>--quiet</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode-qcodespan"> <a class="anchor" href="#git-init--q"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode-qcodespan"></a><span class='synopsis'><code>-q</code></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--quietcodespan"> <a class="anchor" href="#git-init---quiet"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--quietcodespan"></a><span class='synopsis'><code>--quiet</code></span> </dt>
 <dd>
 <p>N&#8217;afficher que les messages d&#8217;erreur et d&#8217;alerte ; toutes les autres sorties seront supprimées.</p>
 </dd>
-<dt class="hdlist1" id="git-init-code--barecode"> <a class="anchor" href="#git-init---bare"></a> <a class="anchor" href="#git-init-code--barecode"></a><code>--bare</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--barecodespan"> <a class="anchor" href="#git-init---bare"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--barecodespan"></a><span class='synopsis'><code>--bare</code></span> </dt>
 <dd>
-<p>Créer un dépôt nu. Si l&#8217;environnement <code>GIT_DIR</code> n&#8217;est pas défini, alors il est défini au répertoire de travail courant.</p>
+<p>Créer un dépôt nu. Si l&#8217;environnement <span class='synopsis'><code>GIT_DIR</code></span> n&#8217;est pas défini, alors il est défini au répertoire de travail courant.</p>
 </dd>
-<dt class="hdlist1" id="git-init-code--object-formatltformatgtcode"> <a class="anchor" href="#git-init---object-formatformat"></a> <a class="anchor" href="#git-init-code--object-formatltformatgtcode"></a><code>--object-format=&lt;format&gt;</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--object-formatcodeemltformatgtemspan"> <a class="anchor" href="#git-init---object-formatformat"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--object-formatcodeemltformatgtemspan"></a><span class='synopsis'><code>--object-format=</code><em>&lt;format&gt;</em></span> </dt>
 <dd>
-<p>Spécifier le <em>&lt;format&gt;</em> d&#8217;objet donné (algorithme d&#8217;empreinte) pour le dépôt. Les valeurs valides sont <code>sha1</code> et (si activé) <code>sha256</code>. <code>sha1</code> est la valeur par défaut.</p>
+<p>Spécifier le <em>&lt;format&gt;</em> d&#8217;objet donné (algorithme d&#8217;empreinte) pour le dépôt. Les valeurs valides sont <span class='synopsis'><code>sha1</code></span> et (si activé) <span class='synopsis'><code>sha256</code></span>. <span class='synopsis'><code>sha1</code></span> est la valeur par défaut.</p>
 <div class="paragraph">
 <p>Note : À l&#8217;heure actuelle, il n&#8217;y a pas d&#8217;interopérabilité entre les dépôts SHA-256 et les dépôts SHA-1.</p>
 </div>
@@ -75,16 +94,16 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-init-code--ref-formatltformatgtcode"> <a class="anchor" href="#git-init---ref-formatformat"></a> <a class="anchor" href="#git-init-code--ref-formatltformatgtcode"></a><code>--ref-format=&lt;format&gt;</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--ref-formatcodeemltformatgtemspan"> <a class="anchor" href="#git-init---ref-formatformat"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--ref-formatcodeemltformatgtemspan"></a><span class='synopsis'><code>--ref-format=</code><em>&lt;format&gt;</em></span> </dt>
 <dd>
 <p>Spécifier le <em>&lt;format&gt;</em> de stockage de réf donné pour le dépôt. Les valeurs valides sont :</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>files</code> pour des fichiers perdus avec des refs emballés. Valeur par défaut.</p>
+<p><span class='synopsis'><code>files</code></span> pour des fichiers perdus avec des refs emballés. Valeur par défaut.</p>
 </li>
 <li>
-<p><code>reftable</code> pour le format reftable. Ce format est expérimental et son fonctionnement interne est sujet à changement.</p>
+<p><span class='synopsis'><code>reftable</code></span> pour le format reftable. Ce format est expérimental et son fonctionnement interne est sujet à changement.</p>
 </li>
 </ul>
 </div>
@@ -93,51 +112,51 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-init-code--templateltrpertoire-de-modlesgtcode"> <a class="anchor" href="#git-init---templaterpertoire-de-modles"></a> <a class="anchor" href="#git-init-code--templateltrpertoire-de-modlesgtcode"></a><code>--template=&lt;répertoire-de-modèles&gt;</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--templatecodeemltrpertoire-de-modlesgtemspan"> <a class="anchor" href="#git-init---templaterpertoire-de-modles"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--templatecodeemltrpertoire-de-modlesgtemspan"></a><span class='synopsis'><code>--template=</code><em>&lt;répertoire-de-modèles&gt;</em></span> </dt>
 <dd>
 <p>Spécifier le dossier depuis lequel les modèles seront utilisés (Voyez la section « DOSSIER MODÈLE » ci-dessous.)</p>
 </dd>
-<dt class="hdlist1" id="git-init-code--separate-git-dirltrpertoire-gitgtcode"> <a class="anchor" href="#git-init---separate-git-dirrpertoire-git"></a> <a class="anchor" href="#git-init-code--separate-git-dirltrpertoire-gitgtcode"></a><code>--separate-git-dir=&lt;répertoire-git&gt;</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--separate-git-dircodeemltrpertoire-gitgtemspan"> <a class="anchor" href="#git-init---separate-git-dirrpertoire-git"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--separate-git-dircodeemltrpertoire-gitgtemspan"></a><span class='synopsis'><code>--separate-git-dir=</code><em>&lt;répertoire-git&gt;</em></span> </dt>
 <dd>
-<p>Au lieu d&#8217;initialiser le dépôt en tant que répertoire dans soit <code>$GIT_DIR</code> soit <code>./.git</code>, y créer un fichier texte contenant le chemin du dépôt réel. Ce fichier agit comme un lien symbolique Git indépendant du système de fichier vers le dépôt.</p>
+<p>Au lieu d&#8217;initialiser le dépôt en tant que répertoire dans soit <span class='synopsis'><code>$GIT_DIR</code></span> soit <span class='synopsis'><code>./.git</code></span>, y créer un fichier texte contenant le chemin du dépôt réel. Ce fichier agit comme un lien symbolique Git indépendant du système de fichier vers le dépôt.</p>
 <div class="paragraph">
 <p>Si c&#8217;est une réinitialisation, le dépôt sera déplacé vers le chemin spécifié.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-init-code-bltnom-de-branchegtcode"> <a class="anchor" href="#git-init--bnom-de-branche"></a> <a class="anchor" href="#git-init-code-bltnom-de-branchegtcode"></a><code>-b &lt;nom-de-branche&gt;</code> </dt>
-<dt class="hdlist1" id="git-init-code--initial-branchltnom-de-branchegtcode"> <a class="anchor" href="#git-init---initial-branchnom-de-branche"></a> <a class="anchor" href="#git-init-code--initial-branchltnom-de-branchegtcode"></a><code>--initial-branch=&lt;nom-de-branche&gt;</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode-bcodeemltnom-de-branchegtemspan"> <a class="anchor" href="#git-init--bnom-de-branche"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode-bcodeemltnom-de-branchegtemspan"></a><span class='synopsis'><code>-b</code> <em>&lt;nom-de-branche&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--initial-branchcodeemltnom-de-branchegtemspan"> <a class="anchor" href="#git-init---initial-branchnom-de-branche"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--initial-branchcodeemltnom-de-branchegtemspan"></a><span class='synopsis'><code>--initial-branch=</code><em>&lt;nom-de-branche&gt;</em></span> </dt>
 <dd>
-<p>Utiliser <em>&lt;nom-de-branche&gt;</em> pour la branche initiale dans le dépôt nouvellement créé. S&#8217;il n&#8217;est pas spécifié, revenir au nom par défaut (actuellement <code>master</code>, mais ceci est susceptible de changer à l&#8217;avenir ; le nom peut être personnalisé via la variable de configuration <code>init.defaultBranch</code>).</p>
+<p>Utiliser <em>&lt;nom-de-branche&gt;</em> pour la branche initiale dans le dépôt nouvellement créé. S&#8217;il n&#8217;est pas spécifié, revenir au nom par défaut (actuellement <span class='synopsis'><code>master</code></span>, mais ceci est susceptible de changer à l&#8217;avenir ; le nom peut être personnalisé via la variable de configuration <span class='synopsis'><code>init.defaultBranch</code></span>).</p>
 </dd>
-<dt class="hdlist1" id="git-init-code--sharedfalsetrueumaskgroupallworldeverybodyltpermgtcode"> <a class="anchor" href="#git-init---sharedfalsetrueumaskgroupallworldeverybodyperm"></a> <a class="anchor" href="#git-init-code--sharedfalsetrueumaskgroupallworldeverybodyltpermgtcode"></a><code>--shared[=(false|true|umask|group|all|world|everybody|&lt;perm&gt;)]</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--sharedcodecodecodecodefalsecodecodetruecodecodeumaskcodecodegroupcodecodeallcodecodeworldcodecodeeverybodycodeemltpermgtemspan"> <a class="anchor" href="#git-init---sharedfalsetrueumaskgroupallworldeverybodyperm"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--sharedcodecodecodecodefalsecodecodetruecodecodeumaskcodecodegroupcodecodeallcodecodeworldcodecodeeverybodycodeemltpermgtemspan"></a><span class='synopsis'><code>--shared</code>[<code>=</code>(<code>false</code>|<code>true</code>|<code>umask</code>|<code>group</code>|<code>all</code>|<code>world</code>|<code>everybody</code>|<em>&lt;perm&gt;</em>)]</span> </dt>
 <dd>
-<p>Spécifier que le dépôt Git doit être partagé entre plusieurs utilisateurs. Ceci permet à des utilisateurs faisant partie du même groupe de pousser dans ce dépôt. Lorsque que cette option est spécifiée, la variable de configuration <code>core.sharedRepository</code> est définie de telle sorte que les fichiers et les dossiers sous <code>$GIT_DIR</code> sont créés avec les permissions demandées. Lorsqu&#8217;elle n&#8217;est pas spécifiée, Git utilisera les permissions rapportées par umask(2).</p>
+<p>Spécifier que le dépôt Git doit être partagé entre plusieurs utilisateurs. Ceci permet à des utilisateurs faisant partie du même groupe de pousser dans ce dépôt. Lorsque que cette option est spécifiée, la variable de configuration <span class='synopsis'><code>core.sharedRepository</code></span> est définie de telle sorte que les fichiers et les dossiers sous <span class='synopsis'><code>$GIT_DIR</code></span> sont créés avec les permissions demandées. Lorsqu&#8217;elle n&#8217;est pas spécifiée, Git utilisera les permissions rapportées par umask(2).</p>
 <div class="paragraph">
-<p>L&#8217;option peut avoir les valeurs suivantes, prenant par défaut la valeur <code>group</code> si aucune valeur n&#8217;est renseignée :</p>
+<p>L&#8217;option peut avoir les valeurs suivantes, prenant par défaut la valeur <span class='synopsis'><code>group</code></span> si aucune valeur n&#8217;est renseignée :</p>
 </div>
 <div class="openblock">
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-init-codeumaskcode"> <a class="anchor" href="#git-init-umask"></a> <a class="anchor" href="#git-init-codeumaskcode"></a><code>umask</code> </dt>
-<dt class="hdlist1" id="git-init-codefalsecode"> <a class="anchor" href="#git-init-false"></a> <a class="anchor" href="#git-init-codefalsecode"></a><code>false</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeumaskcodespan"> <a class="anchor" href="#git-init-umask"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeumaskcodespan"></a><span class='synopsis'><code>umask</code></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodefalsecodespan"> <a class="anchor" href="#git-init-false"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodefalsecodespan"></a><span class='synopsis'><code>false</code></span> </dt>
 <dd>
-<p>Utiliser les permissions rapportées par <code>umask</code>(2). Valeur par défaut, quand <code>--shared</code> n&#8217;est pas spécifié.</p>
+<p>Utiliser les permissions rapportées par <span class='synopsis'><code>umask</code></span>(2). Valeur par défaut, quand <span class='synopsis'><code>--shared</code></span> n&#8217;est pas spécifié.</p>
 </dd>
-<dt class="hdlist1" id="git-init-codegroupcode"> <a class="anchor" href="#git-init-group"></a> <a class="anchor" href="#git-init-codegroupcode"></a><code>group</code> </dt>
-<dt class="hdlist1" id="git-init-codetruecode"> <a class="anchor" href="#git-init-true"></a> <a class="anchor" href="#git-init-codetruecode"></a><code>true</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodegroupcodespan"> <a class="anchor" href="#git-init-group"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodegroupcodespan"></a><span class='synopsis'><code>group</code></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodetruecodespan"> <a class="anchor" href="#git-init-true"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodetruecodespan"></a><span class='synopsis'><code>true</code></span> </dt>
 <dd>
-<p>Rendre le dépôt modifiable par groupe (et <code>g+sx</code>, puisque le groupe git peut ne pas être le groupe principal de tous les utilisateurs). Ceci est utilisé pour assouplir les permissions d&#8217;une valeur <code>umask</code>(2) par ailleurs sûre. Notez que umask s&#8217;applique toujours aux autres bits d&#8217;autorisation (par exemple, si umask est défini sur <code>0022</code>, l&#8217;utilisation de <code>group</code> ne supprime pas les privilèges de lecture des autres utilisateurs (non membres du groupe)). Voir <code>0xxx</code> pour savoir comment spécifier exactement les autorisations du dépôt.</p>
+<p>Rendre le dépôt modifiable par groupe (et <span class='synopsis'><code>g+sx</code></span>, puisque le groupe git peut ne pas être le groupe principal de tous les utilisateurs). Ceci est utilisé pour assouplir les permissions d&#8217;une valeur <span class='synopsis'><code>umask</code></span>(2) par ailleurs sûre. Notez que umask s&#8217;applique toujours aux autres bits d&#8217;autorisation (par exemple, si umask est défini sur <span class='synopsis'><code>0022</code></span>, l&#8217;utilisation de <span class='synopsis'><code>group</code></span> ne supprime pas les privilèges de lecture des autres utilisateurs (non membres du groupe)). Voir <span class='synopsis'><code>0xxx</code></span> pour savoir comment spécifier exactement les autorisations du dépôt.</p>
 </dd>
-<dt class="hdlist1" id="git-init-codeallcode"> <a class="anchor" href="#git-init-all"></a> <a class="anchor" href="#git-init-codeallcode"></a><code>all</code> </dt>
-<dt class="hdlist1" id="git-init-codeworldcode"> <a class="anchor" href="#git-init-world"></a> <a class="anchor" href="#git-init-codeworldcode"></a><code>world</code> </dt>
-<dt class="hdlist1" id="git-init-codeeverybodycode"> <a class="anchor" href="#git-init-everybody"></a> <a class="anchor" href="#git-init-codeeverybodycode"></a><code>everybody</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeallcodespan"> <a class="anchor" href="#git-init-all"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeallcodespan"></a><span class='synopsis'><code>all</code></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeworldcodespan"> <a class="anchor" href="#git-init-world"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeworldcodespan"></a><span class='synopsis'><code>world</code></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeeverybodycodespan"> <a class="anchor" href="#git-init-everybody"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeeverybodycodespan"></a><span class='synopsis'><code>everybody</code></span> </dt>
 <dd>
-<p>Comme <code>group</code>, mais rendre le dépôt lisible par tous les utilisateurs.</p>
+<p>Comme <span class='synopsis'><code>group</code></span>, mais rendre le dépôt lisible par tous les utilisateurs.</p>
 </dd>
 <dt class="hdlist1" id="git-init-emltpermgtem"> <a class="anchor" href="#git-init-perm"></a> <a class="anchor" href="#git-init-emltpermgtem"></a><em>&lt;perm&gt;</em> </dt>
 <dd>
-<p><em>&lt;perm&gt;</em> ; est un nombre octal à 3 chiffres préfixé par <code>0</code> et chaque fichier aura le mode <em>&lt;perm&gt;</em>. <em>&lt;perm&gt;</em> surchargera la valeur <code>umask</code>(2) des utilisateurs (en plus d&#8217;assouplir les permissions comme <code>group</code> et <code>all</code> le font). <code>0640</code> créera un dépôt qui est lisible par groupe, mais pas modifiable par groupe ni accessible aux autres. <code>0660</code> créera un dépôt lisible et modifiable par l&#8217;utilisateur et le groupe courants, mais inaccessible aux autres (les répertoires et les fichiers exécutables obtiennent leur bit <code>x</code> du bit <code>r</code> pour les classes d&#8217;utilisateurs correspondantes).</p>
+<p><em>&lt;perm&gt;</em> ; est un nombre octal à 3 chiffres préfixé par <span class='synopsis'><code>0</code></span> et chaque fichier aura le mode <em>&lt;perm&gt;</em>. <em>&lt;perm&gt;</em> surchargera la valeur <span class='synopsis'><code>umask</code></span>(2) des utilisateurs (en plus d&#8217;assouplir les permissions comme <span class='synopsis'><code>group</code></span> et <span class='synopsis'><code>all</code></span> le font). <span class='synopsis'><code>0640</code></span> créera un dépôt qui est lisible par groupe, mais pas modifiable par groupe ni accessible aux autres. <span class='synopsis'><code>0660</code></span> créera un dépôt lisible et modifiable par l&#8217;utilisateur et le groupe courants, mais inaccessible aux autres (les répertoires et les fichiers exécutables obtiennent leur bit <span class='synopsis'><code>x</code></span> du bit <span class='synopsis'><code>r</code></span> pour les classes d&#8217;utilisateurs correspondantes).</p>
 </dd>
 </dl>
 </div>
@@ -147,7 +166,7 @@ aliases:
 </dl>
 </div>
 <div class="paragraph">
-<p>Par défaut, l&#8217;option de configuration <code>receive.denyNonFastForwards</code> est activée dans les dépôts partagés, de telle sorte que vous ne pouvez pas forcer une poussée qui ne serait pas en avance rapide.</p>
+<p>Par défaut, l&#8217;option de configuration <span class='synopsis'><code>receive.denyNonFastForwards</code></span> est activée dans les dépôts partagés, de telle sorte que vous ne pouvez pas forcer une poussée qui ne serait pas en avance rapide.</p>
 </div>
 <div class="paragraph">
 <p>Si vous renseignez un <em>&lt;dossier&gt;</em>, la commande est exécutée à l&#8217;intérieur de celui-ci. Si ce dossier n&#8217;existe pas, il sera créé.</p>
@@ -158,7 +177,7 @@ aliases:
 <h2 id="_dossier_modèle"><a class="anchor" href="#_dossier_modèle"></a>DOSSIER MODÈLE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Les fichiers et les dossiers dans le dossier modèle dont le nom ne commence pas par un point seront copiés dans le <code>$GIT_DIR</code> après qu&#8217;il sera créé.</p>
+<p>Les fichiers et les dossiers dans le dossier modèle dont le nom ne commence pas par un point seront copiés dans le <span class='synopsis'><code>$GIT_DIR</code></span> après qu&#8217;il sera créé.</p>
 </div>
 <div class="paragraph">
 <p>Le dossier modèle sera l&#8217;un des suivants (dans l&#8217;ordre) :</p>
@@ -166,16 +185,16 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p>l&#8217;argument fourni avec l&#8217;option <code>--template</code> ;</p>
+<p>l&#8217;argument fourni avec l&#8217;option <span class='synopsis'><code>--template</code></span> ;</p>
 </li>
 <li>
-<p>le contenu de la variable d&#8217;environnement <code>$GIT_TEMPLATE_DIR</code> ;</p>
+<p>le contenu de la variable d&#8217;environnement <span class='synopsis'><code>$GIT_TEMPLATE_DIR</code></span> ;</p>
 </li>
 <li>
-<p>la variable de configuration <code>init.templateDir</code> ; ou</p>
+<p>la variable de configuration <span class='synopsis'><code>init.templateDir</code></span> ; ou</p>
 </li>
 <li>
-<p>le dossier modèle par défaut : <code>/usr/share/git-core/templates</code>.</p>
+<p>le dossier modèle par défaut : <span class='synopsis'><code>/usr/share/git-core/templates</code></span>.</p>
 </li>
 </ul>
 </div>
@@ -183,7 +202,7 @@ aliases:
 <p>Le dossier modèle par défaut inclut une certaine structure de dossier, des "modèles d&#8217;exclusions" suggérés (voir <a href='{{< relurl "docs/gitignore/fr" >}}'>gitignore[5]</a>), et des exemples de fichiers crochet.</p>
 </div>
 <div class="paragraph">
-<p>Les exemples de crochets sont tous désactivés par défaut. Pour activer l&#8217;un des exemples de crochets, renommez-le en enlevant le suffixe <code>.sample</code>.</p>
+<p>Les exemples de crochets sont tous désactivés par défaut. Pour activer l&#8217;un des exemples de crochets, renommez-le en enlevant le suffixe <span class='synopsis'><code>.sample</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Voir <a href='{{< relurl "docs/githooks/fr" >}}'>githooks[5]</a> pour des informations plus générales sur l&#8217;exécution d&#8217;un crochet.</p>
@@ -208,7 +227,7 @@ $ git commit    <b class="conum">(3)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>Créer un dossier <code>/chemin/vers/mon/code/de/base/.git</code>.</p>
+<p>Créer un dossier <span class='synopsis'><code>/chemin/vers/mon/code/de/base/.git</code></span>.</p>
 </li>
 <li>
 <p>Ajouter tous les fichiers existants à l&#8217;index.</p>
@@ -237,7 +256,7 @@ $ git commit    <b class="conum">(3)</b></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/init.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/init.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

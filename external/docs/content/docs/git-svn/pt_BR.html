@@ -9,6 +9,41 @@ docname: git-svn
 lang: pt_BR
 aliases:
 - "/docs/git-svn/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: COMANDOS
+  id: _comandos
+- text: OPÇÕES
+  id: _opções
+- text: OPÇÕES AVANÇADAS
+  id: _opções_avançadas
+- text: OPÇÕES APENAS PARA A CONFIGURAÇÃO DOS ARQUIVOS
+  id: _opções_apenas_para_a_configuração_dos_arquivos
+- text: EXEMPLOS BÁSICOS
+  id: _exemplos_básicos
+- text: RECONSTRUIR VS. "PULL/MERGE"
+  id: _reconstruir_vs_pullmerge
+- text: MONITORAMENTO DA MESCLAGEM
+  id: _monitoramento_da_mesclagem
+- text: LIDANDO COM OS RAMOS DO SVN
+  id: _lidando_com_os_ramos_do_svn
+- text: RESSALVAS
+  id: _ressalvas
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: ARQUIVOS
+  id: _arquivos
+- text: BUGS
+  id: _bugs
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -33,7 +68,7 @@ aliases:
 <p>O <em>git svn</em> é um canal simples para conjuntos de alterações entre o Subversion e o Git. Ele fornece um fluxo bidirecional de alterações entre um repositório Subversion e um repositório Git.</p>
 </div>
 <div class="paragraph">
-<p>O <em>git svn</em> pode rastrear um repositório Subversion predefinido, seguindo o layout comum <code>trunk/branches/tags</code>, com a opção <code>--stdlayout</code>. Ele também pode seguir as ramificações e as etiquetas em qualquer layout com as opções <code>-T</code>/<code>-t</code>/<code>-b</code> (consulte as opções para o <em>init</em> abaixo e também o comando <code>clone</code>).</p>
+<p>O <em>git svn</em> pode rastrear um repositório Subversion predefinido, seguindo o layout comum <span class='synopsis'><code>trunk/branches/tags</code></span>, com a opção <span class='synopsis'><code>--stdlayout</code></span>. Ele também pode seguir as ramificações e as etiquetas em qualquer layout com as opções <span class='synopsis'><code>-T</code></span>/<span class='synopsis'><code>-t</code></span>/<span class='synopsis'><code>-b</code></span> (consulte as opções para o <em>init</em> abaixo e também o comando <span class='synopsis'><code>clone</code></span>).</p>
 </div>
 <div class="paragraph">
 <p>Depois de monitorar um repositório Subversion (com qualquer um dos métodos acima), o repositório Git pode ser atualizado no Subversion através do comando <em>fetch</em> e o Subversion atualizado no Git através do comando <em>dcommit</em>.</p>
@@ -47,7 +82,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-svn-eminitem"> <a class="anchor" href="#git-svn-init"></a> <a class="anchor" href="#git-svn-eminitem"></a><em>init</em> </dt>
 <dd>
-<p>Inicializa um repositório Git vazio com diretórios de metadados adicionais para o comando <code>git svn</code>. O URL do Subversion pode ser especificado como um argumento de linha de comando ou como argumentos completos de URL para <code>-T</code>/<code>-t</code>/<code>-b</code>. Opcionalmente, o diretório de destino a ser operado pode ser especificado como um segundo argumento. Normalmente, esse comando inicializa o diretório atual.</p>
+<p>Inicializa um repositório Git vazio com diretórios de metadados adicionais para o comando <span class='synopsis'><code>git</code> <code>svn</code></span>. O URL do Subversion pode ser especificado como um argumento de linha de comando ou como argumentos completos de URL para <span class='synopsis'><code>-T</code></span>/<span class='synopsis'><code>-t</code></span>/<span class='synopsis'><code>-b</code></span>. Opcionalmente, o diretório de destino a ser operado pode ser especificado como um segundo argumento. Normalmente, esse comando inicializa o diretório atual.</p>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-svn--Tlttrunk-subdirgt"> <a class="anchor" href="#git-svn--Ttrunk-subdir"></a> <a class="anchor" href="#git-svn--Tlttrunk-subdirgt"></a>-T&lt;trunk-subdir&gt; </dt>
@@ -59,7 +94,7 @@ aliases:
 <dt class="hdlist1" id="git-svn--s"> <a class="anchor" href="#git-svn--s"></a>-s </dt>
 <dt class="hdlist1" id="git-svn---stdlayout"> <a class="anchor" href="#git-svn---stdlayout"></a>--stdlayout </dt>
 <dd>
-<p>Estas são opções opcionais de linha de comando para o init. Cada uma destas opções podem apontar para um caminho relativo do repositório (<code>--tags=project/tags</code>) ou para uma URL completa (<code>--tags=https://foo.org/project/tags</code>). Você pode especificar mais de uma opção <code>--tags</code> e/ou <code>--branches</code>, caso o seu repositório Subversion coloque etiquetas ou ramificações em vários caminhos. A opção <code>--stdlayout</code> é uma forma abreviada de definir o "trunk", as etiquetas e as ramificações como caminhos relativos, que é o padrão do Subversion. Se alguma das outras opções também for fornecida, ela terá precedência.</p>
+<p>Estas são opções opcionais de linha de comando para o init. Cada uma destas opções podem apontar para um caminho relativo do repositório (<span class='synopsis'><code>--tags=project/tags</code></span>) ou para uma URL completa (<span class='synopsis'><code>--tags=https://foo.org/project/tags</code></span>). Você pode especificar mais de uma opção <span class='synopsis'><code>--tags</code></span> e/ou <span class='synopsis'><code>--branches</code></span>, caso o seu repositório Subversion coloque etiquetas ou ramificações em vários caminhos. A opção <span class='synopsis'><code>--stdlayout</code></span> é uma forma abreviada de definir o "trunk", as etiquetas e as ramificações como caminhos relativos, que é o padrão do Subversion. Se alguma das outras opções também for fornecida, ela terá precedência.</p>
 </dd>
 <dt class="hdlist1" id="git-svn---no-metadata"> <a class="anchor" href="#git-svn---no-metadata"></a>--no-metadata </dt>
 <dd>
@@ -83,11 +118,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-svn---usernameltusuriogt"> <a class="anchor" href="#git-svn---usernameusurio"></a> <a class="anchor" href="#git-svn---usernameltusuriogt"></a>--username=&lt;usuário&gt; </dt>
 <dd>
-<p>Para os transportes para onde o SVN lida com a autenticação (http, https e svn simples), especifique o nome de usuário. Para outros transportes (<code>svn+ssh://</code> por exemplo), você deve incluir o nome de usuário na URL, <code>svn+ssh://foo@svn.bar.com/project</code> por exemplo</p>
+<p>Para os transportes para onde o SVN lida com a autenticação (http, https e svn simples), especifique o nome de usuário. Para outros transportes (<span class='synopsis'><code>svn+ssh://</code></span> por exemplo), você deve incluir o nome de usuário na URL, <span class='synopsis'><code>svn+ssh://foo@svn.bar.com/project</code></span> por exemplo</p>
 </dd>
 <dt class="hdlist1" id="git-svn---prefixltprefixogt"> <a class="anchor" href="#git-svn---prefixprefixo"></a> <a class="anchor" href="#git-svn---prefixltprefixogt"></a>--prefix=&lt;prefixo&gt; </dt>
 <dd>
-<p>Esta permite especificar um prefixo que é anexado aos nomes dos ramos remotos se forem especificados trunks/ramos/etiquetas. O prefixo não inclui automaticamente uma barra final, portanto, certifique-se de incluir uma no argumento se for isso que você deseja. Se a opção <code>--branches/-b</code> for especificado, o prefixo deverá incluir uma barra no final. É altamente recomendável definir um prefixo (com uma barra final) em qualquer caso, pois suas refs de rastreamento SVN estarão localizadas em <em>refs/remotes/$prefix/<strong></em>, o que é compatível com o próprio layout de ref de rastreamento remoto do Git (<em>refs/remotes/$remote/</strong></em>). A definição de um prefixo também é útil se você quiser rastrear vários projetos que compartilham um repositório comum. É predefinido que o prefixo seja definido como <em>origin/</em>.</p>
+<p>Esta permite especificar um prefixo que é anexado aos nomes dos ramos remotos se forem especificados trunks/ramos/etiquetas. O prefixo não inclui automaticamente uma barra final, portanto, certifique-se de incluir uma no argumento se for isso que você deseja. Se a opção <span class='synopsis'><code>--branches/-b</code></span> for especificado, o prefixo deverá incluir uma barra no final. É altamente recomendável definir um prefixo (com uma barra final) em qualquer caso, pois suas refs de rastreamento SVN estarão localizadas em <em>refs/remotes/$prefix/<strong></em>, o que é compatível com o próprio layout de ref de rastreamento remoto do Git (<em>refs/remotes/$remote/</strong></em>). A definição de um prefixo também é útil se você quiser rastrear vários projetos que compartilham um repositório comum. É predefinido que o prefixo seja definido como <em>origin/</em>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -95,7 +130,7 @@ aliases:
 <div class="title">Note</div>
 </td>
 <td class="content">
-Antes do Git v2.0, o prefixo padrão era "" (sem prefixo). Esta situação fez com que as refs de rastreamento do SVN fossem colocadas em <em>refs/remotes/*</em>, o que é incompatível com a forma como as refs de rastreamento remoto do Git são organizadas. Se você ainda quiser o padrão antigo, use a opção <code>--prefix ""</code> na linha de comando (<code>--prefix=""</code> pode não funcionar se o <em>Getopt::Long</em> do Perl for &lt; v2.37).
+Antes do Git v2.0, o prefixo padrão era "" (sem prefixo). Esta situação fez com que as refs de rastreamento do SVN fossem colocadas em <em>refs/remotes/*</em>, o que é incompatível com a forma como as refs de rastreamento remoto do Git são organizadas. Se você ainda quiser o padrão antigo, use a opção <span class='synopsis'><code>--prefix</code> <code>""</code></span> na linha de comando (<span class='synopsis'><code>--prefix=""</code></span> pode não funcionar se o <em>Getopt::Long</em> do Perl for &lt; v2.37).
 </td>
 </tr>
 </table>
@@ -103,26 +138,26 @@ Antes do Git v2.0, o prefixo padrão era "" (sem prefixo). Esta situação fez c
 </dd>
 <dt class="hdlist1" id="git-svn---ignore-refsltexpresso-regulargt"> <a class="anchor" href="#git-svn---ignore-refsexpresso-regular"></a> <a class="anchor" href="#git-svn---ignore-refsltexpresso-regulargt"></a>--ignore-refs=&lt;expressão-regular&gt; </dt>
 <dd>
-<p>Quando encaminhada para <em>init</em> ou <em>clone</em>, essa expressão regular será preservada como uma chave de configuração. Consulte <em>fetch</em> para obter uma descrição de <code>--ignore-refs</code>.</p>
+<p>Quando encaminhada para <em>init</em> ou <em>clone</em>, essa expressão regular será preservada como uma chave de configuração. Consulte <em>fetch</em> para obter uma descrição de <span class='synopsis'><code>--ignore-refs</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-svn---ignore-pathsltexpresso-regulargt"> <a class="anchor" href="#git-svn---ignore-pathsexpresso-regular"></a> <a class="anchor" href="#git-svn---ignore-pathsltexpresso-regulargt"></a>--ignore-paths=&lt;expressão-regular&gt; </dt>
 <dd>
-<p>Quando encaminhada para <em>init</em> ou <em>clone</em>, essa expressão regular será preservada como uma chave de configuração. Consulte <em>fetch</em> para obter uma descrição de <code>--ignore-paths</code>.</p>
+<p>Quando encaminhada para <em>init</em> ou <em>clone</em>, essa expressão regular será preservada como uma chave de configuração. Consulte <em>fetch</em> para obter uma descrição de <span class='synopsis'><code>--ignore-paths</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-svn---include-pathsltexpresso-regulargt"> <a class="anchor" href="#git-svn---include-pathsexpresso-regular"></a> <a class="anchor" href="#git-svn---include-pathsltexpresso-regulargt"></a>--include-paths=&lt;expressão-regular&gt; </dt>
 <dd>
-<p>Quando encaminhada para <em>init</em> ou <em>clone</em>, essa expressão regular será preservada como uma chave de configuração. Consulte <em>fetch</em> para obter uma descrição de <code>--include-paths</code>.</p>
+<p>Quando encaminhada para <em>init</em> ou <em>clone</em>, essa expressão regular será preservada como uma chave de configuração. Consulte <em>fetch</em> para obter uma descrição de <span class='synopsis'><code>--include-paths</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-svn---no-minimize-url"> <a class="anchor" href="#git-svn---no-minimize-url"></a>--no-minimize-url </dt>
 <dd>
-<p>Ao rastrear vários diretórios (usando as opções <code>--stdlayout</code>, <code>--branches</code> ou <code>--tags</code>), o comando <code>git svn</code> tentará se conectar à raiz (ou ao nível mais alto permitido) do repositório do Subversion. Esta configuração padrão permite um melhor rastreamento do histórico se projetos inteiros forem movidos dentro de um repositório, mas pode causar problemas em repositórios com restrições de acesso de leitura. Ao usar a opção <code>--no-minimize-url</code> permitirá que o comando <code>git svn</code> aceite as URLs da maneira que elas forem, sem tentar se conectar a um diretório de nível mais alto. É predefinido que esta opção está desativada quando apenas uma URL/ramo seja rastreado (ela não seria muito útil).</p>
+<p>Ao rastrear vários diretórios (usando as opções <span class='synopsis'><code>--stdlayout</code></span>, <span class='synopsis'><code>--branches</code></span> ou <span class='synopsis'><code>--tags</code></span>), o comando <span class='synopsis'><code>git</code> <code>svn</code></span> tentará se conectar à raiz (ou ao nível mais alto permitido) do repositório do Subversion. Esta configuração padrão permite um melhor rastreamento do histórico se projetos inteiros forem movidos dentro de um repositório, mas pode causar problemas em repositórios com restrições de acesso de leitura. Ao usar a opção <span class='synopsis'><code>--no-minimize-url</code></span> permitirá que o comando <span class='synopsis'><code>git</code> <code>svn</code></span> aceite as URLs da maneira que elas forem, sem tentar se conectar a um diretório de nível mais alto. É predefinido que esta opção está desativada quando apenas uma URL/ramo seja rastreado (ela não seria muito útil).</p>
 </dd>
 </dl>
 </div>
 </dd>
 <dt class="hdlist1" id="git-svn-emfetchem"> <a class="anchor" href="#git-svn-fetch"></a> <a class="anchor" href="#git-svn-emfetchem"></a><em>fetch</em> </dt>
 <dd>
-<p>Obtém revisões não lançadas do Subversion remoto que estamos rastreando. O nome da seção [svn-remote "&#8230;&#8203;"] no arquivo <code>$GIT_DIR/config</code> pode ser especificado como um argumento opcional na linha de comando.</p>
+<p>Obtém revisões não lançadas do Subversion remoto que estamos rastreando. O nome da seção [svn-remote "&#8230;&#8203;"] no arquivo <span class='synopsis'><code>$GIT_DIR/config</code></span> pode ser especificado como um argumento opcional na linha de comando.</p>
 <div class="paragraph">
 <p>Atualiza automaticamente o <em>rev_map</em>, caso seja necessário (para mais detalhes, consulte <em>$GIT_DIR/svn/**/.rev_map.*</em> na seção FILES abaixo).</p>
 </div>
@@ -130,7 +165,7 @@ Antes do Git v2.0, o prefixo padrão era "" (sem prefixo). Esta situação fez c
 <dl>
 <dt class="hdlist1" id="git-svn---localtime"> <a class="anchor" href="#git-svn---localtime"></a>--localtime </dt>
 <dd>
-<p>Armazene os horários dos commits do Git no fuso horário local em vez de UTC. Esta faz com que o <em>git log</em> (mesmo sem --date=local) mostre os mesmos horários que o <code>svn log</code> mostraria no fuso horário local.</p>
+<p>Armazene os horários dos commits do Git no fuso horário local em vez de UTC. Esta faz com que o <em>git log</em> (mesmo sem --date=local) mostre os mesmos horários que o <span class='synopsis'><code>svn</code> <code>log</code></span> mostraria no fuso horário local.</p>
 <div class="paragraph">
 <p>Não interfere na interoperação com o repositório Subversion de onde você clonou, porém caso queira que o seu repositório Git local possa interoperar com o repositório Git local de outra pessoa, não utilize esta opção ou você deve usá-lo no o mesmo fuso horário local.</p>
 </div>
@@ -141,7 +176,7 @@ Antes do Git v2.0, o prefixo padrão era "" (sem prefixo). Esta situação fez c
 </dd>
 <dt class="hdlist1" id="git-svn---ignore-refsltexpresso-regulargt-1"> <a class="anchor" href="#git-svn---ignore-refsexpresso-regular-1"></a> <a class="anchor" href="#git-svn---ignore-refsltexpresso-regulargt-1"></a>--ignore-refs=&lt;expressão-regular&gt; </dt>
 <dd>
-<p>Ignore as refs para as ramificações ou as tags coincidentes com a expressão regular Perl. Uma "declaração negativa de antecipação" como <code>^refs/remotes/origin/(?!tags/wanted-tag|wanted-branch).*$</code> Pode ser utilizada para permitir apenas determinadas referências.</p>
+<p>Ignore as refs para as ramificações ou as tags coincidentes com a expressão regular Perl. Uma "declaração negativa de antecipação" como <span class='synopsis'><em>^refs/remotes/origin/(?!tags/wanted-tag|wanted-branch).*$</em></span> Pode ser utilizada para permitir apenas determinadas referências.</p>
 <div class="verseblock">
 <pre class="content">config key: svn-remote.&lt;nome&gt;.ignore-refs</pre>
 </div>
@@ -151,7 +186,7 @@ Antes do Git v2.0, o prefixo padrão era "" (sem prefixo). Esta situação fez c
 </dd>
 <dt class="hdlist1" id="git-svn---ignore-pathsltexpresso-regulargt-1"> <a class="anchor" href="#git-svn---ignore-pathsexpresso-regular-1"></a> <a class="anchor" href="#git-svn---ignore-pathsltexpresso-regulargt-1"></a>--ignore-paths=&lt;expressão-regular&gt; </dt>
 <dd>
-<p>Esta permite especificar uma expressão regular Perl que fará com que todos os caminhos correspondentes sejam ignorados no <em>checkout</em> do SVN. A opção <code>--ignore-paths</code> deve corresponder a cada <em>fetch</em> (incluindo fetchs automáticos por causa dos comandos <em>clone</em>, <em>dcommit</em>, <em>rebase</em>, etc.) num determinado repositório.</p>
+<p>Esta permite especificar uma expressão regular Perl que fará com que todos os caminhos correspondentes sejam ignorados no <em>checkout</em> do SVN. A opção <span class='synopsis'><code>--ignore-paths</code></span> deve corresponder a cada <em>fetch</em> (incluindo fetchs automáticos por causa dos comandos <em>clone</em>, <em>dcommit</em>, <em>rebase</em>, etc.) num determinado repositório.</p>
 <div class="verseblock">
 <pre class="content">config key: svn-remote.&lt;nome&gt;.ignore-paths</pre>
 </div>
@@ -188,21 +223,21 @@ Antes do Git v2.0, o prefixo padrão era "" (sem prefixo). Esta situação fez c
 </dd>
 <dt class="hdlist1" id="git-svn---include-pathsltexpresso-regulargt-1"> <a class="anchor" href="#git-svn---include-pathsexpresso-regular-1"></a> <a class="anchor" href="#git-svn---include-pathsltexpresso-regulargt-1"></a>--include-paths=&lt;expressão-regular&gt; </dt>
 <dd>
-<p>Esta permite especificar uma expressão regular Perl que causará a inclusão apenas dos caminhos correspondentes do <em>checkout</em> do SVN. A opção <code>--include-paths</code> deve corresponder a cada <em>fetch</em> (incluindo fetchs automáticos por causa dos comandos <em>clone</em>, <em>dcommit</em>, <em>rebase</em>, etc.) num determinado repositório. A opção <code>--ignore-paths</code> tem precedência sobre o a opção <code>--include-paths</code>.</p>
+<p>Esta permite especificar uma expressão regular Perl que causará a inclusão apenas dos caminhos correspondentes do <em>checkout</em> do SVN. A opção <span class='synopsis'><code>--include-paths</code></span> deve corresponder a cada <em>fetch</em> (incluindo fetchs automáticos por causa dos comandos <em>clone</em>, <em>dcommit</em>, <em>rebase</em>, etc.) num determinado repositório. A opção <span class='synopsis'><code>--ignore-paths</code></span> tem precedência sobre o a opção <span class='synopsis'><code>--include-paths</code></span>.</p>
 <div class="verseblock">
 <pre class="content">config key: svn-remote.&lt;nome&gt;.include-paths</pre>
 </div>
 </dd>
 <dt class="hdlist1" id="git-svn---log-window-sizeltngt"> <a class="anchor" href="#git-svn---log-window-sizen"></a> <a class="anchor" href="#git-svn---log-window-sizeltngt"></a>--log-window-size=&lt;n&gt; </dt>
 <dd>
-<p>Obtenha <code>&lt;n&gt;</code> entradas de registro por solicitação ao examinar o histórico do Subversion. A predefinição é 100. Para repositórios Subversion muito grandes, talvez sejam necessários valores maiores para que o <em>clone</em>/<em>fetch</em> seja concluído num tempo razoável. Mas valores muito grandes podem levar a um maior uso de memória e a tempos limite da solicitação.</p>
+<p>Obtenha <span class='synopsis'><em>&lt;n&gt;</em></span> entradas de registro por solicitação ao examinar o histórico do Subversion. A predefinição é 100. Para repositórios Subversion muito grandes, talvez sejam necessários valores maiores para que o <em>clone</em>/<em>fetch</em> seja concluído num tempo razoável. Mas valores muito grandes podem levar a um maior uso de memória e a tempos limite da solicitação.</p>
 </dd>
 </dl>
 </div>
 </dd>
 <dt class="hdlist1" id="git-svn-emcloneem"> <a class="anchor" href="#git-svn-clone"></a> <a class="anchor" href="#git-svn-emcloneem"></a><em>clone</em> </dt>
 <dd>
-<p>Executa o <em>init</em> e o <em>fetch</em>. Ele criará automaticamente um diretório com base no nome base da URL informada a ele ou, se um segundo argumento for usado, criará um diretório e trabalhará dentro dele. Ele aceita todos os argumentos que os comandos <em>init</em> e <em>fetch</em> aceitam, com exceção da opção <code>--fetch-all</code> e <code>--parent</code>. Após a clonagem de um repositório, o comando <em>fetch</em> poderá atualizar as revisões sem afetar a árvore de trabalho; e o comando <em>rebase</em> poderá atualizar a árvore de trabalho com as alterações mais recentes.</p>
+<p>Executa o <em>init</em> e o <em>fetch</em>. Ele criará automaticamente um diretório com base no nome base da URL informada a ele ou, se um segundo argumento for usado, criará um diretório e trabalhará dentro dele. Ele aceita todos os argumentos que os comandos <em>init</em> e <em>fetch</em> aceitam, com exceção da opção <span class='synopsis'><code>--fetch-all</code></span> e <span class='synopsis'><code>--parent</code></span>. Após a clonagem de um repositório, o comando <em>fetch</em> poderá atualizar as revisões sem afetar a árvore de trabalho; e o comando <em>rebase</em> poderá atualizar a árvore de trabalho com as alterações mais recentes.</p>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-svn---preserve-empty-dirs"> <a class="anchor" href="#git-svn---preserve-empty-dirs"></a>--preserve-empty-dirs </dt>
@@ -211,7 +246,7 @@ Antes do Git v2.0, o prefixo padrão era "" (sem prefixo). Esta situação fez c
 </dd>
 <dt class="hdlist1" id="git-svn---placeholder-filenameltnome-do-arquivogt"> <a class="anchor" href="#git-svn---placeholder-filenamenome-do-arquivo"></a> <a class="anchor" href="#git-svn---placeholder-filenameltnome-do-arquivogt"></a>--placeholder-filename=&lt;nome-do-arquivo&gt; </dt>
 <dd>
-<p>Defina o nome dos arquivos no espaço reservado criados pela opção <code>--preserve-empty-dirs</code>. Predefinição: ".gitignore"</p>
+<p>Defina o nome dos arquivos no espaço reservado criados pela opção <span class='synopsis'><code>--preserve-empty-dirs</code></span>. Predefinição: ".gitignore"</p>
 </dd>
 </dl>
 </div>
@@ -220,10 +255,10 @@ Antes do Git v2.0, o prefixo padrão era "" (sem prefixo). Esta situação fez c
 <dd>
 <p>Busca as revisões do pai SVN do HEAD atual e reconstrói o atual (não comprometido com o SVN) contra ele.</p>
 <div class="paragraph">
-<p>Funciona da mesma maneira que o comando <code>svn update</code> ou o <em>git pull</em>, exceto que preserva o histórico linear com o comando <em>git rebase</em> em vez do <em>git merge</em> para facilitar a comunicação com comando <em>git svn</em>.</p>
+<p>Funciona da mesma maneira que o comando <span class='synopsis'><code>svn</code> <code>update</code></span> ou o <em>git pull</em>, exceto que preserva o histórico linear com o comando <em>git rebase</em> em vez do <em>git merge</em> para facilitar a comunicação com comando <em>git svn</em>.</p>
 </div>
 <div class="paragraph">
-<p>Este aceita todas as opções que o comando <em>git svn fetch</em> e o comando <em>git rebase</em> aceitam. No entanto, o <code>--fetch-all</code> obtém apenas as definições do [svn-remote] atual, e não todas as definições do [svn-remote].</p>
+<p>Este aceita todas as opções que o comando <em>git svn fetch</em> e o comando <em>git rebase</em> aceitam. No entanto, o <span class='synopsis'><code>--fetch-all</code></span> obtém apenas as definições do [svn-remote] atual, e não todas as definições do [svn-remote].</p>
 </div>
 <div class="paragraph">
 <p>Como <em>git rebase</em>; isso requer que a árvore de trabalho esteja limpa e não tenha alterações em commits não realizados.</p>
@@ -243,7 +278,7 @@ Antes do Git v2.0, o prefixo padrão era "" (sem prefixo). Esta situação fez c
 </dd>
 <dt class="hdlist1" id="git-svn-emdcommitem"> <a class="anchor" href="#git-svn-dcommit"></a> <a class="anchor" href="#git-svn-emdcommitem"></a><em>dcommit</em> </dt>
 <dd>
-<p>Faça o commit de cada diff do ramo atual diretamente no repositório SVN e, em seguida, faça o <em>rebase</em> ou <em>reset</em> (dependendo se há ou não um diff entre o SVN e o <code>HEAD</code>). Esta ação criará uma revisão no SVN para cada commit no Git.</p>
+<p>Faça o commit de cada diff do ramo atual diretamente no repositório SVN e, em seguida, faça o <em>rebase</em> ou <em>reset</em> (dependendo se há ou não um diff entre o SVN e o <span class='synopsis'><code>HEAD</code></span>). Esta ação criará uma revisão no SVN para cada commit no Git.</p>
 <div class="paragraph">
 <p>Quando um nome do ramo do Git for opcional (ou um nome de objeto de commit do Git) é especificado como um argumento, o subcomando funciona no ramo especificado, não no ramo atual.</p>
 </div>
@@ -258,13 +293,13 @@ Antes do Git v2.0, o prefixo padrão era "" (sem prefixo). Esta situação fez c
 </dd>
 <dt class="hdlist1" id="git-svn---commit-urlltURLgt"> <a class="anchor" href="#git-svn---commit-urlURL"></a> <a class="anchor" href="#git-svn---commit-urlltURLgt"></a>--commit-url &lt;URL&gt; </dt>
 <dd>
-<p>Faça o commit para esta URL do SVN (o caminho completo). Esta é a intenção de permitir que os repositórios <em>git svn</em> existentes criados com um método de transporte (<code>svn://</code> ou <code>http://</code> para leitura anônima por exemplo) sejam reutilizados se um usuário receber posteriormente acesso a um método de transporte alternativo (<code>svn+ssh://</code> ou <code>https://</code> por exemplo) para commit.</p>
+<p>Faça o commit para esta URL do SVN (o caminho completo). Esta é a intenção de permitir que os repositórios <em>git svn</em> existentes criados com um método de transporte (<span class='synopsis'><code>svn://</code></span> ou <span class='synopsis'><code>http://</code></span> para leitura anônima por exemplo) sejam reutilizados se um usuário receber posteriormente acesso a um método de transporte alternativo (<span class='synopsis'><code>svn+ssh://</code></span> ou <span class='synopsis'><code>https://</code></span> por exemplo) para commit.</p>
 <div class="verseblock">
 <pre class="content">config key: svn-remote.&lt;nome&gt;.commiturl
 config key: svn.commiturl (sobrescreve todas as opções svn-remote.&lt;nome&gt;.commiturl)</pre>
 </div>
 <div class="paragraph">
-<p>Observe que a URL do SVN da chave de configuração <em>commiturl</em> inclui a ramificação do SVN. Caso queira definir a URL do commit para um repositório SVN inteiro, use <code>svn-remote.&lt;nome&gt;.pushurl</code>.</p>
+<p>Observe que a URL do SVN da chave de configuração <em>commiturl</em> inclui a ramificação do SVN. Caso queira definir a URL do commit para um repositório SVN inteiro, use <span class='synopsis'><code>svn-remote.</code><em>&lt;nome&gt;</em><code>.pushurl</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>O uso desta opção para qualquer outra finalidade (não pergunte) é veementemente desencorajada.</p>
@@ -272,7 +307,7 @@ config key: svn.commiturl (sobrescreve todas as opções svn-remote.&lt;nome&gt;
 </dd>
 <dt class="hdlist1" id="git-svn---mergeinfoltmergeinfogt"> <a class="anchor" href="#git-svn---mergeinfomergeinfo"></a> <a class="anchor" href="#git-svn---mergeinfoltmergeinfogt"></a>--mergeinfo=&lt;mergeinfo&gt; </dt>
 <dd>
-<p>Adicione as informações da mesclagem informadas durante o <em>dcommit</em> (por exemplo, <code>--mergeinfo="/branches/foo:1-10"</code>). Todas as versões do servidor svn podem armazenar estas informações (como uma propriedade) e a partir da versão 1.5 os clientes svn também podem usá-las. Para definir as informações da mesclagem das várias ramificações, utilize um caractere de espaço simples entre as ramificações (<code>--mergeinfo="/branches/foo:1-10 /branches/bar:3,5-6,8"</code>)</p>
+<p>Adicione as informações da mesclagem informadas durante o <em>dcommit</em> (por exemplo, <span class='synopsis'><code>--mergeinfo="/branches/foo:1-10"</code></span>). Todas as versões do servidor svn podem armazenar estas informações (como uma propriedade) e a partir da versão 1.5 os clientes svn também podem usá-las. Para definir as informações da mesclagem das várias ramificações, utilize um caractere de espaço simples entre as ramificações (<span class='synopsis'><code>--mergeinfo="/branches/foo:1-10</code> <code>/branches/bar:3,5-6,8"</code></span>)</p>
 <div class="verseblock">
 <pre class="content">config key: svn.pushmergeinfo</pre>
 </div>
@@ -303,12 +338,12 @@ config key: svn.commiturl (sobrescreve todas as opções svn-remote.&lt;nome&gt;
 <dt class="hdlist1" id="git-svn--t"> <a class="anchor" href="#git-svn--t"></a>-t </dt>
 <dt class="hdlist1" id="git-svn---tag"> <a class="anchor" href="#git-svn---tag"></a>--tag </dt>
 <dd>
-<p>Crie uma tag utilizando o <em>tags_subdir</em> em vez do <em>branches_subdir</em> definido durante o comando <code>git svn init</code>.</p>
+<p>Crie uma tag utilizando o <em>tags_subdir</em> em vez do <em>branches_subdir</em> definido durante o comando <span class='synopsis'><code>git</code> <code>svn</code> <code>init</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-svn--dltcaminhogt"> <a class="anchor" href="#git-svn--dcaminho"></a> <a class="anchor" href="#git-svn--dltcaminhogt"></a>-d&lt;caminho&gt; </dt>
 <dt class="hdlist1" id="git-svn---destinationltcaminhogt"> <a class="anchor" href="#git-svn---destinationcaminho"></a> <a class="anchor" href="#git-svn---destinationltcaminhogt"></a>--destination=&lt;caminho&gt; </dt>
 <dd>
-<p>Se mais de uma opção <code>--branches</code> (ou <code>--tags</code>) tiver sido dada ao comando <em>init</em> ou <em>clone</em>, você deverá fornecer o local do ramo (ou a etiqueta) que deseja criar no repositório SVN. O <code>&lt;caminho&gt;</code> define o caminho que será usado para criar a ramificação ou a etiqueta, deve corresponder ao padrão no lado esquerdo de uma das ramificações ou etiquetas configuradas <em>refspecs</em>. Você pode ver estas <em>refspecs</em> com os comandos</p>
+<p>Se mais de uma opção <span class='synopsis'><code>--branches</code></span> (ou <span class='synopsis'><code>--tags</code></span>) tiver sido dada ao comando <em>init</em> ou <em>clone</em>, você deverá fornecer o local do ramo (ou a etiqueta) que deseja criar no repositório SVN. O <span class='synopsis'><em>&lt;caminho&gt;</em></span> define o caminho que será usado para criar a ramificação ou a etiqueta, deve corresponder ao padrão no lado esquerdo de uma das ramificações ou etiquetas configuradas <em>refspecs</em>. Você pode ver estas <em>refspecs</em> com os comandos</p>
 <div class="literalblock">
 <div class="content">
 <pre>git config --get-all svn-remote.&lt;nome&gt;.branches git config --get-all svn-remote.&lt;nome&gt;.tags</pre>
@@ -333,7 +368,7 @@ config key: svn.commiturl (sobrescreve todas as opções svn-remote.&lt;nome&gt;
 </dd>
 <dt class="hdlist1" id="git-svn---parents"> <a class="anchor" href="#git-svn---parents"></a>--parents </dt>
 <dd>
-<p>Crie diretórios parentes. Este parâmetro é equivalente a <code>--parents</code> nos comandos <em>svn cp</em> e é útil para os layouts do repositório fora do padrão.</p>
+<p>Crie diretórios parentes. Este parâmetro é equivalente a <span class='synopsis'><code>--parents</code></span> nos comandos <em>svn cp</em> e é útil para os layouts do repositório fora do padrão.</p>
 </dd>
 </dl>
 </div>
@@ -344,9 +379,9 @@ config key: svn.commiturl (sobrescreve todas as opções svn-remote.&lt;nome&gt;
 </dd>
 <dt class="hdlist1" id="git-svn-emlogem"> <a class="anchor" href="#git-svn-log"></a> <a class="anchor" href="#git-svn-emlogem"></a><em>log</em> </dt>
 <dd>
-<p>Isso deve facilitar a consulta das mensagens <em>svn log</em> quando os usuários svn se referem ao <code>-r/--revision numbers</code>.</p>
+<p>Isso deve facilitar a consulta das mensagens <em>svn log</em> quando os usuários svn se referem ao <span class='synopsis'><code>-r/--revision</code> <code>numbers</code></span>.</p>
 <div class="paragraph">
-<p>Os seguintes recursos do <code>svn log</code> são compatíveis:</p>
+<p>Os seguintes recursos do <span class='synopsis'><code>svn</code> <code>log</code></span> são compatíveis:</p>
 </div>
 <div class="openblock">
 <div class="content">
@@ -355,16 +390,16 @@ config key: svn.commiturl (sobrescreve todas as opções svn-remote.&lt;nome&gt;
 <dt class="hdlist1" id="git-svn--rltngtltngt"> <a class="anchor" href="#git-svn--rnn"></a> <a class="anchor" href="#git-svn--rltngtltngt"></a>-r &lt;n&gt;[:&lt;n&gt;] </dt>
 <dt class="hdlist1" id="git-svn---revisionltngtltngt"> <a class="anchor" href="#git-svn---revisionnn"></a> <a class="anchor" href="#git-svn---revisionltngtltngt"></a>--revision=&lt;n&gt;[:&lt;n&gt;] </dt>
 <dd>
-<p>é compatível, argumentos não numéricos não são: <code>HEAD</code>, <code>NEXT</code>, <code>BASE</code>, <code>PREV</code>, etc &#8230;&#8203;</p>
+<p>é compatível, argumentos não numéricos não são: <span class='synopsis'><code>HEAD</code></span>, <span class='synopsis'><code>NEXT</code></span>, <span class='synopsis'><code>BASE</code></span>, <span class='synopsis'><code>PREV</code></span>, etc &#8230;&#8203;</p>
 </dd>
 <dt class="hdlist1" id="git-svn--v"> <a class="anchor" href="#git-svn--v"></a>-v </dt>
 <dt class="hdlist1" id="git-svn---verbose"> <a class="anchor" href="#git-svn---verbose"></a>--verbose </dt>
 <dd>
-<p>não é completamente compatível com a saída <code>--verbose</code> no <em>svn log</em>, porém é razoavelmente próximo.</p>
+<p>não é completamente compatível com a saída <span class='synopsis'><code>--verbose</code></span> no <em>svn log</em>, porém é razoavelmente próximo.</p>
 </dd>
 <dt class="hdlist1" id="git-svn---limitltngt"> <a class="anchor" href="#git-svn---limitn"></a> <a class="anchor" href="#git-svn---limitltngt"></a>--limit=&lt;n&gt; </dt>
 <dd>
-<p>NÃO é o mesmo que a opção <code>--max-count</code>, não conta os commits que foram mesclados/excluídos</p>
+<p>NÃO é o mesmo que a opção <span class='synopsis'><code>--max-count</code></span>, não conta os commits que foram mesclados/excluídos</p>
 </dd>
 <dt class="hdlist1" id="git-svn---incremental"> <a class="anchor" href="#git-svn---incremental"></a>--incremental </dt>
 <dd>
@@ -387,7 +422,7 @@ config key: svn.commiturl (sobrescreve todas as opções svn-remote.&lt;nome&gt;
 </dd>
 <dt class="hdlist1" id="git-svn---oneline"> <a class="anchor" href="#git-svn---oneline"></a>--oneline </dt>
 <dd>
-<p>a nossa versão do <code>--pretty=oneline</code></p>
+<p>a nossa versão do <span class='synopsis'><code>--pretty=oneline</code></span></p>
 </dd>
 </dl>
 </div>
@@ -411,7 +446,7 @@ O próprio SVN armazena apenas os horários em UTC e mais nada. O cliente svn co
 </dd>
 <dt class="hdlist1" id="git-svn-emblameem"> <a class="anchor" href="#git-svn-blame"></a> <a class="anchor" href="#git-svn-emblameem"></a><em>blame</em> </dt>
 <dd>
-<p>Exiba quais foram as últimas modificações feitas em cada linha de um arquivo separados pela versão da revisão e do autor da modificação. É predefinido que a saída deste modo seja compatível com o formato <code>svn blame'. Como o "SVN blame", as alterações dos commits locais que não tenham sido feitas na árvore de trabalho são ignoradas; a versão do arquivo na revisão `HEAD</code> é anotada. os argumentos desconhecidos são passados diretamente para o comando <em>git blame</em>.</p>
+<p>Exiba quais foram as últimas modificações feitas em cada linha de um arquivo separados pela versão da revisão e do autor da modificação. É predefinido que a saída deste modo seja compatível com o formato <span class='synopsis'><em>svn blame'. Como o "SVN blame", as alterações dos commits locais que não tenham sido feitas na árvore de trabalho são ignoradas; a versão do arquivo na revisão `HEAD</em></span> é anotada. os argumentos desconhecidos são passados diretamente para o comando <em>git blame</em>.</p>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-svn---git-format"> <a class="anchor" href="#git-svn---git-format"></a>--git-format </dt>
@@ -441,7 +476,7 @@ O próprio SVN armazena apenas os horários em UTC e mais nada. O cliente svn co
 </dd>
 <dt class="hdlist1" id="git-svn-emset-treeem"> <a class="anchor" href="#git-svn-set-tree"></a> <a class="anchor" href="#git-svn-emset-treeem"></a><em>set-tree</em> </dt>
 <dd>
-<p>Você deve considerar o uso de <em>dcommit</em> em vez de esta. Comprometer o commit ou os objetos de árvore especificados no SVN. Esta depende de seus dados de busca importados estarem atualizados. Este não faz absolutamente nenhuma tentativa de correção ao fazer o commit no SVN; ela simplesmente substitui os arquivos pelos especificados na árvore ou no commit. Presume-se que todas as mesclagens ocorreram independentemente das funções do comando <code>git svn</code>.</p>
+<p>Você deve considerar o uso de <em>dcommit</em> em vez de esta. Comprometer o commit ou os objetos de árvore especificados no SVN. Esta depende de seus dados de busca importados estarem atualizados. Este não faz absolutamente nenhuma tentativa de correção ao fazer o commit no SVN; ela simplesmente substitui os arquivos pelos especificados na árvore ou no commit. Presume-se que todas as mesclagens ocorreram independentemente das funções do comando <span class='synopsis'><code>git</code> <code>svn</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-svn-emcreate-ignoreem"> <a class="anchor" href="#git-svn-create-ignore"></a> <a class="anchor" href="#git-svn-emcreate-ignoreem"></a><em>create-ignore</em> </dt>
 <dd>
@@ -453,40 +488,40 @@ O próprio SVN armazena apenas os horários em UTC e mais nada. O cliente svn co
 </dd>
 <dt class="hdlist1" id="git-svn-emmkdirsem"> <a class="anchor" href="#git-svn-mkdirs"></a> <a class="anchor" href="#git-svn-emmkdirsem"></a><em>mkdirs</em> </dt>
 <dd>
-<p>Tenta recriar diretórios vazios que o núcleo do Git não pode rastrear com base nas informações dos arquivos <code>$GIT_DIR/svn/&lt;refname&gt;/unhandled.log</code>. Os diretórios vazios são recriados automaticamente ao usar o comando <code>git svn clone</code> e <code>git svn rebase</code>, portanto, o <em>mkdirs</em> deve ser usado após comandos como o <code>git checkout</code> ou o <code>git reset</code>. (Para mais informações consulte a opção do arquivo de configuração <code>svn-remote.&lt;nome&gt;.automkdirs</code>.)</p>
+<p>Tenta recriar diretórios vazios que o núcleo do Git não pode rastrear com base nas informações dos arquivos <span class='synopsis'><code>$GIT_DIR/svn/</code><em>&lt;refname&gt;</em><code>/unhandled.log</code></span>. Os diretórios vazios são recriados automaticamente ao usar o comando <span class='synopsis'><code>git</code> <code>svn</code> <code>clone</code></span> e <span class='synopsis'><code>git</code> <code>svn</code> <code>rebase</code></span>, portanto, o <em>mkdirs</em> deve ser usado após comandos como o <span class='synopsis'><code>git</code> <code>checkout</code></span> ou o <span class='synopsis'><code>git</code> <code>reset</code></span>. (Para mais informações consulte a opção do arquivo de configuração <span class='synopsis'><code>svn-remote.</code><em>&lt;nome&gt;</em><code>.automkdirs</code></span>.)</p>
 </dd>
 <dt class="hdlist1" id="git-svn-emcommit-diffem"> <a class="anchor" href="#git-svn-commit-diff"></a> <a class="anchor" href="#git-svn-emcommit-diffem"></a><em>commit-diff</em> </dt>
 <dd>
-<p>Faz o commit da diferença de dois argumentos em forma de árvore a partir da linha de comando. Este comando não depende de estar num repositório <code>git svn init</code>. Este comando recebe três argumentos: (a) a árvore original a ser comparada com o diff, (b) o resultado da nova árvore, (c) o URL do repositório Subversion de destino. O argumento final (URL) pode ser omitido se você estiver trabalhando num repositório que reconhece o comando <code>git svn</code> (que foi <code>iniciado</code> com o comando <code>git svn</code>). A opção -r&lt;revisão&gt; é necessária para isso.</p>
+<p>Faz o commit da diferença de dois argumentos em forma de árvore a partir da linha de comando. Este comando não depende de estar num repositório <span class='synopsis'><code>git</code> <code>svn</code> <code>init</code></span>. Este comando recebe três argumentos: (a) a árvore original a ser comparada com o diff, (b) o resultado da nova árvore, (c) o URL do repositório Subversion de destino. O argumento final (URL) pode ser omitido se você estiver trabalhando num repositório que reconhece o comando <span class='synopsis'><code>git</code> <code>svn</code></span> (que foi <span class='synopsis'><code>iniciado</code></span> com o comando <span class='synopsis'><code>git</code> <code>svn</code></span>). A opção -r&lt;revisão&gt; é necessária para isso.</p>
 <div class="paragraph">
-<p>A mensagem do commit é informada diretamente com a opção <code>-m</code> ou <code>-F</code>, ou indiretamente da tag ou commit quando a segunda <em>tree-ish</em> denota este objeto ou é solicitada pela chamada de um editor (consulte a opção <code>--edit</code> abaixo).</p>
+<p>A mensagem do commit é informada diretamente com a opção <span class='synopsis'><code>-m</code></span> ou <span class='synopsis'><code>-F</code></span>, ou indiretamente da tag ou commit quando a segunda <em>tree-ish</em> denota este objeto ou é solicitada pela chamada de um editor (consulte a opção <span class='synopsis'><code>--edit</code></span> abaixo).</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-svn--mltmsggt"> <a class="anchor" href="#git-svn--mmsg"></a> <a class="anchor" href="#git-svn--mltmsggt"></a>-m &lt;msg&gt; </dt>
 <dt class="hdlist1" id="git-svn---messageltmsggt"> <a class="anchor" href="#git-svn---messagemsg"></a> <a class="anchor" href="#git-svn---messageltmsggt"></a>--message=&lt;msg&gt; </dt>
 <dd>
-<p>Utilize a <code>msg</code> informada como a mensagem do commit. Esta opção desativa a opção <code>--edit</code>.</p>
+<p>Utilize a <span class='synopsis'><code>msg</code></span> informada como a mensagem do commit. Esta opção desativa a opção <span class='synopsis'><code>--edit</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-svn--Fltnome-do-arquivogt"> <a class="anchor" href="#git-svn--Fnome-do-arquivo"></a> <a class="anchor" href="#git-svn--Fltnome-do-arquivogt"></a>-F &lt;nome-do-arquivo&gt; </dt>
 <dt class="hdlist1" id="git-svn---fileltnome-do-arquivogt"> <a class="anchor" href="#git-svn---filenome-do-arquivo"></a> <a class="anchor" href="#git-svn---fileltnome-do-arquivogt"></a>--file=&lt;nome-do-arquivo&gt; </dt>
 <dd>
-<p>Pega a mensagem de commit vindo de um determinado arquivo. This option disables the <code>--edit</code> option.</p>
+<p>Pega a mensagem de commit vindo de um determinado arquivo. This option disables the <span class='synopsis'><code>--edit</code></span> option.</p>
 </dd>
 </dl>
 </div>
 </dd>
 <dt class="hdlist1" id="git-svn-eminfoem"> <a class="anchor" href="#git-svn-info"></a> <a class="anchor" href="#git-svn-eminfoem"></a><em>info</em> </dt>
 <dd>
-<p>Mostra informações sobre um arquivo ou diretório semelhantes às fornecidas pelo <code>svn info</code>. Atualmente, não oferece suporte a um argumento <code>-r/--revision</code>. Use a opção <code>--url</code> para gerar apenas o valor do campo <em>URL:</em>.</p>
+<p>Mostra informações sobre um arquivo ou diretório semelhantes às fornecidas pelo <span class='synopsis'><code>svn</code> <code>info</code></span>. Atualmente, não oferece suporte a um argumento <span class='synopsis'><code>-r/--revision</code></span>. Use a opção <span class='synopsis'><code>--url</code></span> para gerar apenas o valor do campo <em>URL:</em>.</p>
 </dd>
 <dt class="hdlist1" id="git-svn-emproplistem"> <a class="anchor" href="#git-svn-proplist"></a> <a class="anchor" href="#git-svn-emproplistem"></a><em>proplist</em> </dt>
 <dd>
-<p>Lista as propriedades armazenadas no repositório do Subversion sobre um determinado arquivo ou diretório. Use <code>-r/--revision</code> para se referir a uma revisão específica do Subversion.</p>
+<p>Lista as propriedades armazenadas no repositório do Subversion sobre um determinado arquivo ou diretório. Use <span class='synopsis'><code>-r/--revision</code></span> para se referir a uma revisão específica do Subversion.</p>
 </dd>
 <dt class="hdlist1" id="git-svn-empropgetem"> <a class="anchor" href="#git-svn-propget"></a> <a class="anchor" href="#git-svn-empropgetem"></a><em>propget</em> </dt>
 <dd>
-<p>Obtém a propriedade do Subversion fornecida como o primeiro argumento, para um arquivo. Uma revisão específica pode ser especificada com <code>-r/--revision</code>.</p>
+<p>Obtém a propriedade do Subversion fornecida como o primeiro argumento, para um arquivo. Uma revisão específica pode ser especificada com <span class='synopsis'><code>-r/--revision</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-svn-empropsetem"> <a class="anchor" href="#git-svn-propset"></a> <a class="anchor" href="#git-svn-empropsetem"></a><em>propset</em> </dt>
 <dd>
@@ -505,17 +540,17 @@ O próprio SVN armazena apenas os horários em UTC e mais nada. O cliente svn co
 </dd>
 <dt class="hdlist1" id="git-svn-emshow-externalsem"> <a class="anchor" href="#git-svn-show-externals"></a> <a class="anchor" href="#git-svn-emshow-externalsem"></a><em>show-externals</em> </dt>
 <dd>
-<p>Mostra as partes externas do Subversion. Use <code>-r/--revision</code> para especificar a uma revisão específica.</p>
+<p>Mostra as partes externas do Subversion. Use <span class='synopsis'><code>-r/--revision</code></span> para especificar a uma revisão específica.</p>
 </dd>
 <dt class="hdlist1" id="git-svn-emgcem"> <a class="anchor" href="#git-svn-gc"></a> <a class="anchor" href="#git-svn-emgcem"></a><em>gc</em> </dt>
 <dd>
-<p>Compacte os arquivos <code>$GIT_DIR/svn/&lt;refname&gt;/unhandled.log</code> e remova os arquivos <code>$GIT_DIR/svn/&lt;refname&gt;/index</code>.</p>
+<p>Compacte os arquivos <span class='synopsis'><code>$GIT_DIR/svn/</code><em>&lt;refname&gt;</em><code>/unhandled.log</code></span> e remova os arquivos <span class='synopsis'><code>$GIT_DIR/svn/</code><em>&lt;refname&gt;</em><code>/index</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-svn-emresetem"> <a class="anchor" href="#git-svn-reset"></a> <a class="anchor" href="#git-svn-emresetem"></a><em>reset</em> </dt>
 <dd>
-<p>Desfaz os efeitos de <em>fetch</em> de volta à revisão especificada. Isso permite que você busque novamente (<em>fetch</em>) uma revisão do SVN. Normalmente, o conteúdo de uma revisão do SVN nunca deve ser alterado e o comando <em>reset</em> não deve ser necessário. No entanto, se as permissões do SVN forem alteradas ou se você alterar a opção <code>--ignore-paths</code>, uma "busca" poderá falhar com a mensagem "not found in commit" (arquivo não visível anteriormente) ou "checksum mismatch" (alteração perdida). Se o arquivo com problema não puder ser ignorado para sempre (com <code>--ignore-paths</code>), a única maneira de reparar o repositório é usar <em>reset</em>.</p>
+<p>Desfaz os efeitos de <em>fetch</em> de volta à revisão especificada. Isso permite que você busque novamente (<em>fetch</em>) uma revisão do SVN. Normalmente, o conteúdo de uma revisão do SVN nunca deve ser alterado e o comando <em>reset</em> não deve ser necessário. No entanto, se as permissões do SVN forem alteradas ou se você alterar a opção <span class='synopsis'><code>--ignore-paths</code></span>, uma "busca" poderá falhar com a mensagem "not found in commit" (arquivo não visível anteriormente) ou "checksum mismatch" (alteração perdida). Se o arquivo com problema não puder ser ignorado para sempre (com <span class='synopsis'><code>--ignore-paths</code></span>), a única maneira de reparar o repositório é usar <em>reset</em>.</p>
 <div class="paragraph">
-<p>Apenas o <code>rev_map</code> e o <code>refs/remotes/git-svn</code> são alterados (consulte <code>$GIT_DIR/svn/\**/.rev_map.*</code> na seção ARQUIVOS abaixo para obter detalhes). Siga o comando <em>reset</em> com um <em>fetch</em> e, em seguida o comando <em>git reset</em> ou o <em>git rebase</em> para mover as ramificações locais para a nova árvore.</p>
+<p>Apenas o <span class='synopsis'><code>rev_map</code></span> e o <span class='synopsis'><code>refs/remotes/git-svn</code></span> são alterados (consulte <span class='synopsis'><em>$GIT_DIR/svn/\**/.rev_map.*</em></span> na seção ARQUIVOS abaixo para obter detalhes). Siga o comando <em>reset</em> com um <em>fetch</em> e, em seguida o comando <em>git reset</em> ou o <em>git rebase</em> para mover as ramificações locais para a nova árvore.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -554,7 +589,7 @@ git svn fetch</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Em seguida, corrija o <em>master</em> usando o comando <code>git rebase</code>. NÃO use o comando <code>git merge</code> ou seu histórico não será compatível com <em>dcommit</em> no futuro!</p>
+<p>Em seguida, corrija o <em>master</em> usando o comando <span class='synopsis'><code>git</code> <code>rebase</code></span>. NÃO use o comando <span class='synopsis'><code>git</code> <code>merge</code></span> ou seu histórico não será compatível com <em>dcommit</em> no futuro!</p>
 </div>
 <div class="verseblock">
 <pre class="content">git rebase --onto remotes/git-svn A^ master</pre>
@@ -589,7 +624,7 @@ git svn fetch</pre>
 <dd>
 <p>Usado com o comando <em>fetch</em> (traga).</p>
 <div class="paragraph">
-<p>Isso permite o suporte a intervalos de revisão para histórico parcial/cauterizado. O <code>$NUMBER</code>, <code>$NUMBER1:$NUMBER2</code> (intervalos numéricos), <code>$NUMBER:HEAD</code> e <code>BASE:$NUMBER</code> são todos compatíveis.</p>
+<p>Isso permite o suporte a intervalos de revisão para histórico parcial/cauterizado. O <span class='synopsis'><code>$NUMBER</code></span>, <span class='synopsis'><code>$NUMBER1:$NUMBER2</code></span> (intervalos numéricos), <span class='synopsis'><code>$NUMBER:HEAD</code></span> e <span class='synopsis'><code>BASE:$NUMBER</code></span> são todos compatíveis.</p>
 </div>
 <div class="paragraph">
 <p>Pode permitir que você faça espelhos parciais ao executar a busca; porém geralmente não é recomendado pois o histórico será ignorado e perdido.</p>
@@ -600,7 +635,7 @@ git svn fetch</pre>
 <dd>
 <p>Apenas utilizado com o comando <em>set-tree</em>.</p>
 <div class="paragraph">
-<p>Lê uma lista de commits do stdin e faz os commit na ordem inversa. Apenas o sha1 inicial é lido de cada linha, portanto, a saída do comando <code>git rev-list --pretty=oneline</code> pode ser usada.</p>
+<p>Lê uma lista de commits do stdin e faz os commit na ordem inversa. Apenas o sha1 inicial é lido de cada linha, portanto, a saída do comando <span class='synopsis'><code>git</code> <code>rev-list</code> <code>--pretty=oneline</code></span> pode ser usada.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-svn---rmdir"> <a class="anchor" href="#git-svn---rmdir"></a>--rmdir </dt>
@@ -646,7 +681,7 @@ config key: svn.findcopiesharder</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Se essa opção for especificada e o comando <code>git svn</code> encontrar um nome de quem fez o commit SVN que não exista no arquivo de autores, o comando <code>git svn</code> interromperá a operação. O usuário terá que adicionar a entrada apropriada. A operação será continuada ao executar novamente o comando <code>git svn</code> anterior após a alteração do arquivo dos autores.</p>
+<p>Se essa opção for especificada e o comando <span class='synopsis'><code>git</code> <code>svn</code></span> encontrar um nome de quem fez o commit SVN que não exista no arquivo de autores, o comando <span class='synopsis'><code>git</code> <code>svn</code></span> interromperá a operação. O usuário terá que adicionar a entrada apropriada. A operação será continuada ao executar novamente o comando <span class='synopsis'><code>git</code> <code>svn</code></span> anterior após a alteração do arquivo dos autores.</p>
 </div>
 <div class="verseblock">
 <pre class="content">config key: svn.authorsfile</pre>
@@ -695,14 +730,14 @@ config key: svn.findcopiesharder</pre>
 </dd>
 <dt class="hdlist1" id="git-svn---use-log-author"> <a class="anchor" href="#git-svn---use-log-author"></a>--use-log-author </dt>
 <dd>
-<p>Ao recuperar commits svn no Git (como parte das operações <em>fetch</em>, <em>rebase</em> ou <em>dcommit</em>), procure pela primeira linha <code>From:</code> ou <code>Signed-off-by</code> na mensagem do registro log e use-a como texto do autor.</p>
+<p>Ao recuperar commits svn no Git (como parte das operações <em>fetch</em>, <em>rebase</em> ou <em>dcommit</em>), procure pela primeira linha <span class='synopsis'><code>From:</code></span> ou <span class='synopsis'><code>Signed-off-by</code></span> na mensagem do registro log e use-a como texto do autor.</p>
 <div class="verseblock">
 <pre class="content">config key: svn.useLogAuthor</pre>
 </div>
 </dd>
 <dt class="hdlist1" id="git-svn---add-author-from"> <a class="anchor" href="#git-svn---add-author-from"></a>--add-author-from </dt>
 <dd>
-<p>Ao fazer o commit do Git para o svn (como parte das operações <em>set-tree</em> ou <em>dcommit</em>), se a mensagem de registro existente ainda não tiver um trailer <code>From:</code> ou <code>Signed-off-by</code>, acrescente uma linha <code>From:</code> com base na string de autor do commit do Git. Se você usar isso, então a opção <code>--use-log-author</code> recuperará uma string válida do autor para todos os commits.</p>
+<p>Ao fazer o commit do Git para o svn (como parte das operações <em>set-tree</em> ou <em>dcommit</em>), se a mensagem de registro existente ainda não tiver um trailer <span class='synopsis'><code>From:</code></span> ou <span class='synopsis'><code>Signed-off-by</code></span>, acrescente uma linha <span class='synopsis'><code>From:</code></span> com base na string de autor do commit do Git. Se você usar isso, então a opção <span class='synopsis'><code>--use-log-author</code></span> recuperará uma string válida do autor para todos os commits.</p>
 <div class="verseblock">
 <pre class="content">config key: svn.addAuthorFrom</pre>
 </div>
@@ -719,7 +754,7 @@ config key: svn.findcopiesharder</pre>
 <dt class="hdlist1" id="git-svn--iltGITSVNIDgt"> <a class="anchor" href="#git-svn--iGITSVNID"></a> <a class="anchor" href="#git-svn--iltGITSVNIDgt"></a>-i&lt;GIT_SVN_ID&gt; </dt>
 <dt class="hdlist1" id="git-svn---idltGITSVNIDgt"> <a class="anchor" href="#git-svn---idGITSVNID"></a> <a class="anchor" href="#git-svn---idltGITSVNIDgt"></a>--id &lt;GIT_SVN_ID&gt; </dt>
 <dd>
-<p>Isso define o <code>GIT_SVN_ID</code> (em vez de usar o ambiente). Isso permite que o usuário substitua o <em>refname</em> predefinido que será obtido ao rastrear uma única URL. Os comandos <em>log</em> e <em>dcommit</em> não exigem mais esta opção como argumento.</p>
+<p>Isso define o <span class='synopsis'><code>GIT_SVN_ID</code></span> (em vez de usar o ambiente). Isso permite que o usuário substitua o <em>refname</em> predefinido que será obtido ao rastrear uma única URL. Os comandos <em>log</em> e <em>dcommit</em> não exigem mais esta opção como argumento.</p>
 </dd>
 <dt class="hdlist1" id="git-svn--Rltnome-remotogt"> <a class="anchor" href="#git-svn--Rnome-remoto"></a> <a class="anchor" href="#git-svn--Rltnome-remotogt"></a>-R&lt;nome-remoto&gt; </dt>
 <dt class="hdlist1" id="git-svn---svn-remoteltnome-remotogt"> <a class="anchor" href="#git-svn---svn-remotenome-remoto"></a> <a class="anchor" href="#git-svn---svn-remoteltnome-remotogt"></a>--svn-remote &lt;nome-remoto&gt; </dt>
@@ -728,7 +763,7 @@ config key: svn.findcopiesharder</pre>
 </dd>
 <dt class="hdlist1" id="git-svn---follow-parent"> <a class="anchor" href="#git-svn---follow-parent"></a>--follow-parent </dt>
 <dd>
-<p>Essa opção só é relevante se estivermos rastreando ramificações (usando uma das opções de layout do repositório <code>--trunk</code>, <code>--tags</code>, <code>--branches</code>, <code>--stdlayout</code>). Para cada ramificação rastreada, tente descobrir de onde a sua revisão foi copiada e defina um ramo principal adequado no primeiro commit do Git para a ramificação. Isso é especialmente útil quando estamos rastreando um diretório que foi movido dentro do repositório. Se este recurso estiver desativado, as ramificações criadas pelo comando <code>git svn</code> serão todas lineares e não compartilharão nenhum histórico, o que significa que não haverá informações sobre onde as ramificações foram divididas ou mescladas. No entanto, seguir históricos longos/convolutos pode levar muito tempo, portanto, a desativação deste recurso pode acelerar o processo de clonagem. Esse recurso é ativado por padrão; use a opção <code>--no-follow-parent</code> para desativá-lo.</p>
+<p>Essa opção só é relevante se estivermos rastreando ramificações (usando uma das opções de layout do repositório <span class='synopsis'><code>--trunk</code></span>, <span class='synopsis'><code>--tags</code></span>, <span class='synopsis'><code>--branches</code></span>, <span class='synopsis'><code>--stdlayout</code></span>). Para cada ramificação rastreada, tente descobrir de onde a sua revisão foi copiada e defina um ramo principal adequado no primeiro commit do Git para a ramificação. Isso é especialmente útil quando estamos rastreando um diretório que foi movido dentro do repositório. Se este recurso estiver desativado, as ramificações criadas pelo comando <span class='synopsis'><code>git</code> <code>svn</code></span> serão todas lineares e não compartilharão nenhum histórico, o que significa que não haverá informações sobre onde as ramificações foram divididas ou mescladas. No entanto, seguir históricos longos/convolutos pode levar muito tempo, portanto, a desativação deste recurso pode acelerar o processo de clonagem. Esse recurso é ativado por padrão; use a opção <span class='synopsis'><code>--no-follow-parent</code></span> para desativá-lo.</p>
 <div class="verseblock">
 <pre class="content">config key: svn.followparent</pre>
 </div>
@@ -750,10 +785,10 @@ config key: svn.findcopiesharder</pre>
 <p>Esta opção pode ser usada apenas para as importações de captura única, já que <em>git svn</em> não poderá buscar novamente sem os metadados. Além disso, caso perca os seus arquivos <em>$GIT_DIR/svn/**/.rev_map.*</em>, o comando <em>git svn</em> não será capaz de reconstruí-los.</p>
 </div>
 <div class="paragraph">
-<p>O comando <code>git svn log</code> também não funcionará nos repositórios que usam isso. O uso dessa opção entra em conflito com a opção <em>useSvmProps</em> por motivos (que esperamos que sejam) óbvios.</p>
+<p>O comando <span class='synopsis'><code>git</code> <code>svn</code> <code>log</code></span> também não funcionará nos repositórios que usam isso. O uso dessa opção entra em conflito com a opção <em>useSvmProps</em> por motivos (que esperamos que sejam) óbvios.</p>
 </div>
 <div class="paragraph">
-<p>Esta opção NÃO é recomendada, pois dificulta o rastreamento de referências antigas aos números de revisão do SVN na documentação, nos relatórios de bugs e nos arquivos existentes. Caso esteja planejando eventualmente migrar do SVN para o Git e tem certeza de que vai abandonar o histórico do SVN, considere <a href="https://github.com/newren/git-filter-repo">git-filter-repo</a>. O <em>filter-repo</em> também permite a reformatação dos metadados para facilitar a leitura e reescrever as informações de autoria para usuários que não sejam <code>svn.authorsFile</code>.</p>
+<p>Esta opção NÃO é recomendada, pois dificulta o rastreamento de referências antigas aos números de revisão do SVN na documentação, nos relatórios de bugs e nos arquivos existentes. Caso esteja planejando eventualmente migrar do SVN para o Git e tem certeza de que vai abandonar o histórico do SVN, considere <a href="https://github.com/newren/git-filter-repo">git-filter-repo</a>. O <em>filter-repo</em> também permite a reformatação dos metadados para facilitar a leitura e reescrever as informações de autoria para usuários que não sejam <span class='synopsis'><code>svn.authorsFile</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-svn-svnuseSvmProps"> <a class="anchor" href="#git-svn-svnuseSvmProps"></a>svn.useSvmProps </dt>
@@ -761,7 +796,7 @@ config key: svn.findcopiesharder</pre>
 <dd>
 <p>Isso permite ao <em>git svn</em> remapear novamente as URLs e os UUIDs do repositório a partir dos espelhos criados usando SVN::Mirror (ou svk) para o metadados.</p>
 <div class="paragraph">
-<p>Se uma revisão do SVN tiver uma propriedade, <code>svm:headrev</code>, é provável que a revisão tenha sido criada pelo <code>SVN::Mirror</code> (também usado pelo SVK). A propriedade contém um UUID de repositório e uma revisão. Queremos fazer com que pareça que estamos espelhando a URL original, portanto, introduza uma função auxiliar que retorne o URL e o UUID da identidade original e use-a ao gerar os metadados nas mensagens do commit.</p>
+<p>Se uma revisão do SVN tiver uma propriedade, <span class='synopsis'><code>svm:headrev</code></span>, é provável que a revisão tenha sido criada pelo <span class='synopsis'><code>SVN::Mirror</code></span> (também usado pelo SVK). A propriedade contém um UUID de repositório e uma revisão. Queremos fazer com que pareça que estamos espelhando a URL original, portanto, introduza uma função auxiliar que retorne o URL e o UUID da identidade original e use-a ao gerar os metadados nas mensagens do commit.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-svn-svnuseSvnsyncProps"> <a class="anchor" href="#git-svn-svnuseSvnsyncProps"></a>svn.useSvnsyncProps </dt>
@@ -771,7 +806,7 @@ config key: svn.findcopiesharder</pre>
 </dd>
 <dt class="hdlist1" id="git-svn-svn-remoteltnomegtrewriteRoot"> <a class="anchor" href="#git-svn-svn-remotenomerewriteRoot"></a> <a class="anchor" href="#git-svn-svn-remoteltnomegtrewriteRoot"></a>svn-remote.&lt;nome&gt;.rewriteRoot </dt>
 <dd>
-<p>Isso permite que os usuários criem repositórios a partir de URLs alternativas. Por exemplo, um administrador pode executar o comando <code>git svn</code> no servidor local (acessando através de file://), mas deseja distribuir o repositório com uma URL pública <code>http://</code> ou <code>svn://</code> nos metadados para que os usuários vejam a URL pública.</p>
+<p>Isso permite que os usuários criem repositórios a partir de URLs alternativas. Por exemplo, um administrador pode executar o comando <span class='synopsis'><code>git</code> <code>svn</code></span> no servidor local (acessando através de file://), mas deseja distribuir o repositório com uma URL pública <span class='synopsis'><code>http://</code></span> ou <span class='synopsis'><code>svn://</code></span> nos metadados para que os usuários vejam a URL pública.</p>
 </dd>
 <dt class="hdlist1" id="git-svn-svn-remoteltnomegtrewriteUUID"> <a class="anchor" href="#git-svn-svn-remotenomerewriteUUID"></a> <a class="anchor" href="#git-svn-svn-remoteltnomegtrewriteUUID"></a>svn-remote.&lt;nome&gt;.rewriteUUID </dt>
 <dd>
@@ -779,19 +814,19 @@ config key: svn.findcopiesharder</pre>
 </dd>
 <dt class="hdlist1" id="git-svn-svn-remoteltnomegtpushurl"> <a class="anchor" href="#git-svn-svn-remotenomepushurl"></a> <a class="anchor" href="#git-svn-svn-remoteltnomegtpushurl"></a>svn-remote.&lt;nome&gt;.pushurl </dt>
 <dd>
-<p>Semelhante ao <code>remote.&lt;nome&gt;.pushurl</code> do Git, essa chave é projetada para ser usada nos casos onde a <em>url</em> apontr para um repositório SVN através de um transporte de leitura apenas, fornecendo um transporte alternativo de leitura/gravação. Supõe-se que ambas as chaves apontem para o mesmo repositório. Ao contrário do <em>commiturl</em>, <em>pushurl</em> é um caminho da base. Caso <em>commiturl</em> ou <em>pushurl</em> puder ser usado, o <em>commiturl</em> terá precedência.</p>
+<p>Semelhante ao <span class='synopsis'><code>remote.</code><em>&lt;nome&gt;</em><code>.pushurl</code></span> do Git, essa chave é projetada para ser usada nos casos onde a <em>url</em> apontr para um repositório SVN através de um transporte de leitura apenas, fornecendo um transporte alternativo de leitura/gravação. Supõe-se que ambas as chaves apontem para o mesmo repositório. Ao contrário do <em>commiturl</em>, <em>pushurl</em> é um caminho da base. Caso <em>commiturl</em> ou <em>pushurl</em> puder ser usado, o <em>commiturl</em> terá precedência.</p>
 </dd>
 <dt class="hdlist1" id="git-svn-svnbrokenSymlinkWorkaround"> <a class="anchor" href="#git-svn-svnbrokenSymlinkWorkaround"></a>svn.brokenSymlinkWorkaround </dt>
 <dd>
-<p>Isso desativa verificações potencialmente custosas para contornar os links simbólicos quebrados verificados no SVN por clientes problemáticos. Defina essa opção como <em>false</em> se você rastrear um repositório SVN com muitas bolhas vazias que não são links simbólicos. Esta opção pode ser alterada enquanto o comando <code>git svn</code> estiver em execução e entrará em vigor na obtenção da próxima revisão. Quando não for definida, o comando <em>git svn</em> assume que essa opção será "true" (verdadeira).</p>
+<p>Isso desativa verificações potencialmente custosas para contornar os links simbólicos quebrados verificados no SVN por clientes problemáticos. Defina essa opção como <em>false</em> se você rastrear um repositório SVN com muitas bolhas vazias que não são links simbólicos. Esta opção pode ser alterada enquanto o comando <span class='synopsis'><code>git</code> <code>svn</code></span> estiver em execução e entrará em vigor na obtenção da próxima revisão. Quando não for definida, o comando <em>git svn</em> assume que essa opção será "true" (verdadeira).</p>
 </dd>
 <dt class="hdlist1" id="git-svn-svnpathnameencoding"> <a class="anchor" href="#git-svn-svnpathnameencoding"></a>svn.pathnameencoding </dt>
 <dd>
-<p>Isso instrui o comando <code>git svn</code> a recodificar os nomes do caminho para uma determinada codificação. Ele pode ser usado por usuários do Windows e por aqueles que trabalham em localidades que não sejam UTF8 visando evitar nomes de arquivos corrompidos com caracteres que não sejam ASCII. As codificações válidas são as suportadas pelo módulo <em>Encode</em> do Perl.</p>
+<p>Isso instrui o comando <span class='synopsis'><code>git</code> <code>svn</code></span> a recodificar os nomes do caminho para uma determinada codificação. Ele pode ser usado por usuários do Windows e por aqueles que trabalham em localidades que não sejam UTF8 visando evitar nomes de arquivos corrompidos com caracteres que não sejam ASCII. As codificações válidas são as suportadas pelo módulo <em>Encode</em> do Perl.</p>
 </dd>
 <dt class="hdlist1" id="git-svn-svn-remoteltnomegtautomkdirs"> <a class="anchor" href="#git-svn-svn-remotenomeautomkdirs"></a> <a class="anchor" href="#git-svn-svn-remoteltnomegtautomkdirs"></a>svn-remote.&lt;nome&gt;.automkdirs </dt>
 <dd>
-<p>Normalmente, os comandos <code>git svn clone</code> e <code>git svn rebase</code> tentam recriar diretórios vazios que estão no repositório do Subversion. Se essa opção for definida como <em>false</em>, os diretórios vazios só serão criados se o comando <code>git svn mkdirs</code> for executado explicitamente. Quando não for definida, o comando <em>git svn</em> assume que essa opção será "true" (verdadeira).</p>
+<p>Normalmente, os comandos <span class='synopsis'><code>git</code> <code>svn</code> <code>clone</code></span> e <span class='synopsis'><code>git</code> <code>svn</code> <code>rebase</code></span> tentam recriar diretórios vazios que estão no repositório do Subversion. Se essa opção for definida como <em>false</em>, os diretórios vazios só serão criados se o comando <span class='synopsis'><code>git</code> <code>svn</code> <code>mkdirs</code></span> for executado explicitamente. Quando não for definida, o comando <em>git svn</em> assume que essa opção será "true" (verdadeira).</p>
 </dd>
 </dl>
 </div>
@@ -799,7 +834,7 @@ config key: svn.findcopiesharder</pre>
 <p>Como as opções <em>noMetadata</em>, <em>rewriteRoot</em>, <em>rewriteUUID</em>, <em>useSvnsyncProps</em> e <em>useSvmProps</em> afetam os metadados gerados e usados pelo comando <em>git svn</em>; eles <strong>devem</strong> ser definidos no arquivo de configuração antes que qualquer histórico seja importado e estas configurações nunca devem ser alteradas depois que forem definidas.</p>
 </div>
 <div class="paragraph">
-<p>Além disso, apenas uma destas opções podem ser utilizadas por uma seção <em>svn-remote</em> porque elas afetam a linha de metadados <em>git-svn-id:</em>, exceto para <code>rewriteRoot</code> e <code>rewriteUUID</code>, que podem ser utilizadas juntas.</p>
+<p>Além disso, apenas uma destas opções podem ser utilizadas por uma seção <em>svn-remote</em> porque elas afetam a linha de metadados <em>git-svn-id:</em>, exceto para <span class='synopsis'><code>rewriteRoot</code></span> e <span class='synopsis'><code>rewriteUUID</code></span>, que podem ser utilizadas juntas.</p>
 </div>
 </div>
 </div>
@@ -884,7 +919,7 @@ config key: svn.findcopiesharder</pre>
 <p>Prefira usar o comando <em>git svn rebase</em> ou o <em>git rebase</em>, em vez do comando <em>git pull</em> ou o <em>git merge</em> para sincronizar os commits que não foram integrados a um ramo com <em>git svn</em>. Isso manterá o histórico linear dos commits não integrados em relação ao repositório SVN <em>upstream</em> e permitirá a utilização do subcomando <em>git svn dcommit</em> preferido para impulsionar os commits que não foram integrados de volta ao SVN.</p>
 </div>
 <div class="paragraph">
-<p>Originalmente, o comando <code>git svn</code> recomendava que os desenvolvedores puxassem ou mesclassem a partir do ramo <code>git svn</code>. Isso ocorreu porque o autor preferiu a notação <code>git svn set-tree B</code> para fazer o commit um único do cabeçalho em vez da notação <code>git svn set-tree A...B</code> para fazer o commit de vários commits. O uso do comando <code>git pull</code> ou <code>git merge</code> com o comando <code>git svn set-tree A...B</code> fará com que o histórico não linear seja achatado ao fazer o commit no SVN, o que pode fazer com que os commits mesclados sejam revertidos inesperadamente aos commits anteriores no SVN.</p>
+<p>Originalmente, o comando <span class='synopsis'><code>git</code> <code>svn</code></span> recomendava que os desenvolvedores puxassem ou mesclassem a partir do ramo <span class='synopsis'><code>git</code> <code>svn</code></span>. Isso ocorreu porque o autor preferiu a notação <span class='synopsis'><code>git</code> <code>svn</code> <code>set-tree</code> <code>B</code></span> para fazer o commit um único do cabeçalho em vez da notação <span class='synopsis'><code>git</code> <code>svn</code> <code>set-tree</code> <code>A...B</code></span> para fazer o commit de vários commits. O uso do comando <span class='synopsis'><code>git</code> <code>pull</code></span> ou <span class='synopsis'><code>git</code> <code>merge</code></span> com o comando <span class='synopsis'><code>git</code> <code>svn</code> <code>set-tree</code> <code>A...B</code></span> fará com que o histórico não linear seja achatado ao fazer o commit no SVN, o que pode fazer com que os commits mesclados sejam revertidos inesperadamente aos commits anteriores no SVN.</p>
 </div>
 </div>
 </div>
@@ -892,7 +927,7 @@ config key: svn.findcopiesharder</pre>
 <h2 id="_monitoramento_da_mesclagem"><a class="anchor" href="#_monitoramento_da_mesclagem"></a>MONITORAMENTO DA MESCLAGEM</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Embora o comando <code>git svn</code> possa rastrear o histórico de cópias (incluindo ramificações e as etiquetas) para os repositórios que adotam um layout predefinido, ele ainda não pode representar o histórico da mesclagem que aconteceu dentro do git para os usuários do SVN. Portanto, é recomendável que os usuários mantenham o histórico o mais linear possível dentro do Git para facilitar a compatibilidade com o SVN (consulte a seção RESSALVAS abaixo).</p>
+<p>Embora o comando <span class='synopsis'><code>git</code> <code>svn</code></span> possa rastrear o histórico de cópias (incluindo ramificações e as etiquetas) para os repositórios que adotam um layout predefinido, ele ainda não pode representar o histórico da mesclagem que aconteceu dentro do git para os usuários do SVN. Portanto, é recomendável que os usuários mantenham o histórico o mais linear possível dentro do Git para facilitar a compatibilidade com o SVN (consulte a seção RESSALVAS abaixo).</p>
 </div>
 </div>
 </div>
@@ -900,10 +935,10 @@ config key: svn.findcopiesharder</pre>
 <h2 id="_lidando_com_os_ramos_do_svn"><a class="anchor" href="#_lidando_com_os_ramos_do_svn"></a>LIDANDO COM OS RAMOS DO SVN</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Se o comando <code>git svn</code> estiver configurado para obter as ramificações (e a opção <code>--follow-branches</code> estiver em vigor), ele às vezes cria várias ramificações do Git para uma ramificação do SVN, em que as ramificações adicionais têm nomes do tipo <em>branchname@nnn</em> (sendo nnn um número de revisão do SVN). Estas ramificações adicionais são criadas caso o comando <code>git svn</code> não consegua encontrar um commit principal para o primeiro commit numa ramificação SVN, para conectar a ramificação ao histórico das outras ramificações.</p>
+<p>Se o comando <span class='synopsis'><code>git</code> <code>svn</code></span> estiver configurado para obter as ramificações (e a opção <span class='synopsis'><code>--follow-branches</code></span> estiver em vigor), ele às vezes cria várias ramificações do Git para uma ramificação do SVN, em que as ramificações adicionais têm nomes do tipo <em>branchname@nnn</em> (sendo nnn um número de revisão do SVN). Estas ramificações adicionais são criadas caso o comando <span class='synopsis'><code>git</code> <code>svn</code></span> não consegua encontrar um commit principal para o primeiro commit numa ramificação SVN, para conectar a ramificação ao histórico das outras ramificações.</p>
 </div>
 <div class="paragraph">
-<p>Normalmente, o primeiro commit numa ramificação do SVN consiste numa operação de cópia. O comando <code>git svn</code> lerá este commit para obter a revisão SVN a partir de onde o ramo foi criado. Em seguida, ele tentará encontrar o commit do Git que corresponde a esta revisão do SVN e o usará como a origem do ramo. No entanto, é possível que não haja um compromisso adequado do Git para servir como ramo principal. Isso acontecerá, dentre outras razões, se o ramo SVN for uma cópia de uma revisão que não foi obtida pelo comando <code>git svn</code> (porque é uma revisão antiga que foi ignorada com <code>--revision</code> por exemplo), ou se no SVN foi copiado um diretório que não é rastreado pelo comando <code>git svn</code> (como um ramo que não é rastreado de forma alguma, ou um subdiretório de um ramo rastreado). Nesses casos, o comando <code>git svn</code> ainda criará uma ramificação do Git, mas, em vez de usar um commit existente do Git como pai da ramificação, ele lerá o histórico do SVN do diretório do qual a ramificação foi copiada e criará os commits apropriados do Git. Isso é indicado pela mensagem <em>Initializing parent: &lt;nome-do-ramo&gt;</em>.</p>
+<p>Normalmente, o primeiro commit numa ramificação do SVN consiste numa operação de cópia. O comando <span class='synopsis'><code>git</code> <code>svn</code></span> lerá este commit para obter a revisão SVN a partir de onde o ramo foi criado. Em seguida, ele tentará encontrar o commit do Git que corresponde a esta revisão do SVN e o usará como a origem do ramo. No entanto, é possível que não haja um compromisso adequado do Git para servir como ramo principal. Isso acontecerá, dentre outras razões, se o ramo SVN for uma cópia de uma revisão que não foi obtida pelo comando <span class='synopsis'><code>git</code> <code>svn</code></span> (porque é uma revisão antiga que foi ignorada com <span class='synopsis'><code>--revision</code></span> por exemplo), ou se no SVN foi copiado um diretório que não é rastreado pelo comando <span class='synopsis'><code>git</code> <code>svn</code></span> (como um ramo que não é rastreado de forma alguma, ou um subdiretório de um ramo rastreado). Nesses casos, o comando <span class='synopsis'><code>git</code> <code>svn</code></span> ainda criará uma ramificação do Git, mas, em vez de usar um commit existente do Git como pai da ramificação, ele lerá o histórico do SVN do diretório do qual a ramificação foi copiada e criará os commits apropriados do Git. Isso é indicado pela mensagem <em>Initializing parent: &lt;nome-do-ramo&gt;</em>.</p>
 </div>
 <div class="paragraph">
 <p>Além disso, ele criará uma ramificação especial denominada <em>&lt;nome-do-ramo&gt;@&lt;revisão-do-SVN&gt;</em>, onde a &lt;revisão-do-SVN&gt; é o número da revisão SVN de onde a ramificação foi copiada. Este ramo apontará para o commit principal recém-criado do ramo. Se no SVN do ramo for excluído e posteriormente recriado a partir de uma versão diferente, haverá vários ramos com um <em>@</em>.</p>
@@ -912,7 +947,7 @@ config key: svn.findcopiesharder</pre>
 <p>Observe que isso pode significar que vários commits do Git sejam criados para uma única revisão do SVN.</p>
 </div>
 <div class="paragraph">
-<p>Um exemplo: num repositório SVN com um layout predefinido <code>trunk/tags/branches</code>, um diretório <code>trunk/sub</code> é criado em <code>r.100</code>. No <code>r.200</code>, o <code>trunk/sub</code> é ramificado copiando-o para <code>branches/</code>. O comando <code>git svn clone -s</code> criará uma ramificação <code>sub</code>. Ele também criará novos commits do Git para <code>r.100</code> a <code>r.199</code> e os usará como o histórico do ramo <code>sub</code>. Assim, haverá dois commits do Git para cada revisão de <code>r.100</code> a <code>r.199</code> (um contendo o <code>trunk/</code> e o outro contendo o <code>trunk/sub/</code>). Por fim, ele criará uma ramificação <code>sub@200</code> apontando para o novo commit principal da ramificação <code>sub</code> (ou seja, o commit para <code>r.200</code> e <code>trunk/sub/</code>).</p>
+<p>Um exemplo: num repositório SVN com um layout predefinido <span class='synopsis'><code>trunk/tags/branches</code></span>, um diretório <span class='synopsis'><code>trunk/sub</code></span> é criado em <span class='synopsis'><code>r.100</code></span>. No <span class='synopsis'><code>r.200</code></span>, o <span class='synopsis'><code>trunk/sub</code></span> é ramificado copiando-o para <span class='synopsis'><code>branches/</code></span>. O comando <span class='synopsis'><code>git</code> <code>svn</code> <code>clone</code> <code>-s</code></span> criará uma ramificação <span class='synopsis'><code>sub</code></span>. Ele também criará novos commits do Git para <span class='synopsis'><code>r.100</code></span> a <span class='synopsis'><code>r.199</code></span> e os usará como o histórico do ramo <span class='synopsis'><code>sub</code></span>. Assim, haverá dois commits do Git para cada revisão de <span class='synopsis'><code>r.100</code></span> a <span class='synopsis'><code>r.199</code></span> (um contendo o <span class='synopsis'><code>trunk/</code></span> e o outro contendo o <span class='synopsis'><code>trunk/sub/</code></span>). Por fim, ele criará uma ramificação <span class='synopsis'><code>sub@200</code></span> apontando para o novo commit principal da ramificação <span class='synopsis'><code>sub</code></span> (ou seja, o commit para <span class='synopsis'><code>r.200</code></span> e <span class='synopsis'><code>trunk/sub/</code></span>).</p>
 </div>
 </div>
 </div>
@@ -920,13 +955,13 @@ config key: svn.findcopiesharder</pre>
 <h2 id="_ressalvas"><a class="anchor" href="#_ressalvas"></a>RESSALVAS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Por uma questão de simplicidade e interoperabilidade com o Subversion, recomenda-se que todos os usuários do <code>git svn</code> clonem (<code>clone</code>), obtenham (<code>fetch</code>) e façam <code>dcommit</code> diretamente do servidor SVN e evitem todas as operações <code>git clone</code> / <code>pull</code> / <code>merge</code> / <code>push</code> entre os repositórios e as ramificações do Git. O método recomendado de troca de código entre as ramificações e os usuários do Git é <code>git format-patch</code> e <code>git am</code>, ou apenas <code>dcommit</code> para o repositório SVN.</p>
+<p>Por uma questão de simplicidade e interoperabilidade com o Subversion, recomenda-se que todos os usuários do <span class='synopsis'><code>git</code> <code>svn</code></span> clonem (<span class='synopsis'><code>clone</code></span>), obtenham (<span class='synopsis'><code>fetch</code></span>) e façam <span class='synopsis'><code>dcommit</code></span> diretamente do servidor SVN e evitem todas as operações <span class='synopsis'><code>git</code> <code>clone</code></span> / <span class='synopsis'><code>pull</code></span> / <span class='synopsis'><code>merge</code></span> / <span class='synopsis'><code>push</code></span> entre os repositórios e as ramificações do Git. O método recomendado de troca de código entre as ramificações e os usuários do Git é <span class='synopsis'><code>git</code> <code>format-patch</code></span> e <span class='synopsis'><code>git</code> <code>am</code></span>, ou apenas <span class='synopsis'><code>dcommit</code></span> para o repositório SVN.</p>
 </div>
 <div class="paragraph">
-<p>A execução do comando <code>git merge</code> ou <code>git pull</code> NÃO é recomendada numa ramificação onde você planeja fazer o <code>dcommit</code>, pois os usuários do Subversion não poderão ver as mesclagens que você fez. Além disso, se você fizer um <code>merge</code> ou um <code>pull</code> de um ramo do Git que seja um espelho de um ramo do SVN, o <code>dcommit</code> poderá fazer o commit no ramo errado.</p>
+<p>A execução do comando <span class='synopsis'><code>git</code> <code>merge</code></span> ou <span class='synopsis'><code>git</code> <code>pull</code></span> NÃO é recomendada numa ramificação onde você planeja fazer o <span class='synopsis'><code>dcommit</code></span>, pois os usuários do Subversion não poderão ver as mesclagens que você fez. Além disso, se você fizer um <span class='synopsis'><code>merge</code></span> ou um <span class='synopsis'><code>pull</code></span> de um ramo do Git que seja um espelho de um ramo do SVN, o <span class='synopsis'><code>dcommit</code></span> poderá fazer o commit no ramo errado.</p>
 </div>
 <div class="paragraph">
-<p>Caso você mescle, observe a seguinte regra: o <code>git svn dcommit</code> tentará fazer o commit sobre o commit do SVN informado em</p>
+<p>Caso você mescle, observe a seguinte regra: o <span class='synopsis'><code>git</code> <code>svn</code> <code>dcommit</code></span> tentará fazer o commit sobre o commit do SVN informado em</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -937,19 +972,19 @@ config key: svn.findcopiesharder</pre>
 <p>Portanto, você <em>deve</em> garantir que o commit mais recente do ramo para onde deseja fazer o dcommit seja o <em>primeiro</em> ramo principal da mesclagem. Caso contrário, haverá caos, especialmente se o primeiro ramo principal for um commit mais antigo no mesmo ramo do SVN.</p>
 </div>
 <div class="paragraph">
-<p>O comando <code>git clone</code> não clona as ramificações sob a hierarquia <code>refs/remotes/</code> ou qualquer metadado ou configuração do <code>git svn</code>. Portanto, os repositórios criados e gerenciados com o uso do comando <code>git svn</code> devem usar o <em>rsync</em> para fazer a clonagem, se é que a clonagem deve ser feita.</p>
+<p>O comando <span class='synopsis'><code>git</code> <code>clone</code></span> não clona as ramificações sob a hierarquia <span class='synopsis'><code>refs/remotes/</code></span> ou qualquer metadado ou configuração do <span class='synopsis'><code>git</code> <code>svn</code></span>. Portanto, os repositórios criados e gerenciados com o uso do comando <span class='synopsis'><code>git</code> <code>svn</code></span> devem usar o <em>rsync</em> para fazer a clonagem, se é que a clonagem deve ser feita.</p>
 </div>
 <div class="paragraph">
-<p>Como o <em>dcommit</em> usa o <em>rebase</em> internamente, quaisquer ramificações do Git para as quais você fizer um <code>git push</code> antes do <em>dcommit</em> precisarão impor uma substituição da referência existente no repositório remoto. Isso geralmente é considerado uma prática ruim; para mais detalhes consulte a documentação <a href='{{< relurl "docs/git-push/pt_BR" >}}'>git-push[1]</a>.</p>
+<p>Como o <em>dcommit</em> usa o <em>rebase</em> internamente, quaisquer ramificações do Git para as quais você fizer um <span class='synopsis'><code>git</code> <code>push</code></span> antes do <em>dcommit</em> precisarão impor uma substituição da referência existente no repositório remoto. Isso geralmente é considerado uma prática ruim; para mais detalhes consulte a documentação <a href='{{< relurl "docs/git-push/pt_BR" >}}'>git-push[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Não use a opção <code>--amend</code> do <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a> numa alteração que você já tenha feito o commit. É considerada uma má prática alterar os commits que você já enviou para um repositório remoto para outros usuários, e o <em>dcommit</em> com o SVN é análogo a isso.</p>
+<p>Não use a opção <span class='synopsis'><code>--amend</code></span> do <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a> numa alteração que você já tenha feito o commit. É considerada uma má prática alterar os commits que você já enviou para um repositório remoto para outros usuários, e o <em>dcommit</em> com o SVN é análogo a isso.</p>
 </div>
 <div class="paragraph">
-<p>Ao clonar um repositório SVN, se nenhuma das opções para descrever o layout do repositório for usada (--trunk, --tags, --branches, --stdlayout), o comando <em>git svn clone</em> criará um repositório Git com um histórico completamente linear, onde os ramos e as etiquetas aparecem como diretórios separados na cópia de trabalho. Embora esta seja a maneira mais fácil de obter uma cópia de um repositório completo, para projetos com muitas ramificações, isso resultará numa cópia de trabalho muitas vezes maior do que apenas o tronco. Portanto, para projetos que usam a estrutura de diretório padrão (<code>trunk/branches/tags</code>), é recomendável fazer a clonagem com a opção <code>--stdlayout</code>. Se o projeto usar uma estrutura não padrão e/ou se não forem necessárias ramificações e etiquetas, é mais fácil clonar apenas um diretório (normalmente o tronco), sem usar nenhuma opção de layout no repositório. Se o histórico completo com as ramificações e as etiquetas forem necessárias, será obrigatório o uso das opções <code>--trunk</code> / <code>--branches</code> / <code>--tags</code>.</p>
+<p>Ao clonar um repositório SVN, se nenhuma das opções para descrever o layout do repositório for usada (--trunk, --tags, --branches, --stdlayout), o comando <em>git svn clone</em> criará um repositório Git com um histórico completamente linear, onde os ramos e as etiquetas aparecem como diretórios separados na cópia de trabalho. Embora esta seja a maneira mais fácil de obter uma cópia de um repositório completo, para projetos com muitas ramificações, isso resultará numa cópia de trabalho muitas vezes maior do que apenas o tronco. Portanto, para projetos que usam a estrutura de diretório padrão (<span class='synopsis'><code>trunk/branches/tags</code></span>), é recomendável fazer a clonagem com a opção <span class='synopsis'><code>--stdlayout</code></span>. Se o projeto usar uma estrutura não padrão e/ou se não forem necessárias ramificações e etiquetas, é mais fácil clonar apenas um diretório (normalmente o tronco), sem usar nenhuma opção de layout no repositório. Se o histórico completo com as ramificações e as etiquetas forem necessárias, será obrigatório o uso das opções <span class='synopsis'><code>--trunk</code></span> / <span class='synopsis'><code>--branches</code></span> / <span class='synopsis'><code>--tags</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Ao usar vários <code>--branches</code> ou <code>--tags</code>, o comando <em>git svn</em> não lida automaticamente com as colisões dos nomes (quando dois ramos com caminhos diferentes tiverem o mesmo nome, ou se um ramo e uma etiqueta tiverem o mesmo nome por exemplo). Nestes casos, use o <em>init</em> para configurar seu repositório Git e, antes do primeiro <em>fetch</em>, edite o arquivo <code>$GIT_DIR/config</code> para que os ramos e as etiquetas sejam associados a espaços de nomes diferentes. Por exemplo:</p>
+<p>Ao usar vários <span class='synopsis'><code>--branches</code></span> ou <span class='synopsis'><code>--tags</code></span>, o comando <em>git svn</em> não lida automaticamente com as colisões dos nomes (quando dois ramos com caminhos diferentes tiverem o mesmo nome, ou se um ramo e uma etiqueta tiverem o mesmo nome por exemplo). Nestes casos, use o <em>init</em> para configurar seu repositório Git e, antes do primeiro <em>fetch</em>, edite o arquivo <span class='synopsis'><code>$GIT_DIR/config</code></span> para que os ramos e as etiquetas sejam associados a espaços de nomes diferentes. Por exemplo:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -963,7 +998,7 @@ branches = debug/*:refs/remotes/svn/debug/*</pre>
 <h2 id="_configuração"><a class="anchor" href="#_configuração"></a>CONFIGURAÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O comando <em>git svn</em> armazena as informações de configuração do [svn-remote] no arquivo de configuração do repositório <code>$GIT_DIR/config</code>. É semelhante às seções principais do Git [remote], exceto que as chaves <em>fetch</em> não aceitam argumentos <em>glob</em>; em vez disso, elas são tratadas pelas chaves <em>branches</em> e <em>tags</em>. Como alguns repositórios SVN são estranhamente configurados com vários projetos, expansões <em>glob</em> como as listadas abaixo são permitidas:</p>
+<p>O comando <em>git svn</em> armazena as informações de configuração do [svn-remote] no arquivo de configuração do repositório <span class='synopsis'><code>$GIT_DIR/config</code></span>. É semelhante às seções principais do Git [remote], exceto que as chaves <em>fetch</em> não aceitam argumentos <em>glob</em>; em vez disso, elas são tratadas pelas chaves <em>branches</em> e <em>tags</em>. Como alguns repositórios SVN são estranhamente configurados com vários projetos, expansões <em>glob</em> como as listadas abaixo são permitidas:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -977,7 +1012,7 @@ branches = debug/*:refs/remotes/svn/debug/*</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Lembre-se de que o curinga <code>*</code> (asterisco) da referência local (à direita do <code>:</code>) <strong>deve</strong> ser o componente de caminho mais à direita; no entanto, o curinga remoto pode estar em qualquer lugar, desde que seja um componente de caminho independente (cercado por <code>/</code> ou EOL). Esse tipo de configuração não é criado automaticamente pelo <em>init</em> e deve ser inserido manualmente com um editor de texto ou usando o <em>git config</em>.</p>
+<p>Lembre-se de que o curinga <span class='synopsis'><code>*</code></span> (asterisco) da referência local (à direita do <span class='synopsis'><code>:</code></span>) <strong>deve</strong> ser o componente de caminho mais à direita; no entanto, o curinga remoto pode estar em qualquer lugar, desde que seja um componente de caminho independente (cercado por <span class='synopsis'><code>/</code></span> ou EOL). Esse tipo de configuração não é criado automaticamente pelo <em>init</em> e deve ser inserido manualmente com um editor de texto ou usando o <em>git config</em>.</p>
 </div>
 <div class="paragraph">
 <p>Observe também que apenas um asterisco é permitido por palavra. Por exemplo:</p>
@@ -1025,7 +1060,7 @@ branches = debug/*:refs/remotes/svn/debug/*</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>A criação de uma ramificação nessa configuração requer desambiguar qual o local usar com a flag <code>-d</code> ou <code>--destination</code>:</p>
+<p>A criação de uma ramificação nessa configuração requer desambiguar qual o local usar com a flag <span class='synopsis'><code>-d</code></span> ou <span class='synopsis'><code>--destination</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1033,7 +1068,7 @@ branches = debug/*:refs/remotes/svn/debug/*</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Observe que o <em>git-svn</em> acompanha a revisão mais alta onde um ramo ou uma tag tenha aparecido. Caso o subconjunto das ramificações ou das tags seja alterada após a busca, então <code>$GIT_DIR/svn/.metadata</code> deverá ser editado manualmente para remover (ou redefinir) <code>branches-maxRev</code> e/ou <code>tags-maxRev</code>, conforme seja apropriado.</p>
+<p>Observe que o <em>git-svn</em> acompanha a revisão mais alta onde um ramo ou uma tag tenha aparecido. Caso o subconjunto das ramificações ou das tags seja alterada após a busca, então <span class='synopsis'><code>$GIT_DIR/svn/.metadata</code></span> deverá ser editado manualmente para remover (ou redefinir) <span class='synopsis'><code>branches-maxRev</code></span> e/ou <span class='synopsis'><code>tags-maxRev</code></span>, conforme seja apropriado.</p>
 </div>
 </div>
 </div>
@@ -1044,7 +1079,7 @@ branches = debug/*:refs/remotes/svn/debug/*</pre>
 <dl>
 <dt class="hdlist1" id="git-svn-GITDIRsvnrevmap"> <a class="anchor" href="#git-svn-GITDIRsvnrevmap"></a>$GIT_DIR/svn/**/.rev_map.* </dt>
 <dd>
-<p>Mapeamento entre os números de revisão do Subversion e os nomes dos commits do Git. Num repositório onde a opção <code>noMetadata</code> não está definida, isso pode ser reconstruído a partir das linhas <em>git-svn-id:</em> que estão no final de cada commit (para mais detalhes consulte a seção <em>svn.noMetadata</em> acima).</p>
+<p>Mapeamento entre os números de revisão do Subversion e os nomes dos commits do Git. Num repositório onde a opção <span class='synopsis'><code>noMetadata</code></span> não está definida, isso pode ser reconstruído a partir das linhas <em>git-svn-id:</em> que estão no final de cada commit (para mais detalhes consulte a seção <em>svn.noMetadata</em> acima).</p>
 <div class="paragraph">
 <p>O comando <em>git svn fetch</em> e o <em>git svn rebase</em> atualizam automaticamente o <em>rev_map</em> se ele estiver faltando ou não estiver atualizado. Já o comando <em>git svn reset</em> o retrocede automaticamente.</p>
 </div>
@@ -1057,7 +1092,7 @@ branches = debug/*:refs/remotes/svn/debug/*</pre>
 <h2 id="_bugs"><a class="anchor" href="#_bugs"></a>BUGS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Ignoramos todas as propriedades do SVN, exceto o <code>svn:executable</code>. Todas as propriedades não tratadas são registradas em <code>$GIT_DIR/svn/&lt;refname&gt;/unhandled.log</code></p>
+<p>Ignoramos todas as propriedades do SVN, exceto o <span class='synopsis'><code>svn:executable</code></span>. Todas as propriedades não tratadas são registradas em <span class='synopsis'><code>$GIT_DIR/svn/</code><em>&lt;refname&gt;</em><code>/unhandled.log</code></span></p>
 </div>
 <div class="paragraph">
 <p>Os diretórios que foram renomeados e copiados não são detectados pelo Git e, portanto, não são rastreados ao fazer o commit no SVN. Não planejo adicionar suporte para isso, pois é muito difícil e demorado fazer com que funcione em todos os casos possíveis (o Git também não faz isso). O envio de arquivos renomeados e copiados é totalmente suportado se eles forem semelhantes o suficiente para que o Git os detecte.</p>

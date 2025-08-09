@@ -9,6 +9,23 @@ docname: git-mergetool
 lang: pt_BR
 aliases:
 - "/docs/git-mergetool/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: ARQUIVOS TEMPORÁRIOS
+  id: _arquivos_temporários
+- text: DICAS ESPECÍFICAS PARA CLIENTES
+  id: _dicas_específicas_para_clientes
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -30,10 +47,10 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use o <code>git mergetool</code> para executar um dos vários utilitários de mesclagem para resolver conflitos de mesclagem. Normalmente, ele é executado após o <em>git merge</em>.</p>
+<p>Use o <span class='synopsis'><code>git</code> <code>mergetool</code></span> para executar um dos vários utilitários de mesclagem para resolver conflitos de mesclagem. Normalmente, ele é executado após o <em>git merge</em>.</p>
 </div>
 <div class="paragraph">
-<p>Se um ou mais parâmetros <code>&lt;arquivo&gt;</code> forem fornecidos, o programa da ferramenta de mesclagem será executado para resolver as diferenças em cada arquivo (ignorando aqueles sem conflitos). A especificação de um diretório incluirá todos os arquivos não resolvidos nesse caminho. Se nenhum nome de <code>&lt;arquivo&gt;</code> for especificado, o comando <em>git mergetool</em> executará o programa da ferramenta de mesclagem em cada arquivo com conflitos de mesclagem.</p>
+<p>Se um ou mais parâmetros <span class='synopsis'><em>&lt;arquivo&gt;</em></span> forem fornecidos, o programa da ferramenta de mesclagem será executado para resolver as diferenças em cada arquivo (ignorando aqueles sem conflitos). A especificação de um diretório incluirá todos os arquivos não resolvidos nesse caminho. Se nenhum nome de <span class='synopsis'><em>&lt;arquivo&gt;</em></span> for especificado, o comando <em>git mergetool</em> executará o programa da ferramenta de mesclagem em cada arquivo com conflitos de mesclagem.</p>
 </div>
 </div>
 </div>
@@ -45,31 +62,31 @@ aliases:
 <dt class="hdlist1" id="git-mergetool--tltferramentagt"> <a class="anchor" href="#git-mergetool--tferramenta"></a> <a class="anchor" href="#git-mergetool--tltferramentagt"></a>-t &lt;ferramenta&gt; </dt>
 <dt class="hdlist1" id="git-mergetool---toolltferramentagt"> <a class="anchor" href="#git-mergetool---toolferramenta"></a> <a class="anchor" href="#git-mergetool---toolltferramentagt"></a>--tool=&lt;ferramenta&gt; </dt>
 <dd>
-<p>Use o programa de resolução de mesclagem especificado por <code>&lt;ferramenta&gt;</code>. Os valores válidos incluem <code>emerge</code>, <code>gvimdiff</code>, <code>kdiff3</code>, <code>meld</code>, <code>vimdiff</code> e <code>tortoisemerge</code>. Execute o comando <code>git mergetool --tool-help</code> para obter a lista de configurações válidas da <code>&lt;ferramenta&gt;</code>.</p>
+<p>Use o programa de resolução de mesclagem especificado por <span class='synopsis'><em>&lt;ferramenta&gt;</em></span>. Os valores válidos incluem <span class='synopsis'><code>emerge</code></span>, <span class='synopsis'><code>gvimdiff</code></span>, <span class='synopsis'><code>kdiff3</code></span>, <span class='synopsis'><code>meld</code></span>, <span class='synopsis'><code>vimdiff</code></span> e <span class='synopsis'><code>tortoisemerge</code></span>. Execute o comando <span class='synopsis'><code>git</code> <code>mergetool</code> <code>--tool-help</code></span> para obter a lista de configurações válidas da <span class='synopsis'><em>&lt;ferramenta&gt;</em></span>.</p>
 <div class="paragraph">
-<p>Se um programa de resolução de mesclagem não for especificado, o comando <em>git mergetool</em> usará a variável de configuração em <code>merge.tool</code>. Se a variável de configuração <code>merge.tool</code> não estiver definida, o <em>git mergetool</em> escolherá a predefinição apropriada.</p>
+<p>Se um programa de resolução de mesclagem não for especificado, o comando <em>git mergetool</em> usará a variável de configuração em <span class='synopsis'><code>merge.tool</code></span>. Se a variável de configuração <span class='synopsis'><code>merge.tool</code></span> não estiver definida, o <em>git mergetool</em> escolherá a predefinição apropriada.</p>
 </div>
 <div class="paragraph">
-<p>Você pode de forma explicita informar um caminho completo para a ferramenta, definindo a variável de configuração <code>mergetool.&lt;ferramenta&gt;.path</code>. Por exemplo, você pode configurar o caminho absoluto para o kdiff3 configurando a opção <code>mergetool.kdiff3.path</code>. Caso contrário, o comando <em>git mergetool</em> assume que a ferramenta está disponível no PATH.</p>
+<p>Você pode de forma explicita informar um caminho completo para a ferramenta, definindo a variável de configuração <span class='synopsis'><code>mergetool.</code><em>&lt;ferramenta&gt;</em><code>.path</code></span>. Por exemplo, você pode configurar o caminho absoluto para o kdiff3 configurando a opção <span class='synopsis'><code>mergetool.kdiff3.path</code></span>. Caso contrário, o comando <em>git mergetool</em> assume que a ferramenta está disponível no PATH.</p>
 </div>
 <div class="paragraph">
-<p>Em vez de executar um dos programas informados da ferramenta de mesclagem, o comando <em>git mergetool</em> pode ser customizado para executar um programa alternativo, informado na linha de comando para chamar numa variável de configuração <code>mergetool.&lt;ferramenta&gt;.cmd</code>.</p>
+<p>Em vez de executar um dos programas informados da ferramenta de mesclagem, o comando <em>git mergetool</em> pode ser customizado para executar um programa alternativo, informado na linha de comando para chamar numa variável de configuração <span class='synopsis'><code>mergetool.</code><em>&lt;ferramenta&gt;</em><code>.cmd</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Quando o comando <em>git mergetool</em> é chamado com esta ferramenta (através da opção <code>-t</code> ou <code>--tool</code> ou da variável de configuração <code>merge.tool</code>), a linha de comando configurada será invocada com <code>$BASE</code> definido como o nome de um arquivo temporário contendo a base comum para a mesclagem, caso esteja disponível; <code>$LOCAL</code> definido como o nome de um arquivo temporário que contém o conteúdo do arquivo no ramo atual; <code>$REMOTE</code> definido como o nome de um arquivo temporário que contém o conteúdo do arquivo a ser mesclado e <code>$MERGED</code> definido como o nome do arquivo onde a ferramenta de mesclagem deve gravar o resultado da resolução da mesclagem.</p>
+<p>Quando o comando <em>git mergetool</em> é chamado com esta ferramenta (através da opção <span class='synopsis'><code>-t</code></span> ou <span class='synopsis'><code>--tool</code></span> ou da variável de configuração <span class='synopsis'><code>merge.tool</code></span>), a linha de comando configurada será invocada com <span class='synopsis'><code>$BASE</code></span> definido como o nome de um arquivo temporário contendo a base comum para a mesclagem, caso esteja disponível; <span class='synopsis'><code>$LOCAL</code></span> definido como o nome de um arquivo temporário que contém o conteúdo do arquivo no ramo atual; <span class='synopsis'><code>$REMOTE</code></span> definido como o nome de um arquivo temporário que contém o conteúdo do arquivo a ser mesclado e <span class='synopsis'><code>$MERGED</code></span> definido como o nome do arquivo onde a ferramenta de mesclagem deve gravar o resultado da resolução da mesclagem.</p>
 </div>
 <div class="paragraph">
-<p>Se a ferramenta de mesclagem personalizada indicar corretamente o sucesso de uma resolução de mesclagem com seu código de saída, a variável de configuração <code>mergetool.&lt;tool&gt;.trustExitCode</code> poderá ser definida como <code>true</code>. Caso contrário, o comando <em>git mergetool</em> solicitará que o usuário indique o sucesso da resolução depois que a ferramenta personalizada for encerrada.</p>
+<p>Se a ferramenta de mesclagem personalizada indicar corretamente o sucesso de uma resolução de mesclagem com seu código de saída, a variável de configuração <span class='synopsis'><code>mergetool.</code><em>&lt;tool&gt;</em><code>.trustExitCode</code></span> poderá ser definida como <span class='synopsis'><code>true</code></span>. Caso contrário, o comando <em>git mergetool</em> solicitará que o usuário indique o sucesso da resolução depois que a ferramenta personalizada for encerrada.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-mergetool---tool-help"> <a class="anchor" href="#git-mergetool---tool-help"></a>--tool-help </dt>
 <dd>
-<p>Exibe uma lista das ferramentas de mesclagem que podem ser utilizadas com a opção <code>--tool</code>.</p>
+<p>Exibe uma lista das ferramentas de mesclagem que podem ser utilizadas com a opção <span class='synopsis'><code>--tool</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-mergetool--y"> <a class="anchor" href="#git-mergetool--y"></a>-y </dt>
 <dt class="hdlist1" id="git-mergetool---no-prompt"> <a class="anchor" href="#git-mergetool---no-prompt"></a>--no-prompt </dt>
 <dd>
-<p>Não solicite antes de cada invocação do programa de resolução de mesclagem. Esta é a predefinição se o programa de resolução de mesclagem for explicitamente especificado com a opção <code>--tool</code> ou com a variável de configuração <code>merge.tool</code>.</p>
+<p>Não solicite antes de cada invocação do programa de resolução de mesclagem. Esta é a predefinição se o programa de resolução de mesclagem for explicitamente especificado com a opção <span class='synopsis'><code>--tool</code></span> ou com a variável de configuração <span class='synopsis'><code>merge.tool</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-mergetool---prompt"> <a class="anchor" href="#git-mergetool---prompt"></a>--prompt </dt>
 <dd>
@@ -78,15 +95,15 @@ aliases:
 <dt class="hdlist1" id="git-mergetool--g"> <a class="anchor" href="#git-mergetool--g"></a>-g </dt>
 <dt class="hdlist1" id="git-mergetool---gui"> <a class="anchor" href="#git-mergetool---gui"></a>--gui </dt>
 <dd>
-<p>Quando o comando <em>git-mergetool</em> é chamado através da opção <code>-g</code> ou <code>--gui</code>, a ferramenta diff predefinida será lida na variável de configuração <code>diff.guitool</code> em vez do <code>merge.tool</code>. Caso a variável <code>merge.guitool</code> não esteja definida, retroagiremos para a ferramenta configurada em <code>merge.tool</code>. Isso pode ser selecionado automaticamente através da variável de configuração <code>mergetool.guiDefault</code>.</p>
+<p>Quando o comando <em>git-mergetool</em> é chamado através da opção <span class='synopsis'><code>-g</code></span> ou <span class='synopsis'><code>--gui</code></span>, a ferramenta diff predefinida será lida na variável de configuração <span class='synopsis'><code>diff.guitool</code></span> em vez do <span class='synopsis'><code>merge.tool</code></span>. Caso a variável <span class='synopsis'><code>merge.guitool</code></span> não esteja definida, retroagiremos para a ferramenta configurada em <span class='synopsis'><code>merge.tool</code></span>. Isso pode ser selecionado automaticamente através da variável de configuração <span class='synopsis'><code>mergetool.guiDefault</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-mergetool---no-gui"> <a class="anchor" href="#git-mergetool---no-gui"></a>--no-gui </dt>
 <dd>
-<p>Substitui uma configuração anterior <code>-g</code>, <code>--gui</code> ou <code>mergetool.guiDefault</code> e faz a leitura da ferramenta de mesclagem predefinida através da variável <code>merge.tool</code>.</p>
+<p>Substitui uma configuração anterior <span class='synopsis'><code>-g</code></span>, <span class='synopsis'><code>--gui</code></span> ou <span class='synopsis'><code>mergetool.guiDefault</code></span> e faz a leitura da ferramenta de mesclagem predefinida através da variável <span class='synopsis'><code>merge.tool</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-mergetool--Oltordem-do-arquivogt"> <a class="anchor" href="#git-mergetool--Oordem-do-arquivo"></a> <a class="anchor" href="#git-mergetool--Oltordem-do-arquivogt"></a>-O&lt;ordem-do-arquivo&gt; </dt>
 <dd>
-<p>Processa os arquivos na ordem especificada no <code>&lt;ordem-do-arquivo&gt;</code>, que tem um padrão shell bolha por linha. Isso substitui a variável de configuração <code>diff.orderFile</code> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Para cancelar o <code>diff.orderFile</code>, use <code>-O/dev/null</code>.</p>
+<p>Processa os arquivos na ordem especificada no <span class='synopsis'><em>&lt;ordem-do-arquivo&gt;</em></span>, que tem um padrão shell bolha por linha. Isso substitui a variável de configuração <span class='synopsis'><code>diff.orderFile</code></span> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Para cancelar o <span class='synopsis'><code>diff.orderFile</code></span>, use <span class='synopsis'><code>-O/dev/null</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -106,7 +123,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/config/mergetool.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/config/mergetool.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -121,10 +138,10 @@ aliases:
 <h2 id="_arquivos_temporários"><a class="anchor" href="#_arquivos_temporários"></a>ARQUIVOS TEMPORÁRIOS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O <code>git mergetool</code> cria arquivos de backup <code>*.orig</code> ao resolver as mesclagens. Eles podem ser removidos com segurança depois que um arquivo tiver sido mesclado e a sessão do comando <code>git mergetool</code> tiver sido concluído.</p>
+<p>O <span class='synopsis'><code>git</code> <code>mergetool</code></span> cria arquivos de backup <span class='synopsis'><code>*.orig</code></span> ao resolver as mesclagens. Eles podem ser removidos com segurança depois que um arquivo tiver sido mesclado e a sessão do comando <span class='synopsis'><code>git</code> <code>mergetool</code></span> tiver sido concluído.</p>
 </div>
 <div class="paragraph">
-<p>Definir a variável de configuração <code>mergetool.keepBackup</code> como` false` faz com que o comando <code>git mergetool</code> remova automaticamente o arquivos de backup enquanto os arquivos forem sendo mesclados com sucesso.</p>
+<p>Definir a variável de configuração <span class='synopsis'><code>mergetool.keepBackup</code></span> como` false` faz com que o comando <span class='synopsis'><code>git</code> <code>mergetool</code></span> remova automaticamente o arquivos de backup enquanto os arquivos forem sendo mesclados com sucesso.</p>
 </div>
 </div>
 </div>
@@ -141,7 +158,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/mergetools/vimdiff.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/mergetools/vimdiff.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

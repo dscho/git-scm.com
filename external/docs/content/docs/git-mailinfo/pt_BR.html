@@ -9,6 +9,19 @@ docname: git-mailinfo
 lang: pt_BR
 aliases:
 - "/docs/git-mailinfo/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -32,7 +45,7 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Lê uma única mensagem de e-mail da entrada predefinida e grava a mensagem de registro de confirmação no arquivo <code>&lt;msg&gt;</code> e as correções no arquivo <code>&lt;patch&gt;</code>. O nome do autor, o e-mail e o assunto do e-mail são gravados na saída predefinida para serem usados pelo <em>git am</em> para criar um commit. Normalmente, não é necessário usar esse comando diretamente. Em vez disso, consulte <a href='{{< relurl "docs/git-am/pt_BR" >}}'>git-am[1]</a>.</p>
+<p>Lê uma única mensagem de e-mail da entrada predefinida e grava a mensagem de registro de confirmação no arquivo <span class='synopsis'><em>&lt;msg&gt;</em></span> e as correções no arquivo <span class='synopsis'><em>&lt;patch&gt;</em></span>. O nome do autor, o e-mail e o assunto do e-mail são gravados na saída predefinida para serem usados pelo <em>git am</em> para criar um commit. Normalmente, não é necessário usar esse comando diretamente. Em vez disso, consulte <a href='{{< relurl "docs/git-am/pt_BR" >}}'>git-am[1]</a>.</p>
 </div>
 </div>
 </div>
@@ -55,11 +68,11 @@ aliases:
 <p>Os espaços à esquerda e à direita.</p>
 </li>
 <li>
-<p>Iniciando com <code>Re:</code>, <code>re:</code>, e <code>:</code>.</p>
+<p>Iniciando com <span class='synopsis'><code>Re:</code></span>, <span class='synopsis'><code>re:</code></span>, e <span class='synopsis'><code>:</code></span>.</p>
 </li>
 <li>
-<p>As sequências dos caracteres entre colchetes à esquerda (entre <code>[</code> e <code>]</code>, geralmente
-<code>[PATCH]</code>).</p>
+<p>As sequências dos caracteres entre colchetes à esquerda (entre <span class='synopsis'>[</span> e <span class='synopsis'>]</span>, geralmente
+<span class='synopsis'>[<code>PATCH</code>]</span>).</p>
 </li>
 </ul>
 </div>
@@ -71,18 +84,18 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-mailinfo--b"> <a class="anchor" href="#git-mailinfo--b"></a>-b </dt>
 <dd>
-<p>Quando a opção <code>-k</code> não estiver em vigor, todas as strings iniciais entre parênteses com pares <em>[</em> e <em>]</em> serão removidas. Esta opção limita a remoção apenas aos pares cuja string entre colchetes contém a palavra "PATCH".</p>
+<p>Quando a opção <span class='synopsis'><code>-k</code></span> não estiver em vigor, todas as strings iniciais entre parênteses com pares <em>[</em> e <em>]</em> serão removidas. Esta opção limita a remoção apenas aos pares cuja string entre colchetes contém a palavra "PATCH".</p>
 </dd>
 <dt class="hdlist1" id="git-mailinfo--u"> <a class="anchor" href="#git-mailinfo--u"></a>-u </dt>
 <dd>
-<p>A mensagem do registro log do commit, o nome do autor e seu e-mail são obtidos a partir do e-mail e após a decodificação mínima da codificação de transferência MIME, recodificados no conjunto de caracteres definido pela opção de configuração <code>i18n.commitEncoding</code> (predefinido para UTF-8), transliterando-os. Isso costumava ser opcional, agora é a predefinição.</p>
+<p>A mensagem do registro log do commit, o nome do autor e seu e-mail são obtidos a partir do e-mail e após a decodificação mínima da codificação de transferência MIME, recodificados no conjunto de caracteres definido pela opção de configuração <span class='synopsis'><code>i18n.commitEncoding</code></span> (predefinido para UTF-8), transliterando-os. Isso costumava ser opcional, agora é a predefinição.</p>
 <div class="paragraph">
 <p>Observe que o patch é sempre utilizado como está, sem conversão do <em>charset</em> (definição dos caracteres), mesmo com esta opção.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-mailinfo---encodingltcodificaogt"> <a class="anchor" href="#git-mailinfo---encodingcodificao"></a> <a class="anchor" href="#git-mailinfo---encodingltcodificaogt"></a>--encoding=&lt;codificação&gt; </dt>
 <dd>
-<p>É similar a opção <code>-u</code>. Porém, ao recodificar será usado o conjunto de caracteres especificado aqui em vez do especificado através do <code>i18n.commitEncoding</code> ou do UTF-8.</p>
+<p>É similar a opção <span class='synopsis'><code>-u</code></span>. Porém, ao recodificar será usado o conjunto de caracteres especificado aqui em vez do especificado através do <span class='synopsis'><code>i18n.commitEncoding</code></span> ou do UTF-8.</p>
 </dd>
 <dt class="hdlist1" id="git-mailinfo--n"> <a class="anchor" href="#git-mailinfo--n"></a>-n </dt>
 <dd>
@@ -118,21 +131,21 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p><code>nowarn</code>: O git não fará nada quando tal CRLF for encontrado.</p>
+<p><span class='synopsis'><code>nowarn</code></span>: O git não fará nada quando tal CRLF for encontrado.</p>
 </li>
 <li>
-<p><code>warn</code>: O git emitirá um aviso para cada mensagem caso tal CRLF seja
+<p><span class='synopsis'><code>warn</code></span>: O git emitirá um aviso para cada mensagem caso tal CRLF seja
 encontrado.</p>
 </li>
 <li>
-<p><code>strip</code>: O git converterá estes CRLF para LF.</p>
+<p><span class='synopsis'><code>strip</code></span>: O git converterá estes CRLF para LF.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>A ação predefinida pode ser definida através da opção de configuração <code>mailinfo.quotedCR</code>. Se esta opção de configuração não tiver sido definida, será usado o <code>warn</code>.</p>
+<p>A ação predefinida pode ser definida através da opção de configuração <span class='synopsis'><code>mailinfo.quotedCR</code></span>. Se esta opção de configuração não tiver sido definida, será usado o <span class='synopsis'><code>warn</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-mailinfo-ltmsggt"> <a class="anchor" href="#git-mailinfo-msg"></a> <a class="anchor" href="#git-mailinfo-ltmsggt"></a>&lt;msg&gt; </dt>
@@ -161,7 +174,7 @@ encontrado.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/config/mailinfo.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/config/mailinfo.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

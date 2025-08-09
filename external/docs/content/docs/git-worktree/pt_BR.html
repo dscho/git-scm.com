@@ -9,6 +9,31 @@ docname: git-worktree
 lang: pt_BR
 aliases:
 - "/docs/git-worktree/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: COMANDOS
+  id: _comandos
+- text: OPÇÕES
+  id: _opções
+- text: REFS
+  id: _refs
+- text: ARQUIVO DE CONFIGURAÇÃO
+  id: _arquivo_de_configuração
+- text: DETALHES
+  id: _detalhes
+- text: FORMATO DA LISTA DE SAÍDA
+  id: _formato_da_lista_de_saída
+- text: EXEMPLOS
+  id: _exemplos
+- text: BUGS
+  id: _bugs
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -41,19 +66,19 @@ aliases:
 <p>Gerencie várias árvores de trabalho conectadas ao mesmo repositório.</p>
 </div>
 <div class="paragraph">
-<p>Um repositório git pode suportar várias árvores de trabalho, permitindo que você verifique mais de um ramo de cada vez. Com o comando <code>git worktree add</code>, uma nova árvore de trabalho é associada ao repositório, juntamente com os metadados adicionais que diferenciam esta árvore de trabalho das outras no mesmo repositório. A árvore de trabalho, juntamente com estes metadados, é chamada de "worktree".</p>
+<p>Um repositório git pode suportar várias árvores de trabalho, permitindo que você verifique mais de um ramo de cada vez. Com o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code></span>, uma nova árvore de trabalho é associada ao repositório, juntamente com os metadados adicionais que diferenciam esta árvore de trabalho das outras no mesmo repositório. A árvore de trabalho, juntamente com estes metadados, é chamada de "worktree".</p>
 </div>
 <div class="paragraph">
-<p>Esta nova árvore de trabalho é chamada de "linked worktree" (árvore de trabalho vinculada), em oposição à "main worktree" (árvore de trabalho principal) preparada pelo comando <a href='{{< relurl "docs/git-init/pt_BR" >}}'>git-init[1]</a> ou o comando <a href='{{< relurl "docs/git-clone/pt_BR" >}}'>git-clone[1]</a>. Um repositório tem uma árvore de trabalho principal (se não for um repositório simples) e zero ou mais árvore de trabalho vinculadas. Quando você terminar de usar uma árvore de trabalho vinculada, remova-a com o comando <code>git worktree remove</code>.</p>
+<p>Esta nova árvore de trabalho é chamada de "linked worktree" (árvore de trabalho vinculada), em oposição à "main worktree" (árvore de trabalho principal) preparada pelo comando <a href='{{< relurl "docs/git-init/pt_BR" >}}'>git-init[1]</a> ou o comando <a href='{{< relurl "docs/git-clone/pt_BR" >}}'>git-clone[1]</a>. Um repositório tem uma árvore de trabalho principal (se não for um repositório simples) e zero ou mais árvore de trabalho vinculadas. Quando você terminar de usar uma árvore de trabalho vinculada, remova-a com o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>remove</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Em sua forma mais simples, o comando <code>git worktree add &lt;caminho&gt;</code> cria automaticamente um novo ramo cujo nome é o componente final do <code>&lt;caminho&gt;</code>, que é conveniente caso planeje trabalhar em um novo tópico. Por exemplo, o comando <code>git worktree add ../hotfix</code> cria um novo ramo <code>hotfix</code> e elimina o caminho <code>../ hotfix</code>. Para trabalhar num ramo existente em uma nova árvore de trabalho, use o comando <code>git worktree add &lt;caminho&gt; &lt;ramo&gt;</code>. Por outro lado, caso queira apenas planejar fazer algumas alterações experimentais ou realizar testes sem atrapalhar o desenvolvimento já existente, em geral é conveniente criar uma árvore de trabalho <em>descartável</em> e que não seja associada com nenhum ramo. Por exemplo, o comando <code>git worktree add -d &lt;caminho&gt;</code> cria uma nova árvore de trabalho com um <code>HEAD</code> separado no mesmo commit do ramo atual.</p>
+<p>Em sua forma mais simples, o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <em>&lt;caminho&gt;</em></span> cria automaticamente um novo ramo cujo nome é o componente final do <span class='synopsis'><em>&lt;caminho&gt;</em></span>, que é conveniente caso planeje trabalhar em um novo tópico. Por exemplo, o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <code>../hotfix</code></span> cria um novo ramo <span class='synopsis'><code>hotfix</code></span> e elimina o caminho <span class='synopsis'><code>../</code> <code>hotfix</code></span>. Para trabalhar num ramo existente em uma nova árvore de trabalho, use o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <em>&lt;caminho&gt;</em> <em>&lt;ramo&gt;</em></span>. Por outro lado, caso queira apenas planejar fazer algumas alterações experimentais ou realizar testes sem atrapalhar o desenvolvimento já existente, em geral é conveniente criar uma árvore de trabalho <em>descartável</em> e que não seja associada com nenhum ramo. Por exemplo, o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <code>-d</code> <em>&lt;caminho&gt;</em></span> cria uma nova árvore de trabalho com um <span class='synopsis'><code>HEAD</code></span> separado no mesmo commit do ramo atual.</p>
 </div>
 <div class="paragraph">
-<p>Caso uma árvore de trabalho seja excluída sem o a utilização do comando <code>git worktree remove</code>, os seus arquivos administrativos associados, que residam no repositório (consulte "DETALHES" abaixo), serão removidos automaticamente (consulte a opção de configuração <code>gc.worktreePruneExpire</code> no <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>), ou é possível executar o comando <code>git worktree prune</code> na árvore principal ou em qualquer árvore de trabalho vinculada para fazer a limpeza de quaisquer arquivos administrativos que estejam obsoletos.</p>
+<p>Caso uma árvore de trabalho seja excluída sem o a utilização do comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>remove</code></span>, os seus arquivos administrativos associados, que residam no repositório (consulte "DETALHES" abaixo), serão removidos automaticamente (consulte a opção de configuração <span class='synopsis'><code>gc.worktreePruneExpire</code></span> no <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>), ou é possível executar o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>prune</code></span> na árvore principal ou em qualquer árvore de trabalho vinculada para fazer a limpeza de quaisquer arquivos administrativos que estejam obsoletos.</p>
 </div>
 <div class="paragraph">
-<p>Caso uma árvore de trabalho vinculada estiver armazenada num dispositivo portátil ou num compartilhamento da rede que nem sempre seja montado, é possível impedir que os seus arquivos administrativos sejam removidos emitindo o comando <code>git worktree lock</code>, utilizando opcionalmente a opção <code>--reason</code> para explicar por que a árvore de trabalho está bloqueada.</p>
+<p>Caso uma árvore de trabalho vinculada estiver armazenada num dispositivo portátil ou num compartilhamento da rede que nem sempre seja montado, é possível impedir que os seus arquivos administrativos sejam removidos emitindo o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>lock</code></span>, utilizando opcionalmente a opção <span class='synopsis'><code>--reason</code></span> para explicar por que a árvore de trabalho está bloqueada.</p>
 </div>
 </div>
 </div>
@@ -64,9 +89,9 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-worktree-addltcaminhogtltcommit-ishgt"> <a class="anchor" href="#git-worktree-addcaminhocommit-ish"></a> <a class="anchor" href="#git-worktree-addltcaminhogtltcommit-ishgt"></a>add &lt;caminho&gt; [&lt;commit-ish&gt;] </dt>
 <dd>
-<p>Create a worktree at <code>&lt;path&gt;</code> and checkout <code>&lt;commit-ish&gt;</code> into it. The new worktree is linked to the current repository, sharing everything except per-worktree files such as <code>HEAD</code>, <code>index</code>, etc. As a convenience, <code>&lt;commit-ish&gt;</code> may be a bare "<code>-</code>", which is synonymous with <code>@{-1}</code>.</p>
+<p>Create a worktree at <span class='synopsis'><em>&lt;path&gt;</em></span> and checkout <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> into it. The new worktree is linked to the current repository, sharing everything except per-worktree files such as <span class='synopsis'><code>HEAD</code></span>, <span class='synopsis'><code>index</code></span>, etc. As a convenience, <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> may be a bare "<span class='synopsis'><code>-</code></span>", which is synonymous with <span class='synopsis'><code>@{-1}</code></span>.</p>
 <div class="paragraph">
-<p>Se o <code>&lt;commit-ish&gt;</code> for um nome de ramificação (chame-o de <code>&lt;ramo&gt;</code>), não for encontrado e nem a opção <code>-b</code>, <code>-B</code> ou <code>--detach</code> forem usadas, mas existir uma ramificação de rastreamento em exatamente um ramo remoto (chame-o de <code>&lt;remoto&gt;</code>) com um nome correspondente, trate como equivalente a:</p>
+<p>Se o <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> for um nome de ramificação (chame-o de <span class='synopsis'><em>&lt;ramo&gt;</em></span>), não for encontrado e nem a opção <span class='synopsis'><code>-b</code></span>, <span class='synopsis'><code>-B</code></span> ou <span class='synopsis'><code>--detach</code></span> forem usadas, mas existir uma ramificação de rastreamento em exatamente um ramo remoto (chame-o de <span class='synopsis'><em>&lt;remoto&gt;</em></span>) com um nome correspondente, trate como equivalente a:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -74,46 +99,46 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Caso o ramo exista em diversos ramos remotos e um deles seja nomeado pela variável de configuração <code>checkout.defaultRemote</code>, para propósitos de desambiguação, mesmo que <code>&lt;ramo&gt;</code> não seja o único em todos os outros ramos remotos. Defina por exemplo, <code>checkout.defaultRemote=origin</code> para que sempre verifique as ramificações remotas de lá caso <code>&lt;ramo&gt;</code> seja ambíguo e ainda assim <code>origin</code> exista. Consulte também <code>checkout.defaultRemote</code> em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+<p>Caso o ramo exista em diversos ramos remotos e um deles seja nomeado pela variável de configuração <span class='synopsis'><code>checkout.defaultRemote</code></span>, para propósitos de desambiguação, mesmo que <span class='synopsis'><em>&lt;ramo&gt;</em></span> não seja o único em todos os outros ramos remotos. Defina por exemplo, <span class='synopsis'><code>checkout.defaultRemote=origin</code></span> para que sempre verifique as ramificações remotas de lá caso <span class='synopsis'><em>&lt;ramo&gt;</em></span> seja ambíguo e ainda assim <span class='synopsis'><code>origin</code></span> exista. Consulte também <span class='synopsis'><code>checkout.defaultRemote</code></span> em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Se o <code>&lt;commit-ish&gt;</code> for omitido e as opções <code>-b</code>, <code>-B</code> ou <code>--detach</code> não forem usadas, então, por conveniência, a nova árvore de trabalho será associada a uma ramificação (chamada de <code>&lt;ramo&gt;</code>) com o nome <code>$(basename &lt;caminho&gt;)</code>. Se o <code>&lt;ramo&gt;</code> não existir, uma nova ramificação baseada em <code>HEAD</code> será criada automaticamente como se <code>-b &lt;ramo&gt;</code> tivesse sido fornecido. Se o <code>&lt;ramo&gt;</code> existir, ele será verificado na nova árvore de trabalho, se não tiver sido verificado em nenhum outro lugar; caso contrário, o comando se recusará a criar a árvore de trabalho (a menos que a opção <code>--force</code> seja usado).</p>
+<p>Se o <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> for omitido e as opções <span class='synopsis'><code>-b</code></span>, <span class='synopsis'><code>-B</code></span> ou <span class='synopsis'><code>--detach</code></span> não forem usadas, então, por conveniência, a nova árvore de trabalho será associada a uma ramificação (chamada de <span class='synopsis'><em>&lt;ramo&gt;</em></span>) com o nome <span class='synopsis'><code>$</code>(<code>basename</code> <em>&lt;caminho&gt;</em>)</span>. Se o <span class='synopsis'><em>&lt;ramo&gt;</em></span> não existir, uma nova ramificação baseada em <span class='synopsis'><code>HEAD</code></span> será criada automaticamente como se <span class='synopsis'><code>-b</code> <em>&lt;ramo&gt;</em></span> tivesse sido fornecido. Se o <span class='synopsis'><em>&lt;ramo&gt;</em></span> existir, ele será verificado na nova árvore de trabalho, se não tiver sido verificado em nenhum outro lugar; caso contrário, o comando se recusará a criar a árvore de trabalho (a menos que a opção <span class='synopsis'><code>--force</code></span> seja usado).</p>
 </div>
 <div class="paragraph">
-<p>Se o <code>&lt;commit-ish&gt;</code> for omitido e nem as opções <code>--detach</code> ou <code>--orphan</code> forem usadas e não houver ramificações locais válidas (ou ramificações remotas se <code>--guess-remote</code> for especificado), então, por conveniência, a nova árvore de trabalho será associada a uma nova ramificação não nascida denominada <code>&lt;ramo&gt;</code> (após <code>$(basename &lt;caminho&gt;)</code> se as opções <code>-b</code> ou <code>-B</code> forem usadas) como se a opção <code>--orphan</code> tivesse sido passado para o comando. Caso o repositório tenha um ramo remoto e a opção <code>--guess-remote</code> seja usada, mas não existam ramificações remotas ou locais, o comando falhará com um aviso lembrando o usuário de buscar primeiro no ramo remoto (ou substituir usando <code>-f/--force</code>).</p>
+<p>Se o <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> for omitido e nem as opções <span class='synopsis'><code>--detach</code></span> ou <span class='synopsis'><code>--orphan</code></span> forem usadas e não houver ramificações locais válidas (ou ramificações remotas se <span class='synopsis'><code>--guess-remote</code></span> for especificado), então, por conveniência, a nova árvore de trabalho será associada a uma nova ramificação não nascida denominada <span class='synopsis'><em>&lt;ramo&gt;</em></span> (após <span class='synopsis'><code>$</code>(<code>basename</code> <em>&lt;caminho&gt;</em>)</span> se as opções <span class='synopsis'><code>-b</code></span> ou <span class='synopsis'><code>-B</code></span> forem usadas) como se a opção <span class='synopsis'><code>--orphan</code></span> tivesse sido passado para o comando. Caso o repositório tenha um ramo remoto e a opção <span class='synopsis'><code>--guess-remote</code></span> seja usada, mas não existam ramificações remotas ou locais, o comando falhará com um aviso lembrando o usuário de buscar primeiro no ramo remoto (ou substituir usando <span class='synopsis'><code>-f/--force</code></span>).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree-list"> <a class="anchor" href="#git-worktree-list"></a>list </dt>
 <dd>
-<p>Liste os detalhes de cada árvore de trabalho. A árvore de trabalho principal é listada primeiro, seguida por cada uma das árvores de trabalho vinculadas. Os detalhes da saída incluem se a árvore de trabalho está vazia, a revisão que está sendo verificada no momento, o ramo que está sendo verificado no momento (ou "detached HEAD" se não houver nenhum), <em>locked</em> se a árvore de trabalho estiver bloqueada, <em>prunable</em> se a árvore de trabalho puder ser podada pelo comando <code>prune</code>.</p>
+<p>Liste os detalhes de cada árvore de trabalho. A árvore de trabalho principal é listada primeiro, seguida por cada uma das árvores de trabalho vinculadas. Os detalhes da saída incluem se a árvore de trabalho está vazia, a revisão que está sendo verificada no momento, o ramo que está sendo verificado no momento (ou "detached HEAD" se não houver nenhum), <em>locked</em> se a árvore de trabalho estiver bloqueada, <em>prunable</em> se a árvore de trabalho puder ser podada pelo comando <span class='synopsis'><code>prune</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree-lock"> <a class="anchor" href="#git-worktree-lock"></a>lock </dt>
 <dd>
-<p>Se uma árvore de trabalho estiver num dispositivo portátil ou num compartilhamento de rede que nem sempre é montado, bloqueie-o para evitar que seus arquivos administrativos sejam removidos automaticamente. Isso também impede que ele seja movido ou excluído. Opcionalmente, especifique um motivo para o bloqueio com a opção <code>--reason</code>.</p>
+<p>Se uma árvore de trabalho estiver num dispositivo portátil ou num compartilhamento de rede que nem sempre é montado, bloqueie-o para evitar que seus arquivos administrativos sejam removidos automaticamente. Isso também impede que ele seja movido ou excluído. Opcionalmente, especifique um motivo para o bloqueio com a opção <span class='synopsis'><code>--reason</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree-move"> <a class="anchor" href="#git-worktree-move"></a>move </dt>
 <dd>
-<p>Mova uma árvore de trabalho para um novo local. Observe que a principal árvore de trabalho ou as árvores de trabalho vinculadas que contenham submódulos, não poderão ser movidas com este comando. (Contudo o comando <code>git worktree repair</code> pode restabelecer a conexão com as árvores de trabalho vinculadas a ela caso você mova manualmente a principal árvore de trabalho.)</p>
+<p>Mova uma árvore de trabalho para um novo local. Observe que a principal árvore de trabalho ou as árvores de trabalho vinculadas que contenham submódulos, não poderão ser movidas com este comando. (Contudo o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>repair</code></span> pode restabelecer a conexão com as árvores de trabalho vinculadas a ela caso você mova manualmente a principal árvore de trabalho.)</p>
 </dd>
 <dt class="hdlist1" id="git-worktree-prune"> <a class="anchor" href="#git-worktree-prune"></a>prune </dt>
 <dd>
-<p>Remova a informação da árvore de trabalho no <code>$GIT_DIR/worktrees</code>.</p>
+<p>Remova a informação da árvore de trabalho no <span class='synopsis'><code>$GIT_DIR/worktrees</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree-remove"> <a class="anchor" href="#git-worktree-remove"></a>remove </dt>
 <dd>
-<p>Remova uma árvore de trabalho. Somente a árvore de trabalho que estiver vazia (sem arquivos não monitorados e nenhuma alteração nos arquivos monitorados) pode ser removida. A árvore de trabalho que não estiver vazia ou com os sub-módulos podem ser removidas a força com a opção <code>--force</code>. A principal árvore de trabalho não pode ser removida.</p>
+<p>Remova uma árvore de trabalho. Somente a árvore de trabalho que estiver vazia (sem arquivos não monitorados e nenhuma alteração nos arquivos monitorados) pode ser removida. A árvore de trabalho que não estiver vazia ou com os sub-módulos podem ser removidas a força com a opção <span class='synopsis'><code>--force</code></span>. A principal árvore de trabalho não pode ser removida.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree-repairltcaminhogt82308203"> <a class="anchor" href="#git-worktree-repaircaminho"></a> <a class="anchor" href="#git-worktree-repairltcaminhogt82308203"></a>repair [&lt;caminho&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>Faz o reparo dos arquivos administrativos da árvore de trabalho caso tenham se corrompido ou tenham se desatualizado devido a fatores externos.</p>
 <div class="paragraph">
-<p>Por exemplo, caso a principal árvore de trabalho (ou o repositório vazio) seja movida, as outras árvores de trabalho que estejam vinculadas à ela não serão capazes de localizá-la. Ao executar o comando <code>repair</code> na principal árvore de trabalho, fará com que a conexão das árvores de trabalho que estejam vinculadas sejam restauradas de volta para a principal árvore de trabalho.</p>
+<p>Por exemplo, caso a principal árvore de trabalho (ou o repositório vazio) seja movida, as outras árvores de trabalho que estejam vinculadas à ela não serão capazes de localizá-la. Ao executar o comando <span class='synopsis'><code>repair</code></span> na principal árvore de trabalho, fará com que a conexão das árvores de trabalho que estejam vinculadas sejam restauradas de volta para a principal árvore de trabalho.</p>
 </div>
 <div class="paragraph">
-<p>Da mesma forma, caso uma árvore de trabalho vinculada seja movida sem usar o comando <code>git worktree move</code>, a principal árvore de trabalho (ou o repositório vazio) não será capaz de localizá-la. Executando o comando <code>repair</code> dentro da árvore de trabalho recém-movida faz com que a conexão seja reestabelecida. Caso várias árvores de trabalho que estejam vinculadas sejam movidas, ao executar o <code>repair</code> a partir de qualquer árvore de trabalho usando o novo <code>&lt;caminho&gt;</code> de cada árvore como argumento, o vínculo será reestabelecido com todos os caminhos especificados.</p>
+<p>Da mesma forma, caso uma árvore de trabalho vinculada seja movida sem usar o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>move</code></span>, a principal árvore de trabalho (ou o repositório vazio) não será capaz de localizá-la. Executando o comando <span class='synopsis'><code>repair</code></span> dentro da árvore de trabalho recém-movida faz com que a conexão seja reestabelecida. Caso várias árvores de trabalho que estejam vinculadas sejam movidas, ao executar o <span class='synopsis'><code>repair</code></span> a partir de qualquer árvore de trabalho usando o novo <span class='synopsis'><em>&lt;caminho&gt;</em></span> de cada árvore como argumento, o vínculo será reestabelecido com todos os caminhos especificados.</p>
 </div>
 <div class="paragraph">
-<p>If both the main worktree and linked worktrees have been moved or copied manually, then running <code>repair</code> in the main worktree and specifying the new <code>&lt;path&gt;</code> of each linked worktree will reestablish all connections in both directions.</p>
+<p>If both the main worktree and linked worktrees have been moved or copied manually, then running <span class='synopsis'><code>repair</code></span> in the main worktree and specifying the new <span class='synopsis'><em>&lt;path&gt;</em></span> of each linked worktree will reestablish all connections in both directions.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree-unlock"> <a class="anchor" href="#git-worktree-unlock"></a>unlock </dt>
@@ -132,96 +157,96 @@ aliases:
 <dt class="hdlist1" id="git-worktree--f"> <a class="anchor" href="#git-worktree--f"></a>-f </dt>
 <dt class="hdlist1" id="git-worktree---force"> <a class="anchor" href="#git-worktree---force"></a>--force </dt>
 <dd>
-<p>É predefinido que <code>add</code> se recuse a criar uma nova árvore de trabalho quando <code>&lt;commit-ish&gt;</code> for um nome de um ramo e já esteja em averiguação por outra árvore de trabalho, ou caso o <code>&lt;caminho&gt;</code> já esteja atribuído a alguma árvore de trabalho, porém esteja ausente (caso o <code>&lt;caminho&gt;</code> tenha sido excluído manualmente por exemplo). Esta opção substitui estas salvaguardas. Para adicionar um caminho numa árvore de trabalho ausente e que esteja bloqueada, utilize a opção <code>--force</code> duas vezes.</p>
+<p>É predefinido que <span class='synopsis'><code>add</code></span> se recuse a criar uma nova árvore de trabalho quando <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> for um nome de um ramo e já esteja em averiguação por outra árvore de trabalho, ou caso o <span class='synopsis'><em>&lt;caminho&gt;</em></span> já esteja atribuído a alguma árvore de trabalho, porém esteja ausente (caso o <span class='synopsis'><em>&lt;caminho&gt;</em></span> tenha sido excluído manualmente por exemplo). Esta opção substitui estas salvaguardas. Para adicionar um caminho numa árvore de trabalho ausente e que esteja bloqueada, utilize a opção <span class='synopsis'><code>--force</code></span> duas vezes.</p>
 <div class="paragraph">
-<p>o <code>move</code> se recusa a mover uma árvore de trabalho bloqueada a menos que a opção <code>--force</code> seja utilizada duas vezes. Caso o destino já esteja atribuído a alguma outra árvore de trabalho, porém esteja ausente (caso o <code>&lt;novo-caminho&gt;</code> tenha sido excluído manualmente por exemplo), então a opção <code>--force</code> permite que a ação de mover prossiga; utilize a opção <code>--force</code> duas vezes caso o destino esteja bloqueado.</p>
+<p>o <span class='synopsis'><code>move</code></span> se recusa a mover uma árvore de trabalho bloqueada a menos que a opção <span class='synopsis'><code>--force</code></span> seja utilizada duas vezes. Caso o destino já esteja atribuído a alguma outra árvore de trabalho, porém esteja ausente (caso o <span class='synopsis'><em>&lt;novo-caminho&gt;</em></span> tenha sido excluído manualmente por exemplo), então a opção <span class='synopsis'><code>--force</code></span> permite que a ação de mover prossiga; utilize a opção <span class='synopsis'><code>--force</code></span> duas vezes caso o destino esteja bloqueado.</p>
 </div>
 <div class="paragraph">
-<p>O <code>remove</code> se recusa a remover uma árvore de trabalho suja, a menos que a opção <code>--force</code> seja usada. Para remover uma árvore de trabalho bloqueada, especifique a opção <code>--force</code> duas vezes.</p>
+<p>O <span class='synopsis'><code>remove</code></span> se recusa a remover uma árvore de trabalho suja, a menos que a opção <span class='synopsis'><code>--force</code></span> seja usada. Para remover uma árvore de trabalho bloqueada, especifique a opção <span class='synopsis'><code>--force</code></span> duas vezes.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree--bltnovo-ramogt"> <a class="anchor" href="#git-worktree--bnovo-ramo"></a> <a class="anchor" href="#git-worktree--bltnovo-ramogt"></a>-b &lt;novo-ramo&gt; </dt>
 <dt class="hdlist1" id="git-worktree--Bltnovo-ramogt"> <a class="anchor" href="#git-worktree--Bnovo-ramo"></a> <a class="anchor" href="#git-worktree--Bltnovo-ramogt"></a>-B &lt;novo-ramo&gt; </dt>
 <dd>
-<p>Com <code>add</code>, crie uma nova ramificação chamada <code>&lt;novo-ramo&gt;</code> começando em <code>&lt;commit-ish&gt;</code> e faça o <em>check-out</em> do <code>&lt;novo-ramo&gt;</code> na nova árvore de trabalho. Se o <code>&lt;commit-ish&gt;</code> for omitido, a predefinição será <code>HEAD</code>. A predefinição <code>-b</code> se recusará a criar uma nova ramificação caso ela já exista. A opção <code>-B</code> substitui essa proteção, redefinindo <code>&lt;novo-ramo&gt;</code> para o <code>&lt;commit-ish&gt;</code>.</p>
+<p>Com <span class='synopsis'><code>add</code></span>, crie uma nova ramificação chamada <span class='synopsis'><em>&lt;novo-ramo&gt;</em></span> começando em <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> e faça o <em>check-out</em> do <span class='synopsis'><em>&lt;novo-ramo&gt;</em></span> na nova árvore de trabalho. Se o <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> for omitido, a predefinição será <span class='synopsis'><code>HEAD</code></span>. A predefinição <span class='synopsis'><code>-b</code></span> se recusará a criar uma nova ramificação caso ela já exista. A opção <span class='synopsis'><code>-B</code></span> substitui essa proteção, redefinindo <span class='synopsis'><em>&lt;novo-ramo&gt;</em></span> para o <span class='synopsis'><em>&lt;commit-ish&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree--d"> <a class="anchor" href="#git-worktree--d"></a>-d </dt>
 <dt class="hdlist1" id="git-worktree---detach"> <a class="anchor" href="#git-worktree---detach"></a>--detach </dt>
 <dd>
-<p>Com <code>add</code>, desanexe o <code>HEAD</code> na nova árvore de trabalho. Consulte "HEAD DESANEXADO" em <a href='{{< relurl "docs/git-checkout/pt_BR" >}}'>git-checkout[1]</a>.</p>
+<p>Com <span class='synopsis'><code>add</code></span>, desanexe o <span class='synopsis'><code>HEAD</code></span> na nova árvore de trabalho. Consulte "HEAD DESANEXADO" em <a href='{{< relurl "docs/git-checkout/pt_BR" >}}'>git-checkout[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree---no-checkout"> <a class="anchor" href="#git-worktree---no-checkout"></a>--[no-]checkout </dt>
 <dd>
-<p>É predefinido que <code>add</code> faça a averiguação do <code>&lt;commit-ish&gt; `, no entanto a opção `--no-checkout</code> pode ser utilizado para suprimir a averiguação a fim de fazer as personalizações, como configurar a averiguação esparsa. Consulte "Averiguação esparsa" em <a href='{{< relurl "docs/git-read-tree/pt_BR" >}}'>git-read-tree[1]</a>.</p>
+<p>É predefinido que <span class='synopsis'><code>add</code></span> faça a averiguação do <span class='synopsis'><em>&lt;commit-ish&gt; `, no entanto a opção `--no-checkout</em></span> pode ser utilizado para suprimir a averiguação a fim de fazer as personalizações, como configurar a averiguação esparsa. Consulte "Averiguação esparsa" em <a href='{{< relurl "docs/git-read-tree/pt_BR" >}}'>git-read-tree[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree---no-guess-remote"> <a class="anchor" href="#git-worktree---no-guess-remote"></a>--[no-]guess-remote </dt>
 <dd>
-<p>Com <code>worktree add &lt;caminho&gt;</code>, sem <code>&lt;commit-ish&gt;</code>, em vez de criar uma nova ramificação a partir do <code>HEAD</code>, caso exista uma ramificação de rastreamento em exatamente um ponto remoto que coincida com o <code>basename</code> do <code>&lt;caminho&gt;</code>, baseie a nova ramificação na ramificação remota rastreada e marque a ramificação rastreada remoto como um "upstream" da nova ramificação.</p>
+<p>Com <span class='synopsis'><code>worktree</code> <code>add</code> <em>&lt;caminho&gt;</em></span>, sem <span class='synopsis'><em>&lt;commit-ish&gt;</em></span>, em vez de criar uma nova ramificação a partir do <span class='synopsis'><code>HEAD</code></span>, caso exista uma ramificação de rastreamento em exatamente um ponto remoto que coincida com o <span class='synopsis'><code>basename</code></span> do <span class='synopsis'><em>&lt;caminho&gt;</em></span>, baseie a nova ramificação na ramificação remota rastreada e marque a ramificação rastreada remoto como um "upstream" da nova ramificação.</p>
 <div class="paragraph">
-<p>Isso também pode ser definido como um comportamento predefinido ao usar a opção da configuração <code>worktree.guessRemote</code>.</p>
+<p>Isso também pode ser definido como um comportamento predefinido ao usar a opção da configuração <span class='synopsis'><code>worktree.guessRemote</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree---no-relative-paths"> <a class="anchor" href="#git-worktree---no-relative-paths"></a>--[no-]relative-paths </dt>
 <dd>
-<p>Link worktrees using relative paths or absolute paths (default). Overrides the <code>worktree.useRelativePaths</code> config option, see <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+<p>Link worktrees using relative paths or absolute paths (default). Overrides the <span class='synopsis'><code>worktree.useRelativePaths</code></span> config option, see <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 <div class="paragraph">
-<p>With <code>repair</code>, the linking files will be updated if there&#8217;s an absolute/relative mismatch, even if the links are correct.</p>
+<p>With <span class='synopsis'><code>repair</code></span>, the linking files will be updated if there&#8217;s an absolute/relative mismatch, even if the links are correct.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree---no-track"> <a class="anchor" href="#git-worktree---no-track"></a>--[no-]track </dt>
 <dd>
-<p>Ao criar uma nova ramificação, se o <code>&lt;commit-ish&gt;</code> for uma ramificação, marque-a como <em>upstream</em> da nova ramificação. Esse é a predefinição se o <code>&lt;commit-ish&gt;</code> for um ramo rastreado remotamente. Para mais detalhes consulte <code>--track</code> do comando <a href='{{< relurl "docs/git-branch/pt_BR" >}}'>git-branch[1]</a>.</p>
+<p>Ao criar uma nova ramificação, se o <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> for uma ramificação, marque-a como <em>upstream</em> da nova ramificação. Esse é a predefinição se o <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> for um ramo rastreado remotamente. Para mais detalhes consulte <span class='synopsis'><code>--track</code></span> do comando <a href='{{< relurl "docs/git-branch/pt_BR" >}}'>git-branch[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree---lock"> <a class="anchor" href="#git-worktree---lock"></a>--lock </dt>
 <dd>
-<p>Mantenha a árvore de trabalho bloqueada após a criação. Isso é equivalente ao comando <code>git worktree lock</code> após <code>git worktree add</code>, porém sem a condição de corrida.</p>
+<p>Mantenha a árvore de trabalho bloqueada após a criação. Isso é equivalente ao comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>lock</code></span> após <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code></span>, porém sem a condição de corrida.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree--n"> <a class="anchor" href="#git-worktree--n"></a>-n </dt>
 <dt class="hdlist1" id="git-worktree---dry-run"> <a class="anchor" href="#git-worktree---dry-run"></a>--dry-run </dt>
 <dd>
-<p>Com <code>prune</code>, não remove nada; apenas relate o que seria removido.</p>
+<p>Com <span class='synopsis'><code>prune</code></span>, não remove nada; apenas relate o que seria removido.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree---orphan"> <a class="anchor" href="#git-worktree---orphan"></a>--orphan </dt>
 <dd>
-<p>Com <code>add</code>, esvazie o índice e a nova árvore de trabalho, associando a árvore de trabalho a uma nova ramificação chamada <code>&lt;novo-ramo&gt;</code>.</p>
+<p>Com <span class='synopsis'><code>add</code></span>, esvazie o índice e a nova árvore de trabalho, associando a árvore de trabalho a uma nova ramificação chamada <span class='synopsis'><em>&lt;novo-ramo&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree---porcelain"> <a class="anchor" href="#git-worktree---porcelain"></a>--porcelain </dt>
 <dd>
-<p>Com <code>list</code>, é gerado num formato compatível para scripts. Este formato permanecerá estável em todas as versões do Git e independentemente da configuração do usuário. Recomenda-se combiná-lo com a opção <code>-z</code>. Veja abaixo para mais detalhes.</p>
+<p>Com <span class='synopsis'><code>list</code></span>, é gerado num formato compatível para scripts. Este formato permanecerá estável em todas as versões do Git e independentemente da configuração do usuário. Recomenda-se combiná-lo com a opção <span class='synopsis'><code>-z</code></span>. Veja abaixo para mais detalhes.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree--z"> <a class="anchor" href="#git-worktree--z"></a>-z </dt>
 <dd>
-<p>Termine cada linha com um NUL em vez de uma nova linha quando a opção <code>--porcelain</code> for usada com <code>list</code>. Isto torna possível analisar a saída quando o caminho da árvore de trabalho tiver um novo caractere de uma nova linha.</p>
+<p>Termine cada linha com um NUL em vez de uma nova linha quando a opção <span class='synopsis'><code>--porcelain</code></span> for usada com <span class='synopsis'><code>list</code></span>. Isto torna possível analisar a saída quando o caminho da árvore de trabalho tiver um novo caractere de uma nova linha.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree--q"> <a class="anchor" href="#git-worktree--q"></a>-q </dt>
 <dt class="hdlist1" id="git-worktree---quiet"> <a class="anchor" href="#git-worktree---quiet"></a>--quiet </dt>
 <dd>
-<p>Com <code>add</code>, suprima as mensagens de feedback.</p>
+<p>Com <span class='synopsis'><code>add</code></span>, suprima as mensagens de feedback.</p>
 </dd>
 <dt class="hdlist1" id="git-worktree--v"> <a class="anchor" href="#git-worktree--v"></a>-v </dt>
 <dt class="hdlist1" id="git-worktree---verbose"> <a class="anchor" href="#git-worktree---verbose"></a>--verbose </dt>
 <dd>
-<p>Com <code>prune</code>, relate todas as remoções.</p>
+<p>Com <span class='synopsis'><code>prune</code></span>, relate todas as remoções.</p>
 <div class="paragraph">
-<p>Com <code>list</code>, produza informações adicionais sobre as árvores de trabalho (veja abaixo).</p>
+<p>Com <span class='synopsis'><code>list</code></span>, produza informações adicionais sobre as árvores de trabalho (veja abaixo).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree---expirelttempogt"> <a class="anchor" href="#git-worktree---expiretempo"></a> <a class="anchor" href="#git-worktree---expirelttempogt"></a>--expire &lt;tempo&gt; </dt>
 <dd>
-<p>Com <code>prune</code>, expire apenas a árvore de trabalho que não foram utilizadas e que sejam mais velhas que <code>&lt;tempo&gt;</code>.</p>
+<p>Com <span class='synopsis'><code>prune</code></span>, expire apenas a árvore de trabalho que não foram utilizadas e que sejam mais velhas que <span class='synopsis'><em>&lt;tempo&gt;</em></span>.</p>
 <div class="paragraph">
-<p>Com <code>list</code>, anote a árvore de trabalho que estejam ausentes como podáveis e caso sejam mais antigas do que <code>&lt;tempo&gt;</code>.</p>
+<p>Com <span class='synopsis'><code>list</code></span>, anote a árvore de trabalho que estejam ausentes como podáveis e caso sejam mais antigas do que <span class='synopsis'><em>&lt;tempo&gt;</em></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree---reasonlttextogt"> <a class="anchor" href="#git-worktree---reasontexto"></a> <a class="anchor" href="#git-worktree---reasonlttextogt"></a>--reason &lt;texto&gt; </dt>
 <dd>
-<p>Com <code>lock</code> ou com <code>add --lock</code>, uma explicação é dada do por que a árvore está "locked" (travada).</p>
+<p>Com <span class='synopsis'><code>lock</code></span> ou com <span class='synopsis'><code>add</code> <code>--lock</code></span>, uma explicação é dada do por que a árvore está "locked" (travada).</p>
 </dd>
 <dt class="hdlist1" id="git-worktree-ltrvoredetrabalhogt"> <a class="anchor" href="#git-worktree-rvoredetrabalho"></a> <a class="anchor" href="#git-worktree-ltrvoredetrabalhogt"></a>&lt;árvore de trabalho&gt; </dt>
 <dd>
 <p>A árvore de trabalho pode ser identificada através do seu caminho, seja ele relativo ou absoluto.</p>
 <div class="paragraph">
-<p>Caso os componentes do último caminho da árvore de trabalho sejam únicos entre as árvores, ele poderá ser utilizado para identificar a árvore de trabalho. Como por exemplo, caso tenha apenas duas árvores de trabalho, em <code>/abc/def/ghi</code> e <code>/abc/def/ggg</code>, <code>ghi</code> ou <code>def/ghi</code> serão suficientes para apontar para a antiga árvore de trabalho.</p>
+<p>Caso os componentes do último caminho da árvore de trabalho sejam únicos entre as árvores, ele poderá ser utilizado para identificar a árvore de trabalho. Como por exemplo, caso tenha apenas duas árvores de trabalho, em <span class='synopsis'><code>/abc/def/ghi</code></span> e <span class='synopsis'><code>/abc/def/ggg</code></span>, <span class='synopsis'><code>ghi</code></span> ou <span class='synopsis'><code>def/ghi</code></span> serão suficientes para apontar para a antiga árvore de trabalho.</p>
 </div>
 </dd>
 </dl>
@@ -232,19 +257,19 @@ aliases:
 <h2 id="_refs"><a class="anchor" href="#_refs"></a>REFS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Quando utilizar diversas árvores de trabalho, algumas refs são compartilhadas entre todas as árvores de trabalho mas outras são específicas para cada árvore de trabalho individualmente. Um exemplo é o <code>HEAD</code>, que é único para cada a árvores de trabalho. Esta seção são sobre as regras de compartilhamento e de como acessar tais refs de uma árvore de trabalho para outra.</p>
+<p>Quando utilizar diversas árvores de trabalho, algumas refs são compartilhadas entre todas as árvores de trabalho mas outras são específicas para cada árvore de trabalho individualmente. Um exemplo é o <span class='synopsis'><code>HEAD</code></span>, que é único para cada a árvores de trabalho. Esta seção são sobre as regras de compartilhamento e de como acessar tais refs de uma árvore de trabalho para outra.</p>
 </div>
 <div class="paragraph">
-<p>In general, all pseudo refs are per-worktree and all refs starting with <code>refs/</code> are shared. Pseudo refs are ones like <code>HEAD</code> which are directly under <code>$GIT_DIR</code> instead of inside <code>$GIT_DIR/refs</code>. There are exceptions, however: refs inside <code>refs/bisect</code>, <code>refs/worktree</code> and <code>refs/rewritten</code> are not shared.</p>
+<p>In general, all pseudo refs are per-worktree and all refs starting with <span class='synopsis'><code>refs/</code></span> are shared. Pseudo refs are ones like <span class='synopsis'><code>HEAD</code></span> which are directly under <span class='synopsis'><code>$GIT_DIR</code></span> instead of inside <span class='synopsis'><code>$GIT_DIR/refs</code></span>. There are exceptions, however: refs inside <span class='synopsis'><code>refs/bisect</code></span>, <span class='synopsis'><code>refs/worktree</code></span> and <span class='synopsis'><code>refs/rewritten</code></span> are not shared.</p>
 </div>
 <div class="paragraph">
-<p>As refs individuais de cada árvore de trabalho ainda podem ser acessadas de uma outra árvore de trabalho através de dois caminhos especiais, <code>main-worktree</code> e <code>worktrees</code>. A primeira oferece acesso <code>ref</code> individual a cada principal árvore de trabalho, enquanto a última a todas as árvores de trabalho que forem vinculadas à ela.</p>
+<p>As refs individuais de cada árvore de trabalho ainda podem ser acessadas de uma outra árvore de trabalho através de dois caminhos especiais, <span class='synopsis'><code>main-worktree</code></span> e <span class='synopsis'><code>worktrees</code></span>. A primeira oferece acesso <span class='synopsis'><code>ref</code></span> individual a cada principal árvore de trabalho, enquanto a última a todas as árvores de trabalho que forem vinculadas à ela.</p>
 </div>
 <div class="paragraph">
-<p>Como por exemplo, <code>main-worktree/HEAD</code> ou <code>main-worktree/refs/bisect/good</code> resolve para o mesmo valor que <code>HEAD</code> nas principais árvores de trabalho, assim como <code>refs/bisect/good</code> respectivamente. Da mesma forma, <code>worktrees/foo/HEAD</code> e <code>worktrees/bar/refs/bisect/bad</code> são as mesmas que <code>$GIT_COMMON_DIR/worktrees/foo/HEAD</code> e <code>$GIT_COMMON_DIR/worktrees/bar/refs/bisect/bad</code>.</p>
+<p>Como por exemplo, <span class='synopsis'><code>main-worktree/HEAD</code></span> ou <span class='synopsis'><code>main-worktree/refs/bisect/good</code></span> resolve para o mesmo valor que <span class='synopsis'><code>HEAD</code></span> nas principais árvores de trabalho, assim como <span class='synopsis'><code>refs/bisect/good</code></span> respectivamente. Da mesma forma, <span class='synopsis'><code>worktrees/foo/HEAD</code></span> e <span class='synopsis'><code>worktrees/bar/refs/bisect/bad</code></span> são as mesmas que <span class='synopsis'><code>$GIT_COMMON_DIR/worktrees/foo/HEAD</code></span> e <span class='synopsis'><code>$GIT_COMMON_DIR/worktrees/bar/refs/bisect/bad</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Para acessar as <code>refs</code> é melhor não olhar diretamente para dentro do <code>$GIT_DIR</code>. Em vez disso, use comandos como o <a href='{{< relurl "docs/git-rev-parse/pt_BR" >}}'>git-rev-parse[1]</a> ou <a href='{{< relurl "docs/git-update-ref/pt_BR" >}}'>git-update-ref[1]</a> que manipularão corretamente as refs.</p>
+<p>Para acessar as <span class='synopsis'><code>refs</code></span> é melhor não olhar diretamente para dentro do <span class='synopsis'><code>$GIT_DIR</code></span>. Em vez disso, use comandos como o <a href='{{< relurl "docs/git-rev-parse/pt_BR" >}}'>git-rev-parse[1]</a> ou <a href='{{< relurl "docs/git-update-ref/pt_BR" >}}'>git-update-ref[1]</a> que manipularão corretamente as refs.</p>
 </div>
 </div>
 </div>
@@ -252,10 +277,10 @@ aliases:
 <h2 id="_arquivo_de_configuração"><a class="anchor" href="#_arquivo_de_configuração"></a>ARQUIVO DE CONFIGURAÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>É predefinido que o arquivo <code>config</code> do repositório seja compartilhado em todas as árvores de trabalho. Se as variáveis de configuração <code>core.bare</code> ou <code>core.worktree</code> estiverem presentes no arquivo de configuração comum e <code>extensions.worktreeConfig</code> estiver desativado, elas serão aplicadas somente à árvore de trabalho principal.</p>
+<p>É predefinido que o arquivo <span class='synopsis'><code>config</code></span> do repositório seja compartilhado em todas as árvores de trabalho. Se as variáveis de configuração <span class='synopsis'><code>core.bare</code></span> ou <span class='synopsis'><code>core.worktree</code></span> estiverem presentes no arquivo de configuração comum e <span class='synopsis'><code>extensions.worktreeConfig</code></span> estiver desativado, elas serão aplicadas somente à árvore de trabalho principal.</p>
 </div>
 <div class="paragraph">
-<p>Você pode ativar a extensão <code>worktreeConfig</code> para ter uma configuração específica para as árvores de trabalho, por exemplo:</p>
+<p>Você pode ativar a extensão <span class='synopsis'><code>worktreeConfig</code></span> para ter uma configuração específica para as árvores de trabalho, por exemplo:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -263,26 +288,26 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Neste modo, a configuração específica permanece no caminho apontado pelo comando <code>git rev-parse --git-path config.worktree</code>. Você pode adicionar ou atualizar a configuração neste arquivo com o comando <code>git config --worktree</code>. As versões mais antigas do Git se recusarão a acessar os repositórios com esta extensão.</p>
+<p>Neste modo, a configuração específica permanece no caminho apontado pelo comando <span class='synopsis'><code>git</code> <code>rev-parse</code> <code>--git-path</code> <code>config.worktree</code></span>. Você pode adicionar ou atualizar a configuração neste arquivo com o comando <span class='synopsis'><code>git</code> <code>config</code> <code>--worktree</code></span>. As versões mais antigas do Git se recusarão a acessar os repositórios com esta extensão.</p>
 </div>
 <div class="paragraph">
-<p>Observe que neste arquivo, a exceção para <code>core.bare</code> e <code>core.worktree</code> desapareceu. Caso existam no <code>$GIT_DIR/config</code>, você deve movê-los para o <code>config.worktree</code> da árvore principal de trabalho. Você também pode aproveitar esta oportunidade para revisar e mover as outras configurações que não deseja compartilhar com todas as árvores de trabalho:</p>
+<p>Observe que neste arquivo, a exceção para <span class='synopsis'><code>core.bare</code></span> e <span class='synopsis'><code>core.worktree</code></span> desapareceu. Caso existam no <span class='synopsis'><code>$GIT_DIR/config</code></span>, você deve movê-los para o <span class='synopsis'><code>config.worktree</code></span> da árvore principal de trabalho. Você também pode aproveitar esta oportunidade para revisar e mover as outras configurações que não deseja compartilhar com todas as árvores de trabalho:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>core.worktree</code> nunca deve ser compartilhado.</p>
+<p><span class='synopsis'><code>core.worktree</code></span> nunca deve ser compartilhado.</p>
 </li>
 <li>
-<p><code>core.bare</code> não deve ser compartilhado caso o valor seja <code>core.bare=true</code>.</p>
+<p><span class='synopsis'><code>core.bare</code></span> não deve ser compartilhado caso o valor seja <span class='synopsis'><code>core.bare=true</code></span>.</p>
 </li>
 <li>
-<p>Recomenda-se a opção de configuração <code>core.sparseCheckout</code> não seja compartilhada, a menos que você tenha certeza de utilizar a verificação esparsa em todas as árvores de trabalho.</p>
+<p>Recomenda-se a opção de configuração <span class='synopsis'><code>core.sparseCheckout</code></span> não seja compartilhada, a menos que você tenha certeza de utilizar a verificação esparsa em todas as árvores de trabalho.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Para mais detalhes consulte a documentação sobre <code>extensions.worktreeConfig</code> em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+<p>Para mais detalhes consulte a documentação sobre <span class='synopsis'><code>extensions.worktreeConfig</code></span> em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 </div>
 </div>
 </div>
@@ -290,25 +315,25 @@ aliases:
 <h2 id="_detalhes"><a class="anchor" href="#_detalhes"></a>DETALHES</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cada árvore de trabalho vinculada tem um subdiretório privado no diretório <code>$GIT_DIR/worktrees</code> do repositório. O nome do subdiretório privado geralmente é o nome base do caminho da árvore de trabalho vinculada, possivelmente acrescido de um número para torná-lo exclusivo. Por exemplo, quando <code>$GIT_DIR=/path/main/.git</code>, o comando <code>git worktree add /path/other/test-next next</code> cria a árvore de trabalho vinculada em <code>/path/other/test-next</code> e também cria um diretório <code>$GIT_DIR/worktrees/test-next</code> (ou <code>$GIT_DIR/worktrees/test-next1</code> se o <code>test-next</code> já estiver ocupado).</p>
+<p>Cada árvore de trabalho vinculada tem um subdiretório privado no diretório <span class='synopsis'><code>$GIT_DIR/worktrees</code></span> do repositório. O nome do subdiretório privado geralmente é o nome base do caminho da árvore de trabalho vinculada, possivelmente acrescido de um número para torná-lo exclusivo. Por exemplo, quando <span class='synopsis'><code>$GIT_DIR=/path/main/.git</code></span>, o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <code>/path/other/test-next</code> <code>next</code></span> cria a árvore de trabalho vinculada em <span class='synopsis'><code>/path/other/test-next</code></span> e também cria um diretório <span class='synopsis'><code>$GIT_DIR/worktrees/test-next</code></span> (ou <span class='synopsis'><code>$GIT_DIR/worktrees/test-next1</code></span> se o <span class='synopsis'><code>test-next</code></span> já estiver ocupado).</p>
 </div>
 <div class="paragraph">
-<p>Dentro de uma árvore de trabalho vinculada, <code>$GIT_DIR</code> é configurado para apontar para este diretório privado (<code>/path/main/.git/worktrees/test-next</code> no exemplo) e <code>$GIT_COMMON_DIR</code> é configurado para apontar de volta para a principal árvore de trabalho <code>$GIT_DIR</code> (<code>/path/main/.git</code> por exemplo). Estas configurações são feitas em um arquivo <code>.git</code> localizado no diretório mais alto do vínculo da árvore de trabalho.</p>
+<p>Dentro de uma árvore de trabalho vinculada, <span class='synopsis'><code>$GIT_DIR</code></span> é configurado para apontar para este diretório privado (<span class='synopsis'><code>/path/main/.git/worktrees/test-next</code></span> no exemplo) e <span class='synopsis'><code>$GIT_COMMON_DIR</code></span> é configurado para apontar de volta para a principal árvore de trabalho <span class='synopsis'><code>$GIT_DIR</code></span> (<span class='synopsis'><code>/path/main/.git</code></span> por exemplo). Estas configurações são feitas em um arquivo <span class='synopsis'><code>.git</code></span> localizado no diretório mais alto do vínculo da árvore de trabalho.</p>
 </div>
 <div class="paragraph">
-<p>A resolução do caminho através do comando <code>git rev-parse --git-path</code> utiliza <code>$GIT_DIR</code> ou <code>$GIT_COMMON_DIR</code>, dependendo do caminho. Na árvore de trabalho vinculada, o comando <code>git rev-parse --git-path HEAD</code> retorna <code>/path/main/.git/worktrees/test-next/HEAD</code> (não <code>/path/other/test-next/.git/HEAD</code> ou <code>/path/main/.git/HEAD</code>) enquanto o comando <code>git rev-parse --git-path refs/heads/master</code> usa <code>$GIT_COMMON_DIR</code> e retorna <code>/path/main/.git/refs/heads/master</code>, já que as refs são compartilhados em todas as árvores de trabalho, exceto <code>refs/bisect</code>, <code>refs/worktree</code> e <code>refs/rewritten</code>.</p>
+<p>A resolução do caminho através do comando <span class='synopsis'><code>git</code> <code>rev-parse</code> <code>--git-path</code></span> utiliza <span class='synopsis'><code>$GIT_DIR</code></span> ou <span class='synopsis'><code>$GIT_COMMON_DIR</code></span>, dependendo do caminho. Na árvore de trabalho vinculada, o comando <span class='synopsis'><code>git</code> <code>rev-parse</code> <code>--git-path</code> <code>HEAD</code></span> retorna <span class='synopsis'><code>/path/main/.git/worktrees/test-next/HEAD</code></span> (não <span class='synopsis'><code>/path/other/test-next/.git/HEAD</code></span> ou <span class='synopsis'><code>/path/main/.git/HEAD</code></span>) enquanto o comando <span class='synopsis'><code>git</code> <code>rev-parse</code> <code>--git-path</code> <code>refs/heads/master</code></span> usa <span class='synopsis'><code>$GIT_COMMON_DIR</code></span> e retorna <span class='synopsis'><code>/path/main/.git/refs/heads/master</code></span>, já que as refs são compartilhados em todas as árvores de trabalho, exceto <span class='synopsis'><code>refs/bisect</code></span>, <span class='synopsis'><code>refs/worktree</code></span> e <span class='synopsis'><code>refs/rewritten</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Para mais informações consulte <a href='{{< relurl "docs/gitrepository-layout/pt_BR" >}}'>gitrepository-layout[5]</a>. A regra geral é não fazer qualquer suposição sobre se um caminho pertence ao <code>$GIT_DIR</code> ou ao <code>$GIT_COMMON_DIR</code> quando você precisar acessar diretamente algo dentro do <code>$GIT_DIR</code>. Para obter o caminho final utilize o comando <code>git rev-parse --git-path</code>.</p>
+<p>Para mais informações consulte <a href='{{< relurl "docs/gitrepository-layout/pt_BR" >}}'>gitrepository-layout[5]</a>. A regra geral é não fazer qualquer suposição sobre se um caminho pertence ao <span class='synopsis'><code>$GIT_DIR</code></span> ou ao <span class='synopsis'><code>$GIT_COMMON_DIR</code></span> quando você precisar acessar diretamente algo dentro do <span class='synopsis'><code>$GIT_DIR</code></span>. Para obter o caminho final utilize o comando <span class='synopsis'><code>git</code> <code>rev-parse</code> <code>--git-path</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Caso queira mover o vínculo de uma árvore de trabalho manualmente, será preciso atualizar o arquivo <em>gitdir</em> no diretório da entrada. Como por exemplo, caso o vínculo de uma árvore de trabalho seja movida para <code>/newpath/test-next</code> e o seu arquivo <code>.git</code> aponte para <code>/path/main/.git/worktrees/test-next</code>, então atualize <code>/path/main/.git/worktrees/test-next/gitdir</code> para a referência <code>/newpath/test-next</code>. Melhor ainda, execute o comando <code>git worktree repair</code> para restabelecer a conexão automaticamente.</p>
+<p>Caso queira mover o vínculo de uma árvore de trabalho manualmente, será preciso atualizar o arquivo <em>gitdir</em> no diretório da entrada. Como por exemplo, caso o vínculo de uma árvore de trabalho seja movida para <span class='synopsis'><code>/newpath/test-next</code></span> e o seu arquivo <span class='synopsis'><code>.git</code></span> aponte para <span class='synopsis'><code>/path/main/.git/worktrees/test-next</code></span>, então atualize <span class='synopsis'><code>/path/main/.git/worktrees/test-next/gitdir</code></span> para a referência <span class='synopsis'><code>/newpath/test-next</code></span>. Melhor ainda, execute o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>repair</code></span> para restabelecer a conexão automaticamente.</p>
 </div>
 <div class="paragraph">
-<p>Para evitar que uma entrada <code>$GIT_DIR/worktrees</code> seja removida (o que pode ser útil em algumas situações, como quando a árvore de trabalho da entrada é armazenada num dispositivo portátil), use o comando <code>git worktree lock</code>, que adiciona um arquivo chamado <code>locked</code> ao diretório da entrada. O arquivo contém o motivo em texto simples. Por exemplo, se o arquivo <code>.git</code> de uma árvore de trabalho vinculada apontar para <code>/path/main/.git/worktrees/test-next</code> então o arquivo chamado <code>/path/main/.git/worktrees/test-next/locked</code> impedirá que a entrada <code>test-next</code> seja eliminada. Para mais detalhes consulte <a href='{{< relurl "docs/gitrepository-layout/pt_BR" >}}'>gitrepository-layout[5]</a>.</p>
+<p>Para evitar que uma entrada <span class='synopsis'><code>$GIT_DIR/worktrees</code></span> seja removida (o que pode ser útil em algumas situações, como quando a árvore de trabalho da entrada é armazenada num dispositivo portátil), use o comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>lock</code></span>, que adiciona um arquivo chamado <span class='synopsis'><code>locked</code></span> ao diretório da entrada. O arquivo contém o motivo em texto simples. Por exemplo, se o arquivo <span class='synopsis'><code>.git</code></span> de uma árvore de trabalho vinculada apontar para <span class='synopsis'><code>/path/main/.git/worktrees/test-next</code></span> então o arquivo chamado <span class='synopsis'><code>/path/main/.git/worktrees/test-next/locked</code></span> impedirá que a entrada <span class='synopsis'><code>test-next</code></span> seja eliminada. Para mais detalhes consulte <a href='{{< relurl "docs/gitrepository-layout/pt_BR" >}}'>gitrepository-layout[5]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Quando a opção de configuração <code>extensions.worktreeConfig</code> está ativo, o arquivo de configuração <code>.git/worktrees/&lt;id&gt;/config.worktree</code> é lido após o <code>.git/config</code>.</p>
+<p>Quando a opção de configuração <span class='synopsis'><code>extensions.worktreeConfig</code></span> está ativo, o arquivo de configuração <span class='synopsis'><code>.git/worktrees/</code><em>&lt;id&gt;</em><code>/config.worktree</code></span> é lido após o <span class='synopsis'><code>.git/config</code></span>.</p>
 </div>
 </div>
 </div>
@@ -316,7 +341,7 @@ aliases:
 <h2 id="_formato_da_lista_de_saída"><a class="anchor" href="#_formato_da_lista_de_saída"></a>FORMATO DA LISTA DE SAÍDA</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O comando <code>worktree list</code> tem dois formatos de saída. O formato predefinido mostra os detalhes numa única linha com colunas. Por exemplo:</p>
+<p>O comando <span class='synopsis'><code>worktree</code> <code>list</code></span> tem dois formatos de saída. O formato predefinido mostra os detalhes numa única linha com colunas. Por exemplo:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -332,10 +357,10 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p><code>locked</code>, caso a árvore de trabalho esteja bloqueada.</p>
+<p><span class='synopsis'><code>locked</code></span>, caso a árvore de trabalho esteja bloqueada.</p>
 </li>
 <li>
-<p><code>prunable</code>, caso a árvore de trabalho possa ser podada através do comando <code>git worktree prune</code>.</p>
+<p><span class='synopsis'><code>prunable</code></span>, caso a árvore de trabalho possa ser podada através do comando <span class='synopsis'><code>git</code> <code>worktree</code> <code>prune</code></span>.</p>
 </li>
 </ul>
 </div>
@@ -367,7 +392,7 @@ aliases:
 <div class="sect2">
 <h3 id="_formato_porcelana"><a class="anchor" href="#_formato_porcelana"></a>Formato Porcelana</h3>
 <div class="paragraph">
-<p>O formato porcelana tem uma linha por atributo. Se a opção <code>-z</code> for usada, as linhas serão encerradas com <em>NUL</em> em vez de uma nova linha. Os atributos são listados com um rótulo e um valor separados por um espaço simples. Os atributos booleanos (como <code>bare</code> e <code>detached</code>) são listados apenas como um rótulo e estão presentes somente se o valor for verdadeiro. Alguns atributos (como <code>locked</code>) podem ser listados apenas como um rótulo ou com um valor, dependendo da disponibilidade de um motivo. O primeiro atributo de uma árvore de trabalho é sempre <code>worktree</code>, uma linha vazia indica o fim do registro. Por exemplo:</p>
+<p>O formato porcelana tem uma linha por atributo. Se a opção <span class='synopsis'><code>-z</code></span> for usada, as linhas serão encerradas com <em>NUL</em> em vez de uma nova linha. Os atributos são listados com um rótulo e um valor separados por um espaço simples. Os atributos booleanos (como <span class='synopsis'><code>bare</code></span> e <span class='synopsis'><code>detached</code></span>) são listados apenas como um rótulo e estão presentes somente se o valor for verdadeiro. Alguns atributos (como <span class='synopsis'><code>locked</code></span>) podem ser listados apenas como um rótulo ou com um valor, dependendo da disponibilidade de um motivo. O primeiro atributo de uma árvore de trabalho é sempre <span class='synopsis'><code>worktree</code></span>, uma linha vazia indica o fim do registro. Por exemplo:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -400,7 +425,7 @@ prunable gitdir file points to non-existent location</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>A menos que <code>-z</code> seja utilizado, quaisquer caracteres "incomuns" no motivo do bloqueio, tais como novas linhas, são escapados e o motivo inteiro é citado conforme explicado na variável de configuração <code>core.quotePath</code> (consulte o comando <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Por exemplo:</p>
+<p>A menos que <span class='synopsis'><code>-z</code></span> seja utilizado, quaisquer caracteres "incomuns" no motivo do bloqueio, tais como novas linhas, são escapados e o motivo inteiro é citado conforme explicado na variável de configuração <span class='synopsis'><code>core.quotePath</code></span> (consulte o comando <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). Por exemplo:</p>
 </div>
 <div class="listingblock">
 <div class="content">

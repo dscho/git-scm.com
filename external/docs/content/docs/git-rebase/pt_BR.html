@@ -9,6 +9,37 @@ docname: git-rebase
 lang: pt_BR
 aliases:
 - "/docs/git-rebase/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: MAIS OPÇÕES
+  id: _mais_opções
+- text: OPÇÕES
+  id: _opções
+- text: OPÇÕES INCOMPATÍVEIS
+  id: _opções_incompatíveis
+- text: DIFERENÇAS COMPORTAMENTAIS
+  id: _diferenças_comportamentais
+- text: ESTRATÉGIAS DE MESCLAGEM
+  id: _estratégias_de_mesclagem
+- text: OBSERVAÇÕES
+  id: _observações
+- text: MODO INTERATIVO
+  id: _modo_interativo
+- text: DIVIDINDO OS COMMITS
+  id: _dividindo_os_commits
+- text: SE RECUPERANDO DA RECONSTRUÇÃO DA FUNDAÇÃO INICIAL (UPSTREM REBASE)
+  id: _se_recuperando_da_reconstrução_da_fundação_inicial_upstrem_rebase
+- text: RECONSTRUINDO AS MESCLAGENS
+  id: _reconstruindo_as_mesclagens
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -34,16 +65,16 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Se o <code>&lt;ramo&gt;</code> for especificado, o <code>git rebase</code> executará um <code>git switch &lt;ramo&gt;</code> automático antes de fazer qualquer outra coisa. Caso contrário, ele permanecerá no ramo atual.</p>
+<p>Se o <span class='synopsis'><em>&lt;ramo&gt;</em></span> for especificado, o <span class='synopsis'><code>git</code> <code>rebase</code></span> executará um <span class='synopsis'><code>git</code> <code>switch</code> <em>&lt;ramo&gt;</em></span> automático antes de fazer qualquer outra coisa. Caso contrário, ele permanecerá no ramo atual.</p>
 </div>
 <div class="paragraph">
-<p>Se o <code>&lt;upstream&gt;</code> não for especificado, será utilizado o "upstream" configurado nas opções <code>branch.&lt;nome&gt;.remote</code> e <code>branch.&lt;nome&gt;.merge</code> (para mais detalhes consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>) e a opção <code>--fork-point</code> será assumida. Se você não estiver em nenhuma ramificação no momento ou se a ramificação atual não tiver um "upstream" configurado, o rebase será abortado.</p>
+<p>Se o <span class='synopsis'><em>&lt;upstream&gt;</em></span> não for especificado, será utilizado o "upstream" configurado nas opções <span class='synopsis'><code>branch.</code><em>&lt;nome&gt;</em><code>.remote</code></span> e <span class='synopsis'><code>branch.</code><em>&lt;nome&gt;</em><code>.merge</code></span> (para mais detalhes consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>) e a opção <span class='synopsis'><code>--fork-point</code></span> será assumida. Se você não estiver em nenhuma ramificação no momento ou se a ramificação atual não tiver um "upstream" configurado, o rebase será abortado.</p>
 </div>
 <div class="paragraph">
-<p>Todas as alterações feitas por commits no ramo atual, mas que não estão no <code>&lt;upstream&gt;</code>, são salvos numa área temporária. Esse é o mesmo conjunto de commits que seria exibido pelo comando <code>git log &lt;upstream&gt;..HEAD</code>; ou pelo comando <code>git log 'fork_point'..HEAD</code>, se a opção <code>--fork-point</code> estiver ativa (consulte abaixo a descrição sobre a opção <code>--fork-point</code>); ou pelo <code>git log HEAD</code>, caso a opção <code>--root</code> seja usada.</p>
+<p>Todas as alterações feitas por commits no ramo atual, mas que não estão no <span class='synopsis'><em>&lt;upstream&gt;</em></span>, são salvos numa área temporária. Esse é o mesmo conjunto de commits que seria exibido pelo comando <span class='synopsis'><code>git</code> <code>log</code> <em>&lt;upstream&gt;</em><code>..HEAD</code></span>; ou pelo comando <span class='synopsis'><code>git</code> <code>log</code> <code>fork_point'..HEAD</code></span>, se a opção <span class='synopsis'><code>--fork-point</code></span> estiver ativa (consulte abaixo a descrição sobre a opção <span class='synopsis'><code>--fork-point</code></span>); ou pelo <span class='synopsis'><code>git</code> <code>log</code> <code>HEAD</code></span>, caso a opção <span class='synopsis'><code>--root</code></span> seja usada.</p>
 </div>
 <div class="paragraph">
-<p>O ramo atual é redefinido para <code>&lt;upstream&gt;</code> ou <code>&lt;newbase&gt;</code> caso a opção <code>--onto</code> tenha sido usada. Isso tem exatamente o mesmo efeito que <code>git reset --hard &lt;upstream&gt;</code> (ou <code>&lt;newbase&gt;</code>). O <code>ORIG_HEAD</code> é definido para apontar para o cume do ramo antes da reinicialização.</p>
+<p>O ramo atual é redefinido para <span class='synopsis'><em>&lt;upstream&gt;</em></span> ou <span class='synopsis'><em>&lt;newbase&gt;</em></span> caso a opção <span class='synopsis'><code>--onto</code></span> tenha sido usada. Isso tem exatamente o mesmo efeito que <span class='synopsis'><code>git</code> <code>reset</code> <code>--hard</code> <em>&lt;upstream&gt;</em></span> (ou <span class='synopsis'><em>&lt;newbase&gt;</em></span>). O <span class='synopsis'><code>ORIG_HEAD</code></span> é definido para apontar para o cume do ramo antes da reinicialização.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -52,16 +83,16 @@ aliases:
 <div class="title">Note</div>
 </td>
 <td class="content">
-Não é garantido que <code>ORIG_HEAD</code> ainda aponte para o cume de uma ramificação anterior no final do "rebase" caso os outros comandos que escrevem essa pseudo-ref (<code>git reset</code> por exemplo) sejam usados durante o "rebase". O cume da ramificação anterior, no entanto, é acessível usando o "reflog" da ramificação atual (ou seja, <code>@{1}</code>, consulte <a href='{{< relurl "docs/gitrevisions/pt_BR" >}}'>gitrevisions[7]</a>).
+Não é garantido que <span class='synopsis'><code>ORIG_HEAD</code></span> ainda aponte para o cume de uma ramificação anterior no final do "rebase" caso os outros comandos que escrevem essa pseudo-ref (<span class='synopsis'><code>git</code> <code>reset</code></span> por exemplo) sejam usados durante o "rebase". O cume da ramificação anterior, no entanto, é acessível usando o "reflog" da ramificação atual (ou seja, <span class='synopsis'><code>@{1}</code></span>, consulte <a href='{{< relurl "docs/gitrevisions/pt_BR" >}}'>gitrevisions[7]</a>).
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Os commits que foram salvos anteriormente na área temporária são reaplicadas no ramo atual, uma por uma e em ordem. Observe que quaisquer commits no <code>HEAD</code> que introduzam as mesmas alterações textuais que um commit no <code>HEAD..&lt;upstream&gt;</code> são omitidas (ou seja, um patch já aceito na inicial com uma mensagem de commit ou carimbo de data e hora diferente, serão ignorados).</p>
+<p>Os commits que foram salvos anteriormente na área temporária são reaplicadas no ramo atual, uma por uma e em ordem. Observe que quaisquer commits no <span class='synopsis'><code>HEAD</code></span> que introduzam as mesmas alterações textuais que um commit no <span class='synopsis'><code>HEAD..</code><em>&lt;upstream&gt;</em></span> são omitidas (ou seja, um patch já aceito na inicial com uma mensagem de commit ou carimbo de data e hora diferente, serão ignorados).</p>
 </div>
 <div class="paragraph">
-<p>É possível que uma falha na mesclagem impeça que este processo seja totalmente automático. Você terá que resolver qualquer falha na mesclagem e executar o comando <code>git rebase --continue</code>. Outra opção é ignorar o commit que causou a falha na mesclagem com comando <code>git rebase --skip</code>. Para verificar o <code>&lt;ramo&gt;</code> original e remover os arquivos de trabalho <code>.git/rebase-apply</code>, use o comando <code>git rebase --abort</code>.</p>
+<p>É possível que uma falha na mesclagem impeça que este processo seja totalmente automático. Você terá que resolver qualquer falha na mesclagem e executar o comando <span class='synopsis'><code>git</code> <code>rebase</code> <code>--continue</code></span>. Outra opção é ignorar o commit que causou a falha na mesclagem com comando <span class='synopsis'><code>git</code> <code>rebase</code> <code>--skip</code></span>. Para verificar o <span class='synopsis'><em>&lt;ramo&gt;</em></span> original e remover os arquivos de trabalho <span class='synopsis'><code>.git/rebase-apply</code></span>, use o comando <span class='synopsis'><code>git</code> <code>rebase</code> <code>--abort</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Suponha que o seguinte histórico exista e que o ramo atual seja "topic":</p>
@@ -93,10 +124,10 @@ git rebase master topic</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>OBSERVAÇÃO:</strong> A última maneira é apenas uma abreviação do comando <code>git checkout topic</code> seguido de <code>git rebase master</code>. Quando o "rebase" for encerrado, o <code>topic</code> continuará sendo o ramo com o check-out.</p>
+<p><strong>OBSERVAÇÃO:</strong> A última maneira é apenas uma abreviação do comando <span class='synopsis'><code>git</code> <code>checkout</code> <code>topic</code></span> seguido de <span class='synopsis'><code>git</code> <code>rebase</code> <code>master</code></span>. Quando o "rebase" for encerrado, o <span class='synopsis'><code>topic</code></span> continuará sendo o ramo com o check-out.</p>
 </div>
 <div class="paragraph">
-<p>Se o ramo "upstream" já tiver uma alteração que você fez (porque você enviou uma correção que foi aplicado no "upstream" por exemplo), este commit será ignorado e serão emitidos avisos (se o backend <em>merge</em> for usado). Por exemplo, executar o comando <code>git rebase master</code> no seguinte histórico (onde <code>A'</code> e <code>A</code> introduzem o mesmo conjunto de alterações, mas têm informações diferentes de quem fez o commit):</p>
+<p>Se o ramo "upstream" já tiver uma alteração que você fez (porque você enviou uma correção que foi aplicado no "upstream" por exemplo), este commit será ignorado e serão emitidos avisos (se o backend <em>merge</em> for usado). Por exemplo, executar o comando <span class='synopsis'><code>git</code> <code>rebase</code> <code>master</code></span> no seguinte histórico (onde <span class='synopsis'><code>A'</code></span> e <span class='synopsis'><code>A</code></span> introduzem o mesmo conjunto de alterações, mas têm informações diferentes de quem fez o commit):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -116,7 +147,7 @@ git rebase master topic</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Aqui está como você transplantaria um ramo do tópico com base num ramo para outro, para fingir que você bifurcou o ramo do tópico deste último ramo, utilizando <code>rebase --onto</code>.</p>
+<p>Aqui está como você transplantaria um ramo do tópico com base num ramo para outro, para fingir que você bifurcou o ramo do tópico deste último ramo, utilizando <span class='synopsis'><code>rebase</code> <code>--onto</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Primeiro, vamos supor que seu <em>tópico</em> tenha como base o ramo <em>next</em>. Por exemplo, um recurso desenvolvido no <em>tópico</em> depende de alguma funcionalidade encontrada em <em>next</em>.</p>
@@ -151,7 +182,7 @@ git rebase master topic</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Outro exemplo da opção <code>--onto</code> é fazer o rebase de uma parte de um ramo. Se tivermos a seguinte situação:</p>
+<p>Outro exemplo da opção <span class='synopsis'><code>--onto</code></span> é fazer o rebase de uma parte de um ramo. Se tivermos a seguinte situação:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -210,10 +241,10 @@ git rebase master topic</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Isso é útil se F e G tiverem alguma falha ou não devam fazer parte do "topicA". Observe que o argumento para a opção <code>--onto</code> e o parâmetro <code>&lt;upstream&gt;</code> podem ser qualquer tipo válido de commit.</p>
+<p>Isso é útil se F e G tiverem alguma falha ou não devam fazer parte do "topicA". Observe que o argumento para a opção <span class='synopsis'><code>--onto</code></span> e o parâmetro <span class='synopsis'><em>&lt;upstream&gt;</em></span> podem ser qualquer tipo válido de commit.</p>
 </div>
 <div class="paragraph">
-<p>Em caso de conflito, o comando <code>git rebase</code> encerrará no primeiro commit problemático e deixará marcadores de conflito na árvore. Você pode usar o comando <code>git diff</code> para localizar os marcadores (&lt;&lt;&lt;&lt;&lt;&lt;) e fazer as edições para resolver o conflito. Para cada arquivo editado, você precisa informar ao Git que o conflito foi resolvido; normalmente, isso seria feito com</p>
+<p>Em caso de conflito, o comando <span class='synopsis'><code>git</code> <code>rebase</code></span> encerrará no primeiro commit problemático e deixará marcadores de conflito na árvore. Você pode usar o comando <span class='synopsis'><code>git</code> <code>diff</code></span> para localizar os marcadores (&lt;&lt;&lt;&lt;&lt;&lt;) e fazer as edições para resolver o conflito. Para cada arquivo editado, você precisa informar ao Git que o conflito foi resolvido; normalmente, isso seria feito com</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -256,11 +287,11 @@ git rebase master topic</pre>
 </dd>
 <dt class="hdlist1" id="git-rebase---abort"> <a class="anchor" href="#git-rebase---abort"></a>--abort </dt>
 <dd>
-<p>Interrompa a operação de reconstrução da fundação e redefina o <code>HEAD</code> para o ramo original. Caso <code>&lt;ramo&gt;</code> seja informado quando a operação de reconstrução da fundação seja iniciada, o <code>HEAD</code> será redefinido para <code>&lt;ramo&gt;</code>. Caso contrário, o <code>HEAD</code> será redefinido para onde estava quando a operação de reconstrução foi iniciada.</p>
+<p>Interrompa a operação de reconstrução da fundação e redefina o <span class='synopsis'><code>HEAD</code></span> para o ramo original. Caso <span class='synopsis'><em>&lt;ramo&gt;</em></span> seja informado quando a operação de reconstrução da fundação seja iniciada, o <span class='synopsis'><code>HEAD</code></span> será redefinido para <span class='synopsis'><em>&lt;ramo&gt;</em></span>. Caso contrário, o <span class='synopsis'><code>HEAD</code></span> será redefinido para onde estava quando a operação de reconstrução foi iniciada.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase---quit"> <a class="anchor" href="#git-rebase---quit"></a>--quit </dt>
 <dd>
-<p>Interrompa a operação de reconstrução, porém o <code>HEAD</code> não será redefinido para o ramo original. Como resultado, o índice e a árvore de trabalho também permanecem inalterados. Caso uma entrada temporária "stash" seja criada utilizando <code>--autostash</code>, ela será salva na lista "stash".</p>
+<p>Interrompa a operação de reconstrução, porém o <span class='synopsis'><code>HEAD</code></span> não será redefinido para o ramo original. Como resultado, o índice e a árvore de trabalho também permanecem inalterados. Caso uma entrada temporária "stash" seja criada utilizando <span class='synopsis'><code>--autostash</code></span>, ela será salva na lista "stash".</p>
 </dd>
 <dt class="hdlist1" id="git-rebase---edit-todo"> <a class="anchor" href="#git-rebase---edit-todo"></a>--edit-todo </dt>
 <dd>
@@ -268,7 +299,7 @@ git rebase master topic</pre>
 </dd>
 <dt class="hdlist1" id="git-rebase---show-current-patch"> <a class="anchor" href="#git-rebase---show-current-patch"></a>--show-current-patch </dt>
 <dd>
-<p>Exiba o patch atual numa nova recuperação interativa ou quando a nova recuperação for interrompida por causa de conflitos. É o equivalente ao <code>git show REBASE_HEAD</code>.</p>
+<p>Exiba o patch atual numa nova recuperação interativa ou quando a nova recuperação for interrompida por causa de conflitos. É o equivalente ao <span class='synopsis'><code>git</code> <code>show</code> <code>REBASE_HEAD</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -281,19 +312,19 @@ git rebase master topic</pre>
 <dl>
 <dt class="hdlist1" id="git-rebase---ontoltnova-basegt"> <a class="anchor" href="#git-rebase---ontonova-base"></a> <a class="anchor" href="#git-rebase---ontoltnova-basegt"></a>--onto &lt;nova-base&gt; </dt>
 <dd>
-<p>Ponto de partida para a criação de novos commits. Se a opção <code>--onto</code> não for usada, o ponto de partida será <code>&lt;upstream&gt;</code>. Pode ser qualquer commit válido, e não apenas um nome já existente do ramo.</p>
+<p>Ponto de partida para a criação de novos commits. Se a opção <span class='synopsis'><code>--onto</code></span> não for usada, o ponto de partida será <span class='synopsis'><em>&lt;upstream&gt;</em></span>. Pode ser qualquer commit válido, e não apenas um nome já existente do ramo.</p>
 <div class="paragraph">
-<p>Como um caso especial, você pode utilizar "A...B" como um atalho para a base de mesclagem <em>A</em> e <em>B</em> caso haja exatamente uma base para mesclagem. Você pode deixar de fora no máximo um de <em>A</em> e <em>B</em>; nesse caso, a predefinição retorna para <code>HEAD</code>.</p>
+<p>Como um caso especial, você pode utilizar "A...B" como um atalho para a base de mesclagem <em>A</em> e <em>B</em> caso haja exatamente uma base para mesclagem. Você pode deixar de fora no máximo um de <em>A</em> e <em>B</em>; nesse caso, a predefinição retorna para <span class='synopsis'><code>HEAD</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rebase---keep-base"> <a class="anchor" href="#git-rebase---keep-base"></a>--keep-base </dt>
 <dd>
-<p>Defina o ponto de partida para criar os novos commits para a mesclagem base do <code>&lt;upstream&gt;</code> e <code>&lt;ramo&gt;</code>. Executando o comando <code>git rebase --keep-base &lt;upstream&gt; &lt;ramo&gt;</code> é o mesmo que executar o comando <code>git rebase --reapply-cherry-picks --no-fork-point --onto &lt;upstream&gt;...&lt;ramo&gt; &lt;upstream&gt; &lt;ramo&gt;</code>.</p>
+<p>Defina o ponto de partida para criar os novos commits para a mesclagem base do <span class='synopsis'><em>&lt;upstream&gt;</em></span> e <span class='synopsis'><em>&lt;ramo&gt;</em></span>. Executando o comando <span class='synopsis'><code>git</code> <code>rebase</code> <code>--keep-base</code> <em>&lt;upstream&gt;</em> <em>&lt;ramo&gt;</em></span> é o mesmo que executar o comando <span class='synopsis'><code>git</code> <code>rebase</code> <code>--reapply-cherry-picks</code> <code>--no-fork-point</code> <code>--onto</code> <em>&lt;upstream&gt;</em><code>...</code><em>&lt;ramo&gt;</em> <em>&lt;upstream&gt;</em> <em>&lt;ramo&gt;</em></span>.</p>
 <div class="paragraph">
-<p>Esta opção é útil no caso onde se está desenvolvendo um recurso em cima de um ramo <em>upstream</em>. Enquanto o recurso está sendo trabalhado, o ramo <em>upstream</em> pode avançar e talvez não seja a melhor ideia continuar reconstruindo no topo do <em>upstream</em>, porém manter a base do commit como está. Como a base do commit permanece inalterado, esta opção implica no uso da opção <code>--reapply-cherry-picks</code> para evitar a perda dos commits.</p>
+<p>Esta opção é útil no caso onde se está desenvolvendo um recurso em cima de um ramo <em>upstream</em>. Enquanto o recurso está sendo trabalhado, o ramo <em>upstream</em> pode avançar e talvez não seja a melhor ideia continuar reconstruindo no topo do <em>upstream</em>, porém manter a base do commit como está. Como a base do commit permanece inalterado, esta opção implica no uso da opção <span class='synopsis'><code>--reapply-cherry-picks</code></span> para evitar a perda dos commits.</p>
 </div>
 <div class="paragraph">
-<p>Embora esta opção e o <code>--fork-point</code> encontrem a base da mesclagem entre <code>&lt;upstream&gt;</code> e <code>&lt;ramo&gt;</code>, esta opção utiliza a base da mesclagem como o <em>ponto inicial</em> onde os novos commits serão criados, enquanto <code>--fork-point</code> utiliza a mesclagem da base para determinar o <em>conjunto dos commits</em> que serão reconstruídos.</p>
+<p>Embora esta opção e o <span class='synopsis'><code>--fork-point</code></span> encontrem a base da mesclagem entre <span class='synopsis'><em>&lt;upstream&gt;</em></span> e <span class='synopsis'><em>&lt;ramo&gt;</em></span>, esta opção utiliza a base da mesclagem como o <em>ponto inicial</em> onde os novos commits serão criados, enquanto <span class='synopsis'><code>--fork-point</code></span> utiliza a mesclagem da base para determinar o <em>conjunto dos commits</em> que serão reconstruídos.</p>
 </div>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
@@ -305,11 +336,11 @@ git rebase master topic</pre>
 </dd>
 <dt class="hdlist1" id="git-rebase-ltramogt"> <a class="anchor" href="#git-rebase-ramo"></a> <a class="anchor" href="#git-rebase-ltramogt"></a>&lt;ramo&gt; </dt>
 <dd>
-<p>Ramo de trabalho; A predefinição retorna para <code>HEAD</code>.</p>
+<p>Ramo de trabalho; A predefinição retorna para <span class='synopsis'><code>HEAD</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase---apply"> <a class="anchor" href="#git-rebase---apply"></a>--apply </dt>
 <dd>
-<p>Use estratégias de aplicação para fazer o rebase (invocando o comando <code>git-am</code> internamente). Esta opção pode se tornar inútil no futuro, uma vez que o backend da mesclagem lida com tudo o que o backend de aplicação faz.</p>
+<p>Use estratégias de aplicação para fazer o rebase (invocando o comando <span class='synopsis'><code>git-am</code></span> internamente). Esta opção pode se tornar inútil no futuro, uma vez que o backend da mesclagem lida com tudo o que o backend de aplicação faz.</p>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
 </div>
@@ -321,25 +352,25 @@ git rebase master topic</pre>
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rebase-codedropcode"> <a class="anchor" href="#git-rebase-drop"></a> <a class="anchor" href="#git-rebase-codedropcode"></a><code>drop</code> </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodedropcodespan"> <a class="anchor" href="#git-rebase-drop"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodedropcodespan"></a><span class='synopsis'><code>drop</code></span> </dt>
 <dd>
 <p>The commit will be dropped. This is the default behavior.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-codekeepcode"> <a class="anchor" href="#git-rebase-keep"></a> <a class="anchor" href="#git-rebase-codekeepcode"></a><code>keep</code> </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodekeepcodespan"> <a class="anchor" href="#git-rebase-keep"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodekeepcodespan"></a><span class='synopsis'><code>keep</code></span> </dt>
 <dd>
-<p>The commit will be kept. This option is implied when <code>--exec</code> is specified unless <code>-i</code>/<code>--interactive</code> is also specified.</p>
+<p>The commit will be kept. This option is implied when <span class='synopsis'><code>--exec</code></span> is specified unless <span class='synopsis'><code>-i</code></span>/<span class='synopsis'><code>--interactive</code></span> is also specified.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-codestopcode"> <a class="anchor" href="#git-rebase-stop"></a> <a class="anchor" href="#git-rebase-codestopcode"></a><code>stop</code> </dt>
-<dt class="hdlist1" id="git-rebase-codeaskcode"> <a class="anchor" href="#git-rebase-ask"></a> <a class="anchor" href="#git-rebase-codeaskcode"></a><code>ask</code> </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodestopcodespan"> <a class="anchor" href="#git-rebase-stop"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodestopcodespan"></a><span class='synopsis'><code>stop</code></span> </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodeaskcodespan"> <a class="anchor" href="#git-rebase-ask"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodeaskcodespan"></a><span class='synopsis'><code>ask</code></span> </dt>
 <dd>
-<p>The rebase will halt when the commit is applied, allowing you to choose whether to drop it, edit files more, or just commit the empty changes. This option is implied when <code>-i</code>/<code>--interactive</code> is specified. <code>ask</code> is a deprecated synonym of <code>stop</code>.</p>
+<p>The rebase will halt when the commit is applied, allowing you to choose whether to drop it, edit files more, or just commit the empty changes. This option is implied when <span class='synopsis'><code>-i</code></span>/<span class='synopsis'><code>--interactive</code></span> is specified. <span class='synopsis'><code>ask</code></span> is a deprecated synonym of <span class='synopsis'><code>stop</code></span>.</p>
 </dd>
 </dl>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Observe que, os commits que começam vazios são mantidos (a menos que a opção <code>--no-keep-empty</code> seja utilizado) e os commits que são escolhas limpas (conforme determinado pelo comando <code>git log --cherry-mark ...</code>) são detectados e descartados como uma etapa preliminar (a menos que a opção <code>--reapply-cherry-picks</code> ou <code>--keep-base</code> seja utilizado).</p>
+<p>Observe que, os commits que começam vazios são mantidos (a menos que a opção <span class='synopsis'><code>--no-keep-empty</code></span> seja utilizado) e os commits que são escolhas limpas (conforme determinado pelo comando <span class='synopsis'><code>git</code> <code>log</code> <code>--cherry-mark</code> ...</span>) são detectados e descartados como uma etapa preliminar (a menos que a opção <span class='synopsis'><code>--reapply-cherry-picks</code></span> ou <span class='synopsis'><code>--keep-base</code></span> seja utilizado).</p>
 </div>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
@@ -348,12 +379,12 @@ git rebase master topic</pre>
 <dt class="hdlist1" id="git-rebase---no-keep-empty"> <a class="anchor" href="#git-rebase---no-keep-empty"></a>--no-keep-empty </dt>
 <dt class="hdlist1" id="git-rebase---keep-empty"> <a class="anchor" href="#git-rebase---keep-empty"></a>--keep-empty </dt>
 <dd>
-<p>Não mantenha os commits que começam vazios antes do rebase (ou seja, que não alteram nada em relação ao commit principal) no resultado. A predefinição é manter os commits que começam vazios, uma vez que a criação de tais commits requer o uso da opção de substituição <code>--allow-empty</code> para o comando <code>git commit</code>, o que significa que um usuário está intencionalmente criando tal commit e, portanto, deseja mantê-lo.</p>
+<p>Não mantenha os commits que começam vazios antes do rebase (ou seja, que não alteram nada em relação ao commit principal) no resultado. A predefinição é manter os commits que começam vazios, uma vez que a criação de tais commits requer o uso da opção de substituição <span class='synopsis'><code>--allow-empty</code></span> para o comando <span class='synopsis'><code>git</code> <code>commit</code></span>, o que significa que um usuário está intencionalmente criando tal commit e, portanto, deseja mantê-lo.</p>
 <div class="paragraph">
 <p>O uso desta opção é provavelmente raro, uma vez que você pode se livrar dos commits que começam vazios simplesmente iniciando um rebase interativo e removendo as linhas correspondentes aos commits que não deseja. Esta opção existe como um atalho conveniente, como nos casos onde as ferramentas externas geram muitos commits vazios e você deseja que todos sejam removidos.</p>
 </div>
 <div class="paragraph">
-<p>Para os commits que não começam vazios, mas ficam vazios após o <em>rebase</em>, consulte a opção <code>--empty</code>.</p>
+<p>Para os commits que não começam vazios, mas ficam vazios após o <em>rebase</em>, consulte a opção <span class='synopsis'><code>--empty</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
@@ -362,12 +393,12 @@ git rebase master topic</pre>
 <dt class="hdlist1" id="git-rebase---reapply-cherry-picks"> <a class="anchor" href="#git-rebase---reapply-cherry-picks"></a>--reapply-cherry-picks </dt>
 <dt class="hdlist1" id="git-rebase---no-reapply-cherry-picks"> <a class="anchor" href="#git-rebase---no-reapply-cherry-picks"></a>--no-reapply-cherry-picks </dt>
 <dd>
-<p>Reaplique todas as escolhas seletivas que estejam limpas de qualquer commit "upstream" em vez inviabilizá-los por completo. (Então, caso estes commits se tornem vazios depois da reconstrução, por conter um subconjunto de alterações da "upstream", o comportamento em direção à eles é controlado através da opção <code>--empty</code>.)</p>
+<p>Reaplique todas as escolhas seletivas que estejam limpas de qualquer commit "upstream" em vez inviabilizá-los por completo. (Então, caso estes commits se tornem vazios depois da reconstrução, por conter um subconjunto de alterações da "upstream", o comportamento em direção à eles é controlado através da opção <span class='synopsis'><code>--empty</code></span>.)</p>
 <div class="paragraph">
-<p>Na ausência da opção <code>--keep-base</code> (ou se <code>--no-reapply-cherry-picks</code> for usado), estes commits serão automaticamente descartados. Como isso exige a leitura de todos os commits "upstream", pode acabar saindo caro em repositórios com uma grande quantidade de commits "upstream" que precisam ser lidos. Ao usar o backend <em>merge</em>, serão emitidos avisos para cada commit descartado (a menos que a opção <code>--quiet</code> seja usada). O aviso também será emitido a menos que <code>advice.skippedCherryPicks</code> esteja definido como falso (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>).</p>
+<p>Na ausência da opção <span class='synopsis'><code>--keep-base</code></span> (ou se <span class='synopsis'><code>--no-reapply-cherry-picks</code></span> for usado), estes commits serão automaticamente descartados. Como isso exige a leitura de todos os commits "upstream", pode acabar saindo caro em repositórios com uma grande quantidade de commits "upstream" que precisam ser lidos. Ao usar o backend <em>merge</em>, serão emitidos avisos para cada commit descartado (a menos que a opção <span class='synopsis'><code>--quiet</code></span> seja usada). O aviso também será emitido a menos que <span class='synopsis'><code>advice.skippedCherryPicks</code></span> esteja definido como falso (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>).</p>
 </div>
 <div class="paragraph">
-<p>A opção <code>--reapply-cherry-picks</code> permite que a reconstrução anteceda a leitura de todos os commits "upstream", melhorando muito o desempenho.</p>
+<p>A opção <span class='synopsis'><code>--reapply-cherry-picks</code></span> permite que a reconstrução anteceda a leitura de todos os commits "upstream", melhorando muito o desempenho.</p>
 </div>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
@@ -385,7 +416,7 @@ git rebase master topic</pre>
 <dd>
 <p>Usando estratégias de mesclagem para o rebase (padrão).</p>
 <div class="paragraph">
-<p>Observe que uma mesclagem rebase funciona reproduzindo cada commit do ramo de trabalho sobre o ramo <code>&lt;upstream&gt;</code>. Por esse motivo, quando ocorre um conflito de mesclagem, o lado relatado como "nosso" é a série até então refeita, começando com <code>&lt;upstream&gt;</code>, e o "deles" é o ramo de trabalho. Em outras palavras, os lados são trocados.</p>
+<p>Observe que uma mesclagem rebase funciona reproduzindo cada commit do ramo de trabalho sobre o ramo <span class='synopsis'><em>&lt;upstream&gt;</em></span>. Por esse motivo, quando ocorre um conflito de mesclagem, o lado relatado como "nosso" é a série até então refeita, começando com <span class='synopsis'><em>&lt;upstream&gt;</em></span>, e o "deles" é o ramo de trabalho. Em outras palavras, os lados são trocados.</p>
 </div>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
@@ -394,9 +425,9 @@ git rebase master topic</pre>
 <dt class="hdlist1" id="git-rebase--sltestratgiagt"> <a class="anchor" href="#git-rebase--sestratgia"></a> <a class="anchor" href="#git-rebase--sltestratgiagt"></a>-s &lt;estratégia&gt; </dt>
 <dt class="hdlist1" id="git-rebase---strategyltestratgiagt"> <a class="anchor" href="#git-rebase---strategyestratgia"></a> <a class="anchor" href="#git-rebase---strategyltestratgiagt"></a>--strategy=&lt;estratégia&gt; </dt>
 <dd>
-<p>Usa a estratégia de mesclagem fornecida, em vez da predefinição <code>ort</code>. Implica no uso da opção <code>--merge</code>.</p>
+<p>Usa a estratégia de mesclagem fornecida, em vez da predefinição <span class='synopsis'><code>ort</code></span>. Implica no uso da opção <span class='synopsis'><code>--merge</code></span>.</p>
 <div class="paragraph">
-<p>Como o <code>git rebase</code> repete cada commit do ramo de trabalho no cume do ramo &lt;upstream&gt; utilizando a estratégia informada, o uso da <code>nossa</code> estratégia simplesmente esvazia todos os patches do <code>&lt;ramo&gt;</code>, que faz pouco sentido.</p>
+<p>Como o <span class='synopsis'><code>git</code> <code>rebase</code></span> repete cada commit do ramo de trabalho no cume do ramo &lt;upstream&gt; utilizando a estratégia informada, o uso da <span class='synopsis'><code>nossa</code></span> estratégia simplesmente esvazia todos os patches do <span class='synopsis'><em>&lt;ramo&gt;</em></span>, que faz pouco sentido.</p>
 </div>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
@@ -405,7 +436,7 @@ git rebase master topic</pre>
 <dt class="hdlist1" id="git-rebase--Xltopo-da-estratgiagt"> <a class="anchor" href="#git-rebase--Xopo-da-estratgia"></a> <a class="anchor" href="#git-rebase--Xltopo-da-estratgiagt"></a>-X &lt;opção-da-estratégia&gt; </dt>
 <dt class="hdlist1" id="git-rebase---strategy-optionltopo-da-estratgiagt"> <a class="anchor" href="#git-rebase---strategy-optionopo-da-estratgia"></a> <a class="anchor" href="#git-rebase---strategy-optionltopo-da-estratgiagt"></a>--strategy-option=&lt;opção-da-estratégia&gt; </dt>
 <dd>
-<p>Encaminhe a &lt;opção-da-estratégia&gt; para a estratégia de mesclagem. Implica no uso da opção <code>--merge</code> e, se nenhuma estratégia tiver sido especificada, a predefinição é <code>-s ort</code>. Observe a inversão de <em>ours</em> (nosso) e <em>theirs</em> (deles), conforme observado acima para a opção <code>-m</code>.</p>
+<p>Encaminhe a &lt;opção-da-estratégia&gt; para a estratégia de mesclagem. Implica no uso da opção <span class='synopsis'><code>--merge</code></span> e, se nenhuma estratégia tiver sido especificada, a predefinição é <span class='synopsis'><code>-s</code> <code>ort</code></span>. Observe a inversão de <em>ours</em> (nosso) e <em>theirs</em> (deles), conforme observado acima para a opção <span class='synopsis'><code>-m</code></span>.</p>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
 </div>
@@ -413,7 +444,7 @@ git rebase master topic</pre>
 <dt class="hdlist1" id="git-rebase---rerere-autoupdate"> <a class="anchor" href="#git-rebase---rerere-autoupdate"></a>--rerere-autoupdate </dt>
 <dt class="hdlist1" id="git-rebase---no-rerere-autoupdate"> <a class="anchor" href="#git-rebase---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
 <dd>
-<p>Depois que o mecanismo <em>rerere</em> reutilizar uma resolução registrada no conflito atual para atualizar os arquivos na árvore de trabalho, permita que ele também atualize o índice com o resultado da resolução. A opção <code>--no-rerere-autoupdate</code> é uma boa maneira de verificar novamente o que o <code>rerere</code> fez e detectar possíveis erros de mesclagem, antes de fazer o commit resultante no índice com um comando <code>git add</code> separado.</p>
+<p>Depois que o mecanismo <em>rerere</em> reutilizar uma resolução registrada no conflito atual para atualizar os arquivos na árvore de trabalho, permita que ele também atualize o índice com o resultado da resolução. A opção <span class='synopsis'><code>--no-rerere-autoupdate</code></span> é uma boa maneira de verificar novamente o que o <span class='synopsis'><code>rerere</code></span> fez e detectar possíveis erros de mesclagem, antes de fazer o commit resultante no índice com um comando <span class='synopsis'><code>git</code> <code>add</code></span> separado.</p>
 </dd>
 </dl>
 </div>
@@ -423,21 +454,21 @@ git rebase master topic</pre>
 <dt class="hdlist1" id="git-rebase---gpg-signltkeyidgt"> <a class="anchor" href="#git-rebase---gpg-signkeyid"></a> <a class="anchor" href="#git-rebase---gpg-signltkeyidgt"></a>--gpg-sign[=&lt;keyid&gt;] </dt>
 <dt class="hdlist1" id="git-rebase---no-gpg-sign"> <a class="anchor" href="#git-rebase---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
-<p>Commits assinados com o GPG O argumento <code>keyid</code> é opcional e a predefinição retorna para a identidade de quem fez o commit; caso seja utilizado, deve estar anexado a opção e sem espaço. A opção <code>--no-gpg-sign</code> é útil para revogar a variável de configuração <code>commit.gpgSign</code> e a anterior <code>--gpg-sign</code>.</p>
+<p>Commits assinados com o GPG O argumento <span class='synopsis'><code>keyid</code></span> é opcional e a predefinição retorna para a identidade de quem fez o commit; caso seja utilizado, deve estar anexado a opção e sem espaço. A opção <span class='synopsis'><code>--no-gpg-sign</code></span> é útil para revogar a variável de configuração <span class='synopsis'><code>commit.gpgSign</code></span> e a anterior <span class='synopsis'><code>--gpg-sign</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase--q"> <a class="anchor" href="#git-rebase--q"></a>-q </dt>
 <dt class="hdlist1" id="git-rebase---quiet"> <a class="anchor" href="#git-rebase---quiet"></a>--quiet </dt>
 <dd>
-<p>Fique em silêncio. Implica no uso da opção <code>--no-stat</code>.</p>
+<p>Fique em silêncio. Implica no uso da opção <span class='synopsis'><code>--no-stat</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase--v"> <a class="anchor" href="#git-rebase--v"></a>-v </dt>
 <dt class="hdlist1" id="git-rebase---verbose"> <a class="anchor" href="#git-rebase---verbose"></a>--verbose </dt>
 <dd>
-<p>Seja loquaz. Implica no uso de <code>--stat</code>.</p>
+<p>Seja loquaz. Implica no uso de <span class='synopsis'><code>--stat</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase---stat"> <a class="anchor" href="#git-rebase---stat"></a>--stat </dt>
 <dd>
-<p>Exiba uma descrição do que mudou na upstream desde a última reconstrução (rebase). O diffstat também é controlado pela opção de configuração <code>rebase.stat</code>.</p>
+<p>Exiba uma descrição do que mudou na upstream desde a última reconstrução (rebase). O diffstat também é controlado pela opção de configuração <span class='synopsis'><code>rebase.stat</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase--n"> <a class="anchor" href="#git-rebase--n"></a>-n </dt>
 <dt class="hdlist1" id="git-rebase---no-stat"> <a class="anchor" href="#git-rebase---no-stat"></a>--no-stat </dt>
@@ -450,11 +481,11 @@ git rebase master topic</pre>
 </dd>
 <dt class="hdlist1" id="git-rebase---verify"> <a class="anchor" href="#git-rebase---verify"></a>--verify </dt>
 <dd>
-<p>Permite que o hook rebase prévio seja executado, que é a predefinição. Essa opção pode ser usada para substituir a opção <code>--no-verify</code>. Consulte também <a href='{{< relurl "docs/githooks/pt_BR" >}}'>githooks[5]</a>.</p>
+<p>Permite que o hook rebase prévio seja executado, que é a predefinição. Essa opção pode ser usada para substituir a opção <span class='synopsis'><code>--no-verify</code></span>. Consulte também <a href='{{< relurl "docs/githooks/pt_BR" >}}'>githooks[5]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase--Cltngt"> <a class="anchor" href="#git-rebase--Cn"></a> <a class="anchor" href="#git-rebase--Cltngt"></a>-C&lt;n&gt; </dt>
 <dd>
-<p>Certifique-se de que pelo menos <code>&lt;n&gt;</code> linhas do contexto circundante correspondam antes e após cada alteração. Quando houver menos linhas de contexto ao redor, todas elas devem corresponder. É predefinido que nenhum contexto seja ignorado. Implica no uso da opção <code>--apply</code>.</p>
+<p>Certifique-se de que pelo menos <span class='synopsis'><em>&lt;n&gt;</em></span> linhas do contexto circundante correspondam antes e após cada alteração. Quando houver menos linhas de contexto ao redor, todas elas devem corresponder. É predefinido que nenhum contexto seja ignorado. Implica no uso da opção <span class='synopsis'><code>--apply</code></span>.</p>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
 </div>
@@ -471,15 +502,15 @@ git rebase master topic</pre>
 <dt class="hdlist1" id="git-rebase---fork-point"> <a class="anchor" href="#git-rebase---fork-point"></a>--fork-point </dt>
 <dt class="hdlist1" id="git-rebase---no-fork-point"> <a class="anchor" href="#git-rebase---no-fork-point"></a>--no-fork-point </dt>
 <dd>
-<p>Utilize reflog para encontrar um ancestral comum melhor entre a <code>&lt;upstream&gt;</code> e o <code>&lt;ramo&gt;</code> ao calcular quais os commits foram introduzidos pelo <code>&lt;ramo&gt;</code>.</p>
+<p>Utilize reflog para encontrar um ancestral comum melhor entre a <span class='synopsis'><em>&lt;upstream&gt;</em></span> e o <span class='synopsis'><em>&lt;ramo&gt;</em></span> ao calcular quais os commits foram introduzidos pelo <span class='synopsis'><em>&lt;ramo&gt;</em></span>.</p>
 <div class="paragraph">
-<p>Quando a opção <code>--fork-point</code> estiver ativa, o <em>fork_point</em> será utilizado em vez do <code>&lt;upstream&gt;</code> para calcular o conjunto de commits que serão refeitos via "rebase", onde o <em>fork_point</em> é o resultado do comando <code>git merge-base --fork-point &lt;upstream&gt; &lt;ramo&gt;</code> (consulte <a href='{{< relurl "docs/git-merge-base/pt_BR" >}}'>git-merge-base[1]</a>). Se o <em>fork_point</em> estiver vazio, o <code>&lt;upstream&gt;</code> será usado como contingência.</p>
+<p>Quando a opção <span class='synopsis'><code>--fork-point</code></span> estiver ativa, o <em>fork_point</em> será utilizado em vez do <span class='synopsis'><em>&lt;upstream&gt;</em></span> para calcular o conjunto de commits que serão refeitos via "rebase", onde o <em>fork_point</em> é o resultado do comando <span class='synopsis'><code>git</code> <code>merge-base</code> <code>--fork-point</code> <em>&lt;upstream&gt;</em> <em>&lt;ramo&gt;</em></span> (consulte <a href='{{< relurl "docs/git-merge-base/pt_BR" >}}'>git-merge-base[1]</a>). Se o <em>fork_point</em> estiver vazio, o <span class='synopsis'><em>&lt;upstream&gt;</em></span> será usado como contingência.</p>
 </div>
 <div class="paragraph">
-<p>Caso a <code>&lt;upstream&gt;</code> ou a opção <code>--keep-base</code> seja utilizada na linha de comando, a predefinição será <code>--no-fork-point</code>, caso contrário, a predefinição será <code>--fork-point</code>. Consulte também <code>rebase.forkpoint</code> em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+<p>Caso a <span class='synopsis'><em>&lt;upstream&gt;</em></span> ou a opção <span class='synopsis'><code>--keep-base</code></span> seja utilizada na linha de comando, a predefinição será <span class='synopsis'><code>--no-fork-point</code></span>, caso contrário, a predefinição será <span class='synopsis'><code>--fork-point</code></span>. Consulte também <span class='synopsis'><code>rebase.forkpoint</code></span> em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Caso o seu ramo teve como base no <code>&lt;upstream&gt;</code>, porém <code>&lt;upstream&gt;</code> foi retrocedido e o seu ramo contém commits que foram eliminados, esta opção pode ser utilizada com a opção <code>--keep-base</code> para eliminar estes commits do seu ramo.</p>
+<p>Caso o seu ramo teve como base no <span class='synopsis'><em>&lt;upstream&gt;</em></span>, porém <span class='synopsis'><em>&lt;upstream&gt;</em></span> foi retrocedido e o seu ramo contém commits que foram eliminados, esta opção pode ser utilizada com a opção <span class='synopsis'><code>--keep-base</code></span> para eliminar estes commits do seu ramo.</p>
 </div>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
@@ -503,26 +534,26 @@ git rebase master topic</pre>
 </dd>
 <dt class="hdlist1" id="git-rebase---whitespaceltopogt"> <a class="anchor" href="#git-rebase---whitespaceopo"></a> <a class="anchor" href="#git-rebase---whitespaceltopogt"></a>--whitespace=&lt;opção&gt; </dt>
 <dd>
-<p>Esta opção é repassada para o comando <code>git apply</code> (consulte <a href='{{< relurl "docs/git-apply/pt_BR" >}}'>git-apply[1]</a>) que aplica a correção. Implica no uso da opção <code>--apply</code>.</p>
+<p>Esta opção é repassada para o comando <span class='synopsis'><code>git</code> <code>apply</code></span> (consulte <a href='{{< relurl "docs/git-apply/pt_BR" >}}'>git-apply[1]</a>) que aplica a correção. Implica no uso da opção <span class='synopsis'><code>--apply</code></span>.</p>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rebase---committer-date-is-author-date"> <a class="anchor" href="#git-rebase---committer-date-is-author-date"></a>--committer-date-is-author-date </dt>
 <dd>
-<p>Em vez de usar a hora atual como a data de quem fez o commit, utilize a data do autor que fez o rebase do commit como a data do commit. Esta opção implica no uso de <code>--force-rebase</code>.</p>
+<p>Em vez de usar a hora atual como a data de quem fez o commit, utilize a data do autor que fez o rebase do commit como a data do commit. Esta opção implica no uso de <span class='synopsis'><code>--force-rebase</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase---ignore-date"> <a class="anchor" href="#git-rebase---ignore-date"></a>--ignore-date </dt>
 <dt class="hdlist1" id="git-rebase---reset-author-date"> <a class="anchor" href="#git-rebase---reset-author-date"></a>--reset-author-date </dt>
 <dd>
-<p>Em vez de usar a data do autor do commit original, use a hora atual como a data do autor do commit refeito via "rebase". Implica no uso da opção <code>--force-rebase</code>.</p>
+<p>Em vez de usar a data do autor do commit original, use a hora atual como a data do autor do commit refeito via "rebase". Implica no uso da opção <span class='synopsis'><code>--force-rebase</code></span>.</p>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rebase---signoff"> <a class="anchor" href="#git-rebase---signoff"></a>--signoff </dt>
 <dd>
-<p>Adicione uma resposta <code>Assinado-por</code> em todos os commits que tiveram a sua fundação reconstruída. Observe que caso a opção <code>--interactive</code> seja utilizada, apenas os commit marcados para serem selecionados, editados ou reformulados terão um caracteres de resposta adicionado.</p>
+<p>Adicione uma resposta <span class='synopsis'><code>Assinado-por</code></span> em todos os commits que tiveram a sua fundação reconstruída. Observe que caso a opção <span class='synopsis'><code>--interactive</code></span> seja utilizada, apenas os commit marcados para serem selecionados, editados ou reformulados terão um caracteres de resposta adicionado.</p>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
 </div>
@@ -542,12 +573,12 @@ git rebase master topic</pre>
 <dt class="hdlist1" id="git-rebase---rebase-mergesrebase-cousinsno-rebase-cousins"> <a class="anchor" href="#git-rebase---rebase-mergesrebase-cousinsno-rebase-cousins"></a>--rebase-merges[=(rebase-cousins|no-rebase-cousins)] </dt>
 <dt class="hdlist1" id="git-rebase---no-rebase-merges"> <a class="anchor" href="#git-rebase---no-rebase-merges"></a>--no-rebase-merges </dt>
 <dd>
-<p>É predefinido que um "rebase" simplesmente eliminará a mesclagem dos commits da lista de tarefas e colocará os commits que foram refeitos num único ramo linear. Com <code>--rebase-merges</code>, a reconstrução com o "rebase" tentará preservar a estrutura da ramificação dentro dos commits que devem sofrer a reconstrução, recriando a mesclagem dos commits. Quaisquer conflitos resolvidos na mesclagem ou nas emendas manuais destas mesclagens dos commits terão que ser resolvidos ou aplicados manualmente. A opção <code>--no-rebase-merges</code> pode ser usada para anular a opção de configuração <code>rebase.rebaseMerges</code> e um <code>--rebase-merges</code> anterior.</p>
+<p>É predefinido que um "rebase" simplesmente eliminará a mesclagem dos commits da lista de tarefas e colocará os commits que foram refeitos num único ramo linear. Com <span class='synopsis'><code>--rebase-merges</code></span>, a reconstrução com o "rebase" tentará preservar a estrutura da ramificação dentro dos commits que devem sofrer a reconstrução, recriando a mesclagem dos commits. Quaisquer conflitos resolvidos na mesclagem ou nas emendas manuais destas mesclagens dos commits terão que ser resolvidos ou aplicados manualmente. A opção <span class='synopsis'><code>--no-rebase-merges</code></span> pode ser usada para anular a opção de configuração <span class='synopsis'><code>rebase.rebaseMerges</code></span> e um <span class='synopsis'><code>--rebase-merges</code></span> anterior.</p>
 <div class="paragraph">
-<p>Ao refazer as mesclagens com o "rebase", existem dois modos: <code>rebase-cousins</code> e <code>no-rebase-cousins</code>. Se o modo não for especificado, a predefinição será <code>no-rebase-cousins</code>. No modo <code>no-rebase-cousins</code>, os commits que não têm <code>&lt;upstream&gt;</code> como ancestral direto manterão o seu ponto de ramificação original, ou seja, os commits que seriam excluídos pela opção <code>--ancestry-path</code> do <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a> manterão a sua ancestralidade original automaticamente. No modo <code>rebase-cousins</code>, esses commits são rebaseados em <code>&lt;upstream&gt;</code> (ou <code>&lt;onto&gt;</code>, se especificado).</p>
+<p>Ao refazer as mesclagens com o "rebase", existem dois modos: <span class='synopsis'><code>rebase-cousins</code></span> e <span class='synopsis'><code>no-rebase-cousins</code></span>. Se o modo não for especificado, a predefinição será <span class='synopsis'><code>no-rebase-cousins</code></span>. No modo <span class='synopsis'><code>no-rebase-cousins</code></span>, os commits que não têm <span class='synopsis'><em>&lt;upstream&gt;</em></span> como ancestral direto manterão o seu ponto de ramificação original, ou seja, os commits que seriam excluídos pela opção <span class='synopsis'><code>--ancestry-path</code></span> do <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a> manterão a sua ancestralidade original automaticamente. No modo <span class='synopsis'><code>rebase-cousins</code></span>, esses commits são rebaseados em <span class='synopsis'><em>&lt;upstream&gt;</em></span> (ou <span class='synopsis'><em>&lt;onto&gt;</em></span>, se especificado).</p>
 </div>
 <div class="paragraph">
-<p>Atualmente, só é possível recriar a mesclagem dos commits utilizando a estratégia de mesclagem <code>ort</code>; diferentes estratégias de mesclagem podem ser utilizadas somente através dos comandos explícitos como <code>exec git merge -s &lt;strategy&gt; [...]</code>.</p>
+<p>Atualmente, só é possível recriar a mesclagem dos commits utilizando a estratégia de mesclagem <span class='synopsis'><code>ort</code></span>; diferentes estratégias de mesclagem podem ser utilizadas somente através dos comandos explícitos como <span class='synopsis'><code>exec</code> <code>git</code> <code>merge</code> <code>-s</code> <em>&lt;strategy&gt;</em> [...]</span>.</p>
 </div>
 <div class="paragraph">
 <p>Consulte também <em>RECONSTRUINDO AS MESCLAGENS</em> e <em>OPÇÕES INCOMPATÍVEIS</em> abaixo.</p>
@@ -556,9 +587,9 @@ git rebase master topic</pre>
 <dt class="hdlist1" id="git-rebase--xltcmdgt"> <a class="anchor" href="#git-rebase--xcmd"></a> <a class="anchor" href="#git-rebase--xltcmdgt"></a>-x &lt;cmd&gt; </dt>
 <dt class="hdlist1" id="git-rebase---execltcmdgt"> <a class="anchor" href="#git-rebase---execcmd"></a> <a class="anchor" href="#git-rebase---execltcmdgt"></a>--exec &lt;cmd&gt; </dt>
 <dd>
-<p>Anexe "exec &lt;cmd&gt;" após cada linha, criando um commit no final do histórico. O <code>&lt;cmd&gt;</code> será interpretado como um ou mais comandos do shell. Qualquer comando que falhar interromperá a reconstrução da fundação, encerrando com o código 1.</p>
+<p>Anexe "exec &lt;cmd&gt;" após cada linha, criando um commit no final do histórico. O <span class='synopsis'><em>&lt;cmd&gt;</em></span> será interpretado como um ou mais comandos do shell. Qualquer comando que falhar interromperá a reconstrução da fundação, encerrando com o código 1.</p>
 <div class="paragraph">
-<p>É possível executar vários comandos utilizando uma instância da opção <code>--exec</code> com vários comandos:</p>
+<p>É possível executar vários comandos utilizando uma instância da opção <span class='synopsis'><code>--exec</code></span> com vários comandos:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -566,7 +597,7 @@ git rebase master topic</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>ou utilizando mais de um <code>--exec</code>:</p>
+<p>ou utilizando mais de um <span class='synopsis'><code>--exec</code></span>:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -574,10 +605,10 @@ git rebase master topic</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Caso a opção <code>--autosquash</code> seja utilizado, as linhas <code>exec</code> não serão anexadas aos commits intermediários e aparecerão apenas no final de cada série de compressão/correção.</p>
+<p>Caso a opção <span class='synopsis'><code>--autosquash</code></span> seja utilizado, as linhas <span class='synopsis'><code>exec</code></span> não serão anexadas aos commits intermediários e aparecerão apenas no final de cada série de compressão/correção.</p>
 </div>
 <div class="paragraph">
-<p>Utiliza o mecanismo <code>--interactive</code> internamente, porém pode ser executado sem a opção <code>--interactive</code> de forma explicita.</p>
+<p>Utiliza o mecanismo <span class='synopsis'><code>--interactive</code></span> internamente, porém pode ser executado sem a opção <span class='synopsis'><code>--interactive</code></span> de forma explicita.</p>
 </div>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
@@ -585,7 +616,7 @@ git rebase master topic</pre>
 </dd>
 <dt class="hdlist1" id="git-rebase---root"> <a class="anchor" href="#git-rebase---root"></a>--root </dt>
 <dd>
-<p>Refaça com "rebase" todos os commits acessíveis a partir do <code>&lt;ramo&gt;</code>, em vez de limitá-los com um <code>&lt;upstream&gt;</code>. Isso permite que você faça o rebase num ramo do(s) commit(s) raiz(es).</p>
+<p>Refaça com "rebase" todos os commits acessíveis a partir do <span class='synopsis'><em>&lt;ramo&gt;</em></span>, em vez de limitá-los com um <span class='synopsis'><em>&lt;upstream&gt;</em></span>. Isso permite que você faça o rebase num ramo do(s) commit(s) raiz(es).</p>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
 </div>
@@ -595,13 +626,13 @@ git rebase master topic</pre>
 <dd>
 <p>Automatically squash commits with specially formatted messages into previous commits being rebased. If a commit message starts with "squash! ", "fixup! " or "amend! ", the remainder of the title is taken as a commit specifier, which matches a previous commit if it matches the title or the hash of that commit. If no commit matches fully, matches of the specifier with the start of commit titles are considered.</p>
 <div class="paragraph">
-<p>Na lista de tarefas do rebase, as ações dos commits <em>squash</em>, <em>fixup</em> e <em>amend</em> são alteradas de <code>pick</code> para <code>squash</code>, <code>fixup</code> ou <code>fixup -C</code>, respectivamente, e são movidas logo após o commit que eles modificam. A opção <code>--interactive</code> pode ser usada para revisar e editar a lista de tarefas antes de dar continuidade.</p>
+<p>Na lista de tarefas do rebase, as ações dos commits <em>squash</em>, <em>fixup</em> e <em>amend</em> são alteradas de <span class='synopsis'><code>pick</code></span> para <span class='synopsis'><code>squash</code></span>, <span class='synopsis'><code>fixup</code></span> ou <span class='synopsis'><code>fixup</code> <code>-C</code></span>, respectivamente, e são movidas logo após o commit que eles modificam. A opção <span class='synopsis'><code>--interactive</code></span> pode ser usada para revisar e editar a lista de tarefas antes de dar continuidade.</p>
 </div>
 <div class="paragraph">
-<p>The recommended way to create commits with squash markers is by using the <code>--squash</code>, <code>--fixup</code>, <code>--fixup=amend:</code> or <code>--fixup=reword:</code> options of <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a>, which take the target commit as an argument and automatically fill in the title of the new commit from that.</p>
+<p>The recommended way to create commits with squash markers is by using the <span class='synopsis'><code>--squash</code></span>, <span class='synopsis'><code>--fixup</code></span>, <span class='synopsis'><code>--fixup=amend:</code></span> or <span class='synopsis'><code>--fixup=reword:</code></span> options of <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a>, which take the target commit as an argument and automatically fill in the title of the new commit from that.</p>
 </div>
 <div class="paragraph">
-<p>Setting configuration variable <code>rebase.autoSquash</code> to true enables auto-squashing by default for interactive rebase. The <code>--no-autosquash</code> option can be used to override that setting.</p>
+<p>Setting configuration variable <span class='synopsis'><code>rebase.autoSquash</code></span> to true enables auto-squashing by default for interactive rebase. The <span class='synopsis'><code>--no-autosquash</code></span> option can be used to override that setting.</p>
 </div>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
@@ -615,12 +646,12 @@ git rebase master topic</pre>
 <dt class="hdlist1" id="git-rebase---reschedule-failed-exec"> <a class="anchor" href="#git-rebase---reschedule-failed-exec"></a>--reschedule-failed-exec </dt>
 <dt class="hdlist1" id="git-rebase---no-reschedule-failed-exec"> <a class="anchor" href="#git-rebase---no-reschedule-failed-exec"></a>--no-reschedule-failed-exec </dt>
 <dd>
-<p>Reagende automaticamente os comandos <code>exec</code> que falharam. Isso só faz sentido no modo interativo (ou quando uma opção <code>--exec</code> for utilizada).</p>
+<p>Reagende automaticamente os comandos <span class='synopsis'><code>exec</code></span> que falharam. Isso só faz sentido no modo interativo (ou quando uma opção <span class='synopsis'><code>--exec</code></span> for utilizada).</p>
 <div class="paragraph">
-<p>Esta opção se aplica quando um "rebase" for iniciado. Ele é preservado com base para todo o "rebase", em ordem, na opção de linha de comando usada para o <code>git rebase</code> inicial, a configuração <code>rebase.rescheduleFailedExec</code> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a> ou "CONFIGURAÇÃO" abaixo), ou a predefinição é <em>false</em>.</p>
+<p>Esta opção se aplica quando um "rebase" for iniciado. Ele é preservado com base para todo o "rebase", em ordem, na opção de linha de comando usada para o <span class='synopsis'><code>git</code> <code>rebase</code></span> inicial, a configuração <span class='synopsis'><code>rebase.rescheduleFailedExec</code></span> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a> ou "CONFIGURAÇÃO" abaixo), ou a predefinição é <em>false</em>.</p>
 </div>
 <div class="paragraph">
-<p>O registro desta opção para todo o "rebase" é um recurso conveniente. Caso contrário, um <code>--no-reschedule-failed-exec</code> explícito no início seria substituído pela presença de uma configuração <code>rebase.rescheduleFailedExec=true</code> quando o <code>git rebase --continue</code> fosse invocado. Atualmente, você não pode passar <code>--[no-]reschedule-failed-exec</code> para o comando <code>git rebase --continue</code>.</p>
+<p>O registro desta opção para todo o "rebase" é um recurso conveniente. Caso contrário, um <span class='synopsis'><code>--no-reschedule-failed-exec</code></span> explícito no início seria substituído pela presença de uma configuração <span class='synopsis'><code>rebase.rescheduleFailedExec=true</code></span> quando o <span class='synopsis'><code>git</code> <code>rebase</code> <code>--continue</code></span> fosse invocado. Atualmente, você não pode passar <span class='synopsis'><code>--</code>[<code>no-</code>]<code>reschedule-failed-exec</code></span> para o comando <span class='synopsis'><code>git</code> <code>rebase</code> <code>--continue</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-rebase---update-refs"> <a class="anchor" href="#git-rebase---update-refs"></a>--update-refs </dt>
@@ -628,7 +659,7 @@ git rebase master topic</pre>
 <dd>
 <p>Atualize automaticamente todas as ramificações que apontem para os commits onde os "rebases" estejam sendo feitos. Quaisquer ramificações forem verificadas numa árvore de trabalho não são atualizadas desta maneira.</p>
 <div class="paragraph">
-<p>Caso a variável de configuração <code>rebase.updateRefs</code> esteja definida, então esta opção pode ser usada para substituir e desativar esta configuração.</p>
+<p>Caso a variável de configuração <span class='synopsis'><code>rebase.updateRefs</code></span> esteja definida, então esta opção pode ser usada para substituir e desativar esta configuração.</p>
 </div>
 <div class="paragraph">
 <p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
@@ -722,7 +753,7 @@ git rebase master topic</pre>
 <h2 id="_diferenças_comportamentais"><a class="anchor" href="#_diferenças_comportamentais"></a>DIFERENÇAS COMPORTAMENTAIS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O <code>git rebase</code> tem dois backends principais: <em>apply</em> e <em>merge</em>. (O backend <em>apply</em> costumava ser conhecido como backend <em>am</em>, mas o nome gerou confusão, pois parece um verbo em vez de um substantivo. Além disso, o backend <em>merge</em> costumava ser conhecido como backend interativo, mas agora também é usado para casos não interativos. Ambos foram renomeados com base na funcionalidade de baixo nível que sustentava cada um deles). Há algumas diferenças sutis na maneira de como estes dois backends se comportam:</p>
+<p>O <span class='synopsis'><code>git</code> <code>rebase</code></span> tem dois backends principais: <em>apply</em> e <em>merge</em>. (O backend <em>apply</em> costumava ser conhecido como backend <em>am</em>, mas o nome gerou confusão, pois parece um verbo em vez de um substantivo. Além disso, o backend <em>merge</em> costumava ser conhecido como backend interativo, mas agora também é usado para casos não interativos. Ambos foram renomeados com base na funcionalidade de baixo nível que sustentava cada um deles). Há algumas diferenças sutis na maneira de como estes dois backends se comportam:</p>
 </div>
 <div class="sect2">
 <h3 id="_os_commits_vazios"><a class="anchor" href="#_os_commits_vazios"></a>Os commits vazios</h3>
@@ -730,10 +761,10 @@ git rebase master topic</pre>
 <p>Infelizmente, o backend <em>apply</em> descarta os commits vazios intencionalmente, ou seja, os commits que começaram vazios, embora isso seja raro na prática. Ele também descarta os commits que ficam vazios e não há opção para controlar este comportamento.</p>
 </div>
 <div class="paragraph">
-<p>É predefinido que a estrutura <em>merge</em> mantenha os commits intencionalmente vazios (com <code>-i</code> são marcados como vazio no editor da lista de tarefas ou podem ser descartados automaticamente com a opção <code>--no-keep-empty</code>).</p>
+<p>É predefinido que a estrutura <em>merge</em> mantenha os commits intencionalmente vazios (com <span class='synopsis'><code>-i</code></span> são marcados como vazio no editor da lista de tarefas ou podem ser descartados automaticamente com a opção <span class='synopsis'><code>--no-keep-empty</code></span>).</p>
 </div>
 <div class="paragraph">
-<p>Similar to the apply backend, by default the merge backend drops commits that become empty unless <code>-i</code>/<code>--interactive</code> is specified (in which case it stops and asks the user what to do). The merge backend also has an <code>--empty=(drop|keep|stop)</code> option for changing the behavior of handling commits that become empty.</p>
+<p>Similar to the apply backend, by default the merge backend drops commits that become empty unless <span class='synopsis'><code>-i</code></span>/<span class='synopsis'><code>--interactive</code></span> is specified (in which case it stops and asks the user what to do). The merge backend also has an <span class='synopsis'><code>--empty=</code>(<code>drop</code>|<code>keep</code>|<code>stop</code>)</span> option for changing the behavior of handling commits that become empty.</p>
 </div>
 </div>
 <div class="sect2">
@@ -748,7 +779,7 @@ git rebase master topic</pre>
 <div class="sect2">
 <h3 id="_contexto"><a class="anchor" href="#_contexto"></a>Contexto</h3>
 <div class="paragraph">
-<p>The <em>apply</em> backend works by creating a sequence of patches (by calling <code>format-patch</code> internally), and then applying the patches in sequence (calling <code>am</code> internally). Patches are composed of multiple hunks, each with line numbers, a context region, and the actual changes. The line numbers have to be taken with some offset, since the other side will likely have inserted or deleted lines earlier in the file. The context region is meant to help find how to adjust the line numbers in order to apply the changes to the right lines. However, if multiple areas of the code have the same surrounding lines of context, the wrong one can be picked. There are real-world cases where this has caused commits to be reapplied incorrectly with no conflicts reported. Setting <code>diff.context</code> to a larger value may prevent such types of problems, but increases the chance of spurious conflicts (since it will require more lines of matching context to apply).</p>
+<p>The <em>apply</em> backend works by creating a sequence of patches (by calling <span class='synopsis'><code>format-patch</code></span> internally), and then applying the patches in sequence (calling <span class='synopsis'><code>am</code></span> internally). Patches are composed of multiple hunks, each with line numbers, a context region, and the actual changes. The line numbers have to be taken with some offset, since the other side will likely have inserted or deleted lines earlier in the file. The context region is meant to help find how to adjust the line numbers in order to apply the changes to the right lines. However, if multiple areas of the code have the same surrounding lines of context, the wrong one can be picked. There are real-world cases where this has caused commits to be reapplied incorrectly with no conflicts reported. Setting <span class='synopsis'><code>diff.context</code></span> to a larger value may prevent such types of problems, but increases the chance of spurious conflicts (since it will require more lines of matching context to apply).</p>
 </div>
 <div class="paragraph">
 <p>A estrutura <em>merge</em> trabalha com a cópia completa de casa arquivo relevante isolando-os destes tipos de problemas.</p>
@@ -757,7 +788,7 @@ git rebase master topic</pre>
 <div class="sect2">
 <h3 id="_a_rotulagem_dos_marcadores_de_conflitos"><a class="anchor" href="#_a_rotulagem_dos_marcadores_de_conflitos"></a>A rotulagem dos marcadores de conflitos</h3>
 <div class="paragraph">
-<p>Quando há conflitos no conteúdo, o mecanismo de mesclagem tenta anotar os marcadores de conflito de cada lado com os commits de onde o conteúdo veio. Como o backend <em>apply</em> descarta as informações originais sobre os commits refeitos com rebase e as suas origens (e, em vez disso, gera novos commits falsos com base em informações limitadas nas correções geradas), estes commits não podem ser identificados; em vez disso, é necessário recorrer a um resumo do commit. Além disso, quando <code>merge.conflictStyle</code> for definido como <code>diff3</code> ou <code>zdiff3</code>, o backend <em>apply</em> usará "constructed merge base" para rotular o conteúdo da base de mesclagem e, portanto, não fornecerá nenhuma informação sobre o commit da mesclagem da base.</p>
+<p>Quando há conflitos no conteúdo, o mecanismo de mesclagem tenta anotar os marcadores de conflito de cada lado com os commits de onde o conteúdo veio. Como o backend <em>apply</em> descarta as informações originais sobre os commits refeitos com rebase e as suas origens (e, em vez disso, gera novos commits falsos com base em informações limitadas nas correções geradas), estes commits não podem ser identificados; em vez disso, é necessário recorrer a um resumo do commit. Além disso, quando <span class='synopsis'><code>merge.conflictStyle</code></span> for definido como <span class='synopsis'><code>diff3</code></span> ou <span class='synopsis'><code>zdiff3</code></span>, o backend <em>apply</em> usará "constructed merge base" para rotular o conteúdo da base de mesclagem e, portanto, não fornecerá nenhuma informação sobre o commit da mesclagem da base.</p>
 </div>
 <div class="paragraph">
 <p>A estrutura <em>merge</em> funciona com commits completos nos dois lados do histórico e portanto não possuem tais limitações.</p>
@@ -766,19 +797,19 @@ git rebase master topic</pre>
 <div class="sect2">
 <h3 id="_ganchos"><a class="anchor" href="#_ganchos"></a>Ganchos</h3>
 <div class="paragraph">
-<p>Tradicionalmente, o backend <em>apply</em> não invoca o gancho pós commit, enquanto o backend <em>merge</em> invoca. Ambos invocam o gancho "pós-checkout", embora o backend <em>merge</em> tenha suprimido a sua criação. Além disso, ambos os "backends" só invocam o gancho "pós-checkout" com o commit do ponto inicial do rebase, não invoca nos commits intermediários nem no commit final. Em cada caso, a invocação destes hooks ocorreu por acidente de implementação e não por projeto (ambos os backends foram originalmente implementados como scripts de shell e invocaram outros comandos como <code>git checkout</code> ou <code>git commit</code> que invocariam os ganchos). Ambos os backends devem ter o mesmo comportamento, embora não esteja totalmente claro qual deles está correto, quando estiverem. Provavelmente faremos com que o rebase pare de invocar estes ganchos no futuro.</p>
+<p>Tradicionalmente, o backend <em>apply</em> não invoca o gancho pós commit, enquanto o backend <em>merge</em> invoca. Ambos invocam o gancho "pós-checkout", embora o backend <em>merge</em> tenha suprimido a sua criação. Além disso, ambos os "backends" só invocam o gancho "pós-checkout" com o commit do ponto inicial do rebase, não invoca nos commits intermediários nem no commit final. Em cada caso, a invocação destes hooks ocorreu por acidente de implementação e não por projeto (ambos os backends foram originalmente implementados como scripts de shell e invocaram outros comandos como <span class='synopsis'><code>git</code> <code>checkout</code></span> ou <span class='synopsis'><code>git</code> <code>commit</code></span> que invocariam os ganchos). Ambos os backends devem ter o mesmo comportamento, embora não esteja totalmente claro qual deles está correto, quando estiverem. Provavelmente faremos com que o rebase pare de invocar estes ganchos no futuro.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_interruptabilidade"><a class="anchor" href="#_interruptabilidade"></a>Interruptabilidade</h3>
 <div class="paragraph">
-<p>O backend <em>apply</em> tem problemas de segurança com uma interrupção inoportuna; se o usuário pressionar Ctrl-C no momento errado para tentar abortar o rebase, o rebase pode entrar num estado onde não pode ser abortado após um <code>git rebase --abort</code>. O backend <em>merge</em> não parece sofrer da mesma deficiência. (Consulte <a href="https://lore.kernel.org/git/20200207132152.GC2868@szeder.dev/" class="bare">https://lore.kernel.org/git/20200207132152.GC2868@szeder.dev/</a> para obter mais detalhes.)</p>
+<p>O backend <em>apply</em> tem problemas de segurança com uma interrupção inoportuna; se o usuário pressionar Ctrl-C no momento errado para tentar abortar o rebase, o rebase pode entrar num estado onde não pode ser abortado após um <span class='synopsis'><code>git</code> <code>rebase</code> <code>--abort</code></span>. O backend <em>merge</em> não parece sofrer da mesma deficiência. (Consulte <a href="https://lore.kernel.org/git/20200207132152.GC2868@szeder.dev/" class="bare">https://lore.kernel.org/git/20200207132152.GC2868@szeder.dev/</a> para obter mais detalhes.)</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_reescrevendo_os_commits"><a class="anchor" href="#_reescrevendo_os_commits"></a>Reescrevendo os Commits</h3>
 <div class="paragraph">
-<p>Quando ocorre um conflito durante o rebase, ele é interrompido e o usuário é solicitado a resolver o problema. Como o usuário talvez precise fazer alterações importantes durante a resolução de conflitos, após a resoluão dos conflitos e o usuário tiver executado o comando <code>git rebase --continue</code>, o rebase deverá abrir um editor e solicitar que o usuário atualize a mensagem do commit. O backend <em>merge</em> faz isso, enquanto o backend <em>apply</em> aplica cegamente a mensagem original do commit.</p>
+<p>Quando ocorre um conflito durante o rebase, ele é interrompido e o usuário é solicitado a resolver o problema. Como o usuário talvez precise fazer alterações importantes durante a resolução de conflitos, após a resoluão dos conflitos e o usuário tiver executado o comando <span class='synopsis'><code>git</code> <code>rebase</code> <code>--continue</code></span>, o rebase deverá abrir um editor e solicitar que o usuário atualize a mensagem do commit. O backend <em>merge</em> faz isso, enquanto o backend <em>apply</em> aplica cegamente a mensagem original do commit.</p>
 </div>
 </div>
 <div class="sect2">
@@ -795,7 +826,7 @@ git rebase master topic</pre>
 <p>Mensagens de progresso, informativas e de erro: Os dois backends fornecem mensagens ligeiramente diferentes de progresso e informacionais. Além disso, o backend <em>apply</em> grava mensagens de erro (como "Seus arquivos seriam sobrescritos&#8230;&#8203;") no stdout, enquanto o backend <em>merge</em> as grava no stderr.</p>
 </li>
 <li>
-<p>Diretórios de estado: As duas estruturas mantêm a sua condição em diferentes diretórios dentro do <code>.git/</code></p>
+<p>Diretórios de estado: As duas estruturas mantêm a sua condição em diferentes diretórios dentro do <span class='synopsis'><code>.git/</code></span></p>
 </li>
 </ul>
 </div>
@@ -806,13 +837,13 @@ git rebase master topic</pre>
 <h2 id="_estratégias_de_mesclagem"><a class="anchor" href="#_estratégias_de_mesclagem"></a>ESTRATÉGIAS DE MESCLAGEM</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O mecanismo de mesclagem (os comandos <code>git merge</code> e <code>git pull</code>) permite que as <em>estratégias de mesclagem</em> do backend sejam escolhidas com a opção <code>-s</code>. Algumas estratégias também podem ter as suas próprias opções, que podem ser passadas usando argumentos <code>-X&lt;opção&gt;</code> ao comando <code>git merge</code> e/ou <code>git pull</code>.</p>
+<p>O mecanismo de mesclagem (os comandos <span class='synopsis'><code>git</code> <code>merge</code></span> e <span class='synopsis'><code>git</code> <code>pull</code></span>) permite que as <em>estratégias de mesclagem</em> do backend sejam escolhidas com a opção <span class='synopsis'><code>-s</code></span>. Algumas estratégias também podem ter as suas próprias opções, que podem ser passadas usando argumentos <span class='synopsis'><code>-X</code><em>&lt;opção&gt;</em></span> ao comando <span class='synopsis'><code>git</code> <code>merge</code></span> e/ou <span class='synopsis'><code>git</code> <code>pull</code></span>.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-rebase-ort"> <a class="anchor" href="#git-rebase-ort"></a>ort </dt>
 <dd>
-<p>Esta é a estratégia de mesclagem predefinida ao extrair ou ao mesclar um ramo. Esta estratégia só pode resolver dois <code>HEADS</code> usando um algoritmo de mesclagem de 3 vias. Quando há mais de um ancestral comum que pode ser usado para a mesclagem de 3 vias, ele cria uma árvore mesclada dos ancestrais comuns e a utiliza como uma árvore de referência para a mesclagem de 3 vias. Foi relatado que isso resulta em menos conflitos de mesclagem sem causar erros de mesclagem através dos testes feitos na mesclagem dos commits reais retirados do histórico de desenvolvimento do kernel do Linux 2.6. Além disso, esta estratégia pode detectar e lidar com as mesclagens que envolvam renomeações. Não faz uso de cópias detectadas. O nome desse algoritmo é um acrônimo ("Ostensibly Recursive&#8217;s Twin") e surgiu do fato de que ele foi escrito como um substituto para o padrão di algoritmo anterior, <code>recursive</code>.</p>
+<p>Esta é a estratégia de mesclagem predefinida ao extrair ou ao mesclar um ramo. Esta estratégia só pode resolver dois <span class='synopsis'><code>HEADS</code></span> usando um algoritmo de mesclagem de 3 vias. Quando há mais de um ancestral comum que pode ser usado para a mesclagem de 3 vias, ele cria uma árvore mesclada dos ancestrais comuns e a utiliza como uma árvore de referência para a mesclagem de 3 vias. Foi relatado que isso resulta em menos conflitos de mesclagem sem causar erros de mesclagem através dos testes feitos na mesclagem dos commits reais retirados do histórico de desenvolvimento do kernel do Linux 2.6. Além disso, esta estratégia pode detectar e lidar com as mesclagens que envolvam renomeações. Não faz uso de cópias detectadas. O nome desse algoritmo é um acrônimo ("Ostensibly Recursive&#8217;s Twin") e surgiu do fato de que ele foi escrito como um substituto para o padrão di algoritmo anterior, <span class='synopsis'><code>recursive</code></span>.</p>
 <div class="paragraph">
 <p>In the case where the path is a submodule, if the submodule commit used on one side of the merge is a descendant of the submodule commit used on the other side of the merge, Git attempts to fast-forward to the descendant. Otherwise, Git will treat this case as a conflict, suggesting as a resolution a submodule commit that is descendant of the conflicting ones, if one exists.</p>
 </div>
@@ -837,7 +868,7 @@ git rebase master topic</pre>
 <dt class="hdlist1" id="git-rebase-ignore-space-at-eol"> <a class="anchor" href="#git-rebase-ignore-space-at-eol"></a>ignore-space-at-eol </dt>
 <dt class="hdlist1" id="git-rebase-ignore-cr-at-eol"> <a class="anchor" href="#git-rebase-ignore-cr-at-eol"></a>ignore-cr-at-eol </dt>
 <dd>
-<p>Trata as linhas com o tipo indicado de alteração do espaço em branco como inalteradas para os fins de uma mesclagem de três vias. As alterações do espaço em branco misturadas com as outras alterações numa linha não são ignoradas. Consulte também o comando <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <code>-b</code>, <code>-w</code>, <code>--ignore-space-at-eol</code>, e a opção <code>--ignore-cr-at-eol</code>.</p>
+<p>Trata as linhas com o tipo indicado de alteração do espaço em branco como inalteradas para os fins de uma mesclagem de três vias. As alterações do espaço em branco misturadas com as outras alterações numa linha não são ignoradas. Consulte também o comando <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <span class='synopsis'><code>-b</code></span>, <span class='synopsis'><code>-w</code></span>, <span class='synopsis'><code>--ignore-space-at-eol</code></span>, e a opção <span class='synopsis'><code>--ignore-cr-at-eol</code></span>.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -858,31 +889,31 @@ git rebase master topic</pre>
 </dd>
 <dt class="hdlist1" id="git-rebase-no-renormalize"> <a class="anchor" href="#git-rebase-no-renormalize"></a>no-renormalize </dt>
 <dd>
-<p>Desativa a opção <code>renormalize</code>. Isso substitui a variável de configuração <code>merge.renormalize</code>.</p>
+<p>Desativa a opção <span class='synopsis'><code>renormalize</code></span>. Isso substitui a variável de configuração <span class='synopsis'><code>merge.renormalize</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase-find-renamesltngt"> <a class="anchor" href="#git-rebase-find-renamesn"></a> <a class="anchor" href="#git-rebase-find-renamesltngt"></a>find-renames[=&lt;n&gt;] </dt>
 <dd>
-<p>Ative a detecção de renomeação, definindo opcionalmente o limite de similaridade. Esta é a predefinição. Isso substitui a variável de configuração <em>merge.renames</em>. Consulte também <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <code>--find-renames</code>.</p>
+<p>Ative a detecção de renomeação, definindo opcionalmente o limite de similaridade. Esta é a predefinição. Isso substitui a variável de configuração <em>merge.renames</em>. Consulte também <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <span class='synopsis'><code>--find-renames</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase-rename-thresholdltngt"> <a class="anchor" href="#git-rebase-rename-thresholdn"></a> <a class="anchor" href="#git-rebase-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
 <dd>
-<p>É um sinônimo obsoleto para <code>find-renames=&lt;n&gt;</code>.</p>
+<p>É um sinônimo obsoleto para <span class='synopsis'><code>find-renames=</code><em>&lt;n&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase-no-renames"> <a class="anchor" href="#git-rebase-no-renames"></a>no-renames </dt>
 <dd>
-<p>Desativa a detecção de renomeação. Isto sobrepõem a variável de configuração <code>merge.renames</code> configuration. Consulte também <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <code>--no-renames</code>.</p>
+<p>Desativa a detecção de renomeação. Isto sobrepõem a variável de configuração <span class='synopsis'><code>merge.renames</code></span> configuration. Consulte também <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <span class='synopsis'><code>--no-renames</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase-histogram"> <a class="anchor" href="#git-rebase-histogram"></a>histogram </dt>
 <dd>
-<p>Deprecated synonym for <code>diff-algorithm=histogram</code>.</p>
+<p>Deprecated synonym for <span class='synopsis'><code>diff-algorithm=histogram</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase-patience"> <a class="anchor" href="#git-rebase-patience"></a>patience </dt>
 <dd>
-<p>É um sinônimo obsoleto para <code>diff-algorithm=patience</code>.</p>
+<p>É um sinônimo obsoleto para <span class='synopsis'><code>diff-algorithm=patience</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase-diff-algorithmhistogramminimalmyerspatience"> <a class="anchor" href="#git-rebase-diff-algorithmhistogramminimalmyerspatience"></a>diff-algorithm=[histogram|minimal|myers|patience] </dt>
 <dd>
-<p>Use a different diff algorithm while merging, which can help avoid mismerges that occur due to unimportant matching lines (such as braces from distinct functions). See also <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <code>--diff-algorithm</code>. Note that <code>ort</code> defaults to <code>diff-algorithm=histogram</code>, while regular diffs currently default to the <code>diff.algorithm</code> config setting.</p>
+<p>Use a different diff algorithm while merging, which can help avoid mismerges that occur due to unimportant matching lines (such as braces from distinct functions). See also <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <span class='synopsis'><code>--diff-algorithm</code></span>. Note that <span class='synopsis'><code>ort</code></span> defaults to <span class='synopsis'><code>diff-algorithm=histogram</code></span>, while regular diffs currently default to the <span class='synopsis'><code>diff.algorithm</code></span> config setting.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase-subtreeltcaminhogt"> <a class="anchor" href="#git-rebase-subtreecaminho"></a> <a class="anchor" href="#git-rebase-subtreeltcaminhogt"></a>subtree[=&lt;caminho&gt;] </dt>
 <dd>
@@ -893,7 +924,7 @@ git rebase master topic</pre>
 </dd>
 <dt class="hdlist1" id="git-rebase-recursive"> <a class="anchor" href="#git-rebase-recursive"></a>recursive </dt>
 <dd>
-<p>This is now a synonym for <code>ort</code>. It was an alternative implementation until v2.49.0, but was redirected to mean <code>ort</code> in v2.50.0. The previous recursive strategy was the default strategy for resolving two heads from Git v0.99.9k until v2.33.0.</p>
+<p>This is now a synonym for <span class='synopsis'><code>ort</code></span>. It was an alternative implementation until v2.49.0, but was redirected to mean <span class='synopsis'><code>ort</code></span> in v2.50.0. The previous recursive strategy was the default strategy for resolving two heads from Git v0.99.9k until v2.33.0.</p>
 </dd>
 <dt class="hdlist1" id="git-rebase-resolve"> <a class="anchor" href="#git-rebase-resolve"></a>resolve </dt>
 <dd>
@@ -909,7 +940,7 @@ git rebase master topic</pre>
 </dd>
 <dt class="hdlist1" id="git-rebase-subtree"> <a class="anchor" href="#git-rebase-subtree"></a>subtree </dt>
 <dd>
-<p>Esta é uma estratégia <code>ort</code> modificada. Ao mesclar as árvores <em>A</em> e <em>B</em>, caso <em>B</em> corresponda a uma subárvore de <em>A</em>, o <em>B</em> será ajustado primeiro para coincidir à estrutura da árvore <em>A</em>, em vez de ler as árvores no mesmo nível. Esse ajuste também é feito na árvore ancestral comum.</p>
+<p>Esta é uma estratégia <span class='synopsis'><code>ort</code></span> modificada. Ao mesclar as árvores <em>A</em> e <em>B</em>, caso <em>B</em> corresponda a uma subárvore de <em>A</em>, o <em>B</em> será ajustado primeiro para coincidir à estrutura da árvore <em>A</em>, em vez de ler as árvores no mesmo nível. Esse ajuste também é feito na árvore ancestral comum.</p>
 </dd>
 </dl>
 </div>
@@ -922,13 +953,13 @@ git rebase master topic</pre>
 <h2 id="_observações"><a class="anchor" href="#_observações"></a>OBSERVAÇÕES</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Você deve entender as implicações de usar o comando <code>git rebase</code> num repositório que você compartilha. Consulte também SE RECUPERANDO DA RECONSTRUÇÃO DA FUNDAÇÃO INICIAL (UPSTREM REBASE) abaixo.</p>
+<p>Você deve entender as implicações de usar o comando <span class='synopsis'><code>git</code> <code>rebase</code></span> num repositório que você compartilha. Consulte também SE RECUPERANDO DA RECONSTRUÇÃO DA FUNDAÇÃO INICIAL (UPSTREM REBASE) abaixo.</p>
 </div>
 <div class="paragraph">
-<p>Quando o rebase for executado, ele primeiro executará um gancho <code>pre-rebase</code>, caso exista um. Você pode usar esse gancho para fazer verificações de sanidade e rejeitar o rebase caso não seja apropriado. Consulte o script modelo do gancho do <code>pre-rebase</code> para ver um exemplo.</p>
+<p>Quando o rebase for executado, ele primeiro executará um gancho <span class='synopsis'><code>pre-rebase</code></span>, caso exista um. Você pode usar esse gancho para fazer verificações de sanidade e rejeitar o rebase caso não seja apropriado. Consulte o script modelo do gancho do <span class='synopsis'><code>pre-rebase</code></span> para ver um exemplo.</p>
 </div>
 <div class="paragraph">
-<p>Após a conclusão, o <code>&lt;ramo&gt;</code> será o ramo atual.</p>
+<p>Após a conclusão, o <span class='synopsis'><em>&lt;ramo&gt;</em></span> será o ramo atual.</p>
 </div>
 </div>
 </div>
@@ -1014,13 +1045,13 @@ pick fa1afe1 Uma linha do próximo commit
 <p>As descrições on-line são puramente para o seu prazer; o comando <em>git rebase</em> não examinará eles, porém os nomes dos commits ("deadbee" e "fa1afe1" neste exemplo), portanto, não exclua ou edite os nomes.</p>
 </div>
 <div class="paragraph">
-<p>Ao substituir o comando "pick" pelo comando "edit", é possível dizer ao comando <code>git rebase</code> para parar após aplicar este commit, para que seja possível editar os arquivos e/ou a mensagem do commit, alterar o commit e continuar com a reconstrução.</p>
+<p>Ao substituir o comando "pick" pelo comando "edit", é possível dizer ao comando <span class='synopsis'><code>git</code> <code>rebase</code></span> para parar após aplicar este commit, para que seja possível editar os arquivos e/ou a mensagem do commit, alterar o commit e continuar com a reconstrução.</p>
 </div>
 <div class="paragraph">
 <p>Para interromper um "rebase" (exatamente como um comando "edit" faria, mas sem fazer uma escolha seletiva de nenhum commit primeiro), use o comando "break".</p>
 </div>
 <div class="paragraph">
-<p>Caso apenas queira editar a mensagem do commit para um commit, substitua o comando <code>pick</code> pelo comando <code>reword</code>.</p>
+<p>Caso apenas queira editar a mensagem do commit para um commit, substitua o comando <span class='synopsis'><code>pick</code></span> pelo comando <span class='synopsis'><code>reword</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Para eliminar um commit, substitua o comando "pick" por "drop" ou apenas exclua a linha coincidente.</p>
@@ -1029,10 +1060,10 @@ pick fa1afe1 Uma linha do próximo commit
 <p>Se você quiser juntar dois ou mais commits num só, substitua o comando <em>pick</em> para o segundo commit e os subsequentes com <em>squash</em> ou <em>fixup</em>. Se os commits tiverem autores diferentes, o commit agrupado será atribuído ao autor do primeiro commit. A mensagem sugerida do commit para o commit agrupado é a concatenação da mensagem do primeiro commit com aquelas identificadas pelos comandos <em>squash</em>, omitindo as mensagens dos commits identificados pelos comandos <em>fixup</em>, a menos que <em>fixup -c</em> seja usado. Nesse caso, a mensagem sugerida do commit é apenas a mensagem do commit <em>fixup -c</em>, e um editor é aberto para que você possa editar a mensagem. O conteúdo (correção) do commit <em>fixup -c</em> ainda é incorporado ao commit agrupado. Se houver mais de um commit <em>fixup -c</em>, será usada a mensagem do último commit. Você também pode usar <em>fixup -C</em> para obter o mesmo comportamento de <em>fixup -c</em>, mas sem abrir um editor.</p>
 </div>
 <div class="paragraph">
-<p>O comando <code>git rebase</code> será interrompido quando o "pick" for substituído por "edit" ou quando um comando falhar devido aos erros da mesclagem. Quando você terminar de editar e/ou resolver os conflitos, será possível continuar utilizando <code>git rebase --continue</code>.</p>
+<p>O comando <span class='synopsis'><code>git</code> <code>rebase</code></span> será interrompido quando o "pick" for substituído por "edit" ou quando um comando falhar devido aos erros da mesclagem. Quando você terminar de editar e/ou resolver os conflitos, será possível continuar utilizando <span class='synopsis'><code>git</code> <code>rebase</code> <code>--continue</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Como por exemplo, caso você queira reordenar os últimos 5 commits de maneira onde o que era <code>HEAD~4</code> se torne o novo <code>HEAD</code>. Para conseguir isso, você chamaria o comando <code>git rebase</code> assim:</p>
+<p>Como por exemplo, caso você queira reordenar os últimos 5 commits de maneira onde o que era <span class='synopsis'><code>HEAD~4</code></span> se torne o novo <span class='synopsis'><code>HEAD</code></span>. Para conseguir isso, você chamaria o comando <span class='synopsis'><code>git</code> <code>rebase</code></span> assim:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1055,7 +1086,7 @@ pick fa1afe1 Uma linha do próximo commit
 </div>
 </div>
 <div class="paragraph">
-<p>Suponha que queira reconstruir o lado do ramo ao lado começando em "A" para "Q". Verifique se o <code>HEAD</code> atual é "B" e chame</p>
+<p>Suponha que queira reconstruir o lado do ramo ao lado começando em "A" para "Q". Verifique se o <span class='synopsis'><code>HEAD</code></span> atual é "B" e chame</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1077,7 +1108,7 @@ exec cd subdir; make test
 </div>
 </div>
 <div class="paragraph">
-<p>A reconstrução interativa será interrompida quando um comando falhar (ou seja, encerra com uma condição diferente de 0) oferecendo uma oportunidade para a correção do problema. Você pode continuar com o comando <code>git rebase --continue</code>.</p>
+<p>A reconstrução interativa será interrompida quando um comando falhar (ou seja, encerra com uma condição diferente de 0) oferecendo uma oportunidade para a correção do problema. Você pode continuar com o comando <span class='synopsis'><code>git</code> <code>rebase</code> <code>--continue</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>O comando <em>exec</em> inicia o comando num shell (a ´predefinição, geralmente é /bin/sh), para que você possa usar os recursos do shell (como <em>cd</em>, <em>&gt;</em>, <em>;</em> &#8230;&#8203;). O comando é executado a partir da raiz da árvore de trabalho.</p>
@@ -1108,21 +1139,21 @@ exec make test</pre>
 <h2 id="_dividindo_os_commits"><a class="anchor" href="#_dividindo_os_commits"></a>DIVIDINDO OS COMMITS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>No modo interativo, você pode marcar commits com a ação <em>edit</em> (editar). No entanto, isso não significa necessariamente que o comando <code>git rebase</code> espera que o resultado desta edição seja exatamente um commit. De fato, você pode desfazer o commit ou adicionar outros commits. Isso pode ser usado para dividir um commit em dois:</p>
+<p>No modo interativo, você pode marcar commits com a ação <em>edit</em> (editar). No entanto, isso não significa necessariamente que o comando <span class='synopsis'><code>git</code> <code>rebase</code></span> espera que o resultado desta edição seja exatamente um commit. De fato, você pode desfazer o commit ou adicionar outros commits. Isso pode ser usado para dividir um commit em dois:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Inicie um rebase interativo com <code>git rebase -i &lt;commit&gt;^</code>, onde <code>&lt;commit&gt;</code> é o commit que você deseja dividir. Na verdade, qualquer intervalo do commit serve, desde que contenha este commit.</p>
+<p>Inicie um rebase interativo com <span class='synopsis'><code>git</code> <code>rebase</code> <code>-i</code> <em>&lt;commit&gt;</em><code>^</code></span>, onde <span class='synopsis'><em>&lt;commit&gt;</em></span> é o commit que você deseja dividir. Na verdade, qualquer intervalo do commit serve, desde que contenha este commit.</p>
 </li>
 <li>
 <p>Marque o commit que deseja dividir com a ação "edit".</p>
 </li>
 <li>
-<p>Quando for necessário editar esse commit, execute o comando <code>git reset HEAD^</code>. O efeito é que o <code>HEAD</code> é rebobinado num, e o índice segue o mesmo caminho. No entanto, a árvore de trabalho permanece a mesma.</p>
+<p>Quando for necessário editar esse commit, execute o comando <span class='synopsis'><code>git</code> <code>reset</code> <code>HEAD^</code></span>. O efeito é que o <span class='synopsis'><code>HEAD</code></span> é rebobinado num, e o índice segue o mesmo caminho. No entanto, a árvore de trabalho permanece a mesma.</p>
 </li>
 <li>
-<p>Agora, adicione as alterações ao índice onde você deseja ter no primeiro commit. Você pode usar o comando <code>git add</code> (possivelmente de forma interativa) ou o comando <code>git gui</code> (ou ambos) para fazer isso.</p>
+<p>Agora, adicione as alterações ao índice onde você deseja ter no primeiro commit. Você pode usar o comando <span class='synopsis'><code>git</code> <code>add</code></span> (possivelmente de forma interativa) ou o comando <span class='synopsis'><code>git</code> <code>gui</code></span> (ou ambos) para fazer isso.</p>
 </li>
 <li>
 <p>Faça o commit do índice agora atual com qualquer mensagem do commit que seja apropriada.</p>
@@ -1131,12 +1162,12 @@ exec make test</pre>
 <p>Repita as duas últimas etapas até que a sua árvore de trabalho esteja limpa.</p>
 </li>
 <li>
-<p>Continue a reconstrução com <code>git rebase --continue</code>.</p>
+<p>Continue a reconstrução com <span class='synopsis'><code>git</code> <code>rebase</code> <code>--continue</code></span>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Caso não tenha certeza absoluta que as revisões intermediárias são consistentes (elas compilam, passam no conjunto de testes, etc.), você deve usar o <code>git stash</code> para armazenar o commit das alterações que ainda não foram feitas após cada commit, teste e corrija o commit caso correções sejam necessárias.</p>
+<p>Caso não tenha certeza absoluta que as revisões intermediárias são consistentes (elas compilam, passam no conjunto de testes, etc.), você deve usar o <span class='synopsis'><code>git</code> <code>stash</code></span> para armazenar o commit das alterações que ainda não foram feitas após cada commit, teste e corrija o commit caso correções sejam necessárias.</p>
 </div>
 </div>
 </div>
@@ -1196,7 +1227,7 @@ exec make test</pre>
 </dd>
 <dt class="hdlist1" id="git-rebase-Casodifcilasalteraesnosoasmesmas"> <a class="anchor" href="#git-rebase-Casodifcilasalteraesnosoasmesmas"></a>Caso difícil: as alterações não são as mesmas. </dt>
 <dd>
-<p>Isso acontece caso a reconstrução da fundação (rebase) do <em>subsistema</em> tiver conflitos ou utilizar o <code>--interactive</code> para omitir, editar, esmagar ou consertar consertos; ou se a inicial utilizou um dos comandos <code>commit --amend</code>, <code>reset</code> ou um histórico completo da reescrita como <a href="https://github.com/newren/git-filter-repo"><code>filter-repo</code></a>.</p>
+<p>Isso acontece caso a reconstrução da fundação (rebase) do <em>subsistema</em> tiver conflitos ou utilizar o <span class='synopsis'><code>--interactive</code></span> para omitir, editar, esmagar ou consertar consertos; ou se a inicial utilizou um dos comandos <span class='synopsis'><code>commit</code> <code>--amend</code></span>, <span class='synopsis'><code>reset</code></span> ou um histórico completo da reescrita como <a href="https://github.com/newren/git-filter-repo"><span class='synopsis'><code>filter-repo</code></span></a>.</p>
 </dd>
 </dl>
 </div>
@@ -1206,7 +1237,7 @@ exec make test</pre>
 <p>Funciona apenas se as alterações (IDs do patch com base no conteúdo do diff) no <em>subsystem</em> que forem literalmente as mesmas antes e depois da reconstrução do <em>subsystem</em>.</p>
 </div>
 <div class="paragraph">
-<p>Nesse caso, a correção é fácil porque o comando <em>git rebase</em> sabe ignorar as alterações que já estão presentes no novo <em>upstream</em> (a menos que <code>--reapply-cherry-picks</code> seja utilizada). Então, se você diz (supondo que você esteja no <em>topic</em>)</p>
+<p>Nesse caso, a correção é fácil porque o comando <em>git rebase</em> sabe ignorar as alterações que já estão presentes no novo <em>upstream</em> (a menos que <span class='synopsis'><code>--reapply-cherry-picks</code></span> seja utilizada). Então, se você diz (supondo que você esteja no <em>topic</em>)</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1240,27 +1271,28 @@ exec make test</pre>
 <td class="content">
 Embora uma "recuperação fácil dos casos" às vezes pareça ser bem-sucedida
       mesmo no caso difícil, pode haver consequências não intencionais.  Para
-      Por exemplo, um commit que foi removido através do comando <code>git rebase
-      --interactive</code> será <strong>ressuscitado</strong>!
+      Por exemplo, um commit que foi removido através do comando <span class='synopsis'><code>git</code> <code>rebase</code>
+
+      <code>--interactive</code></span> será <strong>ressuscitado</strong>!
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>A ideia é informar manualmente ao comando <code>git rebase</code> "onde o antigo <em>subsystem</em> terminou e o seu <em>topic</em> começou", ou seja, qual era a antiga mesclagem de base entre eles. Você terá que encontrar uma maneira de nomear o último commit do antigo <em>subsystem</em>, por exemplo:</p>
+<p>A ideia é informar manualmente ao comando <span class='synopsis'><code>git</code> <code>rebase</code></span> "onde o antigo <em>subsystem</em> terminou e o seu <em>topic</em> começou", ou seja, qual era a antiga mesclagem de base entre eles. Você terá que encontrar uma maneira de nomear o último commit do antigo <em>subsystem</em>, por exemplo:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Com o reflog do <em>subsystem</em>: após o comando <code>git fetch</code>, a ponta antiga do <em>subsystem</em> está em <code>subsystem@{1}</code>. As buscas seguintes aumentarão o número. (Consulte <a href='{{< relurl "docs/git-reflog/pt_BR" >}}'>git-reflog[1]</a>.)</p>
+<p>Com o reflog do <em>subsystem</em>: após o comando <span class='synopsis'><code>git</code> <code>fetch</code></span>, a ponta antiga do <em>subsystem</em> está em <span class='synopsis'><code>subsystem@{1}</code></span>. As buscas seguintes aumentarão o número. (Consulte <a href='{{< relurl "docs/git-reflog/pt_BR" >}}'>git-reflog[1]</a>.)</p>
 </li>
 <li>
-<p>Em relação ao cume do <em>topic</em>: sabendo que o seu <em>topic</em> tem três commits, o cume antigo do <em>subsystem</em> deve ser <code>topic~3</code>.</p>
+<p>Em relação ao cume do <em>topic</em>: sabendo que o seu <em>topic</em> tem três commits, o cume antigo do <em>subsystem</em> deve ser <span class='synopsis'><code>topic~3</code></span>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Você pode então transplantar o antigo <code>subsystem..topic</code> para o novo cume dizendo (para o caso do reflog e supondo que você já esteja no <em>topic</em>):</p>
+<p>Você pode então transplantar o antigo <span class='synopsis'><code>subsystem..topic</code></span> para o novo cume dizendo (para o caso do reflog e supondo que você já esteja no <em>topic</em>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1277,13 +1309,13 @@ Embora uma "recuperação fácil dos casos" às vezes pareça ser bem-sucedida
 <h2 id="_reconstruindo_as_mesclagens"><a class="anchor" href="#_reconstruindo_as_mesclagens"></a>RECONSTRUINDO AS MESCLAGENS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O comando de reconstrução interativa foi originalmente projetado para lidar com séries de patches individuais. Como tal, faz sentido excluir a mesclagem dos commits da lista de tarefas, pois o desenvolvedor pode ter mesclado o <code>master</code> atual enquanto trabalhava no ramo, apenas para redefinir todos os commits para <code>master</code> eventualmente (ignorando a mesclagem dos commits).</p>
+<p>O comando de reconstrução interativa foi originalmente projetado para lidar com séries de patches individuais. Como tal, faz sentido excluir a mesclagem dos commits da lista de tarefas, pois o desenvolvedor pode ter mesclado o <span class='synopsis'><code>master</code></span> atual enquanto trabalhava no ramo, apenas para redefinir todos os commits para <span class='synopsis'><code>master</code></span> eventualmente (ignorando a mesclagem dos commits).</p>
 </div>
 <div class="paragraph">
 <p>No entanto, existem razões legítimas pelas quais um desenvolvedor pode querer recriar as mesclagens dos commits: para manter a estrutura do ramo (ou a "topologia do commit") ao trabalhar em diversos ramos inter-relacionadas.</p>
 </div>
 <div class="paragraph">
-<p>No exemplo a seguir, o desenvolvedor trabalha em um tópico no ramo que refatora a maneira como os botões são definidos, em outro tópico do ramo que utilize esta refatoração para implementar um botão "Relatar um bug". A saída do <code>git log --graph --format=%s -5</code> pode ficar assim:</p>
+<p>No exemplo a seguir, o desenvolvedor trabalha em um tópico no ramo que refatora a maneira como os botões são definidos, em outro tópico do ramo que utilize esta refatoração para implementar um botão "Relatar um bug". A saída do <span class='synopsis'><code>git</code> <code>log</code> <code>--graph</code> <code>--format=%s</code> <code>-5</code></span> pode ficar assim:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1298,10 +1330,10 @@ Embora uma "recuperação fácil dos casos" às vezes pareça ser bem-sucedida
 </div>
 </div>
 <div class="paragraph">
-<p>O desenvolvedor pode querer redefinir estes commits para um novo <code>master</code> enquanto mantém a topologia da ramificação. Quando se espera que o primeiro tópico do ramo que seja integrado ao` master` muito antes do segundo por exemplo. Para resolver os conflitos da mesclagem com as alterações para a classe <code>DownloadButton</code> que a transformou em <code>master</code> por exemplo.</p>
+<p>O desenvolvedor pode querer redefinir estes commits para um novo <span class='synopsis'><code>master</code></span> enquanto mantém a topologia da ramificação. Quando se espera que o primeiro tópico do ramo que seja integrado ao` master` muito antes do segundo por exemplo. Para resolver os conflitos da mesclagem com as alterações para a classe <span class='synopsis'><code>DownloadButton</code></span> que a transformou em <span class='synopsis'><code>master</code></span> por exemplo.</p>
 </div>
 <div class="paragraph">
-<p>Esse rebase pode ser realizado com a opção <code>--rebase-merges</code>. Ele gerará uma lista de tarefas semelhante a esta:</p>
+<p>Esse rebase pode ser realizado com a opção <span class='synopsis'><code>--rebase-merges</code></span>. Ele gerará uma lista de tarefas semelhante a esta:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1324,28 +1356,28 @@ merge -C 6f5e4d report-a-bug # Mescla o 'report-a-bug'</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Ao contrário de uma reconstrução interativa regular, existem os comandos <code>label</code>, <code>reset</code> e <code>merge</code> além dos comandos <code>pick</code>.</p>
+<p>Ao contrário de uma reconstrução interativa regular, existem os comandos <span class='synopsis'><code>label</code></span>, <span class='synopsis'><code>reset</code></span> e <span class='synopsis'><code>merge</code></span> além dos comandos <span class='synopsis'><code>pick</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>O comando <code>label</code> associa um rótulo ao <code>HEAD</code> atual quando este comando for executado. Estes rótulos são criados como refs locais da árvore de trabalho (<code>refs/rewritten/&lt;label&gt;</code>) que serão excluídos quando a reconstrução terminar. Dessa forma, as operações da reconstrução em várias árvores de trabalho vinculadas ao mesmo repositório não interferem entre si. Caso o comando <code>label</code> falhe, este é imediatamente reagendado, com uma mensagem útil sobre como proceder.</p>
+<p>O comando <span class='synopsis'><code>label</code></span> associa um rótulo ao <span class='synopsis'><code>HEAD</code></span> atual quando este comando for executado. Estes rótulos são criados como refs locais da árvore de trabalho (<span class='synopsis'><code>refs/rewritten/</code><em>&lt;label&gt;</em></span>) que serão excluídos quando a reconstrução terminar. Dessa forma, as operações da reconstrução em várias árvores de trabalho vinculadas ao mesmo repositório não interferem entre si. Caso o comando <span class='synopsis'><code>label</code></span> falhe, este é imediatamente reagendado, com uma mensagem útil sobre como proceder.</p>
 </div>
 <div class="paragraph">
-<p>O comando <code>reset</code> redefine o <code>HEAD</code>, o índice e a árvore de trabalho para a revisão específica. É semelhante a um comando <code>exec git reset --hard &lt;label&gt;</code>, porém se recusa a sobrescrever os arquivos que não sejam monitorados. Se o comando <code>reset</code> falhar, ele será imediatamente reagendado, com uma mensagem útil sobre como editar a lista de tarefas (normalmente acontece quando um comando <code>reset</code> foi inserido manualmente na lista de tarefas e contém um erro de digitação).</p>
+<p>O comando <span class='synopsis'><code>reset</code></span> redefine o <span class='synopsis'><code>HEAD</code></span>, o índice e a árvore de trabalho para a revisão específica. É semelhante a um comando <span class='synopsis'><code>exec</code> <code>git</code> <code>reset</code> <code>--hard</code> <em>&lt;label&gt;</em></span>, porém se recusa a sobrescrever os arquivos que não sejam monitorados. Se o comando <span class='synopsis'><code>reset</code></span> falhar, ele será imediatamente reagendado, com uma mensagem útil sobre como editar a lista de tarefas (normalmente acontece quando um comando <span class='synopsis'><code>reset</code></span> foi inserido manualmente na lista de tarefas e contém um erro de digitação).</p>
 </div>
 <div class="paragraph">
-<p>O comando <code>merge</code> mesclará revisões usadas no que seja <code>HEAD</code> naquele momento. Com <code>-C &lt;original-commit&gt;</code>, a mensagem do commit de um determinada mesclagem será usada. Quando o <code>-C</code> é alterado para minúsculo <code>-c</code>, a mensagem será aberta num editor após uma mesclagem bem-sucedida, para que o usuário possa editá-la.</p>
+<p>O comando <span class='synopsis'><code>merge</code></span> mesclará revisões usadas no que seja <span class='synopsis'><code>HEAD</code></span> naquele momento. Com <span class='synopsis'><code>-C</code> <em>&lt;original-commit&gt;</em></span>, a mensagem do commit de um determinada mesclagem será usada. Quando o <span class='synopsis'><code>-C</code></span> é alterado para minúsculo <span class='synopsis'><code>-c</code></span>, a mensagem será aberta num editor após uma mesclagem bem-sucedida, para que o usuário possa editá-la.</p>
 </div>
 <div class="paragraph">
-<p>Se um comando <code>merge</code> falhar por qualquer motivo que não seja conflitos de mesclagem (ou seja, quando a operação de mesclagem nem sequer foi iniciada), ele será reagendado imediatamente.</p>
+<p>Se um comando <span class='synopsis'><code>merge</code></span> falhar por qualquer motivo que não seja conflitos de mesclagem (ou seja, quando a operação de mesclagem nem sequer foi iniciada), ele será reagendado imediatamente.</p>
 </div>
 <div class="paragraph">
-<p>É predefinido que o comando <code>merge</code> use a estratégia de mesclagem <code>ort</code> para mesclagens regulares e <code>octopus</code> para mesclagens "octopus". É possível especificar uma estratégia predefinida para todas as mesclagens usando o a opção <code>--strategy</code> ao invocar o rebase, ou substituir mesclagens específicas na lista interativa de comandos usando um comando <code>exec</code> para invocar o comando <code>git merge</code> explicitamente com a opção <code>--strategy</code>. Observe que, ao invocar explicitamente o comando <code>git merge</code> dessa maneira, você pode usar o fato de que as etiquetas são referências locais da árvore de trabalho (a referência <code>refs/rewritten/onto</code> corresponderia a etiqueta <code>onto</code>, por exemplo) para se referir às ramificações que deseja mesclar.</p>
+<p>É predefinido que o comando <span class='synopsis'><code>merge</code></span> use a estratégia de mesclagem <span class='synopsis'><code>ort</code></span> para mesclagens regulares e <span class='synopsis'><code>octopus</code></span> para mesclagens "octopus". É possível especificar uma estratégia predefinida para todas as mesclagens usando o a opção <span class='synopsis'><code>--strategy</code></span> ao invocar o rebase, ou substituir mesclagens específicas na lista interativa de comandos usando um comando <span class='synopsis'><code>exec</code></span> para invocar o comando <span class='synopsis'><code>git</code> <code>merge</code></span> explicitamente com a opção <span class='synopsis'><code>--strategy</code></span>. Observe que, ao invocar explicitamente o comando <span class='synopsis'><code>git</code> <code>merge</code></span> dessa maneira, você pode usar o fato de que as etiquetas são referências locais da árvore de trabalho (a referência <span class='synopsis'><code>refs/rewritten/onto</code></span> corresponderia a etiqueta <span class='synopsis'><code>onto</code></span>, por exemplo) para se referir às ramificações que deseja mesclar.</p>
 </div>
 <div class="paragraph">
-<p>Observação: o primeiro comando (<code>label onto</code>) rotula a revisão onde os commits são refeitos; O nome <code>onto</code> é apenas uma convenção, como um aceno para a opção <code>--onto</code>.</p>
+<p>Observação: o primeiro comando (<span class='synopsis'><code>label</code> <code>onto</code></span>) rotula a revisão onde os commits são refeitos; O nome <span class='synopsis'><code>onto</code></span> é apenas uma convenção, como um aceno para a opção <span class='synopsis'><code>--onto</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Também é possível introduzir commits para mesclagem completamente novos, adicionando um comando no formato <code>merge &lt;merge-head&gt;</code>. Este formulário gera uma mensagem de commit provisória e sempre abre um editor para permitir que o usuário a edite. Pode ser útil quando por exemplo, um ramo de um tópico acaba resolvendo mais de um problema e quer ser dividido em dois ou mais ramos de tópico. Considere esta lista de tarefas:</p>
+<p>Também é possível introduzir commits para mesclagem completamente novos, adicionando um comando no formato <span class='synopsis'><code>merge</code> <em>&lt;merge-head&gt;</em></span>. Este formulário gera uma mensagem de commit provisória e sempre abre um editor para permitir que o usuário a edite. Pode ser útil quando por exemplo, um ramo de um tópico acaba resolvendo mais de um problema e quer ser dividido em dois ou mais ramos de tópico. Considere esta lista de tarefas:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1394,7 +1426,7 @@ merge cmake</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/config/rebase.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/config/rebase.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1411,7 +1443,7 @@ merge cmake</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/config/sequencer.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/config/sequencer.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

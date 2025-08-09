@@ -9,6 +9,25 @@ docname: git-describe
 lang: fr
 aliases:
 - "/docs/git-describe/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: EXEMPLES
+  id: _exemples
+- text: STRATÉGIE DE RECHERCHE
+  id: _stratégie_de_recherche
+- text: BOGUES
+  id: _bogues
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -35,10 +54,10 @@ aliases:
 <p>La commande détecte l&#8217;étiquette la plus récente qui est accessible à partir d&#8217;un commit. Si l&#8217;étiquette indique le commit, seule l&#8217;étiquette s&#8217;affiche. Dans le cas contraire, elle ajoute au nom de l&#8217;étiquette le nombre de validations supplémentaires par dessus l&#8217;objet étiqueté et le nom d&#8217;objet abrégé de la validation la plus récente. Le résultat est un nom d&#8217;objet « lisible par l&#8217;homme » qui peut également être utilisé pour identifier le commit pour d&#8217;autres commandes git.</p>
 </div>
 <div class="paragraph">
-<p>Par défaut (sans --all ou --tags) <code>git describe</code> n&#8217;affiche que des étiquettes annotées. Pour plus d&#8217;informations sur la création d&#8217;étiquettes annotées, voir les options -a et -s de <a href='{{< relurl "docs/git-tag/fr" >}}'>git-tag[1]</a>.</p>
+<p>Par défaut (sans --all ou --tags) <span class='synopsis'><code>git</code> <code>describe</code></span> n&#8217;affiche que des étiquettes annotées. Pour plus d&#8217;informations sur la création d&#8217;étiquettes annotées, voir les options -a et -s de <a href='{{< relurl "docs/git-tag/fr" >}}'>git-tag[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Si l&#8217;objet donné se réfère à un objet blob, il sera décrit comme <code>&lt;commit-esque&gt;:&lt;chemin&gt;</code>, de sorte que le blob peut être trouvé à <code>&lt;chemin&gt;</code> dans le <code>&lt;commit-esque&gt;</code>, qui décrit lui-même le premier commit dans lequel ce blob apparaît dans un parcours inversé de révisions depuis HEAD.</p>
+<p>Si l&#8217;objet donné se réfère à un objet blob, il sera décrit comme <span class='synopsis'><em>&lt;commit-esque&gt;</em><code>:</code><em>&lt;chemin&gt;</em></span>, de sorte que le blob peut être trouvé à <span class='synopsis'><em>&lt;chemin&gt;</em></span> dans le <span class='synopsis'><em>&lt;commit-esque&gt;</em></span>, qui décrit lui-même le premier commit dans lequel ce blob apparaît dans un parcours inversé de révisions depuis HEAD.</p>
 </div>
 </div>
 </div>
@@ -54,7 +73,7 @@ aliases:
 <dt class="hdlist1" id="git-describe---dirtyltmarquegt"> <a class="anchor" href="#git-describe---dirtymarque"></a> <a class="anchor" href="#git-describe---dirtyltmarquegt"></a>--dirty[=&lt;marque&gt;] </dt>
 <dt class="hdlist1" id="git-describe---brokenltmarquegt"> <a class="anchor" href="#git-describe---brokenmarque"></a> <a class="anchor" href="#git-describe---brokenltmarquegt"></a>--broken[=&lt;marque&gt;] </dt>
 <dd>
-<p>Décrit l&#8217;état de l&#8217;arbre de travail. Lorsque l&#8217;arbre de travail correspond à HEAD, la sortie est la même que « git describe HEAD ». Si l&#8217;arbre de travail a la modification locale "-dirty" est ajouté. Si un dépôt est corrompu et Git ne peut pas déterminer s&#8217;il y a une modification locale, Git sort en erreur, à moins que <code>--broken</code> soit spécifié, ce qui ajoute le suffixe "-broken" à la place.</p>
+<p>Décrit l&#8217;état de l&#8217;arbre de travail. Lorsque l&#8217;arbre de travail correspond à HEAD, la sortie est la même que « git describe HEAD ». Si l&#8217;arbre de travail a la modification locale "-dirty" est ajouté. Si un dépôt est corrompu et Git ne peut pas déterminer s&#8217;il y a une modification locale, Git sort en erreur, à moins que <span class='synopsis'><code>--broken</code></span> soit spécifié, ce qui ajoute le suffixe "-broken" à la place.</p>
 </dd>
 <dt class="hdlist1" id="git-describe---all"> <a class="anchor" href="#git-describe---all"></a>--all </dt>
 <dd>
@@ -90,11 +109,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-describe---matchltmotifgt"> <a class="anchor" href="#git-describe---matchmotif"></a> <a class="anchor" href="#git-describe---matchltmotifgt"></a>--match &lt;motif&gt; </dt>
 <dd>
-<p>Ne considérez que les étiquettes correspondant au motif <code>glob(7)</code> donné, en excluant le préfixe "refs/tags/". Si utilisé avec <code>--all</code>, prendre également en compte les branches locales et les références de suivi à distance correspondant au motif, en excluant respectivement les préfixes "refs/heads/" et "refs/remotes/" ; les références d&#8217;autres types ne sont jamais considérées. Si donné plusieurs fois, une liste de motifs sera accumulée, et les étiquettes correspondant à l&#8217;un des motifs seront prises en compte. Utiliser <code>--no-match</code> pour effacer et réinitialiser la liste des motifs.</p>
+<p>Ne considérez que les étiquettes correspondant au motif <span class='synopsis'><code>glob</code>(<code>7</code>)</span> donné, en excluant le préfixe "refs/tags/". Si utilisé avec <span class='synopsis'><code>--all</code></span>, prendre également en compte les branches locales et les références de suivi à distance correspondant au motif, en excluant respectivement les préfixes "refs/heads/" et "refs/remotes/" ; les références d&#8217;autres types ne sont jamais considérées. Si donné plusieurs fois, une liste de motifs sera accumulée, et les étiquettes correspondant à l&#8217;un des motifs seront prises en compte. Utiliser <span class='synopsis'><code>--no-match</code></span> pour effacer et réinitialiser la liste des motifs.</p>
 </dd>
 <dt class="hdlist1" id="git-describe---excludeltmotifgt"> <a class="anchor" href="#git-describe---excludemotif"></a> <a class="anchor" href="#git-describe---excludeltmotifgt"></a>--exclude &lt;motif&gt; </dt>
 <dd>
-<p>Ne pas considérer les étiquettes qui correspondent au modèle <code>glob(7)</code> donné, à l&#8217;exclusion du préfixe "refs/tags/". Si utilisé avec <code>--all</code>, ne pas tenir compte non plus des branches locales et des références de suivi à distance correspondant au motif, à l&#8217;exclusion respectivement des préfixes "refs/heads/" et "refs/remotes/" ; les références d&#8217;autres types ne sont jamais considérées. Si donné plusieurs fois, une liste de motifs sera accumulée et les étiquettes correspondant à l&#8217;un ou l&#8217;autre de ces motifs seront exclues. Si combiné avec --match, une étiquette sera prise en compte si elle correspond à au moins un motif --match et ne correspond à aucun des motifs --exclude. Utilisez <code>--no-exclude</code> pour effacer et réinitialiser la liste des motifs.</p>
+<p>Ne pas considérer les étiquettes qui correspondent au modèle <span class='synopsis'><code>glob</code>(<code>7</code>)</span> donné, à l&#8217;exclusion du préfixe "refs/tags/". Si utilisé avec <span class='synopsis'><code>--all</code></span>, ne pas tenir compte non plus des branches locales et des références de suivi à distance correspondant au motif, à l&#8217;exclusion respectivement des préfixes "refs/heads/" et "refs/remotes/" ; les références d&#8217;autres types ne sont jamais considérées. Si donné plusieurs fois, une liste de motifs sera accumulée et les étiquettes correspondant à l&#8217;un ou l&#8217;autre de ces motifs seront exclues. Si combiné avec --match, une étiquette sera prise en compte si elle correspond à au moins un motif --match et ne correspond à aucun des motifs --exclude. Utilisez <span class='synopsis'><code>--no-exclude</code></span> pour effacer et réinitialiser la liste des motifs.</p>
 </dd>
 <dt class="hdlist1" id="git-describe---always"> <a class="anchor" href="#git-describe---always"></a>--always </dt>
 <dd>
@@ -127,7 +146,7 @@ v1.0.4-14-g2414721</pre>
 <p>Le nombre de commits supplémentaires est le nombre de commits qui seraient
 affichés par "git log v1.0.4..parent". Le suffixe de hachage est "-g"<br>
 abréviation unique pour le commit sommet du parent (qui était
-<code>2414721b194453f058079d897d13c4e377f92dc6</code>). La longueur de l&#8217;abréviation
+<span class='synopsis'><code>2414721b194453f058079d897d13c4e377f92dc6</code></span>). La longueur de l&#8217;abréviation
 s&#8217;échelonne au fur et à mesure que le dépôt grandit, en utilisant le nombre
 approximatif d&#8217;objets dans le dépôt et un peu de mathématiques autour du
 paradoxe de l&#8217;anniversaire, et la valeur par défaut est de 7. Le préfixe "g"
@@ -180,7 +199,7 @@ tags/v1.0.0</pre>
 <p>Pour chaque commit-esque fourni,<em>git describe</em> cherchera d&#8217;abord une étiquette qui marque exactement ce commit. Les étiquettes annotées seront toujours préférées aux étiquettes légères, et les étiquettes avec des dates plus récentes seront toujours préférées aux étiquettes avec des dates plus anciennes. Si une correspondance exacte est trouvée, son nom sera affiché et la recherche s&#8217;arrêtera.</p>
 </div>
 <div class="paragraph">
-<p>Si une correspondance exacte n&#8217;a pas été trouvée,<em>git describe</em> reviendra dans l&#8217;historique des commits pour localiser un commit ancêtre qui a été étiqueté. L&#8217;étiquette de l&#8217;ancêtre sera affichée avec une abréviation du SHA1 du commit-esque fourni. Si <code>--first-parent</code> a été spécifié alors la marche ne considérera que le premier parent de chaque commit.</p>
+<p>Si une correspondance exacte n&#8217;a pas été trouvée,<em>git describe</em> reviendra dans l&#8217;historique des commits pour localiser un commit ancêtre qui a été étiqueté. L&#8217;étiquette de l&#8217;ancêtre sera affichée avec une abréviation du SHA1 du commit-esque fourni. Si <span class='synopsis'><code>--first-parent</code></span> a été spécifié alors la marche ne considérera que le premier parent de chaque commit.</p>
 </div>
 <div class="paragraph">
 <p>Si plusieurs étiquettes ont été trouvées pendant la marche, alors l&#8217;étiquette qui a le moins de commits différents du commit-esque d&#8217;entrée sera sélectionnée et affichée. Ici, le moins de commits différents est défini comme le nombre de commits qui seraient affichés par &#8216;git log étiquette..commit-esque&#8217; soit le plus petit nombre de commits possible.</p>

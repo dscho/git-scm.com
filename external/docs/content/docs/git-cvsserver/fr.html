@@ -9,6 +9,35 @@ docname: git-cvsserver
 lang: fr
 aliases:
 - "/docs/git-cvsserver/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: LIMITATIONS
+  id: _limitations
+- text: INSTALLATION
+  id: _installation
+- text: MOTEUR DE BASE DE DONNÉES
+  id: dbbackend
+- text: ENVIRONNEMENT
+  id: _environnement
+- text: NOTES POUR LE CLIENT ECLIPSE CVS
+  id: _notes_pour_le_client_eclipse_cvs
+- text: CLIENTS CONNUS POUR FONCTIONNER
+  id: _clients_connus_pour_fonctionner
+- text: OPÉRATIONS SUPPORTÉES
+  id: _opérations_supportées
+- text: DÉPENDANCES
+  id: _dépendances
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -74,7 +103,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cvsserver---export-all"> <a class="anchor" href="#git-cvsserver---export-all"></a>--export-all </dt>
 <dd>
-<p>Ne pas vérifier <code>gitcvs.enabled</code> dans la configuration. Vous devez également spécifier une liste de répertoires autorisés (voir ci-dessous) si vous voulez utiliser cette option.</p>
+<p>Ne pas vérifier <span class='synopsis'><code>gitcvs.enabled</code></span> dans la configuration. Vous devez également spécifier une liste de répertoires autorisés (voir ci-dessous) si vous voulez utiliser cette option.</p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver--V"> <a class="anchor" href="#git-cvsserver--V"></a>-V </dt>
 <dt class="hdlist1" id="git-cvsserver---version"> <a class="anchor" href="#git-cvsserver---version"></a>--version </dt>
@@ -89,7 +118,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cvsserver-ltrpertoiregt"> <a class="anchor" href="#git-cvsserver-rpertoire"></a> <a class="anchor" href="#git-cvsserver-ltrpertoiregt"></a>&lt;répertoire&gt; </dt>
 <dd>
-<p>Les arguments restants fournissent une liste de répertoires. Si aucun répertoire n&#8217;est donné, alors tous sont autorisés. Les dépôts dans ces répertoires nécessitent toujours l&#8217;option de configuration <code>gitcvs.enabled</code>, à moins que <code>--export-all</code> soit spécifié.</p>
+<p>Les arguments restants fournissent une liste de répertoires. Si aucun répertoire n&#8217;est donné, alors tous sont autorisés. Les dépôts dans ces répertoires nécessitent toujours l&#8217;option de configuration <span class='synopsis'><code>gitcvs.enabled</code></span>, à moins que <span class='synopsis'><code>--export-all</code></span> soit spécifié.</p>
 </dd>
 </dl>
 </div>
@@ -162,7 +191,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Aucune configuration particulière n&#8217;est nécessaire pour l&#8217;accès SSH, si ce n&#8217;est d&#8217;avoir les outils Git dans le PATH. Si vous avez des clients qui n&#8217;acceptent pas la variable d&#8217;environnement CVS_SERVER, vous pouvez renommer <em>git-cvsserver</em> ; en <code>cvs</code>.</p>
+<p>Aucune configuration particulière n&#8217;est nécessaire pour l&#8217;accès SSH, si ce n&#8217;est d&#8217;avoir les outils Git dans le PATH. Si vous avez des clients qui n&#8217;acceptent pas la variable d&#8217;environnement CVS_SERVER, vous pouvez renommer <em>git-cvsserver</em> ; en <span class='synopsis'><code>cvs</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Note : Les versions plus récentes de CVS (&gt;= 1.12.11) supportent également la spécification de CVS_SERVER directement dans CVSROOT comme</p>
@@ -173,7 +202,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Cela présente l&#8217;avantage d&#8217;être enregistré dans vos fichiers <em>CVS/Root</em> ; et vous n&#8217;avez pas besoin de vous soucier de toujours définir la bonne variable d&#8217;environnement. Les utilisateurs SSH limités à <em>git-shell</em> n&#8217;ont pas besoin de remplacer la valeur par défaut par CVS_SERVER (et ne devraient pas le faire) car <em>git-shell</em> comprend que <code>cvs</code> signifie <em>git-cvsserver</em> et prétend que l&#8217;autre extrémité exécute mieux le vrai <em>cvs</em> ;.</p>
+<p>Cela présente l&#8217;avantage d&#8217;être enregistré dans vos fichiers <em>CVS/Root</em> ; et vous n&#8217;avez pas besoin de vous soucier de toujours définir la bonne variable d&#8217;environnement. Les utilisateurs SSH limités à <em>git-shell</em> n&#8217;ont pas besoin de remplacer la valeur par défaut par CVS_SERVER (et ne devraient pas le faire) car <em>git-shell</em> comprend que <span class='synopsis'><code>cvs</code></span> signifie <em>git-cvsserver</em> et prétend que l&#8217;autre extrémité exécute mieux le vrai <em>cvs</em> ;.</p>
 </div>
 </div>
 </div>
@@ -194,7 +223,7 @@ aliases:
 <p>Note : vous devez vous assurer que chaque utilisateur qui va invoquer <em>git-cvsserver</em> a un accès en écriture au fichier journal et à la base de données (voir <a href="#dbbackend">Moteur de base de données</a>). Si vous souhaitez offrir un accès en écriture via SSH, les utilisateurs doivent bien sûr également disposer d&#8217;un accès en écriture au dépôt Git lui-même.</p>
 </div>
 <div class="paragraph">
-<p>Vous devez également vous assurer que chaque dépôt est nu "bare" (sans fichier d&#8217;index Git) pour que <code>cvs commit</code> fonctionne. Voir <a href='{{< relurl "docs/gitcvs-migration/fr" >}}'>gitcvs-migration[7]</a>.</p>
+<p>Vous devez également vous assurer que chaque dépôt est nu "bare" (sans fichier d&#8217;index Git) pour que <span class='synopsis'><code>cvs</code> <code>commit</code></span> fonctionne. Voir <a href='{{< relurl "docs/gitcvs-migration/fr" >}}'>gitcvs-migration[7]</a>.</p>
 </div>
 <div id="configaccessmethod" class="paragraph">
 <p>Toutes les variables de configuration peuvent également être remplacées pour une méthode d&#8217;accès spécifique. Les noms de méthode valides sont "ext" (pour l&#8217;accès SSH) et "pserver". L&#8217;exemple de configuration suivant désactiverait l&#8217;accès via pserver tout en autorisant l&#8217;accès via SSH.</p>
@@ -228,7 +257,7 @@ aliases:
 <p>Pour les clients SSH qui feront des commits, assurez-vous que leurs fichiers .ssh/environnement côté serveur (ou .bashrc, etc., selon leur shell spécifique) exportent les valeurs appropriées pour GIT_AUTHOR_NAME, GIT_AUTHOR_EMAIL, GIT_COMMITTER_NAME et GIT_COMMITTER_EMAIL. Pour les clients SSH dont le shell de connexion est bash, .bashrc peut être une alternative raisonnable.</p>
 </li>
 <li>
-<p>Les clients devraient maintenant pouvoir extraire le projet. Utilisez le nom du <em>module</em> CVS pour indiquer quel <em>head</em> Git vous voulez extraire. Ceci définit également le nom de votre répertoire nouvellement extrait, à moins que vous ne l&#8217;indiquiez autrement avec <code>-d &lt;nom-répertoire&gt;</code>. Par exemple, ceci extrait la branche <em>master</em> dans le répertoire <code>master-projet</code> :</p>
+<p>Les clients devraient maintenant pouvoir extraire le projet. Utilisez le nom du <em>module</em> CVS pour indiquer quel <em>head</em> Git vous voulez extraire. Ceci définit également le nom de votre répertoire nouvellement extrait, à moins que vous ne l&#8217;indiquiez autrement avec <span class='synopsis'><code>-d</code> <em>&lt;nom-répertoire&gt;</em></span>. Par exemple, ceci extrait la branche <em>master</em> dans le répertoire <span class='synopsis'><code>master-projet</code></span> :</p>
 <div class="listingblock">
 <div class="content">
 <pre>   cvs co -d master-projet master</pre>
@@ -246,16 +275,16 @@ aliases:
 <p><em>git-cvsserver</em> utilise une base de données par tête Git (c&#8217;est-à-dire le module CVS) pour stocker des informations sur le dépôt afin de maintenir des numéros de révision CVS cohérents. La base de données doit être mise à jour (c&#8217;est-à-dire écrite) après chaque validation.</p>
 </div>
 <div class="paragraph">
-<p>Si le commit est effectué directement en utilisant <code>git</code> (par opposition à l&#8217;utilisation de <em>git-cvsserver</em>), la mise à jour devra se produire lors du prochain accès au dépôt par <em>git-cvsserver</em>, indépendamment de la méthode d&#8217;accès et de l&#8217;opération demandée.</p>
+<p>Si le commit est effectué directement en utilisant <span class='synopsis'><code>git</code></span> (par opposition à l&#8217;utilisation de <em>git-cvsserver</em>), la mise à jour devra se produire lors du prochain accès au dépôt par <em>git-cvsserver</em>, indépendamment de la méthode d&#8217;accès et de l&#8217;opération demandée.</p>
 </div>
 <div class="paragraph">
 <p>Cela signifie que même si vous n&#8217;offrez qu&#8217;un accès en lecture (par exemple en utilisant la méthode pserver), <em>git-cvsserver</em> doit avoir un accès en écriture à la base de données pour fonctionner de manière fiable (sinon vous devez vous assurer que la base de données est à jour à chaque fois que <em>git-cvsserver</em> est exécuté).</p>
 </div>
 <div class="paragraph">
-<p>Par défaut, il utilise des bases de données SQLite dans le répertoire Git, nommées <code>gitcvs.&lt;nom-de-module&gt;.sqlite</code>. Notez que le moteur SQLite crée des fichiers temporaires dans le même répertoire que le fichier de base de données lors de l&#8217;écriture. Il pourrait donc ne pas être suffisant d&#8217;accorder aux utilisateurs utilisant <em>git-cvsserver</em> un accès en écriture au fichier de base de données sans leur accorder également un accès en écriture au répertoire.</p>
+<p>Par défaut, il utilise des bases de données SQLite dans le répertoire Git, nommées <span class='synopsis'><code>gitcvs.</code><em>&lt;nom-de-module&gt;</em><code>.sqlite</code></span>. Notez que le moteur SQLite crée des fichiers temporaires dans le même répertoire que le fichier de base de données lors de l&#8217;écriture. Il pourrait donc ne pas être suffisant d&#8217;accorder aux utilisateurs utilisant <em>git-cvsserver</em> un accès en écriture au fichier de base de données sans leur accorder également un accès en écriture au répertoire.</p>
 </div>
 <div class="paragraph">
-<p>La base de données ne peut pas être régénérée de manière fiable sous une forme cohérente après que la branche qu&#8217;elle suit a changé. Exemple : pour les branches fusionnées, <em>git-cvsserver</em> ne suit qu&#8217;une branche de développement, et après un <em>git merge</em> une base de données mise à jour de manière incrémentielle peut suivre une branche différente de celle d&#8217;une base de données régénérée à partir de zéro, ce qui entraîne des numéros de révision CVS incohérents. <code>git-cvsserver</code> n&#8217;a aucun moyen de savoir quelle branche il aurait choisie s&#8217;il avait été lancé de manière incrémentale avant la fusion. Donc si vous devez régénérer entièrement ou partiellement (à partir d&#8217;une ancienne sauvegarde) la base de données, vous devez vous méfier des bacs à sable CVS préexistants.</p>
+<p>La base de données ne peut pas être régénérée de manière fiable sous une forme cohérente après que la branche qu&#8217;elle suit a changé. Exemple : pour les branches fusionnées, <em>git-cvsserver</em> ne suit qu&#8217;une branche de développement, et après un <em>git merge</em> une base de données mise à jour de manière incrémentielle peut suivre une branche différente de celle d&#8217;une base de données régénérée à partir de zéro, ce qui entraîne des numéros de révision CVS incohérents. <span class='synopsis'><code>git-cvsserver</code></span> n&#8217;a aucun moyen de savoir quelle branche il aurait choisie s&#8217;il avait été lancé de manière incrémentale avant la fusion. Donc si vous devez régénérer entièrement ou partiellement (à partir d&#8217;une ancienne sauvegarde) la base de données, vous devez vous méfier des bacs à sable CVS préexistants.</p>
 </div>
 <div class="paragraph">
 <p>Vous pouvez configurer le moteur de la base de données avec les variables de configuration suivantes :</p>
@@ -263,25 +292,25 @@ aliases:
 <div class="sect2">
 <h3 id="_configuration_du_moteur_de_la_base_de_données"><a class="anchor" href="#_configuration_du_moteur_de_la_base_de_données"></a>Configuration du moteur de la base de données</h3>
 <div class="paragraph">
-<p><em>git-cvsserver</em> utilise le module Perl DBI. Veuillez également lire sa documentation si vous modifiez ces variables, en particulier à propos de <code>DBI-&gt;connect()</code>.</p>
+<p><em>git-cvsserver</em> utilise le module Perl DBI. Veuillez également lire sa documentation si vous modifiez ces variables, en particulier à propos de <span class='synopsis'><em>DBI-&gt;connect()</em></span>.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-cvsserver-gitcvsdbName"> <a class="anchor" href="#git-cvsserver-gitcvsdbName"></a>gitcvs.dbName </dt>
 <dd>
-<p>Nom de la base de données. La signification exacte dépend du pilote de base de données sélectionné, pour SQLite il s&#8217;agit d&#8217;un nom de fichier. Supporte la substitution de variables (voir ci-dessous). Ne peut pas contenir de point-virgule (<code>;</code>). Valeur par défaut : <em>%Ggitcvs.%m.sqlite</em></p>
+<p>Nom de la base de données. La signification exacte dépend du pilote de base de données sélectionné, pour SQLite il s&#8217;agit d&#8217;un nom de fichier. Supporte la substitution de variables (voir ci-dessous). Ne peut pas contenir de point-virgule (<span class='synopsis'><em>;</em></span>). Valeur par défaut : <em>%Ggitcvs.%m.sqlite</em></p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver-gitcvsdbDriver"> <a class="anchor" href="#git-cvsserver-gitcvsdbDriver"></a>gitcvs.dbDriver </dt>
 <dd>
-<p>Pilote DBI utilisé. Vous pouvez spécifier n&#8217;importe quel pilote disponible ici, mais il est possible qu&#8217;il ne fonctionne pas. cvsserver a été testé avec <em>DBD::SQLite</em>, il a été signalé comme fonctionnant avec <em>DBD::Pg</em> et il a été signalé comme ne fonctionnant <strong>pas</strong> avec <em>DBD::mysql</em>. Veuillez considérer ceci comme une fonctionnalité expérimentale. Ne peut pas contenir de deux-points (<code>:</code>). Valeur par défaut : <em>SQLite</em></p>
+<p>Pilote DBI utilisé. Vous pouvez spécifier n&#8217;importe quel pilote disponible ici, mais il est possible qu&#8217;il ne fonctionne pas. cvsserver a été testé avec <em>DBD::SQLite</em>, il a été signalé comme fonctionnant avec <em>DBD::Pg</em> et il a été signalé comme ne fonctionnant <strong>pas</strong> avec <em>DBD::mysql</em>. Veuillez considérer ceci comme une fonctionnalité expérimentale. Ne peut pas contenir de deux-points (<span class='synopsis'><code>:</code></span>). Valeur par défaut : <em>SQLite</em></p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver-gitcvsdbuser"> <a class="anchor" href="#git-cvsserver-gitcvsdbuser"></a>gitcvs.dbuser </dt>
 <dd>
-<p>Utilisateur de la base de données. Seulement utile si vous définissez <code>dbDriver</code>, puisque SQLite n&#8217;a pas de concept d&#8217;utilisateur de base de données. Supporte la substitution de variables (voir ci-dessous).</p>
+<p>Utilisateur de la base de données. Seulement utile si vous définissez <span class='synopsis'><code>dbDriver</code></span>, puisque SQLite n&#8217;a pas de concept d&#8217;utilisateur de base de données. Supporte la substitution de variables (voir ci-dessous).</p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver-gitcvsdbPass"> <a class="anchor" href="#git-cvsserver-gitcvsdbPass"></a>gitcvs.dbPass </dt>
 <dd>
-<p>Mot de passe de la base de données. Seulement utile si vous définissez <code>dbDriver</code>, puisque SQLite n&#8217;a pas de concept de mot de passe de base de données.</p>
+<p>Mot de passe de la base de données. Seulement utile si vous définissez <span class='synopsis'><code>dbDriver</code></span>, puisque SQLite n&#8217;a pas de concept de mot de passe de base de données.</p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver-gitcvsdbTableNamePrefix"> <a class="anchor" href="#git-cvsserver-gitcvsdbTableNamePrefix"></a>gitcvs.dbTableNamePrefix </dt>
 <dd>
@@ -295,7 +324,7 @@ aliases:
 <div class="sect3">
 <h4 id="_substitution_de_variables"><a class="anchor" href="#_substitution_de_variables"></a>Substitution de variables</h4>
 <div class="paragraph">
-<p>Dans <code>dbDriver</code> et <code>dbUser</code>, vous pouvez utiliser les variables suivantes :</p>
+<p>Dans <span class='synopsis'><code>dbDriver</code></span> et <span class='synopsis'><code>dbUser</code></span>, vous pouvez utiliser les variables suivantes :</p>
 </div>
 <div class="dlist">
 <dl>
@@ -305,7 +334,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cvsserver-g"> <a class="anchor" href="#git-cvsserver-g"></a>%g </dt>
 <dd>
-<p>Nom du répertoire Git, où tous les caractères sauf les alphanumériques, <code>.</code>, et <code>-</code> sont remplacés par <code>_</code> (cela devrait rendre plus facile l&#8217;utilisation du nom du répertoire dans un nom de fichier si on le souhaite)</p>
+<p>Nom du répertoire Git, où tous les caractères sauf les alphanumériques, <span class='synopsis'><code>.</code></span>, et <span class='synopsis'><code>-</code></span> sont remplacés par <span class='synopsis'><code>_</code></span> (cela devrait rendre plus facile l&#8217;utilisation du nom du répertoire dans un nom de fichier si on le souhaite)</p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver-m"> <a class="anchor" href="#git-cvsserver-m"></a>%m </dt>
 <dd>
@@ -339,7 +368,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cvsserver-GITCVSSERVERROOT"> <a class="anchor" href="#git-cvsserver-GITCVSSERVERROOT"></a>GIT_CVSSERVER_ROOT </dt>
 <dd>
-<p>This variable specifies a single directory, replacing the <code>&lt;directory&gt;...</code> argument list. The repository still requires the <code>gitcvs.enabled</code> config option, unless <code>--export-all</code> is specified.</p>
+<p>This variable specifies a single directory, replacing the <span class='synopsis'><em>&lt;directory&gt;</em>...</span> argument list. The repository still requires the <span class='synopsis'><code>gitcvs.enabled</code></span> config option, unless <span class='synopsis'><code>--export-all</code></span> is specified.</p>
 </dd>
 </dl>
 </div>
@@ -366,15 +395,15 @@ aliases:
 <p>Parcourez les <em>modules</em> disponibles. Cela vous donnera une liste des têtes dans le dépôt. Vous ne pourrez pas parcourir l&#8217;arbre à partir de là. Seulement les têtes.</p>
 </li>
 <li>
-<p>Choisissez <code>HEAD</code> pour la branche/étiquette à extraire. Décochez la case "launch commit wizard" pour éviter de valider le fichier .project.</p>
+<p>Choisissez <span class='synopsis'><code>HEAD</code></span> pour la branche/étiquette à extraire. Décochez la case "launch commit wizard" pour éviter de valider le fichier .project.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Notes sur le protocole : si vous utilisez un accès anonyme via pserver, il suffit de le sélectionner. Ceux qui utilisent un accès SSH doivent choisir le protocole <em>ext</em> et configurer l&#8217;accès <em>ext</em> dans le panneau Preferences&#8594;Team&#8594;CVS&#8594;ExtConnection. Définissez CVS_SERVER à "<code>git cvsserver</code>". Notez que la prise en charge des mots de passe n&#8217;est pas bonne lorsque vous utilisez <em>ext</em> vous voudrez certainement avoir des clés SSH configurées.</p>
+<p>Notes sur le protocole : si vous utilisez un accès anonyme via pserver, il suffit de le sélectionner. Ceux qui utilisent un accès SSH doivent choisir le protocole <em>ext</em> et configurer l&#8217;accès <em>ext</em> dans le panneau Preferences&#8594;Team&#8594;CVS&#8594;ExtConnection. Définissez CVS_SERVER à "<span class='synopsis'><code>git</code> <code>cvsserver</code></span>". Notez que la prise en charge des mots de passe n&#8217;est pas bonne lorsque vous utilisez <em>ext</em> vous voudrez certainement avoir des clés SSH configurées.</p>
 </div>
 <div class="paragraph">
-<p>Alternativement, vous pouvez simplement utiliser le protocole non standard extssh que Eclipse propose. Dans ce cas, CVS_SERVER est ignoré, et vous devrez remplacer l&#8217;utilitaire cvs sur le serveur par <em>git-cvsserver</em> ou manipuler votre <code>.bashrc</code> pour que l&#8217;appel à <em>cvs</em> appelle effectivement <em>git-cvsserver</em>.</p>
+<p>Alternativement, vous pouvez simplement utiliser le protocole non standard extssh que Eclipse propose. Dans ce cas, CVS_SERVER est ignoré, et vous devrez remplacer l&#8217;utilitaire cvs sur le serveur par <em>git-cvsserver</em> ou manipuler votre <span class='synopsis'><code>.bashrc</code></span> pour que l&#8217;appel à <em>cvs</em> appelle effectivement <em>git-cvsserver</em>.</p>
 </div>
 </div>
 </div>
@@ -412,7 +441,7 @@ aliases:
 <p>Notez qu&#8217;il y a deux façons d&#8217;extraire une branche particulière. Comme décrit ailleurs sur cette page, le paramètre "module" de cvs checkout est interprété comme un nom de branche, et il devient la branche principale. Elle reste la branche principale pour un bac à sable donné même si vous rendez temporairement une autre branche collante avec cvs update -r. Alternativement, l&#8217;argument -r peut indiquer une autre branche à vérifier, même si le module est toujours la branche "principale". Compromis (tel qu&#8217;implémenté actuellement) : chaque nouveau "module" crée une nouvelle base de données sur le disque avec un historique pour le module donné, et après la création de la base de données, les opérations sur cette branche principale sont rapides. Ou alternativement, -r ne prend pas d&#8217;espace disque supplémentaire, mais peut être significativement plus lent pour de nombreuses opérations, comme cvs update.</p>
 </div>
 <div class="paragraph">
-<p>Si vous voulez faire référence à une spécification de référence git qui contient des caractères non autorisés par CVS, vous avez deux options. Premièrement, il est possible de fournir la spécification de référence git directement à l&#8217;argument CVS -r approprié ; certains clients CVS ne semblent pas faire beaucoup de vérification de l&#8217;intégrité de l&#8217;argument. Deuxièmement, si cela échoue, vous pouvez utiliser un mécanisme spécial d&#8217;échappement de caractères qui n&#8217;utilise que les caractères valides dans les étiquettes CVS. Une séquence de 4 ou 5 caractères de la forme (trait de soulignement (<code>"_"</code>), tiret (<code>"-"</code>), un ou deux caractères, et tiret (<code>"-"</code>)) peut coder divers caractères basés sur les une ou deux lettres : <code>"s"</code> pour la barre oblique (<code>"/"</code>), <code>"p"</code> pour le point (<code>" ."</code>), <code>"u"</code> pour le trait de soulignement (<code>"_"</code>), ou deux chiffres hexadécimaux pour toute valeur d&#8217;octet (typiquement un nombre ASCII, ou peut-être une partie d&#8217;un caractère codé UTF-8).</p>
+<p>Si vous voulez faire référence à une spécification de référence git qui contient des caractères non autorisés par CVS, vous avez deux options. Premièrement, il est possible de fournir la spécification de référence git directement à l&#8217;argument CVS -r approprié ; certains clients CVS ne semblent pas faire beaucoup de vérification de l&#8217;intégrité de l&#8217;argument. Deuxièmement, si cela échoue, vous pouvez utiliser un mécanisme spécial d&#8217;échappement de caractères qui n&#8217;utilise que les caractères valides dans les étiquettes CVS. Une séquence de 4 ou 5 caractères de la forme (trait de soulignement (<span class='synopsis'><code>"_"</code></span>), tiret (<span class='synopsis'><code>"-"</code></span>), un ou deux caractères, et tiret (<span class='synopsis'><code>"-"</code></span>)) peut coder divers caractères basés sur les une ou deux lettres : <span class='synopsis'><code>"s"</code></span> pour la barre oblique (<span class='synopsis'><code>"/"</code></span>), <span class='synopsis'><code>"p"</code></span> pour le point (<span class='synopsis'><code>"</code> <code>."</code></span>), <span class='synopsis'><code>"u"</code></span> pour le trait de soulignement (<span class='synopsis'><code>"_"</code></span>), ou deux chiffres hexadécimaux pour toute valeur d&#8217;octet (typiquement un nombre ASCII, ou peut-être une partie d&#8217;un caractère codé UTF-8).</p>
 </div>
 <div class="paragraph">
 <p>Les anciennes opérations de surveillance ne sont pas prises en charge (édition, surveillance et connexes). Les exportations et l&#8217;étiquetage (étiquettes et branches) ne sont pas supportés à ce stade.</p>
@@ -420,16 +449,16 @@ aliases:
 <div class="sect2">
 <h3 id="_conversions_de_fin_de_ligne_crlf"><a class="anchor" href="#_conversions_de_fin_de_ligne_crlf"></a>Conversions de fin de ligne CRLF</h3>
 <div class="paragraph">
-<p>Par défaut, le serveur laisse le mode <code>-k</code> vide pour tous les fichiers, ce qui amène le client CVS à les traiter comme des fichiers texte, sujets à une conversion de fin de ligne sur certaines plateformes.</p>
+<p>Par défaut, le serveur laisse le mode <span class='synopsis'><code>-k</code></span> vide pour tous les fichiers, ce qui amène le client CVS à les traiter comme des fichiers texte, sujets à une conversion de fin de ligne sur certaines plateformes.</p>
 </div>
 <div class="paragraph">
-<p>Vous pouvez faire en sorte que le serveur utilise les attributs de conversion de fin de ligne pour définir les modes <code>-k</code> des fichiers en définissant la variable de configuration <code>gitcvs.usecrlfattr</code>. Voir <a href='{{< relurl "docs/gitattributes/fr" >}}'>gitattributes[5]</a> pour plus d&#8217;informations sur la conversion de fin de ligne.</p>
+<p>Vous pouvez faire en sorte que le serveur utilise les attributs de conversion de fin de ligne pour définir les modes <span class='synopsis'><code>-k</code></span> des fichiers en définissant la variable de configuration <span class='synopsis'><code>gitcvs.usecrlfattr</code></span>. Voir <a href='{{< relurl "docs/gitattributes/fr" >}}'>gitattributes[5]</a> pour plus d&#8217;informations sur la conversion de fin de ligne.</p>
 </div>
 <div class="paragraph">
-<p>Alternativement, si la configuration <code>gitcvs.usecrlfattr</code> n&#8217;est pas activée ou si les attributs ne permettent pas la détection automatique pour un nom de fichier, alors le serveur utilise la configuration <code>gitcvs.allBinary</code> pour le paramètre par défaut. Si <code>gitcvs.allBinary</code> est défini, alors les fichiers qui ne sont pas spécifiés autrement seront par défaut en mode <em>-kb</em>. Sinon, le mode <code>-k</code> est laissé vide. Mais si <code>gitcvs.allBinary</code> est défini à "guess", alors le mode <code>-k</code> correct sera deviné en fonction du contenu du fichier.</p>
+<p>Alternativement, si la configuration <span class='synopsis'><code>gitcvs.usecrlfattr</code></span> n&#8217;est pas activée ou si les attributs ne permettent pas la détection automatique pour un nom de fichier, alors le serveur utilise la configuration <span class='synopsis'><code>gitcvs.allBinary</code></span> pour le paramètre par défaut. Si <span class='synopsis'><code>gitcvs.allBinary</code></span> est défini, alors les fichiers qui ne sont pas spécifiés autrement seront par défaut en mode <em>-kb</em>. Sinon, le mode <span class='synopsis'><code>-k</code></span> est laissé vide. Mais si <span class='synopsis'><code>gitcvs.allBinary</code></span> est défini à "guess", alors le mode <span class='synopsis'><code>-k</code></span> correct sera deviné en fonction du contenu du fichier.</p>
 </div>
 <div class="paragraph">
-<p>Pour une meilleure cohérence avec <em>cvs</em>, il est probablement préférable de remplacer les valeurs par défaut en mettant <code>gitcvs.usecrlfattr</code> à true, et <code>gitcvs.allBinary</code> à "guess".</p>
+<p>Pour une meilleure cohérence avec <em>cvs</em>, il est probablement préférable de remplacer les valeurs par défaut en mettant <span class='synopsis'><code>gitcvs.usecrlfattr</code></span> à true, et <span class='synopsis'><code>gitcvs.allBinary</code></span> à "guess".</p>
 </div>
 </div>
 </div>

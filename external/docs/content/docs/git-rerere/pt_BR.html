@@ -9,6 +9,19 @@ docname: git-rerere
 lang: pt_BR
 aliases:
 - "/docs/git-rerere/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: COMANDOS
+  id: _comandos
+- text: DISCUSSÃO
+  id: _discussão
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -42,7 +55,7 @@ aliases:
 <div class="title">Note</div>
 </td>
 <td class="content">
-Você precisa definir a variável de configuração <code>rerere.enabled</code> para ativar este comando.
+Você precisa definir a variável de configuração <span class='synopsis'><code>rerere.enabled</code></span> para ativar este comando.
 </td>
 </tr>
 </table>
@@ -53,7 +66,7 @@ Você precisa definir a variável de configuração <code>rerere.enabled</code> 
 <h2 id="_comandos"><a class="anchor" href="#_comandos"></a>COMANDOS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Normalmente, o comando <code>git rerere</code> é executado sem argumentos ou intervenção do usuário. No entanto, ele tem vários comandos que lhe permitem interagir com seu estado de funcionamento.</p>
+<p>Normalmente, o comando <span class='synopsis'><code>git</code> <code>rerere</code></span> é executado sem argumentos ou intervenção do usuário. No entanto, ele tem vários comandos que lhe permitem interagir com seu estado de funcionamento.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -67,7 +80,7 @@ Você precisa definir a variável de configuração <code>rerere.enabled</code> 
 </dd>
 <dt class="hdlist1" id="git-rerere-emdiffem"> <a class="anchor" href="#git-rerere-diff"></a> <a class="anchor" href="#git-rerere-emdiffem"></a><em>diff</em> </dt>
 <dd>
-<p>Exibe as diferenças (diffs) para a condição atual da resolução. É útil para rastrear o que foi alterado enquanto o usuário está resolvendo conflitos. Argumentos adicionais são passados diretamente para o comando <em>diff</em> do sistema instalado no <code>PATH</code>.</p>
+<p>Exibe as diferenças (diffs) para a condição atual da resolução. É útil para rastrear o que foi alterado enquanto o usuário está resolvendo conflitos. Argumentos adicionais são passados diretamente para o comando <em>diff</em> do sistema instalado no <span class='synopsis'><code>PATH</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-rerere-emstatusem"> <a class="anchor" href="#git-rerere-status"></a> <a class="anchor" href="#git-rerere-emstatusem"></a><em>status</em> </dt>
 <dd>
@@ -79,7 +92,7 @@ Você precisa definir a variável de configuração <code>rerere.enabled</code> 
 </dd>
 <dt class="hdlist1" id="git-rerere-emgcem"> <a class="anchor" href="#git-rerere-gc"></a> <a class="anchor" href="#git-rerere-emgcem"></a><em>gc</em> </dt>
 <dd>
-<p>Elimine os registros das mesclagens conflitantes que ocorreram há muito tempo. É predefinido que são eliminados os conflitos não resolvidos com mais de 15 dias e os conflitos resolvidos com mais de 60 dias. Estas predefinições são controladas pelas variáveis de configuração <code>gc.rerereUnresolved</code> e <code>gc.rerereResolved</code>, respectivamente.</p>
+<p>Elimine os registros das mesclagens conflitantes que ocorreram há muito tempo. É predefinido que são eliminados os conflitos não resolvidos com mais de 15 dias e os conflitos resolvidos com mais de 60 dias. Estas predefinições são controladas pelas variáveis de configuração <span class='synopsis'><code>gc.rerereUnresolved</code></span> e <span class='synopsis'><code>gc.rerereResolved</code></span>, respectivamente.</p>
 </dd>
 </dl>
 </div>
@@ -99,7 +112,7 @@ Você precisa definir a variável de configuração <code>rerere.enabled</code> 
 </div>
 </div>
 <div class="paragraph">
-<p>Para este teste, você precisa mesclar o mestre e o tópico de alguma maneira. Uma maneira de fazer isso é fazer o <code>pull</code> para obter o <em>master</em> para o tópico da ramificação:</p>
+<p>Para este teste, você precisa mesclar o mestre e o tópico de alguma maneira. Uma maneira de fazer isso é fazer o <span class='synopsis'><code>pull</code></span> para obter o <em>master</em> para o tópico da ramificação:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -112,10 +125,10 @@ Você precisa definir a variável de configuração <code>rerere.enabled</code> 
 </div>
 </div>
 <div class="paragraph">
-<p>Os commits marcados com <code>*</code> tocam a mesma área no mesmo arquivo; você precisa resolver os conflitos ao criar o commit marcado com <code>+</code>. Em seguida, você pode testar o resultado para garantir que o trabalho em andamento ainda funcione com o que está no <code>master</code> mais recente.</p>
+<p>Os commits marcados com <span class='synopsis'><code>*</code></span> tocam a mesma área no mesmo arquivo; você precisa resolver os conflitos ao criar o commit marcado com <span class='synopsis'><code>+</code></span>. Em seguida, você pode testar o resultado para garantir que o trabalho em andamento ainda funcione com o que está no <span class='synopsis'><code>master</code></span> mais recente.</p>
 </div>
 <div class="paragraph">
-<p>Após esta mesclagem de teste, há duas maneiras de continuar o seu trabalho sobre o tópico. O mais fácil é construir em cima da mesclagem do commit de teste <code>+</code> e, quando o seu trabalho no ramo do tópico estiver finalmente pronto, faça um <code>pull</code> no ramo do tópico para o <code>master</code> e/ou peça ao topo (upstream) para fazer o <code>pull</code> de você. Neste momento, no entanto, o <code>master</code> ou o topo (upstream) pode ter avançado desde a mesclagem de teste <code>+</code> e, nesse caso, o gráfico do commit final seria parecido com este:</p>
+<p>Após esta mesclagem de teste, há duas maneiras de continuar o seu trabalho sobre o tópico. O mais fácil é construir em cima da mesclagem do commit de teste <span class='synopsis'><code>+</code></span> e, quando o seu trabalho no ramo do tópico estiver finalmente pronto, faça um <span class='synopsis'><code>pull</code></span> no ramo do tópico para o <span class='synopsis'><code>master</code></span> e/ou peça ao topo (upstream) para fazer o <span class='synopsis'><code>pull</code></span> de você. Neste momento, no entanto, o <span class='synopsis'><code>master</code></span> ou o topo (upstream) pode ter avançado desde a mesclagem de teste <span class='synopsis'><code>+</code></span> e, nesse caso, o gráfico do commit final seria parecido com este:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -151,22 +164,22 @@ Você precisa definir a variável de configuração <code>rerere.enabled</code> 
 </div>
 </div>
 <div class="paragraph">
-<p>Isso deixaria apenas uma mesclagem do commit quando a ramificação do tópico estivesse finalmente pronta e mesclada na ramificação principal. Esta mesclagem exigiria que você resolvesse o conflito, introduzido pelos commits marcados com <code>*</code>. No entanto, esse conflito geralmente é o mesmo conflito que você resolveu quando criou a mesclagem de teste que foi eliminada. O comando <code>git rerere</code> ajuda você a resolver essa mesclagem final conflitante usando as informações da sua resolução manual anterior.</p>
+<p>Isso deixaria apenas uma mesclagem do commit quando a ramificação do tópico estivesse finalmente pronta e mesclada na ramificação principal. Esta mesclagem exigiria que você resolvesse o conflito, introduzido pelos commits marcados com <span class='synopsis'><code>*</code></span>. No entanto, esse conflito geralmente é o mesmo conflito que você resolveu quando criou a mesclagem de teste que foi eliminada. O comando <span class='synopsis'><code>git</code> <code>rerere</code></span> ajuda você a resolver essa mesclagem final conflitante usando as informações da sua resolução manual anterior.</p>
 </div>
 <div class="paragraph">
-<p>A execução do comando <code>git rerere</code> registra imediatamente após um registro <em>automerge</em> conflitante nos arquivos conflitantes da árvore de trabalho, com os marcadores de conflito usuais <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> e <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> neles. Mais tarde, após terminar de resolver os conflitos, a execução do comando <code>git rerere</code> novamente registrará o estado resolvido desses arquivos. Suponha que você tenha feito isso ao criar a mesclagem de teste do <code>master</code> no tópico do ramo.</p>
+<p>A execução do comando <span class='synopsis'><code>git</code> <code>rerere</code></span> registra imediatamente após um registro <em>automerge</em> conflitante nos arquivos conflitantes da árvore de trabalho, com os marcadores de conflito usuais <span class='synopsis'><em>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</em></span>, <span class='synopsis'><code>=======</code></span> e <span class='synopsis'><em>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</em></span> neles. Mais tarde, após terminar de resolver os conflitos, a execução do comando <span class='synopsis'><code>git</code> <code>rerere</code></span> novamente registrará o estado resolvido desses arquivos. Suponha que você tenha feito isso ao criar a mesclagem de teste do <span class='synopsis'><code>master</code></span> no tópico do ramo.</p>
 </div>
 <div class="paragraph">
-<p>Na próxima vez, após ver o mesmo conflito de <em>automerge</em>, execute o comando <code>git rerere</code> executará uma mescla de três vias entre o <em>automerge</em> conflitante anterior, a resolução manual anterior e o <em>automerge</em> conflitante atual. Se essa mesclagem de três vias for resolvida de forma limpa, o resultado será gravado no arquivo da árvore de trabalho, para que você não precise resolvê-lo manualmente. Observe que o comando <code>git rerere</code> deixa o arquivo de índice sozinho, portanto, você ainda precisa fazer as verificações finais de sanidade com o comando <code>git diff</code> (ou <code>git diff -c</code>) e o <code>git add</code> quando estiver satisfeito.</p>
+<p>Na próxima vez, após ver o mesmo conflito de <em>automerge</em>, execute o comando <span class='synopsis'><code>git</code> <code>rerere</code></span> executará uma mescla de três vias entre o <em>automerge</em> conflitante anterior, a resolução manual anterior e o <em>automerge</em> conflitante atual. Se essa mesclagem de três vias for resolvida de forma limpa, o resultado será gravado no arquivo da árvore de trabalho, para que você não precise resolvê-lo manualmente. Observe que o comando <span class='synopsis'><code>git</code> <code>rerere</code></span> deixa o arquivo de índice sozinho, portanto, você ainda precisa fazer as verificações finais de sanidade com o comando <span class='synopsis'><code>git</code> <code>diff</code></span> (ou <span class='synopsis'><code>git</code> <code>diff</code> <code>-c</code></span>) e o <span class='synopsis'><code>git</code> <code>add</code></span> quando estiver satisfeito.</p>
 </div>
 <div class="paragraph">
-<p>Como medida de conveniência, o comando <code>git merge</code> invoca automaticamente o <code>git rerere</code> ao sair com um automerge com falha e o <code>git rerere</code> registra a resolução manual quando é um novo conflito ou reutiliza a resolução manual anterior quando não é. O comando <code>git commit</code> também invoca o <code>git rerere</code> ao fazer um commit resultante de uma mesclagem. Isso significa que você não precisa fazer nada de especial (além de ativar a variável de configuração <code>rerere.enabled</code>).</p>
+<p>Como medida de conveniência, o comando <span class='synopsis'><code>git</code> <code>merge</code></span> invoca automaticamente o <span class='synopsis'><code>git</code> <code>rerere</code></span> ao sair com um automerge com falha e o <span class='synopsis'><code>git</code> <code>rerere</code></span> registra a resolução manual quando é um novo conflito ou reutiliza a resolução manual anterior quando não é. O comando <span class='synopsis'><code>git</code> <code>commit</code></span> também invoca o <span class='synopsis'><code>git</code> <code>rerere</code></span> ao fazer um commit resultante de uma mesclagem. Isso significa que você não precisa fazer nada de especial (além de ativar a variável de configuração <span class='synopsis'><code>rerere.enabled</code></span>).</p>
 </div>
 <div class="paragraph">
 <p>No nosso exemplo, quando você faz a mesclagem de teste, a resolução manual é gravada e será reutilizada quando fizer a mesclagem real posteriormente com <em>master</em> e o tópico do ramo atualizados, desde que a resolução gravada ainda seja aplicável.</p>
 </div>
 <div class="paragraph">
-<p>As informações que o <code>git rerere</code> registra também são usadas ao executar o <code>git rebase</code>. Após eliminar a mesclagem de teste e continuar o desenvolvimento na ramificação do tópico:</p>
+<p>As informações que o <span class='synopsis'><code>git</code> <code>rerere</code></span> registra também são usadas ao executar o <span class='synopsis'><code>git</code> <code>rebase</code></span>. Após eliminar a mesclagem de teste e continuar o desenvolvimento na ramificação do tópico:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -182,10 +195,10 @@ Você precisa definir a variável de configuração <code>rerere.enabled</code> 
 </div>
 </div>
 <div class="paragraph">
-<p>Você pode executar o comando <code>git rebase master topic</code> para se atualizar antes que o tópico esteja pronto para ser enviado para o topo (upstream). Isso resultaria numa mesclagem de três vias e entraria em conflito da mesma maneira que a mesclagem de teste que você resolveu anteriormente. O comando <code>git rerere</code> será executado pelo <code>git rebase</code> para ajudá-lo a resolver este conflito.</p>
+<p>Você pode executar o comando <span class='synopsis'><code>git</code> <code>rebase</code> <code>master</code> <code>topic</code></span> para se atualizar antes que o tópico esteja pronto para ser enviado para o topo (upstream). Isso resultaria numa mesclagem de três vias e entraria em conflito da mesma maneira que a mesclagem de teste que você resolveu anteriormente. O comando <span class='synopsis'><code>git</code> <code>rerere</code></span> será executado pelo <span class='synopsis'><code>git</code> <code>rebase</code></span> para ajudá-lo a resolver este conflito.</p>
 </div>
 <div class="paragraph">
-<p>[OBSERVAÇÃO] O comando <code>git rerere</code> se baseia nos marcadores de conflito no arquivo para detectar o conflito. Se o arquivo já possuir linhas que pareçam iguais às linhas com marcadores de conflito, o comando <code>git rerere</code> poderá falhar ao registrar uma resolução de conflito. Para contornar isso, a configuração <code>conflict-marker-size</code> do comando <a href='{{< relurl "docs/gitattributes/pt_BR" >}}'>gitattributes[5]</a> pode ser usada.</p>
+<p>[OBSERVAÇÃO] O comando <span class='synopsis'><code>git</code> <code>rerere</code></span> se baseia nos marcadores de conflito no arquivo para detectar o conflito. Se o arquivo já possuir linhas que pareçam iguais às linhas com marcadores de conflito, o comando <span class='synopsis'><code>git</code> <code>rerere</code></span> poderá falhar ao registrar uma resolução de conflito. Para contornar isso, a configuração <span class='synopsis'><code>conflict-marker-size</code></span> do comando <a href='{{< relurl "docs/gitattributes/pt_BR" >}}'>gitattributes[5]</a> pode ser usada.</p>
 </div>
 </div>
 </div>

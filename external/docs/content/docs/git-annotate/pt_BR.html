@@ -9,6 +9,19 @@ docname: git-annotate
 lang: pt_BR
 aliases:
 - "/docs/git-annotate/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -44,11 +57,11 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-annotate--b"> <a class="anchor" href="#git-annotate--b"></a>-b </dt>
 <dd>
-<p>Mostra um SHA-1 vazio nos limites dos commits. Também é possível controlar através da opção de configuração <code>blame.blankBoundary</code>.</p>
+<p>Mostra um SHA-1 vazio nos limites dos commits. Também é possível controlar através da opção de configuração <span class='synopsis'><code>blame.blankBoundary</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---root"> <a class="anchor" href="#git-annotate---root"></a>--root </dt>
 <dd>
-<p>Não trate os commits raiz com limites. Também é possível controlar através da opção de configuração <code>blame.showRoot</code>.</p>
+<p>Não trate os commits raiz com limites. Também é possível controlar através da opção de configuração <span class='synopsis'><code>blame.showRoot</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---show-stats"> <a class="anchor" href="#git-annotate---show-stats"></a>--show-stats </dt>
 <dd>
@@ -59,7 +72,7 @@ aliases:
 <dd>
 <p>Anote apenas o intervalo das linhas informadas por <em>&lt;inicio&gt;,&lt;fim&gt;</em> ou pelo nome da função regex <em>&lt;nome-da-função&gt;</em>. Esta opção pode ser utilizada várias vezes. São permitidos intervalos sobrepostos.</p>
 <div class="paragraph">
-<p><em>&lt;inicio&gt;</em> e <em>&lt;fim&gt;</em> são opcionais. <code>-L &lt;inicio&gt;</code> ou <code>-L &lt;inicio&gt;</code>, abrange do <em>&lt;inicio&gt;</em> para o final do arquivo. <code>-L ,&lt;fim&gt;</code> abrange do começo ao <em>&lt;fim&gt;</em>.</p>
+<p><em>&lt;inicio&gt;</em> e <em>&lt;fim&gt;</em> são opcionais. <span class='synopsis'><code>-L</code> <em>&lt;inicio&gt;</em></span> ou <span class='synopsis'><code>-L</code> <em>&lt;inicio&gt;</em></span>, abrange do <em>&lt;inicio&gt;</em> para o final do arquivo. <span class='synopsis'><code>-L</code> <code>,</code><em>&lt;fim&gt;</em></span> abrange do começo ao <em>&lt;fim&gt;</em>.</p>
 </div>
 <div class="paragraph">
 <p><em>&lt;inicio&gt;</em> e <em>&lt;fim&gt;</em> podem assumir uma destas formas:</p>
@@ -73,9 +86,9 @@ aliases:
 </div>
 </li>
 <li>
-<p><code>/regex/</code></p>
+<p><span class='synopsis'><code>/regex/</code></span></p>
 <div class="paragraph">
-<p>Este formulário usará a primeira linha que corresponder ao regex POSIX informado. Se <em>&lt;inicio&gt;</em> for um regex, ele pesquisará a partir do final do intervalo <code>-L</code> anterior, se houver, caso contrário, a partir do início do arquivo. Se <em>&lt;inicio&gt;</em> for um <code>^/regex/</code>, ele pesquisará a partir do início do arquivo. Se <em>&lt;fim&gt;</em> for um regex, ele pesquisará a partir da linha indicada por <em>&lt;inicio&gt;</em>.</p>
+<p>Este formulário usará a primeira linha que corresponder ao regex POSIX informado. Se <em>&lt;inicio&gt;</em> for um regex, ele pesquisará a partir do final do intervalo <span class='synopsis'><code>-L</code></span> anterior, se houver, caso contrário, a partir do início do arquivo. Se <em>&lt;inicio&gt;</em> for um <span class='synopsis'><code>^/regex/</code></span>, ele pesquisará a partir do início do arquivo. Se <em>&lt;fim&gt;</em> for um regex, ele pesquisará a partir da linha indicada por <em>&lt;inicio&gt;</em>.</p>
 </div>
 </li>
 <li>
@@ -87,7 +100,7 @@ aliases:
 </ul>
 </div>
 <div class="paragraph">
-<p>Caso <code>:&lt;funcname&gt;</code> seja informado no lugar do <em>&lt;inicio&gt;</em> e <em>&lt;fim&gt;</em>, é uma expressão regular que indica o intervalo da primeira <code>&lt;funcname&gt;</code> que coincida com <em>&lt;funcname&gt;</em> até a próxima linha funcname. <code>:&lt;funcname&gt;</code> pesquisa no final do intervalo <code>-L</code> anterior, se houver, caso contrário, a pesquisa ocorrerá desde o início do arquivo. <code>^:&lt;funcname&gt;</code> pesquisa desde o início do arquivo. Os nomes das funções são determinados da mesma maneira que o comando <code>git diff</code> lida com os pedaços dos cabeçalhos do patch (consulte <em>Definindo um cabeçalho personalizado do hunk</em> em <a href='{{< relurl "docs/gitattributes/pt_BR" >}}'>gitattributes[5]</a>).</p>
+<p>Caso <span class='synopsis'><code>:</code><em>&lt;funcname&gt;</em></span> seja informado no lugar do <em>&lt;inicio&gt;</em> e <em>&lt;fim&gt;</em>, é uma expressão regular que indica o intervalo da primeira <span class='synopsis'><em>&lt;funcname&gt;</em></span> que coincida com <em>&lt;funcname&gt;</em> até a próxima linha funcname. <span class='synopsis'><code>:</code><em>&lt;funcname&gt;</em></span> pesquisa no final do intervalo <span class='synopsis'><code>-L</code></span> anterior, se houver, caso contrário, a pesquisa ocorrerá desde o início do arquivo. <span class='synopsis'><code>^:</code><em>&lt;funcname&gt;</em></span> pesquisa desde o início do arquivo. Os nomes das funções são determinados da mesma maneira que o comando <span class='synopsis'><code>git</code> <code>diff</code></span> lida com os pedaços dos cabeçalhos do patch (consulte <em>Definindo um cabeçalho personalizado do hunk</em> em <a href='{{< relurl "docs/gitattributes/pt_BR" >}}'>gitattributes[5]</a>).</p>
 </div>
 </dd>
 </dl>
@@ -108,7 +121,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-annotate---reverseltrevgtltrevgt"> <a class="anchor" href="#git-annotate---reverserevrev"></a> <a class="anchor" href="#git-annotate---reverseltrevgtltrevgt"></a>--reverse &lt;rev&gt;..&lt;rev&gt; </dt>
 <dd>
-<p>Avance com o histórico em vez de retroceder. Em vez de mostrar a revisão onde uma linha apareceu, isso mostra a última revisão onde uma linha existiu. Isso requer um intervalo de revisão como START&#8230;&#8203;END, onde o caminho para a falha exista em START. O comando <code>git blame --reverse START</code> é considerado como <code>git blame --reverse START..HEAD</code> por questão de conveniência.</p>
+<p>Avance com o histórico em vez de retroceder. Em vez de mostrar a revisão onde uma linha apareceu, isso mostra a última revisão onde uma linha existiu. Isso requer um intervalo de revisão como START&#8230;&#8203;END, onde o caminho para a falha exista em START. O comando <span class='synopsis'><code>git</code> <code>blame</code> <code>--reverse</code> <code>START</code></span> é considerado como <span class='synopsis'><code>git</code> <code>blame</code> <code>--reverse</code> <code>START..HEAD</code></span> por questão de conveniência.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---first-parent"> <a class="anchor" href="#git-annotate---first-parent"></a>--first-parent </dt>
 <dd>
@@ -129,7 +142,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-annotate---encodingltcodificaogt"> <a class="anchor" href="#git-annotate---encodingcodificao"></a> <a class="anchor" href="#git-annotate---encodingltcodificaogt"></a>--encoding=&lt;codificação&gt; </dt>
 <dd>
-<p>Defina a codificação a ser utilizada para gerar os nomes dos autores e do resumo dos commits. Definindo como <code>none</code> torna a saída "blame" em dados sem conversão. Para mais informações, consulte a discussão sobre codificação na página do manual <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>.</p>
+<p>Defina a codificação a ser utilizada para gerar os nomes dos autores e do resumo dos commits. Definindo como <span class='synopsis'><code>none</code></span> torna a saída "blame" em dados sem conversão. Para mais informações, consulte a discussão sobre codificação na página do manual <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---contentsltarquivogt"> <a class="anchor" href="#git-annotate---contentsarquivo"></a> <a class="anchor" href="#git-annotate---contentsltarquivogt"></a>--contents &lt;arquivo&gt; </dt>
 <dd>
@@ -137,41 +150,41 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-annotate---dateltformatogt"> <a class="anchor" href="#git-annotate---dateformato"></a> <a class="anchor" href="#git-annotate---dateltformatogt"></a>--date &lt;formato&gt; </dt>
 <dd>
-<p>Especifica o formato utilizado para gerar as datas. Caso --date não seja utilizado, o valor da variável de configuração <code>blame.date</code> será utilizado. Caso a variável de configuração <code>blame.date</code> também não esteja definida, o formato ISO será utilizado. Para ver quais são os valores compatíveis, consulte a discussão da opção <code>--date</code> em <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>.</p>
+<p>Especifica o formato utilizado para gerar as datas. Caso --date não seja utilizado, o valor da variável de configuração <span class='synopsis'><code>blame.date</code></span> será utilizado. Caso a variável de configuração <span class='synopsis'><code>blame.date</code></span> também não esteja definida, o formato ISO será utilizado. Para ver quais são os valores compatíveis, consulte a discussão da opção <span class='synopsis'><code>--date</code></span> em <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---no-progress"> <a class="anchor" href="#git-annotate---no-progress"></a>--[no-]progress </dt>
 <dd>
-<p>É predefinido que a condição do progresso seja relatado no fluxo de erros padrão quando estiver conectado num terminal. Essa flag permite que os relatórios de progresso sejam feitos ainda que não estejam conectados num terminal. Não é possível usar <code>--progress</code> junto com <code>--porcelain</code> ou <code>--incremental</code>.</p>
+<p>É predefinido que a condição do progresso seja relatado no fluxo de erros padrão quando estiver conectado num terminal. Essa flag permite que os relatórios de progresso sejam feitos ainda que não estejam conectados num terminal. Não é possível usar <span class='synopsis'><code>--progress</code></span> junto com <span class='synopsis'><code>--porcelain</code></span> ou <span class='synopsis'><code>--incremental</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate--Mltnumgt"> <a class="anchor" href="#git-annotate--Mnum"></a> <a class="anchor" href="#git-annotate--Mltnumgt"></a>-M[&lt;num&gt;] </dt>
 <dd>
 <p>Detecta se as linhas foram movidas ou copiadas dentro de um arquivo. Quando um commit move ou copia um bloco de linhas (o arquivo original tem A e depois B, e o commit o altera para B e depois A por exemplo), o algoritmo tradicional de <em>blame</em> (flaha) percebe apenas metade do movimento e normalmente aponta as linhas que foram movidas para cima (ou seja, B) para o commit principal e atribui a falha às linhas que foram movidas para baixo (ou seja, A) no commit relacionado. Com esta opção, os dois grupos de linhas são apontados no commit principal através da execução de passes extras durante a inspeção.</p>
 <div class="paragraph">
-<p>A opção <code>&lt;num&gt;</code> é opcional porém é o limite inferior da quantidade de caracteres alfanuméricos que o Git deve detectar como mover/copiar dentro de um arquivo para associar essas linhas ao commit de origem. 20 é o valor predefinido.</p>
+<p>A opção <span class='synopsis'><em>&lt;num&gt;</em></span> é opcional porém é o limite inferior da quantidade de caracteres alfanuméricos que o Git deve detectar como mover/copiar dentro de um arquivo para associar essas linhas ao commit de origem. 20 é o valor predefinido.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-annotate--Cltnumgt"> <a class="anchor" href="#git-annotate--Cnum"></a> <a class="anchor" href="#git-annotate--Cltnumgt"></a>-C[&lt;num&gt;] </dt>
 <dd>
-<p>Além do <code>-M</code>, detecta as linhas que foram movidas ou que foram copiadas de outros arquivos que foram alterados no mesmo commit. Isso é útil quando você reorganiza o programa e move o código entre arquivos. Quando essa opção é usada duas vezes, o comando procura adicionalmente pela cópias de outros arquivos no commit que cria o arquivo. Quando essa opção é usada três vezes, o comando procura adicionalmente por cópias de outros arquivos em qualquer commit.</p>
+<p>Além do <span class='synopsis'><code>-M</code></span>, detecta as linhas que foram movidas ou que foram copiadas de outros arquivos que foram alterados no mesmo commit. Isso é útil quando você reorganiza o programa e move o código entre arquivos. Quando essa opção é usada duas vezes, o comando procura adicionalmente pela cópias de outros arquivos no commit que cria o arquivo. Quando essa opção é usada três vezes, o comando procura adicionalmente por cópias de outros arquivos em qualquer commit.</p>
 <div class="paragraph">
-<p>A opção <code>&lt;num&gt;</code> é opcional porém é o limite inferior da quantidade de caracteres alfanuméricos que o Git deve detectar como mover/copiar entre os arquivos para associar estas linhas ao commit de origem. 40 é o valor predefinido. Caso haja mais de uma opção <code>-C</code>, o argumento &lt;num&gt; do último <code>-C</code> entrará em vigor.</p>
+<p>A opção <span class='synopsis'><em>&lt;num&gt;</em></span> é opcional porém é o limite inferior da quantidade de caracteres alfanuméricos que o Git deve detectar como mover/copiar entre os arquivos para associar estas linhas ao commit de origem. 40 é o valor predefinido. Caso haja mais de uma opção <span class='synopsis'><code>-C</code></span>, o argumento &lt;num&gt; do último <span class='synopsis'><code>-C</code></span> entrará em vigor.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-annotate---ignore-revltrevgt"> <a class="anchor" href="#git-annotate---ignore-revrev"></a> <a class="anchor" href="#git-annotate---ignore-revltrevgt"></a>--ignore-rev &lt;rev&gt; </dt>
 <dd>
-<p>Ignore changes made by the revision when assigning blame, as if the change never happened. Lines that were changed or added by an ignored commit will be blamed on the previous commit that changed that line or nearby lines. This option may be specified multiple times to ignore more than one revision. If the <code>blame.markIgnoredLines</code> config option is set, then lines that were changed by an ignored commit and attributed to another commit will be marked with a <code>?</code> in the blame output. If the <code>blame.markUnblamableLines</code> config option is set, then those lines touched by an ignored commit that we could not attribute to another revision are marked with a <em>*</em>. In the porcelain modes, we print <em>ignored</em> and <em>unblamable</em> on a newline respectively.</p>
+<p>Ignore changes made by the revision when assigning blame, as if the change never happened. Lines that were changed or added by an ignored commit will be blamed on the previous commit that changed that line or nearby lines. This option may be specified multiple times to ignore more than one revision. If the <span class='synopsis'><code>blame.markIgnoredLines</code></span> config option is set, then lines that were changed by an ignored commit and attributed to another commit will be marked with a <span class='synopsis'><em>?</em></span> in the blame output. If the <span class='synopsis'><code>blame.markUnblamableLines</code></span> config option is set, then those lines touched by an ignored commit that we could not attribute to another revision are marked with a <em>*</em>. In the porcelain modes, we print <em>ignored</em> and <em>unblamable</em> on a newline respectively.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---ignore-revs-fileltarquivogt"> <a class="anchor" href="#git-annotate---ignore-revs-filearquivo"></a> <a class="anchor" href="#git-annotate---ignore-revs-fileltarquivogt"></a>--ignore-revs-file &lt;arquivo&gt; </dt>
 <dd>
-<p>Ignore as revisões listadas no <code>arquivo</code>, que deve estar no mesmo formato como em <code>fsck.skipList</code>. Essa opção pode ser repetida, e estes arquivos serão processados após quaisquer arquivos especificados com a opção de configuração <code>blame.ignoreRevsFile</code>. Um nome de arquivo vazio, <code>""</code>, limpará a lista das revisões dos arquivos que foram processados anteriormente.</p>
+<p>Ignore as revisões listadas no <span class='synopsis'><code>arquivo</code></span>, que deve estar no mesmo formato como em <span class='synopsis'><code>fsck.skipList</code></span>. Essa opção pode ser repetida, e estes arquivos serão processados após quaisquer arquivos especificados com a opção de configuração <span class='synopsis'><code>blame.ignoreRevsFile</code></span>. Um nome de arquivo vazio, <span class='synopsis'><code>""</code></span>, limpará a lista das revisões dos arquivos que foram processados anteriormente.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---color-lines"> <a class="anchor" href="#git-annotate---color-lines"></a>--color-lines </dt>
 <dd>
-<p>Anotações das cores da linha no formato padrão, diferentemente se elas vierem do mesmo commit da linha anterior. Isso torna mais fácil distinguir os blocos de código introduzidos por diferentes commits. A cor predefinida é ciano e pode ser ajustada usando a opção <code>color.blame.repeatedLines</code>.</p>
+<p>Anotações das cores da linha no formato padrão, diferentemente se elas vierem do mesmo commit da linha anterior. Isso torna mais fácil distinguir os blocos de código introduzidos por diferentes commits. A cor predefinida é ciano e pode ser ajustada usando a opção <span class='synopsis'><code>color.blame.repeatedLines</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---color-by-age"> <a class="anchor" href="#git-annotate---color-by-age"></a>--color-by-age </dt>
 <dd>
-<p>Faça anotações coloridas na linha no formato padrão dependendo da idade da linha. A opção de configuração <code>color.blame.highlightRecent</code> controla qual cor é usada para cada faixa de idade.</p>
+<p>Faça anotações coloridas na linha no formato padrão dependendo da idade da linha. A opção de configuração <span class='synopsis'><code>color.blame.highlightRecent</code></span> controla qual cor é usada para cada faixa de idade.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate--h"> <a class="anchor" href="#git-annotate--h"></a>-h </dt>
 <dd>

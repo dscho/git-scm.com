@@ -9,6 +9,31 @@ docname: git-worktree
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-worktree/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 命令
+  id: _命令
+- text: 选项
+  id: _选项
+- text: 引用
+  id: _引用
+- text: 配置文件
+  id: _配置文件
+- text: 详细信息
+  id: _详细信息
+- text: 列表输出格式
+  id: _列表输出格式
+- text: 实例
+  id: _实例
+- text: 漏洞
+  id: _漏洞
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -44,13 +69,13 @@ aliases:
 <p>一个 git 仓库可以支持多个工作区，允许你一次签出多个分支。 通过`git worktree add`，一个新的工作区与仓库相关联，同时还有额外的元数据，以区分该工作区与同一仓库中的其他工作区。 工作区目录树，连同这些元数据，被称为 "工作区"。</p>
 </div>
 <div class="paragraph">
-<p>这个新的工作区被称为 "链接工作区"，与 <a href='{{< relurl "docs/git-init/zh_HANS-CN" >}}'>git-init[1]</a> 或 <a href='{{< relurl "docs/git-clone/zh_HANS-CN" >}}'>git-clone[1]</a> 所准备的 "主工作区 "相对应。 一个仓库有一个主工作区（如果它不是一个裸仓库）和零个或多个链接工作区。当你用完一个链接工作区后，用 <code>git worktree remove</code> 删除它。</p>
+<p>这个新的工作区被称为 "链接工作区"，与 <a href='{{< relurl "docs/git-init/zh_HANS-CN" >}}'>git-init[1]</a> 或 <a href='{{< relurl "docs/git-clone/zh_HANS-CN" >}}'>git-clone[1]</a> 所准备的 "主工作区 "相对应。 一个仓库有一个主工作区（如果它不是一个裸仓库）和零个或多个链接工作区。当你用完一个链接工作区后，用 <span class='synopsis'><code>git</code> <code>worktree</code> <code>remove</code></span> 删除它。</p>
 </div>
 <div class="paragraph">
-<p>在其最简单的形式中，<code>git worktree add &lt;路径&gt;`自动创建一个新的分支，其名称是</code>&lt;路径&gt;<code>的最后一个组成部分，如果你计划在一个新的主题上工作，这很方便。例如，`git worktree add .../hotfix`创建了新的分支`hotfix</code>，并在路径`&#8230;&#8203;/hotfix`处签出它。如果要在一个新的工作区中处理现有的分支，可以使用`git worktree add &lt;路径&gt; &lt;分支&gt;`。另一方面，如果你只是打算做一些实验性的修改，或者在不影响现有开发的情况下进行测试，创建一个不与任何分支相关联的 "抛弃式 "工作区通常是很方便的。例如，`git worktree add -d &lt;路径&gt;`在与当前分支相同的提交中，创建一个带有分离`HEAD`的新工作区。</p>
+<p>在其最简单的形式中，<span class='synopsis'><em>git worktree add &lt;路径&gt;`自动创建一个新的分支，其名称是</em></span>&lt;路径&gt;<span class='synopsis'><em>的最后一个组成部分，如果你计划在一个新的主题上工作，这很方便。例如，`git worktree add .../hotfix`创建了新的分支`hotfix</em></span>，并在路径`&#8230;&#8203;/hotfix`处签出它。如果要在一个新的工作区中处理现有的分支，可以使用`git worktree add &lt;路径&gt; &lt;分支&gt;`。另一方面，如果你只是打算做一些实验性的修改，或者在不影响现有开发的情况下进行测试，创建一个不与任何分支相关联的 "抛弃式 "工作区通常是很方便的。例如，`git worktree add -d &lt;路径&gt;`在与当前分支相同的提交中，创建一个带有分离`HEAD`的新工作区。</p>
 </div>
 <div class="paragraph">
-<p>如果没有使用 <code>git worktree remove</code> 就删除了工作区，那么它的相关管理文件，即驻扎在仓库中的文件（见下面的 "详细说明"），最终会被自动删除（见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <code>gc.worktreePruneExpire</code>），或者你可以在主工作区或任何链接工作区中运行`git worktree prune` 来清理任何过时的管理文件。</p>
+<p>如果没有使用 <span class='synopsis'><code>git</code> <code>worktree</code> <code>remove</code></span> 就删除了工作区，那么它的相关管理文件，即驻扎在仓库中的文件（见下面的 "详细说明"），最终会被自动删除（见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <span class='synopsis'><code>gc.worktreePruneExpire</code></span>），或者你可以在主工作区或任何链接工作区中运行`git worktree prune` 来清理任何过时的管理文件。</p>
 </div>
 <div class="paragraph">
 <p>如果一个链接的工作区存储在便携设备或网络共享上，而这些设备并不总是被挂载，你可以通过发布`git worktree lock`命令来防止其管理文件被修剪，可以使用选项`--reason`来解释为什么工作树被锁定。</p>
@@ -64,9 +89,9 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-worktree-addltgtltgt"> <a class="anchor" href="#git-worktree-add"></a> <a class="anchor" href="#git-worktree-addltgtltgt"></a>add &lt;路径&gt; [&lt;提交号&gt;] </dt>
 <dd>
-<p>在`&lt;路径&gt;<code>创建一个工作树，并将</code>&lt;提交号&gt;<code>签入其中。新的工作区被链接到当前仓库，共享除每个工作区文件（如`HEAD</code>、<code>index`等）之外的一切。为了方便起见，</code>&lt;提交号&gt;<code>可以是一个光秃秃的"</code>-<code>"，它与</code>@{-1}`同义。</p>
+<p>在`&lt;路径&gt;<span class='synopsis'><em>创建一个工作树，并将</em></span>&lt;提交号&gt;<span class='synopsis'><em>签入其中。新的工作区被链接到当前仓库，共享除每个工作区文件（如`HEAD</em></span>、<span class='synopsis'><em>index`等）之外的一切。为了方便起见，</em></span>&lt;提交号&gt;<span class='synopsis'><em>可以是一个光秃秃的"</em></span>-<span class='synopsis'><em>"，它与</em></span>@{-1}`同义。</p>
 <div class="paragraph">
-<p>如果`&lt;提交号&gt;<code>是一个分支名称（称其为</code>&lt;分支&gt;<code>），并且没有找到，也没有使用</code>-b`或`-B`或`--detach`，但确实在正好一个远程仓库（称其为`&lt;远程仓库&gt;`）中存在一个名称匹配的跟踪分支，则视为等同于：</p>
+<p>如果`&lt;提交号&gt;<span class='synopsis'><em>是一个分支名称（称其为</em></span>&lt;分支&gt;<span class='synopsis'><em>），并且没有找到，也没有使用</em></span>-b`或`-B`或`--detach`，但确实在正好一个远程仓库（称其为`&lt;远程仓库&gt;`）中存在一个名称匹配的跟踪分支，则视为等同于：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -74,13 +99,13 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>如果该分支存在于多个远程仓库，并且其中一个是由`checkout.defaultRemote`配置变量命名的，为了消除歧义，我们将使用该变量，即使`&lt;分支&gt;<code>在所有远程中并不唯一。将其设置为例如 `checkout.defaultRemote=origin</code>，以便在`&lt;分支&gt;<code>不明确但存在于'origin'远程时，总是从那里签出远程分支。参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 `checkout.defaultRemote</code>。</p>
+<p>如果该分支存在于多个远程仓库，并且其中一个是由`checkout.defaultRemote`配置变量命名的，为了消除歧义，我们将使用该变量，即使`&lt;分支&gt;<span class='synopsis'><em>在所有远程中并不唯一。将其设置为例如 `checkout.defaultRemote=origin</em></span>，以便在`&lt;分支&gt;<span class='synopsis'><em>不明确但存在于'origin'远程时，总是从那里签出远程分支。参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 `checkout.defaultRemote</em></span>。</p>
 </div>
 <div class="paragraph">
-<p>如果省略了 <code>&lt;提交号&gt;</code>，也没有使用 <code>-b</code> 或 <code>-B</code> 或 <code>--detach</code> ，那么作为一种方便，新的工作区将与一个以 <code>$(basename &lt;路径&gt;)</code> 命名的分支（称为 <code>&lt;分支&gt;</code> ）相关联。 如果 <code>&lt;分支&gt;</code> 不存在，一个基于 <code>HEAD</code> 的新分支将被自动创建，就像给出 <code>-b &lt;分支&gt;</code> 一样。 如果 <code>&lt;分支&gt;</code> 确实存在，它将在新的工作区中被签出，如果它没有在其他地方被签出，否则命令将拒绝创建工作区（除非使用 <code>--force</code>）。</p>
+<p>如果省略了 <span class='synopsis'><em>&lt;提交号&gt;</em></span>，也没有使用 <span class='synopsis'><code>-b</code></span> 或 <span class='synopsis'><code>-B</code></span> 或 <span class='synopsis'><code>--detach</code></span> ，那么作为一种方便，新的工作区将与一个以 <span class='synopsis'><code>$</code>(<code>basename</code> <em>&lt;路径&gt;</em>)</span> 命名的分支（称为 <span class='synopsis'><em>&lt;分支&gt;</em></span> ）相关联。 如果 <span class='synopsis'><em>&lt;分支&gt;</em></span> 不存在，一个基于 <span class='synopsis'><code>HEAD</code></span> 的新分支将被自动创建，就像给出 <span class='synopsis'><code>-b</code> <em>&lt;分支&gt;</em></span> 一样。 如果 <span class='synopsis'><em>&lt;分支&gt;</em></span> 确实存在，它将在新的工作区中被签出，如果它没有在其他地方被签出，否则命令将拒绝创建工作区（除非使用 <span class='synopsis'><code>--force</code></span>）。</p>
 </div>
 <div class="paragraph">
-<p>如果省略了 <code>&lt;commit-ish&gt;</code>，既没有使用 <code>--detach</code>，也没有使用 <code>--orphan</code>，并且没有有效的本地分支（或远程分支，如果指定了 <code>--guess-remote</code>），那么为了方便起见，新的工作树会与一个名为 <code>&lt;branch&gt;</code> 的未出生分支关联（如果没有使用 <code>-b</code> 或 <code>-B</code>，则在 <code>$(basename &lt;path&gt;)`之后），就像向命令传递了 `--orphan`一样。如果仓库有远程分支，并且使用了 `--guess-remote</code>，但不存在远程或本地分支，则命令会失败，并发出警告，提醒用户先从远程获取（或使用 <code>-f/--force</code> 覆盖）。</p>
+<p>如果省略了 <span class='synopsis'><em>&lt;commit-ish&gt;</em></span>，既没有使用 <span class='synopsis'><code>--detach</code></span>，也没有使用 <span class='synopsis'><code>--orphan</code></span>，并且没有有效的本地分支（或远程分支，如果指定了 <span class='synopsis'><code>--guess-remote</code></span>），那么为了方便起见，新的工作树会与一个名为 <span class='synopsis'><em>&lt;branch&gt;</em></span> 的未出生分支关联（如果没有使用 <span class='synopsis'><code>-b</code></span> 或 <span class='synopsis'><code>-B</code></span>，则在 <span class='synopsis'><em>$(basename &lt;path&gt;)`之后），就像向命令传递了 `--orphan`一样。如果仓库有远程分支，并且使用了 `--guess-remote</em></span>，但不存在远程或本地分支，则命令会失败，并发出警告，提醒用户先从远程获取（或使用 <span class='synopsis'><code>-f/--force</code></span> 覆盖）。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree-list"> <a class="anchor" href="#git-worktree-list"></a>list </dt>
@@ -101,19 +126,19 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-worktree-remove"> <a class="anchor" href="#git-worktree-remove"></a>remove </dt>
 <dd>
-<p>移除一个工作区。只有干净的工作区（没有未跟踪的文件和未修改的跟踪文件）可以被删除。脏工作区或有子模块的工作区可以用 <code>--force</code> 删除。主工作区不能被删除。</p>
+<p>移除一个工作区。只有干净的工作区（没有未跟踪的文件和未修改的跟踪文件）可以被删除。脏工作区或有子模块的工作区可以用 <span class='synopsis'><code>--force</code></span> 删除。主工作区不能被删除。</p>
 </dd>
 <dt class="hdlist1" id="git-worktree-repairltgt82308203"> <a class="anchor" href="#git-worktree-repair"></a> <a class="anchor" href="#git-worktree-repairltgt82308203"></a>repair [&lt;路径&gt;&#8230;&#8203;] </dt>
 <dd>
 <p>如果可能的话，修复工作区的管理文件，如果它们由于外部因素而变得损坏或过时。</p>
 <div class="paragraph">
-<p>例如，如果主工作区（或裸仓库）被移动，链接工作区将无法找到它。在主工作区中运行 <code>repair</code> 将重新建立从链接工作区到主工作区的连接。</p>
+<p>例如，如果主工作区（或裸仓库）被移动，链接工作区将无法找到它。在主工作区中运行 <span class='synopsis'><code>repair</code></span> 将重新建立从链接工作区到主工作区的连接。</p>
 </div>
 <div class="paragraph">
-<p>同样地，如果没有使用 <code>git worktree move</code> 就移动了链接工作区，主工作区（或裸仓库）将无法定位它。在最近移动的工作区中运行`repair`将重新建立连接。如果多个链接工作区被移动，在任何工作区中运行`repair`，以每个树的新`&lt;路径&gt;`作为参数，将重新建立与所有指定路径的连接。</p>
+<p>同样地，如果没有使用 <span class='synopsis'><code>git</code> <code>worktree</code> <code>move</code></span> 就移动了链接工作区，主工作区（或裸仓库）将无法定位它。在最近移动的工作区中运行`repair`将重新建立连接。如果多个链接工作区被移动，在任何工作区中运行`repair`，以每个树的新`&lt;路径&gt;`作为参数，将重新建立与所有指定路径的连接。</p>
 </div>
 <div class="paragraph">
-<p>If both the main worktree and linked worktrees have been moved or copied manually, then running <code>repair</code> in the main worktree and specifying the new <code>&lt;path&gt;</code> of each linked worktree will reestablish all connections in both directions.</p>
+<p>If both the main worktree and linked worktrees have been moved or copied manually, then running <span class='synopsis'><code>repair</code></span> in the main worktree and specifying the new <span class='synopsis'><em>&lt;path&gt;</em></span> of each linked worktree will reestablish all connections in both directions.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree-unlock"> <a class="anchor" href="#git-worktree-unlock"></a>unlock </dt>
@@ -132,45 +157,45 @@ aliases:
 <dt class="hdlist1" id="git-worktree--f"> <a class="anchor" href="#git-worktree--f"></a>-f </dt>
 <dt class="hdlist1" id="git-worktree---force"> <a class="anchor" href="#git-worktree---force"></a>--force </dt>
 <dd>
-<p>默认情况下，当`&lt;提交号&gt;<code>是一个分支名称，并且已经被另一个工作树签出，或者</code>&lt;路径&gt;<code>已经被分配给某个工作树，但丢失了（例如，如果</code>&lt;路径&gt;<code>被手动删除），`add`拒绝创建一个新的工作树。这个选项覆盖了这些保护措施。要添加一个缺失但锁定的工作区路径，请指定</code>--force`两次。</p>
+<p>默认情况下，当`&lt;提交号&gt;<span class='synopsis'><em>是一个分支名称，并且已经被另一个工作树签出，或者</em></span>&lt;路径&gt;<span class='synopsis'><em>已经被分配给某个工作树，但丢失了（例如，如果</em></span>&lt;路径&gt;<span class='synopsis'><em>被手动删除），`add`拒绝创建一个新的工作树。这个选项覆盖了这些保护措施。要添加一个缺失但锁定的工作区路径，请指定</em></span>--force`两次。</p>
 <div class="paragraph">
-<p><code>move`拒绝移动一个被锁定的工作区，除非</code>--force`被指定两次。如果目的地已经被分配给其他工作区，但没有找到（例如，如果`&lt;新路径&gt;<code>被手动删除），那么</code>--force`允许移动；如果目的地被锁定，则使用`--force`两次。</p>
+<p><span class='synopsis'><em>move`拒绝移动一个被锁定的工作区，除非</em></span>--force`被指定两次。如果目的地已经被分配给其他工作区，但没有找到（例如，如果`&lt;新路径&gt;<span class='synopsis'><em>被手动删除），那么</em></span>--force`允许移动；如果目的地被锁定，则使用`--force`两次。</p>
 </div>
 <div class="paragraph">
-<p><code>remove`拒绝删除一个脏工作区，除非使用</code>--force`。 要删除一个锁定的工作区，需要指定`--force`两次。</p>
+<p><span class='synopsis'><em>remove`拒绝删除一个脏工作区，除非使用</em></span>--force`。 要删除一个锁定的工作区，需要指定`--force`两次。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree--bltgt"> <a class="anchor" href="#git-worktree--b"></a> <a class="anchor" href="#git-worktree--bltgt"></a>-b &lt;新分支&gt; </dt>
 <dt class="hdlist1" id="git-worktree--Bltgt"> <a class="anchor" href="#git-worktree--B"></a> <a class="anchor" href="#git-worktree--Bltgt"></a>-B &lt;新分支&gt; </dt>
 <dd>
-<p>通过`add`，创建一个名为`&lt;新分支&gt;<code>的新分支，从</code>&lt;提交号&gt;<code>开始，并将</code>&lt;新分支&gt;<code>检出到新的工作树。 如果省略了</code>&lt;提交号&gt;<code>，则默认为`HEAD</code>。 默认情况下，如果一个新的分支已经存在，<code>-b`会拒绝创建它。</code>-B`则不会拒绝创建，将`&lt;新分支&gt;<code>重置为</code>&lt;提交号&gt;`。</p>
+<p>通过`add`，创建一个名为`&lt;新分支&gt;<span class='synopsis'><em>的新分支，从</em></span>&lt;提交号&gt;<span class='synopsis'><em>开始，并将</em></span>&lt;新分支&gt;<span class='synopsis'><em>检出到新的工作树。 如果省略了</em></span>&lt;提交号&gt;<span class='synopsis'><em>，则默认为`HEAD</em></span>。 默认情况下，如果一个新的分支已经存在，<span class='synopsis'><em>-b`会拒绝创建它。</em></span>-B`则不会拒绝创建，将`&lt;新分支&gt;<span class='synopsis'><em>重置为</em></span>&lt;提交号&gt;`。</p>
 </dd>
 <dt class="hdlist1" id="git-worktree--d"> <a class="anchor" href="#git-worktree--d"></a>-d </dt>
 <dt class="hdlist1" id="git-worktree---detach"> <a class="anchor" href="#git-worktree---detach"></a>--detach </dt>
 <dd>
-<p>通过 <code>add</code>，在新的工作树中分离出 <code>HEAD</code>。参见 <a href='{{< relurl "docs/git-checkout/zh_HANS-CN" >}}'>git-checkout[1]</a> 中的 “分离式 HEAD”。</p>
+<p>通过 <span class='synopsis'><code>add</code></span>，在新的工作树中分离出 <span class='synopsis'><code>HEAD</code></span>。参见 <a href='{{< relurl "docs/git-checkout/zh_HANS-CN" >}}'>git-checkout[1]</a> 中的 “分离式 HEAD”。</p>
 </dd>
 <dt class="hdlist1" id="git-worktree---no-checkout"> <a class="anchor" href="#git-worktree---no-checkout"></a>--[no-]checkout </dt>
 <dd>
-<p>默认情况下，<code>add`会检出</code>&lt;提交号&gt;<code>，然而，</code>--no-checkout`可以用来抑制检出，以便进行定制，比如配置稀疏检出。参见 <a href='{{< relurl "docs/git-read-tree/zh_HANS-CN" >}}'>git-read-tree[1]</a> 中的 "稀疏检出"。</p>
+<p>默认情况下，<span class='synopsis'><em>add`会检出</em></span>&lt;提交号&gt;<span class='synopsis'><em>，然而，</em></span>--no-checkout`可以用来抑制检出，以便进行定制，比如配置稀疏检出。参见 <a href='{{< relurl "docs/git-read-tree/zh_HANS-CN" >}}'>git-read-tree[1]</a> 中的 "稀疏检出"。</p>
 </dd>
 <dt class="hdlist1" id="git-worktree---no-guess-remote"> <a class="anchor" href="#git-worktree---no-guess-remote"></a>--[no-]guess-remote </dt>
 <dd>
-<p>在`worktree add &lt;路径&gt;<code>下，如果没有</code>&lt;提交号&gt;<code>，则不从`HEAD`创建新的分支，而是在正好有一个与</code>&lt;路径&gt;`的基名相匹配的远程跟踪分支的情况下，将新的分支建立在远程跟踪分支上，并将远程跟踪分支标记为新分支的 "上游"。</p>
+<p>在`worktree add &lt;路径&gt;<span class='synopsis'><em>下，如果没有</em></span>&lt;提交号&gt;<span class='synopsis'><em>，则不从`HEAD`创建新的分支，而是在正好有一个与</em></span>&lt;路径&gt;`的基名相匹配的远程跟踪分支的情况下，将新的分支建立在远程跟踪分支上，并将远程跟踪分支标记为新分支的 "上游"。</p>
 <div class="paragraph">
 <p>这也可以通过使用`worktree.guessRemote`配置选项设置为默认行为。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree---no-relative-paths"> <a class="anchor" href="#git-worktree---no-relative-paths"></a>--[no-]relative-paths </dt>
 <dd>
-<p>Link worktrees using relative paths or absolute paths (default). Overrides the <code>worktree.useRelativePaths</code> config option, see <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>.</p>
+<p>Link worktrees using relative paths or absolute paths (default). Overrides the <span class='synopsis'><code>worktree.useRelativePaths</code></span> config option, see <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>.</p>
 <div class="paragraph">
-<p>With <code>repair</code>, the linking files will be updated if there&#8217;s an absolute/relative mismatch, even if the links are correct.</p>
+<p>With <span class='synopsis'><code>repair</code></span>, the linking files will be updated if there&#8217;s an absolute/relative mismatch, even if the links are correct.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-worktree---no-track"> <a class="anchor" href="#git-worktree---no-track"></a>--[no-]track </dt>
 <dd>
-<p>当创建一个新的分支时，如果 <code>&lt;提交号&gt;</code> 是一个分支，则将其标记为新分支的 "上游"。 默认认为 <code>&lt;提交号&gt;</code> 是一个远程跟踪分支。 详情见 <a href='{{< relurl "docs/git-branch/zh_HANS-CN" >}}'>git-branch[1]</a> 中的 <code>--track</code>。</p>
+<p>当创建一个新的分支时，如果 <span class='synopsis'><em>&lt;提交号&gt;</em></span> 是一个分支，则将其标记为新分支的 "上游"。 默认认为 <span class='synopsis'><em>&lt;提交号&gt;</em></span> 是一个远程跟踪分支。 详情见 <a href='{{< relurl "docs/git-branch/zh_HANS-CN" >}}'>git-branch[1]</a> 中的 <span class='synopsis'><code>--track</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-worktree---lock"> <a class="anchor" href="#git-worktree---lock"></a>--lock </dt>
 <dd>
@@ -183,11 +208,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-worktree---orphan"> <a class="anchor" href="#git-worktree---orphan"></a>--orphan </dt>
 <dd>
-<p>使用 <code>add</code> 使新的工作区和索引为空，并将工作树与名为 <code>&lt;new-branch&gt;</code> 的新孤儿/未出生分支关联起来。</p>
+<p>使用 <span class='synopsis'><code>add</code></span> 使新的工作区和索引为空，并将工作树与名为 <span class='synopsis'><em>&lt;new-branch&gt;</em></span> 的新孤儿/未出生分支关联起来。</p>
 </dd>
 <dt class="hdlist1" id="git-worktree---porcelain"> <a class="anchor" href="#git-worktree---porcelain"></a>--porcelain </dt>
 <dd>
-<p>使用 <code>list</code> 时，脚本会以易于解析的格式输出。 这种格式在不同的 Git 版本和用户配置下都会保持稳定。 建议与 <code>-z</code> 搭配使用。 详见下文。</p>
+<p>使用 <span class='synopsis'><code>list</code></span> 时，脚本会以易于解析的格式输出。 这种格式在不同的 Git 版本和用户配置下都会保持稳定。 建议与 <span class='synopsis'><code>-z</code></span> 搭配使用。 详见下文。</p>
 </dd>
 <dt class="hdlist1" id="git-worktree--z"> <a class="anchor" href="#git-worktree--z"></a>-z </dt>
 <dd>
@@ -208,7 +233,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-worktree---expireltgt"> <a class="anchor" href="#git-worktree---expire"></a> <a class="anchor" href="#git-worktree---expireltgt"></a>--expire &lt;时间&gt; </dt>
 <dd>
-<p>使用 <code>prune</code>，只对超过`&lt;时间&gt;`未使用的工作区进行淘汰。</p>
+<p>使用 <span class='synopsis'><code>prune</code></span>，只对超过`&lt;时间&gt;`未使用的工作区进行淘汰。</p>
 <div class="paragraph">
 <p>使用`list`，如果丢失的工作区比`&lt;时间&gt;`早，则将其注释为可修剪。</p>
 </div>
@@ -232,19 +257,19 @@ aliases:
 <h2 id="_引用"><a class="anchor" href="#_引用"></a>引用</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>当使用多个工作区时，一些引用在所有工作区之间共享，但其他引用是特定于单个工作区的。比如：<code>HEAD</code>，它对每个工作树都是不同的。本节是关于共享规则，以及如何从另一个工作区访问一个工作区的引用。</p>
+<p>当使用多个工作区时，一些引用在所有工作区之间共享，但其他引用是特定于单个工作区的。比如：<span class='synopsis'><code>HEAD</code></span>，它对每个工作树都是不同的。本节是关于共享规则，以及如何从另一个工作区访问一个工作区的引用。</p>
 </div>
 <div class="paragraph">
-<p>一般来说，所有伪引用都是按工作区划分的，而所有以 <code>refs/</code> 开头的引用都是共享的。伪引用与 <code>HEAD</code> 类似，直接位于 <code>$GIT_DIR</code> 下，而不是 <code>$GIT_DIR/refs</code> 内。但也有例外：<code>refs/bisect</code>、<code>refs/worktree</code> 和`refs/rewitten` 中的引用不共享。</p>
+<p>一般来说，所有伪引用都是按工作区划分的，而所有以 <span class='synopsis'><code>refs/</code></span> 开头的引用都是共享的。伪引用与 <span class='synopsis'><code>HEAD</code></span> 类似，直接位于 <span class='synopsis'><code>$GIT_DIR</code></span> 下，而不是 <span class='synopsis'><code>$GIT_DIR/refs</code></span> 内。但也有例外：<span class='synopsis'><code>refs/bisect</code></span>、<span class='synopsis'><code>refs/worktree</code></span> 和`refs/rewitten` 中的引用不共享。</p>
 </div>
 <div class="paragraph">
-<p>每个工作区的引用仍然可以通过两个特殊的路径，即 <code>主工作区`和 `从工作区</code>，从另一个工作区访问。前者可以访问主工作区的每个工作区的引用，而后者可以访问所有链接的工作区。</p>
+<p>每个工作区的引用仍然可以通过两个特殊的路径，即 <span class='synopsis'><em>主工作区`和 `从工作区</em></span>，从另一个工作区访问。前者可以访问主工作区的每个工作区的引用，而后者可以访问所有链接的工作区。</p>
 </div>
 <div class="paragraph">
-<p>例如，<code>main-worktree/HEAD`或`main-worktree/refs/bisect/good`分别解析到与主工作区的`HEAD`和`refs/bisect/good`相同的值。类似地，`worktrees/foo/HEAD`或`worktrees/bar/refs/bisect/bad`与</code>$GIT_COMMON_DIR/worktrees/foo/HEAD`和`$GIT_COMMON_DIR/worktrees/bar/refs/bisect/bad`相同。</p>
+<p>例如，<span class='synopsis'><em>main-worktree/HEAD`或`main-worktree/refs/bisect/good`分别解析到与主工作区的`HEAD`和`refs/bisect/good`相同的值。类似地，`worktrees/foo/HEAD`或`worktrees/bar/refs/bisect/bad`与</em></span>$GIT_COMMON_DIR/worktrees/foo/HEAD`和`$GIT_COMMON_DIR/worktrees/bar/refs/bisect/bad`相同。</p>
 </div>
 <div class="paragraph">
-<p>要访问引用，最好不要直接在 <code>$GIT_DIR</code> 中查找。相反，使用 <a href='{{< relurl "docs/git-rev-parse/zh_HANS-CN" >}}'>git-rev-parse[1]</a> 或 <a href='{{< relurl "docs/git-update-ref/zh_HANS-CN" >}}'>git-update-ref[1]</a> 这样的命令可以正确处理引用。</p>
+<p>要访问引用，最好不要直接在 <span class='synopsis'><code>$GIT_DIR</code></span> 中查找。相反，使用 <a href='{{< relurl "docs/git-rev-parse/zh_HANS-CN" >}}'>git-rev-parse[1]</a> 或 <a href='{{< relurl "docs/git-update-ref/zh_HANS-CN" >}}'>git-update-ref[1]</a> 这样的命令可以正确处理引用。</p>
 </div>
 </div>
 </div>
@@ -252,7 +277,7 @@ aliases:
 <h2 id="_配置文件"><a class="anchor" href="#_配置文件"></a>配置文件</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>默认情况下，资源库的 <code>config</code> 文件在所有工作区上共享。 如果配置变量 <code>core.bare</code> 或 <code>core.worktree</code> 存在于公共配置文件中，并且 <code>extensions.worktreeConfig</code> 被禁用，那么它们将只应用于主工作区。</p>
+<p>默认情况下，资源库的 <span class='synopsis'><code>config</code></span> 文件在所有工作区上共享。 如果配置变量 <span class='synopsis'><code>core.bare</code></span> 或 <span class='synopsis'><code>core.worktree</code></span> 存在于公共配置文件中，并且 <span class='synopsis'><code>extensions.worktreeConfig</code></span> 被禁用，那么它们将只应用于主工作区。</p>
 </div>
 <div class="paragraph">
 <p>为了对工作区进行特定配置，你可以打开`worktreeConfig`扩展，例如：</p>
@@ -266,7 +291,7 @@ aliases:
 <p>在这种模式下，特定的配置保持在`git rev-parse --git-path config.worktree`所指向的路径中。你可以用`git config --worktree`添加或更新该文件中的配置。旧版本的Git会拒绝访问带有这个扩展的仓库。</p>
 </div>
 <div class="paragraph">
-<p>注意，在这个文件中，<code>core.bare</code> 和 <code>core.worktree</code> 的例外情况已经消失。如果它们存在于 <code>$GIT_DIR/config</code> 中，你必须把它们移到主工作区的 <code>config.worktree</code> 中。你也可以借此机会审查和移动其他你不想共享到所有工作区的配置：</p>
+<p>注意，在这个文件中，<span class='synopsis'><code>core.bare</code></span> 和 <span class='synopsis'><code>core.worktree</code></span> 的例外情况已经消失。如果它们存在于 <span class='synopsis'><code>$GIT_DIR/config</code></span> 中，你必须把它们移到主工作区的 <span class='synopsis'><code>config.worktree</code></span> 中。你也可以借此机会审查和移动其他你不想共享到所有工作区的配置：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -274,7 +299,7 @@ aliases:
 <p>`core.worktree`不应该被共享。</p>
 </li>
 <li>
-<p>如果 <code>core.bare</code> 的值为 `core.bare=true `，则不应共享。</p>
+<p>如果 <span class='synopsis'><code>core.bare</code></span> 的值为 `core.bare=true `，则不应共享。</p>
 </li>
 <li>
 <p>`core.sparseCheckout`不应该被共享，除非你确信你总是对所有工作区使用稀疏检出。</p>
@@ -282,7 +307,7 @@ aliases:
 </ul>
 </div>
 <div class="paragraph">
-<p>更多细节请参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <code>extensions.worktreeConfig</code> 文档。</p>
+<p>更多细节请参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <span class='synopsis'><code>extensions.worktreeConfig</code></span> 文档。</p>
 </div>
 </div>
 </div>
@@ -293,10 +318,10 @@ aliases:
 <p>每个链接工作区在仓库的`$GIT_DIR/worktrees`目录下都有一个私有子目录。 私有子目录的名称通常是被链接的工作树路径的基本名称，但可能加上一个数字以使成为唯一目录。 例如，当`$GIT_DIR=/path/main/.git`时，命令`git worktree add /path/other/test-next next`会在`/path/other/test-next`中创建链接工作区，同时创建一个`$GIT_DIR/worktrees/test-next`目录（如果`test-next`已经被占用，则创建`$GIT_DIR/worktrees/test-next1`）。</p>
 </div>
 <div class="paragraph">
-<p>在一个链接工作区中，<code>$GIT_DIR`设置为指向这个私有目录（例如，例子中的</code>/path/main/.git/worktrees/test-next`），<code>$GIT_COMMON_DIR`会被设置为指向主工作区的</code>$GIT_DIR`（例如，<code>/path/main/.git</code>）。这些设置是在位于链接工作区顶级目录的`.git`文件中进行的。</p>
+<p>在一个链接工作区中，<span class='synopsis'><em>$GIT_DIR`设置为指向这个私有目录（例如，例子中的</em></span>/path/main/.git/worktrees/test-next`），<span class='synopsis'><em>$GIT_COMMON_DIR`会被设置为指向主工作区的</em></span>$GIT_DIR`（例如，<span class='synopsis'><code>/path/main/.git</code></span>）。这些设置是在位于链接工作区顶级目录的`.git`文件中进行的。</p>
 </div>
 <div class="paragraph">
-<p>通过 <code>git rev-parse --git-path</code> 进行路径解析时，会根据路径使用 <code>$GIT_DIR</code> 或 <code>$GIT_COMMON_DIR</code>。例如，在链接的工作区中，<code>git rev-parse --git-path HEAD</code> 返回 <code>/path/main/.git/worktrees/test-next/HEAD</code> （而不是 <code>/path/other/test-next/.git/HEAD</code> 或 <code>/path/main/.git/HEAD</code>），而 <code>git rev-parse --git-path refs/heads/master</code> 使用 <code>$GIT_COMMON_DIR</code>，并返回 <code>/path/main/.git/refs/heads/master</code>，因为除了 <code>refs/bisect</code>、<code>refs/worktree</code> 和 <code>refs/rewitten</code>，所有工作区都共享引用。</p>
+<p>通过 <span class='synopsis'><code>git</code> <code>rev-parse</code> <code>--git-path</code></span> 进行路径解析时，会根据路径使用 <span class='synopsis'><code>$GIT_DIR</code></span> 或 <span class='synopsis'><code>$GIT_COMMON_DIR</code></span>。例如，在链接的工作区中，<span class='synopsis'><code>git</code> <code>rev-parse</code> <code>--git-path</code> <code>HEAD</code></span> 返回 <span class='synopsis'><code>/path/main/.git/worktrees/test-next/HEAD</code></span> （而不是 <span class='synopsis'><code>/path/other/test-next/.git/HEAD</code></span> 或 <span class='synopsis'><code>/path/main/.git/HEAD</code></span>），而 <span class='synopsis'><code>git</code> <code>rev-parse</code> <code>--git-path</code> <code>refs/heads/master</code></span> 使用 <span class='synopsis'><code>$GIT_COMMON_DIR</code></span>，并返回 <span class='synopsis'><code>/path/main/.git/refs/heads/master</code></span>，因为除了 <span class='synopsis'><code>refs/bisect</code></span>、<span class='synopsis'><code>refs/worktree</code></span> 和 <span class='synopsis'><code>refs/rewitten</code></span>，所有工作区都共享引用。</p>
 </div>
 <div class="paragraph">
 <p>更多信息见 <a href='{{< relurl "docs/gitrepository-layout/zh_HANS-CN" >}}'>gitrepository-layout[5]</a>。经验法则是，当你需要直接访问`$GIT_DIR`或`$GIT_COMMON_DIR`内的东西时，不要对路径是否属于`$GIT_DIR`做出任何假设。使用`git rev-parse --git-path`来获得最终路径。</p>
@@ -316,7 +341,7 @@ aliases:
 <h2 id="_列表输出格式"><a class="anchor" href="#_列表输出格式"></a>列表输出格式</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>worktree list</code> 命令有两种输出格式。默认的格式是在单行上显示细节，并带有列。 例如：</p>
+<p><span class='synopsis'><code>worktree</code> <code>list</code></span> 命令有两种输出格式。默认的格式是在单行上显示细节，并带有列。 例如：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -332,10 +357,10 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p><code>locked</code>，如果工作区被锁定。</p>
+<p><span class='synopsis'><code>locked</code></span>，如果工作区被锁定。</p>
 </li>
 <li>
-<p><code>prunable</code>，如果工作区可以通过`git worktree prune`进行修剪。</p>
+<p><span class='synopsis'><code>prunable</code></span>，如果工作区可以通过`git worktree prune`进行修剪。</p>
 </li>
 </ul>
 </div>

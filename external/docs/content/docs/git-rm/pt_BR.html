@@ -9,6 +9,27 @@ docname: git-rm
 lang: pt_BR
 aliases:
 - "/docs/git-rm/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: REMOVENDO OS ARQUIVOS QUE DESAPARECERAM DO SISTEMA DE ARQUIVOS
+  id: _removendo_os_arquivos_que_desapareceram_do_sistema_de_arquivos
+- text: SUBMÓDULOS
+  id: _submódulos
+- text: EXEMPLOS
+  id: _exemplos
+- text: BUGS
+  id: _bugs
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -21,10 +42,10 @@ aliases:
 <div class="sect1">
 <h2 id="_resumo"><a class="anchor" href="#_resumo"></a>RESUMO</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>git rm [-f | --force] [-n] [-r] [--cached] [--ignore-unmatch]
-       [--quiet] [--pathspec-from-file=&lt;file&gt; [--pathspec-file-nul]]
-       [--] [&lt;pathspec&gt;&#8230;&#8203;]</p>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>rm</code></span> [<span class='synopsis'><code>-f</code></span> | <span class='synopsis'><code>--force</code></span>] [<span class='synopsis'><code>-n</code></span>] [<span class='synopsis'><code>-r</code></span>] [<span class='synopsis'><code>--cached</code></span>] [<span class='synopsis'><code>--ignore-unmatch</code></span>]
+       [<span class='synopsis'><code>--quiet</code></span>] [<span class='synopsis'><code>--pathspec-from-file=</code></span><em>&lt;file&gt;</em> [<span class='synopsis'><code>--pathspec-file-nul</code></span>]]
+       [<span class='synopsis'><code>--</code></span>] [<em>&lt;pathspec&gt;</em>&#8230;&#8203;]</pre>
 </div>
 </div>
 </div>
@@ -32,7 +53,7 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Remove do índice, da árvore de trabalho e do índice os arquivos que correspondam ao <em>pathpec</em>. O comando <code>git rm</code> não removerá um arquivo apenas do seu diretório de trabalho. (Não há opção para remover um arquivo apenas da árvore de trabalho e ainda assim mantê-lo no índice; use <code>/bin/rm</code> se quiser fazer isso). Os arquivos que estão sendo removidos devem ser idênticos aos do cume do ramo e nenhuma atualização de seu conteúdo pode ser colocada no índice, embora esse comportamento padrão possa ser substituído pela opção <code>-f</code>. Quando <code>--cached</code> é fornecido, o conteúdo preparado deve corresponder ao cume da ramificação ou ao arquivo no disco, permitindo que o arquivo seja removido apenas do índice. Quando os "sparse-checkouts" estiverem em uso (consulte <a href='{{< relurl "docs/git-sparse-checkout/pt_BR" >}}'>git-sparse-checkout[1]</a>), o comando <code>git rm</code> removerá apenas os caminhos dentro dos padrões de "sparse-checkout".</p>
+<p>Remove do índice, da árvore de trabalho e do índice os arquivos que correspondam ao <em>pathpec</em>. O comando <span class='synopsis'><code>git</code> <code>rm</code></span> não removerá um arquivo apenas do seu diretório de trabalho. (Não há opção para remover um arquivo apenas da árvore de trabalho e ainda assim mantê-lo no índice; use <span class='synopsis'><code>/bin/rm</code></span> se quiser fazer isso). Os arquivos que estão sendo removidos devem ser idênticos aos do cume do ramo e nenhuma atualização de seu conteúdo pode ser colocada no índice, embora esse comportamento padrão possa ser substituído pela opção <span class='synopsis'><code>-f</code></span>. Quando <span class='synopsis'><code>--cached</code></span> é fornecido, o conteúdo preparado deve corresponder ao cume da ramificação ou ao arquivo no disco, permitindo que o arquivo seja removido apenas do índice. Quando os "sparse-checkouts" estiverem em uso (consulte <a href='{{< relurl "docs/git-sparse-checkout/pt_BR" >}}'>git-sparse-checkout[1]</a>), o comando <span class='synopsis'><code>git</code> <code>rm</code></span> removerá apenas os caminhos dentro dos padrões de "sparse-checkout".</p>
 </div>
 </div>
 </div>
@@ -41,61 +62,61 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rm-codeltpathspecgtcode"> <a class="anchor" href="#git-rm-pathspec"></a> <a class="anchor" href="#git-rm-codeltpathspecgtcode"></a><code>&lt;pathspec&gt;...</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsisemltpathspecgtemspan"> <a class="anchor" href="#git-rm-pathspec"></a> <a class="anchor" href="#git-rm-spanclasssynopsisemltpathspecgtemspan"></a><span class='synopsis'><em>&lt;pathspec&gt;</em>...</span> </dt>
 <dd>
-<p>Arquivos para remover. Um nome de diretório à esquerda (<code>dir</code> para remover <code>dir/file1</code> e <code>dir/file2</code> por exemplo) pode ser utilizado para remover todos os arquivos do diretório e, recursivamente, todos os subdiretórios, porém, isso requer que a opção <code>-r</code> seja explicitamente usada.</p>
+<p>Arquivos para remover. Um nome de diretório à esquerda (<span class='synopsis'><code>dir</code></span> para remover <span class='synopsis'><code>dir/file1</code></span> e <span class='synopsis'><code>dir/file2</code></span> por exemplo) pode ser utilizado para remover todos os arquivos do diretório e, recursivamente, todos os subdiretórios, porém, isso requer que a opção <span class='synopsis'><code>-r</code></span> seja explicitamente usada.</p>
 <div class="paragraph">
 <p>O comando remove apenas os caminhos que sejam informados pelo Git.</p>
 </div>
 <div class="paragraph">
-<p>O agrupamento de arquivos faz a correspondência entre os limites do diretório. Assim, considerando dois diretórios <code>d</code> e <code>d2</code>, há uma diferença entre usar <code>git rm 'd*'</code> e <code>git rm 'd/*'</code>, pois o primeiro também removerá todo o diretório <code>d2</code>.</p>
+<p>O agrupamento de arquivos faz a correspondência entre os limites do diretório. Assim, considerando dois diretórios <span class='synopsis'><code>d</code></span> e <span class='synopsis'><code>d2</code></span>, há uma diferença entre usar <span class='synopsis'><code>git</code> <code>rm</code> <code>d*'</code></span> e <span class='synopsis'><code>git</code> <code>rm</code> <code>d/*'</code></span>, pois o primeiro também removerá todo o diretório <span class='synopsis'><code>d2</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>For more details, see the <em>&lt;pathspec&gt;</em> entry in <a href='{{< relurl "docs/gitglossary/pt_BR" >}}'>gitglossary[7]</a>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rm-code-fcode"> <a class="anchor" href="#git-rm--f"></a> <a class="anchor" href="#git-rm-code-fcode"></a><code>-f</code> </dt>
-<dt class="hdlist1" id="git-rm-code--forcecode"> <a class="anchor" href="#git-rm---force"></a> <a class="anchor" href="#git-rm-code--forcecode"></a><code>--force</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode-fcodespan"> <a class="anchor" href="#git-rm--f"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode-fcodespan"></a><span class='synopsis'><code>-f</code></span> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode--forcecodespan"> <a class="anchor" href="#git-rm---force"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode--forcecodespan"></a><span class='synopsis'><code>--force</code></span> </dt>
 <dd>
 <p>Substitua a verificação atualizada.</p>
 </dd>
-<dt class="hdlist1" id="git-rm-code-ncode"> <a class="anchor" href="#git-rm--n"></a> <a class="anchor" href="#git-rm-code-ncode"></a><code>-n</code> </dt>
-<dt class="hdlist1" id="git-rm-code--dry-runcode"> <a class="anchor" href="#git-rm---dry-run"></a> <a class="anchor" href="#git-rm-code--dry-runcode"></a><code>--dry-run</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode-ncodespan"> <a class="anchor" href="#git-rm--n"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode-ncodespan"></a><span class='synopsis'><code>-n</code></span> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode--dry-runcodespan"> <a class="anchor" href="#git-rm---dry-run"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode--dry-runcodespan"></a><span class='synopsis'><code>--dry-run</code></span> </dt>
 <dd>
 <p>Na verdade, não remova nenhum arquivo. Em vez disso, mostra apenas se eles existem no índice e se, de outra maneira, seriam removidos pelo comando.</p>
 </dd>
-<dt class="hdlist1" id="git-rm-code-rcode"> <a class="anchor" href="#git-rm--r"></a> <a class="anchor" href="#git-rm-code-rcode"></a><code>-r</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode-rcodespan"> <a class="anchor" href="#git-rm--r"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode-rcodespan"></a><span class='synopsis'><code>-r</code></span> </dt>
 <dd>
 <p>Permita a remoção recursiva quando um nome do diretório principal for informado.</p>
 </dd>
-<dt class="hdlist1" id="git-rm-code--code"> <a class="anchor" href="#git-rm---"></a> <a class="anchor" href="#git-rm-code--code"></a><code>--</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode--codespan"> <a class="anchor" href="#git-rm---"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode--codespan"></a><span class='synopsis'><code>--</code></span> </dt>
 <dd>
 <p>Esta opção pode ser utilizada para separar as opções da linha de comandos da lista dos arquivos (útil quando os nomes do arquivo puderem ser confundidos com as opções da linha de comando).</p>
 </dd>
-<dt class="hdlist1" id="git-rm-code--cachedcode"> <a class="anchor" href="#git-rm---cached"></a> <a class="anchor" href="#git-rm-code--cachedcode"></a><code>--cached</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode--cachedcodespan"> <a class="anchor" href="#git-rm---cached"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode--cachedcodespan"></a><span class='synopsis'><code>--cached</code></span> </dt>
 <dd>
 <p>Use esta opção para desestabilizar e remover apenas os caminhos do índice. Os arquivos da árvore de trabalho, alterados ou não, serão deixados em paz.</p>
 </dd>
-<dt class="hdlist1" id="git-rm-code--ignore-unmatchcode"> <a class="anchor" href="#git-rm---ignore-unmatch"></a> <a class="anchor" href="#git-rm-code--ignore-unmatchcode"></a><code>--ignore-unmatch</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode--ignore-unmatchcodespan"> <a class="anchor" href="#git-rm---ignore-unmatch"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode--ignore-unmatchcodespan"></a><span class='synopsis'><code>--ignore-unmatch</code></span> </dt>
 <dd>
 <p>Encerre com uma condição zero, ainda que não haja a coincidência com nenhum arquivo.</p>
 </dd>
-<dt class="hdlist1" id="git-rm-code--sparsecode"> <a class="anchor" href="#git-rm---sparse"></a> <a class="anchor" href="#git-rm-code--sparsecode"></a><code>--sparse</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode--sparsecodespan"> <a class="anchor" href="#git-rm---sparse"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode--sparsecodespan"></a><span class='synopsis'><code>--sparse</code></span> </dt>
 <dd>
-<p>Permite a atualização das entradas no índice fora do cone de averiguação esparsa. Normalmente, o comando <code>git rm</code> se recusa a atualizar as entradas do índice cujos caminhos não se encaixam no cone de averiguação esparsa. Para mais informações consulte <a href='{{< relurl "docs/git-sparse-checkout/pt_BR" >}}'>git-sparse-checkout[1]</a>.</p>
+<p>Permite a atualização das entradas no índice fora do cone de averiguação esparsa. Normalmente, o comando <span class='synopsis'><code>git</code> <code>rm</code></span> se recusa a atualizar as entradas do índice cujos caminhos não se encaixam no cone de averiguação esparsa. Para mais informações consulte <a href='{{< relurl "docs/git-sparse-checkout/pt_BR" >}}'>git-sparse-checkout[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-rm-code-qcode"> <a class="anchor" href="#git-rm--q"></a> <a class="anchor" href="#git-rm-code-qcode"></a><code>-q</code> </dt>
-<dt class="hdlist1" id="git-rm-code--quietcode"> <a class="anchor" href="#git-rm---quiet"></a> <a class="anchor" href="#git-rm-code--quietcode"></a><code>--quiet</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode-qcodespan"> <a class="anchor" href="#git-rm--q"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode-qcodespan"></a><span class='synopsis'><code>-q</code></span> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode--quietcodespan"> <a class="anchor" href="#git-rm---quiet"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode--quietcodespan"></a><span class='synopsis'><code>--quiet</code></span> </dt>
 <dd>
-<p>O <code>git rm</code> normalmente gera uma linha (na forma de um comando <code>rm</code>) para cada arquivo removido. Essa opção suprime esta saída.</p>
+<p>O <span class='synopsis'><code>git</code> <code>rm</code></span> normalmente gera uma linha (na forma de um comando <span class='synopsis'><code>rm</code></span>) para cada arquivo removido. Essa opção suprime esta saída.</p>
 </dd>
-<dt class="hdlist1" id="git-rm-code--pathspec-from-fileltfilegtcode"> <a class="anchor" href="#git-rm---pathspec-from-filefile"></a> <a class="anchor" href="#git-rm-code--pathspec-from-fileltfilegtcode"></a><code>--pathspec-from-file=&lt;file&gt;</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode--pathspec-from-filecodeemltfilegtemspan"> <a class="anchor" href="#git-rm---pathspec-from-filefile"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode--pathspec-from-filecodeemltfilegtemspan"></a><span class='synopsis'><code>--pathspec-from-file=</code><em>&lt;file&gt;</em></span> </dt>
 <dd>
-<p>Pathspec is passed in <em>&lt;file&gt;</em> instead of args. If <em>&lt;file&gt;</em> is exactly <code>-</code> then standard input is used. Pathspec elements are separated by <em>LF</em> or <em>CR</em>/<em>LF</em>. Pathspec elements can be quoted as explained for the configuration variable <code>core.quotePath</code> (see <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). See also <code>--pathspec-file-nul</code> and global <code>--literal-pathspecs</code>.</p>
+<p>Pathspec is passed in <em>&lt;file&gt;</em> instead of args. If <em>&lt;file&gt;</em> is exactly <span class='synopsis'><code>-</code></span> then standard input is used. Pathspec elements are separated by <em>LF</em> or <em>CR</em>/<em>LF</em>. Pathspec elements can be quoted as explained for the configuration variable <span class='synopsis'><code>core.quotePath</code></span> (see <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>). See also <span class='synopsis'><code>--pathspec-file-nul</code></span> and global <span class='synopsis'><code>--literal-pathspecs</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-rm-code--pathspec-file-nulcode"> <a class="anchor" href="#git-rm---pathspec-file-nul"></a> <a class="anchor" href="#git-rm-code--pathspec-file-nulcode"></a><code>--pathspec-file-nul</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscode--pathspec-file-nulcodespan"> <a class="anchor" href="#git-rm---pathspec-file-nul"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscode--pathspec-file-nulcodespan"></a><span class='synopsis'><code>--pathspec-file-nul</code></span> </dt>
 <dd>
-<p>Only meaningful with <code>--pathspec-from-file</code>. Pathspec elements are separated with <em>NUL</em> character and all other characters are taken literally (including newlines and quotes).</p>
+<p>Only meaningful with <span class='synopsis'><code>--pathspec-from-file</code></span>. Pathspec elements are separated with <em>NUL</em> character and all other characters are taken literally (including newlines and quotes).</p>
 </dd>
 </dl>
 </div>
@@ -105,16 +126,16 @@ aliases:
 <h2 id="_removendo_os_arquivos_que_desapareceram_do_sistema_de_arquivos"><a class="anchor" href="#_removendo_os_arquivos_que_desapareceram_do_sistema_de_arquivos"></a>REMOVENDO OS ARQUIVOS QUE DESAPARECERAM DO SISTEMA DE ARQUIVOS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Não há uma opção para o comando <code>git rm</code> para remover do índice apenas os caminhos que desapareceram do sistema de arquivos. No entanto, dependendo do caso, há várias maneiras de se fazer isso.</p>
+<p>Não há uma opção para o comando <span class='synopsis'><code>git</code> <code>rm</code></span> para remover do índice apenas os caminhos que desapareceram do sistema de arquivos. No entanto, dependendo do caso, há várias maneiras de se fazer isso.</p>
 </div>
 <div class="sect2">
-<h3 id="_utilizando_o_git_commit_a"><a class="anchor" href="#_utilizando_o_git_commit_a"></a>Utilizando o <code>git commit -a</code></h3>
+<h3 id="_utilizando_o_git_commit_a"><a class="anchor" href="#_utilizando_o_git_commit_a"></a>Utilizando o <span class='synopsis'><code>git</code> <code>commit</code> <code>-a</code></span></h3>
 <div class="paragraph">
-<p>Se você pretende que o seu próximo commit registre todas as alterações dos arquivos rastreados na árvore de trabalho e registre todas as remoções de arquivos que foram removidos da árvore de trabalho com <code>rm</code> (em oposição ao <code>git rm</code>), use o <code>git commit -a</code>, pois ele notará e registrará automaticamente todas as remoções. Você também pode obter um efeito semelhante sem fazer o commit usando <code>git add -u</code>.</p>
+<p>Se você pretende que o seu próximo commit registre todas as alterações dos arquivos rastreados na árvore de trabalho e registre todas as remoções de arquivos que foram removidos da árvore de trabalho com <span class='synopsis'><code>rm</code></span> (em oposição ao <span class='synopsis'><code>git</code> <code>rm</code></span>), use o <span class='synopsis'><code>git</code> <code>commit</code> <code>-a</code></span>, pois ele notará e registrará automaticamente todas as remoções. Você também pode obter um efeito semelhante sem fazer o commit usando <span class='synopsis'><code>git</code> <code>add</code> <code>-u</code></span>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_utilizando_git_add_a"><a class="anchor" href="#_utilizando_git_add_a"></a>Utilizando <code>git add -A</code></h3>
+<h3 id="_utilizando_git_add_a"><a class="anchor" href="#_utilizando_git_add_a"></a>Utilizando <span class='synopsis'><code>git</code> <code>add</code> <code>-A</code></span></h3>
 <div class="paragraph">
 <p>Ao aceitar um novo código para o fornecedor de um ramo, você provavelmente deseja registrar a remoção dos caminhos e as adições dos novos caminhos, bem como as modificações dos caminhos já existentes.</p>
 </div>
@@ -144,7 +165,7 @@ aliases:
 <div class="sect2">
 <h3 id="_outras_maneiras"><a class="anchor" href="#_outras_maneiras"></a>Outras maneiras</h3>
 <div class="paragraph">
-<p>Se tudo o que você realmente deseja é remover do índice os arquivos que não estão mais presentes na árvore de trabalho (talvez porque a sua árvore de trabalho esteja suja e você não possa usar o comando <code>git commit -a</code>), utilize o seguinte comando:</p>
+<p>Se tudo o que você realmente deseja é remover do índice os arquivos que não estão mais presentes na árvore de trabalho (talvez porque a sua árvore de trabalho esteja suja e você não possa usar o comando <span class='synopsis'><code>git</code> <code>commit</code> <code>-a</code></span>), utilize o seguinte comando:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -158,13 +179,13 @@ aliases:
 <h2 id="_submódulos"><a class="anchor" href="#_submódulos"></a>SUBMÓDULOS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Only submodules using a gitfile (which means they were cloned with a Git version 1.7.8 or newer) will be removed from the work tree, as their repository lives inside the <code>.git</code> directory of the superproject. If a submodule (or one of those nested inside it) still uses a <code>.git</code> directory, <code>git rm</code> moves the submodules git directory into the superprojects git directory to protect the submodule&#8217;s history. If it exists the <code>submodule.&lt;name&gt;</code> section in the <a href='{{< relurl "docs/gitmodules/pt_BR" >}}'>gitmodules[5]</a> file will also be removed and that file will be staged (unless <code>--cached</code> or <code>-n</code> are used).</p>
+<p>Only submodules using a gitfile (which means they were cloned with a Git version 1.7.8 or newer) will be removed from the work tree, as their repository lives inside the <span class='synopsis'><code>.git</code></span> directory of the superproject. If a submodule (or one of those nested inside it) still uses a <span class='synopsis'><code>.git</code></span> directory, <span class='synopsis'><code>git</code> <code>rm</code></span> moves the submodules git directory into the superprojects git directory to protect the submodule&#8217;s history. If it exists the <span class='synopsis'><code>submodule.</code><em>&lt;name&gt;</em></span> section in the <a href='{{< relurl "docs/gitmodules/pt_BR" >}}'>gitmodules[5]</a> file will also be removed and that file will be staged (unless <span class='synopsis'><code>--cached</code></span> or <span class='synopsis'><code>-n</code></span> are used).</p>
 </div>
 <div class="paragraph">
-<p>A submodule is considered up to date when the <code>HEAD</code> is the same as recorded in the index, no tracked files are modified and no untracked files that aren&#8217;t ignored are present in the submodule&#8217;s work tree. Ignored files are deemed expendable and won&#8217;t stop a submodule&#8217;s work tree from being removed.</p>
+<p>A submodule is considered up to date when the <span class='synopsis'><code>HEAD</code></span> is the same as recorded in the index, no tracked files are modified and no untracked files that aren&#8217;t ignored are present in the submodule&#8217;s work tree. Ignored files are deemed expendable and won&#8217;t stop a submodule&#8217;s work tree from being removed.</p>
 </div>
 <div class="paragraph">
-<p>Caso queira remover apenas a averiguação local de um submódulo vindo da sua árvore de trabalho sem fazer o commit de remoção, em vez disso utilize o <a href='{{< relurl "docs/git-submodule/pt_BR" >}}'>git-submodule[1]</a> <code>deinit</code>. Para obter mais detalhes sobre a remoção do submódulo, veja também <a href='{{< relurl "docs/gitsubmodules/pt_BR" >}}'>gitsubmodules[7]</a>.</p>
+<p>Caso queira remover apenas a averiguação local de um submódulo vindo da sua árvore de trabalho sem fazer o commit de remoção, em vez disso utilize o <a href='{{< relurl "docs/git-submodule/pt_BR" >}}'>git-submodule[1]</a> <span class='synopsis'><code>deinit</code></span>. Para obter mais detalhes sobre a remoção do submódulo, veja também <a href='{{< relurl "docs/gitsubmodules/pt_BR" >}}'>gitsubmodules[7]</a>.</p>
 </div>
 </div>
 </div>
@@ -173,16 +194,16 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rm-codegitrmDocumentationtxtcode"> <a class="anchor" href="#git-rm-gitrmDocumentationtxt"></a> <a class="anchor" href="#git-rm-codegitrmDocumentationtxtcode"></a><code>git rm Documentation/\*.txt</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsisemgitrmDocumentationtxtemspan"> <a class="anchor" href="#git-rm-gitrmDocumentationtxt"></a> <a class="anchor" href="#git-rm-spanclasssynopsisemgitrmDocumentationtxtemspan"></a><span class='synopsis'><em>git rm Documentation/\*.txt</em></span> </dt>
 <dd>
-<p>Remove todos os arquivos <code>* .txt</code> do índice que estão no diretório <code>Documentation</code> e em qualquer um dos seus subdiretórios.</p>
+<p>Remove todos os arquivos <span class='synopsis'><code>*</code> <code>.txt</code></span> do índice que estão no diretório <span class='synopsis'><code>Documentation</code></span> e em qualquer um dos seus subdiretórios.</p>
 <div class="paragraph">
-<p>Note que o asterisco <code>*</code> é citado no shell neste exemplo; isso permite que o Git e não o shell, expanda os nomes dos caminhos dos arquivos e subdiretórios no diretório <code>Documentation/</code>.</p>
+<p>Note que o asterisco <span class='synopsis'><code>*</code></span> é citado no shell neste exemplo; isso permite que o Git e não o shell, expanda os nomes dos caminhos dos arquivos e subdiretórios no diretório <span class='synopsis'><code>Documentation/</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rm-codegitrm-fgit-shcode"> <a class="anchor" href="#git-rm-gitrm-fgit-sh"></a> <a class="anchor" href="#git-rm-codegitrm-fgit-shcode"></a><code>git rm -f git-*.sh</code> </dt>
+<dt class="hdlist1" id="git-rm-spanclasssynopsiscodegitcodecodermcodecode-fcodecodegit-shcodespan"> <a class="anchor" href="#git-rm-gitrm-fgit-sh"></a> <a class="anchor" href="#git-rm-spanclasssynopsiscodegitcodecodermcodecode-fcodecodegit-shcodespan"></a><span class='synopsis'><code>git</code> <code>rm</code> <code>-f</code> <code>git-*.sh</code></span> </dt>
 <dd>
-<p>Como este exemplo permite que o shell expanda o asterisco (ou seja, você está listando os arquivos explicitamente), ele não considera o <code>subdir/git-foo.sh</code>.</p>
+<p>Como este exemplo permite que o shell expanda o asterisco (ou seja, você está listando os arquivos explicitamente), ele não considera o <span class='synopsis'><code>subdir/git-foo.sh</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -192,7 +213,7 @@ aliases:
 <h2 id="_bugs"><a class="anchor" href="#_bugs"></a>BUGS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Sempre que uma atualização do <code>superproject</code> remove um submódulo preenchido (por exemplo, ao alternar entre commits antes e após a remoção), um checkout obsoleto do submódulo permanece no local antigo. A remoção do diretório antigo só é segura quando ele usa um <code>gitfile</code>; caso contrário, o histórico do submódulo também será excluído. Esta etapa será obsoleta quando a atualização recursiva do submódulo for implementada.</p>
+<p>Sempre que uma atualização do <span class='synopsis'><code>superproject</code></span> remove um submódulo preenchido (por exemplo, ao alternar entre commits antes e após a remoção), um checkout obsoleto do submódulo permanece no local antigo. A remoção do diretório antigo só é segura quando ele usa um <span class='synopsis'><code>gitfile</code></span>; caso contrário, o histórico do submódulo também será excluído. Esta etapa será obsoleta quando a atualização recursiva do submódulo for implementada.</p>
 </div>
 </div>
 </div>

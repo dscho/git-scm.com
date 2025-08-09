@@ -9,6 +9,27 @@ docname: git-status
 lang: pt_BR
 aliases:
 - "/docs/git-status/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: SAÍDA
+  id: _saída
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: RENOVAÇÃO DO PLANO DE FUNDO
+  id: _renovação_do_plano_de_fundo
+- text: ARQUIVOS NÃO RASTREADOS E DESEMPENHO
+  id: _arquivos_não_rastreados_e_desempenho
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -30,7 +51,7 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Exibe os caminhos que têm diferenças entre o arquivo do índice e o commit atual no <code>HEAD</code>, os caminhos que têm diferenças entre a árvore de trabalho e o arquivo do índice, os caminhos na árvore de trabalho que não são rastreados pelo Git (e não foram ignorados pelo <a href='{{< relurl "docs/gitignore/pt_BR" >}}'>gitignore[5]</a>). O primeiro é o que você <em>confirmaria</em> executando o comando <code>git commit</code>; o segundo e o terceiro são os que você pode confirmar, executando o comando <code>git add</code> antes de executar o comando <code>git commit</code>.</p>
+<p>Exibe os caminhos que têm diferenças entre o arquivo do índice e o commit atual no <span class='synopsis'><code>HEAD</code></span>, os caminhos que têm diferenças entre a árvore de trabalho e o arquivo do índice, os caminhos na árvore de trabalho que não são rastreados pelo Git (e não foram ignorados pelo <a href='{{< relurl "docs/gitignore/pt_BR" >}}'>gitignore[5]</a>). O primeiro é o que você <em>confirmaria</em> executando o comando <span class='synopsis'><code>git</code> <code>commit</code></span>; o segundo e o terceiro são os que você pode confirmar, executando o comando <span class='synopsis'><code>git</code> <code>add</code></span> antes de executar o comando <span class='synopsis'><code>git</code> <code>commit</code></span>.</p>
 </div>
 </div>
 </div>
@@ -57,7 +78,7 @@ aliases:
 <dd>
 <p>Forneça a saída num formato fácil de analisar para scripts. Isso é semelhante à saída curta, mas permanecerá estável em todas as versões do Git e independentemente da configuração do usuário. Veja abaixo para mais detalhes.</p>
 <div class="paragraph">
-<p>O parâmetro <code>version</code> é usado para especificar a versão do formato. Isso é opcional e a predefiniçãoé o formato da versão original <em>v1</em>.</p>
+<p>O parâmetro <span class='synopsis'><code>version</code></span> é usado para especificar a versão do formato. Isso é opcional e a predefiniçãoé o formato da versão original <em>v1</em>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-status---long"> <a class="anchor" href="#git-status---long"></a>--long </dt>
@@ -67,7 +88,7 @@ aliases:
 <dt class="hdlist1" id="git-status--v"> <a class="anchor" href="#git-status--v"></a>-v </dt>
 <dt class="hdlist1" id="git-status---verbose"> <a class="anchor" href="#git-status---verbose"></a>--verbose </dt>
 <dd>
-<p>Além dos nomes dos arquivos que foram alterados, exiba também as alterações textuais que são preparadas para o commit (ou seja, como a saída do <code>git diff --cached</code>). Caso a opção <code>-v</code> seja utilizada duas vezes, também exiba as alterações na árvore de trabalho que ainda não foram preparadas (ou seja, como a saída do comando <code>git diff</code>).</p>
+<p>Além dos nomes dos arquivos que foram alterados, exiba também as alterações textuais que são preparadas para o commit (ou seja, como a saída do <span class='synopsis'><code>git</code> <code>diff</code> <code>--cached</code></span>). Caso a opção <span class='synopsis'><code>-v</code></span> seja utilizada duas vezes, também exiba as alterações na árvore de trabalho que ainda não foram preparadas (ou seja, como a saída do comando <span class='synopsis'><code>git</code> <code>diff</code></span>).</p>
 </dd>
 <dt class="hdlist1" id="git-status--ultmodogt"> <a class="anchor" href="#git-status--umodo"></a> <a class="anchor" href="#git-status--ultmodogt"></a>-u[&lt;modo&gt;] </dt>
 <dt class="hdlist1" id="git-status---untracked-filesltmodogt"> <a class="anchor" href="#git-status---untracked-filesmodo"></a> <a class="anchor" href="#git-status---untracked-filesltmodogt"></a>--untracked-files[=&lt;modo&gt;] </dt>
@@ -76,7 +97,7 @@ aliases:
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p>O parâmetro <code>mode</code> é usado para especificar o tratamento de arquivos não rastreados. É opcional: a predefinição é <em>all</em> e, se especificado, deve estar vinculado à opção (<code>-uno</code>, mas não <code>-u no</code> por exemplo).</p>
+<p>O parâmetro <span class='synopsis'><code>mode</code></span> é usado para especificar o tratamento de arquivos não rastreados. É opcional: a predefinição é <em>all</em> e, se especificado, deve estar vinculado à opção (<span class='synopsis'><code>-uno</code></span>, mas não <span class='synopsis'><code>-u</code> <code>no</code></span> por exemplo).</p>
 </div>
 <div class="paragraph">
 <p>As opções disponíveis são:</p>
@@ -95,17 +116,17 @@ aliases:
 </ul>
 </div>
 <div class="paragraph">
-<p>When <code>-u</code> option is not used, untracked files and directories are shown (i.e. the same as specifying <code>normal</code>), to help you avoid forgetting to add newly created files. Because it takes extra work to find untracked files in the filesystem, this mode may take some time in a large working tree. Consider enabling untracked cache and split index if supported (see <code>git update-index --untracked-cache</code> and <code>git update-index --split-index</code>), Otherwise you can use <code>no</code> to have <code>git status</code> return more quickly without showing untracked files. All usual spellings for Boolean value <code>true</code> are taken as <code>normal</code> and <code>false</code> as <code>no</code>.</p>
+<p>When <span class='synopsis'><code>-u</code></span> option is not used, untracked files and directories are shown (i.e. the same as specifying <span class='synopsis'><code>normal</code></span>), to help you avoid forgetting to add newly created files. Because it takes extra work to find untracked files in the filesystem, this mode may take some time in a large working tree. Consider enabling untracked cache and split index if supported (see <span class='synopsis'><code>git</code> <code>update-index</code> <code>--untracked-cache</code></span> and <span class='synopsis'><code>git</code> <code>update-index</code> <code>--split-index</code></span>), Otherwise you can use <span class='synopsis'><code>no</code></span> to have <span class='synopsis'><code>git</code> <code>status</code></span> return more quickly without showing untracked files. All usual spellings for Boolean value <span class='synopsis'><code>true</code></span> are taken as <span class='synopsis'><code>normal</code></span> and <span class='synopsis'><code>false</code></span> as <span class='synopsis'><code>no</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>A predefinição pode ser alterada utilizando a variável de configuração <code>status.showUntrackedFiles</code> documentada em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+<p>A predefinição pode ser alterada utilizando a variável de configuração <span class='synopsis'><code>status.showUntrackedFiles</code></span> documentada em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 </div>
 </div>
 </div>
 </dd>
 <dt class="hdlist1" id="git-status---ignore-submodulesltquandogt"> <a class="anchor" href="#git-status---ignore-submodulesquando"></a> <a class="anchor" href="#git-status---ignore-submodulesltquandogt"></a>--ignore-submodules[=&lt;quando&gt;] </dt>
 <dd>
-<p>Ignorar alterações em submódulos ao procurar alterações. &lt;quando&gt; pode ser <em>none</em>, <em>untracked</em>, <em>dirty</em> ou <em>all</em>, que é o padrão. O uso de <em>none</em> considerará o submódulo modificado quando ele contiver arquivos não rastreados ou modificados ou quando seu <code>HEAD</code> for diferente do commit registrado no superprojeto e pode ser usado para substituir qualquer configuração da opção <em>ignore</em> do comando <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a> ou <a href='{{< relurl "docs/gitmodules/pt_BR" >}}'>gitmodules[5]</a>. Quando <em>untracked</em> (não rastreado) é usado, os submódulos não são considerados sujos quando contêm apenas conteúdo não rastreado (mas ainda são verificados quanto a conteúdo modificado). O uso de <em>dirty</em> ignora todas as alterações na árvore de trabalho dos submódulos; somente as alterações nos commits armazenados no superprojeto são mostradas (este era o comportamento antes da versão 1.7.0). O uso de <em>all</em> oculta todas as alterações nos submódulos (e suprime a saída dos resumos dos submódulos quando a opção de configuração <code>status.submoduleSummary</code> é definida).</p>
+<p>Ignorar alterações em submódulos ao procurar alterações. &lt;quando&gt; pode ser <em>none</em>, <em>untracked</em>, <em>dirty</em> ou <em>all</em>, que é o padrão. O uso de <em>none</em> considerará o submódulo modificado quando ele contiver arquivos não rastreados ou modificados ou quando seu <span class='synopsis'><code>HEAD</code></span> for diferente do commit registrado no superprojeto e pode ser usado para substituir qualquer configuração da opção <em>ignore</em> do comando <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a> ou <a href='{{< relurl "docs/gitmodules/pt_BR" >}}'>gitmodules[5]</a>. Quando <em>untracked</em> (não rastreado) é usado, os submódulos não são considerados sujos quando contêm apenas conteúdo não rastreado (mas ainda são verificados quanto a conteúdo modificado). O uso de <em>dirty</em> ignora todas as alterações na árvore de trabalho dos submódulos; somente as alterações nos commits armazenados no superprojeto são mostradas (este era o comportamento antes da versão 1.7.0). O uso de <em>all</em> oculta todas as alterações nos submódulos (e suprime a saída dos resumos dos submódulos quando a opção de configuração <span class='synopsis'><code>status.submoduleSummary</code></span> é definida).</p>
 </dd>
 <dt class="hdlist1" id="git-status---ignoredltmodogt"> <a class="anchor" href="#git-status---ignoredmodo"></a> <a class="anchor" href="#git-status---ignoredltmodogt"></a>--ignored[=&lt;modo&gt;] </dt>
 <dd>
@@ -143,12 +164,12 @@ ignora o padrão.</p>
 </dd>
 <dt class="hdlist1" id="git-status--z"> <a class="anchor" href="#git-status--z"></a>-z </dt>
 <dd>
-<p>Termine as entradas com NUL, em vez de LF. Isso implica no uso da opção <code>--porcelain=v1</code> para o formato de saída caso nenhum outro formato tenha sido fornecido.</p>
+<p>Termine as entradas com NUL, em vez de LF. Isso implica no uso da opção <span class='synopsis'><code>--porcelain=v1</code></span> para o formato de saída caso nenhum outro formato tenha sido fornecido.</p>
 </dd>
 <dt class="hdlist1" id="git-status---columnltopesgt"> <a class="anchor" href="#git-status---columnopes"></a> <a class="anchor" href="#git-status---columnltopesgt"></a>--column[=&lt;opções&gt;] </dt>
 <dt class="hdlist1" id="git-status---no-column"> <a class="anchor" href="#git-status---no-column"></a>--no-column </dt>
 <dd>
-<p>Exiba os arquivos que não foram rastreados em colunas. Veja a variável de configuração <code>column.status</code> para conhecer a sintaxe desta opção.<code>--column</code> e <code>--no-column</code> sem estas opções, é o mesmo que <em>always</em> e <em>never</em> respectivamente.</p>
+<p>Exiba os arquivos que não foram rastreados em colunas. Veja a variável de configuração <span class='synopsis'><code>column.status</code></span> para conhecer a sintaxe desta opção.<span class='synopsis'><code>--column</code></span> e <span class='synopsis'><code>--no-column</code></span> sem estas opções, é o mesmo que <em>always</em> e <em>never</em> respectivamente.</p>
 </dd>
 <dt class="hdlist1" id="git-status---ahead-behind"> <a class="anchor" href="#git-status---ahead-behind"></a>--ahead-behind </dt>
 <dt class="hdlist1" id="git-status---no-ahead-behind"> <a class="anchor" href="#git-status---no-ahead-behind"></a>--no-ahead-behind </dt>
@@ -158,11 +179,11 @@ ignora o padrão.</p>
 <dt class="hdlist1" id="git-status---renames"> <a class="anchor" href="#git-status---renames"></a>--renames </dt>
 <dt class="hdlist1" id="git-status---no-renames"> <a class="anchor" href="#git-status---no-renames"></a>--no-renames </dt>
 <dd>
-<p>Ativar/desativar a detecção de renomeação independentemente da configuração do usuário. Consulte também <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <code>--no-renames</code>.</p>
+<p>Ativar/desativar a detecção de renomeação independentemente da configuração do usuário. Consulte também <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <span class='synopsis'><code>--no-renames</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-status---find-renamesltngt"> <a class="anchor" href="#git-status---find-renamesn"></a> <a class="anchor" href="#git-status---find-renamesltngt"></a>--find-renames[=&lt;n&gt;] </dt>
 <dd>
-<p>Ative a detecção de renomeação, definindo opcionalmente o limite de similaridade. Consulte também <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <code>--find-renames</code>.</p>
+<p>Ative a detecção de renomeação, definindo opcionalmente o limite de similaridade. Consulte também <a href='{{< relurl "docs/git-diff/pt_BR" >}}'>git-diff[1]</a> <span class='synopsis'><code>--find-renames</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-status-ltpathspecgt82308203"> <a class="anchor" href="#git-status-pathspec"></a> <a class="anchor" href="#git-status-ltpathspecgt82308203"></a>&lt;pathspec&gt;&#8230;&#8203; </dt>
 <dd>
@@ -179,7 +200,7 @@ ignora o padrão.</p>
 <p>A saída desse comando foi projetada para ser usada como um comentário de modelo de commit. O formato padrão, longo, foi projetado para ser legível, detalhado e descritivo. Seu conteúdo e formato estão sujeitos a alterações a qualquer momento.</p>
 </div>
 <div class="paragraph">
-<p>Os caminhos mencionados na saída, diferentemente de muitos outros comandos Git, são feitos em relação ao diretório atual. Caso esteja trabalhando em um subdiretório (isso é proposital, para ajudar a cortar e colar). Consulte a opção da configuração <code>status.relativePaths</code> abaixo.</p>
+<p>Os caminhos mencionados na saída, diferentemente de muitos outros comandos Git, são feitos em relação ao diretório atual. Caso esteja trabalhando em um subdiretório (isso é proposital, para ajudar a cortar e colar). Consulte a opção da configuração <span class='synopsis'><code>status.relativePaths</code></span> abaixo.</p>
 </div>
 <div class="sect2">
 <h3 id="_formato_curto"><a class="anchor" href="#_formato_curto"></a>Formato Curto</h3>
@@ -193,35 +214,35 @@ XY ORIG_PATH -&gt; PATH</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>onde <code>ORIG_PATH</code> é de onde veio o conteúdo renomeado/copiado. O <code>ORIG_PATH</code> só é exibido quando a entrada é renomeada ou copiada. O <code>XY</code> é um código de condição com duas letras.</p>
+<p>onde <span class='synopsis'><code>ORIG_PATH</code></span> é de onde veio o conteúdo renomeado/copiado. O <span class='synopsis'><code>ORIG_PATH</code></span> só é exibido quando a entrada é renomeada ou copiada. O <span class='synopsis'><code>XY</code></span> é um código de condição com duas letras.</p>
 </div>
 <div class="paragraph">
-<p>Os campos (incluindo o <code>-&gt;</code>) estão separados um do outro por um único espaço. Caso um nome do arquivo contenha um espaço ou outros caracteres não imprimíveis, este campo será citado na forma de uma string C literal: cercado por caracteres ASCII com aspas duplas (34) e com os caracteres especiais internos escapados por barra invertida.</p>
+<p>Os campos (incluindo o <span class='synopsis'><em>-&gt;</em></span>) estão separados um do outro por um único espaço. Caso um nome do arquivo contenha um espaço ou outros caracteres não imprimíveis, este campo será citado na forma de uma string C literal: cercado por caracteres ASCII com aspas duplas (34) e com os caracteres especiais internos escapados por barra invertida.</p>
 </div>
 <div class="paragraph">
-<p>Existem três tipos de estados diferentes que são mostrados utilizando este formato e cada um utiliza a sintaxe <code>XY</code> de forma diferente:</p>
+<p>Existem três tipos de estados diferentes que são mostrados utilizando este formato e cada um utiliza a sintaxe <span class='synopsis'><code>XY</code></span> de forma diferente:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>Quando uma mesclagem está ocorrendo e a mesclagem foi bem sucedida ou esteja fora de uma mesclagem
-situação, <code>X</code> mostra o status do índice e o <code>Y</code> mostra o status da árvore de trabalho.</p>
+situação, <span class='synopsis'><code>X</code></span> mostra o status do índice e o <span class='synopsis'><code>Y</code></span> mostra o status da árvore de trabalho.</p>
 </li>
 <li>
-<p>Quando o corre um conflito na mesclagem e ainda não foi resolvido, <code>X</code> e <code>Y</code>
+<p>Quando o corre um conflito na mesclagem e ainda não foi resolvido, <span class='synopsis'><code>X</code></span> e <span class='synopsis'><code>Y</code></span>
 mostram o estado introduzido por cada cabeçalho da mesclagem com relação ao ancestral comum. Dizem que estes caminhos são <em>unmerged</em> ou não mesclados.</p>
 </li>
 <li>
-<p>Quando um caminho é desmarcado, o <code>X</code> e o <code>Y</code> sempre são o mesmo, pois são
-desconhecidos ao índice. O <code>??</code> é usado para caminhos não rastreados. Os arquivos ignorados não são listados a menos que a opção <code>--ignored</code> seja usado; caso seja, os arquivos ignorados são indicados através do símbolo <code>!!</code>.</p>
+<p>Quando um caminho é desmarcado, o <span class='synopsis'><code>X</code></span> e o <span class='synopsis'><code>Y</code></span> sempre são o mesmo, pois são
+desconhecidos ao índice. O <span class='synopsis'><em>??</em></span> é usado para caminhos não rastreados. Os arquivos ignorados não são listados a menos que a opção <span class='synopsis'><code>--ignored</code></span> seja usado; caso seja, os arquivos ignorados são indicados através do símbolo <span class='synopsis'><code>!!</code></span>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Observe que o termo <em>merge</em> aqui também inclui rebases usando a estratégia padrão <code>--merge</code>, cherry-picks e qualquer outra coisa que use o mecanismo da mesclagem.</p>
+<p>Observe que o termo <em>merge</em> aqui também inclui rebases usando a estratégia padrão <span class='synopsis'><code>--merge</code></span>, cherry-picks e qualquer outra coisa que use o mecanismo da mesclagem.</p>
 </div>
 <div class="paragraph">
-<p>Na tabela a seguir, estas três classes são mostradas em seções separadas e estes caracteres são usados nos campos <code>X</code> e`Y` para as primeiras duas seções que mostram o rastreamento dos caminhos:</p>
+<p>Na tabela a seguir, estas três classes são mostradas em seções separadas e estes caracteres são usados nos campos <span class='synopsis'><code>X</code></span> e`Y` para as primeiras duas seções que mostram o rastreamento dos caminhos:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -299,13 +320,13 @@ U           U    não mesclado, ambos foram alterados
 </ul>
 </div>
 <div class="paragraph">
-<p>Isso ocorre porque o conteúdo modificado ou os arquivos não rastreados num submódulo não podem ser adicionados através do comando <code>git add</code> no superprojeto para preparar um commit.</p>
+<p>Isso ocorre porque o conteúdo modificado ou os arquivos não rastreados num submódulo não podem ser adicionados através do comando <span class='synopsis'><code>git</code> <code>add</code></span> no superprojeto para preparar um commit.</p>
 </div>
 <div class="paragraph">
 <p><em>m</em> e <em>?</em> são aplicados recursivamente. Por exemplo, se um submódulo aninhado em um submódulo contiver um arquivo não rastreado, isso será relatado como <em>?</em> também.</p>
 </div>
 <div class="paragraph">
-<p>Caso <code>-b</code> seja utilizado, a condição de formato curto será precedido por uma linhas</p>
+<p>Caso <span class='synopsis'><code>-b</code></span> seja utilizado, a condição de formato curto será precedido por uma linhas</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -321,10 +342,10 @@ U           U    não mesclado, ambos foram alterados
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Caso a configuração da variável <code>color.status</code> do usuário não seja respeitada; a cor estará sempre desligada.</p>
+<p>Caso a configuração da variável <span class='synopsis'><code>color.status</code></span> do usuário não seja respeitada; a cor estará sempre desligada.</p>
 </li>
 <li>
-<p>Caso a configuração da variável <code>status.relativePaths</code> do usuário não seja respeitada; os caminhos exibidos sempre serão relativos à raiz do repositório.</p>
+<p>Caso a configuração da variável <span class='synopsis'><code>status.relativePaths</code></span> do usuário não seja respeitada; os caminhos exibidos sempre serão relativos à raiz do repositório.</p>
 </li>
 </ol>
 </div>
@@ -332,7 +353,7 @@ U           U    não mesclado, ambos foram alterados
 <p>Há também um formato alternativo -z recomendado para análise de máquina. Neste formato, o campo de status é o mesmo, mas algumas outras coisas mudam. Primeiro, o <em>-&gt;</em> é omitido das entradas de renomeação e a ordem dos campos é invertida (<em>from -&gt; to</em> se torna <em>to from</em> por exemplo). Em segundo lugar, um NUL (ASCII 0) segue cada nome de arquivo, substituindo o espaço como separador de campo e a nova linha de encerramento (mas um espaço ainda separa o campo de status do primeiro nome de arquivo). Terceiro, os nomes de arquivos que contêm caracteres especiais não são formatados de maneira especial; não são feitas aspas ou recapitulação de barra invertida.</p>
 </div>
 <div class="paragraph">
-<p>Quaisquer alterações no submódulo são relatadas como <code>M</code> modificado em vez de <code>m</code> ou um único <code>?</code>.</p>
+<p>Quaisquer alterações no submódulo são relatadas como <span class='synopsis'><code>M</code></span> modificado em vez de <span class='synopsis'><code>m</code></span> ou um único <span class='synopsis'><em>?</em></span>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -346,7 +367,7 @@ U           U    não mesclado, ambos foram alterados
 <div class="sect3">
 <h4 id="_cabeçalho_dos_ramos"><a class="anchor" href="#_cabeçalho_dos_ramos"></a>Cabeçalho dos Ramos</h4>
 <div class="paragraph">
-<p>Caso <code>--branch</code> seja utilizado, uma série de linhas de cabeçalho será impressa com as informações sobre a ramificação atual.</p>
+<p>Caso <span class='synopsis'><code>--branch</code></span> seja utilizado, uma série de linhas de cabeçalho será impressa com as informações sobre a ramificação atual.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -364,7 +385,7 @@ U           U    não mesclado, ambos foram alterados
 <div class="sect3">
 <h4 id="_informação_do_empilhamento"><a class="anchor" href="#_informação_do_empilhamento"></a>Informação do empilhamento</h4>
 <div class="paragraph">
-<p>Caso a opção <code>--show-stash</code> seja usada, uma linha será impressa mostrando a quantidade das entradas que estão empilhadas caso não seja zero:</p>
+<p>Caso a opção <span class='synopsis'><code>--show-stash</code></span> seja usada, uma linha será impressa mostrando a quantidade das entradas que estão empilhadas caso não seja zero:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -477,12 +498,12 @@ U           U    não mesclado, ambos foram alterados
 </div>
 </div>
 <div class="sect3">
-<h4 id="_notas_sobre_o_formato_do_pathname_e_z"><a class="anchor" href="#_notas_sobre_o_formato_do_pathname_e_z"></a>Notas sobre o formato do <code>pathname</code> e <code>-z</code></h4>
+<h4 id="_notas_sobre_o_formato_do_pathname_e_z"><a class="anchor" href="#_notas_sobre_o_formato_do_pathname_e_z"></a>Notas sobre o formato do <span class='synopsis'><code>pathname</code></span> e <span class='synopsis'><code>-z</code></span></h4>
 <div class="paragraph">
-<p>Quando a opção <code>-z</code> é fornecida, os nomes de caminho são impressos como estão, sem aspas, e as linhas são encerradas com um byte NUL (ASCII 0x00).</p>
+<p>Quando a opção <span class='synopsis'><code>-z</code></span> é fornecida, os nomes de caminho são impressos como estão, sem aspas, e as linhas são encerradas com um byte NUL (ASCII 0x00).</p>
 </div>
 <div class="paragraph">
-<p>Sem a opção <code>-z</code>, os <code>pathnames</code> com os caracteres "incomuns" são citados conforme explicado na variável de configuração <code>core.quotePath</code> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>).</p>
+<p>Sem a opção <span class='synopsis'><code>-z</code></span>, os <span class='synopsis'><code>pathnames</code></span> com os caracteres "incomuns" são citados conforme explicado na variável de configuração <span class='synopsis'><code>core.quotePath</code></span> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>).</p>
 </div>
 </div>
 </div>
@@ -492,13 +513,13 @@ U           U    não mesclado, ambos foram alterados
 <h2 id="_configuração"><a class="anchor" href="#_configuração"></a>CONFIGURAÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O comando segue a variável <code>color.status</code> (ou <code>status.color</code>, ambos têm o mesmo significado, o último é mantido para compatibilidade com versões anteriores). As variáveis de configuração <code>color.status.</code> serve para para colorir a saída.</p>
+<p>O comando segue a variável <span class='synopsis'><code>color.status</code></span> (ou <span class='synopsis'><code>status.color</code></span>, ambos têm o mesmo significado, o último é mantido para compatibilidade com versões anteriores). As variáveis de configuração <span class='synopsis'><code>color.status.</code></span> serve para para colorir a saída.</p>
 </div>
 <div class="paragraph">
-<p>Se a variável de configuração <code>status.relativePaths</code> estiver configurada como <code>false</code>, todos os caminhos exibidos serão relativos à raiz do repositório e não ao diretório atual.</p>
+<p>Se a variável de configuração <span class='synopsis'><code>status.relativePaths</code></span> estiver configurada como <span class='synopsis'><code>false</code></span>, todos os caminhos exibidos serão relativos à raiz do repositório e não ao diretório atual.</p>
 </div>
 <div class="paragraph">
-<p>Se a variável <code>status.submoduleSummary</code> for definida como um número diferente de zero ou <code>true</code> (idêntico a <code>-1</code> ou um número ilimitado), o resumo do submódulo será ativado para o formato longo e um resumo dos commits para os submódulos modificados serão exibidos (consulte a opção --summary-limit de <a href='{{< relurl "docs/git-submodule/pt_BR" >}}'>git-submodule[1]</a>). Por favor note que a saída resumida do comando status será suprimida para todos os submódulos quando a variável <code>diff.ignoreSubmodules</code> estiver definida como <code>all</code> ou apenas para aqueles submódulos em onde seja o mesmo que <code>submodule.&lt;nome&gt;.ignore=all</code>. Para visualizar também o resumo dos submódulos ignorados, você pode usar a opção de clinha de comando <code>--ignore-submodules=dirty ` ou o comando `git submodule summary</code>, que exibe uma saída semelhante porém não respeita estas configurações.</p>
+<p>Se a variável <span class='synopsis'><code>status.submoduleSummary</code></span> for definida como um número diferente de zero ou <span class='synopsis'><code>true</code></span> (idêntico a <span class='synopsis'><code>-1</code></span> ou um número ilimitado), o resumo do submódulo será ativado para o formato longo e um resumo dos commits para os submódulos modificados serão exibidos (consulte a opção --summary-limit de <a href='{{< relurl "docs/git-submodule/pt_BR" >}}'>git-submodule[1]</a>). Por favor note que a saída resumida do comando status será suprimida para todos os submódulos quando a variável <span class='synopsis'><code>diff.ignoreSubmodules</code></span> estiver definida como <span class='synopsis'><code>all</code></span> ou apenas para aqueles submódulos em onde seja o mesmo que <span class='synopsis'><code>submodule.</code><em>&lt;nome&gt;</em><code>.ignore=all</code></span>. Para visualizar também o resumo dos submódulos ignorados, você pode usar a opção de clinha de comando <span class='synopsis'><code>--ignore-submodules=dirty</code>  <code>ou</code> <code>o</code> <code>comando</code> <code>git</code> <code>submodule</code> <code>summary</code></span>, que exibe uma saída semelhante porém não respeita estas configurações.</p>
 </div>
 </div>
 </div>
@@ -506,7 +527,7 @@ U           U    não mesclado, ambos foram alterados
 <h2 id="_renovação_do_plano_de_fundo"><a class="anchor" href="#_renovação_do_plano_de_fundo"></a>RENOVAÇÃO DO PLANO DE FUNDO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>É predefinido que o comando <code>git status</code> renove automaticamente o índice, as estatísticas das informações armazenadas no cache da árvore de trabalho e gravando o seu resultado. Escrever o índice atualizado é uma otimização que não é estritamente necessária (o <code>status</code> calcula os valores por si só, mas escrevê-los é apenas para evitar que os programas subsequentes repitam o nosso processamento). Quando o <code>status</code> é executado em segundo plano, o bloqueio retido durante a gravação pode entrar em conflito com os outros processos simultâneos, causando falhas. Os scripts que executam <code>status</code> em segundo plano devem considerar a utilização do comando <code>git --no-optional-locks status</code> (para mais detalhes consulte <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a>).</p>
+<p>É predefinido que o comando <span class='synopsis'><code>git</code> <code>status</code></span> renove automaticamente o índice, as estatísticas das informações armazenadas no cache da árvore de trabalho e gravando o seu resultado. Escrever o índice atualizado é uma otimização que não é estritamente necessária (o <span class='synopsis'><code>status</code></span> calcula os valores por si só, mas escrevê-los é apenas para evitar que os programas subsequentes repitam o nosso processamento). Quando o <span class='synopsis'><code>status</code></span> é executado em segundo plano, o bloqueio retido durante a gravação pode entrar em conflito com os outros processos simultâneos, causando falhas. Os scripts que executam <span class='synopsis'><code>status</code></span> em segundo plano devem considerar a utilização do comando <span class='synopsis'><code>git</code> <code>--no-optional-locks</code> <code>status</code></span> (para mais detalhes consulte <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a>).</p>
 </div>
 </div>
 </div>
@@ -514,30 +535,30 @@ U           U    não mesclado, ambos foram alterados
 <h2 id="_arquivos_não_rastreados_e_desempenho"><a class="anchor" href="#_arquivos_não_rastreados_e_desempenho"></a>ARQUIVOS NÃO RASTREADOS E DESEMPENHO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O comando <code>git status</code> pode ser muito lento em grandes árvores de trabalho se/quando precisar procurar arquivos e diretórios não rastreados. Existem muitas opções de configuração disponíveis para acelerar isso, evitando o trabalho ou fazendo o uso dos resultados já em cache dos comandos anteriores do Git. Não existe um único conjunto ideal de configurações que sejam corretas para todos. Para ajudá-lo, vamos listar um resumo das opções relevantes, porém, antes de entrar na lista, talvez você queira executar o comando <code>git status</code> novamente, pois a sua configuração já pode estar armazenada em cache com os resultados do <code>git status</code>, assim pode ficar mais rápido nas execuções posteriores.</p>
+<p>O comando <span class='synopsis'><code>git</code> <code>status</code></span> pode ser muito lento em grandes árvores de trabalho se/quando precisar procurar arquivos e diretórios não rastreados. Existem muitas opções de configuração disponíveis para acelerar isso, evitando o trabalho ou fazendo o uso dos resultados já em cache dos comandos anteriores do Git. Não existe um único conjunto ideal de configurações que sejam corretas para todos. Para ajudá-lo, vamos listar um resumo das opções relevantes, porém, antes de entrar na lista, talvez você queira executar o comando <span class='synopsis'><code>git</code> <code>status</code></span> novamente, pois a sua configuração já pode estar armazenada em cache com os resultados do <span class='synopsis'><code>git</code> <code>status</code></span>, assim pode ficar mais rápido nas execuções posteriores.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A opção <code>--untracked-files=no</code> ou o
-<code>status.showUntrackedFiles=no</code> config (see above for both): indicate that <code>git status</code> should not report untracked files. This is the fastest option. <code>git status</code> will not list the untracked files, so you need to be careful to remember if you create any new files and manually <code>git add</code> them.</p>
+<p>A opção <span class='synopsis'><code>--untracked-files=no</code></span> ou o
+<span class='synopsis'><code>status.showUntrackedFiles=no</code></span> config (see above for both): indicate that <span class='synopsis'><code>git</code> <code>status</code></span> should not report untracked files. This is the fastest option. <span class='synopsis'><code>git</code> <code>status</code></span> will not list the untracked files, so you need to be careful to remember if you create any new files and manually <span class='synopsis'><code>git</code> <code>add</code></span> them.</p>
 </li>
 <li>
-<p><code>advice.statusUoption=false</code> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>):
-A definição dessa variável como <code>false</code> desativa a mensagem de aviso fornecida quando a enumeração dos arquivos não rastreados leva mais de 2 segundos. Num grande projeto, isso pode levar mais tempo e o usuário pode já ter aceitado a troca (usar <code>-uno</code> pode não ser uma opção aceitável para o usuário por exemplo), onde não faz sentido emitir a mensagem de aviso e, nesse caso, desativar o aviso pode ser o melhor.</p>
+<p><span class='synopsis'><code>advice.statusUoption=false</code></span> (consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>):
+A definição dessa variável como <span class='synopsis'><code>false</code></span> desativa a mensagem de aviso fornecida quando a enumeração dos arquivos não rastreados leva mais de 2 segundos. Num grande projeto, isso pode levar mais tempo e o usuário pode já ter aceitado a troca (usar <span class='synopsis'><code>-uno</code></span> pode não ser uma opção aceitável para o usuário por exemplo), onde não faz sentido emitir a mensagem de aviso e, nesse caso, desativar o aviso pode ser o melhor.</p>
 </li>
 <li>
-<p><code>core.untrackedCache=true</code> (consulte <a href='{{< relurl "docs/git-update-index/pt_BR" >}}'>git-update-index[1]</a>):
-Ative o recurso de cache não rastreado e pesquise apenas os diretórios que foram alterados desde o comando <code>git status</code> anterior. O Git lembra o conjunto de arquivos não rastreados dentro de cada diretório e presume que, se um diretório não tiver sido modificado, o conjunto de arquivos não rastreados dentro dele não foi alterado. Isso é muito mais rápido do que enumerar o conteúdo de cada diretório, mas ainda assim não é isento de custos, porque o Git ainda precisa procurar o conjunto de diretórios alterados. O cache não rastreado é armazenado no arquivo <code>.git/index</code>. O custo reduzido da pesquisa de arquivos não rastreados é ligeiramente compensado pelo aumento do tamanho do índice e pelo custo de mantê-lo atualizado. A redução do tempo de pesquisa geralmente compensa o tamanho adicional.</p>
+<p><span class='synopsis'><code>core.untrackedCache=true</code></span> (consulte <a href='{{< relurl "docs/git-update-index/pt_BR" >}}'>git-update-index[1]</a>):
+Ative o recurso de cache não rastreado e pesquise apenas os diretórios que foram alterados desde o comando <span class='synopsis'><code>git</code> <code>status</code></span> anterior. O Git lembra o conjunto de arquivos não rastreados dentro de cada diretório e presume que, se um diretório não tiver sido modificado, o conjunto de arquivos não rastreados dentro dele não foi alterado. Isso é muito mais rápido do que enumerar o conteúdo de cada diretório, mas ainda assim não é isento de custos, porque o Git ainda precisa procurar o conjunto de diretórios alterados. O cache não rastreado é armazenado no arquivo <span class='synopsis'><code>.git/index</code></span>. O custo reduzido da pesquisa de arquivos não rastreados é ligeiramente compensado pelo aumento do tamanho do índice e pelo custo de mantê-lo atualizado. A redução do tempo de pesquisa geralmente compensa o tamanho adicional.</p>
 </li>
 <li>
-<p><code>core.untrackedCache=true</code> e <code>core.fsmonitor=true</code> ou
-O <code>core.fsmonitor=&lt;hook-command-pathname&gt;</code> (consulte <a href='{{< relurl "docs/git-update-index/pt_BR" >}}'>git-update-index[1]</a>): ative os recursos de cache não rastreado e <em>FSMonitor</em> e pesquise apenas os diretórios que foram alterados desde o comando <code>git status</code> anterior. Isso é mais rápido do que usar apenas o cache não rastreado, porque o Git também pode evitar a busca por diretórios alterados. O Git só precisa enumerar o conjunto exato de diretórios que foram alterados recentemente. Embora o recurso <em>FSMonitor</em> possa ser ativado sem o cache não rastreado, os benefícios são muito reduzidos nesse caso.</p>
+<p><span class='synopsis'><code>core.untrackedCache=true</code></span> e <span class='synopsis'><code>core.fsmonitor=true</code></span> ou
+O <span class='synopsis'><code>core.fsmonitor=</code><em>&lt;hook-command-pathname&gt;</em></span> (consulte <a href='{{< relurl "docs/git-update-index/pt_BR" >}}'>git-update-index[1]</a>): ative os recursos de cache não rastreado e <em>FSMonitor</em> e pesquise apenas os diretórios que foram alterados desde o comando <span class='synopsis'><code>git</code> <code>status</code></span> anterior. Isso é mais rápido do que usar apenas o cache não rastreado, porque o Git também pode evitar a busca por diretórios alterados. O Git só precisa enumerar o conjunto exato de diretórios que foram alterados recentemente. Embora o recurso <em>FSMonitor</em> possa ser ativado sem o cache não rastreado, os benefícios são muito reduzidos nesse caso.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Observe que, após ativar o cache não rastreado e/ou os recursos do FSMonitor, podem ser necessários alguns comandos <code>git status</code> para que os vários caches se aqueçam antes que você veja melhores tempos de comando. Isso é normal.</p>
+<p>Observe que, após ativar o cache não rastreado e/ou os recursos do FSMonitor, podem ser necessários alguns comandos <span class='synopsis'><code>git</code> <code>status</code></span> para que os vários caches se aqueçam antes que você veja melhores tempos de comando. Isso é normal.</p>
 </div>
 </div>
 </div>

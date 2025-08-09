@@ -9,6 +9,23 @@ docname: git-shell
 lang: pt_BR
 aliases:
 - "/docs/git-shell/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: COMANDOS
+  id: _comandos
+- text: USO INTERATIVO
+  id: _uso_interativo
+- text: EXEMPLOS
+  id: _exemplos
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -23,8 +40,8 @@ aliases:
 <div class="sectionbody">
 <div class="verseblock">
 <pre class="content"><em>chsh</em> -s $(command -v git-shell) &lt;usuário&gt;
-<em>git clone</em> &lt;usuário&gt;<code>@localhost:/path/to/repo.git</code>
-<em>ssh</em> &lt;usuário&gt;<code>@localhost</code></pre>
+<em>git clone</em> &lt;usuário&gt;<span class='synopsis'><code>@localhost:/path/to/repo.git</code></span>
+<em>ssh</em> &lt;usuário&gt;<span class='synopsis'><code>@localhost</code></span></pre>
 </div>
 </div>
 </div>
@@ -32,7 +49,7 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Esse é um shell de login para contas SSH para fornecer acesso restrito ao Git. Ele permite a execução apenas de comandos Git do lado do servidor que implementam a funcionalidade pull/push, além de comandos personalizados presentes num subdiretório chamado <code>git-shell-commands</code> no diretório inicial do usuário.</p>
+<p>Esse é um shell de login para contas SSH para fornecer acesso restrito ao Git. Ele permite a execução apenas de comandos Git do lado do servidor que implementam a funcionalidade pull/push, além de comandos personalizados presentes num subdiretório chamado <span class='synopsis'><code>git-shell-commands</code></span> no diretório inicial do usuário.</p>
 </div>
 </div>
 </div>
@@ -40,7 +57,7 @@ aliases:
 <h2 id="_comandos"><a class="anchor" href="#_comandos"></a>COMANDOS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>git shell</em> aceita os seguintes comandos após a opção <code>-c</code>:</p>
+<p><em>git shell</em> aceita os seguintes comandos após a opção <span class='synopsis'><code>-c</code></span>:</p>
 </div>
 <div class="dlist">
 <dl>
@@ -57,7 +74,7 @@ aliases:
 </dl>
 </div>
 <div class="paragraph">
-<p>If a <code>~/git-shell-commands</code> directory is present, <em>git shell</em> will also handle other, custom commands by running "<code>git-shell-commands/&lt;command&gt; &lt;arguments&gt;</code>" from the user&#8217;s home directory.</p>
+<p>If a <span class='synopsis'><code>~/git-shell-commands</code></span> directory is present, <em>git shell</em> will also handle other, custom commands by running "<span class='synopsis'><code>git-shell-commands/</code><em>&lt;command&gt;</em> <em>&lt;arguments&gt;</em></span>" from the user&#8217;s home directory.</p>
 </div>
 </div>
 </div>
@@ -65,16 +82,16 @@ aliases:
 <h2 id="_uso_interativo"><a class="anchor" href="#_uso_interativo"></a>USO INTERATIVO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>É predefinido que os comandos acima possam ser executados apenas com a opção <code>-c</code>; o shell não é interativo.</p>
+<p>É predefinido que os comandos acima possam ser executados apenas com a opção <span class='synopsis'><code>-c</code></span>; o shell não é interativo.</p>
 </div>
 <div class="paragraph">
-<p>Se um diretório <code>~/git-shell-commands</code> estiver presente, o comando <em>git shell</em> também poderá ser executado interativamente (sem argumentos). Se um comando <code>help</code> estiver presente no diretório <code>git-shell-commands</code>, ele será executado para fornecer ao usuário uma visão geral das ações permitidas. Em seguida, é apresentado um prompt "git&gt; " onde é possível digitar qualquer um dos comandos do diretório <code>git-shell-commands</code> ou <code>exit</code> para encerrar a conexão.</p>
+<p>Se um diretório <span class='synopsis'><code>~/git-shell-commands</code></span> estiver presente, o comando <em>git shell</em> também poderá ser executado interativamente (sem argumentos). Se um comando <span class='synopsis'><code>help</code></span> estiver presente no diretório <span class='synopsis'><code>git-shell-commands</code></span>, ele será executado para fornecer ao usuário uma visão geral das ações permitidas. Em seguida, é apresentado um prompt "git&gt; " onde é possível digitar qualquer um dos comandos do diretório <span class='synopsis'><code>git-shell-commands</code></span> ou <span class='synopsis'><code>exit</code></span> para encerrar a conexão.</p>
 </div>
 <div class="paragraph">
 <p>Em geral, este modo é utilizado como uma interface administrativa para permitir que os usuários listem os repositórios dos quais eles têm acesso para, criar, excluir ou renomear os repositórios ou alterar as descrições e permissões do mesmo.</p>
 </div>
 <div class="paragraph">
-<p>Caso um comando <code>no-interactive-login</code> existir, ele será executado e o shell interativo será abortado.</p>
+<p>Caso um comando <span class='synopsis'><code>no-interactive-login</code></span> existir, ele será executado e o shell interativo será abortado.</p>
 </div>
 </div>
 </div>
@@ -98,7 +115,7 @@ $ chmod +x $HOME/git-shell-commands/no-interactive-login</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Para ativar o acesso ao git-cvsserver (que geralmente deve ter o exemplo <code>no-interactive-login</code> acima como pré-requisito, pois a criação do diretório git-shell-commands permite logins interativos):</p>
+<p>Para ativar o acesso ao git-cvsserver (que geralmente deve ter o exemplo <span class='synopsis'><code>no-interactive-login</code></span> acima como pré-requisito, pois a criação do diretório git-shell-commands permite logins interativos):</p>
 </div>
 <div class="listingblock">
 <div class="content">

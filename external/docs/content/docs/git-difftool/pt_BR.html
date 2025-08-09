@@ -9,6 +9,21 @@ docname: git-difftool
 lang: pt_BR
 aliases:
 - "/docs/git-difftool/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -64,46 +79,46 @@ aliases:
 <dt class="hdlist1" id="git-difftool--tltferramentagt"> <a class="anchor" href="#git-difftool--tferramenta"></a> <a class="anchor" href="#git-difftool--tltferramentagt"></a>-t &lt;ferramenta&gt; </dt>
 <dt class="hdlist1" id="git-difftool---toolltferramentagt"> <a class="anchor" href="#git-difftool---toolferramenta"></a> <a class="anchor" href="#git-difftool---toolltferramentagt"></a>--tool=&lt;ferramenta&gt; </dt>
 <dd>
-<p>Use a ferramente diff especificada em <code>&lt;ferramenta&gt;</code>. Os valores válidos incluem <code>emerge</code>, <code>kompare</code>, <code>meld</code> e <code>vimdiff</code>. Execute o comando <code>git difftool --tool-help</code> para obter a lista de configurações válidas para <code>&lt;ferramentas&gt;</code>.</p>
+<p>Use a ferramente diff especificada em <span class='synopsis'><em>&lt;ferramenta&gt;</em></span>. Os valores válidos incluem <span class='synopsis'><code>emerge</code></span>, <span class='synopsis'><code>kompare</code></span>, <span class='synopsis'><code>meld</code></span> e <span class='synopsis'><code>vimdiff</code></span>. Execute o comando <span class='synopsis'><code>git</code> <code>difftool</code> <code>--tool-help</code></span> para obter a lista de configurações válidas para <span class='synopsis'><em>&lt;ferramentas&gt;</em></span>.</p>
 <div class="paragraph">
-<p>Se uma ferramenta diff não for especificada, o comando <em>git difftool</em> usará a variável de configuração <code>diff.tool</code>. Se a variável de configuração <code>diff.tool</code> não estiver definida, o comando <em>git difftool</em> escolherá uma predefinição mais adequada.</p>
+<p>Se uma ferramenta diff não for especificada, o comando <em>git difftool</em> usará a variável de configuração <span class='synopsis'><code>diff.tool</code></span>. Se a variável de configuração <span class='synopsis'><code>diff.tool</code></span> não estiver definida, o comando <em>git difftool</em> escolherá uma predefinição mais adequada.</p>
 </div>
 <div class="paragraph">
-<p>Você pode fornecer explicitamente um caminho completo para a ferramenta definindo a variável de configuração <code>difftool.&lt;ferramenta&gt;.path</code>. Por exemplo, você pode configurar o caminho absoluto para o kdiff3 configurando <code>difftool.kdiff3.path</code>. Caso contrário, o <em>git difftool</em> assume que a ferramenta está disponível no <code>PATH</code>.</p>
+<p>Você pode fornecer explicitamente um caminho completo para a ferramenta definindo a variável de configuração <span class='synopsis'><code>difftool.</code><em>&lt;ferramenta&gt;</em><code>.path</code></span>. Por exemplo, você pode configurar o caminho absoluto para o kdiff3 configurando <span class='synopsis'><code>difftool.kdiff3.path</code></span>. Caso contrário, o <em>git difftool</em> assume que a ferramenta está disponível no <span class='synopsis'><code>PATH</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Em vez de executar uma das ferramentas "diff" conhecidas, o <em>git difftool</em> pode ser customizado para executar um programa alternativo, utilizando a linha de comando para chamar uma variável de configuração <code>difftool.&lt;ferramenta&gt;.cmd</code>.</p>
+<p>Em vez de executar uma das ferramentas "diff" conhecidas, o <em>git difftool</em> pode ser customizado para executar um programa alternativo, utilizando a linha de comando para chamar uma variável de configuração <span class='synopsis'><code>difftool.</code><em>&lt;ferramenta&gt;</em><code>.cmd</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Quando o comando <em>git difftool</em> é invocado com esta ferramenta (por meio da opção <code>-t</code>, <code>--tool</code> ou na variável de configuração <code>diff.tool</code>), a linha de comando configurada será invocada com as seguintes variáveis disponíveis: <code>$LOCAL</code>, é definido como o nome do arquivo temporário que contém o conteúdo da pré-imagem do diff, <code>$REMOTE</code>, é definido como o nome do arquivo temporário que contém o conteúdo da pós-imagem do diff. <code>$MERGED</code> é o nome do arquivo que está sendo comparado. O <code>$BASE</code> é oferecido para compatibilidade com os comandos personalizados da ferramenta de mesclagem e tem o mesmo valor que <code>$MERGED</code>.</p>
+<p>Quando o comando <em>git difftool</em> é invocado com esta ferramenta (por meio da opção <span class='synopsis'><code>-t</code></span>, <span class='synopsis'><code>--tool</code></span> ou na variável de configuração <span class='synopsis'><code>diff.tool</code></span>), a linha de comando configurada será invocada com as seguintes variáveis disponíveis: <span class='synopsis'><code>$LOCAL</code></span>, é definido como o nome do arquivo temporário que contém o conteúdo da pré-imagem do diff, <span class='synopsis'><code>$REMOTE</code></span>, é definido como o nome do arquivo temporário que contém o conteúdo da pós-imagem do diff. <span class='synopsis'><code>$MERGED</code></span> é o nome do arquivo que está sendo comparado. O <span class='synopsis'><code>$BASE</code></span> é oferecido para compatibilidade com os comandos personalizados da ferramenta de mesclagem e tem o mesmo valor que <span class='synopsis'><code>$MERGED</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-difftool---tool-help"> <a class="anchor" href="#git-difftool---tool-help"></a>--tool-help </dt>
 <dd>
-<p>Imprima uma lista de ferramentas "diff" que podem ser utilizadas com <code>--tool</code>.</p>
+<p>Imprima uma lista de ferramentas "diff" que podem ser utilizadas com <span class='synopsis'><code>--tool</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-difftool---no-symlinks"> <a class="anchor" href="#git-difftool---no-symlinks"></a>--[no-]symlinks </dt>
 <dd>
-<p>O comportamento padrão do <code>git difftool</code> é criar links simbólicos para a árvore de trabalho quando executado no modo <code>--dir-diff</code> e o lado direito da comparação produz o mesmo conteúdo que o arquivo na árvore de trabalho.</p>
+<p>O comportamento padrão do <span class='synopsis'><code>git</code> <code>difftool</code></span> é criar links simbólicos para a árvore de trabalho quando executado no modo <span class='synopsis'><code>--dir-diff</code></span> e o lado direito da comparação produz o mesmo conteúdo que o arquivo na árvore de trabalho.</p>
 <div class="paragraph">
-<p>Ao utilizar a opção <code>--no-symlinks</code> ela instrui o comando <em>git difftool</em> para criar cópias. A predefinição no Windows é `--no-symlinks.</p>
+<p>Ao utilizar a opção <span class='synopsis'><code>--no-symlinks</code></span> ela instrui o comando <em>git difftool</em> para criar cópias. A predefinição no Windows é `--no-symlinks.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-difftool--xltcomandogt"> <a class="anchor" href="#git-difftool--xcomando"></a> <a class="anchor" href="#git-difftool--xltcomandogt"></a>-x &lt;comando&gt; </dt>
 <dt class="hdlist1" id="git-difftool---extcmdltcomandogt"> <a class="anchor" href="#git-difftool---extcmdcomando"></a> <a class="anchor" href="#git-difftool---extcmdltcomandogt"></a>--extcmd=&lt;comando&gt; </dt>
 <dd>
-<p>Especifique um comando personalizado para visualizar os diffs. O comando <em>git-difftool</em> ignora as predefinições de configuração e executa o <code>&lt;comando&gt; $LOCAL $REMOTE</code> quando esta opção é utilizada. Além disso, <code>$BASE</code> é definido no ambiente.</p>
+<p>Especifique um comando personalizado para visualizar os diffs. O comando <em>git-difftool</em> ignora as predefinições de configuração e executa o <span class='synopsis'><em>&lt;comando&gt;</em> <code>$LOCAL</code> <code>$REMOTE</code></span> quando esta opção é utilizada. Além disso, <span class='synopsis'><code>$BASE</code></span> é definido no ambiente.</p>
 </dd>
 <dt class="hdlist1" id="git-difftool--g"> <a class="anchor" href="#git-difftool--g"></a>-g </dt>
 <dt class="hdlist1" id="git-difftool---no-gui"> <a class="anchor" href="#git-difftool---no-gui"></a>--[no-]gui </dt>
 <dd>
-<p>Quando o comando <em>git-difftool</em> é invocado através da opção <code>-g</code> ou <code>--gui</code>, a ferramenta diff predefinida será lida através da variável de configuração <code>diff.guitool</code> em vez do <code>diff.tool</code>. Isso pode ser selecionado automaticamente usando a variável de configuração <code>difftool.guiDefault</code>. A opção <code>--no-gui</code> pode ser utilizada para substituir estas configurações. Caso o <code>diff.guitool</code> não esteja definido, faremos a procura na ordem <code>merge.guitool</code>, <code>diff.tool</code>, <code>merge.tool</code> até que uma ferramenta seja encontrada.</p>
+<p>Quando o comando <em>git-difftool</em> é invocado através da opção <span class='synopsis'><code>-g</code></span> ou <span class='synopsis'><code>--gui</code></span>, a ferramenta diff predefinida será lida através da variável de configuração <span class='synopsis'><code>diff.guitool</code></span> em vez do <span class='synopsis'><code>diff.tool</code></span>. Isso pode ser selecionado automaticamente usando a variável de configuração <span class='synopsis'><code>difftool.guiDefault</code></span>. A opção <span class='synopsis'><code>--no-gui</code></span> pode ser utilizada para substituir estas configurações. Caso o <span class='synopsis'><code>diff.guitool</code></span> não esteja definido, faremos a procura na ordem <span class='synopsis'><code>merge.guitool</code></span>, <span class='synopsis'><code>diff.tool</code></span>, <span class='synopsis'><code>merge.tool</code></span> até que uma ferramenta seja encontrada.</p>
 </dd>
 <dt class="hdlist1" id="git-difftool---no-trust-exit-code"> <a class="anchor" href="#git-difftool---no-trust-exit-code"></a>--[no-]trust-exit-code </dt>
 <dd>
-<p>Errors reported by the diff tool are ignored by default. Use <code>--trust-exit-code</code> to make <em>git-difftool</em> exit when an invoked diff tool returns a non-zero exit code.</p>
+<p>Errors reported by the diff tool are ignored by default. Use <span class='synopsis'><code>--trust-exit-code</code></span> to make <em>git-difftool</em> exit when an invoked diff tool returns a non-zero exit code.</p>
 <div class="paragraph">
-<p><em>git-difftool</em> encaminhará o código de encerramento da ferramenta chamada quando <code>--trust-exit-code</code> for utilizado.</p>
+<p><em>git-difftool</em> encaminhará o código de encerramento da ferramenta chamada quando <span class='synopsis'><code>--trust-exit-code</code></span> for utilizado.</p>
 </div>
 </dd>
 </dl>
@@ -130,7 +145,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/config/difftool.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/config/difftool.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

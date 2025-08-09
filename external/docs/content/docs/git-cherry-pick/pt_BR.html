@@ -9,6 +9,23 @@ docname: git-cherry-pick
 lang: pt_BR
 aliases:
 - "/docs/git-cherry-pick/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: SEQUENCER SUBCOMANDOS
+  id: _sequencer_subcomandos
+- text: EXEMPLOS
+  id: _exemplos
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -32,7 +49,7 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Com um ou mais commits existentes, aplique a alteração introduzida por cada um deles, registrando um novo commit individualmente. Isso exige que a sua árvore de trabalho esteja limpa (sem alterações do commit <code>HEAD</code>).</p>
+<p>Com um ou mais commits existentes, aplique a alteração introduzida por cada um deles, registrando um novo commit individualmente. Isso exige que a sua árvore de trabalho esteja limpa (sem alterações do commit <span class='synopsis'><code>HEAD</code></span>).</p>
 </div>
 <div class="paragraph">
 <p>Quando não é óbvio como aplicar uma alteração, acontece o seguinte:</p>
@@ -40,16 +57,16 @@ aliases:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>O ramo atual e o ponteiro <code>HEAD</code> permanecem no último commit realizado com sucesso.</p>
+<p>O ramo atual e o ponteiro <span class='synopsis'><code>HEAD</code></span> permanecem no último commit realizado com sucesso.</p>
 </li>
 <li>
-<p>A referência <code>CHERRY_PICK_HEAD</code> é configurada para apontar para o commit que introduziu a mudança que é difícil de aplicar.</p>
+<p>A referência <span class='synopsis'><code>CHERRY_PICK_HEAD</code></span> é configurada para apontar para o commit que introduziu a mudança que é difícil de aplicar.</p>
 </li>
 <li>
 <p>Caminhos nos quais a mudança aplicada corretamente são atualizados no arquivo de índice e na sua árvore de trabalho.</p>
 </li>
 <li>
-<p>Para caminhos conflitantes, o arquivo do índice registra até três versões, conforme descrito na seção "TRUE MERGE" do <a href='{{< relurl "docs/git-merge/pt_BR" >}}'>git-merge[1]</a>. Os arquivos da árvore de trabalho incluirão uma descrição do conflito entre os rotuladores de conflito usuais <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> e <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</p>
+<p>Para caminhos conflitantes, o arquivo do índice registra até três versões, conforme descrito na seção "TRUE MERGE" do <a href='{{< relurl "docs/git-merge/pt_BR" >}}'>git-merge[1]</a>. Os arquivos da árvore de trabalho incluirão uma descrição do conflito entre os rotuladores de conflito usuais <span class='synopsis'><em>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</em></span> e <span class='synopsis'><em>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</em></span>.</p>
 </li>
 <li>
 <p>Nenhuma outra modificação é feita.</p>
@@ -68,7 +85,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-cherry-pick-ltcommitgt82308203"> <a class="anchor" href="#git-cherry-pick-commit"></a> <a class="anchor" href="#git-cherry-pick-ltcommitgt82308203"></a>&lt;commit&gt;&#8230;&#8203; </dt>
 <dd>
-<p>Faz os commits para "cherry-pick". Para obter uma lista mais completa de formas de escrever os commits, consulte <a href='{{< relurl "docs/gitrevisions/pt_BR" >}}'>gitrevisions[7]</a>. Conjuntos dos commits que podem ser passadas, mas por predefinição, nenhuma travessia é feita, como se a opção <code>--no-walk</code> fosse especificada, consulte <a href='{{< relurl "docs/git-rev-list/pt_BR" >}}'>git-rev-list[1]</a>. Observe que a especificação de um intervalo alimentará todos os argumentos &lt;commit&gt;&#8230;&#8203; para uma única etapa da revisão (veja um exemplo posterior que usa <em>maint master&#8230;&#8203;next</em>).</p>
+<p>Faz os commits para "cherry-pick". Para obter uma lista mais completa de formas de escrever os commits, consulte <a href='{{< relurl "docs/gitrevisions/pt_BR" >}}'>gitrevisions[7]</a>. Conjuntos dos commits que podem ser passadas, mas por predefinição, nenhuma travessia é feita, como se a opção <span class='synopsis'><code>--no-walk</code></span> fosse especificada, consulte <a href='{{< relurl "docs/git-rev-list/pt_BR" >}}'>git-rev-list[1]</a>. Observe que a especificação de um intervalo alimentará todos os argumentos &lt;commit&gt;&#8230;&#8203; para uma única etapa da revisão (veja um exemplo posterior que usa <em>maint master&#8230;&#8203;next</em>).</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick--e"> <a class="anchor" href="#git-cherry-pick--e"></a>-e </dt>
 <dt class="hdlist1" id="git-cherry-pick---edit"> <a class="anchor" href="#git-cherry-pick---edit"></a>--edit </dt>
@@ -77,7 +94,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---cleanupltmodogt"> <a class="anchor" href="#git-cherry-pick---cleanupmodo"></a> <a class="anchor" href="#git-cherry-pick---cleanupltmodogt"></a>--cleanup=&lt;modo&gt; </dt>
 <dd>
-<p>Essa opção define como a mensagem de commit sera limpa antes de ser encaminhada para o maquinário de commit. Para mais detalhes consulte <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a>. Em particular, caso o valor <em>&lt;mode&gt;</em> tenha um valor de tesoura <code>scissors</code>, a tesoura será anexada a <code>MERGE_MSG</code> antes de ser repassada no caso de um conflito.</p>
+<p>Essa opção define como a mensagem de commit sera limpa antes de ser encaminhada para o maquinário de commit. Para mais detalhes consulte <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a>. Em particular, caso o valor <em>&lt;mode&gt;</em> tenha um valor de tesoura <span class='synopsis'><code>scissors</code></span>, a tesoura será anexada a <span class='synopsis'><code>MERGE_MSG</code></span> antes de ser repassada no caso de um conflito.</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick--x"> <a class="anchor" href="#git-cherry-pick--x"></a>-x </dt>
 <dd>
@@ -85,7 +102,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cherry-pick--r"> <a class="anchor" href="#git-cherry-pick--r"></a>-r </dt>
 <dd>
-<p>Antigamente, o comando tinha como padrão fazer o <code>-x</code> descrito acima e o <code>-r</code> era para desativá-lo. Agora, a predefinição é não fazer <code>-x</code>, portanto, essa opção não funciona.</p>
+<p>Antigamente, o comando tinha como padrão fazer o <span class='synopsis'><code>-x</code></span> descrito acima e o <span class='synopsis'><code>-r</code></span> era para desativá-lo. Agora, a predefinição é não fazer <span class='synopsis'><code>-x</code></span>, portanto, essa opção não funciona.</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick--mltparent-numbergt"> <a class="anchor" href="#git-cherry-pick--mparent-number"></a> <a class="anchor" href="#git-cherry-pick--mltparent-numbergt"></a>-m &lt;parent-number&gt; </dt>
 <dt class="hdlist1" id="git-cherry-pick---mainlineltnmero-relacionadogt"> <a class="anchor" href="#git-cherry-pick---mainlinenmero-relacionado"></a> <a class="anchor" href="#git-cherry-pick---mainlineltnmero-relacionadogt"></a>--mainline &lt;número-relacionado&gt; </dt>
@@ -95,7 +112,7 @@ aliases:
 <dt class="hdlist1" id="git-cherry-pick--n"> <a class="anchor" href="#git-cherry-pick--n"></a>-n </dt>
 <dt class="hdlist1" id="git-cherry-pick---no-commit"> <a class="anchor" href="#git-cherry-pick---no-commit"></a>--no-commit </dt>
 <dd>
-<p>Normalmente, o comando cria automaticamente uma sequência de commits. Esta opção aplica as alterações necessárias para selecionar cada commit nomeado em sua árvore de trabalho e no índice, sem fazer qualquer commit. Além disso, quando esta opção é usada, seu índice não precisa corresponder ao commit do <code>HEAD</code>. A seleção seletiva (cherry-pick) é feita em relação ao estado inicial do seu índice.</p>
+<p>Normalmente, o comando cria automaticamente uma sequência de commits. Esta opção aplica as alterações necessárias para selecionar cada commit nomeado em sua árvore de trabalho e no índice, sem fazer qualquer commit. Além disso, quando esta opção é usada, seu índice não precisa corresponder ao commit do <span class='synopsis'><code>HEAD</code></span>. A seleção seletiva (cherry-pick) é feita em relação ao estado inicial do seu índice.</p>
 <div class="paragraph">
 <p>Isso é útil quando você seleciona mais de um efeito de commit para seu índice numa linha.</p>
 </div>
@@ -103,13 +120,13 @@ aliases:
 <dt class="hdlist1" id="git-cherry-pick--s"> <a class="anchor" href="#git-cherry-pick--s"></a>-s </dt>
 <dt class="hdlist1" id="git-cherry-pick---signoff"> <a class="anchor" href="#git-cherry-pick---signoff"></a>--signoff </dt>
 <dd>
-<p>Adicione uma linha <code>Signed-off-by</code> no final da mensagem de confirmação. Consulte a opção signoff do comando <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a> para obter mais informações.</p>
+<p>Adicione uma linha <span class='synopsis'><code>Signed-off-by</code></span> no final da mensagem de confirmação. Consulte a opção signoff do comando <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a> para obter mais informações.</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick--Sltkeyidgt"> <a class="anchor" href="#git-cherry-pick--Skeyid"></a> <a class="anchor" href="#git-cherry-pick--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
 <dt class="hdlist1" id="git-cherry-pick---gpg-signltkeyidgt"> <a class="anchor" href="#git-cherry-pick---gpg-signkeyid"></a> <a class="anchor" href="#git-cherry-pick---gpg-signltkeyidgt"></a>--gpg-sign[=&lt;keyid&gt;] </dt>
 <dt class="hdlist1" id="git-cherry-pick---no-gpg-sign"> <a class="anchor" href="#git-cherry-pick---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
-<p>Commits assinados com o GPG O argumento <code>keyid</code> é opcional e a predefinição retorna para a identidade de quem fez o commit; caso seja utilizado, deve estar anexado a opção e sem espaço. A opção <code>--no-gpg-sign</code> é útil para revogar a variável de configuração <code>commit.gpgSign</code> e a anterior <code>--gpg-sign</code>.</p>
+<p>Commits assinados com o GPG O argumento <span class='synopsis'><code>keyid</code></span> é opcional e a predefinição retorna para a identidade de quem fez o commit; caso seja utilizado, deve estar anexado a opção e sem espaço. A opção <span class='synopsis'><code>--no-gpg-sign</code></span> é útil para revogar a variável de configuração <span class='synopsis'><code>commit.gpgSign</code></span> e a anterior <span class='synopsis'><code>--gpg-sign</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---ff"> <a class="anchor" href="#git-cherry-pick---ff"></a>--ff </dt>
 <dd>
@@ -117,7 +134,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---allow-empty"> <a class="anchor" href="#git-cherry-pick---allow-empty"></a>--allow-empty </dt>
 <dd>
-<p>By default, cherry-picking an empty commit will fail, indicating that an explicit invocation of <code>git commit --allow-empty</code> is required. This option overrides that behavior, allowing empty commits to be preserved automatically in a cherry-pick. Note that when "--ff" is in effect, empty commits that meet the "fast-forward" requirement will be kept even without this option. Note also, that use of this option only keeps commits that were initially empty (i.e. the commit recorded the same tree as its parent). Commits which are made empty due to a previous commit will cause the cherry-pick to fail. To force the inclusion of those commits, use <code>--empty=keep</code>.</p>
+<p>By default, cherry-picking an empty commit will fail, indicating that an explicit invocation of <span class='synopsis'><code>git</code> <code>commit</code> <code>--allow-empty</code></span> is required. This option overrides that behavior, allowing empty commits to be preserved automatically in a cherry-pick. Note that when "--ff" is in effect, empty commits that meet the "fast-forward" requirement will be kept even without this option. Note also, that use of this option only keeps commits that were initially empty (i.e. the commit recorded the same tree as its parent). Commits which are made empty due to a previous commit will cause the cherry-pick to fail. To force the inclusion of those commits, use <span class='synopsis'><code>--empty=keep</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---allow-empty-message"> <a class="anchor" href="#git-cherry-pick---allow-empty-message"></a>--allow-empty-message </dt>
 <dd>
@@ -130,15 +147,15 @@ aliases:
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-cherry-pick-codedropcode"> <a class="anchor" href="#git-cherry-pick-drop"></a> <a class="anchor" href="#git-cherry-pick-codedropcode"></a><code>drop</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodedropcodespan"> <a class="anchor" href="#git-cherry-pick-drop"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodedropcodespan"></a><span class='synopsis'><code>drop</code></span> </dt>
 <dd>
 <p>The commit will be dropped.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codekeepcode"> <a class="anchor" href="#git-cherry-pick-keep"></a> <a class="anchor" href="#git-cherry-pick-codekeepcode"></a><code>keep</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodekeepcodespan"> <a class="anchor" href="#git-cherry-pick-keep"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodekeepcodespan"></a><span class='synopsis'><code>keep</code></span> </dt>
 <dd>
-<p>The commit will be kept. Implies <code>--allow-empty</code>.</p>
+<p>The commit will be kept. Implies <span class='synopsis'><code>--allow-empty</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codestopcode"> <a class="anchor" href="#git-cherry-pick-stop"></a> <a class="anchor" href="#git-cherry-pick-codestopcode"></a><code>stop</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodestopcodespan"> <a class="anchor" href="#git-cherry-pick-stop"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodestopcodespan"></a><span class='synopsis'><code>stop</code></span> </dt>
 <dd>
 <p>The cherry-pick will stop when the commit is applied, allowing you to examine the commit. This is the default behavior.</p>
 </dd>
@@ -147,12 +164,12 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Note that <code>--empty=drop</code> and <code>--empty=stop</code> only specify how to handle a commit that was not initially empty, but rather became empty due to a previous commit. Commits that were initially empty will still cause the cherry-pick to fail unless one of <code>--empty=keep</code> or <code>--allow-empty</code> are specified.</p>
+<p>Note that <span class='synopsis'><code>--empty=drop</code></span> and <span class='synopsis'><code>--empty=stop</code></span> only specify how to handle a commit that was not initially empty, but rather became empty due to a previous commit. Commits that were initially empty will still cause the cherry-pick to fail unless one of <span class='synopsis'><code>--empty=keep</code></span> or <span class='synopsis'><code>--allow-empty</code></span> are specified.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---keep-redundant-commits"> <a class="anchor" href="#git-cherry-pick---keep-redundant-commits"></a>--keep-redundant-commits </dt>
 <dd>
-<p>Deprecated synonym for <code>--empty=keep</code>.</p>
+<p>Deprecated synonym for <span class='synopsis'><code>--empty=keep</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---strategyltestratgiagt"> <a class="anchor" href="#git-cherry-pick---strategyestratgia"></a> <a class="anchor" href="#git-cherry-pick---strategyltestratgiagt"></a>--strategy=&lt;estratégia&gt; </dt>
 <dd>
@@ -166,7 +183,7 @@ aliases:
 <dt class="hdlist1" id="git-cherry-pick---rerere-autoupdate"> <a class="anchor" href="#git-cherry-pick---rerere-autoupdate"></a>--rerere-autoupdate </dt>
 <dt class="hdlist1" id="git-cherry-pick---no-rerere-autoupdate"> <a class="anchor" href="#git-cherry-pick---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
 <dd>
-<p>Depois que o mecanismo <em>rerere</em> reutilizar uma resolução registrada no conflito atual para atualizar os arquivos na árvore de trabalho, permita que ele também atualize o índice com o resultado da resolução. A opção <code>--no-rerere-autoupdate</code> é uma boa maneira de verificar novamente o que o <code>rerere</code> fez e detectar possíveis erros de mesclagem, antes de fazer o commit resultante no índice com um comando <code>git add</code> separado.</p>
+<p>Depois que o mecanismo <em>rerere</em> reutilizar uma resolução registrada no conflito atual para atualizar os arquivos na árvore de trabalho, permita que ele também atualize o índice com o resultado da resolução. A opção <span class='synopsis'><code>--no-rerere-autoupdate</code></span> é uma boa maneira de verificar novamente o que o <span class='synopsis'><code>rerere</code></span> fez e detectar possíveis erros de mesclagem, antes de fazer o commit resultante no índice com um comando <span class='synopsis'><code>git</code> <code>add</code></span> separado.</p>
 </dd>
 </dl>
 </div>
@@ -179,7 +196,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-cherry-pick---continue"> <a class="anchor" href="#git-cherry-pick---continue"></a>--continue </dt>
 <dd>
-<p>Continue a operação em andamento usando as informações em <code>.git/sequencer</code>. Pode ser usado para continuar após uma falha da resolução de conflitos num "cherry-pick" ou numa reversão.</p>
+<p>Continue a operação em andamento usando as informações em <span class='synopsis'><code>.git/sequencer</code></span>. Pode ser usado para continuar após uma falha da resolução de conflitos num "cherry-pick" ou numa reversão.</p>
 </dd>
 <dt class="hdlist1" id="git-cherry-pick---skip"> <a class="anchor" href="#git-cherry-pick---skip"></a>--skip </dt>
 <dd>
@@ -202,33 +219,33 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmastercode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmastercode"></a><code>git cherry-pick master</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemastercodespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemastercodespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>master</code></span> </dt>
 <dd>
 <p>Aplique a mudança introduzida pelo commit na ponta do branch master e crie um novo commit com esta mudança.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmastercode-1"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster-1"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmastercode-1"></a><code>git cherry-pick ..master</code> </dt>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickHEADmastercode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickHEADmaster"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickHEADmastercode"></a><code>git cherry-pick ^HEAD master</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemastercodespan-1"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster-1"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemastercodespan-1"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>..master</code></span> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodeHEADcodecodemastercodespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickHEADmaster"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodeHEADcodecodemastercodespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>^HEAD</code> <code>master</code></span> </dt>
 <dd>
 <p>Aplique as alterações introduzidas por todos os commits que são ancestrais do master, mas não do HEAD para produzir novos commits.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaintprximomastercode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaintprximomaster"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaintprximomastercode"></a><code>git cherry-pick maint próximo ^master</code> </dt>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaintmasterprximocode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaintmasterprximo"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaintmasterprximocode"></a><code>git cherry-pick maint master..próximo</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsisemgitcherry-pickmaintprximomasteremspan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaintprximomaster"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsisemgitcherry-pickmaintprximomasteremspan"></a><span class='synopsis'><em>git cherry-pick maint próximo ^master</em></span> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsisemgitcherry-pickmaintmasterprximoemspan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaintmasterprximo"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsisemgitcherry-pickmaintmasterprximoemspan"></a><span class='synopsis'><em>git cherry-pick maint master..próximo</em></span> </dt>
 <dd>
-<p>Aplique as alterações introduzidas por todos os commits que sejam ancestrais <code>maint</code> ou do próximo, nem do <code>master</code> ou de qualquer um de seus ancestrais. Observe que o último não significa <code>maint</code> e tudo entre <code>master</code> e <code>next</code>; especificamente, <code>maint</code> não será usado se estiver incluído em <code>master</code>.</p>
+<p>Aplique as alterações introduzidas por todos os commits que sejam ancestrais <span class='synopsis'><code>maint</code></span> ou do próximo, nem do <span class='synopsis'><code>master</code></span> ou de qualquer um de seus ancestrais. Observe que o último não significa <span class='synopsis'><code>maint</code></span> e tudo entre <span class='synopsis'><code>master</code></span> e <span class='synopsis'><code>next</code></span>; especificamente, <span class='synopsis'><code>maint</code></span> não será usado se estiver incluído em <span class='synopsis'><code>master</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pickmaster4master2code"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster4master2"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pickmaster4master2code"></a><code>git cherry-pick master~4 master~2</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemaster4codecodemaster2codespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pickmaster4master2"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecodemaster4codecodemaster2codespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>master~4</code> <code>master~2</code></span> </dt>
 <dd>
 <p>Aplique as alterações introduzidas pelo quinto e terceiro últimos commits apontados pelo master e crie 2 novos commits com essas mudanças.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pick-nmaster1nextcode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pick-nmaster1next"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pick-nmaster1nextcode"></a><code>git cherry-pick -n master~1 next</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecode-ncodecodemaster1codecodenextcodespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pick-nmaster1next"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecode-ncodecodemaster1codecodenextcodespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>-n</code> <code>master~1</code> <code>next</code></span> </dt>
 <dd>
 <p>Aplique as alterações na árvore de trabalho e no índice que foram introduzidos pelo segundo último commit apontada pelo "master" e pelo último commit apontada pelo próximo, porém não crie nenhum commit com estas alterações.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitcherry-pick--ffnextcode"> <a class="anchor" href="#git-cherry-pick-gitcherry-pick--ffnext"></a> <a class="anchor" href="#git-cherry-pick-codegitcherry-pick--ffnextcode"></a><code>git cherry-pick --ff ..next</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecode--ffcodecodenextcodespan"> <a class="anchor" href="#git-cherry-pick-gitcherry-pick--ffnext"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecodecherry-pickcodecode--ffcodecodenextcodespan"></a><span class='synopsis'><code>git</code> <code>cherry-pick</code> <code>--ff</code> <code>..next</code></span> </dt>
 <dd>
-<p>Se o histórico for linear e <code>HEAD</code> for um ancestral do próximo, atualize a árvore de trabalho e avance o ponteiro <code>HEAD</code> para a próxima correspondência. Caso contrário, aplique as alterações introduzidas por estes commits que estão próximos, mas não são o <code>HEAD</code> do ramo atual, criando um novo commit para cada nova alteração.</p>
+<p>Se o histórico for linear e <span class='synopsis'><code>HEAD</code></span> for um ancestral do próximo, atualize a árvore de trabalho e avance o ponteiro <span class='synopsis'><code>HEAD</code></span> para a próxima correspondência. Caso contrário, aplique as alterações introduzidas por estes commits que estão próximos, mas não são o <span class='synopsis'><code>HEAD</code></span> do ramo atual, criando um novo commit para cada nova alteração.</p>
 </dd>
-<dt class="hdlist1" id="git-cherry-pick-codegitrev-list--reversemaster--READMEgitcherry-pick-n--stdincode"> <a class="anchor" href="#git-cherry-pick-gitrev-list--reversemaster--READMEgitcherry-pick-n--stdin"></a> <a class="anchor" href="#git-cherry-pick-codegitrev-list--reversemaster--READMEgitcherry-pick-n--stdincode"></a><code>git rev-list --reverse master -- README | git cherry-pick -n --stdin</code> </dt>
+<dt class="hdlist1" id="git-cherry-pick-spanclasssynopsiscodegitcodecoderev-listcodecode--reversecodecodemastercodecode--codecodeREADMEcodecodegitcodecodecherry-pickcodecode-ncodecode--stdincodespan"> <a class="anchor" href="#git-cherry-pick-gitrev-list--reversemaster--READMEgitcherry-pick-n--stdin"></a> <a class="anchor" href="#git-cherry-pick-spanclasssynopsiscodegitcodecoderev-listcodecode--reversecodecodemastercodecode--codecodeREADMEcodecodegitcodecodecherry-pickcodecode-ncodecode--stdincodespan"></a><span class='synopsis'><code>git</code> <code>rev-list</code> <code>--reverse</code> <code>master</code> <code>--</code> <code>README</code> | <code>git</code> <code>cherry-pick</code> <code>-n</code> <code>--stdin</code></span> </dt>
 <dd>
 <p>Aplique as alterações introduzidas por todas as confirmações no ramo principal que tocaram no README para a árvore de trabalho e o índice, para que o resultado possa ser inspecionado e transformado numa única nova confirmação, se adequado.</p>
 </dd>
@@ -248,7 +265,7 @@ $ git cherry-pick -Xpatience topic^  <b class="conum">(4)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>Aplica a alteração que seriam mostradas pelo <code>git show topic^</code>. Neste exemplo, a correção não se aplica de forma limpa, portanto, as informações sobre o conflito são gravadas no índice e na árvore de trabalho sem resultados de novos commits.</p>
+<p>Aplica a alteração que seriam mostradas pelo <span class='synopsis'><code>git</code> <code>show</code> <code>topic^</code></span>. Neste exemplo, a correção não se aplica de forma limpa, portanto, as informações sobre o conflito são gravadas no índice e na árvore de trabalho sem resultados de novos commits.</p>
 </li>
 <li>
 <p>resumir as alterações a serem reconciliadas</p>
@@ -257,7 +274,7 @@ $ git cherry-pick -Xpatience topic^  <b class="conum">(4)</b></pre>
 <p>Cancela a escolha seletiva. Em outras palavras, retorne ao estado anterior à escolha seletiva, preservando todas as alterações locais que você tinha na árvore de trabalho.</p>
 </li>
 <li>
-<p>tente aplicar a mudança introduzida por <code>topic^</code> novamente, gastando tempo extra para evitar erros baseados em linhas de contexto correspondentes incorretas.</p>
+<p>tente aplicar a mudança introduzida por <span class='synopsis'><code>topic^</code></span> novamente, gastando tempo extra para evitar erros baseados em linhas de contexto correspondentes incorretas.</p>
 </li>
 </ol>
 </div>

@@ -9,6 +9,23 @@ docname: git-diff-index
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-diff-index/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 运行模式
+  id: _运行模式
+- text: 缓存模式
+  id: _缓存模式
+- text: 非缓存模式
+  id: _非缓存模式
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -45,7 +62,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>zh_HANS-CN/diff-options.adoc</code></p>
+<p>Missing <span class='synopsis'><code>zh_HANS-CN/diff-options.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -82,7 +99,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>zh_HANS-CN/diff-format.adoc</code></p>
+<p>Missing <span class='synopsis'><code>zh_HANS-CN/diff-format.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -97,7 +114,7 @@ aliases:
 <h2 id="_运行模式"><a class="anchor" href="#_运行模式"></a>运行模式</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>你可以选择是完全信任索引文件（使用 <code>--cached</code> 标志），还是要求 diff 逻辑将任何与统计状态不匹配的文件显示为 "暂定更改"。 这两种操作都非常有用。</p>
+<p>你可以选择是完全信任索引文件（使用 <span class='synopsis'><code>--cached</code></span> 标志），还是要求 diff 逻辑将任何与统计状态不匹配的文件显示为 "暂定更改"。 这两种操作都非常有用。</p>
 </div>
 </div>
 </div>
@@ -105,7 +122,7 @@ aliases:
 <h2 id="_缓存模式"><a class="anchor" href="#_缓存模式"></a>缓存模式</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>如果指定了 <code>--cached</code>，则可以询问：</p>
+<p>如果指定了 <span class='synopsis'><code>--cached</code></span>，则可以询问：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -122,7 +139,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>示例：假设我把 <code>commit.c</code> 重命名为 <code>git-commit.c</code>，并执行了 <code>update-index</code> 使其在索引文件中生效。 由于索引文件与我的工作目录一致，所以`git diff-files`根本不会显示任何内容。但使用 'git diff-index ' 就可以：</p>
+<p>示例：假设我把 <span class='synopsis'><code>commit.c</code></span> 重命名为 <span class='synopsis'><code>git-commit.c</code></span>，并执行了 <span class='synopsis'><code>update-index</code></span> 使其在索引文件中生效。 由于索引文件与我的工作目录一致，所以`git diff-files`根本不会显示任何内容。但使用 'git diff-index ' 就可以：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -135,10 +152,10 @@ aliases:
 <p>不难看出，以上是重命名。</p>
 </div>
 <div class="paragraph">
-<p>事实上，<code>git diff-index --cached</code> <strong>应当</strong> 总是完全等同于实际执行 <em>git write-tree</em> 并进行比较。只不过，这个方法更适合只想查看当前位置的情况。</p>
+<p>事实上，<span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code></span> <strong>应当</strong> 总是完全等同于实际执行 <em>git write-tree</em> 并进行比较。只不过，这个方法更适合只想查看当前位置的情况。</p>
 </div>
 <div class="paragraph">
-<p>因此，当你问自己 “我已经标记了哪些内容要提交，与之前的树有什么不同” 时，使用 <code>git diff-index --cached</code> 基本上是非常有用的。</p>
+<p>因此，当你问自己 “我已经标记了哪些内容要提交，与之前的树有什么不同” 时，使用 <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code></span> 基本上是非常有用的。</p>
 </div>
 </div>
 </div>
@@ -158,7 +175,7 @@ aliases:
 <p>这显然也是一个非常有用的问题，因为它会告诉你*可能*提交的内容。同样，输出结果与 <em>git diff-tree -r</em> 的输出结果完全吻合，但又有所变化。</p>
 </div>
 <div class="paragraph">
-<p>问题在于，如果某个文件与索引不匹配，我们就不会为它建立备份存储，我们会使用 “全零” sha1 来显示这一点。比方说，你编辑了 <code>kernel/sched.c</code>，但实际上还没有执行 <em>git update-index</em> --没有与新状态相关联的 “对象”，你就会得到：</p>
+<p>问题在于，如果某个文件与索引不匹配，我们就不会为它建立备份存储，我们会使用 “全零” sha1 来显示这一点。比方说，你编辑了 <span class='synopsis'><code>kernel/sched.c</code></span>，但实际上还没有执行 <em>git update-index</em> --没有与新状态相关联的 “对象”，你就会得到：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -167,7 +184,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>也就是说，它显示树已经改变，而且 <code>kernel/sched.c</code> 不是最新的，可能包含新的内容。全零的 sha1 意味着要获得真正的差异，需要直接查看工作目录中的对象，而不是进行对象间的差异。</p>
+<p>也就是说，它显示树已经改变，而且 <span class='synopsis'><code>kernel/sched.c</code></span> 不是最新的，可能包含新的内容。全零的 sha1 意味着要获得真正的差异，需要直接查看工作目录中的对象，而不是进行对象间的差异。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -176,7 +193,7 @@ aliases:
 <div class="title">Note</div>
 </td>
 <td class="content">
-与其他同类命令一样，<em>git diff-index</em> 实际上并不查看文件内容。所以也许 <code>kernel/sched.c</code> 实际上并没有改变，只是你看了一下而已。无论哪种情况，都需要 <em>git update-index</em> 来使索引同步。
+与其他同类命令一样，<em>git diff-index</em> 实际上并不查看文件内容。所以也许 <span class='synopsis'><code>kernel/sched.c</code></span> 实际上并没有改变，只是你看了一下而已。无论哪种情况，都需要 <em>git update-index</em> 来使索引同步。
 </td>
 </tr>
 </table>

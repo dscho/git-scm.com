@@ -9,6 +9,25 @@ docname: git-check-ignore
 lang: fr
 aliases:
 - "/docs/git-check-ignore/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: SORTIE
+  id: _sortie
+- text: STATUT DE SORTIE
+  id: _statut_de_sortie
+- text: VOIR AUSSI
+  id: _voir_aussi
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -31,7 +50,7 @@ aliases:
 <h2 id="_description"><a class="anchor" href="#_description"></a>DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pour chaque nom de chemin donné via la ligne de commande ou depuis un fichier via <code>--stdin</code>, vérifie si le fichier est exclu par .gitignore (ou d&#8217;autres fichiers d&#8217;entrée du mécanisme d&#8217;exclusion) et affiche le chemin s&#8217;il est exclu.</p>
+<p>Pour chaque nom de chemin donné via la ligne de commande ou depuis un fichier via <span class='synopsis'><code>--stdin</code></span>, vérifie si le fichier est exclu par .gitignore (ou d&#8217;autres fichiers d&#8217;entrée du mécanisme d&#8217;exclusion) et affiche le chemin s&#8217;il est exclu.</p>
 </div>
 <div class="paragraph">
 <p>Par défaut, les fichiers suivis ne sont pas affichés du tout puisqu&#8217;ils ne sont pas soumis aux règles d&#8217;exclusion ; mais voyez &#8216;--no-index&#8217;.</p>
@@ -49,7 +68,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-check-ignore--v--verbose"> <a class="anchor" href="#git-check-ignore--v--verbose"></a>-v, --verbose </dt>
 <dd>
-<p>Au lieu d&#8217;afficher les chemins qui sont exclus, pour chaque chemin qui correspond à un motif d&#8217;exclusion, imprimer le motif d&#8217;exclusion avec le chemin. (La correspondance d&#8217;un motif d&#8217;exclusion signifie généralement que le chemin est exclu, mais si le motif commence par "<code>!</code>", il s&#8217;agit alors d&#8217;un motif négatif et sa correspondance signifie que le chemin n&#8217;est PAS exclu).</p>
+<p>Au lieu d&#8217;afficher les chemins qui sont exclus, pour chaque chemin qui correspond à un motif d&#8217;exclusion, imprimer le motif d&#8217;exclusion avec le chemin. (La correspondance d&#8217;un motif d&#8217;exclusion signifie généralement que le chemin est exclu, mais si le motif commence par "<span class='synopsis'><code>!</code></span>", il s&#8217;agit alors d&#8217;un motif négatif et sa correspondance signifie que le chemin n&#8217;est PAS exclu).</p>
 <div class="paragraph">
 <p>Pour les règles de préséance dans et entre les sources d&#8217;exclusion, voir <a href='{{< relurl "docs/gitignore/fr" >}}'>gitignore[5]</a>.</p>
 </div>
@@ -60,15 +79,15 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-check-ignore--z"> <a class="anchor" href="#git-check-ignore--z"></a>-z </dt>
 <dd>
-<p>Le format de sortie est modifié pour être analysable par une machine. Si <code>--stdin</code> est également donné, les chemins d&#8217;entrée sont séparés par un caractère NUL au lieu d&#8217;un caractère de saut de ligne.</p>
+<p>Le format de sortie est modifié pour être analysable par une machine. Si <span class='synopsis'><code>--stdin</code></span> est également donné, les chemins d&#8217;entrée sont séparés par un caractère NUL au lieu d&#8217;un caractère de saut de ligne.</p>
 </dd>
 <dt class="hdlist1" id="git-check-ignore--n--non-matching"> <a class="anchor" href="#git-check-ignore--n--non-matching"></a>-n, --non-matching </dt>
 <dd>
-<p>Afficher les chemins donnés qui ne correspondent à aucun motif. Cela n&#8217;a de sens que si <code>--verbose</code> est activé, sinon il ne serait pas possible de distinguer les chemins qui correspondent à un motif de ceux qui ne le correspondent pas.</p>
+<p>Afficher les chemins donnés qui ne correspondent à aucun motif. Cela n&#8217;a de sens que si <span class='synopsis'><code>--verbose</code></span> est activé, sinon il ne serait pas possible de distinguer les chemins qui correspondent à un motif de ceux qui ne le correspondent pas.</p>
 </dd>
 <dt class="hdlist1" id="git-check-ignore---no-index"> <a class="anchor" href="#git-check-ignore---no-index"></a>--no-index </dt>
 <dd>
-<p>Ne pas regarder dans l&#8217;index lors des vérifications. Cela peut être utilisé pour déboguer la raison pour laquelle un chemin est devenu suivi par exemple par <code>git add .</code> et n&#8217;a pas été ignoré par les règles comme prévu par l&#8217;utilisateur ou lors du développement de motifs incluant la négation pour correspondre à un chemin précédemment ajouté avec <code>git add -f</code>.</p>
+<p>Ne pas regarder dans l&#8217;index lors des vérifications. Cela peut être utilisé pour déboguer la raison pour laquelle un chemin est devenu suivi par exemple par <span class='synopsis'><code>git</code> <code>add</code> <code>.</code></span> et n&#8217;a pas été ignoré par les règles comme prévu par l&#8217;utilisateur ou lors du développement de motifs incluant la négation pour correspondre à un chemin précédemment ajouté avec <span class='synopsis'><code>git</code> <code>add</code> <code>-f</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -81,25 +100,25 @@ aliases:
 <p>Par défaut, tous les noms de chemin donnés qui correspondent à un motif négatif seront affichés, un par ligne. Si aucun motif ne correspond à un chemin donné, rien ne sera affiché pour ce chemin ; cela signifie que ce chemin ne sera pas ignoré.</p>
 </div>
 <div class="paragraph">
-<p>Si <code>--verbose</code> est spécifié, la sortie est une série de lignes de la forme :</p>
+<p>Si <span class='synopsis'><code>--verbose</code></span> est spécifié, la sortie est une série de lignes de la forme :</p>
 </div>
 <div class="paragraph">
 <p>&lt;source&gt; &lt;DEUX-POINTS&gt; &lt;num-ligne&gt; &lt;DEUX-POINTS&gt; &lt;motif&gt; &lt;HT&gt; &lt;nom-de-chemin&gt;</p>
 </div>
 <div class="paragraph">
-<p>&lt;nom-de-chemin&gt; est le chemin d&#8217;un fichier interrogé, &lt;motif&gt; est le motif correspondant, &lt;source&gt; est le fichier source du motif, et &lt;num-ligne&gt; est le numéro de ligne du motif dans cette source. Si le motif contenait un préfixe "<code>!</code>" ou un suffixe "<code>/</code>", il sera préservé dans la sortie. &lt;source&gt; sera un chemin absolu quand il se réfère au fichier configuré par <code>core.excludesFile</code>, ou relatif à la racine du dépôt quand il se réfère à <code>.git/info/exclude</code> ou à un fichier d&#8217;exclusion par répertoire.</p>
+<p>&lt;nom-de-chemin&gt; est le chemin d&#8217;un fichier interrogé, &lt;motif&gt; est le motif correspondant, &lt;source&gt; est le fichier source du motif, et &lt;num-ligne&gt; est le numéro de ligne du motif dans cette source. Si le motif contenait un préfixe "<span class='synopsis'><code>!</code></span>" ou un suffixe "<span class='synopsis'><code>/</code></span>", il sera préservé dans la sortie. &lt;source&gt; sera un chemin absolu quand il se réfère au fichier configuré par <span class='synopsis'><code>core.excludesFile</code></span>, ou relatif à la racine du dépôt quand il se réfère à <span class='synopsis'><code>.git/info/exclude</code></span> ou à un fichier d&#8217;exclusion par répertoire.</p>
 </div>
 <div class="paragraph">
-<p>Si <code>-z</code> est spécifié, les noms de chemin dans la sortie sont délimités par le caractère nul ; si <code>--verbose</code> est également spécifié, les caractères nuls sont également utilisés à la place des deux-points et des tabulations :</p>
+<p>Si <span class='synopsis'><code>-z</code></span> est spécifié, les noms de chemin dans la sortie sont délimités par le caractère nul ; si <span class='synopsis'><code>--verbose</code></span> est également spécifié, les caractères nuls sont également utilisés à la place des deux-points et des tabulations :</p>
 </div>
 <div class="paragraph">
 <p>&lt;source&gt; &lt;NULL&gt; &lt;num-ligne&gt; &lt;NULL&gt; &lt;motif&gt; &lt;NULL&gt; &lt;nome-de-chemin&gt; &lt;NULL&gt;</p>
 </div>
 <div class="paragraph">
-<p>Si <code>-n</code> ou <code>--non-matching</code> sont spécifiés, les noms de chemin non-matching seront aussi sortis, dans ce cas tous les champs dans chaque enregistrement de sortie sauf pour &lt;nom-de-chemin&gt; seront vides. Cela peut être utile lors d&#8217;une exécution non-interactive, de sorte que les fichiers peuvent être envoyés incrémentalement sur STDIN d&#8217;un processus check-ignore au long cours, et pour chacun de ces fichiers, STDOUT indiquera si ce fichier correspond à un motif ou non. (Sans cette option, il serait impossible de dire si l&#8217;absence de sortie pour un fichier donné signifie qu&#8217;il ne correspond à aucun motif, ou que la sortie n&#8217;a pas encore été générée).</p>
+<p>Si <span class='synopsis'><code>-n</code></span> ou <span class='synopsis'><code>--non-matching</code></span> sont spécifiés, les noms de chemin non-matching seront aussi sortis, dans ce cas tous les champs dans chaque enregistrement de sortie sauf pour &lt;nom-de-chemin&gt; seront vides. Cela peut être utile lors d&#8217;une exécution non-interactive, de sorte que les fichiers peuvent être envoyés incrémentalement sur STDIN d&#8217;un processus check-ignore au long cours, et pour chacun de ces fichiers, STDOUT indiquera si ce fichier correspond à un motif ou non. (Sans cette option, il serait impossible de dire si l&#8217;absence de sortie pour un fichier donné signifie qu&#8217;il ne correspond à aucun motif, ou que la sortie n&#8217;a pas encore été générée).</p>
 </div>
 <div class="paragraph">
-<p>La mise en mémoire tampon se fait comme documenté sous l&#8217;option <code>GIT_FLUSH</code> dans <a href='{{< relurl "docs/git/fr" >}}'>git[1]</a>. L&#8217;appelant à la charge d&#8217;éviter les blocages causés par le remplissage excessif d&#8217;un tampon d&#8217;entrée ou la lecture d&#8217;un tampon de sortie vide.</p>
+<p>La mise en mémoire tampon se fait comme documenté sous l&#8217;option <span class='synopsis'><code>GIT_FLUSH</code></span> dans <a href='{{< relurl "docs/git/fr" >}}'>git[1]</a>. L&#8217;appelant à la charge d&#8217;éviter les blocages causés par le remplissage excessif d&#8217;un tampon d&#8217;entrée ou la lecture d&#8217;un tampon de sortie vide.</p>
 </div>
 </div>
 </div>

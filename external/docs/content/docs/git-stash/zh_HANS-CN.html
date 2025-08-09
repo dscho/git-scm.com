@@ -9,6 +9,27 @@ docname: git-stash
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-stash/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 命令
+  id: _命令
+- text: 选项
+  id: _选项
+- text: 讨论
+  id: _讨论
+- text: 实例
+  id: _实例
+- text: 配置
+  id: _配置
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -50,7 +71,7 @@ aliases:
 <p>这个命令所存储的修改可以用`git stash list`列出，用`git stash show`检查，用`git stash apply`恢复（可能是在不同的提交之上）。 在没有任何参数的情况下调用`git stash`等同于`git stash push`。 默认情况下，储藏库被列为 "WIP on <em>branchname</em> &#8230;&#8203;"，但你可以在创建储藏库时在命令行中给出更多描述性信息。</p>
 </div>
 <div class="paragraph">
-<p>你最近创建的储藏库被保存在`refs/stash`中；旧的储藏库可以在这个引用的引用日志中找到，并且可以使用通常的引用日志语法来命名（例如，<code>stash@{0}`是最近创建的储藏库，`stash@{1}`是它之前的储藏库，`stash@{2.hours.ago}`也是可以的）。也可以通过指定储藏库的索引来引用储藏库（例如，整数`n`等同于`stash@{n}</code>）。</p>
+<p>你最近创建的储藏库被保存在`refs/stash`中；旧的储藏库可以在这个引用的引用日志中找到，并且可以使用通常的引用日志语法来命名（例如，<span class='synopsis'><em>stash@{0}`是最近创建的储藏库，`stash@{1}`是它之前的储藏库，`stash@{2.hours.ago}`也是可以的）。也可以通过指定储藏库的索引来引用储藏库（例如，整数`n`等同于`stash@{n}</em></span>）。</p>
 </div>
 </div>
 </div>
@@ -85,24 +106,24 @@ stash@{1}: On master: 9cc0589... 添加 git-stash</pre>
 </dd>
 <dt class="hdlist1" id="git-stash-show-u--include-untracked--only-untrackedltdiffgtltgt"> <a class="anchor" href="#git-stash-show-u--include-untracked--only-untrackeddiff"></a> <a class="anchor" href="#git-stash-show-u--include-untracked--only-untrackedltdiffgtltgt"></a>show [-u|--include-untracked|--only-untracked] [&lt;diff选项&gt;] [&lt;储藏目录&gt;] </dt>
 <dd>
-<p>显示贮藏中记录的修改，作为贮藏内容与贮藏库条目首次创建时的提交之间的差异。 默认情况下，该命令显示diff统计，但它会接受 "git diff "已知的任何格式（例如，<code>git stash show -p stash@{1}`以补丁形式查看第二条最新条目）。 如果没有提供</code>&lt;diff选项&gt;<code>，默认行为将由`stash.showStat`和`stash.showPatch`配置变量给出。你也可以使用`stash.showIncludeUntracked`来设置是否默认启用</code>--include-untracked`。</p>
+<p>显示贮藏中记录的修改，作为贮藏内容与贮藏库条目首次创建时的提交之间的差异。 默认情况下，该命令显示diff统计，但它会接受 "git diff "已知的任何格式（例如，<span class='synopsis'><em>git stash show -p stash@{1}`以补丁形式查看第二条最新条目）。 如果没有提供</em></span>&lt;diff选项&gt;<span class='synopsis'><em>，默认行为将由`stash.showStat`和`stash.showPatch`配置变量给出。你也可以使用`stash.showIncludeUntracked`来设置是否默认启用</em></span>--include-untracked`。</p>
 </dd>
 <dt class="hdlist1" id="git-stash-pop--index-q--quietltgt"> <a class="anchor" href="#git-stash-pop--index-q--quiet"></a> <a class="anchor" href="#git-stash-pop--index-q--quietltgt"></a>pop [--index] [-q|--quiet] [&lt;暂存&gt;] </dt>
 <dd>
 <p>从贮藏库列表中移除一个单一的贮藏状态，并将其应用于当前工作区状态之上，也就是做`git stash push`的逆向操作。工作目录必须与索引匹配。</p>
 <div class="paragraph">
-<p>应用状态可能会因为冲突而失败；在这种情况下，它不会被从贮藏库列表中删除。你需要手动解决冲突，并在之后调用 <code>git stash drop</code>。</p>
+<p>应用状态可能会因为冲突而失败；在这种情况下，它不会被从贮藏库列表中删除。你需要手动解决冲突，并在之后调用 <span class='synopsis'><code>git</code> <code>stash</code> <code>drop</code></span>。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-stash-apply--index-q--quietltgt"> <a class="anchor" href="#git-stash-apply--index-q--quiet"></a> <a class="anchor" href="#git-stash-apply--index-q--quietltgt"></a>apply [--index] [-q|--quiet] [&lt;暂存&gt;] </dt>
 <dd>
-<p>和 <code>pop</code> 一样，但不从贮藏库列表中删除该状态。与`pop`不同，`&lt;贮藏项&gt;`可以是任何看起来像由`stash push`或`stash create`创建的提交。</p>
+<p>和 <span class='synopsis'><code>pop</code></span> 一样，但不从贮藏库列表中删除该状态。与`pop`不同，`&lt;贮藏项&gt;`可以是任何看起来像由`stash push`或`stash create`创建的提交。</p>
 </dd>
 <dt class="hdlist1" id="git-stash-branchltgtltgt"> <a class="anchor" href="#git-stash-branch"></a> <a class="anchor" href="#git-stash-branchltgtltgt"></a>branch &lt;分支名&gt; [&lt;贮藏项&gt;] </dt>
 <dd>
-<p>创建并检查一个名为 <code>&lt;分支名&gt;</code> 的新分支，从最初创建 <code>&lt;贮藏项&gt;</code> 的提交开始，将 <code>&lt;贮藏项&gt;</code> 中记录的修改应用到新的工作树和索引。 如果成功了，并且`&lt;贮藏项&gt;<code>是`stash@{&lt;版本&gt;}`形式的引用，那么它将删除</code>&lt;贮藏项&gt;`。</p>
+<p>创建并检查一个名为 <span class='synopsis'><em>&lt;分支名&gt;</em></span> 的新分支，从最初创建 <span class='synopsis'><em>&lt;贮藏项&gt;</em></span> 的提交开始，将 <span class='synopsis'><em>&lt;贮藏项&gt;</em></span> 中记录的修改应用到新的工作树和索引。 如果成功了，并且`&lt;贮藏项&gt;<span class='synopsis'><em>是`stash@{&lt;版本&gt;}`形式的引用，那么它将删除</em></span>&lt;贮藏项&gt;`。</p>
 <div class="paragraph">
-<p>如果你运行 <code>git stash push</code> 的分支发生了足够的变化，以至于 <code>git stash apply</code> 因冲突而失败，那么这就很有用。由于贮藏条目是在运行 <code>git stash</code> 时的 HEAD 提交之上应用的，它没有冲突地恢复了最初的贮藏状态。</p>
+<p>如果你运行 <span class='synopsis'><code>git</code> <code>stash</code> <code>push</code></span> 的分支发生了足够的变化，以至于 <span class='synopsis'><code>git</code> <code>stash</code> <code>apply</code></span> 因冲突而失败，那么这就很有用。由于贮藏条目是在运行 <span class='synopsis'><code>git</code> <code>stash</code></span> 时的 HEAD 提交之上应用的，它没有冲突地恢复了最初的贮藏状态。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-stash-"> <a class="anchor" href="#git-stash-"></a>清除 </dt>
@@ -178,7 +199,7 @@ stash@{1}: On master: 9cc0589... 添加 git-stash</pre>
 <p>交互式地从 HEAD 和工作区之间的差异中选择要存储的内容。 藏匿条目的构造是这样的：它的索引状态与你仓库的索引状态相同，它的工作区只包含你交互选择的变化。 被选中的修改会从你的工作区中回滚。参见 <a href='{{< relurl "docs/git-add/zh_HANS-CN" >}}'>git-add[1]</a> 中的 <em>'互动模式</em>' 一节，了解如何操作`--patch`模式。</p>
 </div>
 <div class="paragraph">
-<p>选项 <code>--patch</code> 意味着 <code>--keep-index</code>。 你可以使用 <code>--no-keep-index</code> 来覆盖它。</p>
+<p>选项 <span class='synopsis'><code>--patch</code></span> 意味着 <span class='synopsis'><code>--keep-index</code></span>。 你可以使用 <span class='synopsis'><code>--no-keep-index</code></span> 来覆盖它。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-stash--S"> <a class="anchor" href="#git-stash--S"></a>-S </dt>
@@ -196,20 +217,20 @@ stash@{1}: On master: 9cc0589... 添加 git-stash</pre>
 <dd>
 <p>这个选项只对`push`命令有效。</p>
 <div class="paragraph">
-<p>Pathspec 在 <code>&lt;文件&gt;</code> 中传递，而不是在命令行参数中传递。如果 <code>&lt;文件&gt;</code> 正好是 <code>-</code>，则使用标准输入。路径规范元素由 LF 或 CR/LF 分隔。可以引用配置变量 <code>core.quotePath</code> 的路径规范元素（请参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。另请参见 <code>--pathspec-file-nul</code> 和全局 <code>--literal-pathspecs</code>。</p>
+<p>Pathspec 在 <span class='synopsis'><em>&lt;文件&gt;</em></span> 中传递，而不是在命令行参数中传递。如果 <span class='synopsis'><em>&lt;文件&gt;</em></span> 正好是 <span class='synopsis'><code>-</code></span>，则使用标准输入。路径规范元素由 LF 或 CR/LF 分隔。可以引用配置变量 <span class='synopsis'><code>core.quotePath</code></span> 的路径规范元素（请参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>）。另请参见 <span class='synopsis'><code>--pathspec-file-nul</code></span> 和全局 <span class='synopsis'><code>--literal-pathspecs</code></span>。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-stash---pathspec-file-nul"> <a class="anchor" href="#git-stash---pathspec-file-nul"></a>--pathspec-file-nul </dt>
 <dd>
 <p>这个选项只对`push`命令有效。</p>
 <div class="paragraph">
-<p>只有在使用 <code>--pathspec-from-file</code> 选项时才有意义。指定路径元素用 NUL 字符分隔，所有其他字符都按字面意思（包括换行符和引号）表示。</p>
+<p>只有在使用 <span class='synopsis'><code>--pathspec-from-file</code></span> 选项时才有意义。指定路径元素用 NUL 字符分隔，所有其他字符都按字面意思（包括换行符和引号）表示。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-stash--q"> <a class="anchor" href="#git-stash--q"></a>-q </dt>
 <dt class="hdlist1" id="git-stash---quiet"> <a class="anchor" href="#git-stash---quiet"></a>--quiet </dt>
 <dd>
-<p>这个选项只对`apply`、<code>drop</code>、<code>pop</code>、<code>push</code>、<code>save</code>、`store`命令有效。</p>
+<p>这个选项只对`apply`、<span class='synopsis'><code>drop</code></span>、<span class='synopsis'><code>pop</code></span>、<span class='synopsis'><code>push</code></span>、<span class='synopsis'><code>save</code></span>、`store`命令有效。</p>
 <div class="paragraph">
 <p>静默，压制反馈信息。</p>
 </div>
@@ -233,9 +254,9 @@ stash@{1}: On master: 9cc0589... 添加 git-stash</pre>
 </dd>
 <dt class="hdlist1" id="git-stash-ltgt"> <a class="anchor" href="#git-stash--1-1-1"></a> <a class="anchor" href="#git-stash-ltgt"></a>&lt;暂存&gt; </dt>
 <dd>
-<p>这个选项只对`apply`、<code>branch</code>、<code>drop</code>、<code>pop</code>、`show`命令有效。</p>
+<p>这个选项只对`apply`、<span class='synopsis'><code>branch</code></span>、<span class='synopsis'><code>drop</code></span>、<span class='synopsis'><code>pop</code></span>、`show`命令有效。</p>
 <div class="paragraph">
-<p>一个形式为`stash@{&lt;版本&gt;}<code>的引用。如果没有给出</code>&lt;贮藏项&gt;<code>，则假定是最新的储藏库（即`stash@{0}</code>）。</p>
+<p>一个形式为`stash@{&lt;版本&gt;}<span class='synopsis'><em>的引用。如果没有给出</em></span>&lt;贮藏项&gt;<span class='synopsis'><em>，则假定是最新的储藏库（即`stash@{0}</em></span>）。</p>
 </div>
 </dd>
 </dl>
@@ -331,7 +352,7 @@ $ git commit foo -m '剩余部分'。</pre>
 </dd>
 <dt class="hdlist1" id="git-stash--1-1-1-1-1-1-1"> <a class="anchor" href="#git-stash--1-1-1-1-1-1-1"></a>保存不相关的变化供将来使用 </dt>
 <dd>
-<p>当你在进行大规模修改时，发现一些不相关的问题，你不想忘记修复，你可以进行修改，将其分阶段，然后使用 <code>git stash push --staged</code> 将其存放起来，以便将来使用。这类似于提交阶段性修改，只是提交的结果是在贮藏库而不是在当前分支。</p>
+<p>当你在进行大规模修改时，发现一些不相关的问题，你不想忘记修复，你可以进行修改，将其分阶段，然后使用 <span class='synopsis'><code>git</code> <code>stash</code> <code>push</code> <code>--staged</code></span> 将其存放起来，以便将来使用。这类似于提交阶段性修改，只是提交的结果是在贮藏库而不是在当前分支。</p>
 <div class="listingblock">
 <div class="content">
 <pre># ... 嗨骇害 ...
@@ -373,7 +394,7 @@ xargs git log --merges --no-walk --grep=WIP</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>zh_HANS-CN/config/stash.adoc</code></p>
+<p>Missing <span class='synopsis'><code>zh_HANS-CN/config/stash.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

@@ -9,6 +9,19 @@ docname: git-fetch-pack
 lang: pt_BR
 aliases:
 - "/docs/git-fetch-pack/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -39,7 +52,7 @@ aliases:
 <p>Invoca o comando <em>git-upload-pack</em> num repositório possivelmente remoto e pede que ele envie os objetos que estão faltando nesse repositório para atualizar determinados cabeçalhos. A lista dos commits disponíveis localmente é encontrada através da varredura da hierarquia "refs/" local e enviada para o comando <em>git-upload-pack</em> que esteja sendo executado na outra ponta.</p>
 </div>
 <div class="paragraph">
-<p>Este comando deteriora durante o download de tudo para concluir os <code>refs</code> solicitados do lado remoto quando o lado local não possui um commit com um ancestral comum.</p>
+<p>Este comando deteriora durante o download de tudo para concluir os <span class='synopsis'><code>refs</code></span> solicitados do lado remoto quando o lado local não possui um commit com um ancestral comum.</p>
 </div>
 </div>
 </div>
@@ -50,19 +63,19 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-fetch-pack---all"> <a class="anchor" href="#git-fetch-pack---all"></a>--all </dt>
 <dd>
-<p>Busque todas os <code>refs</code> remotos.</p>
+<p>Busque todas os <span class='synopsis'><code>refs</code></span> remotos.</p>
 </dd>
 <dt class="hdlist1" id="git-fetch-pack---stdin"> <a class="anchor" href="#git-fetch-pack---stdin"></a>--stdin </dt>
 <dd>
-<p>Pegue a lista dos <code>refs</code> do stdin, um por linha. Caso haja <code>refs</code> utilizados na linha de comando, além desta opção, os <code>refs</code> do stdin serão processados após as da linha de comando.</p>
+<p>Pegue a lista dos <span class='synopsis'><code>refs</code></span> do stdin, um por linha. Caso haja <span class='synopsis'><code>refs</code></span> utilizados na linha de comando, além desta opção, os <span class='synopsis'><code>refs</code></span> do stdin serão processados após as da linha de comando.</p>
 <div class="paragraph">
-<p>Caso <code>--stateless-rpc</code> seja utilizado junto com esta opção, a lista de referências deverá estar no formato do pacote (linha-pkt). Cada <code>ref</code> deve estar num pacote separado e a lista deve terminar com um pacote liberado.</p>
+<p>Caso <span class='synopsis'><code>--stateless-rpc</code></span> seja utilizado junto com esta opção, a lista de referências deverá estar no formato do pacote (linha-pkt). Cada <span class='synopsis'><code>ref</code></span> deve estar num pacote separado e a lista deve terminar com um pacote liberado.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fetch-pack--q"> <a class="anchor" href="#git-fetch-pack--q"></a>-q </dt>
 <dt class="hdlist1" id="git-fetch-pack---quiet"> <a class="anchor" href="#git-fetch-pack---quiet"></a>--quiet </dt>
 <dd>
-<p>Passe o flag <code>-q</code> para o <em>git unpack-objects</em>; isso torna o processo de clonagem menos detalhado.</p>
+<p>Passe o flag <span class='synopsis'><code>-q</code></span> para o <em>git unpack-objects</em>; isso torna o processo de clonagem menos detalhado.</p>
 </dd>
 <dt class="hdlist1" id="git-fetch-pack--k"> <a class="anchor" href="#git-fetch-pack--k"></a>-k </dt>
 <dt class="hdlist1" id="git-fetch-pack---keep"> <a class="anchor" href="#git-fetch-pack---keep"></a>--keep </dt>
@@ -87,7 +100,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fetch-pack---depthltngt"> <a class="anchor" href="#git-fetch-pack---depthn"></a> <a class="anchor" href="#git-fetch-pack---depthltngt"></a>--depth=&lt;n&gt; </dt>
 <dd>
-<p>Limite a busca de cadeias de ancestrais com comprimento não superior a <code>n</code>. O comando <em>git-upload-pack</em> trata a profundidade especial 2147483647 como infinita, ainda que haja uma cadeia de ancestrais tão longa.</p>
+<p>Limite a busca de cadeias de ancestrais com comprimento não superior a <span class='synopsis'><code>n</code></span>. O comando <em>git-upload-pack</em> trata a profundidade especial 2147483647 como infinita, ainda que haja uma cadeia de ancestrais tão longa.</p>
 </dd>
 <dt class="hdlist1" id="git-fetch-pack---shallow-sinceltdatagt"> <a class="anchor" href="#git-fetch-pack---shallow-sincedata"></a> <a class="anchor" href="#git-fetch-pack---shallow-sinceltdatagt"></a>--shallow-since=&lt;data&gt; </dt>
 <dd>
@@ -99,7 +112,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fetch-pack---deepen-relative"> <a class="anchor" href="#git-fetch-pack---deepen-relative"></a>--deepen-relative </dt>
 <dd>
-<p>O argumento <code>--depth</code> determina a quantidade limite dos commits atual da superfície em vez do cume de cada histórico do ramo remoto.</p>
+<p>O argumento <span class='synopsis'><code>--depth</code></span> determina a quantidade limite dos commits atual da superfície em vez do cume de cada histórico do ramo remoto.</p>
 </dd>
 <dt class="hdlist1" id="git-fetch-pack---refetch"> <a class="anchor" href="#git-fetch-pack---refetch"></a>--refetch </dt>
 <dd>
@@ -125,7 +138,7 @@ aliases:
 <dd>
 <p>Os cabeçotes remotos que serão atualizados. Isso é relativo ao $GIT_DIR ("HEAD", "refs/heads/master" por exemplo). Quando não for especificado, atualiza a partir de todos os cabeçalhos que o lado remoto tiver.</p>
 <div class="paragraph">
-<p>Caso o lado remoto tenha as opções <code>uploadpack.allowTipSHA1InWant</code>, <code>uploadpack.allowReachableSHA1InWant</code>, ou <code>uploadpack.allowAnySHA1InWant</code> ativadas, eles poderão alternativamente ser sha1 com 40-hex.</p>
+<p>Caso o lado remoto tenha as opções <span class='synopsis'><code>uploadpack.allowTipSHA1InWant</code></span>, <span class='synopsis'><code>uploadpack.allowReachableSHA1InWant</code></span>, ou <span class='synopsis'><code>uploadpack.allowAnySHA1InWant</code></span> ativadas, eles poderão alternativamente ser sha1 com 40-hex.</p>
 </div>
 </dd>
 </dl>

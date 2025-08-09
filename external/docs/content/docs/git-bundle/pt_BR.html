@@ -9,6 +9,29 @@ docname: git-bundle
 lang: pt_BR
 aliases:
 - "/docs/git-bundle/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: FORMATO BUNDLE
+  id: _formato_bundle
+- text: OPÇÕES
+  id: _opções
+- text: ESPECIFICANDO AS REFERÊNCIAS
+  id: _especificando_as_referências
+- text: PRÉ-REQUISITOS DO OBJETO
+  id: _pré_requisitos_do_objeto
+- text: EXEMPLOS
+  id: _exemplos
+- text: DISCUSSÃO
+  id: _discussão
+- text: FORMATO DO ARQUIVO
+  id: _formato_do_arquivo
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -40,7 +63,7 @@ aliases:
 <p>They can be used to create both incremental and full backups of a repository (see the "full backup" example in "EXAMPLES"), and to relay the state of the references in one repository to another (see the second example).</p>
 </div>
 <div class="paragraph">
-<p>Git commands that fetch or otherwise "read" via protocols such as <code>ssh://</code> and <code>https://</code> can also operate on bundle files. It is possible <a href='{{< relurl "docs/git-clone/pt_BR" >}}'>git-clone[1]</a> a new repository from a bundle, to use <a href='{{< relurl "docs/git-fetch/pt_BR" >}}'>git-fetch[1]</a> to fetch from one, and to list the references contained within it with <a href='{{< relurl "docs/git-ls-remote/pt_BR" >}}'>git-ls-remote[1]</a>. There&#8217;s no corresponding "write" support, i.e. a <em>git push</em> into a bundle is not supported.</p>
+<p>Git commands that fetch or otherwise "read" via protocols such as <span class='synopsis'><code>ssh://</code></span> and <span class='synopsis'><code>https://</code></span> can also operate on bundle files. It is possible <a href='{{< relurl "docs/git-clone/pt_BR" >}}'>git-clone[1]</a> a new repository from a bundle, to use <a href='{{< relurl "docs/git-fetch/pt_BR" >}}'>git-fetch[1]</a> to fetch from one, and to list the references contained within it with <a href='{{< relurl "docs/git-ls-remote/pt_BR" >}}'>git-ls-remote[1]</a>. There&#8217;s no corresponding "write" support, i.e. a <em>git push</em> into a bundle is not supported.</p>
 </div>
 </div>
 </div>
@@ -48,13 +71,13 @@ aliases:
 <h2 id="_formato_bundle"><a class="anchor" href="#_formato_bundle"></a>FORMATO BUNDLE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Os pacotes são arquivos <code>.pack</code> (consulte <a href='{{< relurl "docs/git-pack-objects/pt_BR" >}}'>git-pack-objects[1]</a>) com um cabeçalho indicando quais as referências estão contidas nele.</p>
+<p>Os pacotes são arquivos <span class='synopsis'><code>.pack</code></span> (consulte <a href='{{< relurl "docs/git-pack-objects/pt_BR" >}}'>git-pack-objects[1]</a>) com um cabeçalho indicando quais as referências estão contidas nele.</p>
 </div>
 <div class="paragraph">
 <p>Como o próprio formato de arquivo comprimido, os pacotes podem ser autônomos ou criados usando exclusões. Consulte a seção "PRÉ-REQUISITOS DO OBJETO" abaixo.</p>
 </div>
 <div class="paragraph">
-<p>Os pacotes criados usando exclusões de revisão são "pacotes finos" criados usando a opção <code>--thin</code> para <a href='{{< relurl "docs/git-pack-objects/pt_BR" >}}'>git-pack-objects[1]</a> (empacotar os objetos), e descompactados usando a opção <code>--fix-thin</code> para <a href='{{< relurl "docs/git-index-pack/pt_BR" >}}'>git-index-pack[1]</a>.</p>
+<p>Os pacotes criados usando exclusões de revisão são "pacotes finos" criados usando a opção <span class='synopsis'><code>--thin</code></span> para <a href='{{< relurl "docs/git-pack-objects/pt_BR" >}}'>git-pack-objects[1]</a> (empacotar os objetos), e descompactados usando a opção <span class='synopsis'><code>--fix-thin</code></span> para <a href='{{< relurl "docs/git-index-pack/pt_BR" >}}'>git-index-pack[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>Não há opção de criar um "pacote grosso" ao usar as exclusões de revisão, e os usuários não devem estar preocupados com essa diferença. Ao usar "pacotes finos", os pacotes "bundles" criados usando exclusões são menores em tamanho. A questão de serem "finos" sob o capô é meramente notado aqui como uma curiosidade e como uma referência a outra documentação.</p>
@@ -71,23 +94,23 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-bundle-createoptionsltarquivogtltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-createoptionsarquivogit-rev-list-args"></a> <a class="anchor" href="#git-bundle-createoptionsltarquivogtltgit-rev-list-argsgt"></a>create [options] &lt;arquivo&gt; &lt;git-rev-list-args&gt; </dt>
 <dd>
-<p>Usado para criar um pacote chamado <em>file</em>. Isso requer os argumentos <em>&lt;git-rev-list-args&gt;</em> para definir o conteúdo do pacote. Já <em>options</em> contém as opções específicas do subcomando <em>git bundle create</em>. Se o <em>file</em> for <code>-</code> o pacote será enviado para "stdout".</p>
+<p>Usado para criar um pacote chamado <em>file</em>. Isso requer os argumentos <em>&lt;git-rev-list-args&gt;</em> para definir o conteúdo do pacote. Já <em>options</em> contém as opções específicas do subcomando <em>git bundle create</em>. Se o <em>file</em> for <span class='synopsis'><code>-</code></span> o pacote será enviado para "stdout".</p>
 </dd>
 <dt class="hdlist1" id="git-bundle-verifyltarquivogt"> <a class="anchor" href="#git-bundle-verifyarquivo"></a> <a class="anchor" href="#git-bundle-verifyltarquivogt"></a>verify &lt;arquivo&gt; </dt>
 <dd>
-<p>Usado para verificar se um arquivo do pacote é válido e se será aplicado de forma limpa ao repositório atual. Isso inclui verificações no próprio formato do pacote, bem como a verificação se exitem pré-requisitos do commits e se estão totalmente vinculados no repositório atual. Em seguida, o <em>git bundle</em> imprime uma lista de commits ausentes, se for o caso. Por fim, são impressas informações sobre recursos adicionais, como o "filtro de objetos". Para mais informações consulte "Capacidades" do comando <a href='{{< relurl "docs/gitformat-bundle/pt_BR" >}}'>gitformat-bundle[5]</a>. Caso seja bem-sucedido o código de encerramento é zero, mas se torna um caso o arquivo do pacote seja inválido. Se o <em>file</em> for <code>-</code> o pacote será lido de "stdin".</p>
+<p>Usado para verificar se um arquivo do pacote é válido e se será aplicado de forma limpa ao repositório atual. Isso inclui verificações no próprio formato do pacote, bem como a verificação se exitem pré-requisitos do commits e se estão totalmente vinculados no repositório atual. Em seguida, o <em>git bundle</em> imprime uma lista de commits ausentes, se for o caso. Por fim, são impressas informações sobre recursos adicionais, como o "filtro de objetos". Para mais informações consulte "Capacidades" do comando <a href='{{< relurl "docs/gitformat-bundle/pt_BR" >}}'>gitformat-bundle[5]</a>. Caso seja bem-sucedido o código de encerramento é zero, mas se torna um caso o arquivo do pacote seja inválido. Se o <em>file</em> for <span class='synopsis'><code>-</code></span> o pacote será lido de "stdin".</p>
 </dd>
 <dt class="hdlist1" id="git-bundle-list-headsltarquivogt"> <a class="anchor" href="#git-bundle-list-headsarquivo"></a> <a class="anchor" href="#git-bundle-list-headsltarquivogt"></a>list-heads &lt;arquivo&gt; </dt>
 <dd>
-<p>Lista as referências definidas no pacote. Se for seguido por uma lista de referências, serão impressas apenas as referências que correspondam à lista informada. Se o <em>file</em> for <code>-</code> o pacote será lido de "stdin".</p>
+<p>Lista as referências definidas no pacote. Se for seguido por uma lista de referências, serão impressas apenas as referências que correspondam à lista informada. Se o <em>file</em> for <span class='synopsis'><code>-</code></span> o pacote será lido de "stdin".</p>
 </dd>
 <dt class="hdlist1" id="git-bundle-unbundleltarquivogt"> <a class="anchor" href="#git-bundle-unbundlearquivo"></a> <a class="anchor" href="#git-bundle-unbundleltarquivogt"></a>unbundle &lt;arquivo&gt; </dt>
 <dd>
-<p>Encaminha os objetos do pacote para <em>git index-pack</em> para armazenamento no repositório e, em seguida, imprime os nomes de todas as referências definidas. Se for fornecida uma lista de referências, apenas serão impressas as referências correspondentes às da lista. Esse comando é totalmente redirecionável, tem a única função de ser invocado pelo comando <em>git fetch</em>. Se o <em>file</em> for <code>-</code> o pacote será lido de "stdin".</p>
+<p>Encaminha os objetos do pacote para <em>git index-pack</em> para armazenamento no repositório e, em seguida, imprime os nomes de todas as referências definidas. Se for fornecida uma lista de referências, apenas serão impressas as referências correspondentes às da lista. Esse comando é totalmente redirecionável, tem a única função de ser invocado pelo comando <em>git fetch</em>. Se o <em>file</em> for <span class='synopsis'><code>-</code></span> o pacote será lido de "stdin".</p>
 </dd>
 <dt class="hdlist1" id="git-bundle-ltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-git-rev-list-args"></a> <a class="anchor" href="#git-bundle-ltgit-rev-list-argsgt"></a>&lt;git-rev-list-args&gt; </dt>
 <dd>
-<p>Uma lista de argumentos, é aceitável com o comando <em>git rev-parse</em> e com o <em>git rev-list</em> (e contendo uma referência mencionada, consulte ESPECIFICANDO REFERÊNCIAS abaixo), que especifica os objetos e as referências específicos que serão transportados. Por exemplo, <code>master~10..master</code> faz com que a referência mestre atual seja empacotada junto com todos os objetos adicionados desde o décimo commit do seu ancestral. Não há limite explícito para a quantidade de referências e de objetos que podem ser empacotados.</p>
+<p>Uma lista de argumentos, é aceitável com o comando <em>git rev-parse</em> e com o <em>git rev-list</em> (e contendo uma referência mencionada, consulte ESPECIFICANDO REFERÊNCIAS abaixo), que especifica os objetos e as referências específicos que serão transportados. Por exemplo, <span class='synopsis'><code>master~10..master</code></span> faz com que a referência mestre atual seja empacotada junto com todos os objetos adicionados desde o décimo commit do seu ancestral. Não há limite explícito para a quantidade de referências e de objetos que podem ser empacotados.</p>
 </dd>
 <dt class="hdlist1" id="git-bundle-ltrefnamegt82308203"> <a class="anchor" href="#git-bundle-refname"></a> <a class="anchor" href="#git-bundle-ltrefnamegt82308203"></a>[&lt;refname&gt;&#8230;&#8203;] </dt>
 <dd>
@@ -95,7 +118,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-bundle---progress"> <a class="anchor" href="#git-bundle---progress"></a>--progress </dt>
 <dd>
-<p>É predefinido que a condição geral do progresso seja relatada no fluxo de erros quando estiver conectado num terminal, a menos que <code>-q</code> seja utilizado. Esta opção impõem a condição geral do progresso, mesmo que o fluxo de erro predefinido não seja direcionado para um terminal.</p>
+<p>É predefinido que a condição geral do progresso seja relatada no fluxo de erros quando estiver conectado num terminal, a menos que <span class='synopsis'><code>-q</code></span> seja utilizado. Esta opção impõem a condição geral do progresso, mesmo que o fluxo de erro predefinido não seja direcionado para um terminal.</p>
 </dd>
 <dt class="hdlist1" id="git-bundle---versionltversogt"> <a class="anchor" href="#git-bundle---versionverso"></a> <a class="anchor" href="#git-bundle---versionltversogt"></a>--version=&lt;versão&gt; </dt>
 <dd>
@@ -114,13 +137,13 @@ aliases:
 <h2 id="_especificando_as_referências"><a class="anchor" href="#_especificando_as_referências"></a>ESPECIFICANDO AS REFERÊNCIAS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Revisions must be accompanied by reference names to be packaged in a bundle. Alternatively <code>--all</code> can be used to package all refs.</p>
+<p>Revisions must be accompanied by reference names to be packaged in a bundle. Alternatively <span class='synopsis'><code>--all</code></span> can be used to package all refs.</p>
 </div>
 <div class="paragraph">
 <p>Mais de uma referência pode ser empacotada e mais de um conjunto de objetos de pré-requisito podem ser especificados. Os objetos empacotados são aqueles que não estão presentes na união dos pré-requisitos.</p>
 </div>
 <div class="paragraph">
-<p>O comando <em>git bundle create</em> resolve para você, os nomes de referência, usando as mesmas regras do comando <code>git rev-parse --abbrev-ref=loose</code>. Cada pré-requisito pode ser definido de forma explicita (como <code>^master~10</code> por exemplo) ou implicitamente (<code>master~10..master</code>, <code>--since=10.days.ago master</code> por exemplo).</p>
+<p>O comando <em>git bundle create</em> resolve para você, os nomes de referência, usando as mesmas regras do comando <span class='synopsis'><code>git</code> <code>rev-parse</code> <code>--abbrev-ref=loose</code></span>. Cada pré-requisito pode ser definido de forma explicita (como <span class='synopsis'><code>^master~10</code></span> por exemplo) ou implicitamente (<span class='synopsis'><code>master~10..master</code></span>, <span class='synopsis'><code>--since=10.days.ago</code> <code>master</code></span> por exemplo).</p>
 </div>
 <div class="paragraph">
 <p>Todos estes casos simples funcionam (assumindo que temos um ramo "master" e "next"):</p>
@@ -134,7 +157,7 @@ $ (echo master; echo next) | git bundle create master-and-next.bundle --stdin</p
 </div>
 </div>
 <div class="paragraph">
-<p>E assim são estes (e os mesmos, mas omitidos, exemplos <code>--stdin</code>):</p>
+<p>E assim são estes (e os mesmos, mas omitidos, exemplos <span class='synopsis'><code>--stdin</code></span>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -162,7 +185,7 @@ fatal: Recusando a criação de um pacote vazio.</pre>
 <p>Ao criar os pacotes, é possível criar um pacote independente que pode ser descompactado num repositório sem um histórico em comum, além de fornecer revisões negativas para excluir objetos necessários nas partes anteriores do histórico.</p>
 </div>
 <div class="paragraph">
-<p>A alimentação de uma revisão como <code>new</code> (nova) para <code>git bundle create</code> criará um arquivo pacote que contém todos os objetos acessíveis a partir da <code>nova</code> revisão. Esse pacote pode ser descompactado em qualquer repositório obtendo assim uma história completa que leva até à <code>nova</code> revisão:</p>
+<p>A alimentação de uma revisão como <span class='synopsis'><code>new</code></span> (nova) para <span class='synopsis'><code>git</code> <code>bundle</code> <code>create</code></span> criará um arquivo pacote que contém todos os objetos acessíveis a partir da <span class='synopsis'><code>nova</code></span> revisão. Esse pacote pode ser descompactado em qualquer repositório obtendo assim uma história completa que leva até à <span class='synopsis'><code>nova</code></span> revisão:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -170,7 +193,7 @@ fatal: Recusando a criação de um pacote vazio.</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Um intervalo de revisão como <code>old..new</code> produzirá um arquivo de pacote que exigirá que a revisão <code>old</code> (e quaisquer outros objetos acessíveis a partir dele) exista para que o pacote possa ser "desagregado":</p>
+<p>Um intervalo de revisão como <span class='synopsis'><code>old..new</code></span> produzirá um arquivo de pacote que exigirá que a revisão <span class='synopsis'><code>old</code></span> (e quaisquer outros objetos acessíveis a partir dele) exista para que o pacote possa ser "desagregado":</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -178,13 +201,13 @@ fatal: Recusando a criação de um pacote vazio.</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Um pacote independente e sem qualquer pré-requisito, pode ser extraído em qualquer lugar, mesmo num repositório vazio ou pode ser clonado a partir de (ou por exemplo, <code>new</code> mas não <code>old..new</code>).</p>
+<p>Um pacote independente e sem qualquer pré-requisito, pode ser extraído em qualquer lugar, mesmo num repositório vazio ou pode ser clonado a partir de (ou por exemplo, <span class='synopsis'><code>new</code></span> mas não <span class='synopsis'><code>old..new</code></span>).</p>
 </div>
 <div class="paragraph">
 <p>É bom errar pelo excesso de zelo, fazendo com que o arquivo bundle (pacote) contenha os objetos já no destino, pois eles são ignorados durante a descompactação no destino.</p>
 </div>
 <div class="paragraph">
-<p>If you want to provide the same set of refs that a clone directly from the source repository would get, use <code>--branches --tags</code> for the <code>&lt;git-rev-list-args&gt;</code>.</p>
+<p>If you want to provide the same set of refs that a clone directly from the source repository would get, use <span class='synopsis'><code>--branches</code> <code>--tags</code></span> for the <span class='synopsis'><em>&lt;git-rev-list-args&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
 <p>O comando <em>git bundle verify</em> pode ser usado para verificar se o repositório do destinatário tem os pré-requisitos necessários para fazer o commit de um pacote.</p>
@@ -240,7 +263,7 @@ machineA$ git tag -f lastR2bundle master</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Em seguida, você transfere <code>file.bundle</code> para a máquina no destino B. Como esse pacote não requer que nenhum objeto existente seja extraído, você pode criar um novo repositório na máquina B clonando a partir dele:</p>
+<p>Em seguida, você transfere <span class='synopsis'><code>file.bundle</code></span> para a máquina no destino B. Como esse pacote não requer que nenhum objeto existente seja extraído, você pode criar um novo repositório na máquina B clonando a partir dele:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -248,7 +271,7 @@ machineA$ git tag -f lastR2bundle master</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Isso irá definir um ponto remoto chamado "origin" (origem) no repositório que permite que você capture e extraia do pacote. O arquivo <code>$GIT_DIR/config</code> no R2 terá uma entrada como esta:</p>
+<p>Isso irá definir um ponto remoto chamado "origin" (origem) no repositório que permite que você capture e extraia do pacote. O arquivo <span class='synopsis'><code>$GIT_DIR/config</code></span> no R2 terá uma entrada como esta:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -258,7 +281,7 @@ machineA$ git tag -f lastR2bundle master</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Para atualizar o repositório <code>mine.git</code>, você pode capturar ou extrair após a reposição do pacote armazenado em <code>/home/me/tmp/file.bundle</code> com as atualizações incrementais.</p>
+<p>Para atualizar o repositório <span class='synopsis'><code>mine.git</code></span>, você pode capturar ou extrair após a reposição do pacote armazenado em <span class='synopsis'><code>/home/me/tmp/file.bundle</code></span> com as atualizações incrementais.</p>
 </div>
 <div class="paragraph">
 <p>Depois de trabalhar um pouco mais no repositório original, você pode criar um pacote incremental para atualizar um outro repositório:</p>
@@ -271,7 +294,7 @@ machineA$ git tag -f lastR2bundle master</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Em seguida, você transfere o pacote para uma outra máquina para substituir o <code>/home/me/tmp/file.bundle</code> e captura dele.</p>
+<p>Em seguida, você transfere o pacote para uma outra máquina para substituir o <span class='synopsis'><code>/home/me/tmp/file.bundle</code></span> e captura dele.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -280,7 +303,7 @@ machineB$ git pull</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Caso saiba até qual commit do repositório nos destinatários pretendidos devem ter os objetos necessários, você poderá utilizar este conhecimento para definir o pré-requisito, informando um ponto de corte para limitar as revisões e os objetos inclusos no pacote. O exemplo anterior utilizou a tag <code>lastR2bundle</code> para essa finalidade, porém é possível utilizar outras opções que você daria ao comando <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>. Aqui mais alguns exemplos:</p>
+<p>Caso saiba até qual commit do repositório nos destinatários pretendidos devem ter os objetos necessários, você poderá utilizar este conhecimento para definir o pré-requisito, informando um ponto de corte para limitar as revisões e os objetos inclusos no pacote. O exemplo anterior utilizou a tag <span class='synopsis'><code>lastR2bundle</code></span> para essa finalidade, porém é possível utilizar outras opções que você daria ao comando <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>. Aqui mais alguns exemplos:</p>
 </div>
 <div class="paragraph">
 <p>Você pode utilizar uma tag que esteja presente em ambos:</p>
@@ -307,7 +330,7 @@ machineB$ git pull</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Você pode executar o comando <code>git-bundle verify</code> para ver se você consegue extrair de um pacote que foi criado com um pré-requisito:</p>
+<p>Você pode executar o comando <span class='synopsis'><code>git-bundle</code> <code>verify</code></span> para ver se você consegue extrair de um pacote que foi criado com um pré-requisito:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -339,7 +362,7 @@ machineB$ git pull</pre>
 <h2 id="_discussão"><a class="anchor" href="#_discussão"></a>DISCUSSÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A naive way to make a full backup of a repository is to use something to the effect of <code>cp -r &lt;repo&gt; &lt;destination&gt;</code>. This is discouraged since the repository could be written to during the copy operation. In turn some files at <code>&lt;destination&gt;</code> could be corrupted.</p>
+<p>A naive way to make a full backup of a repository is to use something to the effect of <span class='synopsis'><code>cp</code> <code>-r</code> <em>&lt;repo&gt;</em> <em>&lt;destination&gt;</em></span>. This is discouraged since the repository could be written to during the copy operation. In turn some files at <span class='synopsis'><em>&lt;destination&gt;</em></span> could be corrupted.</p>
 </div>
 <div class="paragraph">
 <p>This is why it is recommended to use Git tooling for making repository backups, either with this command or with e.g. <a href='{{< relurl "docs/git-clone/pt_BR" >}}'>git-clone[1]</a>. But keep in mind that these tools will not help you backup state other than refs and commits. In other words they will not help you backup contents of the index, working tree, the stash, per-repository configuration, hooks, etc.</p>

@@ -9,6 +9,25 @@ docname: git-fast-export
 lang: pt_BR
 aliases:
 - "/docs/git-fast-export/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: EXEMPLOS
+  id: _exemplos
+- text: ANONIMIZANDO
+  id: _anonimizando
+- text: LIMITAÇÕES
+  id: _limitações
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -44,7 +63,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-fast-export---progressltngt"> <a class="anchor" href="#git-fast-export---progressn"></a> <a class="anchor" href="#git-fast-export---progressltngt"></a>--progress=&lt;n&gt; </dt>
 <dd>
-<p>Insira instruções de <em>progresso</em> em todos os objetos <code>&lt;n&gt;</code> a serem exibidos por <em>git fast-import</em> durante a importação.</p>
+<p>Insira instruções de <em>progresso</em> em todos os objetos <span class='synopsis'><em>&lt;n&gt;</em></span> a serem exibidos por <em>git fast-import</em> durante a importação.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---signed-tagsverbatimwarn-verbatimwarn-stripstripabort"> <a class="anchor" href="#git-fast-export---signed-tagsverbatimwarn-verbatimwarn-stripstripabort"></a>--signed-tags=(verbatim|warn-verbatim|warn-strip|strip|abort) </dt>
 <dd>
@@ -77,17 +96,17 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fast-export---export-marksltarquivogt"> <a class="anchor" href="#git-fast-export---export-marksarquivo"></a> <a class="anchor" href="#git-fast-export---export-marksltarquivogt"></a>--export-marks=&lt;arquivo&gt; </dt>
 <dd>
-<p>Despeja a tabela das marcas internas em <code>&lt;arquivo&gt;</code> quando for concluído. As marcas são gravadas uma por linha como <code>:markid SHA-1</code>. Apenas as marcações das revisões são despejadas; as marcações das bolhas são ignoradas. Os "backends" podem usar este arquivo para validar as importações depois que elas forem concluídas ou para salvar a tabela das marcações nas execuções incrementais. Como <code>&lt;arquivo&gt;</code> só é aberto e truncado na conclusão, o mesmo caminho também pode ser usado com segurança com a opção <code>--import-marks</code>. O arquivo não será gravado se nenhum novo objeto tiver sido marcado/exportado.</p>
+<p>Despeja a tabela das marcas internas em <span class='synopsis'><em>&lt;arquivo&gt;</em></span> quando for concluído. As marcas são gravadas uma por linha como <span class='synopsis'><code>:markid</code> <code>SHA-1</code></span>. Apenas as marcações das revisões são despejadas; as marcações das bolhas são ignoradas. Os "backends" podem usar este arquivo para validar as importações depois que elas forem concluídas ou para salvar a tabela das marcações nas execuções incrementais. Como <span class='synopsis'><em>&lt;arquivo&gt;</em></span> só é aberto e truncado na conclusão, o mesmo caminho também pode ser usado com segurança com a opção <span class='synopsis'><code>--import-marks</code></span>. O arquivo não será gravado se nenhum novo objeto tiver sido marcado/exportado.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---import-marksltarquivogt"> <a class="anchor" href="#git-fast-export---import-marksarquivo"></a> <a class="anchor" href="#git-fast-export---import-marksltarquivogt"></a>--import-marks=&lt;arquivo&gt; </dt>
 <dd>
-<p>Antes de processar qualquer entrada, carregue as marcas especificadas em &lt;arquivo&gt;. O arquivo de entrada deve existir, deve ser legível e deve usar o mesmo formato produzido pela opção <code>--export-marks</code>.</p>
+<p>Antes de processar qualquer entrada, carregue as marcas especificadas em &lt;arquivo&gt;. O arquivo de entrada deve existir, deve ser legível e deve usar o mesmo formato produzido pela opção <span class='synopsis'><code>--export-marks</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---mark-tags"> <a class="anchor" href="#git-fast-export---mark-tags"></a>--mark-tags </dt>
 <dd>
-<p>Além de rotular bolhas e os commits com marcações dos IDs, também rotula tags. Isso é útil em conjunto com a opção <code>--export-marks</code> e <code>--import-marks</code>, também é útil (e necessário) para a exportação de etiquetas agrupadas. Isso não prejudica outros casos e seria a predefinição, mas muitos front-ends com importação rápida não estão preparados para aceitar as etiquetas com marcação de identificação.</p>
+<p>Além de rotular bolhas e os commits com marcações dos IDs, também rotula tags. Isso é útil em conjunto com a opção <span class='synopsis'><code>--export-marks</code></span> e <span class='synopsis'><code>--import-marks</code></span>, também é útil (e necessário) para a exportação de etiquetas agrupadas. Isso não prejudica outros casos e seria a predefinição, mas muitos front-ends com importação rápida não estão preparados para aceitar as etiquetas com marcação de identificação.</p>
 <div class="paragraph">
-<p>Quaisquer commits (ou etiquetas) que já tenham sido marcados não serão exportados novamente. Se o "backend" usar um arquivo <code>--import-marks</code> semelhante, isso permitirá a exportação bidirecional incremental do repositório, mantendo as marcações iguais em todas as execuções.</p>
+<p>Quaisquer commits (ou etiquetas) que já tenham sido marcados não serão exportados novamente. Se o "backend" usar um arquivo <span class='synopsis'><code>--import-marks</code></span> semelhante, isso permitirá a exportação bidirecional incremental do repositório, mantendo as marcações iguais em todas as execuções.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fast-export---fake-missing-tagger"> <a class="anchor" href="#git-fast-export---fake-missing-tagger"></a>--fake-missing-tagger </dt>
@@ -108,31 +127,31 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fast-export---anonymize"> <a class="anchor" href="#git-fast-export---anonymize"></a>--anonymize </dt>
 <dd>
-<p>Torne anônimo o conteúdo do repositório e, ao mesmo tempo, manter o formato armazenado do histórico e da árvore. Consulte abaixo a sessão <code>ANONIMIZANDO</code>.</p>
+<p>Torne anônimo o conteúdo do repositório e, ao mesmo tempo, manter o formato armazenado do histórico e da árvore. Consulte abaixo a sessão <span class='synopsis'><code>ANONIMIZANDO</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---anonymize-maplta-partir-degtltparagt"> <a class="anchor" href="#git-fast-export---anonymize-mapa-partir-depara"></a> <a class="anchor" href="#git-fast-export---anonymize-maplta-partir-degtltparagt"></a>--anonymize-map=&lt;a-partir-de&gt;[:&lt;para&gt;] </dt>
 <dd>
-<p>Converta o token <code>&lt;a-partir-de&gt;</code> para <code>&lt;para&gt;</code> na saída anônima. Caso <code>&lt;para&gt;</code> seja omitido, mapeie <code>&lt;a-partir-de&gt;</code> para si mesmo (ou seja, não anonimamente). Consulte a seção 'ANONIMIZANDO` abaixo.</p>
+<p>Converta o token <span class='synopsis'><em>&lt;a-partir-de&gt;</em></span> para <span class='synopsis'><em>&lt;para&gt;</em></span> na saída anônima. Caso <span class='synopsis'><em>&lt;para&gt;</em></span> seja omitido, mapeie <span class='synopsis'><em>&lt;a-partir-de&gt;</em></span> para si mesmo (ou seja, não anonimamente). Consulte a seção 'ANONIMIZANDO` abaixo.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---reference-excluded-parents"> <a class="anchor" href="#git-fast-export---reference-excluded-parents"></a>--reference-excluded-parents </dt>
 <dd>
-<p>É predefinido que a execução de um comando como o <code>git fast-export master~5..master</code> não incluirá o commit master~5 e fará com que master~4 não tenha mais master~5 como o commit principal (embora tanto o antigo master~4 quanto o novo master~4 tenham todos os mesmos arquivos). Use a opção <code>--reference-excluded-parents</code> para que o fluxo se refira aos commits no intervalo excluído do histórico através do seu sha1sum. Observe que o fluxo resultante só pode ser usado por um repositório que já contenha os commits principais necessários.</p>
+<p>É predefinido que a execução de um comando como o <span class='synopsis'><code>git</code> <code>fast-export</code> <code>master~5..master</code></span> não incluirá o commit master~5 e fará com que master~4 não tenha mais master~5 como o commit principal (embora tanto o antigo master~4 quanto o novo master~4 tenham todos os mesmos arquivos). Use a opção <span class='synopsis'><code>--reference-excluded-parents</code></span> para que o fluxo se refira aos commits no intervalo excluído do histórico através do seu sha1sum. Observe que o fluxo resultante só pode ser usado por um repositório que já contenha os commits principais necessários.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---show-original-ids"> <a class="anchor" href="#git-fast-export---show-original-ids"></a>--show-original-ids </dt>
 <dd>
-<p>Adicione uma diretriz extra à saída para os commits e para as bolhas, <code>original-oid &lt;SHA1SUM&gt;</code>. Embora estas diretivas provavelmente sejam ignoradas durante a importação como o git-fast-import, elas podem ser úteis para filtragem intermediária (para reescrever as mensagens do commit que se referem aos commits mais antigos ou para remover as bolhas por id por exemplo).</p>
+<p>Adicione uma diretriz extra à saída para os commits e para as bolhas, <span class='synopsis'><code>original-oid</code> <em>&lt;SHA1SUM&gt;</em></span>. Embora estas diretivas provavelmente sejam ignoradas durante a importação como o git-fast-import, elas podem ser úteis para filtragem intermediária (para reescrever as mensagens do commit que se referem aos commits mais antigos ou para remover as bolhas por id por exemplo).</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---reencodeyesnoabort"> <a class="anchor" href="#git-fast-export---reencodeyesnoabort"></a>--reencode=(yes|no|abort) </dt>
 <dd>
-<p>Especifique como lidar com o cabeçalho <code>encoding</code> nos objetos commit. Ao pedir para "abortar" <em>abort</em> (que é a predefinição), esse programa será encerrado ao encontrar tal objeto commit. Com <em>yes</em>, a mensagem de commit será recodificada para UTF-8. Com <em>no</em>, a codificação original será preservada.</p>
+<p>Especifique como lidar com o cabeçalho <span class='synopsis'><code>encoding</code></span> nos objetos commit. Ao pedir para "abortar" <em>abort</em> (que é a predefinição), esse programa será encerrado ao encontrar tal objeto commit. Com <em>yes</em>, a mensagem de commit será recodificada para UTF-8. Com <em>no</em>, a codificação original será preservada.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---refspec"> <a class="anchor" href="#git-fast-export---refspec"></a>--refspec </dt>
 <dd>
-<p>Aplique o <code>refspec</code> especificado a cada "ref" exportado. Vários deles podem ser especificados.</p>
+<p>Aplique o <span class='synopsis'><code>refspec</code></span> especificado a cada "ref" exportado. Vários deles podem ser especificados.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export-ltgit-rev-list-argsgt82308203"> <a class="anchor" href="#git-fast-export-git-rev-list-args"></a> <a class="anchor" href="#git-fast-export-ltgit-rev-list-argsgt82308203"></a>[&lt;git-rev-list-args&gt;&#8230;&#8203;] </dt>
 <dd>
-<p>Uma lista de argumentos, é aceitável com os comandos <em>git rev-parse</em> e <em>git rev-list</em> que especifica os objetos e referências específicas que srão exportadas. Por exemplo, <code>master~10..master</code> faz com que a referência mestre atual seja exportada juntamente com todos os objetos adicionados desde o décimo commit ancestral e (a menos que a opção <code>--reference-excluded-parents</code> seja usada) todos os arquivos comuns a master~9 e a master~10.</p>
+<p>Uma lista de argumentos, é aceitável com os comandos <em>git rev-parse</em> e <em>git rev-list</em> que especifica os objetos e referências específicas que srão exportadas. Por exemplo, <span class='synopsis'><code>master~10..master</code></span> faz com que a referência mestre atual seja exportada juntamente com todos os objetos adicionados desde o décimo commit ancestral e (a menos que a opção <span class='synopsis'><code>--reference-excluded-parents</code></span> seja usada) todos os arquivos comuns a master~9 e a master~10.</p>
 </dd>
 </dl>
 </div>
@@ -160,7 +179,7 @@ aliases:
 <p>Isso cria um novo ramo chamado <em>other</em> de <em>master~5..master</em> (ou seja, caso <em>master</em> tenha um histórico linear, serão necessários então os últimos 5 commits).</p>
 </div>
 <div class="paragraph">
-<p>Observe que isso pressupõe que nenhuma das bolhas e as mensagens dos commits referenciadas por esse intervalo de revisão, contenha a sequência <code>refs/heads/master</code>.</p>
+<p>Observe que isso pressupõe que nenhuma das bolhas e as mensagens dos commits referenciadas por esse intervalo de revisão, contenha a sequência <span class='synopsis'><code>refs/heads/master</code></span>.</p>
 </div>
 </div>
 </div>
@@ -168,7 +187,7 @@ aliases:
 <h2 id="_anonimizando"><a class="anchor" href="#_anonimizando"></a>ANONIMIZANDO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Caso a opção <code>--anonymize</code> seja utilizada, o git tentará remover todas as informações de identificação do repositório, mantendo ainda o suficiente da árvore original e dos padrões do histórico para reproduzir alguns bugs. O objetivo é que um bug do git encontrado num repositório privado persista no repositório anonimizado e este último pode ser compartilhado com os desenvolvedores do git para ajudar na resolução do problema.</p>
+<p>Caso a opção <span class='synopsis'><code>--anonymize</code></span> seja utilizada, o git tentará remover todas as informações de identificação do repositório, mantendo ainda o suficiente da árvore original e dos padrões do histórico para reproduzir alguns bugs. O objetivo é que um bug do git encontrado num repositório privado persista no repositório anonimizado e este último pode ser compartilhado com os desenvolvedores do git para ajudar na resolução do problema.</p>
 </div>
 <div class="paragraph">
 <p>Com esta opção, o git substituirá todas a referência dos nomes, dos caminhos, dos conteúdos bolha, das mensagens de commit e das etiquetas, dos nomes e dos endereços de e-mail na saída por dados anônimos. Duas instâncias da mesma "string" serão substituídas de maneira equivalente (dois commits com o mesmo autor vão gerar um mesmo autor anônimo, porém, não terão nenhuma semelhança com a "string" do autor original por exemplo). A relação entre os commits, os ramos e as etiquetas será mantida, bem como os registros de data e hora dos commits (porém as mensagens do commit e a referência dos nomes não têm nenhuma semelhança com os originais). A composição relativa da árvore será mantida (a saída também será mantida se você tiver uma árvore raiz com 10 arquivos e 3 árvores, por exemplo), mas seus nomes e o conteúdo dos arquivos serão substituídos.</p>
@@ -193,7 +212,7 @@ $ ... teste o seu bug ...</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Caso o repositório anonimizado exiba o erro, pode valer a pena compartilhar o <code>anon-stream</code> junto com um relatório de erro tradicional. Observe que o fluxo anonimizado é muito bem compactado, portanto a sua compactação gzip é altamente recomendável. Caso deseje examinar o fluxo para ver se não contém dados particulares, é possível examiná-lo diretamente antes de enviar. Também é possível tentar:</p>
+<p>Caso o repositório anonimizado exiba o erro, pode valer a pena compartilhar o <span class='synopsis'><code>anon-stream</code></span> junto com um relatório de erro tradicional. Observe que o fluxo anonimizado é muito bem compactado, portanto a sua compactação gzip é altamente recomendável. Caso deseje examinar o fluxo para ver se não contém dados particulares, é possível examiná-lo diretamente antes de enviar. Também é possível tentar:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -204,7 +223,7 @@ $ ... teste o seu bug ...</pre>
 <p>que exiba todas as linhas exclusivas (com números convertidos em "X", para recolher o "Usuário 0", "Usuário 1" etc. em "Usuário X"). Isso produz uma saída muito menor e geralmente é de rápida confirmação já que não há dados privados no fluxo.</p>
 </div>
 <div class="paragraph">
-<p>A reprodução de alguns bugs pode exigir a referência para alguns commits em particular ou caminhos específicos, o que se torna desafiador depois que os refnames e os caminhos sejam anonimizados. É possível solicitar que um token em específico seja deixado como está ou seja mapeado para um novo valor. Como por exemplo, caso tenha um bug que seja reproduzido com o comando <code>git rev-list sensitive -- secret.c</code>, é possível executar:</p>
+<p>A reprodução de alguns bugs pode exigir a referência para alguns commits em particular ou caminhos específicos, o que se torna desafiador depois que os refnames e os caminhos sejam anonimizados. É possível solicitar que um token em específico seja deixado como está ou seja mapeado para um novo valor. Como por exemplo, caso tenha um bug que seja reproduzido com o comando <span class='synopsis'><code>git</code> <code>rev-list</code> <code>sensitive</code> <code>--</code> <code>secret.c</code></span>, é possível executar:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -215,13 +234,13 @@ $ ... teste o seu bug ...</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Depois de importar o fluxo, é possível então executar o commando <code>git rev-list foo -- bar.c</code> no repositório anonimizado.</p>
+<p>Depois de importar o fluxo, é possível então executar o commando <span class='synopsis'><code>git</code> <code>rev-list</code> <code>foo</code> <code>--</code> <code>bar.c</code></span> no repositório anonimizado.</p>
 </div>
 <div class="paragraph">
-<p>Observe que os caminhos e a referência dos nomes são divididos em tokens nos limites das barras. O comando acima anonimizaria o arquivo <code>subdir/secret.c</code> com algo como <code>path123/bar.c</code>; você poderia então procurar pelo arquivo <code>bar.c</code> no repositório anonimizado para determinar o nome final do caminho.</p>
+<p>Observe que os caminhos e a referência dos nomes são divididos em tokens nos limites das barras. O comando acima anonimizaria o arquivo <span class='synopsis'><code>subdir/secret.c</code></span> com algo como <span class='synopsis'><code>path123/bar.c</code></span>; você poderia então procurar pelo arquivo <span class='synopsis'><code>bar.c</code></span> no repositório anonimizado para determinar o nome final do caminho.</p>
 </div>
 <div class="paragraph">
-<p>Para tornar mais simples a referência ao pathname (nome do caminho), é possível mapear cada componente do caminho; então, caso também anonimize o <code>subdir</code> para <code>publicdir</code>, então o nome final do caminho seria <code>publicdir/bar.c</code>.</p>
+<p>Para tornar mais simples a referência ao pathname (nome do caminho), é possível mapear cada componente do caminho; então, caso também anonimize o <span class='synopsis'><code>subdir</code></span> para <span class='synopsis'><code>publicdir</code></span>, então o nome final do caminho seria <span class='synopsis'><code>publicdir/bar.c</code></span>.</p>
 </div>
 </div>
 </div>

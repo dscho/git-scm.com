@@ -9,6 +9,23 @@ docname: git-http-backend
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-http-backend/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 服务
+  id: _服务
+- text: 地址翻译
+  id: _地址翻译
+- text: 实例
+  id: _实例
+- text: 环境变量
+  id: _环境变量
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -33,10 +50,10 @@ aliases:
 <p>一个简单的 CGI 程序，为通过 http:// 和 https:// 协议访问仓库的 Git 客户提供内容。 该程序支持客户端使用智能 HTTP 协议和向后兼容的哑 HTTP 协议获取内容，以及客户端使用智能 HTTP 协议推送内容。如果配置得当，它还支持 Git 更高效的 "v2" 协议；见下文环境部分关于`GIT_PROTOCOL` 的讨论。</p>
 </div>
 <div class="paragraph">
-<p>它验证该目录是否有魔术文件 "git-daemon-export-ok"，它将拒绝导出任何没有明确标记为这种方式导出的 Git 目录（除非设置了 <code>GIT_HTTP_EXPORT_ALL</code> 环境变量）。</p>
+<p>它验证该目录是否有魔术文件 "git-daemon-export-ok"，它将拒绝导出任何没有明确标记为这种方式导出的 Git 目录（除非设置了 <span class='synopsis'><code>GIT_HTTP_EXPORT_ALL</code></span> 环境变量）。</p>
 </div>
 <div class="paragraph">
-<p>默认情况下，只有 <code>upload-pack</code> 服务被启用，它为 <em>git fetch-pack</em> 和 <em>git ls-remote</em> 客户端服务，这些客户端被 <em>git fetch</em>、<em>git pull</em> 和 <em>git clone</em> 调用。 如果客户端经过认证，<code>receive-pack</code> 服务将被启用，它为 <em>git send-pack</em> 客户端服务，该服务由 <em>git push</em> 调用。</p>
+<p>默认情况下，只有 <span class='synopsis'><code>upload-pack</code></span> 服务被启用，它为 <em>git fetch-pack</em> 和 <em>git ls-remote</em> 客户端服务，这些客户端被 <em>git fetch</em>、<em>git pull</em> 和 <em>git clone</em> 调用。 如果客户端经过认证，<span class='synopsis'><code>receive-pack</code></span> 服务将被启用，它为 <em>git send-pack</em> 客户端服务，该服务由 <em>git push</em> 调用。</p>
 </div>
 </div>
 </div>
@@ -50,7 +67,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-http-backend-httpgetanyfile"> <a class="anchor" href="#git-http-backend-httpgetanyfile"></a>http.getanyfile </dt>
 <dd>
-<p>这是为 1.6.6 版本以上的 Git 客户端提供服务，它们无法使用上传包服务。 启用后，客户端能够读取仓库内的任何文件，包括不再能从分支到达但仍然存在的对象。 默认情况下是启用的，但仓库可以通过将此配置项设置为 <code>false</code> 来禁用它。</p>
+<p>这是为 1.6.6 版本以上的 Git 客户端提供服务，它们无法使用上传包服务。 启用后，客户端能够读取仓库内的任何文件，包括不再能从分支到达但仍然存在的对象。 默认情况下是启用的，但仓库可以通过将此配置项设置为 <span class='synopsis'><code>false</code></span> 来禁用它。</p>
 </dd>
 <dt class="hdlist1" id="git-http-backend-httpuploadpack"> <a class="anchor" href="#git-http-backend-httpuploadpack"></a>http.uploadpack </dt>
 <dd>
@@ -58,7 +75,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-http-backend-httpreceivepack"> <a class="anchor" href="#git-http-backend-httpreceivepack"></a>http.receivepack </dt>
 <dd>
-<p>这为 <em>git send-pack</em> 客户提供服务，允许推送。 默认情况下，它对匿名用户是禁用的，而对通过网络服务器认证的用户是启用的。 可以通过设置该项为 <code>false</code> 来禁用它，或者通过设置为 <code>true</code> 来为所有用户（包括匿名用户）启用。</p>
+<p>这为 <em>git send-pack</em> 客户提供服务，允许推送。 默认情况下，它对匿名用户是禁用的，而对通过网络服务器认证的用户是启用的。 可以通过设置该项为 <span class='synopsis'><code>false</code></span> 来禁用它，或者通过设置为 <span class='synopsis'><code>true</code></span> 来为所有用户（包括匿名用户）启用。</p>
 </dd>
 <dt class="hdlist1" id="git-http-backend-httpuploadarchive"> <a class="anchor" href="#git-http-backend-httpuploadarchive"></a>http.uploadarchive </dt>
 <dd>
@@ -80,7 +97,7 @@ aliases:
 <h2 id="_实例"><a class="anchor" href="#_实例"></a>实例</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>下面所有的例子都把 <code>http://$hostname/git/foo/bar.git</code> 映射到 <code>/var/www/git/foo/bar.git</code>。</p>
+<p>下面所有的例子都把 <span class='synopsis'><code>http://$hostname/git/foo/bar.git</code></span> 映射到 <span class='synopsis'><code>/var/www/git/foo/bar.git</code></span>。</p>
 </div>
 <div class="dlist">
 <dl>
@@ -128,7 +145,7 @@ RewriteRule ^/git/ - [E=AUTHREQUIRED:yes]
 </div>
 </div>
 <div class="paragraph">
-<p>如果你没有 <code>mod_rewrite</code> 可用来匹配查询字符串，只需保护 <code>git-receive-pack</code> 本身即可，比如：</p>
+<p>如果你没有 <span class='synopsis'><code>mod_rewrite</code></span> 可用来匹配查询字符串，只需保护 <span class='synopsis'><code>git-receive-pack</code></span> 本身即可，比如：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -141,7 +158,7 @@ RewriteRule ^/git/ - [E=AUTHREQUIRED:yes]
 </div>
 </div>
 <div class="paragraph">
-<p>在这种模式下，服务器将不会请求认证，直到客户端实际开始推送的对象协商阶段，而不是在最初的接触中。 由于这个原因，你必须在任何应该接受推送的存储库中启用 <code>http.receivepack</code> 配置选项。如果没有设置 <code>http.receivepack</code>，默认行为是拒绝任何未经认证的用户的推送；因此初始请求将向客户端报告 <code>403 Forbidden</code>，甚至不给认证机会。</p>
+<p>在这种模式下，服务器将不会请求认证，直到客户端实际开始推送的对象协商阶段，而不是在最初的接触中。 由于这个原因，你必须在任何应该接受推送的存储库中启用 <span class='synopsis'><code>http.receivepack</code></span> 配置选项。如果没有设置 <span class='synopsis'><code>http.receivepack</code></span>，默认行为是拒绝任何未经认证的用户的推送；因此初始请求将向客户端报告 <span class='synopsis'><code>403</code> <code>Forbidden</code></span>，甚至不给认证机会。</p>
 </div>
 <div class="paragraph">
 <p>要对读和写都要求认证，可以在仓库或它的一个父目录周围使用 Location 指令：</p>
@@ -216,7 +233,7 @@ ScriptAlias /git/ /var/www/cgi-bin/gitweb.cgi/</pre>
 </dd>
 <dt class="hdlist1" id="git-http-backend-Lighttpd"> <a class="anchor" href="#git-http-backend-Lighttpd"></a>Lighttpd </dt>
 <dd>
-<p>确保 <code>mod_cgi</code>、<code>mod_alias</code>、<code>mod_auth</code>、<code>mod_setenv</code> 已经加载，然后适当设置 <code>GIT_PROJECT_ROOT</code>，并将所有请求重定向到 CGI：</p>
+<p>确保 <span class='synopsis'><code>mod_cgi</code></span>、<span class='synopsis'><code>mod_alias</code></span>、<span class='synopsis'><code>mod_auth</code></span>、<span class='synopsis'><code>mod_setenv</code></span> 已经加载，然后适当设置 <span class='synopsis'><code>GIT_PROJECT_ROOT</code></span>，并将所有请求重定向到 CGI：</p>
 <div class="listingblock">
 <div class="content">
 <pre>alias.url += ( "/git" =&gt; "/usr/lib/git-core/git-http-backend" )
@@ -243,7 +260,7 @@ $HTTP["url"] =~ "^/git/.*/git-receive-pack$" {
 </div>
 </div>
 <div class="paragraph">
-<p>其中 <code>git-auth.conf</code> 看起来像：</p>
+<p>其中 <span class='synopsis'><code>git-auth.conf</code></span> 看起来像：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -276,7 +293,7 @@ $HTTP["url"] =~ "^/git/.*/git-receive-pack$" {
 <h2 id="_环境变量"><a class="anchor" href="#_环境变量"></a>环境变量</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>git http-backend</em> 依赖于调用网络服务器设置的 <code>CGI</code> 环境变量，包括：</p>
+<p><em>git http-backend</em> 依赖于调用网络服务器设置的 <span class='synopsis'><code>CGI</code></span> 环境变量，包括：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -301,19 +318,19 @@ $HTTP["url"] =~ "^/git/.*/git-receive-pack$" {
 </ul>
 </div>
 <div class="paragraph">
-<p><code>GIT_HTTP_EXPORT_ALL</code> 环境变量可以传递给 <em>git-http-backend</em>，以绕过在允许导出每个仓库前对 "git-daemon-export-ok" 文件的检查。</p>
+<p><span class='synopsis'><code>GIT_HTTP_EXPORT_ALL</code></span> 环境变量可以传递给 <em>git-http-backend</em>，以绕过在允许导出每个仓库前对 "git-daemon-export-ok" 文件的检查。</p>
 </div>
 <div class="paragraph">
-<p><code>GIT_HTTP_MAX_REQUEST_BUFFER</code> 环境变量（或 <code>http.maxRequestBuffer</code> 配置变量）可以被设置为改变 git 在获取过程中所处理的最大引用协商请求；任何需要更大缓冲区的获取将不会成功。 这个值通常不需要改变，但如果你从一个有大量引用的仓库中获取，可能会有帮助。 这个值可以指定一个单位（例如，<code>100M</code> 表示 100 兆字节）。默认是 10 兆字节。</p>
+<p><span class='synopsis'><code>GIT_HTTP_MAX_REQUEST_BUFFER</code></span> 环境变量（或 <span class='synopsis'><code>http.maxRequestBuffer</code></span> 配置变量）可以被设置为改变 git 在获取过程中所处理的最大引用协商请求；任何需要更大缓冲区的获取将不会成功。 这个值通常不需要改变，但如果你从一个有大量引用的仓库中获取，可能会有帮助。 这个值可以指定一个单位（例如，<span class='synopsis'><code>100M</code></span> 表示 100 兆字节）。默认是 10 兆字节。</p>
 </div>
 <div class="paragraph">
-<p>客户端可以使用 <code>Git-Protocol</code> HTTP 头来探测可选的协议能力（如 v2 协议）。为了支持这些，该标头的内容必须出现在 <code>GIT_PROTOCOL</code> 环境变量中。大多数网络服务器将通过 <code>HTTP_GIT_PROTOCOL</code> 变量把这个头传递给 CGI，<code>git-http-backend</code> 将自动把它复制到 <code>GIT_PROTOCOL</code>。然而，一些网络服务器可能对他们要传递的头信息更有选择性，在这种情况下，他们需要明确配置（见前面例子部分的 Apache 配置中对 <code>Git-Protocol</code> 的提及）。</p>
+<p>客户端可以使用 <span class='synopsis'><code>Git-Protocol</code></span> HTTP 头来探测可选的协议能力（如 v2 协议）。为了支持这些，该标头的内容必须出现在 <span class='synopsis'><code>GIT_PROTOCOL</code></span> 环境变量中。大多数网络服务器将通过 <span class='synopsis'><code>HTTP_GIT_PROTOCOL</code></span> 变量把这个头传递给 CGI，<span class='synopsis'><code>git-http-backend</code></span> 将自动把它复制到 <span class='synopsis'><code>GIT_PROTOCOL</code></span>。然而，一些网络服务器可能对他们要传递的头信息更有选择性，在这种情况下，他们需要明确配置（见前面例子部分的 Apache 配置中对 <span class='synopsis'><code>Git-Protocol</code></span> 的提及）。</p>
 </div>
 <div class="paragraph">
 <p>后台进程将 GIT_COMMITTER_NAME 设置为 <em>$REMOTE_USER</em>，将 GIT_COMMITTER_EMAIL 设置为 <em>${REMOTE_USER}\@http.${REMOTE_ADDR}</em>，确保任何由 <em>git-receive-pack</em> 创建的引用日志包含执行推送的远程用户的一些识别信息。</p>
 </div>
 <div class="paragraph">
-<p>所有 <code>CGI</code> 环境变量对 <em>git-receive-pack</em> 调用的每个钩子都是可用的。</p>
+<p>所有 <span class='synopsis'><code>CGI</code></span> 环境变量对 <em>git-receive-pack</em> 调用的每个钩子都是可用的。</p>
 </div>
 </div>
 </div>

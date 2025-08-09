@@ -9,6 +9,23 @@ docname: git-switch
 lang: pt_BR
 aliases:
 - "/docs/git-switch/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: EXEMPLOS
+  id: _exemplos
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -36,10 +53,10 @@ aliases:
 <p>Alterna para um ramo específico. A árvore de trabalho e o índice são atualizados para coincidir com o ramo. Todos os novos commits serão adicionadas ao cume deste ramo.</p>
 </div>
 <div class="paragraph">
-<p>Opcionalmente, um novo ramo pode ser criado com <code>-c</code>, <code>-C</code>, automaticamente a partir de um ramo remoto com o mesmo nome (consulte <code>--guess</code>), ou desanexe a árvore de trabalho de qualquer outro ramo com a opção <code>--detach</code>, em conjunto com a alternância.</p>
+<p>Opcionalmente, um novo ramo pode ser criado com <span class='synopsis'><code>-c</code></span>, <span class='synopsis'><code>-C</code></span>, automaticamente a partir de um ramo remoto com o mesmo nome (consulte <span class='synopsis'><code>--guess</code></span>), ou desanexe a árvore de trabalho de qualquer outro ramo com a opção <span class='synopsis'><code>--detach</code></span>, em conjunto com a alternância.</p>
 </div>
 <div class="paragraph">
-<p>A alternância das ramificações não requer um índice limpo e uma árvore de trabalho (ou seja, não há diferenças em comparação com o <code>HEAD</code>). A operação é interrompida no entanto caso a operação leve à perda das alterações locais, a menos que seja dito o contrário com a opção <code>--discard-changes</code> ou <code>--merge</code>.</p>
+<p>A alternância das ramificações não requer um índice limpo e uma árvore de trabalho (ou seja, não há diferenças em comparação com o <span class='synopsis'><code>HEAD</code></span>). A operação é interrompida no entanto caso a operação leve à perda das alterações locais, a menos que seja dito o contrário com a opção <span class='synopsis'><code>--discard-changes</code></span> ou <span class='synopsis'><code>--merge</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>ESTE COMANDO É EXPERIMENTAL. O SEU COMPORTAMENTO PODE MUDAR.</p>
@@ -61,18 +78,18 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-switch-ltincio-pontogt"> <a class="anchor" href="#git-switch-incio-ponto"></a> <a class="anchor" href="#git-switch-ltincio-pontogt"></a>&lt;início-ponto&gt; </dt>
 <dd>
-<p>O ponto de partida para criar o novo ramo. Definindo um <code>&lt;ponto-de-partida&gt;</code> permite criar um ramo com base em algum outro ponto na história que não seja o local onde o <code>HEAD</code> aponte atualmente. (Ou, no caso da opção <code>--detach</code>, permitir que você inspecione e desanexe de algum outro ponto.)</p>
+<p>O ponto de partida para criar o novo ramo. Definindo um <span class='synopsis'><em>&lt;ponto-de-partida&gt;</em></span> permite criar um ramo com base em algum outro ponto na história que não seja o local onde o <span class='synopsis'><code>HEAD</code></span> aponte atualmente. (Ou, no caso da opção <span class='synopsis'><code>--detach</code></span>, permitir que você inspecione e desanexe de algum outro ponto.)</p>
 <div class="paragraph">
-<p>Você pode usar a sintaxe <code>@{-N}</code> para se referir ao N-ésimo último <code>ramo/commit</code> alterado usando a operação <em>git switch</em> ou <em>git checkout</em>. Você também pode especificar <code>-</code>, que é sinônimo de <code>@{-1}</code>. Isso geralmente é usado para alternar rapidamente entre as duas ramificações ou para desfazer uma alteração feita por engano na ramificação.</p>
+<p>Você pode usar a sintaxe <span class='synopsis'><code>@{-N}</code></span> para se referir ao N-ésimo último <span class='synopsis'><code>ramo/commit</code></span> alterado usando a operação <em>git switch</em> ou <em>git checkout</em>. Você também pode especificar <span class='synopsis'><code>-</code></span>, que é sinônimo de <span class='synopsis'><code>@{-1}</code></span>. Isso geralmente é usado para alternar rapidamente entre as duas ramificações ou para desfazer uma alteração feita por engano na ramificação.</p>
 </div>
 <div class="paragraph">
-<p>Como um caso especial, você pode usar <code>A...B</code> como um atalho para a mesclagem na base de <code>A</code> e` B` se houver exatamente uma base a ser mesclada. Você pode deixar de fora, no máximo, um de <code>A</code> e` B`, no caso, a predefinição retorna para <code>HEAD</code>.</p>
+<p>Como um caso especial, você pode usar <span class='synopsis'><code>A...B</code></span> como um atalho para a mesclagem na base de <span class='synopsis'><code>A</code></span> e` B` se houver exatamente uma base a ser mesclada. Você pode deixar de fora, no máximo, um de <span class='synopsis'><code>A</code></span> e` B`, no caso, a predefinição retorna para <span class='synopsis'><code>HEAD</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-switch--cltnovo-ramogt"> <a class="anchor" href="#git-switch--cnovo-ramo"></a> <a class="anchor" href="#git-switch--cltnovo-ramogt"></a>-c &lt;novo-ramo&gt; </dt>
 <dt class="hdlist1" id="git-switch---createltnovo-ramogt"> <a class="anchor" href="#git-switch---createnovo-ramo"></a> <a class="anchor" href="#git-switch---createltnovo-ramogt"></a>--create &lt;novo-ramo&gt; </dt>
 <dd>
-<p>Crie uma nova ramificação chamada <code>&lt;novo-ramo&gt;</code> começando em <code>&lt;ponto-de-partida&gt;</code> antes de mudar para a ramificação. Este é o equivalente transacional de</p>
+<p>Crie uma nova ramificação chamada <span class='synopsis'><em>&lt;novo-ramo&gt;</em></span> começando em <span class='synopsis'><em>&lt;ponto-de-partida&gt;</em></span> antes de mudar para a ramificação. Este é o equivalente transacional de</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git branch &lt;novo-ramo&gt;
@@ -86,7 +103,7 @@ $ git switch &lt;novo-ramo&gt;</pre>
 <dt class="hdlist1" id="git-switch--Cltnovo-ramogt"> <a class="anchor" href="#git-switch--Cnovo-ramo"></a> <a class="anchor" href="#git-switch--Cltnovo-ramogt"></a>-C &lt;novo-ramo&gt; </dt>
 <dt class="hdlist1" id="git-switch---force-createltnovo-ramogt"> <a class="anchor" href="#git-switch---force-createnovo-ramo"></a> <a class="anchor" href="#git-switch---force-createltnovo-ramogt"></a>--force-create &lt;novo-ramo&gt; </dt>
 <dd>
-<p>É similar a opção <code>--create</code> exceto quando <code>&lt;novo-ramo&gt;</code> já exista, ele será redefinido para o <code>&lt;ponto-de-partida&gt;</code>. Este é um atalho conveniente para:</p>
+<p>É similar a opção <span class='synopsis'><code>--create</code></span> exceto quando <span class='synopsis'><em>&lt;novo-ramo&gt;</em></span> já exista, ele será redefinido para o <span class='synopsis'><em>&lt;ponto-de-partida&gt;</em></span>. Este é um atalho conveniente para:</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git branch -f &lt;novo-ramo&gt;
@@ -102,42 +119,42 @@ $ git switch &lt;novo-ramo&gt;</pre>
 <dt class="hdlist1" id="git-switch---guess"> <a class="anchor" href="#git-switch---guess"></a>--guess </dt>
 <dt class="hdlist1" id="git-switch---no-guess"> <a class="anchor" href="#git-switch---no-guess"></a>--no-guess </dt>
 <dd>
-<p>Caso o <code>&lt;ramo&gt;</code> não seja encontrado mas exista uma ramificação de rastreamento exatamente em uma localidade remota (chame-o &lt;remoto&gt;) que coincida com um nome, trate como equivalente a</p>
+<p>Caso o <span class='synopsis'><em>&lt;ramo&gt;</em></span> não seja encontrado mas exista uma ramificação de rastreamento exatamente em uma localidade remota (chame-o &lt;remoto&gt;) que coincida com um nome, trate como equivalente a</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git switch -c &lt;ramo&gt; --track &lt;remoto&gt;/&lt;ramo&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Caso o ramo exista em diversos ramos remotos e um deles seja nomeado pela variável de configuração <code>checkout.defaultRemote</code>, para propósitos de desambiguação, mesmo que <code>&lt;ramo&gt;</code> não seja o único em todos os outros ramos remotos. Defina por exemplo, <code>checkout.defaultRemote=origin</code> para que sempre verifique as ramificações remotas de lá caso <code>&lt;ramo&gt;</code> seja ambíguo e ainda assim <code>origin</code> exista. Consulte também <code>checkout.defaultRemote</code> em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+<p>Caso o ramo exista em diversos ramos remotos e um deles seja nomeado pela variável de configuração <span class='synopsis'><code>checkout.defaultRemote</code></span>, para propósitos de desambiguação, mesmo que <span class='synopsis'><em>&lt;ramo&gt;</em></span> não seja o único em todos os outros ramos remotos. Defina por exemplo, <span class='synopsis'><code>checkout.defaultRemote=origin</code></span> para que sempre verifique as ramificações remotas de lá caso <span class='synopsis'><em>&lt;ramo&gt;</em></span> seja ambíguo e ainda assim <span class='synopsis'><code>origin</code></span> exista. Consulte também <span class='synopsis'><code>checkout.defaultRemote</code></span> em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p><code>--guess</code> é o comportamento predefinido. Utilize a opção <code>--no-guess</code> para desativá-lo.</p>
+<p><span class='synopsis'><code>--guess</code></span> é o comportamento predefinido. Utilize a opção <span class='synopsis'><code>--no-guess</code></span> para desativá-lo.</p>
 </div>
 <div class="paragraph">
-<p>O comportamento predefinido pode ser definido através da variável de configuração <code>checkout.guess</code>.</p>
+<p>O comportamento predefinido pode ser definido através da variável de configuração <span class='synopsis'><code>checkout.guess</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-switch--f"> <a class="anchor" href="#git-switch--f"></a>-f </dt>
 <dt class="hdlist1" id="git-switch---force"> <a class="anchor" href="#git-switch---force"></a>--force </dt>
 <dd>
-<p>Um atalho para <code>--discard-changes</code>.</p>
+<p>Um atalho para <span class='synopsis'><code>--discard-changes</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-switch---discard-changes"> <a class="anchor" href="#git-switch---discard-changes"></a>--discard-changes </dt>
 <dd>
-<p>Prossiga mesmo que o índice ou a árvore de trabalho seja diferente do <code>HEAD</code>. Ambos o índice e a árvore de trabalho são restauradas para coincidir com a alternância do destino. Caso a opção <code>--recurse-submodules</code> seja utilizada, o conteúdo do submódulo também será restaurado para coincidir a alternância do destino. Isso é utilizado para descartar as alterações locais.</p>
+<p>Prossiga mesmo que o índice ou a árvore de trabalho seja diferente do <span class='synopsis'><code>HEAD</code></span>. Ambos o índice e a árvore de trabalho são restauradas para coincidir com a alternância do destino. Caso a opção <span class='synopsis'><code>--recurse-submodules</code></span> seja utilizada, o conteúdo do submódulo também será restaurado para coincidir a alternância do destino. Isso é utilizado para descartar as alterações locais.</p>
 </dd>
 <dt class="hdlist1" id="git-switch--m"> <a class="anchor" href="#git-switch--m"></a>-m </dt>
 <dt class="hdlist1" id="git-switch---merge"> <a class="anchor" href="#git-switch---merge"></a>--merge </dt>
 <dd>
 <p>Caso tenha modificações locais num ou mais arquivos que sejam diferentes entre o ramo atual e o ramo para onde você esteja alternando, o comando se recusará a alternar os ramos para preservar as suas alterações no contexto. No entanto, com essa opção, é feita uma mesclagem de três vias entre o ramo atual, o conteúdo da sua árvore de trabalho e o novo ramo, e você estará no novo ramo.</p>
 <div class="paragraph">
-<p>Quando ocorre um conflito durante a mesclagem, as entradas do índice para os caminhos conflitantes não são mesclados, sendo necessário que você resolva os conflitos e marque os caminhos resolvidos com <code>git add</code> (ou <code>git rm</code> caso a mesclagem resulte na exclusão do caminho) .</p>
+<p>Quando ocorre um conflito durante a mesclagem, as entradas do índice para os caminhos conflitantes não são mesclados, sendo necessário que você resolva os conflitos e marque os caminhos resolvidos com <span class='synopsis'><code>git</code> <code>add</code></span> (ou <span class='synopsis'><code>git</code> <code>rm</code></span> caso a mesclagem resulte na exclusão do caminho) .</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-switch---conflictltestilogt"> <a class="anchor" href="#git-switch---conflictestilo"></a> <a class="anchor" href="#git-switch---conflictltestilogt"></a>--conflict=&lt;estilo&gt; </dt>
 <dd>
-<p>O mesmo que a opção <code>--merge</code> acima, porém altera a maneira como os blocos conflitantes são apresentados, ao substituir a variável de configuração <code>merge.conflictStyle</code>. Os valores possíveis são <code>merge</code> (predefinido), "diff3" e "zdiff3".</p>
+<p>O mesmo que a opção <span class='synopsis'><code>--merge</code></span> acima, porém altera a maneira como os blocos conflitantes são apresentados, ao substituir a variável de configuração <span class='synopsis'><code>merge.conflictStyle</code></span>. Os valores possíveis são <span class='synopsis'><code>merge</code></span> (predefinido), "diff3" e "zdiff3".</p>
 </dd>
 <dt class="hdlist1" id="git-switch--q"> <a class="anchor" href="#git-switch--q"></a>-q </dt>
 <dt class="hdlist1" id="git-switch---quiet"> <a class="anchor" href="#git-switch---quiet"></a>--quiet </dt>
@@ -147,32 +164,32 @@ $ git switch &lt;novo-ramo&gt;</pre>
 <dt class="hdlist1" id="git-switch---progress"> <a class="anchor" href="#git-switch---progress"></a>--progress </dt>
 <dt class="hdlist1" id="git-switch---no-progress"> <a class="anchor" href="#git-switch---no-progress"></a>--no-progress </dt>
 <dd>
-<p>A condição do progresso é relatado no fluxo de erro predefinido ao estar conectado num terminal, a menos que as opções <code>--quiet</code> seja utilizados. Esta opção ativa os relatórios de progresso, mesmo que não estejam anexados a um terminal, independentemente da opção <code>--quiet</code>.</p>
+<p>A condição do progresso é relatado no fluxo de erro predefinido ao estar conectado num terminal, a menos que as opções <span class='synopsis'><code>--quiet</code></span> seja utilizados. Esta opção ativa os relatórios de progresso, mesmo que não estejam anexados a um terminal, independentemente da opção <span class='synopsis'><code>--quiet</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-switch--t"> <a class="anchor" href="#git-switch--t"></a>-t </dt>
 <dt class="hdlist1" id="git-switch---trackdirectinherit"> <a class="anchor" href="#git-switch---trackdirectinherit"></a>--track [direct|inherit] </dt>
 <dd>
-<p>Ao criar uma nova ramificação, defina a configuração <em>upstream</em>. A opção <code>-c</code> fica implícita. Para mais detalhes consulte <code>--track</code> do comando <a href='{{< relurl "docs/git-branch/pt_BR" >}}'>git-branch[1]</a>.</p>
+<p>Ao criar uma nova ramificação, defina a configuração <em>upstream</em>. A opção <span class='synopsis'><code>-c</code></span> fica implícita. Para mais detalhes consulte <span class='synopsis'><code>--track</code></span> do comando <a href='{{< relurl "docs/git-branch/pt_BR" >}}'>git-branch[1]</a>.</p>
 <div class="paragraph">
-<p>Se nenhuma opção <code>-c</code> for usada, o nome do novo ramo será derivado do ramo de rastreamento remoto, observando a parte local do refspec configurado para o remoto correspondente e, em seguida, removendo a parte inicial até o "*". Isso nos diria para usar <code>hack</code> como a ramificação local ao ramificar a partir de <code>origin/hack</code> (ou <code>remotes/origin/hack</code>, ou mesmo <code>refs/remotes/origin/hack</code>). Se o nome informado não tiver barra, ou se a adivinhação acima resultar num nome vazio, a adivinhação será abortada. Nesse caso, você pode fornecer explicitamente um nome com a opção <code>-c</code>.</p>
+<p>Se nenhuma opção <span class='synopsis'><code>-c</code></span> for usada, o nome do novo ramo será derivado do ramo de rastreamento remoto, observando a parte local do refspec configurado para o remoto correspondente e, em seguida, removendo a parte inicial até o "*". Isso nos diria para usar <span class='synopsis'><code>hack</code></span> como a ramificação local ao ramificar a partir de <span class='synopsis'><code>origin/hack</code></span> (ou <span class='synopsis'><code>remotes/origin/hack</code></span>, ou mesmo <span class='synopsis'><code>refs/remotes/origin/hack</code></span>). Se o nome informado não tiver barra, ou se a adivinhação acima resultar num nome vazio, a adivinhação será abortada. Nesse caso, você pode fornecer explicitamente um nome com a opção <span class='synopsis'><code>-c</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-switch---no-track"> <a class="anchor" href="#git-switch---no-track"></a>--no-track </dt>
 <dd>
-<p>Não configure "upstream" mesmo que a variável de configuração <code>branch.autoSetupMerge</code> seja verdadeira.</p>
+<p>Não configure "upstream" mesmo que a variável de configuração <span class='synopsis'><code>branch.autoSetupMerge</code></span> seja verdadeira.</p>
 </dd>
 <dt class="hdlist1" id="git-switch---orphanltnovo-ramogt"> <a class="anchor" href="#git-switch---orphannovo-ramo"></a> <a class="anchor" href="#git-switch---orphanltnovo-ramogt"></a>--orphan &lt;novo-ramo&gt; </dt>
 <dd>
-<p>Crie uma nova ramificação nova em folha, denominada <code>&lt;novo-ramo&gt;</code>. Todos os arquivos rastreados são removidos.</p>
+<p>Crie uma nova ramificação nova em folha, denominada <span class='synopsis'><em>&lt;novo-ramo&gt;</em></span>. Todos os arquivos rastreados são removidos.</p>
 </dd>
 <dt class="hdlist1" id="git-switch---ignore-other-worktrees"> <a class="anchor" href="#git-switch---ignore-other-worktrees"></a>--ignore-other-worktrees </dt>
 <dd>
-<p>O comando <code>git switch</code> se recusa quando a "ref" desejada já está foi averiguada por uma outra árvore de trabalho. Esta opção faz com que ele averigue a "ref" mesmo assim. Em outras palavras, a "ref" pode ser mantida por mais de uma árvore de trabalho.</p>
+<p>O comando <span class='synopsis'><code>git</code> <code>switch</code></span> se recusa quando a "ref" desejada já está foi averiguada por uma outra árvore de trabalho. Esta opção faz com que ele averigue a "ref" mesmo assim. Em outras palavras, a "ref" pode ser mantida por mais de uma árvore de trabalho.</p>
 </dd>
 <dt class="hdlist1" id="git-switch---recurse-submodules"> <a class="anchor" href="#git-switch---recurse-submodules"></a>--recurse-submodules </dt>
 <dt class="hdlist1" id="git-switch---no-recurse-submodules"> <a class="anchor" href="#git-switch---no-recurse-submodules"></a>--no-recurse-submodules </dt>
 <dd>
-<p>O uso da opção <code>--recurse-submodules</code> atualizará o conteúdo de todos os submódulos ativos de acordo com commit gravado no superprojeto. Caso nada (ou a opção <code>--no-recurse-submodules</code>) seja utilizado, os submódulos que trabalham nas árvores não serão atualizados. Assim como <a href='{{< relurl "docs/git-submodule/pt_BR" >}}'>git-submodule[1]</a>, isso faz com que <code>HEAD</code> seja desanexando dos submódulos.</p>
+<p>O uso da opção <span class='synopsis'><code>--recurse-submodules</code></span> atualizará o conteúdo de todos os submódulos ativos de acordo com commit gravado no superprojeto. Caso nada (ou a opção <span class='synopsis'><code>--no-recurse-submodules</code></span>) seja utilizado, os submódulos que trabalham nas árvores não serão atualizados. Assim como <a href='{{< relurl "docs/git-submodule/pt_BR" >}}'>git-submodule[1]</a>, isso faz com que <span class='synopsis'><code>HEAD</code></span> seja desanexando dos submódulos.</p>
 </dd>
 </dl>
 </div>
@@ -216,7 +233,7 @@ Auto-merging frotz</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Após esta mesclagem de três vias, as alterações locais não serão registradas no seu arquivo do índice, portanto, o <code>git diff</code> exibirá quais foram as alterações feitas desde o cume do novo ramo.</p>
+<p>Após esta mesclagem de três vias, as alterações locais não serão registradas no seu arquivo do índice, portanto, o <span class='synopsis'><code>git</code> <code>diff</code></span> exibirá quais foram as alterações feitas desde o cume do novo ramo.</p>
 </div>
 <div class="paragraph">
 <p>Para voltar à ramificação anterior antes de mudarmos para "mytopic" (ou seja, para a ramificação "master"):</p>
@@ -246,7 +263,7 @@ Foi alternado para um novo ramo 'new-topic'</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Para averiguar o commit <code>HEAD~3</code> por inspeções temporárias ou experimentos sem criar um novo ramo:</p>
+<p>Para averiguar o commit <span class='synopsis'><code>HEAD~3</code></span> por inspeções temporárias ou experimentos sem criar um novo ramo:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -278,7 +295,7 @@ HEAD is now at 9fc9555312 Merge branch 'cc/shared-index-permbits'</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/config/checkout.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/config/checkout.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

@@ -9,6 +9,27 @@ docname: git-revert
 lang: pt_BR
 aliases:
 - "/docs/git-revert/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: SEQUENCER SUBCOMANDOS
+  id: _sequencer_subcomandos
+- text: EXEMPLOS
+  id: _exemplos
+- text: DISCUSSÃO
+  id: _discussão
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -31,10 +52,10 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Com um ou mais commits existentes, reverta as alterações introduzidas pelas correções relacionadas e registre alguns novos commits que as registrem. Isso exige que a sua árvore de trabalho esteja limpa (sem alterações do commit <code>HEAD</code>).</p>
+<p>Com um ou mais commits existentes, reverta as alterações introduzidas pelas correções relacionadas e registre alguns novos commits que as registrem. Isso exige que a sua árvore de trabalho esteja limpa (sem alterações do commit <span class='synopsis'><code>HEAD</code></span>).</p>
 </div>
 <div class="paragraph">
-<p>Observação: o comando <code>git revert</code> é usado para registrar alguns novos commits para reverter o efeito de alguns commits anteriores (geralmente apenas um defeituoso). Se você quiser descartar todas as alterações dos commits não realizados em seu diretório de trabalho, consulte <a href='{{< relurl "docs/git-reset/pt_BR" >}}'>git-reset[1]</a>, particularmente a opção <code>--hard</code>. Se você quiser extrair arquivos específicos como estavam em outro commit, consulte <a href='{{< relurl "docs/git-restore/pt_BR" >}}'>git-restore[1]</a>, especificamente a opção <code>--source</code>. Tome cuidado com estas alternativas, pois ambas descartarão as alterações não confirmadas em seu diretório de trabalho.</p>
+<p>Observação: o comando <span class='synopsis'><code>git</code> <code>revert</code></span> é usado para registrar alguns novos commits para reverter o efeito de alguns commits anteriores (geralmente apenas um defeituoso). Se você quiser descartar todas as alterações dos commits não realizados em seu diretório de trabalho, consulte <a href='{{< relurl "docs/git-reset/pt_BR" >}}'>git-reset[1]</a>, particularmente a opção <span class='synopsis'><code>--hard</code></span>. Se você quiser extrair arquivos específicos como estavam em outro commit, consulte <a href='{{< relurl "docs/git-restore/pt_BR" >}}'>git-restore[1]</a>, especificamente a opção <span class='synopsis'><code>--source</code></span>. Tome cuidado com estas alternativas, pois ambas descartarão as alterações não confirmadas em seu diretório de trabalho.</p>
 </div>
 <div class="paragraph">
 <p>Para as diferenças entre os três comandos consulte "Redefinir, restaurar e reverter" em <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a>.</p>
@@ -48,7 +69,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-revert-ltcommitgt82308203"> <a class="anchor" href="#git-revert-commit"></a> <a class="anchor" href="#git-revert-ltcommitgt82308203"></a>&lt;commit&gt;&#8230;&#8203; </dt>
 <dd>
-<p>Commits que serão revertidos. Para obter uma lista mais completa de maneiras de soletrar os nomes dos commits, consulte <a href='{{< relurl "docs/gitrevisions/pt_BR" >}}'>gitrevisions[7]</a>. Conjuntos de commits também podem ser informados, mas por predefinição, nenhuma passagem é feita, consulte <a href='{{< relurl "docs/git-rev-list/pt_BR" >}}'>git-rev-list[1]</a> e a sua opção <code>--no-walk</code>.</p>
+<p>Commits que serão revertidos. Para obter uma lista mais completa de maneiras de soletrar os nomes dos commits, consulte <a href='{{< relurl "docs/gitrevisions/pt_BR" >}}'>gitrevisions[7]</a>. Conjuntos de commits também podem ser informados, mas por predefinição, nenhuma passagem é feita, consulte <a href='{{< relurl "docs/git-rev-list/pt_BR" >}}'>git-rev-list[1]</a> e a sua opção <span class='synopsis'><code>--no-walk</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-revert--e"> <a class="anchor" href="#git-revert--e"></a>-e </dt>
 <dt class="hdlist1" id="git-revert---edit"> <a class="anchor" href="#git-revert---edit"></a>--edit </dt>
@@ -72,12 +93,12 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-revert---cleanupltmodogt"> <a class="anchor" href="#git-revert---cleanupmodo"></a> <a class="anchor" href="#git-revert---cleanupltmodogt"></a>--cleanup=&lt;modo&gt; </dt>
 <dd>
-<p>Essa opção define como a mensagem de commit sera limpa antes de ser encaminhada para o maquinário de commit. Para mais detalhes consulte <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a>. Em particular, caso o valor <em>&lt;mode&gt;</em> tenha um valor de tesoura <code>scissors</code>, a tesoura será anexada a <code>MERGE_MSG</code> antes de ser repassada no caso de um conflito.</p>
+<p>Essa opção define como a mensagem de commit sera limpa antes de ser encaminhada para o maquinário de commit. Para mais detalhes consulte <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a>. Em particular, caso o valor <em>&lt;mode&gt;</em> tenha um valor de tesoura <span class='synopsis'><code>scissors</code></span>, a tesoura será anexada a <span class='synopsis'><code>MERGE_MSG</code></span> antes de ser repassada no caso de um conflito.</p>
 </dd>
 <dt class="hdlist1" id="git-revert--n"> <a class="anchor" href="#git-revert--n"></a>-n </dt>
 <dt class="hdlist1" id="git-revert---no-commit"> <a class="anchor" href="#git-revert---no-commit"></a>--no-commit </dt>
 <dd>
-<p>Normalmente, o comando cria automaticamente alguns commits com mensagens do registro do commit informando quais os commits foram revertidos. Esta opção aplica as alterações necessárias para reverter os commits indicados em sua árvore de trabalho e no índice, mas não faz os commits. Além disso, quando esta opção é usada, seu índice não precisa corresponder ao commit do <code>HEAD</code>. A reversão é feita em relação ao estado inicial de seu índice.</p>
+<p>Normalmente, o comando cria automaticamente alguns commits com mensagens do registro do commit informando quais os commits foram revertidos. Esta opção aplica as alterações necessárias para reverter os commits indicados em sua árvore de trabalho e no índice, mas não faz os commits. Além disso, quando esta opção é usada, seu índice não precisa corresponder ao commit do <span class='synopsis'><code>HEAD</code></span>. A reversão é feita em relação ao estado inicial de seu índice.</p>
 <div class="paragraph">
 <p>Isso é útil durante ao reverter o efeito de um ou mais commits no seu índice, numa linha.</p>
 </div>
@@ -86,12 +107,12 @@ aliases:
 <dt class="hdlist1" id="git-revert---gpg-signltkeyidgt"> <a class="anchor" href="#git-revert---gpg-signkeyid"></a> <a class="anchor" href="#git-revert---gpg-signltkeyidgt"></a>--gpg-sign[=&lt;keyid&gt;] </dt>
 <dt class="hdlist1" id="git-revert---no-gpg-sign"> <a class="anchor" href="#git-revert---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
-<p>Commits assinados com o GPG O argumento <code>keyid</code> é opcional e a predefinição retorna para a identidade de quem fez o commit; caso seja utilizado, deve estar anexado a opção e sem espaço. A opção <code>--no-gpg-sign</code> é útil para revogar a variável de configuração <code>commit.gpgSign</code> e a anterior <code>--gpg-sign</code>.</p>
+<p>Commits assinados com o GPG O argumento <span class='synopsis'><code>keyid</code></span> é opcional e a predefinição retorna para a identidade de quem fez o commit; caso seja utilizado, deve estar anexado a opção e sem espaço. A opção <span class='synopsis'><code>--no-gpg-sign</code></span> é útil para revogar a variável de configuração <span class='synopsis'><code>commit.gpgSign</code></span> e a anterior <span class='synopsis'><code>--gpg-sign</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-revert--s"> <a class="anchor" href="#git-revert--s"></a>-s </dt>
 <dt class="hdlist1" id="git-revert---signoff"> <a class="anchor" href="#git-revert---signoff"></a>--signoff </dt>
 <dd>
-<p>Adicione uma linha <code>Signed-off-by</code> no final da mensagem de confirmação. Consulte a opção signoff do comando <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a> para obter mais informações.</p>
+<p>Adicione uma linha <span class='synopsis'><code>Signed-off-by</code></span> no final da mensagem de confirmação. Consulte a opção signoff do comando <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a> para obter mais informações.</p>
 </dd>
 <dt class="hdlist1" id="git-revert---strategyltestratgiagt"> <a class="anchor" href="#git-revert---strategyestratgia"></a> <a class="anchor" href="#git-revert---strategyltestratgiagt"></a>--strategy=&lt;estratégia&gt; </dt>
 <dd>
@@ -105,7 +126,7 @@ aliases:
 <dt class="hdlist1" id="git-revert---rerere-autoupdate"> <a class="anchor" href="#git-revert---rerere-autoupdate"></a>--rerere-autoupdate </dt>
 <dt class="hdlist1" id="git-revert---no-rerere-autoupdate"> <a class="anchor" href="#git-revert---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
 <dd>
-<p>Depois que o mecanismo <em>rerere</em> reutilizar uma resolução registrada no conflito atual para atualizar os arquivos na árvore de trabalho, permita que ele também atualize o índice com o resultado da resolução. A opção <code>--no-rerere-autoupdate</code> é uma boa maneira de verificar novamente o que o <code>rerere</code> fez e detectar possíveis erros de mesclagem, antes de fazer o commit resultante no índice com um comando <code>git add</code> separado.</p>
+<p>Depois que o mecanismo <em>rerere</em> reutilizar uma resolução registrada no conflito atual para atualizar os arquivos na árvore de trabalho, permita que ele também atualize o índice com o resultado da resolução. A opção <span class='synopsis'><code>--no-rerere-autoupdate</code></span> é uma boa maneira de verificar novamente o que o <span class='synopsis'><code>rerere</code></span> fez e detectar possíveis erros de mesclagem, antes de fazer o commit resultante no índice com um comando <span class='synopsis'><code>git</code> <code>add</code></span> separado.</p>
 </dd>
 </dl>
 </div>
@@ -113,7 +134,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-revert---reference"> <a class="anchor" href="#git-revert---reference"></a>--reference </dt>
 <dd>
-<p>Em vez de iniciar o corpo da mensagem de registro com "This reverts &lt;full-object-name-of-the-commit-being-reverted&gt;.", faça referência ao commit usando o formato "--pretty=reference" (cf. <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>). A variável de configuração <code>revert.reference</code> pode ser usada para ativar esta opção automaticamente.</p>
+<p>Em vez de iniciar o corpo da mensagem de registro com "This reverts &lt;full-object-name-of-the-commit-being-reverted&gt;.", faça referência ao commit usando o formato "--pretty=reference" (cf. <a href='{{< relurl "docs/git-log/pt_BR" >}}'>git-log[1]</a>). A variável de configuração <span class='synopsis'><code>revert.reference</code></span> pode ser usada para ativar esta opção automaticamente.</p>
 </dd>
 </dl>
 </div>
@@ -126,7 +147,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-revert---continue"> <a class="anchor" href="#git-revert---continue"></a>--continue </dt>
 <dd>
-<p>Continue a operação em andamento usando as informações em <code>.git/sequencer</code>. Pode ser usado para continuar após uma falha da resolução de conflitos num "cherry-pick" ou numa reversão.</p>
+<p>Continue a operação em andamento usando as informações em <span class='synopsis'><code>.git/sequencer</code></span>. Pode ser usado para continuar após uma falha da resolução de conflitos num "cherry-pick" ou numa reversão.</p>
 </dd>
 <dt class="hdlist1" id="git-revert---skip"> <a class="anchor" href="#git-revert---skip"></a>--skip </dt>
 <dd>
@@ -149,11 +170,11 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-revert-codegitrevertHEAD3code"> <a class="anchor" href="#git-revert-gitrevertHEAD3"></a> <a class="anchor" href="#git-revert-codegitrevertHEAD3code"></a><code>git revert HEAD~3</code> </dt>
+<dt class="hdlist1" id="git-revert-spanclasssynopsiscodegitcodecoderevertcodecodeHEAD3codespan"> <a class="anchor" href="#git-revert-gitrevertHEAD3"></a> <a class="anchor" href="#git-revert-spanclasssynopsiscodegitcodecoderevertcodecodeHEAD3codespan"></a><span class='synopsis'><code>git</code> <code>revert</code> <code>HEAD~3</code></span> </dt>
 <dd>
 <p>Reverta as alterações informadas pelo quarto último commit no HEAD e crie um novo commit com as alterações revertidas.</p>
 </dd>
-<dt class="hdlist1" id="git-revert-codegitrevert-nmaster5master2code"> <a class="anchor" href="#git-revert-gitrevert-nmaster5master2"></a> <a class="anchor" href="#git-revert-codegitrevert-nmaster5master2code"></a><code>git revert -n master~5..master~2</code> </dt>
+<dt class="hdlist1" id="git-revert-spanclasssynopsiscodegitcodecoderevertcodecode-ncodecodemaster5master2codespan"> <a class="anchor" href="#git-revert-gitrevert-nmaster5master2"></a> <a class="anchor" href="#git-revert-spanclasssynopsiscodegitcodecoderevertcodecode-ncodecodemaster5master2codespan"></a><span class='synopsis'><code>git</code> <code>revert</code> <code>-n</code> <code>master~5..master~2</code></span> </dt>
 <dd>
 <p>Reverta as alterações feitas pelos commits do quinto último commit no master (incluso) para o terceiro último commit no master (incluso), porém não crie nenhum commit com as alterações revertidas. A reversão altera apenas a árvore de trabalho e o índice.</p>
 </dd>
@@ -183,7 +204,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/config/revert.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/config/revert.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

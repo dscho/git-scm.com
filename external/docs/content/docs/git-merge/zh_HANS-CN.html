@@ -9,6 +9,37 @@ docname: git-merge
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-merge/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 合并前检查
+  id: _合并前检查
+- text: 快进式合并
+  id: _快进式合并
+- text: 正确的合并
+  id: _正确的合并
+- text: 合并标签
+  id: _合并标签
+- text: 冲突如何呈现
+  id: _冲突如何呈现
+- text: 如何解决冲突
+  id: _如何解决冲突
+- text: 实例
+  id: _实例
+- text: 合并战略
+  id: _合并战略
+- text: 配置
+  id: _配置
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -38,7 +69,7 @@ aliases:
 <p>将指定的提交内容（从它们的历史与当前分支相分离时起）并入当前分支。 这条命令被 "git pull "用来合并另一个仓库的改动，也可以用手将一个分支的改动合并到另一个分支。</p>
 </div>
 <div class="paragraph">
-<p>假设存在以下历史，且当前分支为 <code>master</code>：</p>
+<p>假设存在以下历史，且当前分支为 <span class='synopsis'><code>master</code></span>：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -48,7 +79,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>然后 <code>git merge topic</code> 将重现 <code>topic</code> 分支从 <code>master</code>（即 <code>E</code>）分流到 <code>master</code> 之上的当前提交（ <code>C</code> ）所做的修改，并将结果与两个父提交的名称和用户描述修改的日志信息一起记录在一个新提交中。在操作之前，<code>ORIG_HEAD`被设置为当前分支（`C</code>）的顶端。</p>
+<p>然后 <span class='synopsis'><code>git</code> <code>merge</code> <code>topic</code></span> 将重现 <span class='synopsis'><code>topic</code></span> 分支从 <span class='synopsis'><code>master</code></span>（即 <span class='synopsis'><code>E</code></span>）分流到 <span class='synopsis'><code>master</code></span> 之上的当前提交（ <span class='synopsis'><code>C</code></span> ）所做的修改，并将结果与两个父提交的名称和用户描述修改的日志信息一起记录在一个新提交中。在操作之前，<span class='synopsis'><em>ORIG_HEAD`被设置为当前分支（`C</em></span>）的顶端。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -58,10 +89,10 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>如果出现无法自动解决的冲突，或者在启动合并时提供了 <code>--no-commit</code> 选项，合并就会停止。这时可以运行 <code>git merge --abort</code> 或 <code>git merge --continue</code> 。</p>
+<p>如果出现无法自动解决的冲突，或者在启动合并时提供了 <span class='synopsis'><code>--no-commit</code></span> 选项，合并就会停止。这时可以运行 <span class='synopsis'><code>git</code> <code>merge</code> <code>--abort</code></span> 或 <span class='synopsis'><code>git</code> <code>merge</code> <code>--continue</code></span> 。</p>
 </div>
 <div class="paragraph">
-<p><code>git merge --abort</code> 会中止合并过程，并尝试重建合并前的状态。然而，如果合并开始时有未提交的修改（尤其是合并开始后这些修改被进一步修改），<code>git merge --abort</code> 在某些情况下将无法重建原始的（合并前的）修改。因此：</p>
+<p><span class='synopsis'><code>git</code> <code>merge</code> <code>--abort</code></span> 会中止合并过程，并尝试重建合并前的状态。然而，如果合并开始时有未提交的修改（尤其是合并开始后这些修改被进一步修改），<span class='synopsis'><code>git</code> <code>merge</code> <code>--abort</code></span> 在某些情况下将无法重建原始的（合并前的）修改。因此：</p>
 </div>
 <div class="paragraph">
 <p><strong>警告</strong>：在非重要的未提交的修改中运行 `git merge`是不可取的。不鼓励这样做：虽然有可能，但它可能会让你处于一个很难在冲突中恢复的状态。并且如果发生冲突的话会处于一个很难退出的状态。</p>
@@ -89,14 +120,14 @@ aliases:
 <dt class="hdlist1" id="git-merge---no-edit"> <a class="anchor" href="#git-merge---no-edit"></a>--no-edit </dt>
 <dd>
 <p>	在提交成功的机械合并之前，调用一个编辑器来进一步编辑自动生成的合并信息，以便用户可以解释和证明合并的合理性。可以使用`--no-edit`选项来接受自动生成的信息（但是不鼓励亲这么做）。
-如果你在命令行中用`-m`选项给出一个草稿信息，并想在编辑器中编辑它，<code>--edit</code>（或`-e`）选项仍然有用。</p>
+如果你在命令行中用`-m`选项给出一个草稿信息，并想在编辑器中编辑它，<span class='synopsis'><code>--edit</code></span>（或`-e`）选项仍然有用。</p>
 <div class="paragraph">
 <p>旧的脚本可能依赖于不允许用户编辑合并日志信息的历史行为。他们会在运行`git merge`时看到一个编辑器被打开。为了使这些脚本更容易调整到最新的行为，可以在脚本的开头将环境变量`GIT_MERGE_AUTOEDIT`设置为`no`。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-merge---cleanupltgt"> <a class="anchor" href="#git-merge---cleanup"></a> <a class="anchor" href="#git-merge---cleanupltgt"></a>--cleanup=&lt;模式&gt; </dt>
 <dd>
-<p>这个选项决定了在提交前如何清理合并信息。更多细节见<a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a>。此外，如果`&lt;模式&gt;<code>的值为 `scissors</code>，在发生合并冲突时，scissors将被附加到 "MERGE_MSG "上，然后传递给提交机制。</p>
+<p>这个选项决定了在提交前如何清理合并信息。更多细节见<a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a>。此外，如果`&lt;模式&gt;<span class='synopsis'><em>的值为 `scissors</em></span>，在发生合并冲突时，scissors将被附加到 "MERGE_MSG "上，然后传递给提交机制。</p>
 </dd>
 <dt class="hdlist1" id="git-merge---ff"> <a class="anchor" href="#git-merge---ff"></a>--ff </dt>
 <dt class="hdlist1" id="git-merge---no-ff"> <a class="anchor" href="#git-merge---no-ff"></a>--no-ff </dt>
@@ -104,7 +135,7 @@ aliases:
 <dd>
 <p>指定当被合并的历史已经是当前历史的后代时，如何处理合并的问题。 默认为`--ff`，除非合并的是一个有注释的（可能是有签名的）标签，在这种情况下，`--no-ff`假设这个标签并没有存储在`refs/tags/`层次结构中的自然位置。</p>
 <div class="paragraph">
-<p>如果使用 <code>--ff</code>，可能的话，以快进方式解决合并问题（只更新分支指针以匹配合并后的分支；不创建合并提交）。 当不可能时（当合并的历史不是当前历史的后代），创建一个合并提交。</p>
+<p>如果使用 <span class='synopsis'><code>--ff</code></span>，可能的话，以快进方式解决合并问题（只更新分支指针以匹配合并后的分支；不创建合并提交）。 当不可能时（当合并的历史不是当前历史的后代），创建一个合并提交。</p>
 </div>
 <div class="paragraph">
 <p>使用`--no-ff`，在所有情况下都创建一个合并提交，即使该合并可以作为一个快进解决。</p>
@@ -117,7 +148,7 @@ aliases:
 <dt class="hdlist1" id="git-merge---gpg-signltIDgt"> <a class="anchor" href="#git-merge---gpg-signID"></a> <a class="anchor" href="#git-merge---gpg-signltIDgt"></a>--gpg-sign[=&lt;键 ID&gt;] </dt>
 <dt class="hdlist1" id="git-merge---no-gpg-sign"> <a class="anchor" href="#git-merge---no-gpg-sign"></a>--no-gpg-sign </dt>
 <dd>
-<p>对合并后的提交进行 GPG 签名。<code>keyid</code> 参数是可选的，默认为提交者的身份；如果指定，它必须与选项连在一起，不能有空格。<code>--no-gpg-sign</code> 对于反命令 <code>commit.gpgSign</code> 配置变量和早期的 <code>--gpg-sign</code> 都很有用。</p>
+<p>对合并后的提交进行 GPG 签名。<span class='synopsis'><code>keyid</code></span> 参数是可选的，默认为提交者的身份；如果指定，它必须与选项连在一起，不能有空格。<span class='synopsis'><code>--no-gpg-sign</code></span> 对于反命令 <span class='synopsis'><code>commit.gpgSign</code></span> 配置变量和早期的 <span class='synopsis'><code>--gpg-sign</code></span> 都很有用。</p>
 </dd>
 <dt class="hdlist1" id="git-merge---logltngt"> <a class="anchor" href="#git-merge---logn"></a> <a class="anchor" href="#git-merge---logltngt"></a>--log[=&lt;n&gt;] </dt>
 <dt class="hdlist1" id="git-merge---no-log"> <a class="anchor" href="#git-merge---no-log"></a>--no-log </dt>
@@ -127,12 +158,12 @@ aliases:
 <p>如果使用 --no-log，则不列出被合并的实际提交内容的单行描述。</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-merge-code--signoffcode"> <a class="anchor" href="#git-merge---signoff"></a> <a class="anchor" href="#git-merge-code--signoffcode"></a><code>--signoff</code> </dt>
-<dt class="hdlist1" id="git-merge-code--no-signoffcode"> <a class="anchor" href="#git-merge---no-signoff"></a> <a class="anchor" href="#git-merge-code--no-signoffcode"></a><code>--no-signoff</code> </dt>
+<dt class="hdlist1" id="git-merge-spanclasssynopsiscode--signoffcodespan"> <a class="anchor" href="#git-merge---signoff"></a> <a class="anchor" href="#git-merge-spanclasssynopsiscode--signoffcodespan"></a><span class='synopsis'><code>--signoff</code></span> </dt>
+<dt class="hdlist1" id="git-merge-spanclasssynopsiscode--no-signoffcodespan"> <a class="anchor" href="#git-merge---no-signoff"></a> <a class="anchor" href="#git-merge-spanclasssynopsiscode--no-signoffcodespan"></a><span class='synopsis'><code>--no-signoff</code></span> </dt>
 <dd>
 <p>在提交日志信息的末尾添加提交者的 "Signed-off-by "预告片。 签名的意义取决于你所提交的项目。 例如，它可以证明提交者有权利在项目许可下提交作品，或者同意一些贡献者的陈述，如开发者的原产地证书。 关于Linux内核和Git项目使用的证书，请参见http://developercertificate.org）。 请查阅你要贡献的项目的文档或领导层，以了解该项目如何使用签名。</p>
 <div class="paragraph">
-<p>The <code>--no-signoff</code> option can be used to countermand an earlier <code>--signoff</code> option on the command line.</p>
+<p>The <span class='synopsis'><code>--no-signoff</code></span> option can be used to countermand an earlier <span class='synopsis'><code>--signoff</code></span> option on the command line.</p>
 </div>
 </dd>
 </dl>
@@ -201,7 +232,7 @@ aliases:
 <dt class="hdlist1" id="git-merge---autostash"> <a class="anchor" href="#git-merge---autostash"></a>--autostash </dt>
 <dt class="hdlist1" id="git-merge---no-autostash"> <a class="anchor" href="#git-merge---no-autostash"></a>--no-autostash </dt>
 <dd>
-<p>在操作开始前自动创建临时储藏条目，将其记录在特殊引用 <code>MERGE_AUTOSTASH</code> 中，并在操作结束后应用。 这意味着可以在脏工作区上运行操作。 但是，请谨慎使用：成功合并后的最终暂存应用可能会导致非实质性冲突。</p>
+<p>在操作开始前自动创建临时储藏条目，将其记录在特殊引用 <span class='synopsis'><code>MERGE_AUTOSTASH</code></span> 中，并在操作结束后应用。 这意味着可以在脏工作区上运行操作。 但是，请谨慎使用：成功合并后的最终暂存应用可能会导致非实质性冲突。</p>
 </dd>
 <dt class="hdlist1" id="git-merge---allow-unrelated-histories"> <a class="anchor" href="#git-merge---allow-unrelated-histories"></a>--allow-unrelated-histories </dt>
 <dd>
@@ -218,7 +249,7 @@ aliases:
 <p>如果指定了`--log`，正在合并的提交的简短日志将被附加到指定的消息中。</p>
 </div>
 <div class="paragraph">
-<p><code>git fmt-merge-msg</code> 命令可以为自动 <code>git merge</code> 调用提供一个良好的默认值。自动信息可以包括分支描述。</p>
+<p><span class='synopsis'><code>git</code> <code>fmt-merge-msg</code></span> 命令可以为自动 <span class='synopsis'><code>git</code> <code>merge</code></span> 调用提供一个良好的默认值。自动信息可以包括分支描述。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-merge---into-nameltgt"> <a class="anchor" href="#git-merge---into-name"></a> <a class="anchor" href="#git-merge---into-nameltgt"></a>--into-name &lt;分支&gt; </dt>
@@ -236,7 +267,7 @@ aliases:
 <dt class="hdlist1" id="git-merge---rerere-autoupdate"> <a class="anchor" href="#git-merge---rerere-autoupdate"></a>--rerere-autoupdate </dt>
 <dt class="hdlist1" id="git-merge---no-rerere-autoupdate"> <a class="anchor" href="#git-merge---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
 <dd>
-<p>在 rerere 机制重用当前冲突的记录解析来更新工作树中的文件后，允许它也用解析的结果来更新索引。 <code>--no-rerere-autoupdate`是一个很好的方法，在用单独的 `git add</code> 提交结果到索引之前，可以反复检查 <code>rerere</code> 所做的事情，并抓住潜在的错误合并。</p>
+<p>在 rerere 机制重用当前冲突的记录解析来更新工作树中的文件后，允许它也用解析的结果来更新索引。 <span class='synopsis'><em>--no-rerere-autoupdate`是一个很好的方法，在用单独的 `git add</em></span> 提交结果到索引之前，可以反复检查 <span class='synopsis'><code>rerere</code></span> 所做的事情，并抓住潜在的错误合并。</p>
 </dd>
 </dl>
 </div>
@@ -251,10 +282,10 @@ aliases:
 <dd>
 <p>中止当前的冲突解决过程，并尝试重建合并前的状态。工作区会自动应用自动存储条目。</p>
 <div class="paragraph">
-<p>如果合并开始时有未提交的工作区变化，<code>git merge --abort</code> 在某些情况下将无法重现这些变化。因此，建议在运行 <code>git merge</code> 之前，一定要提交或储存你的修改。</p>
+<p>如果合并开始时有未提交的工作区变化，<span class='synopsis'><code>git</code> <code>merge</code> <code>--abort</code></span> 在某些情况下将无法重现这些变化。因此，建议在运行 <span class='synopsis'><code>git</code> <code>merge</code></span> 之前，一定要提交或储存你的修改。</p>
 </div>
 <div class="paragraph">
-<p>当 <code>MERGE_HEAD</code> 存在时，<code>git merge --abort</code> 等同于 <code>git reset --merge</code> ，除非 <code>MERGE_AUTOSTASH`也存在，在这种情况下 `git merge --abort</code> 会将暂存项应用到工作区重，而 <code>git reset --merge</code> 则会将暂存的改动保存在暂存列表中。</p>
+<p>当 <span class='synopsis'><code>MERGE_HEAD</code></span> 存在时，<span class='synopsis'><code>git</code> <code>merge</code> <code>--abort</code></span> 等同于 <span class='synopsis'><code>git</code> <code>reset</code> <code>--merge</code></span> ，除非 <span class='synopsis'><em>MERGE_AUTOSTASH`也存在，在这种情况下 `git merge --abort</em></span> 会将暂存项应用到工作区重，而 <span class='synopsis'><code>git</code> <code>reset</code> <code>--merge</code></span> 则会将暂存的改动保存在暂存列表中。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-merge---quit"> <a class="anchor" href="#git-merge---quit"></a>--quit </dt>
@@ -263,7 +294,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-merge---continue"> <a class="anchor" href="#git-merge---continue"></a>--continue </dt>
 <dd>
-<p>在 <code>git merge</code> 因冲突而停止后，你可以通过运行 <code>git merge --continue</code> 来结束当前合并（见下文“如何解决冲突”部分）。</p>
+<p>在 <span class='synopsis'><code>git</code> <code>merge</code></span> 因冲突而停止后，你可以通过运行 <span class='synopsis'><code>git</code> <code>merge</code> <code>--continue</code></span> 来结束当前合并（见下文“如何解决冲突”部分）。</p>
 </dd>
 <dt class="hdlist1" id="git-merge-ltgt82308203"> <a class="anchor" href="#git-merge-"></a> <a class="anchor" href="#git-merge-ltgt82308203"></a>&lt;提交&gt;&#8230;&#8203; </dt>
 <dd>
@@ -272,7 +303,7 @@ aliases:
 <p>如果命令行没有给出提交，则合并当前分支被配置为上游的远程跟踪分支。 参见本手册页的配置部分。</p>
 </div>
 <div class="paragraph">
-<p>当指定`FETCH_HEAD`（没有其他提交）时，之前调用 <code>git fetch`进行合并时记录在</code>.git/FETCH_HEAD`文件中的分支会被合并到当前分支。</p>
+<p>当指定`FETCH_HEAD`（没有其他提交）时，之前调用 <span class='synopsis'><em>git fetch`进行合并时记录在</em></span>.git/FETCH_HEAD`文件中的分支会被合并到当前分支。</p>
 </div>
 </dd>
 </dl>
@@ -283,13 +314,13 @@ aliases:
 <h2 id="_合并前检查"><a class="anchor" href="#_合并前检查"></a>合并前检查</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在应用外部的修改之前，你应该把自己的工作做好，并在本地提交，这样在有冲突的时候就不会被打乱了。 参见 <a href='{{< relurl "docs/git-stash/zh_HANS-CN" >}}'>git-stash[1]</a>。 <code>git pul</code> 和 <code>git merge</code> 会在本地未提交的修改与 <code>git pull</code>/<code>git merge</code> 可能需要更新的文件重叠时会不做任何操作，立即停止。</p>
+<p>在应用外部的修改之前，你应该把自己的工作做好，并在本地提交，这样在有冲突的时候就不会被打乱了。 参见 <a href='{{< relurl "docs/git-stash/zh_HANS-CN" >}}'>git-stash[1]</a>。 <span class='synopsis'><code>git</code> <code>pul</code></span> 和 <span class='synopsis'><code>git</code> <code>merge</code></span> 会在本地未提交的修改与 <span class='synopsis'><code>git</code> <code>pull</code></span>/<span class='synopsis'><code>git</code> <code>merge</code></span> 可能需要更新的文件重叠时会不做任何操作，立即停止。</p>
 </div>
 <div class="paragraph">
-<p>为了避免在合并提交中记录不相关的变化，<code>git pull</code> 和 <code>git merge</code> 也会在相对于`HEAD`提交的索引中存在任何变化时中止。 (根据使用的合并策略，这一规则可能存在特殊的狭义例外，但一般来说，索引必须与HEAD相匹配。)</p>
+<p>为了避免在合并提交中记录不相关的变化，<span class='synopsis'><code>git</code> <code>pull</code></span> 和 <span class='synopsis'><code>git</code> <code>merge</code></span> 也会在相对于`HEAD`提交的索引中存在任何变化时中止。 (根据使用的合并策略，这一规则可能存在特殊的狭义例外，但一般来说，索引必须与HEAD相匹配。)</p>
 </div>
 <div class="paragraph">
-<p>如果所有命名的提交都已经是`HEAD`的祖先，<code>git merge</code> 将提前退出，提示 "已经是最新的。"</p>
+<p>如果所有命名的提交都已经是`HEAD`的祖先，<span class='synopsis'><code>git</code> <code>merge</code></span> 将提前退出，提示 "已经是最新的。"</p>
 </div>
 </div>
 </div>
@@ -297,7 +328,7 @@ aliases:
 <h2 id="_快进式合并"><a class="anchor" href="#_快进式合并"></a>快进式合并</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>通常情况下，当前的分支头是指定提交的祖先。 这是最常见的情况，特别是当从&#8217;git pull&#8217;调用时：你正在跟踪一个上游仓库，你没有提交本地的修改，现在你想更新到一个更新的上游版本。 在这种情况下，不需要新的提交来存储合并历史；相反，<code>HEAD</code>（连同索引）被更新为指向指定的提交，而不需要创建额外的合并提交。</p>
+<p>通常情况下，当前的分支头是指定提交的祖先。 这是最常见的情况，特别是当从&#8217;git pull&#8217;调用时：你正在跟踪一个上游仓库，你没有提交本地的修改，现在你想更新到一个更新的上游版本。 在这种情况下，不需要新的提交来存储合并历史；相反，<span class='synopsis'><code>HEAD</code></span>（连同索引）被更新为指向指定的提交，而不需要创建额外的合并提交。</p>
 </div>
 <div class="paragraph">
 <p>这种行为可以通过`--no-ff`选项来抑制。</p>
@@ -328,10 +359,10 @@ aliases:
 <p>合并干净的路径在索引文件和你的工作区中都更新了。</p>
 </li>
 <li>
-<p>对于冲突的路径，索引文件最多记录三个版本：第1阶段存储来自共同祖先的版本，第2阶段来自 <code>HEAD</code> ，第3阶段来自 <code>MERGE_HEAD</code> （你可以用`git ls-files -u` 检查这些阶段）。 工作目录树文件包含了 “合并” 程序的结果；即带有熟悉的冲突标记 <code>&lt;&lt;&lt;</code> <code>===</code> <code>&gt;&gt;&gt;</code> 的三方合并结果。</p>
+<p>对于冲突的路径，索引文件最多记录三个版本：第1阶段存储来自共同祖先的版本，第2阶段来自 <span class='synopsis'><code>HEAD</code></span> ，第3阶段来自 <span class='synopsis'><code>MERGE_HEAD</code></span> （你可以用`git ls-files -u` 检查这些阶段）。 工作目录树文件包含了 “合并” 程序的结果；即带有熟悉的冲突标记 <span class='synopsis'><em>&lt;&lt;&lt;</em></span> <span class='synopsis'><code>===</code></span> <span class='synopsis'><em>&gt;&gt;&gt;</em></span> 的三方合并结果。</p>
 </li>
 <li>
-<p>会写入一个引用名为 <code>AUTO_MERGE</code> 的引用，指向一个与当前工作区内容（包括文本冲突的冲突标记）相对应的目录树。 请注意，只有在使用 <em>ort</em> 合并策略（默认）时，才会写入这个引用。</p>
+<p>会写入一个引用名为 <span class='synopsis'><code>AUTO_MERGE</code></span> 的引用，指向一个与当前工作区内容（包括文本冲突的冲突标记）相对应的目录树。 请注意，只有在使用 <em>ort</em> 合并策略（默认）时，才会写入这个引用。</p>
 </li>
 <li>
 <p>没有其他变化。 特别是，你在开始合并之前的本地修改将保持不变，它们的索引条目保持原样，即匹配`HEAD`。</p>
@@ -388,7 +419,7 @@ Git让冲突解决变得简单。
 </div>
 </div>
 <div class="paragraph">
-<p>发生一对冲突变化的区域被标记为`&lt;&lt;&lt;&lt;&lt;&lt;&lt;<code>、</code>=======<code>和</code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;`。 `=======`之前的部分通常是你做的修改，而之后的部分通常是别人的修改。</p>
+<p>发生一对冲突变化的区域被标记为`&lt;&lt;&lt;&lt;&lt;&lt;&lt;<span class='synopsis'><em>、</em></span>=======<span class='synopsis'><em>和</em></span>&gt;&gt;&gt;&gt;&gt;&gt;&gt;`。 `=======`之前的部分通常是你做的修改，而之后的部分通常是别人的修改。</p>
 </div>
 <div class="paragraph">
 <p>默认的格式并不显示原文在冲突区说了什么。 你无法知道有多少行被删除，并被替换成你方的芭比娃娃的言论。 你唯一能知道的是，你方想说这很难，你更愿意去购物，而另一方则想说这很容易。</p>
@@ -435,7 +466,7 @@ Git 让冲突解决变得简单。
 </div>
 </div>
 <div class="paragraph">
-<p>除了`&lt;&lt;&lt;&lt;&lt;&lt;&lt;<code>、</code>=======<code>和</code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<code>标记外，它还使用了另一个</code>|||||||`标记，后面是原文。 你可以看出，原文只是陈述了一个事实，而你的一方只是屈服于这个陈述而放弃了，而另一方则试图有一个更积极的态度。 你有时可以通过查看原文得出一个更好的解决方案。</p>
+<p>除了`&lt;&lt;&lt;&lt;&lt;&lt;&lt;<span class='synopsis'><em>、</em></span>=======<span class='synopsis'><em>和</em></span>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<span class='synopsis'><em>标记外，它还使用了另一个</em></span>|||||||`标记，后面是原文。 你可以看出，原文只是陈述了一个事实，而你的一方只是屈服于这个陈述而放弃了，而另一方则试图有一个更积极的态度。 你有时可以通过查看原文得出一个更好的解决方案。</p>
 </div>
 </div>
 </div>
@@ -451,7 +482,7 @@ Git 让冲突解决变得简单。
 <p>决定不进行合并。 唯一需要清理的是将索引文件重置为`HEAD`提交，以逆转2.，并清理2.和3.对工作树的修改；可以用`git merge --abort`来做这份工作。</p>
 </li>
 <li>
-<p>解决冲突。 Git会在工作树上标记冲突。 将文件编辑成形，然后 <code>git add</code> 它们到索引中。 使用 <code>git commit</code> 或 <code>git merge --continue</code> 解决。后一个命令在调用 <code>git commit</code> 之前会检查是否有一个（中断的）合并正在进行。</p>
+<p>解决冲突。 Git会在工作树上标记冲突。 将文件编辑成形，然后 <span class='synopsis'><code>git</code> <code>add</code></span> 它们到索引中。 使用 <span class='synopsis'><code>git</code> <code>commit</code></span> 或 <span class='synopsis'><code>git</code> <code>merge</code> <code>--continue</code></span> 解决。后一个命令在调用 <span class='synopsis'><code>git</code> <code>commit</code></span> 之前会检查是否有一个（中断的）合并正在进行。</p>
 </li>
 </ul>
 </div>
@@ -461,10 +492,10 @@ Git 让冲突解决变得简单。
 <div class="ulist">
 <ul>
 <li>
-<p>使用一个合并工具。 <code>git mergetool</code> 启动一个图形化的合并工具，它将帮助你完成合并工作。</p>
+<p>使用一个合并工具。 <span class='synopsis'><code>git</code> <code>mergetool</code></span> 启动一个图形化的合并工具，它将帮助你完成合并工作。</p>
 </li>
 <li>
-<p>查看差异。 <code>git diff</code> 会显示三向差异，突出显示来自 <code>HEAD</code> 和 <code>MERGE_HEAD</code> 两个版本的改动。<code>git diff AUTO_MERGE</code> 会显示您为解决文本冲突所做的改动。</p>
+<p>查看差异。 <span class='synopsis'><code>git</code> <code>diff</code></span> 会显示三向差异，突出显示来自 <span class='synopsis'><code>HEAD</code></span> 和 <span class='synopsis'><code>MERGE_HEAD</code></span> 两个版本的改动。<span class='synopsis'><code>git</code> <code>diff</code> <code>AUTO_MERGE</code></span> 会显示您为解决文本冲突所做的改动。</p>
 </li>
 <li>
 <p>看看每个分支的差异。`git log --merge -p &lt;路径&gt;`将首先显示`HEAD`版本的差异，然后是`MERGE_HEAD`版本。</p>
@@ -482,7 +513,7 @@ Git 让冲突解决变得简单。
 <div class="ulist">
 <ul>
 <li>
-<p>合并分支 <code>fixes</code> 和 <code>enhancements</code> 到当前分支之上，进行多路合并：</p>
+<p>合并分支 <span class='synopsis'><code>fixes</code></span> 和 <span class='synopsis'><code>enhancements</code></span> 到当前分支之上，进行多路合并：</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git merge 修复增强功能</pre>
@@ -519,7 +550,7 @@ Git 让冲突解决变得简单。
 <h2 id="_合并战略"><a class="anchor" href="#_合并战略"></a>合并战略</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>合并机制（ <code>git merge</code> 和 <code>git pull</code> 命令）允许用 <code>-s</code> 选项来选择后端&#8217;合并策略'。 一些策略也可以采取自己的选项，可以通过给 <code>git merge</code> 和/或 <code>git pull</code> 的 <code>-X&lt;选项&gt;</code> 参数来传递。</p>
+<p>合并机制（ <span class='synopsis'><code>git</code> <code>merge</code></span> 和 <span class='synopsis'><code>git</code> <code>pull</code></span> 命令）允许用 <span class='synopsis'><code>-s</code></span> 选项来选择后端&#8217;合并策略'。 一些策略也可以采取自己的选项，可以通过给 <span class='synopsis'><code>git</code> <code>merge</code></span> 和/或 <span class='synopsis'><code>git</code> <code>pull</code></span> 的 <span class='synopsis'><code>-X</code><em>&lt;选项&gt;</em></span> 参数来传递。</p>
 </div>
 <div class="dlist">
 <dl>
@@ -550,7 +581,7 @@ Git 让冲突解决变得简单。
 <dt class="hdlist1" id="git-merge-ignore-space-at-eol"> <a class="anchor" href="#git-merge-ignore-space-at-eol"></a>ignore-space-at-eol </dt>
 <dt class="hdlist1" id="git-merge-ignore-cr-at-eol"> <a class="anchor" href="#git-merge-ignore-cr-at-eol"></a>ignore-cr-at-eol </dt>
 <dd>
-<p>为了进行三方合并，将具有指定类型的空白变化的行视为没有变化。 但混合了其他改动的行的空白改动不会被忽略。 参见<a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a> <code>-b</code>, <code>-w</code>, <code>--ignore-space-at-eol</code>, 和 <code>--ignore-cr-at-eol</code>。</p>
+<p>为了进行三方合并，将具有指定类型的空白变化的行视为没有变化。 但混合了其他改动的行的空白改动不会被忽略。 参见<a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a> <span class='synopsis'><code>-b</code></span>, <span class='synopsis'><code>-w</code></span>, <span class='synopsis'><code>--ignore-space-at-eol</code></span>, 和 <span class='synopsis'><code>--ignore-cr-at-eol</code></span>。</p>
 <div class="ulist">
 <ul>
 <li>
@@ -571,31 +602,31 @@ Git 让冲突解决变得简单。
 </dd>
 <dt class="hdlist1" id="git-merge-no-renormalize"> <a class="anchor" href="#git-merge-no-renormalize"></a>no-renormalize </dt>
 <dd>
-<p>禁用 <code>renormalize</code> 选项。 这覆盖了 <code>merge.renormalize</code> 配置变量。</p>
+<p>禁用 <span class='synopsis'><code>renormalize</code></span> 选项。 这覆盖了 <span class='synopsis'><code>merge.renormalize</code></span> 配置变量。</p>
 </dd>
 <dt class="hdlist1" id="git-merge-find-renamesltngt"> <a class="anchor" href="#git-merge-find-renamesn"></a> <a class="anchor" href="#git-merge-find-renamesltngt"></a>find-renames[=&lt;n&gt;] </dt>
 <dd>
-<p>开启重名检测，可选择设置相似度阈值。 这是默认的。这覆盖了 <em>merge.renames</em> 配置变量。 参见<a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a> <code>--find-renames</code>。</p>
+<p>开启重名检测，可选择设置相似度阈值。 这是默认的。这覆盖了 <em>merge.renames</em> 配置变量。 参见<a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a> <span class='synopsis'><code>--find-renames</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-merge-rename-thresholdltngt"> <a class="anchor" href="#git-merge-rename-thresholdn"></a> <a class="anchor" href="#git-merge-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
 <dd>
-<p>废弃的，<code>find-renames=&lt;n&gt;</code> 的同义词。</p>
+<p>废弃的，<span class='synopsis'><code>find-renames=</code><em>&lt;n&gt;</em></span> 的同义词。</p>
 </dd>
 <dt class="hdlist1" id="git-merge-no-renames"> <a class="anchor" href="#git-merge-no-renames"></a>no-renames </dt>
 <dd>
-<p>关闭重名检测。这覆盖了 <code>merge.renames</code> 的配置变量。 参见<a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a> <code>--no-renames</code>。</p>
+<p>关闭重名检测。这覆盖了 <span class='synopsis'><code>merge.renames</code></span> 的配置变量。 参见<a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a> <span class='synopsis'><code>--no-renames</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-merge-histogram"> <a class="anchor" href="#git-merge-histogram"></a>histogram </dt>
 <dd>
-<p>Deprecated synonym for <code>diff-algorithm=histogram</code>.</p>
+<p>Deprecated synonym for <span class='synopsis'><code>diff-algorithm=histogram</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-merge-patience"> <a class="anchor" href="#git-merge-patience"></a>patience </dt>
 <dd>
-<p>废弃的，<code>diff-algorithm=patience</code> 的同义词。</p>
+<p>废弃的，<span class='synopsis'><code>diff-algorithm=patience</code></span> 的同义词。</p>
 </dd>
 <dt class="hdlist1" id="git-merge-diff-algorithmhistogramminimalmyerspatience"> <a class="anchor" href="#git-merge-diff-algorithmhistogramminimalmyerspatience"></a>diff-algorithm=[histogram|minimal|myers|patience] </dt>
 <dd>
-<p>Use a different diff algorithm while merging, which can help avoid mismerges that occur due to unimportant matching lines (such as braces from distinct functions). See also <a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a> <code>--diff-algorithm</code>. Note that <code>ort</code> defaults to <code>diff-algorithm=histogram</code>, while regular diffs currently default to the <code>diff.algorithm</code> config setting.</p>
+<p>Use a different diff algorithm while merging, which can help avoid mismerges that occur due to unimportant matching lines (such as braces from distinct functions). See also <a href='{{< relurl "docs/git-diff/zh_HANS-CN" >}}'>git-diff[1]</a> <span class='synopsis'><code>--diff-algorithm</code></span>. Note that <span class='synopsis'><code>ort</code></span> defaults to <span class='synopsis'><code>diff-algorithm=histogram</code></span>, while regular diffs currently default to the <span class='synopsis'><code>diff.algorithm</code></span> config setting.</p>
 </dd>
 <dt class="hdlist1" id="git-merge-subtreeltgt"> <a class="anchor" href="#git-merge-subtree"></a> <a class="anchor" href="#git-merge-subtreeltgt"></a>subtree[=&lt;路径&gt;] </dt>
 <dd>
@@ -606,7 +637,7 @@ Git 让冲突解决变得简单。
 </dd>
 <dt class="hdlist1" id="git-merge-recursive"> <a class="anchor" href="#git-merge-recursive"></a>recursive </dt>
 <dd>
-<p>This is now a synonym for <code>ort</code>. It was an alternative implementation until v2.49.0, but was redirected to mean <code>ort</code> in v2.50.0. The previous recursive strategy was the default strategy for resolving two heads from Git v0.99.9k until v2.33.0.</p>
+<p>This is now a synonym for <span class='synopsis'><code>ort</code></span>. It was an alternative implementation until v2.49.0, but was redirected to mean <span class='synopsis'><code>ort</code></span> in v2.50.0. The previous recursive strategy was the default strategy for resolving two heads from Git v0.99.9k until v2.33.0.</p>
 </dd>
 <dt class="hdlist1" id="git-merge-resolve"> <a class="anchor" href="#git-merge-resolve"></a>resolve </dt>
 <dd>
@@ -622,7 +653,7 @@ Git 让冲突解决变得简单。
 </dd>
 <dt class="hdlist1" id="git-merge-subtree-1"> <a class="anchor" href="#git-merge-subtree-1"></a>subtree </dt>
 <dd>
-<p>这是一个修正的 <code>ort</code> 策略。当合并树A和B时，如果B对应于A的子树，B首先被调整为与A的树结构相匹配，而不是在同一级别读取树。这种调整也是针对共同祖先树进行的。</p>
+<p>这是一个修正的 <span class='synopsis'><code>ort</code></span> 策略。当合并树A和B时，如果B对应于A的子树，B首先被调整为与A的树结构相匹配，而不是在同一级别读取树。这种调整也是针对共同祖先树进行的。</p>
 </dd>
 </dl>
 </div>
@@ -638,7 +669,7 @@ Git 让冲突解决变得简单。
 <dl>
 <dt class="hdlist1" id="git-merge-ltgt"> <a class="anchor" href="#git-merge--1"></a> <a class="anchor" href="#git-merge-ltgt"></a>分支 .&lt;名字&gt;.合并操作选项 </dt>
 <dd>
-<p>设置合并到分支 &lt;分支名&gt; 的默认选项。语法和支持的选项与 <code>git merge</code> 相同，不过目前不支持包含空格的选项值。</p>
+<p>设置合并到分支 &lt;分支名&gt; 的默认选项。语法和支持的选项与 <span class='synopsis'><code>git</code> <code>merge</code></span> 相同，不过目前不支持包含空格的选项值。</p>
 </dd>
 </dl>
 </div>
@@ -653,7 +684,7 @@ Git 让冲突解决变得简单。
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>zh_HANS-CN/config/merge.adoc</code></p>
+<p>Missing <span class='synopsis'><code>zh_HANS-CN/config/merge.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

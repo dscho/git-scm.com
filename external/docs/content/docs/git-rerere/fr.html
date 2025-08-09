@@ -9,6 +9,21 @@ docname: git-rerere
 lang: fr
 aliases:
 - "/docs/git-rerere/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: COMMANDES
+  id: _commandes
+- text: DISCUSSION
+  id: _discussion
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -42,7 +57,7 @@ aliases:
 <div class="title">Note</div>
 </td>
 <td class="content">
-Vous devez configurer la variable de configuration <code>rerere.enabled</code> pour activer cette commande.
+Vous devez configurer la variable de configuration <span class='synopsis'><code>rerere.enabled</code></span> pour activer cette commande.
 </td>
 </tr>
 </table>
@@ -79,7 +94,7 @@ Vous devez configurer la variable de configuration <code>rerere.enabled</code> p
 </dd>
 <dt class="hdlist1" id="git-rerere-emgcem"> <a class="anchor" href="#git-rerere-gc"></a> <a class="anchor" href="#git-rerere-emgcem"></a><em>gc</em> </dt>
 <dd>
-<p>Élaguer les enregistrements des fusions en conflit qui sont arrivées il y a longtemps. Par défaut, les conflits non résolus de plus de 15 jours et les conflits résolus de plus de 60 jours sont élagués. Ces valeurs par défaut sont contrôlées par les variables de configuration <code>gc.rerereUnresolved</code> et <code>gc.rerereResolved</code>.</p>
+<p>Élaguer les enregistrements des fusions en conflit qui sont arrivées il y a longtemps. Par défaut, les conflits non résolus de plus de 15 jours et les conflits résolus de plus de 60 jours sont élagués. Ces valeurs par défaut sont contrôlées par les variables de configuration <span class='synopsis'><code>gc.rerereUnresolved</code></span> et <span class='synopsis'><code>gc.rerereResolved</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -112,10 +127,10 @@ Vous devez configurer la variable de configuration <code>rerere.enabled</code> p
 </div>
 </div>
 <div class="paragraph">
-<p>Les commits marqués de <code>*</code> touchent la même zone dans le même fichier ; vous devez résoudre les conflits en créant le commit marqué <code>+</code>. Ensuite, vous pouvez tester le résultat pour vous assurer que votre travail en cours fonctionne toujours avec ce qui est dans le dernier master.</p>
+<p>Les commits marqués de <span class='synopsis'><code>*</code></span> touchent la même zone dans le même fichier ; vous devez résoudre les conflits en créant le commit marqué <span class='synopsis'><code>+</code></span>. Ensuite, vous pouvez tester le résultat pour vous assurer que votre travail en cours fonctionne toujours avec ce qui est dans le dernier master.</p>
 </div>
 <div class="paragraph">
-<p>Après cette fusion de test, il y a deux façons de poursuivre votre travail sur la branche thématique. Le plus facile est de construire par dessus le commit de fusion test <code>+</code>, et lorsque votre travail dans la branche thématique est enfin prêt, fusionner la branche thématique dans master, et/ou demander à l&#8217;amont de tirer de vous. A ce moment-là, cependant, le master ou l&#8217;amont aurait pu être avancé depuis la fusion de test <code>+</code>, auquel cas le graphe final de commits ressemblerait à ceci :</p>
+<p>Après cette fusion de test, il y a deux façons de poursuivre votre travail sur la branche thématique. Le plus facile est de construire par dessus le commit de fusion test <span class='synopsis'><code>+</code></span>, et lorsque votre travail dans la branche thématique est enfin prêt, fusionner la branche thématique dans master, et/ou demander à l&#8217;amont de tirer de vous. A ce moment-là, cependant, le master ou l&#8217;amont aurait pu être avancé depuis la fusion de test <span class='synopsis'><code>+</code></span>, auquel cas le graphe final de commits ressemblerait à ceci :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -151,22 +166,22 @@ Vous devez configurer la variable de configuration <code>rerere.enabled</code> p
 </div>
 </div>
 <div class="paragraph">
-<p>Cela ne laisserait qu’un seul commit de fusion lorsque votre branche thématique est enfin prête et fusionnée dans la branche master. Cette fusion vous obligerait à résoudre le conflit introduit par les commits marqués d’un <code>*</code>. Cependant, il s’agit souvent du même conflit que celui que vous avez résolu lors de la création de la fusion de test que vous avez explosée. <em>git rerere</em> vous aide à résoudre cette fusion finale conflictuelle en utilisant les informations de votre résolution à la main précédente.</p>
+<p>Cela ne laisserait qu’un seul commit de fusion lorsque votre branche thématique est enfin prête et fusionnée dans la branche master. Cette fusion vous obligerait à résoudre le conflit introduit par les commits marqués d’un <span class='synopsis'><code>*</code></span>. Cependant, il s’agit souvent du même conflit que celui que vous avez résolu lors de la création de la fusion de test que vous avez explosée. <em>git rerere</em> vous aide à résoudre cette fusion finale conflictuelle en utilisant les informations de votre résolution à la main précédente.</p>
 </div>
 <div class="paragraph">
-<p>Lancer la commande <em>git rerere</em> immédiatement après une autofusion conflictuelle enregistre les fichiers d&#8217;arbres de travail en conflit, avec les marqueurs de conflit habituels <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>. Plus tard, après que vous avez fini de résoudre les conflits, exécuter <em>git rerere</em> à nouveau enregistrera l&#8217;état résolu de ces fichiers. Supposez que vous avez fait cela lorsque vous avez créé la fusion de test de master dans la branche thématique.</p>
+<p>Lancer la commande <em>git rerere</em> immédiatement après une autofusion conflictuelle enregistre les fichiers d&#8217;arbres de travail en conflit, avec les marqueurs de conflit habituels <span class='synopsis'><em>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</em></span>, <span class='synopsis'><code>=======</code></span> and <span class='synopsis'><em>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</em></span>. Plus tard, après que vous avez fini de résoudre les conflits, exécuter <em>git rerere</em> à nouveau enregistrera l&#8217;état résolu de ces fichiers. Supposez que vous avez fait cela lorsque vous avez créé la fusion de test de master dans la branche thématique.</p>
 </div>
 <div class="paragraph">
-<p>La prochaine fois, après avoir vu la même autofusion conflictuelle, lancer <code>git rerere</code> effectuera une fusion de trois points entre l&#8217;autofusion antérieure en conflit, la résolution manuelle antérieure et l&#8217;autofusion en conflit actuelle. Si cette fusion à trois points se résout proprement, le résultat est écrit à votre fichier d&#8217;arbre de travail, de sorte que vous n&#8217;avez pas à le résoudre manuellement. Notez que <em>git rerere</em> laisse le fichier index seul, donc vous devez toujours faire les vérifications de sanity finales avec <code>git diff</code> (ou <code>git diff -c</code>) et <code>git add</code> lorsque vous êtes satisfait.</p>
+<p>La prochaine fois, après avoir vu la même autofusion conflictuelle, lancer <span class='synopsis'><code>git</code> <code>rerere</code></span> effectuera une fusion de trois points entre l&#8217;autofusion antérieure en conflit, la résolution manuelle antérieure et l&#8217;autofusion en conflit actuelle. Si cette fusion à trois points se résout proprement, le résultat est écrit à votre fichier d&#8217;arbre de travail, de sorte que vous n&#8217;avez pas à le résoudre manuellement. Notez que <em>git rerere</em> laisse le fichier index seul, donc vous devez toujours faire les vérifications de sanity finales avec <span class='synopsis'><code>git</code> <code>diff</code></span> (ou <span class='synopsis'><code>git</code> <code>diff</code> <code>-c</code></span>) et <span class='synopsis'><code>git</code> <code>add</code></span> lorsque vous êtes satisfait.</p>
 </div>
 <div class="paragraph">
-<p>Comme mesure de commodité, <em>git merge</em> invoque automatiquement <em>git rerere</em> à la sortie d&#8217;une autofusion ratée et <em>git rerere</em> enregistre la résolution manuelle lorsqu&#8217;il s&#8217;agit d&#8217;un nouveau conflit, ou réutilise la résolution manuelle antérieure sinon. <em>git commit</em> invoque également <em>git rerere</em> lors de la validation d&#8217;un résultat de fusion. Ce que cela signifie, c&#8217;est que vous n&#8217;avez rien de spécial à faire vous-même (à moins d&#8217;avoir désactivé la variable de configuration <code>rerere.enabled</code>).</p>
+<p>Comme mesure de commodité, <em>git merge</em> invoque automatiquement <em>git rerere</em> à la sortie d&#8217;une autofusion ratée et <em>git rerere</em> enregistre la résolution manuelle lorsqu&#8217;il s&#8217;agit d&#8217;un nouveau conflit, ou réutilise la résolution manuelle antérieure sinon. <em>git commit</em> invoque également <em>git rerere</em> lors de la validation d&#8217;un résultat de fusion. Ce que cela signifie, c&#8217;est que vous n&#8217;avez rien de spécial à faire vous-même (à moins d&#8217;avoir désactivé la variable de configuration <span class='synopsis'><code>rerere.enabled</code></span>).</p>
 </div>
 <div class="paragraph">
 <p>Dans notre exemple, lorsque vous faites la fusion de test, la résolution manuelle est enregistrée, et elle sera réutilisée lorsque vous faites la fusion réelle plus tard avec les branches master et topic mises à jour, tant que la résolution enregistrée est toujours applicable.</p>
 </div>
 <div class="paragraph">
-<p>Les enregistrement d&#8217;information <code>git rerere</code> sont également utilisées lors de l&#8217;exécution de <code>git rebase</code>. Après avoir fait exploser la fusion de test et continué le développement sur la branche thématique :</p>
+<p>Les enregistrement d&#8217;information <span class='synopsis'><code>git</code> <code>rerere</code></span> sont également utilisées lors de l&#8217;exécution de <span class='synopsis'><code>git</code> <code>rebase</code></span>. Après avoir fait exploser la fusion de test et continué le développement sur la branche thématique :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -182,10 +197,10 @@ Vous devez configurer la variable de configuration <code>rerere.enabled</code> p
 </div>
 </div>
 <div class="paragraph">
-<p>vous pouvez lancer <code>git rebase master topic</code>, pour vous mettre à jour avant que votre sujet soit prêt à être envoyé en amont. Cela entraînerait un retour à une fusion à trois points et cela serait incompatible avec la fusion que vous avez résolue plus tôt. <em>git rerere</em> sera lancé par <em>git rebase</em> pour vous aider à résoudre ce conflit.</p>
+<p>vous pouvez lancer <span class='synopsis'><code>git</code> <code>rebase</code> <code>master</code> <code>topic</code></span>, pour vous mettre à jour avant que votre sujet soit prêt à être envoyé en amont. Cela entraînerait un retour à une fusion à trois points et cela serait incompatible avec la fusion que vous avez résolue plus tôt. <em>git rerere</em> sera lancé par <em>git rebase</em> pour vous aider à résoudre ce conflit.</p>
 </div>
 <div class="paragraph">
-<p>[NOTE] <em>git rerere</em> s&#8217;appuie sur les marqueurs de conflit dans le dossier pour détecter le conflit. Si le fichier contient déjà des lignes qui ressemblent aux lignes avec des marqueurs de conflit, « git rerere» peut ne pas enregistrer une résolution de conflit. Pour contourner cette limitation, on peut utiliser le réglage de la taille de la marqueur de conflit <code>conflict-marker-size</code> dans <a href='{{< relurl "docs/gitattributes/fr" >}}'>gitattributes[5]</a>.</p>
+<p>[NOTE] <em>git rerere</em> s&#8217;appuie sur les marqueurs de conflit dans le dossier pour détecter le conflit. Si le fichier contient déjà des lignes qui ressemblent aux lignes avec des marqueurs de conflit, « git rerere» peut ne pas enregistrer une résolution de conflit. Pour contourner cette limitation, on peut utiliser le réglage de la taille de la marqueur de conflit <span class='synopsis'><code>conflict-marker-size</code></span> dans <a href='{{< relurl "docs/gitattributes/fr" >}}'>gitattributes[5]</a>.</p>
 </div>
 </div>
 </div>

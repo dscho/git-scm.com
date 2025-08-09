@@ -9,6 +9,23 @@ docname: git-shell
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-shell/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 命令
+  id: _命令
+- text: 交互式使用
+  id: _交互式使用
+- text: 实例
+  id: _实例
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -23,8 +40,8 @@ aliases:
 <div class="sectionbody">
 <div class="verseblock">
 <pre class="content"><em>chsh</em> -s $(command -v git-shell) &lt;用户&gt;
-<em>git clone</em> &lt;用户&gt;<code>@localhost:/path/to/repo.git</code>
-<em>ssh</em> &lt;用户&gt;<code>@localhost</code></pre>
+<em>git clone</em> &lt;用户&gt;<span class='synopsis'><code>@localhost:/path/to/repo.git</code></span>
+<em>ssh</em> &lt;用户&gt;<span class='synopsis'><code>@localhost</code></span></pre>
 </div>
 </div>
 </div>
@@ -32,7 +49,7 @@ aliases:
 <h2 id="_描述"><a class="anchor" href="#_描述"></a>描述</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>这是 SSH 账户的登录 shell，提供受限的 Git 访问权限。 它只允许执行实现拉/推功能的服务器端 Git 命令，以及用户主目录中名为 <code>git-shell-commands</code> 子目录下的自定义命令。</p>
+<p>这是 SSH 账户的登录 shell，提供受限的 Git 访问权限。 它只允许执行实现拉/推功能的服务器端 Git 命令，以及用户主目录中名为 <span class='synopsis'><code>git-shell-commands</code></span> 子目录下的自定义命令。</p>
 </div>
 </div>
 </div>
@@ -40,7 +57,7 @@ aliases:
 <h2 id="_命令"><a class="anchor" href="#_命令"></a>命令</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>git shell</em> 接受在 <code>-c</code> 选项之后的下列命令：</p>
+<p><em>git shell</em> 接受在 <span class='synopsis'><code>-c</code></span> 选项之后的下列命令：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -57,7 +74,7 @@ aliases:
 </dl>
 </div>
 <div class="paragraph">
-<p>如果有 <code>~/git-shell-commands</code> 目录，<em>git shell</em> 也会处理其他自定义命令，方法是从用户的主目录运行 "<code>git-shell-commands/&lt;命令&gt; &lt;参数&gt;</code>"。</p>
+<p>如果有 <span class='synopsis'><code>~/git-shell-commands</code></span> 目录，<em>git shell</em> 也会处理其他自定义命令，方法是从用户的主目录运行 "<span class='synopsis'><code>git-shell-commands/</code><em>&lt;命令&gt;</em> <em>&lt;参数&gt;</em></span>"。</p>
 </div>
 </div>
 </div>
@@ -65,16 +82,16 @@ aliases:
 <h2 id="_交互式使用"><a class="anchor" href="#_交互式使用"></a>交互式使用</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>默认情况下，上述命令只能通过 <code>-c</code> 选项执行；shell 不是交互式的。</p>
+<p>默认情况下，上述命令只能通过 <span class='synopsis'><code>-c</code></span> 选项执行；shell 不是交互式的。</p>
 </div>
 <div class="paragraph">
-<p>如果有 <code>~/git-shell-commands</code> 目录，<em>git shell</em> 也可以交互式运行（不带参数）。 如果 <code>git-shell-commands</code> 目录中有 <code>help</code> 命令，则会运行该命令向用户提供允许操作的概览。 然后会出现 "git&gt;" 提示，用户可以在此输入`git-shell-commands`目录下的任何命令，或`exit`关闭连接。</p>
+<p>如果有 <span class='synopsis'><code>~/git-shell-commands</code></span> 目录，<em>git shell</em> 也可以交互式运行（不带参数）。 如果 <span class='synopsis'><code>git-shell-commands</code></span> 目录中有 <span class='synopsis'><code>help</code></span> 命令，则会运行该命令向用户提供允许操作的概览。 然后会出现 "git&gt;" 提示，用户可以在此输入`git-shell-commands`目录下的任何命令，或`exit`关闭连接。</p>
 </div>
 <div class="paragraph">
 <p>一般情况下，该模式用作管理界面，允许用户列出他们可以访问的资源库，创建、删除或重命名资源库，或更改资源库说明和权限。</p>
 </div>
 <div class="paragraph">
-<p>如果存在 <code>no-interactive-login</code> 命令，则运行该命令并终止交互式 shell。</p>
+<p>如果存在 <span class='synopsis'><code>no-interactive-login</code></span> 命令，则运行该命令并终止交互式 shell。</p>
 </div>
 </div>
 </div>
@@ -98,7 +115,7 @@ $ chmod +x $HOME/git-shell-commands/no-interactive-login</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>要启用 git-cvsserver 访问权限（一般应以上面的 <code>no-interactive-login</code> 示例为前提，因为创建 git-shell-commands 目录允许交互式登录）：</p>
+<p>要启用 git-cvsserver 访问权限（一般应以上面的 <span class='synopsis'><code>no-interactive-login</code></span> 示例为前提，因为创建 git-shell-commands 目录允许交互式登录）：</p>
 </div>
 <div class="listingblock">
 <div class="content">

@@ -9,6 +9,45 @@ docname: git-fast-import
 lang: fr
 aliases:
 - "/docs/git-fast-import/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: PERFORMANCE
+  id: _performance
+- text: COÛT DE DÉVELOPPEMENT
+  id: _coût_de_développement
+- text: FONCTIONNEMENT EN PARALLÈLE
+  id: _fonctionnement_en_parallèle
+- text: DISCUSSION TECHNIQUE
+  id: _discussion_technique
+- text: FORMAT D’ENTRÉE
+  id: _format_dentrée
+- text: RÉPONSES AUX COMMANDES
+  id: _réponses_aux_commandes
+- text: RAPPORTS D’ACCIDENT
+  id: _rapports_daccident
+- text: TRUCS ET ASTUCES
+  id: _trucs_et_astuces
+- text: PACKFILE OPTIMIZATION
+  id: _packfile_optimization
+- text: MEMORY UTILIZATION
+  id: _memory_utilization
+- text: SIGNALS
+  id: _signals
+- text: CONFIGURATION
+  id: _configuration
+- text: VOIR AUSSI
+  id: _voir_aussi
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -51,7 +90,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fast-import---quiet"> <a class="anchor" href="#git-fast-import---quiet"></a>--quiet </dt>
 <dd>
-<p>Désactiver la sortie affichée par --stats, rendant fast-import habituellement silencieux quand il est réussi. Cependant, si le flux d&#8217;importation a des directives destinées à montrer la sortie utilisateur (par exemple les directives <code>progress</code>), les messages correspondants seront toujours affichés.</p>
+<p>Désactiver la sortie affichée par --stats, rendant fast-import habituellement silencieux quand il est réussi. Cependant, si le flux d&#8217;importation a des directives destinées à montrer la sortie utilisateur (par exemple les directives <span class='synopsis'><code>progress</code></span>), les messages correspondants seront toujours affichés.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-import---stats"> <a class="anchor" href="#git-fast-import---stats"></a>--stats </dt>
 <dd>
@@ -59,7 +98,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fast-import---allow-unsafe-features"> <a class="anchor" href="#git-fast-import---allow-unsafe-features"></a>--allow-unsafe-features </dt>
 <dd>
-<p>De nombreuses options de ligne de commande peuvent être fournies dans le flux de fast-import lui-même en utilisant les commandes <code>feature</code> ou <code>option</code>. Cependant, certaines de ces options ne sont pas sûres (par exemple, permettre à fast-import d&#8217;accéder au système de fichiers en dehors du dépôt). Ces options sont désactivées par défaut, mais peuvent être autorisées en fournissant cette option sur la ligne de commande. Ceci n&#8217;affecte actuellement que les commandes <code>export-marks</code>, <code>import-marks</code>, et <code>import-marks-if-exists</code>.</p>
+<p>De nombreuses options de ligne de commande peuvent être fournies dans le flux de fast-import lui-même en utilisant les commandes <span class='synopsis'><code>feature</code></span> ou <span class='synopsis'><code>option</code></span>. Cependant, certaines de ces options ne sont pas sûres (par exemple, permettre à fast-import d&#8217;accéder au système de fichiers en dehors du dépôt). Ces options sont désactivées par défaut, mais peuvent être autorisées en fournissant cette option sur la ligne de commande. Ceci n&#8217;affecte actuellement que les commandes <span class='synopsis'><code>export-marks</code></span>, <span class='synopsis'><code>import-marks</code></span>, et <span class='synopsis'><code>import-marks-if-exists</code></span>.</p>
 <div class="literalblock">
 <div class="content">
 <pre>N'activez cette option que si vous faites confiance au programme qui génère le flux d'importation rapide ! Cette option est activée automatiquement pour les assistants à distance qui utilisent la capacité `import`, car ils sont déjà autorisés à exécuter leur propre code.</pre>
@@ -74,15 +113,15 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-fast-import---cat-blob-fdltdfgt"> <a class="anchor" href="#git-fast-import---cat-blob-fddf"></a> <a class="anchor" href="#git-fast-import---cat-blob-fdltdfgt"></a>--cat-blob-fd=&lt;df&gt; </dt>
 <dd>
-<p>Écrire les réponses aux requêtes <code>get-mark</code>, <code>cat-blob</code>, et <code>ls</code> dans le descripteur de fichier &lt;df&gt; au lieu de <code>stdout</code>. Permet à la sortie <code>progress</code> destinée à l&#8217;utilisateur final d&#8217;être séparée des autres sorties.</p>
+<p>Écrire les réponses aux requêtes <span class='synopsis'><code>get-mark</code></span>, <span class='synopsis'><code>cat-blob</code></span>, et <span class='synopsis'><code>ls</code></span> dans le descripteur de fichier &lt;df&gt; au lieu de <span class='synopsis'><code>stdout</code></span>. Permet à la sortie <span class='synopsis'><code>progress</code></span> destinée à l&#8217;utilisateur final d&#8217;être séparée des autres sorties.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-import---date-formatltfmtgt"> <a class="anchor" href="#git-fast-import---date-formatfmt"></a> <a class="anchor" href="#git-fast-import---date-formatltfmtgt"></a>--date-format=&lt;fmt&gt; </dt>
 <dd>
-<p>Spécifier le type de dates que le frontal fournira à l&#8217;importation rapide dans les commandes <code>author</code>, <code>committer</code> et <code>tagger</code>. Voir « Formats » de date" ci-dessous pour plus de détails sur les formats pris en charge et leur syntaxe.</p>
+<p>Spécifier le type de dates que le frontal fournira à l&#8217;importation rapide dans les commandes <span class='synopsis'><code>author</code></span>, <span class='synopsis'><code>committer</code></span> et <span class='synopsis'><code>tagger</code></span>. Voir « Formats » de date" ci-dessous pour plus de détails sur les formats pris en charge et leur syntaxe.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-import---done"> <a class="anchor" href="#git-fast-import---done"></a>--done </dt>
 <dd>
-<p>Terminer avec une erreur s&#8217;il n&#8217;y a pas de commande <code>done</code> à la fin du flux. Cette option peut être utile pour détecter les erreurs qui font que le frontal se termine avant d&#8217;avoir commencé à écrire un flux.</p>
+<p>Terminer avec une erreur s&#8217;il n&#8217;y a pas de commande <span class='synopsis'><code>done</code></span> à la fin du flux. Cette option peut être utile pour détecter les erreurs qui font que le frontal se termine avant d&#8217;avoir commencé à écrire un flux.</p>
 </dd>
 </dl>
 </div>
@@ -93,7 +132,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-fast-import---export-marksltfichiergt"> <a class="anchor" href="#git-fast-import---export-marksfichier"></a> <a class="anchor" href="#git-fast-import---export-marksltfichiergt"></a>--export-marks=&lt;fichier&gt; </dt>
 <dd>
-<p>Décharger la table interne des marques dans un fichier, une fois terminé. Les marques sont écrites une par ligne comme <code>:markid SHA-1</code>. Les frontaux peuvent utiliser ce fichier pour valider les importations après qu&#8217;elles aient été complétées, ou pour sauvegarder la table des marques à travers des exécutions incrémentales. Comme &lt;fichier&gt; n&#8217;est ouvert et tronqué qu&#8217;au point de contrôle (ou à la fin de l&#8217;opération), le même chemin peut aussi être donné sans risque à --import-marks.</p>
+<p>Décharger la table interne des marques dans un fichier, une fois terminé. Les marques sont écrites une par ligne comme <span class='synopsis'><code>:markid</code> <code>SHA-1</code></span>. Les frontaux peuvent utiliser ce fichier pour valider les importations après qu&#8217;elles aient été complétées, ou pour sauvegarder la table des marques à travers des exécutions incrémentales. Comme &lt;fichier&gt; n&#8217;est ouvert et tronqué qu&#8217;au point de contrôle (ou à la fin de l&#8217;opération), le même chemin peut aussi être donné sans risque à --import-marks.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-import---import-marksltfichiergt"> <a class="anchor" href="#git-fast-import---import-marksfichier"></a> <a class="anchor" href="#git-fast-import---import-marksltfichiergt"></a>--import-marks=&lt;fichier&gt; </dt>
 <dd>
@@ -120,7 +159,7 @@ aliases:
 <dt class="hdlist1" id="git-fast-import---rewrite-submodules-fromltnomgtltfichiergt"> <a class="anchor" href="#git-fast-import---rewrite-submodules-fromnomfichier"></a> <a class="anchor" href="#git-fast-import---rewrite-submodules-fromltnomgtltfichiergt"></a>--rewrite-submodules-from=&lt;nom&gt;:&lt;fichier&gt; </dt>
 <dt class="hdlist1" id="git-fast-import---rewrite-submodules-toltnomgtltfichiergt"> <a class="anchor" href="#git-fast-import---rewrite-submodules-tonomfichier"></a> <a class="anchor" href="#git-fast-import---rewrite-submodules-toltnomgtltfichiergt"></a>--rewrite-submodules-to=&lt;nom&gt;:&lt;fichier&gt; </dt>
 <dd>
-<p>Réécrire les identifiants d&#8217;objets pour le sous-module spécifié par &lt;nom&gt; à partir des valeurs utilisées dans le fichier source (from) &lt;fichier&gt; vers celles utilisées dans le fichier cible (to) &lt;fichier&gt;. Les marques from devraient avoir été créées par <code>git fast-export</code>, et les marques cibles devraient avoir été créées par <code>git fast-import</code> lors de l&#8217;importation de ce même sous-module.</p>
+<p>Réécrire les identifiants d&#8217;objets pour le sous-module spécifié par &lt;nom&gt; à partir des valeurs utilisées dans le fichier source (from) &lt;fichier&gt; vers celles utilisées dans le fichier cible (to) &lt;fichier&gt;. Les marques from devraient avoir été créées par <span class='synopsis'><code>git</code> <code>fast-export</code></span>, et les marques cibles devraient avoir été créées par <span class='synopsis'><code>git</code> <code>fast-import</code></span> lors de l&#8217;importation de ce même sous-module.</p>
 <div class="paragraph">
 <p>&lt;nom&gt; peut être toute chaîne arbitraire ne contenant pas de caractère deux-points, mais la même valeur doit être utilisée avec les deux options lors de la spécification des marques correspondantes. Plusieurs sous-modules peuvent être spécifiés avec des valeurs différentes pour &lt;nom&gt;. C&#8217;est une erreur de ne pas utiliser ces options dans les paires correspondantes.</p>
 </div>
@@ -187,7 +226,7 @@ aliases:
 <h2 id="_fonctionnement_en_parallèle"><a class="anchor" href="#_fonctionnement_en_parallèle"></a>FONCTIONNEMENT EN PARALLÈLE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Comme pour <em>git push</em> ou <em>git fetch</em>, les importations gérées par fast-import peuvent être exécutées en toute sécurité parallèlement à des invocations parallèles de <code>git repack -a -d</code> ou <code>git gc</code>, ou à toute autre opération Git (y compris <em>git prune</em> , car les objets libres ne sont jamais utilisés par fast-import).</p>
+<p>Comme pour <em>git push</em> ou <em>git fetch</em>, les importations gérées par fast-import peuvent être exécutées en toute sécurité parallèlement à des invocations parallèles de <span class='synopsis'><code>git</code> <code>repack</code> <code>-a</code> <code>-d</code></span> ou <span class='synopsis'><code>git</code> <code>gc</code></span>, ou à toute autre opération Git (y compris <em>git prune</em> , car les objets libres ne sont jamais utilisés par fast-import).</p>
 </div>
 <div class="paragraph">
 <p>fast-import ne verrouille pas les refs de branches ou d&#8217;étiquettes qu&#8217;il est en train d&#8217;importer. Après l&#8217;importation, pendant sa phase de mise à jour des références, fast-import teste chaque référence de branche existante pour vérifier que la mise à jour sera une mise à jour en avance rapide (le commit stocké dans la référence est contenu dans le nouvel historique du commit à écrire). Si la mise à jour n&#8217;est pas une mise à jour en avance rapide, fast-import ne mettra pas à jour cette référence et affichera un message d&#8217;avertissement. fast-import essaiera toujours de mettre à jour toutes les références de branche, et ne s&#8217;arrêtera pas au premier échec.</p>
@@ -201,10 +240,10 @@ aliases:
 <h2 id="_discussion_technique"><a class="anchor" href="#_discussion_technique"></a>DISCUSSION TECHNIQUE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>fast-import suit un ensemble de branches en mémoire. Chaque branche peut être créée ou modifiée à tout moment pendant le processus d&#8217;importation en envoyant une commande <code>commit</code> sur le flux d&#8217;entrée. Cette conception permet à un programme frontal de traiter un nombre illimité de branches simultanément, en générant des commits dans l&#8217;ordre où ils sont disponibles dans les données sources. Elle simplifie aussi considérablement les programmes frontaux.</p>
+<p>fast-import suit un ensemble de branches en mémoire. Chaque branche peut être créée ou modifiée à tout moment pendant le processus d&#8217;importation en envoyant une commande <span class='synopsis'><code>commit</code></span> sur le flux d&#8217;entrée. Cette conception permet à un programme frontal de traiter un nombre illimité de branches simultanément, en générant des commits dans l&#8217;ordre où ils sont disponibles dans les données sources. Elle simplifie aussi considérablement les programmes frontaux.</p>
 </div>
 <div class="paragraph">
-<p>fast-import n&#8217;utilise pas et ne modifie pas le répertoire de travail actuel, ni aucun fichier qui s&#8217;y trouve. (Il met cependant à jour le dépôt Git actuel, comme référencé par <code>GIT_DIR</code>). Par conséquent, un frontal d&#8217;importation peut utiliser le répertoire de travail pour ses propres besoins, comme l&#8217;extraction des révisions de fichiers de la source étrangère. Cette ignorance du répertoire de travail permet également à fast-import de s&#8217;exécuter très rapidement, car il n&#8217;a pas besoin d&#8217;effectuer de coûteuses opérations de mise à jour de fichiers lorsqu&#8217;il passe d&#8217;une branche à l&#8217;autre.</p>
+<p>fast-import n&#8217;utilise pas et ne modifie pas le répertoire de travail actuel, ni aucun fichier qui s&#8217;y trouve. (Il met cependant à jour le dépôt Git actuel, comme référencé par <span class='synopsis'><code>GIT_DIR</code></span>). Par conséquent, un frontal d&#8217;importation peut utiliser le répertoire de travail pour ses propres besoins, comme l&#8217;extraction des révisions de fichiers de la source étrangère. Cette ignorance du répertoire de travail permet également à fast-import de s&#8217;exécuter très rapidement, car il n&#8217;a pas besoin d&#8217;effectuer de coûteuses opérations de mise à jour de fichiers lorsqu&#8217;il passe d&#8217;une branche à l&#8217;autre.</p>
 </div>
 </div>
 </div>
@@ -220,7 +259,7 @@ aliases:
 <div class="sect2">
 <h3 id="_commentaires_dans_le_flux"><a class="anchor" href="#_commentaires_dans_le_flux"></a>Commentaires dans le flux</h3>
 <div class="paragraph">
-<p>Pour aider à déboguer les frontaux, fast-import ignore toute ligne commençant par <code>#</code> (ASCII dièse/hash) jusqu&#8217;à et y compris la ligne se terminant par <code>LF</code>. Une ligne de commentaire peut contenir n&#8217;importe quelle séquence d&#8217;octets qui ne contient pas de LF et peut donc être utilisée pour inclure toute information de débogage détaillée qui pourrait être spécifique au frontal et utile lors de l&#8217;inspection d&#8217;un flux de données d&#8217;importation rapide.</p>
+<p>Pour aider à déboguer les frontaux, fast-import ignore toute ligne commençant par <span class='synopsis'><code>#</code></span> (ASCII dièse/hash) jusqu&#8217;à et y compris la ligne se terminant par <span class='synopsis'><code>LF</code></span>. Une ligne de commentaire peut contenir n&#8217;importe quelle séquence d&#8217;octets qui ne contient pas de LF et peut donc être utilisée pour inclure toute information de débogage détaillée qui pourrait être spécifique au frontal et utile lors de l&#8217;inspection d&#8217;un flux de données d&#8217;importation rapide.</p>
 </div>
 </div>
 <div class="sect2">
@@ -230,27 +269,27 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import-coderawcode"> <a class="anchor" href="#git-fast-import-raw"></a> <a class="anchor" href="#git-fast-import-coderawcode"></a><code>raw</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscoderawcodespan"> <a class="anchor" href="#git-fast-import-raw"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscoderawcodespan"></a><span class='synopsis'><code>raw</code></span> </dt>
 <dd>
-<p>Il s&#8217;agit du format natif de Git et correspond à <code>&lt;temps&gt; ; SP &lt;décalage utc&gt;</code>. C&#8217;est également le format par défaut de fast-import, si --date-format n&#8217;a pas été spécifié.</p>
+<p>Il s&#8217;agit du format natif de Git et correspond à <span class='synopsis'><em>&lt;temps&gt; ; SP &lt;décalage utc&gt;</em></span>. C&#8217;est également le format par défaut de fast-import, si --date-format n&#8217;a pas été spécifié.</p>
 <div class="paragraph">
-<p>L&#8217;heure de l&#8217;événement est spécifiée par <code>&lt;temps&gt;</code> comme le nombre de secondes depuis l&#8217;époque UNIX (minuit, 1er janvier 1970, UTC) et est écrite comme un entier décimal ASCII.</p>
+<p>L&#8217;heure de l&#8217;événement est spécifiée par <span class='synopsis'><em>&lt;temps&gt;</em></span> comme le nombre de secondes depuis l&#8217;époque UNIX (minuit, 1er janvier 1970, UTC) et est écrite comme un entier décimal ASCII.</p>
 </div>
 <div class="paragraph">
-<p>Le décalage local est spécifié par <code>&lt;décalage utc&gt;</code> comme un décalage positif ou négatif par rapport à UTC. Par exemple, EST (qui est 5 heures derrière UTC) sera exprimé en <code>&lt;tz&gt;</code> par <code>-0500'' alors que UTC est `</code>+0000''. Le décalage local n&#8217;affecte pas <code>&lt;temps&gt;</code> il n&#8217;est utilisé que comme une indication pour aider les routines de formatage à afficher l&#8217;horodatage.</p>
+<p>Le décalage local est spécifié par <span class='synopsis'><em>&lt;décalage utc&gt;</em></span> comme un décalage positif ou négatif par rapport à UTC. Par exemple, EST (qui est 5 heures derrière UTC) sera exprimé en <span class='synopsis'><em>&lt;tz&gt;</em></span> par <span class='synopsis'><code>-0500''</code> <code>alors</code> <code>que</code> <code>UTC</code> <code>est</code> </span>+0000''. Le décalage local n&#8217;affecte pas <span class='synopsis'><em>&lt;temps&gt;</em></span> il n&#8217;est utilisé que comme une indication pour aider les routines de formatage à afficher l&#8217;horodatage.</p>
 </div>
 <div class="paragraph">
 <p>Si le décalage local n&#8217;est pas disponible dans le matériel source, utiliser &#8220;+0000&#8221;, ou le décalage local le plus courant. Par exemple, de nombreuses organisations ont un dépôt CVS qui n&#8217;a jamais été consulté que par des utilisateurs situés au même endroit et dans le même fuseau horaire. Dans ce cas, on peut inférer un décalage raisonnable par rapport à UTC.</p>
 </div>
 <div class="paragraph">
-<p>Contrairement au format <code>rfc2822</code>, ce format est très strict. Toute variation dans le formatage entraînera le rejet de la valeur par fast-import, et certains contrôles d&#8217;intégrité des valeurs numériques peuvent également être effectués.</p>
+<p>Contrairement au format <span class='synopsis'><code>rfc2822</code></span>, ce format est très strict. Toute variation dans le formatage entraînera le rejet de la valeur par fast-import, et certains contrôles d&#8217;intégrité des valeurs numériques peuvent également être effectués.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fast-import-coderaw-permissivecode"> <a class="anchor" href="#git-fast-import-raw-permissive"></a> <a class="anchor" href="#git-fast-import-coderaw-permissivecode"></a><code>raw-permissive</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscoderaw-permissivecodespan"> <a class="anchor" href="#git-fast-import-raw-permissive"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscoderaw-permissivecodespan"></a><span class='synopsis'><code>raw-permissive</code></span> </dt>
 <dd>
-<p>C&#8217;est la même chose que <code>raw</code>, sauf qu&#8217;aucun contrôle d&#8217;authenticité sur l&#8217;époque numérique et le décalage local n&#8217;est effectué. Cela peut être utile lorsque vous essayez de filtrer ou d&#8217;importer un historique existant avec, par exemple, des valeurs de fuseau horaire erronées.</p>
+<p>C&#8217;est la même chose que <span class='synopsis'><code>raw</code></span>, sauf qu&#8217;aucun contrôle d&#8217;authenticité sur l&#8217;époque numérique et le décalage local n&#8217;est effectué. Cela peut être utile lorsque vous essayez de filtrer ou d&#8217;importer un historique existant avec, par exemple, des valeurs de fuseau horaire erronées.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-coderfc2822code"> <a class="anchor" href="#git-fast-import-rfc2822"></a> <a class="anchor" href="#git-fast-import-coderfc2822code"></a><code>rfc2822</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscoderfc2822codespan"> <a class="anchor" href="#git-fast-import-rfc2822"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscoderfc2822codespan"></a><span class='synopsis'><code>rfc2822</code></span> </dt>
 <dd>
 <p>C&#8217;est le standard de format de date tel que décrit par la RFC 2822.</p>
 <div class="paragraph">
@@ -260,18 +299,18 @@ aliases:
 <p>Certaines chaînes malformées peuvent être acceptées comme des dates valides. Dans certains de ces cas, Git sera toujours capable d&#8217;obtenir la date correcte à partir de la chaîne malformée. Il existe également certains types de chaînes malformées que Git analysera de manière erronée, tout en les considérant comme valides. Les chaînes lourdement malformées seront rejetées.</p>
 </div>
 <div class="paragraph">
-<p>Contrairement au format <code>raw</code> ci-dessus, les informations relatives au fuseau horaire et au décalage UTC contenues dans une chaîne de date RFC 2822 sont utilisées pour ajuster la valeur de la date à l&#8217;UTC avant le stockage. Il est donc important que ces informations soient aussi précises que possible.</p>
+<p>Contrairement au format <span class='synopsis'><code>raw</code></span> ci-dessus, les informations relatives au fuseau horaire et au décalage UTC contenues dans une chaîne de date RFC 2822 sont utilisées pour ajuster la valeur de la date à l&#8217;UTC avant le stockage. Il est donc important que ces informations soient aussi précises que possible.</p>
 </div>
 <div class="paragraph">
 <p>Si le matériel source utilise des dates de type RFC 2822, le frontal devrait laisser fast-import gérer l&#8217;analyse et la conversion (plutôt que d&#8217;essayer de le faire lui-même) car l&#8217;analyseur de Git a été bien testé sur le terrain.</p>
 </div>
 <div class="paragraph">
-<p>Les frontends devraient préférer le format <code>raw</code> si le matériel source utilise déjà le format UNIX-epoch, si on peut l&#8217;amener à donner les dates dans ce format, ou si son format est facilement convertible en ce format, car il n&#8217;y a pas d&#8217;ambiguïté dans l&#8217;analyse.</p>
+<p>Les frontends devraient préférer le format <span class='synopsis'><code>raw</code></span> si le matériel source utilise déjà le format UNIX-epoch, si on peut l&#8217;amener à donner les dates dans ce format, ou si son format est facilement convertible en ce format, car il n&#8217;y a pas d&#8217;ambiguïté dans l&#8217;analyse.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codenowcode"> <a class="anchor" href="#git-fast-import-now"></a> <a class="anchor" href="#git-fast-import-codenowcode"></a><code>now</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodenowcodespan"> <a class="anchor" href="#git-fast-import-now"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodenowcodespan"></a><span class='synopsis'><code>now</code></span> </dt>
 <dd>
-<p>Utiliser toujours l&#8217;heure et le fuseau horaire actuels. Le littéral <code>now</code> doit toujours être fourni pour <code>&lt;quand&gt;</code>.</p>
+<p>Utiliser toujours l&#8217;heure et le fuseau horaire actuels. Le littéral <span class='synopsis'><code>now</code></span> doit toujours être fourni pour <span class='synopsis'><em>&lt;quand&gt;</em></span>.</p>
 <div class="paragraph">
 <p>Il s&#8217;agit d&#8217;un format jouet. L&#8217;heure et le fuseau horaire actuels de ce système sont toujours copiés dans la chaîne d&#8217;identité au moment où elle est créée par fast-import. Il n&#8217;y a aucun moyen de spécifier une heure ou un fuseau horaire différent.</p>
 </div>
@@ -279,7 +318,7 @@ aliases:
 <p>Ce format particulier est fourni car il est court à mettre en œuvre et peut être utile à un processus qui veut créer un nouveau commit tout de suite, sans avoir besoin d&#8217;utiliser un répertoire de travail ou <em>git update-index</em>.</p>
 </div>
 <div class="paragraph">
-<p>Si des commandes <code>author</code> et <code>committer</code> distinctes sont utilisées dans un <code>commit</code>, les horodatages peuvent ne pas correspondre, car l&#8217;horloge du système sera interrogée deux fois (une fois pour chaque commande). La seule façon de s&#8217;assurer que les informations d&#8217;identité de l&#8217;auteur et du validateur ont le même horodatage est d&#8217;omettre <code>author</code> (en copiant donc à partir de <code>committer</code>) ou d&#8217;utiliser un format de date autre que <code>now</code>.</p>
+<p>Si des commandes <span class='synopsis'><code>author</code></span> et <span class='synopsis'><code>committer</code></span> distinctes sont utilisées dans un <span class='synopsis'><code>commit</code></span>, les horodatages peuvent ne pas correspondre, car l&#8217;horloge du système sera interrogée deux fois (une fois pour chaque commande). La seule façon de s&#8217;assurer que les informations d&#8217;identité de l&#8217;auteur et du validateur ont le même horodatage est d&#8217;omettre <span class='synopsis'><code>author</code></span> (en copiant donc à partir de <span class='synopsis'><code>committer</code></span>) ou d&#8217;utiliser un format de date autre que <span class='synopsis'><code>now</code></span>.</p>
 </div>
 </dd>
 </dl>
@@ -292,55 +331,55 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fast-import-codecommitcode"> <a class="anchor" href="#git-fast-import-commit"></a> <a class="anchor" href="#git-fast-import-codecommitcode"></a><code>commit</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodecommitcodespan"> <a class="anchor" href="#git-fast-import-commit"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodecommitcodespan"></a><span class='synopsis'><code>commit</code></span> </dt>
 <dd>
 <p>Crée une nouvelle branche ou met à jour une branche existante en créant un nouveau commit et en mettant à jour la branche pour qu&#8217;elle pointe sur le commit nouvellement créé.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codetagcode"> <a class="anchor" href="#git-fast-import-tag"></a> <a class="anchor" href="#git-fast-import-codetagcode"></a><code>tag</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodetagcodespan"> <a class="anchor" href="#git-fast-import-tag"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodetagcodespan"></a><span class='synopsis'><code>tag</code></span> </dt>
 <dd>
 <p>Crée un objet étiquette annoté à partir d&#8217;un commit ou d&#8217;une branche existante. Les étiquettes légères ne sont pas prises en charge par cette commande, car elles ne sont pas recommandées pour enregistrer des points significatifs dans le temps.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-coderesetcode"> <a class="anchor" href="#git-fast-import-reset"></a> <a class="anchor" href="#git-fast-import-coderesetcode"></a><code>reset</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscoderesetcodespan"> <a class="anchor" href="#git-fast-import-reset"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscoderesetcodespan"></a><span class='synopsis'><code>reset</code></span> </dt>
 <dd>
 <p>Réinitialise une branche existante (ou une nouvelle branche) à une révision spécifique. Cette commande doit être utilisée pour changer une branche à une révision spécifique sans faire un commit sur celle-ci.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeblobcode"> <a class="anchor" href="#git-fast-import-blob"></a> <a class="anchor" href="#git-fast-import-codeblobcode"></a><code>blob</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodeblobcodespan"> <a class="anchor" href="#git-fast-import-blob"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodeblobcodespan"></a><span class='synopsis'><code>blob</code></span> </dt>
 <dd>
-<p>Convertit les données brutes du fichier en un blob, pour une utilisation future dans une commande <code>commit</code>. Cette commande est facultative et n&#8217;est pas nécessaire pour effectuer une importation.</p>
+<p>Convertit les données brutes du fichier en un blob, pour une utilisation future dans une commande <span class='synopsis'><code>commit</code></span>. Cette commande est facultative et n&#8217;est pas nécessaire pour effectuer une importation.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codealiascode"> <a class="anchor" href="#git-fast-import-alias"></a> <a class="anchor" href="#git-fast-import-codealiascode"></a><code>alias</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodealiascodespan"> <a class="anchor" href="#git-fast-import-alias"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodealiascodespan"></a><span class='synopsis'><code>alias</code></span> </dt>
 <dd>
 <p>Enregistrer qu&#8217;une marque se réfère à un objet donné sans créer d&#8217;abord un nouvel objet. Utiliser --import-marks et se référer à des marques manquantes fera échouer l&#8217;importation rapide, donc les alias peuvent fournir un moyen de définir des commits autrement élagués à une valeur valide (par exemple, l&#8217;ancêtre non élagué le plus proche).</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codecheckpointcode"> <a class="anchor" href="#git-fast-import-checkpoint"></a> <a class="anchor" href="#git-fast-import-codecheckpointcode"></a><code>checkpoint</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodecheckpointcodespan"> <a class="anchor" href="#git-fast-import-checkpoint"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodecheckpointcodespan"></a><span class='synopsis'><code>checkpoint</code></span> </dt>
 <dd>
 <p>Force fast-import à fermer le fichier paquet actuel, à générer sa somme de contrôle SHA-1 unique et son index, et à démarrer un nouveau fichier paquet. Cette commande est facultative et n&#8217;est pas nécessaire pour effectuer une importation.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeprogresscode"> <a class="anchor" href="#git-fast-import-progress"></a> <a class="anchor" href="#git-fast-import-codeprogresscode"></a><code>progress</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodeprogresscodespan"> <a class="anchor" href="#git-fast-import-progress"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodeprogresscodespan"></a><span class='synopsis'><code>progress</code></span> </dt>
 <dd>
 <p>Permet à fast-import de renvoyer la ligne entière vers sa propre sortie standard. Cette commande est facultative et n&#8217;est pas nécessaire pour effectuer une importation.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codedonecode"> <a class="anchor" href="#git-fast-import-done"></a> <a class="anchor" href="#git-fast-import-codedonecode"></a><code>done</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodedonecodespan"> <a class="anchor" href="#git-fast-import-done"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodedonecodespan"></a><span class='synopsis'><code>done</code></span> </dt>
 <dd>
-<p>Marque la fin du flux. Cette commande est facultative, sauf si la fonctionnalité <code>done</code> a été demandée à l&#8217;aide de l&#8217;option de ligne de commande <code>--done</code> ou de la commande <code>feature done</code>.</p>
+<p>Marque la fin du flux. Cette commande est facultative, sauf si la fonctionnalité <span class='synopsis'><code>done</code></span> a été demandée à l&#8217;aide de l&#8217;option de ligne de commande <span class='synopsis'><code>--done</code></span> ou de la commande <span class='synopsis'><code>feature</code> <code>done</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeget-markcode"> <a class="anchor" href="#git-fast-import-get-mark"></a> <a class="anchor" href="#git-fast-import-codeget-markcode"></a><code>get-mark</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodeget-markcodespan"> <a class="anchor" href="#git-fast-import-get-mark"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodeget-markcodespan"></a><span class='synopsis'><code>get-mark</code></span> </dt>
 <dd>
-<p>Demande à fast-import d&#8217;imprimer le SHA-1 correspondant à une marque sur le descripteur de fichier défini avec <code>--cat-blob-fd</code>, ou <code>stdout</code> si non spécifié.</p>
+<p>Demande à fast-import d&#8217;imprimer le SHA-1 correspondant à une marque sur le descripteur de fichier défini avec <span class='synopsis'><code>--cat-blob-fd</code></span>, ou <span class='synopsis'><code>stdout</code></span> si non spécifié.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codecat-blobcode"> <a class="anchor" href="#git-fast-import-cat-blob"></a> <a class="anchor" href="#git-fast-import-codecat-blobcode"></a><code>cat-blob</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodecat-blobcodespan"> <a class="anchor" href="#git-fast-import-cat-blob"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodecat-blobcodespan"></a><span class='synopsis'><code>cat-blob</code></span> </dt>
 <dd>
-<p>Demande à fast-import d&#8217;imprimer un blob au format <em>cat-file --batch</em> sur le descripteur de fichier défini avec <code>--cat-blob-fd</code> ou <code>stdout</code> si non spécifié.</p>
+<p>Demande à fast-import d&#8217;imprimer un blob au format <em>cat-file --batch</em> sur le descripteur de fichier défini avec <span class='synopsis'><code>--cat-blob-fd</code></span> ou <span class='synopsis'><code>stdout</code></span> si non spécifié.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codelscode"> <a class="anchor" href="#git-fast-import-ls"></a> <a class="anchor" href="#git-fast-import-codelscode"></a><code>ls</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodelscodespan"> <a class="anchor" href="#git-fast-import-ls"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodelscodespan"></a><span class='synopsis'><code>ls</code></span> </dt>
 <dd>
-<p>Demande à fast-import d&#8217;afficher une ligne décrivant une entrée de répertoire au format <em>ls-tree</em> sur le descripteur de fichier défini avec <code>--cat-blob-fd</code>, ou <code>stdout</code> si non spécifié.</p>
+<p>Demande à fast-import d&#8217;afficher une ligne décrivant une entrée de répertoire au format <em>ls-tree</em> sur le descripteur de fichier défini avec <span class='synopsis'><code>--cat-blob-fd</code></span>, ou <span class='synopsis'><code>stdout</code></span> si non spécifié.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codefeaturecode"> <a class="anchor" href="#git-fast-import-feature"></a> <a class="anchor" href="#git-fast-import-codefeaturecode"></a><code>feature</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodefeaturecodespan"> <a class="anchor" href="#git-fast-import-feature"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodefeaturecodespan"></a><span class='synopsis'><code>feature</code></span> </dt>
 <dd>
 <p>Active la fonctionnalité spécifiée. Pour cela, il faut que l&#8217;importation rapide prenne en charge la fonction spécifiée, sinon elle s&#8217;arrête.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import-codeoptioncode"> <a class="anchor" href="#git-fast-import-option"></a> <a class="anchor" href="#git-fast-import-codeoptioncode"></a><code>option</code> </dt>
+<dt class="hdlist1" id="git-fast-import-spanclasssynopsiscodeoptioncodespan"> <a class="anchor" href="#git-fast-import-option"></a> <a class="anchor" href="#git-fast-import-spanclasssynopsiscodeoptioncodespan"></a><span class='synopsis'><code>option</code></span> </dt>
 <dd>
 <p>Spécifier n&#8217;importe laquelle des options listées sous OPTIONS qui ne modifient pas la sémantique du flux pour répondre aux besoins du frontend&#8217;s. Cette commande est facultative et n&#8217;est pas nécessaire pour effectuer une importation.</p>
 </dd>
@@ -348,7 +387,7 @@ aliases:
 </div>
 </div>
 <div class="sect2">
-<h3 id="_commit"><a class="anchor" href="#_commit"></a><code>commit</code></h3>
+<h3 id="_commit"><a class="anchor" href="#_commit"></a><span class='synopsis'><code>commit</code></span></h3>
 <div class="paragraph">
 <p>Créer ou mettre à jour une branche avec un nouveau commit, en enregistrant une modification logique au projet.</p>
 </div>
@@ -369,66 +408,66 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>où <code>&lt;ref&gt;</code> est le nom de la branche sur laquelle le commit doit être effectué. Typiquement, les noms de branches sont préfixés par <code>refs/heads/</code> dans Git, donc importer le symbole de branche CVS <code>RELENG-1_0</code> utilisera <code>refs/heads/RELENG-1_0</code> pour la valeur de <code>&lt;ref&gt;</code>. La valeur de <code>&lt;ref&gt;</code> doit être un nom de référence valide dans Git. Comme <code>LF</code> n&#8217;est pas valide dans un nom de référence Git, aucune syntaxe de citation ou d&#8217;échappement n&#8217;est supportée ici.</p>
+<p>où <span class='synopsis'><em>&lt;ref&gt;</em></span> est le nom de la branche sur laquelle le commit doit être effectué. Typiquement, les noms de branches sont préfixés par <span class='synopsis'><code>refs/heads/</code></span> dans Git, donc importer le symbole de branche CVS <span class='synopsis'><code>RELENG-1_0</code></span> utilisera <span class='synopsis'><code>refs/heads/RELENG-1_0</code></span> pour la valeur de <span class='synopsis'><em>&lt;ref&gt;</em></span>. La valeur de <span class='synopsis'><em>&lt;ref&gt;</em></span> doit être un nom de référence valide dans Git. Comme <span class='synopsis'><code>LF</code></span> n&#8217;est pas valide dans un nom de référence Git, aucune syntaxe de citation ou d&#8217;échappement n&#8217;est supportée ici.</p>
 </div>
 <div class="paragraph">
-<p>Une commande <code>mark</code> peut optionnellement apparaître, demandant à fast-import de sauvegarder une référence au commit nouvellement créé pour une utilisation future par le frontal (voir ci-dessous pour le format). Il est très courant pour les frontaux de marquer chaque commit qu&#8217;ils créent, permettant ainsi la création de branches futures à partir de n&#8217;importe quel commit importé.</p>
+<p>Une commande <span class='synopsis'><code>mark</code></span> peut optionnellement apparaître, demandant à fast-import de sauvegarder une référence au commit nouvellement créé pour une utilisation future par le frontal (voir ci-dessous pour le format). Il est très courant pour les frontaux de marquer chaque commit qu&#8217;ils créent, permettant ainsi la création de branches futures à partir de n&#8217;importe quel commit importé.</p>
 </div>
 <div class="paragraph">
-<p>La commande <code>data</code> qui suit <code>committer</code> doit fournir le message de validation (voir ci-dessous la syntaxe de la commande <code>data</code>). Pour importer un message de validation vide, utilisez des données de longueur 0. Les messages de validation sont de forme libre et ne sont pas interprétés par Git. Actuellement, ils doivent être encodés en UTF-8, car fast-import ne permet pas de spécifier d&#8217;autres encodages.</p>
+<p>La commande <span class='synopsis'><code>data</code></span> qui suit <span class='synopsis'><code>committer</code></span> doit fournir le message de validation (voir ci-dessous la syntaxe de la commande <span class='synopsis'><code>data</code></span>). Pour importer un message de validation vide, utilisez des données de longueur 0. Les messages de validation sont de forme libre et ne sont pas interprétés par Git. Actuellement, ils doivent être encodés en UTF-8, car fast-import ne permet pas de spécifier d&#8217;autres encodages.</p>
 </div>
 <div class="paragraph">
-<p>Une ou plusieurs commandes <code>filemodify</code>, <code>filedelete</code>, <code>filecopy</code>, <code>filerename</code>, <code>filedeleteall</code> et <code>notemodify</code> peuvent être incluses pour mettre à jour le contenu de la branche avant de créer le commit. Ces commandes peuvent être fournies dans n&#8217;importe quel ordre. Cependant, il est recommandé que la commande <code>filedeleteall</code> précède toutes les commandes <code>filemodify</code>, <code>filecopy</code>, <code>filerename</code> et <code>notemodify</code> dans le même commit, car <code>filedeleteall</code> efface la branche (voir ci-dessous).</p>
+<p>Une ou plusieurs commandes <span class='synopsis'><code>filemodify</code></span>, <span class='synopsis'><code>filedelete</code></span>, <span class='synopsis'><code>filecopy</code></span>, <span class='synopsis'><code>filerename</code></span>, <span class='synopsis'><code>filedeleteall</code></span> et <span class='synopsis'><code>notemodify</code></span> peuvent être incluses pour mettre à jour le contenu de la branche avant de créer le commit. Ces commandes peuvent être fournies dans n&#8217;importe quel ordre. Cependant, il est recommandé que la commande <span class='synopsis'><code>filedeleteall</code></span> précède toutes les commandes <span class='synopsis'><code>filemodify</code></span>, <span class='synopsis'><code>filecopy</code></span>, <span class='synopsis'><code>filerename</code></span> et <span class='synopsis'><code>notemodify</code></span> dans le même commit, car <span class='synopsis'><code>filedeleteall</code></span> efface la branche (voir ci-dessous).</p>
 </div>
 <div class="paragraph">
-<p>Le <code>LF</code> après la commande est facultatif (il était auparavant obligatoire). Notez que pour des raisons de compatibilité ascendante, si le commit se termine par une commande <code>data</code> (c&#8217;est-à-dire qu&#8217;il n&#8217;y a pas de commande <code>from</code>, <code>merge</code>, <code>filemodify</code>, <code>filedelete</code>, <code>filecopy</code>, <code>fileename</code>, <code>filedeleteall</code> ou <code>notemodify</code>), alors deux commandes <code>LF</code> peuvent apparaître à la fin de la commande au lieu d&#8217;une seule.</p>
+<p>Le <span class='synopsis'><code>LF</code></span> après la commande est facultatif (il était auparavant obligatoire). Notez que pour des raisons de compatibilité ascendante, si le commit se termine par une commande <span class='synopsis'><code>data</code></span> (c&#8217;est-à-dire qu&#8217;il n&#8217;y a pas de commande <span class='synopsis'><code>from</code></span>, <span class='synopsis'><code>merge</code></span>, <span class='synopsis'><code>filemodify</code></span>, <span class='synopsis'><code>filedelete</code></span>, <span class='synopsis'><code>filecopy</code></span>, <span class='synopsis'><code>fileename</code></span>, <span class='synopsis'><code>filedeleteall</code></span> ou <span class='synopsis'><code>notemodify</code></span>), alors deux commandes <span class='synopsis'><code>LF</code></span> peuvent apparaître à la fin de la commande au lieu d&#8217;une seule.</p>
 </div>
 <div class="sect3">
-<h4 id="_author"><a class="anchor" href="#_author"></a><code>author</code></h4>
+<h4 id="_author"><a class="anchor" href="#_author"></a><span class='synopsis'><code>author</code></span></h4>
 <div class="paragraph">
-<p>Une commande <code>author</code> peut optionnellement apparaître, si les informations de l&#8217;auteur peuvent différer de celles du validateur. Si <code>author</code> est omis, alors fast-import utilisera automatiquement les informations du validateur pour la partie auteur du commit. Voir ci-dessous pour une description des champs de <code>author</code>, car ils sont identiques à ceux de <code>committer</code>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_committer"><a class="anchor" href="#_committer"></a><code>committer</code></h4>
-<div class="paragraph">
-<p>La commande <code>committer</code> indique qui a fait ce commit, et quand il l&#8217;a fait.</p>
-</div>
-<div class="paragraph">
-<p>Ici, <code>&lt;om&gt;</code> est le nom d&#8217;affichage de la personne' (par exemple &#8220;Com M Itter&#8221;) et <code>&lt;email&gt;</code> est l&#8217;adresse électronique de la personne (&#8220;cm@example.com&#8221;). <code>LT</code> et <code>GT</code> sont les symboles littéraux moins que (\x3c) et plus que (\x3e). Ils sont nécessaires pour délimiter l&#8217;adresse électronique des autres champs de la ligne. Notez que <code>&lt;nom&gt;</code> et <code>&lt;email&gt;</code> sont de forme libre et peuvent contenir n&#8217;importe quelle séquence d&#8217;octets, sauf <code>LT</code>, <code>GT</code> et <code>LF</code>. Le nom est généralement codé en UTF-8.</p>
-</div>
-<div class="paragraph">
-<p>L&#8217;heure de la modification est spécifiée par <code>&lt;quand&gt;</code> en utilisant le format de date qui a été sélectionné par l&#8217;option de ligne de commande --date-format=&lt;fmt&gt;. Voir "Formats de date'' ci-dessus pour l&#8217;ensemble des formats pris en charge et leur syntaxe.</p>
+<p>Une commande <span class='synopsis'><code>author</code></span> peut optionnellement apparaître, si les informations de l&#8217;auteur peuvent différer de celles du validateur. Si <span class='synopsis'><code>author</code></span> est omis, alors fast-import utilisera automatiquement les informations du validateur pour la partie auteur du commit. Voir ci-dessous pour une description des champs de <span class='synopsis'><code>author</code></span>, car ils sont identiques à ceux de <span class='synopsis'><code>committer</code></span>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_gpgsig"><a class="anchor" href="#_gpgsig"></a><code>gpgsig</code></h4>
+<h4 id="_committer"><a class="anchor" href="#_committer"></a><span class='synopsis'><code>committer</code></span></h4>
 <div class="paragraph">
-<p>The optional <code>gpgsig</code> command is used to include a PGP/GPG signature that signs the commit data.</p>
+<p>La commande <span class='synopsis'><code>committer</code></span> indique qui a fait ce commit, et quand il l&#8217;a fait.</p>
 </div>
 <div class="paragraph">
-<p>Here &lt;alg&gt; specifies which hashing algorithm is used for this signature, either <code>sha1</code> or <code>sha256</code>.</p>
+<p>Ici, <span class='synopsis'><em>&lt;om&gt;</em></span> est le nom d&#8217;affichage de la personne' (par exemple &#8220;Com M Itter&#8221;) et <span class='synopsis'><em>&lt;email&gt;</em></span> est l&#8217;adresse électronique de la personne (&#8220;cm@example.com&#8221;). <span class='synopsis'><code>LT</code></span> et <span class='synopsis'><code>GT</code></span> sont les symboles littéraux moins que (\x3c) et plus que (\x3e). Ils sont nécessaires pour délimiter l&#8217;adresse électronique des autres champs de la ligne. Notez que <span class='synopsis'><em>&lt;nom&gt;</em></span> et <span class='synopsis'><em>&lt;email&gt;</em></span> sont de forme libre et peuvent contenir n&#8217;importe quelle séquence d&#8217;octets, sauf <span class='synopsis'><code>LT</code></span>, <span class='synopsis'><code>GT</code></span> et <span class='synopsis'><code>LF</code></span>. Le nom est généralement codé en UTF-8.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;heure de la modification est spécifiée par <span class='synopsis'><em>&lt;quand&gt;</em></span> en utilisant le format de date qui a été sélectionné par l&#8217;option de ligne de commande --date-format=&lt;fmt&gt;. Voir "Formats de date'' ci-dessus pour l&#8217;ensemble des formats pris en charge et leur syntaxe.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_encoding"><a class="anchor" href="#_encoding"></a><code>encoding</code></h4>
+<h4 id="_gpgsig"><a class="anchor" href="#_gpgsig"></a><span class='synopsis'><code>gpgsig</code></span></h4>
 <div class="paragraph">
-<p>La commande optionnelle <code>encoding</code> indique l&#8217;encodage du message de validation. La plupart des commits sont UTF-8 et l&#8217;encodage est omis, mais cela permet d&#8217;importer des messages de commit dans git sans les ré-encoder au préalable.</p>
+<p>The optional <span class='synopsis'><code>gpgsig</code></span> command is used to include a PGP/GPG signature that signs the commit data.</p>
+</div>
+<div class="paragraph">
+<p>Here &lt;alg&gt; specifies which hashing algorithm is used for this signature, either <span class='synopsis'><code>sha1</code></span> or <span class='synopsis'><code>sha256</code></span>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_from"><a class="anchor" href="#_from"></a><code>from</code></h4>
+<h4 id="_encoding"><a class="anchor" href="#_encoding"></a><span class='synopsis'><code>encoding</code></span></h4>
 <div class="paragraph">
-<p>La commande <code>from</code> est utilisée pour spécifier le commit à partir duquel initialiser cette branche. Cette révision sera le premier ancêtre du nouveau commit. L&#8217;état de l&#8217;arbre construit à partir de ce commit commencera avec l&#8217;état du commit <code>from</code>, et sera modifié par les modifications de contenu de ce commit.</p>
+<p>La commande optionnelle <span class='synopsis'><code>encoding</code></span> indique l&#8217;encodage du message de validation. La plupart des commits sont UTF-8 et l&#8217;encodage est omis, mais cela permet d&#8217;importer des messages de commit dans git sans les ré-encoder au préalable.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_from"><a class="anchor" href="#_from"></a><span class='synopsis'><code>from</code></span></h4>
+<div class="paragraph">
+<p>La commande <span class='synopsis'><code>from</code></span> est utilisée pour spécifier le commit à partir duquel initialiser cette branche. Cette révision sera le premier ancêtre du nouveau commit. L&#8217;état de l&#8217;arbre construit à partir de ce commit commencera avec l&#8217;état du commit <span class='synopsis'><code>from</code></span>, et sera modifié par les modifications de contenu de ce commit.</p>
 </div>
 <div class="paragraph">
-<p>Omettre la commande <code>from</code> dans le premier commit d&#8217;une nouvelle branche fera que fast-import créera ce commit sans ancêtre. Ceci n&#8217;est généralement souhaité que pour le premier commit d&#8217;un projet. Si le frontal crée tous les fichiers à partir de zéro lors de la création d&#8217;une nouvelle branche, une commande <code>merge</code> peut être utilisée à la place de <code>from</code> pour commencer le commit avec un arbre vide. Omettre la commande <code>from</code> sur des branches existantes est généralement souhaitable, car le commit actuel sur cette branche est automatiquement supposé être le premier ancêtre du nouveau commit.</p>
+<p>Omettre la commande <span class='synopsis'><code>from</code></span> dans le premier commit d&#8217;une nouvelle branche fera que fast-import créera ce commit sans ancêtre. Ceci n&#8217;est généralement souhaité que pour le premier commit d&#8217;un projet. Si le frontal crée tous les fichiers à partir de zéro lors de la création d&#8217;une nouvelle branche, une commande <span class='synopsis'><code>merge</code></span> peut être utilisée à la place de <span class='synopsis'><code>from</code></span> pour commencer le commit avec un arbre vide. Omettre la commande <span class='synopsis'><code>from</code></span> sur des branches existantes est généralement souhaitable, car le commit actuel sur cette branche est automatiquement supposé être le premier ancêtre du nouveau commit.</p>
 </div>
 <div class="paragraph">
-<p>Comme <code>LF</code> n&#8217;est pas valide dans un refname Git ou une expression SHA-1, aucune syntaxe de citation ou d&#8217;échappement n&#8217;est supportée dans <code>&lt;commit-esque&gt;</code>.</p>
+<p>Comme <span class='synopsis'><code>LF</code></span> n&#8217;est pas valide dans un refname Git ou une expression SHA-1, aucune syntaxe de citation ou d&#8217;échappement n&#8217;est supportée dans <span class='synopsis'><em>&lt;commit-esque&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
-<p>Ici, <code>&lt;commit-esque&gt;</code> est l&#8217;un des éléments suivants :</p>
+<p>Ici, <span class='synopsis'><em>&lt;commit-esque&gt;</em></span> est l&#8217;un des éléments suivants :</p>
 </div>
 <div class="ulist">
 <ul>
@@ -436,12 +475,12 @@ aliases:
 <p>Le nom d&#8217;une branche existante déjà dans la table interne des branches de fast-import. Si fast-import ne connaît pas le nom, il est traité comme une expression SHA-1.</p>
 </li>
 <li>
-<p>Une référence de marque, <code>:&lt;idnum&gt;</code>, où <code>&lt;idnum&gt;</code> est le numéro de la marque.</p>
+<p>Une référence de marque, <span class='synopsis'><code>:</code><em>&lt;idnum&gt;</em></span>, où <span class='synopsis'><em>&lt;idnum&gt;</em></span> est le numéro de la marque.</p>
 <div class="paragraph">
-<p>La raison pour laquelle fast-import utilise <code>:</code> pour indiquer une référence de marque est que ce caractère n&#8217;est pas légal dans un nom de branche Git. Le caractère de tête <code>:</code> permet de distinguer facilement la marque 42 (<code>:42</code>) de la branche 42 (<code>42</code> ou <code>refs/heads/42</code>), ou d&#8217;un SHA-1 abrégé qui n&#8217;est constitué que de chiffres en base 10.</p>
+<p>La raison pour laquelle fast-import utilise <span class='synopsis'><code>:</code></span> pour indiquer une référence de marque est que ce caractère n&#8217;est pas légal dans un nom de branche Git. Le caractère de tête <span class='synopsis'><code>:</code></span> permet de distinguer facilement la marque 42 (<span class='synopsis'><code>:42</code></span>) de la branche 42 (<span class='synopsis'><code>42</code></span> ou <span class='synopsis'><code>refs/heads/42</code></span>), ou d&#8217;un SHA-1 abrégé qui n&#8217;est constitué que de chiffres en base 10.</p>
 </div>
 <div class="paragraph">
-<p>Les marques doivent être déclarées (via <code>mark</code>) avant de pouvoir être utilisées.</p>
+<p>Les marques doivent être déclarées (via <span class='synopsis'><code>mark</code></span>) avant de pouvoir être utilisées.</p>
 </div>
 </li>
 <li>
@@ -464,35 +503,35 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Le suffixe <code>^0</code> est nécessaire car fast-import ne permet pas à une branche de démarrer à partir d&#8217;elle-même, et la branche est créée en mémoire avant même que la commande <code>from</code> ne soit lue en entrée. L&#8217;ajout de <code>^0</code> forcera fast-import à résoudre le commit à travers la bibliothèque d&#8217;analyse de révision de Git&#8217;s, plutôt que sa table de branche interne, chargeant ainsi la valeur existante de la branche.</p>
+<p>Le suffixe <span class='synopsis'><code>^0</code></span> est nécessaire car fast-import ne permet pas à une branche de démarrer à partir d&#8217;elle-même, et la branche est créée en mémoire avant même que la commande <span class='synopsis'><code>from</code></span> ne soit lue en entrée. L&#8217;ajout de <span class='synopsis'><code>^0</code></span> forcera fast-import à résoudre le commit à travers la bibliothèque d&#8217;analyse de révision de Git&#8217;s, plutôt que sa table de branche interne, chargeant ainsi la valeur existante de la branche.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_merge"><a class="anchor" href="#_merge"></a><code>merge</code></h4>
+<h4 id="_merge"><a class="anchor" href="#_merge"></a><span class='synopsis'><code>merge</code></span></h4>
 <div class="paragraph">
-<p>Inclut un commit d&#8217;ancêtre supplémentaire. Le lien d&#8217;ancêtre supplémentaire ne change pas la façon dont l&#8217;état de l&#8217;arbre est construit à ce commit. Si la commande <code>from</code> est omise lors de la création d&#8217;une nouvelle branche, le premier commit <code>merge</code> sera le premier ancêtre du commit actuel, et la branche commencera sans fichier. Un nombre illimité de commandes <code>merge</code> par commit est autorisé par fast-import, établissant ainsi une fusion à n voies.</p>
+<p>Inclut un commit d&#8217;ancêtre supplémentaire. Le lien d&#8217;ancêtre supplémentaire ne change pas la façon dont l&#8217;état de l&#8217;arbre est construit à ce commit. Si la commande <span class='synopsis'><code>from</code></span> est omise lors de la création d&#8217;une nouvelle branche, le premier commit <span class='synopsis'><code>merge</code></span> sera le premier ancêtre du commit actuel, et la branche commencera sans fichier. Un nombre illimité de commandes <span class='synopsis'><code>merge</code></span> par commit est autorisé par fast-import, établissant ainsi une fusion à n voies.</p>
 </div>
 <div class="paragraph">
-<p>Ici, <code>&lt;commit-esque&gt;</code> est l&#8217;une des expressions de spécification de commit également acceptées par <code>from</code> (voir ci-dessus).</p>
+<p>Ici, <span class='synopsis'><em>&lt;commit-esque&gt;</em></span> est l&#8217;une des expressions de spécification de commit également acceptées par <span class='synopsis'><code>from</code></span> (voir ci-dessus).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_filemodify"><a class="anchor" href="#_filemodify"></a><code>filemodify</code></h4>
+<h4 id="_filemodify"><a class="anchor" href="#_filemodify"></a><span class='synopsis'><code>filemodify</code></span></h4>
 <div class="paragraph">
-<p>Inclus dans une commande <code>commit</code> pour ajouter un nouveau fichier ou modifier le contenu d&#8217;un fichier existant. Cette commande a deux moyens différents de spécifier le contenu du fichier.</p>
+<p>Inclus dans une commande <span class='synopsis'><code>commit</code></span> pour ajouter un nouveau fichier ou modifier le contenu d&#8217;un fichier existant. Cette commande a deux moyens différents de spécifier le contenu du fichier.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-fast-import-Formatexternededonnes"> <a class="anchor" href="#git-fast-import-Formatexternededonnes"></a>Format externe de données </dt>
 <dd>
-<p>Le contenu des données pour le fichier a déjà été fourni par une commande <code>blob</code> antérieure. Le frontal a juste besoin de le connecter.</p>
+<p>Le contenu des données pour le fichier a déjà été fourni par une commande <span class='synopsis'><code>blob</code></span> antérieure. Le frontal a juste besoin de le connecter.</p>
 <div class="literalblock">
 <div class="content">
 <pre>	'M' SP &lt;mode&gt; SP &lt;ref-données&gt; SP &lt;chemin&gt; LF</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Ici, généralement, <code>&lt;ref-données&gt;</code> doit être soit une référence de marque (<code>:&lt;idnum&gt;</code>) définie par une commande <code>blob</code> antérieure, soit un SHA-1 complet de 40 octets d&#8217;un objet blob Git existant. Si <code>&lt;mode&gt;</code> est <code>040000`</code>, alors <code>&lt;ref-données&gt;</code> doit être le SHA-1 complet sur 40 octets d&#8217;un objet arbre Git existant ou une référence de marque définie avec <code>--import-marks</code>.</p>
+<p>Ici, généralement, <span class='synopsis'><em>&lt;ref-données&gt;</em></span> doit être soit une référence de marque (<span class='synopsis'><code>:</code><em>&lt;idnum&gt;</em></span>) définie par une commande <span class='synopsis'><code>blob</code></span> antérieure, soit un SHA-1 complet de 40 octets d&#8217;un objet blob Git existant. Si <span class='synopsis'><em>&lt;mode&gt;</em></span> est <span class='synopsis'><code>040000</code></span>, alors <span class='synopsis'><em>&lt;ref-données&gt;</em></span> doit être le SHA-1 complet sur 40 octets d&#8217;un objet arbre Git existant ou une référence de marque définie avec <span class='synopsis'><code>--import-marks</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fast-import-Formatenlignededonnes"> <a class="anchor" href="#git-fast-import-Formatenlignededonnes"></a>Format en ligne de données </dt>
@@ -505,75 +544,75 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Voir ci-dessous pour une description détaillée de la commande <code>data</code>.</p>
+<p>Voir ci-dessous pour une description détaillée de la commande <span class='synopsis'><code>data</code></span>.</p>
 </div>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>Dans les deux formats, <code>&lt;mode&gt;</code> est le type d&#8217;entrée du fichier, spécifié en octal. Git ne supporte que les modes suivants :</p>
+<p>Dans les deux formats, <span class='synopsis'><em>&lt;mode&gt;</em></span> est le type d&#8217;entrée du fichier, spécifié en octal. Git ne supporte que les modes suivants :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>100644</code> ou <code>644</code> : Un fichier normal (non exécutable). La majorité des fichiers dans la plupart des projets utilisent ce mode. En cas de doute, c&#8217;est ce que vous voulez.</p>
+<p><span class='synopsis'><code>100644</code></span> ou <span class='synopsis'><code>644</code></span> : Un fichier normal (non exécutable). La majorité des fichiers dans la plupart des projets utilisent ce mode. En cas de doute, c&#8217;est ce que vous voulez.</p>
 </li>
 <li>
-<p><code>100755</code> ou <code>755</code> : Un fichier normal, mais exécutable.</p>
+<p><span class='synopsis'><code>100755</code></span> ou <span class='synopsis'><code>755</code></span> : Un fichier normal, mais exécutable.</p>
 </li>
 <li>
-<p><code>120000</code> : Un lien symbolique, le contenu du fichier sera la cible du lien.</p>
+<p><span class='synopsis'><code>120000</code></span> : Un lien symbolique, le contenu du fichier sera la cible du lien.</p>
 </li>
 <li>
-<p><code>160000</code> : Un lien git, SHA-1 de l&#8217;objet fait référence à un commit dans un autre dépôt. Les liens Git ne peuvent être spécifiés que par SHA ou par une marque de commit. Ils sont utilisés pour implémenter des sous-modules.</p>
+<p><span class='synopsis'><code>160000</code></span> : Un lien git, SHA-1 de l&#8217;objet fait référence à un commit dans un autre dépôt. Les liens Git ne peuvent être spécifiés que par SHA ou par une marque de commit. Ils sont utilisés pour implémenter des sous-modules.</p>
 </li>
 <li>
-<p><code>040000</code> : Un sous-répertoire. Les sous-répertoires ne peuvent être spécifiés que par SHA ou par une marque d&#8217;arbre définie avec <code>--import-marks</code>.</p>
+<p><span class='synopsis'><code>040000</code></span> : Un sous-répertoire. Les sous-répertoires ne peuvent être spécifiés que par SHA ou par une marque d&#8217;arbre définie avec <span class='synopsis'><code>--import-marks</code></span>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Dans les deux formats, <code>&lt;chemin&gt;</code> est le chemin complet du fichier à ajouter (s&#8217;il n&#8217;existe pas déjà) ou à modifier (s&#8217;il existe déjà).</p>
+<p>Dans les deux formats, <span class='synopsis'><em>&lt;chemin&gt;</em></span> est le chemin complet du fichier à ajouter (s&#8217;il n&#8217;existe pas déjà) ou à modifier (s&#8217;il existe déjà).</p>
 </div>
 <div class="paragraph">
-<p>A <code>&lt;path&gt;</code> can be written as unquoted bytes or a C-style quoted string.</p>
+<p>A <span class='synopsis'><em>&lt;path&gt;</em></span> can be written as unquoted bytes or a C-style quoted string.</p>
 </div>
 <div class="paragraph">
-<p>When a <code>&lt;path&gt;</code> does not start with a double quote (<code>"</code>), it is an unquoted string and is parsed as literal bytes without any escape sequences. However, if the filename contains <code>LF</code> or starts with double quote, it cannot be represented as an unquoted string and must be quoted. Additionally, the source <code>&lt;path&gt;</code> in <code>filecopy</code> or <code>filerename</code> must be quoted if it contains SP.</p>
+<p>When a <span class='synopsis'><em>&lt;path&gt;</em></span> does not start with a double quote (<span class='synopsis'><code>"</code></span>), it is an unquoted string and is parsed as literal bytes without any escape sequences. However, if the filename contains <span class='synopsis'><code>LF</code></span> or starts with double quote, it cannot be represented as an unquoted string and must be quoted. Additionally, the source <span class='synopsis'><em>&lt;path&gt;</em></span> in <span class='synopsis'><code>filecopy</code></span> or <span class='synopsis'><code>filerename</code></span> must be quoted if it contains SP.</p>
 </div>
 <div class="paragraph">
-<p>When a <code>&lt;path&gt;</code> starts with a double quote (<code>"</code>), it is a C-style quoted string, where the complete filename is enclosed in a pair of double quotes and escape sequences are used. Certain characters must be escaped by preceding them with a backslash: <code>LF</code> is written as <code>\n</code>, backslash as <code>\\</code>, and double quote as <code>\"</code>. Some characters may optionally be written with escape sequences: <code>\a</code> for bell, <code>\b</code> for backspace, <code>\f</code> for form feed, <code>\n</code> for line feed, <code>\r</code> for carriage return, <code>\t</code> for horizontal tab, and <code>\v</code> for vertical tab. Any byte can be written with 3-digit octal codes (e.g., <code>\033</code>). All filenames can be represented as quoted strings.</p>
+<p>When a <span class='synopsis'><em>&lt;path&gt;</em></span> starts with a double quote (<span class='synopsis'><code>"</code></span>), it is a C-style quoted string, where the complete filename is enclosed in a pair of double quotes and escape sequences are used. Certain characters must be escaped by preceding them with a backslash: <span class='synopsis'><code>LF</code></span> is written as <span class='synopsis'><em>\n</em></span>, backslash as <span class='synopsis'><em>\\</em></span>, and double quote as <span class='synopsis'><em>\"</em></span>. Some characters may optionally be written with escape sequences: <span class='synopsis'><em>\a</em></span> for bell, <span class='synopsis'><em>\b</em></span> for backspace, <span class='synopsis'><em>\f</em></span> for form feed, <span class='synopsis'><em>\n</em></span> for line feed, <span class='synopsis'><em>\r</em></span> for carriage return, <span class='synopsis'><em>\t</em></span> for horizontal tab, and <span class='synopsis'><em>\v</em></span> for vertical tab. Any byte can be written with 3-digit octal codes (e.g., <span class='synopsis'><em>\033</em></span>). All filenames can be represented as quoted strings.</p>
 </div>
 <div class="paragraph">
-<p>Un <code>&lt;chemin&gt;</code> doit utiliser des séparateurs de répertoire de style UNIX (barre oblique <code>/</code>) et sa valeur doit être de forme canonique, en ce qu&#8217;il ne doit pas :</p>
+<p>Un <span class='synopsis'><em>&lt;chemin&gt;</em></span> doit utiliser des séparateurs de répertoire de style UNIX (barre oblique <span class='synopsis'><code>/</code></span>) et sa valeur doit être de forme canonique, en ce qu&#8217;il ne doit pas :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>contenir un composant de répertoire vide (par exemple, <code>foo//bar</code> n&#8217;est pas valide),</p>
+<p>contenir un composant de répertoire vide (par exemple, <span class='synopsis'><code>foo//bar</code></span> n&#8217;est pas valide),</p>
 </li>
 <li>
-<p>se terminer par un séparateur de répertoire (par exemple, <code>foo/</code> n&#8217;est pas valide),</p>
+<p>se terminer par un séparateur de répertoire (par exemple, <span class='synopsis'><code>foo/</code></span> n&#8217;est pas valide),</p>
 </li>
 <li>
-<p>commencer par un séparateur de répertoire (par exemple, <code>/foo</code> n&#8217;est pas valide),</p>
+<p>commencer par un séparateur de répertoire (par exemple, <span class='synopsis'><code>/foo</code></span> n&#8217;est pas valide),</p>
 </li>
 <li>
-<p>contenir le composant spécial <code>.</code> ou <code>..</code> (par exemple, <code>foo/./bar</code> et <code>foo/../bar</code> sont invalides).</p>
+<p>contenir le composant spécial <span class='synopsis'><code>.</code></span> ou <span class='synopsis'><code>..</code></span> (par exemple, <span class='synopsis'><code>foo/./bar</code></span> et <span class='synopsis'><code>foo/../bar</code></span> sont invalides).</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>La racine de l&#8217;arbre peut être représentée par une chaîne vide comme <code>&lt;chemin&gt;</code>.</p>
+<p>La racine de l&#8217;arbre peut être représentée par une chaîne vide comme <span class='synopsis'><em>&lt;chemin&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
-<p><code>&lt;chemin&gt;</code> ne peut pas contenir de caractère NUL, ni littéralement ni échappé comme dans <code>\000</code>.Il est recommandé que <code>&lt;chemin&gt;</code> soit toujours encodé en UTF-8.</p>
+<p><span class='synopsis'><em>&lt;chemin&gt;</em></span> ne peut pas contenir de caractère NUL, ni littéralement ni échappé comme dans <span class='synopsis'><em>\000</em></span>.Il est recommandé que <span class='synopsis'><em>&lt;chemin&gt;</em></span> soit toujours encodé en UTF-8.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_filedelete"><a class="anchor" href="#_filedelete"></a><code>filedelete</code></h4>
+<h4 id="_filedelete"><a class="anchor" href="#_filedelete"></a><span class='synopsis'><code>filedelete</code></span></h4>
 <div class="paragraph">
-<p>Inclus dans une commande <code>commit</code> pour supprimer un fichier ou supprimer récursivement un répertoire entier de la branche. Si la suppression du fichier ou du répertoire rend son répertoire parent vide, le répertoire parent sera automatiquement supprimé aussi. Cela se fait en cascade dans l&#8217;arbre jusqu&#8217;à ce que le premier répertoire non vide ou la racine soit atteint.</p>
+<p>Inclus dans une commande <span class='synopsis'><code>commit</code></span> pour supprimer un fichier ou supprimer récursivement un répertoire entier de la branche. Si la suppression du fichier ou du répertoire rend son répertoire parent vide, le répertoire parent sera automatiquement supprimé aussi. Cela se fait en cascade dans l&#8217;arbre jusqu&#8217;à ce que le premier répertoire non vide ou la racine soit atteint.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -581,11 +620,11 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>où <code>&lt;chemin&gt;</code> est le chemin complet du fichier ou du sous-répertoire à supprimer de la branche. Voir <code>filemodify</code> ci-dessus pour une description détaillée de <code>&lt;chemin&gt;</code>.</p>
+<p>où <span class='synopsis'><em>&lt;chemin&gt;</em></span> est le chemin complet du fichier ou du sous-répertoire à supprimer de la branche. Voir <span class='synopsis'><code>filemodify</code></span> ci-dessus pour une description détaillée de <span class='synopsis'><em>&lt;chemin&gt;</em></span>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_filecopy"><a class="anchor" href="#_filecopy"></a><code>filecopy</code></h4>
+<h4 id="_filecopy"><a class="anchor" href="#_filecopy"></a><span class='synopsis'><code>filecopy</code></span></h4>
 <div class="paragraph">
 <p>Copie récursivement un fichier ou un sous-répertoire existant à un emplacement différent dans la branche. Le fichier ou le répertoire existant doit exister. Si la destination existe, elle sera complètement remplacée par le contenu copié depuis la source.</p>
 </div>
@@ -595,14 +634,14 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>ici le premier <code>&lt;chemin&gt;</code> est l&#8217;emplacement source et le second <code>&lt;chemin&gt;</code> est la destination. Voir <code>filemodify</code> ci-dessus pour une description détaillée de ce à quoi <code>&lt;chemin&gt;</code> peut ressembler. Pour utiliser un chemin source qui contient SP, le chemin doit être cité.</p>
+<p>ici le premier <span class='synopsis'><em>&lt;chemin&gt;</em></span> est l&#8217;emplacement source et le second <span class='synopsis'><em>&lt;chemin&gt;</em></span> est la destination. Voir <span class='synopsis'><code>filemodify</code></span> ci-dessus pour une description détaillée de ce à quoi <span class='synopsis'><em>&lt;chemin&gt;</em></span> peut ressembler. Pour utiliser un chemin source qui contient SP, le chemin doit être cité.</p>
 </div>
 <div class="paragraph">
-<p>Une commande <code>filecopy</code> prend effet immédiatement. Une fois que l&#8217;emplacement source a été copié vers la destination, toute commande future appliquée à l&#8217;emplacement source n&#8217;aura pas d&#8217;impact sur la destination de la copie.</p>
+<p>Une commande <span class='synopsis'><code>filecopy</code></span> prend effet immédiatement. Une fois que l&#8217;emplacement source a été copié vers la destination, toute commande future appliquée à l&#8217;emplacement source n&#8217;aura pas d&#8217;impact sur la destination de la copie.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_filerename"><a class="anchor" href="#_filerename"></a><code>filerename</code></h4>
+<h4 id="_filerename"><a class="anchor" href="#_filerename"></a><span class='synopsis'><code>filerename</code></span></h4>
 <div class="paragraph">
 <p>Renomme un fichier ou un sous-répertoire existant à un emplacement différent dans la branche. Le fichier ou le répertoire existant doit exister. Si la destination existe, elle sera remplacée par le répertoire source.</p>
 </div>
@@ -612,19 +651,19 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>ici le premier <code>&lt;chemin&gt;</code> est l&#8217;emplacement source et le second <code>&lt;chemin&gt;</code> est la destination. Voir <code>filemodify</code> ci-dessus pour une description détaillée de ce à quoi <code>&lt;chemin&gt;</code> peut ressembler. Pour utiliser un chemin source qui contient SP, le chemin doit être cité.</p>
+<p>ici le premier <span class='synopsis'><em>&lt;chemin&gt;</em></span> est l&#8217;emplacement source et le second <span class='synopsis'><em>&lt;chemin&gt;</em></span> est la destination. Voir <span class='synopsis'><code>filemodify</code></span> ci-dessus pour une description détaillée de ce à quoi <span class='synopsis'><em>&lt;chemin&gt;</em></span> peut ressembler. Pour utiliser un chemin source qui contient SP, le chemin doit être cité.</p>
 </div>
 <div class="paragraph">
-<p>Une commande <code>filerename</code> prend effet immédiatement. Une fois que l&#8217;emplacement source a été renommé vers la destination, toute commande future appliquée à l&#8217;emplacement source créera de nouveaux fichiers à cet endroit et n&#8217;aura pas d&#8217;impact sur la destination du renommage.</p>
+<p>Une commande <span class='synopsis'><code>filerename</code></span> prend effet immédiatement. Une fois que l&#8217;emplacement source a été renommé vers la destination, toute commande future appliquée à l&#8217;emplacement source créera de nouveaux fichiers à cet endroit et n&#8217;aura pas d&#8217;impact sur la destination du renommage.</p>
 </div>
 <div class="paragraph">
-<p>Notez qu&#8217;un <code>filerename</code> est identique à un <code>filecopy</code> suivi d&#8217;un <code>filedelete</code> de l&#8217;emplacement source. Il y a un léger avantage de performance à utiliser <code>filerename</code>, mais l&#8217;avantage est si faible que cela ne vaut jamais la peine d&#8217;essayer de convertir une paire delete/add dans le matériel source en un renommage pour l&#8217;importation rapide. Cette commande <code>filerename</code> est fournie juste pour simplifier les frontaux qui ont déjà des informations de renommage et ne veulent pas s&#8217;embêter à les décomposer en un <code>filecopy</code> suivi d&#8217;un <code>filedelete</code>.</p>
+<p>Notez qu&#8217;un <span class='synopsis'><code>filerename</code></span> est identique à un <span class='synopsis'><code>filecopy</code></span> suivi d&#8217;un <span class='synopsis'><code>filedelete</code></span> de l&#8217;emplacement source. Il y a un léger avantage de performance à utiliser <span class='synopsis'><code>filerename</code></span>, mais l&#8217;avantage est si faible que cela ne vaut jamais la peine d&#8217;essayer de convertir une paire delete/add dans le matériel source en un renommage pour l&#8217;importation rapide. Cette commande <span class='synopsis'><code>filerename</code></span> est fournie juste pour simplifier les frontaux qui ont déjà des informations de renommage et ne veulent pas s&#8217;embêter à les décomposer en un <span class='synopsis'><code>filecopy</code></span> suivi d&#8217;un <span class='synopsis'><code>filedelete</code></span>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_filedeleteall"><a class="anchor" href="#_filedeleteall"></a><code>filedeleteall</code></h4>
+<h4 id="_filedeleteall"><a class="anchor" href="#_filedeleteall"></a><span class='synopsis'><code>filedeleteall</code></span></h4>
 <div class="paragraph">
-<p>Inclus dans une commande <code>commit</code> pour supprimer tous les fichiers (et aussi tous les répertoires) de la branche. Cette commande réinitialise la structure interne de la branche pour qu&#8217;elle ne contienne aucun fichier, ce qui permet à l&#8217;interface d&#8217;ajouter ultérieurement tous les fichiers intéressants à partir de zéro.</p>
+<p>Inclus dans une commande <span class='synopsis'><code>commit</code></span> pour supprimer tous les fichiers (et aussi tous les répertoires) de la branche. Cette commande réinitialise la structure interne de la branche pour qu&#8217;elle ne contienne aucun fichier, ce qui permet à l&#8217;interface d&#8217;ajouter ultérieurement tous les fichiers intéressants à partir de zéro.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -632,29 +671,29 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Cette commande est extrêmement utile si le frontal ne sait pas (ou ne se soucie pas de savoir) quels fichiers sont actuellement sur la branche, et ne peut donc pas générer les commandes <code>filedelete</code> appropriées pour mettre à jour le contenu.</p>
+<p>Cette commande est extrêmement utile si le frontal ne sait pas (ou ne se soucie pas de savoir) quels fichiers sont actuellement sur la branche, et ne peut donc pas générer les commandes <span class='synopsis'><code>filedelete</code></span> appropriées pour mettre à jour le contenu.</p>
 </div>
 <div class="paragraph">
-<p>L&#8217;envoi d&#8217;une commande <code>filedeleteall</code> suivie des commandes <code>filemodify</code> nécessaires pour définir le contenu correct produira les mêmes résultats que l&#8217;envoi des commandes <code>filemodify</code> et <code>filedelete</code> nécessaires. L&#8217;approche <code>filedeleteall</code> peut cependant demander à fast-import d&#8217;utiliser un peu plus de mémoire par branche active (moins de 1 MiB pour la plupart des gros projets) ; donc les frontaux qui peuvent facilement obtenir seulement les chemins affectés pour un commit sont encouragés à le faire.</p>
+<p>L&#8217;envoi d&#8217;une commande <span class='synopsis'><code>filedeleteall</code></span> suivie des commandes <span class='synopsis'><code>filemodify</code></span> nécessaires pour définir le contenu correct produira les mêmes résultats que l&#8217;envoi des commandes <span class='synopsis'><code>filemodify</code></span> et <span class='synopsis'><code>filedelete</code></span> nécessaires. L&#8217;approche <span class='synopsis'><code>filedeleteall</code></span> peut cependant demander à fast-import d&#8217;utiliser un peu plus de mémoire par branche active (moins de 1 MiB pour la plupart des gros projets) ; donc les frontaux qui peuvent facilement obtenir seulement les chemins affectés pour un commit sont encouragés à le faire.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_notemodify"><a class="anchor" href="#_notemodify"></a><code>notemodify</code></h4>
+<h4 id="_notemodify"><a class="anchor" href="#_notemodify"></a><span class='synopsis'><code>notemodify</code></span></h4>
 <div class="paragraph">
-<p>Inclus dans une commande <code>commit</code> <code>&lt;réf-notes&gt;</code> pour ajouter une nouvelle note annotant un <code>&lt;commit-esque&gt;</code> ou changer le contenu de cette annotation. En interne, c&#8217;est similaire à filemodify 100644 sur le chemin <code>&lt;commit-esque&gt;</code> (peut-être divisé en sous-répertoires). Il n&#8217;est pas conseillé d&#8217;utiliser d&#8217;autres commandes pour écrire dans l&#8217;arbre <code>&lt;réf-notes&gt;</code> sauf <code>filedeleteall</code> pour supprimer toutes les notes existantes dans cet arbre. Cette commande a deux moyens différents de spécifier le contenu de la note.</p>
+<p>Inclus dans une commande <span class='synopsis'><code>commit</code></span> <span class='synopsis'><em>&lt;réf-notes&gt;</em></span> pour ajouter une nouvelle note annotant un <span class='synopsis'><em>&lt;commit-esque&gt;</em></span> ou changer le contenu de cette annotation. En interne, c&#8217;est similaire à filemodify 100644 sur le chemin <span class='synopsis'><em>&lt;commit-esque&gt;</em></span> (peut-être divisé en sous-répertoires). Il n&#8217;est pas conseillé d&#8217;utiliser d&#8217;autres commandes pour écrire dans l&#8217;arbre <span class='synopsis'><em>&lt;réf-notes&gt;</em></span> sauf <span class='synopsis'><code>filedeleteall</code></span> pour supprimer toutes les notes existantes dans cet arbre. Cette commande a deux moyens différents de spécifier le contenu de la note.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-fast-import-Formatexternededonnes-1"> <a class="anchor" href="#git-fast-import-Formatexternededonnes-1"></a>Format externe de données </dt>
 <dd>
-<p>Le contenu des données pour la note a déjà été fourni par une commande <code>blob</code> antérieure. Le frontal a juste besoin de le connecter au commit qui doit être annoté.</p>
+<p>Le contenu des données pour la note a déjà été fourni par une commande <span class='synopsis'><code>blob</code></span> antérieure. Le frontal a juste besoin de le connecter au commit qui doit être annoté.</p>
 <div class="literalblock">
 <div class="content">
 <pre>	'N' SP &lt;réf-data&gt; SP &lt;commit-esque&gt; LF</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Ici, <code>&lt;réf-data&gt;</code> peut être soit une référence de marque (<code>:&lt;idnum&gt;</code>) définie par une commande <code>blob</code> antérieure, soit un SHA-1 complet de 40 octets d&#8217;un objet blob Git existant.</p>
+<p>Ici, <span class='synopsis'><em>&lt;réf-data&gt;</em></span> peut être soit une référence de marque (<span class='synopsis'><code>:</code><em>&lt;idnum&gt;</em></span>) définie par une commande <span class='synopsis'><code>blob</code></span> antérieure, soit un SHA-1 complet de 40 octets d&#8217;un objet blob Git existant.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fast-import-Formatenlignededonnes-1"> <a class="anchor" href="#git-fast-import-Formatenlignededonnes-1"></a>Format en ligne de données </dt>
@@ -667,20 +706,20 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Voir ci-dessous pour une description détaillée de la commande <code>data</code>.</p>
+<p>Voir ci-dessous pour une description détaillée de la commande <span class='synopsis'><code>data</code></span>.</p>
 </div>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>Dans les deux formats, <code>&lt;commit-esque&gt;</code> est l&#8217;une des expressions de spécification de commit également acceptées par <code>from</code> (voir ci-dessus).</p>
+<p>Dans les deux formats, <span class='synopsis'><em>&lt;commit-esque&gt;</em></span> est l&#8217;une des expressions de spécification de commit également acceptées par <span class='synopsis'><code>from</code></span> (voir ci-dessus).</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_mark"><a class="anchor" href="#_mark"></a><code>mark</code></h3>
+<h3 id="_mark"><a class="anchor" href="#_mark"></a><span class='synopsis'><code>mark</code></span></h3>
 <div class="paragraph">
-<p>Fait en sorte que l&#8217;import rapide sauvegarde une référence à l&#8217;objet courant, permettant au frontal de rappeler cet objet à un moment ultérieur, sans connaître son SHA-1. Ici, l&#8217;objet courant est la commande de création d&#8217;objet dans laquelle la commande <code>mark</code> apparaît. Cela peut être <code>commit</code>, <code>tag</code>, et <code>blob</code>, mais <code>commit</code> est l&#8217;usage le plus courant.</p>
+<p>Fait en sorte que l&#8217;import rapide sauvegarde une référence à l&#8217;objet courant, permettant au frontal de rappeler cet objet à un moment ultérieur, sans connaître son SHA-1. Ici, l&#8217;objet courant est la commande de création d&#8217;objet dans laquelle la commande <span class='synopsis'><code>mark</code></span> apparaît. Cela peut être <span class='synopsis'><code>commit</code></span>, <span class='synopsis'><code>tag</code></span>, et <span class='synopsis'><code>blob</code></span>, mais <span class='synopsis'><code>commit</code></span> est l&#8217;usage le plus courant.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -688,14 +727,14 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>où <code>&lt;idnum&gt;</code> est le numéro attribué par le frontal à cette marque. La valeur de <code>&lt;idnum&gt;</code> est exprimée sous la forme d&#8217;un nombre entier décimal ASCII. La valeur 0 est réservée et ne peut pas être utilisée comme marque. Seules les valeurs supérieures ou égales à 1 peuvent être utilisées comme marques.</p>
+<p>où <span class='synopsis'><em>&lt;idnum&gt;</em></span> est le numéro attribué par le frontal à cette marque. La valeur de <span class='synopsis'><em>&lt;idnum&gt;</em></span> est exprimée sous la forme d&#8217;un nombre entier décimal ASCII. La valeur 0 est réservée et ne peut pas être utilisée comme marque. Seules les valeurs supérieures ou égales à 1 peuvent être utilisées comme marques.</p>
 </div>
 <div class="paragraph">
-<p>Les nouvelles marques sont créées automatiquement. Les marques existantes peuvent être déplacées vers un autre objet simplement en réutilisant le même <code>&lt;idnum&gt;</code> dans une autre commande <code>mark</code>.</p>
+<p>Les nouvelles marques sont créées automatiquement. Les marques existantes peuvent être déplacées vers un autre objet simplement en réutilisant le même <span class='synopsis'><em>&lt;idnum&gt;</em></span> dans une autre commande <span class='synopsis'><code>mark</code></span>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_original_oid"><a class="anchor" href="#_original_oid"></a><code>original-oid</code></h3>
+<h3 id="_original_oid"><a class="anchor" href="#_original_oid"></a><span class='synopsis'><code>original-oid</code></span></h3>
 <div class="paragraph">
 <p>Fournit le nom de l&#8217;objet dans le système de contrôle de la source d&#8217;origine. fast-import ignorera simplement cette directive, mais les processus de filtrage qui opèrent et modifient le flux avant de l&#8217;envoyer à fast-import peuvent avoir besoin de cette information</p>
 </div>
@@ -705,13 +744,13 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>où <code>&lt;identifiant-objet&gt;</code> est une chaîne quelconque ne contenant pas LF.</p>
+<p>où <span class='synopsis'><em>&lt;identifiant-objet&gt;</em></span> est une chaîne quelconque ne contenant pas LF.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_tag"><a class="anchor" href="#_tag"></a><code>tag</code></h3>
+<h3 id="_tag"><a class="anchor" href="#_tag"></a><span class='synopsis'><code>tag</code></span></h3>
 <div class="paragraph">
-<p>Crée une étiquette annotée faisant référence à un commit spécifique. Pour créer des étiquettes légères (non annotés), voir la commande <code>reset</code> ci-dessous.</p>
+<p>Crée une étiquette annotée faisant référence à un commit spécifique. Pour créer des étiquettes légères (non annotés), voir la commande <span class='synopsis'><code>reset</code></span> ci-dessous.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -724,31 +763,31 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>où <code>&lt;nom&gt;</code> est le nom de l&#8217;étiquette à créer.</p>
+<p>où <span class='synopsis'><em>&lt;nom&gt;</em></span> est le nom de l&#8217;étiquette à créer.</p>
 </div>
 <div class="paragraph">
-<p>Les noms des étiquettes sont automatiquement préfixés par <code>refs/tags/</code> lorsqu&#8217;elles sont stockés dans Git, ainsi l&#8217;importation du symbole de branche CVS <code>RELENG-1_0-FINAL</code> utilisera juste <code>RELENG-1_0-FINAL</code> pour <code>&lt;nom&gt;</code>, et fast-import écrira la référence correspondante comme <code>refs/tags/RELENG-1_0-FINAL</code>.</p>
+<p>Les noms des étiquettes sont automatiquement préfixés par <span class='synopsis'><code>refs/tags/</code></span> lorsqu&#8217;elles sont stockés dans Git, ainsi l&#8217;importation du symbole de branche CVS <span class='synopsis'><code>RELENG-1_0-FINAL</code></span> utilisera juste <span class='synopsis'><code>RELENG-1_0-FINAL</code></span> pour <span class='synopsis'><em>&lt;nom&gt;</em></span>, et fast-import écrira la référence correspondante comme <span class='synopsis'><code>refs/tags/RELENG-1_0-FINAL</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>La valeur de <code>&lt;nom&gt;</code> doit être un nom de référence valide dans Git et peut donc contenir des barres obliques. Comme <code>LF</code> n&#8217;est pas valide dans un nom de référence Git, aucune syntaxe de citation ou d&#8217;échappement n&#8217;est supportée ici.</p>
+<p>La valeur de <span class='synopsis'><em>&lt;nom&gt;</em></span> doit être un nom de référence valide dans Git et peut donc contenir des barres obliques. Comme <span class='synopsis'><code>LF</code></span> n&#8217;est pas valide dans un nom de référence Git, aucune syntaxe de citation ou d&#8217;échappement n&#8217;est supportée ici.</p>
 </div>
 <div class="paragraph">
-<p>La commande <code>from</code> est la même que pour la commande <code>commit</code> ; voir ci-dessus pour plus de détails.</p>
+<p>La commande <span class='synopsis'><code>from</code></span> est la même que pour la commande <span class='synopsis'><code>commit</code></span> ; voir ci-dessus pour plus de détails.</p>
 </div>
 <div class="paragraph">
-<p>La commande <code>tagger</code> utilise le même format que <code>committer</code> dans <code>commit</code> ; encore une fois, voir ci-dessus pour les détails.</p>
+<p>La commande <span class='synopsis'><code>tagger</code></span> utilise le même format que <span class='synopsis'><code>committer</code></span> dans <span class='synopsis'><code>commit</code></span> ; encore une fois, voir ci-dessus pour les détails.</p>
 </div>
 <div class="paragraph">
-<p>La commande <code>data</code> qui suit <code>tagger</code> doit fournir le message d&#8217;étiquette annotée (voir ci-dessous pour la syntaxe de la commande <code>data</code>). Pour importer un message vide, utilisez des données de longueur 0. Les messages d&#8217;étiquette sont de forme libre et ne sont pas interprétés par Git. Actuellement, ils doivent être encodés en UTF-8, car fast-import ne permet pas de spécifier d&#8217;autres encodages.</p>
+<p>La commande <span class='synopsis'><code>data</code></span> qui suit <span class='synopsis'><code>tagger</code></span> doit fournir le message d&#8217;étiquette annotée (voir ci-dessous pour la syntaxe de la commande <span class='synopsis'><code>data</code></span>). Pour importer un message vide, utilisez des données de longueur 0. Les messages d&#8217;étiquette sont de forme libre et ne sont pas interprétés par Git. Actuellement, ils doivent être encodés en UTF-8, car fast-import ne permet pas de spécifier d&#8217;autres encodages.</p>
 </div>
 <div class="paragraph">
-<p>La signature des étiquettes annotées pendant l&#8217;importation à partir de fast-import n&#8217;est pas prise en charge. Essayer d&#8217;inclure votre propre signature PGP/GPG n&#8217;est pas recommandé, car le frontal n&#8217;a pas (facilement) accès à l&#8217;ensemble des octets qui composent normalement une telle signature. Si la signature est nécessaire, créez des étiquettes légères depuis fast-import avec <code>reset</code>, puis créez les versions annotées de ces étiquettes hors ligne avec le processus standard <em>git tag</em>.</p>
+<p>La signature des étiquettes annotées pendant l&#8217;importation à partir de fast-import n&#8217;est pas prise en charge. Essayer d&#8217;inclure votre propre signature PGP/GPG n&#8217;est pas recommandé, car le frontal n&#8217;a pas (facilement) accès à l&#8217;ensemble des octets qui composent normalement une telle signature. Si la signature est nécessaire, créez des étiquettes légères depuis fast-import avec <span class='synopsis'><code>reset</code></span>, puis créez les versions annotées de ces étiquettes hors ligne avec le processus standard <em>git tag</em>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_reset"><a class="anchor" href="#_reset"></a><code>reset</code></h3>
+<h3 id="_reset"><a class="anchor" href="#_reset"></a><span class='synopsis'><code>reset</code></span></h3>
 <div class="paragraph">
-<p>Crée (ou recrée) la branche nommée, en partant éventuellement d&#8217;une révision spécifique. La commande reset permet à un frontal d&#8217;émettre une nouvelle commande <code>from</code> pour une branche existante, ou de créer une nouvelle branche à partir d&#8217;un commit existant sans créer un nouveau commit.</p>
+<p>Crée (ou recrée) la branche nommée, en partant éventuellement d&#8217;une révision spécifique. La commande reset permet à un frontal d&#8217;émettre une nouvelle commande <span class='synopsis'><code>from</code></span> pour une branche existante, ou de créer une nouvelle branche à partir d&#8217;un commit existant sans créer un nouveau commit.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -758,13 +797,13 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Pour une description détaillée de <code>&lt;ref&gt;</code> et <code>&lt;commit-esque&gt;</code> voir ci-dessus sous <code>commit</code> et <code>from</code>.</p>
+<p>Pour une description détaillée de <span class='synopsis'><em>&lt;ref&gt;</em></span> et <span class='synopsis'><em>&lt;commit-esque&gt;</em></span> voir ci-dessus sous <span class='synopsis'><code>commit</code></span> et <span class='synopsis'><code>from</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Le <code>LF</code> après la commande est facultatif (il était auparavant obligatoire).</p>
+<p>Le <span class='synopsis'><code>LF</code></span> après la commande est facultatif (il était auparavant obligatoire).</p>
 </div>
 <div class="paragraph">
-<p>La commande <code>reset</code> peut également être utilisée pour créer des étiquettes légères (non annotées). Par exemple :</p>
+<p>La commande <span class='synopsis'><code>reset</code></span> peut également être utilisée pour créer des étiquettes légères (non annotées). Par exemple :</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -777,13 +816,13 @@ from :938</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>créerait l&#8217;étiquette légère <code>refs/tags/938</code> faisant référence à la marque de commit <code>:938</code>.</p>
+<p>créerait l&#8217;étiquette légère <span class='synopsis'><code>refs/tags/938</code></span> faisant référence à la marque de commit <span class='synopsis'><code>:938</code></span>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_blob"><a class="anchor" href="#_blob"></a><code>blob</code></h3>
+<h3 id="_blob"><a class="anchor" href="#_blob"></a><span class='synopsis'><code>blob</code></span></h3>
 <div class="paragraph">
-<p>Demande l&#8217;écriture d&#8217;une révision de fichier dans le fichier paquet. La révision n&#8217;est connectée à aucun commit ; cette connexion doit être formée dans une commande <code>commit</code> ultérieure en référençant le blob par une marque assignée.</p>
+<p>Demande l&#8217;écriture d&#8217;une révision de fichier dans le fichier paquet. La révision n&#8217;est connectée à aucun commit ; cette connexion doit être formée dans une commande <span class='synopsis'><code>commit</code></span> ultérieure en référençant le blob par une marque assignée.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -794,16 +833,16 @@ from :938</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>La commande mark est optionnelle ici car certains frontaux ont choisi de générer eux-mêmes le SHA-1 de Git pour le blob et de le transmettre directement à <code>commit</code>. Cependant, cela représente généralement plus de travail que cela n’en vaut la peine, car les marques sont peu coûteuses à stocker et faciles à utiliser.</p>
+<p>La commande mark est optionnelle ici car certains frontaux ont choisi de générer eux-mêmes le SHA-1 de Git pour le blob et de le transmettre directement à <span class='synopsis'><code>commit</code></span>. Cependant, cela représente généralement plus de travail que cela n’en vaut la peine, car les marques sont peu coûteuses à stocker et faciles à utiliser.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_data"><a class="anchor" href="#_data"></a><code>data</code></h3>
+<h3 id="_data"><a class="anchor" href="#_data"></a><span class='synopsis'><code>data</code></span></h3>
 <div class="paragraph">
 <p>Fournit des données brutes (à utiliser comme contenu de blob/fichier, messages de commit ou messages de tags annotés) à fast-import. Les données peuvent être fournies en utilisant un nombre exact d&#8217;octets ou en étant délimitées par une ligne de fin. Les frontaux réels destinés à des conversions de qualité devraient toujours utiliser le format de comptage exact des octets, car il est plus robuste et plus performant. Le format délimité est principalement destiné à tester l&#8217;importation rapide.</p>
 </div>
 <div class="paragraph">
-<p>Les lignes de commentaires apparaissant dans la partie <code>&lt;brut&gt;</code> des commandes <code>data</code> sont toujours considérées comme faisant partie du corps des données et ne sont donc jamais ignorées par fast-import. Cela permet d&#8217;importer en toute sécurité tout contenu de fichier/message dont les lignes pourraient commencer par <code>#</code>.</p>
+<p>Les lignes de commentaires apparaissant dans la partie <span class='synopsis'><em>&lt;brut&gt;</em></span> des commandes <span class='synopsis'><code>data</code></span> sont toujours considérées comme faisant partie du corps des données et ne sont donc jamais ignorées par fast-import. Cela permet d&#8217;importer en toute sécurité tout contenu de fichier/message dont les lignes pourraient commencer par <span class='synopsis'><code>#</code></span>.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -817,10 +856,10 @@ from :938</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>où <code>&lt;compte&gt;</code> est le nombre exact d&#8217;octets apparaissant dans <code>&lt;brut&gt;</code>. La valeur de <code>&lt;compte&gt;</code> est exprimée sous la forme d&#8217;un nombre entier décimal ASCII. Le "LF" de chaque côté de "brut" n&#8217;est pas inclus dans "compte" et ne sera pas inclus dans les données importées.</p>
+<p>où <span class='synopsis'><em>&lt;compte&gt;</em></span> est le nombre exact d&#8217;octets apparaissant dans <span class='synopsis'><em>&lt;brut&gt;</em></span>. La valeur de <span class='synopsis'><em>&lt;compte&gt;</em></span> est exprimée sous la forme d&#8217;un nombre entier décimal ASCII. Le "LF" de chaque côté de "brut" n&#8217;est pas inclus dans "compte" et ne sera pas inclus dans les données importées.</p>
 </div>
 <div class="paragraph">
-<p>Le <code>LF</code> après <code>&lt;brut&gt;</code> est facultatif (il était auparavant obligatoire) mais recommandé. Le fait de toujours l&#8217;inclure facilite le débogage d&#8217;un flux d&#8217;importation rapide car la commande suivante commence toujours dans la colonne 0 de la ligne suivante, même si <code>&lt;brut&gt;</code> ne se termine pas par un <code>LF</code>.</p>
+<p>Le <span class='synopsis'><code>LF</code></span> après <span class='synopsis'><em>&lt;brut&gt;</em></span> est facultatif (il était auparavant obligatoire) mais recommandé. Le fait de toujours l&#8217;inclure facilite le débogage d&#8217;un flux d&#8217;importation rapide car la commande suivante commence toujours dans la colonne 0 de la ligne suivante, même si <span class='synopsis'><em>&lt;brut&gt;</em></span> ne se termine pas par un <span class='synopsis'><code>LF</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fast-import-Formatdlimit"> <a class="anchor" href="#git-fast-import-Formatdlimit"></a>Format délimité </dt>
@@ -835,17 +874,17 @@ from :938</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>où <code>&lt;delim&gt;</code> est la chaîne de délimitation choisie. La chaîne <code>&lt;delim&gt;</code> ne doit pas apparaître sur une ligne seule dans <code>&lt;brut&gt;</code>, sinon fast-import pensera que les données se terminent plus tôt qu&#8217;elles ne le font réellement. Le <code>LF</code> qui suit immédiatement <code>&lt;brut&gt;</code> fait partie de <code>&lt;brut&gt;</code>. C&#8217;est une des limites du format délimité, il est impossible de fournir un morceau de données qui n&#8217;a pas un LF comme dernier octet.</p>
+<p>où <span class='synopsis'><em>&lt;delim&gt;</em></span> est la chaîne de délimitation choisie. La chaîne <span class='synopsis'><em>&lt;delim&gt;</em></span> ne doit pas apparaître sur une ligne seule dans <span class='synopsis'><em>&lt;brut&gt;</em></span>, sinon fast-import pensera que les données se terminent plus tôt qu&#8217;elles ne le font réellement. Le <span class='synopsis'><code>LF</code></span> qui suit immédiatement <span class='synopsis'><em>&lt;brut&gt;</em></span> fait partie de <span class='synopsis'><em>&lt;brut&gt;</em></span>. C&#8217;est une des limites du format délimité, il est impossible de fournir un morceau de données qui n&#8217;a pas un LF comme dernier octet.</p>
 </div>
 <div class="paragraph">
-<p>Le <code>LF</code> après <code>&lt;delim&gt; LF</code> est facultatif (il était auparavant obligatoire).</p>
+<p>Le <span class='synopsis'><code>LF</code></span> après <span class='synopsis'><em>&lt;delim&gt;</em> <code>LF</code></span> est facultatif (il était auparavant obligatoire).</p>
 </div>
 </dd>
 </dl>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_alias"><a class="anchor" href="#_alias"></a><code>alias</code></h3>
+<h3 id="_alias"><a class="anchor" href="#_alias"></a><span class='synopsis'><code>alias</code></span></h3>
 <div class="paragraph">
 <p>Enregistrer qu&#8217;une marque se réfère à un objet donné sans créer au préalable un nouvel objet.</p>
 </div>
@@ -858,11 +897,11 @@ from :938</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Pour une description détaillée de <code>&lt;commit-esque&gt;</code> voir ci-dessus sous <code>from</code>.</p>
+<p>Pour une description détaillée de <span class='synopsis'><em>&lt;commit-esque&gt;</em></span> voir ci-dessus sous <span class='synopsis'><code>from</code></span>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_checkpoint"><a class="anchor" href="#_checkpoint"></a><code>checkpoint</code></h3>
+<h3 id="_checkpoint"><a class="anchor" href="#_checkpoint"></a><span class='synopsis'><code>checkpoint</code></span></h3>
 <div class="paragraph">
 <p>Force fast-import à fermer le fichier paquet en cours, à en commencer un nouveau, et à sauvegarder toutes les références, étiquettes et marques de la branche en cours.</p>
 </div>
@@ -876,19 +915,19 @@ from :938</pre>
 <p>Notez que fast-import change automatiquement de fichier paquet lorsque le fichier paquet actuel atteint --max-pack-size, ou 4 Gio, la limite la plus petite étant retenue. Pendant un changement automatique de fichier paquet, fast-import ne met pas à jour les refs de branche, les étiquettes ou les marques.</p>
 </div>
 <div class="paragraph">
-<p>Comme un <code>checkpoint</code> peut nécessiter une quantité significative de temps CPU et d&#8217;entrées-sorties sur le disque (pour calculer la somme de contrôle SHA-1 du paquet global, générer le fichier d&#8217;index correspondant, et mettre à jour les références), il peut facilement prendre plusieurs minutes pour une seule commande <code>checkpoint</code>.</p>
+<p>Comme un <span class='synopsis'><code>checkpoint</code></span> peut nécessiter une quantité significative de temps CPU et d&#8217;entrées-sorties sur le disque (pour calculer la somme de contrôle SHA-1 du paquet global, générer le fichier d&#8217;index correspondant, et mettre à jour les références), il peut facilement prendre plusieurs minutes pour une seule commande <span class='synopsis'><code>checkpoint</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Les frontaux peuvent choisir d&#8217;émettre des points de contrôle lors d&#8217;importations extrêmement importantes et longues, ou lorsqu&#8217;ils doivent permettre à un autre processus Git d&#8217;accéder à une branche. Cependant, étant donné qu&#8217;un dépôt Subversion de 30 Go peut être chargé dans Git par le biais d&#8217;un import rapide en 3 heures environ, la mise en place de points de contrôle explicites peut ne pas être nécessaire.</p>
 </div>
 <div class="paragraph">
-<p>Le <code>LF</code> après la commande est facultatif (il était auparavant obligatoire).</p>
+<p>Le <span class='synopsis'><code>LF</code></span> après la commande est facultatif (il était auparavant obligatoire).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_progress"><a class="anchor" href="#_progress"></a><code>progress</code></h3>
+<h3 id="_progress"><a class="anchor" href="#_progress"></a><span class='synopsis'><code>progress</code></span></h3>
 <div class="paragraph">
-<p>Demande à fast-import d&#8217;afficher la ligne <code>progress</code> entière sans modification sur son canal de sortie standard (descripteur de fichier 1) lorsque la commande est traitée à partir du flux d&#8217;entrée. La commande n&#8217;a par ailleurs aucun impact sur l&#8217;importation en cours, ni sur l&#8217;état interne de fast-import&#8217;s.</p>
+<p>Demande à fast-import d&#8217;afficher la ligne <span class='synopsis'><code>progress</code></span> entière sans modification sur son canal de sortie standard (descripteur de fichier 1) lorsque la commande est traitée à partir du flux d&#8217;entrée. La commande n&#8217;a par ailleurs aucun impact sur l&#8217;importation en cours, ni sur l&#8217;état interne de fast-import&#8217;s.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -897,7 +936,7 @@ from :938</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>La partie <code>&lt;chaîne-libre&gt;</code> de la commande peut contenir toute séquence d&#8217;octets ne contenant pas de <code>LF</code>. Le <code>LF</code> après la commande est facultatif. Les appelants peuvent souhaiter traiter la sortie à l&#8217;aide d&#8217;un outil tel que sed pour supprimer la partie de tête de la ligne, par exemple :</p>
+<p>La partie <span class='synopsis'><em>&lt;chaîne-libre&gt;</em></span> de la commande peut contenir toute séquence d&#8217;octets ne contenant pas de <span class='synopsis'><code>LF</code></span>. Le <span class='synopsis'><code>LF</code></span> après la commande est facultatif. Les appelants peuvent souhaiter traiter la sortie à l&#8217;aide d&#8217;un outil tel que sed pour supprimer la partie de tête de la ligne, par exemple :</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -909,13 +948,13 @@ from :938</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Placer une commande <code>progress</code> immédiatement après un <code>checkpoint</code> informera le lecteur quand le <code>checkpoint</code> est terminé et qu&#8217;il peut accéder en toute sécurité aux refs que l&#8217;import rapide a mis à jour.</p>
+<p>Placer une commande <span class='synopsis'><code>progress</code></span> immédiatement après un <span class='synopsis'><code>checkpoint</code></span> informera le lecteur quand le <span class='synopsis'><code>checkpoint</code></span> est terminé et qu&#8217;il peut accéder en toute sécurité aux refs que l&#8217;import rapide a mis à jour.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_get_mark"><a class="anchor" href="#_get_mark"></a><code>get-mark</code></h3>
+<h3 id="_get_mark"><a class="anchor" href="#_get_mark"></a><span class='synopsis'><code>get-mark</code></span></h3>
 <div class="paragraph">
-<p>Demande à fast-import d&#8217;imprimer le SHA-1 correspondant à une marque vers stdout ou vers le descripteur de fichier préalablement arrangé avec l&#8217;argument <code>--cat-blob-fd</code>. Cette commande n&#8217;a pas d&#8217;impact sur l&#8217;importation en cours ; son but est de récupérer les SHA-1 que les commits ultérieurs pourraient vouloir mentionner dans leurs messages de commit.</p>
+<p>Demande à fast-import d&#8217;imprimer le SHA-1 correspondant à une marque vers stdout ou vers le descripteur de fichier préalablement arrangé avec l&#8217;argument <span class='synopsis'><code>--cat-blob-fd</code></span>. Cette commande n&#8217;a pas d&#8217;impact sur l&#8217;importation en cours ; son but est de récupérer les SHA-1 que les commits ultérieurs pourraient vouloir mentionner dans leurs messages de commit.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -927,9 +966,9 @@ from :938</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cat_blob"><a class="anchor" href="#_cat_blob"></a><code>cat-blob</code></h3>
+<h3 id="_cat_blob"><a class="anchor" href="#_cat_blob"></a><span class='synopsis'><code>cat-blob</code></span></h3>
 <div class="paragraph">
-<p>Demande à fast-import d&#8217;imprimer un blob sur un descripteur de fichier préalablement défini avec l&#8217;argument <code>--cat-blob-fd</code>. La commande n&#8217;a autrement aucun impact sur l&#8217;importation courante ; son but principal est de récupérer les blobs qui peuvent être dans la mémoire de fast-import mais non accessibles depuis le dépôt cible.</p>
+<p>Demande à fast-import d&#8217;imprimer un blob sur un descripteur de fichier préalablement défini avec l&#8217;argument <span class='synopsis'><code>--cat-blob-fd</code></span>. La commande n&#8217;a autrement aucun impact sur l&#8217;importation courante ; son but principal est de récupérer les blobs qui peuvent être dans la mémoire de fast-import mais non accessibles depuis le dépôt cible.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -937,10 +976,10 @@ from :938</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Le <code>&lt;réf-data&gt;</code> peut être soit une référence de marque (<code>:&lt;idnum&gt;</code>) définie précédemment, soit un SHA-1 complet de 40 octets d&#8217;un blob Git, préexistant ou prêt à être écrit.</p>
+<p>Le <span class='synopsis'><em>&lt;réf-data&gt;</em></span> peut être soit une référence de marque (<span class='synopsis'><code>:</code><em>&lt;idnum&gt;</em></span>) définie précédemment, soit un SHA-1 complet de 40 octets d&#8217;un blob Git, préexistant ou prêt à être écrit.</p>
 </div>
 <div class="paragraph">
-<p>La sortie utilise le même format que <code>git cat-file --batch</code> :</p>
+<p>La sortie utilise le même format que <span class='synopsis'><code>git</code> <code>cat-file</code> <code>--batch</code></span> :</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -953,25 +992,25 @@ from :938</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Cette commande peut être utilisée là où une directive <code>filemodify</code> peut apparaître, ce qui permet de l&#8217;utiliser au milieu d&#8217;un commit. Pour un <code>filemodify</code> utilisant une directive inline, elle peut aussi apparaître juste avant la directive <code>data</code>.</p>
+<p>Cette commande peut être utilisée là où une directive <span class='synopsis'><code>filemodify</code></span> peut apparaître, ce qui permet de l&#8217;utiliser au milieu d&#8217;un commit. Pour un <span class='synopsis'><code>filemodify</code></span> utilisant une directive inline, elle peut aussi apparaître juste avant la directive <span class='synopsis'><code>data</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Voir "Réponses aux commandes" ci-dessous pour plus de détails sur la façon de lire cette sortie en toute sécurité.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ls"><a class="anchor" href="#_ls"></a><code>ls</code></h3>
+<h3 id="_ls"><a class="anchor" href="#_ls"></a><span class='synopsis'><code>ls</code></span></h3>
 <div class="paragraph">
-<p>Affiche des informations sur l&#8217;objet à un chemin vers un descripteur de fichier préalablement arrangé avec l&#8217;argument <code>--cat-blob-fd</code>. Cela permet d&#8217;afficher un blob à partir du commit actif (avec <code>cat-blob</code>) ou de copier un blob ou un arbre à partir d&#8217;un commit précédent pour l&#8217;utiliser dans le commit actuel (avec <code>filemodify</code>).</p>
+<p>Affiche des informations sur l&#8217;objet à un chemin vers un descripteur de fichier préalablement arrangé avec l&#8217;argument <span class='synopsis'><code>--cat-blob-fd</code></span>. Cela permet d&#8217;afficher un blob à partir du commit actif (avec <span class='synopsis'><code>cat-blob</code></span>) ou de copier un blob ou un arbre à partir d&#8217;un commit précédent pour l&#8217;utiliser dans le commit actuel (avec <span class='synopsis'><code>filemodify</code></span>).</p>
 </div>
 <div class="paragraph">
-<p>La commande <code>ls</code> peut également être utilisée là où une directive <code>filemodify</code> peut apparaître, ce qui permet de l&#8217;utiliser au milieu d&#8217;un commit.</p>
+<p>La commande <span class='synopsis'><code>ls</code></span> peut également être utilisée là où une directive <span class='synopsis'><code>filemodify</code></span> peut apparaître, ce qui permet de l&#8217;utiliser au milieu d&#8217;un commit.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-fast-import-Lecturedel8217engagementactif"> <a class="anchor" href="#git-fast-import-Lecturedelengagementactif"></a> <a class="anchor" href="#git-fast-import-Lecturedel8217engagementactif"></a>Lecture de l&#8217;engagement actif </dt>
 <dd>
-<p>Cette forme ne peut être utilisée qu&#8217;au milieu d&#8217;un <code>commit</code>. Le chemin nomme une entrée de répertoire dans le commit actif de fast-import. Le chemin doit être cité dans ce cas.</p>
+<p>Cette forme ne peut être utilisée qu&#8217;au milieu d&#8217;un <span class='synopsis'><code>commit</code></span>. Le chemin nomme une entrée de répertoire dans le commit actif de fast-import. Le chemin doit être cité dans ce cas.</p>
 <div class="literalblock">
 <div class="content">
 <pre>	'ls' SP &lt;chemin&gt; LF</pre>
@@ -980,7 +1019,7 @@ from :938</pre>
 </dd>
 <dt class="hdlist1" id="git-fast-import-Lectured8217unarbrenomm"> <a class="anchor" href="#git-fast-import-Lecturedunarbrenomm"></a> <a class="anchor" href="#git-fast-import-Lectured8217unarbrenomm"></a>Lecture d&#8217;un arbre nommé </dt>
 <dd>
-<p>Le <code>&lt;réf-data&gt;</code> peut être une référence de marque (<code>:&lt;idnum&gt;</code>) ou le SHA-1 complet sur 40 octets d&#8217;une étiquette Git, d&#8217;un commit ou d&#8217;un objet arbre, préexistant ou en attente d&#8217;écriture. Le chemin est relatif au niveau supérieur de l&#8217;arbre nommé par <code>&lt;réf-data&gt;</code>.</p>
+<p>Le <span class='synopsis'><em>&lt;réf-data&gt;</em></span> peut être une référence de marque (<span class='synopsis'><code>:</code><em>&lt;idnum&gt;</em></span>) ou le SHA-1 complet sur 40 octets d&#8217;une étiquette Git, d&#8217;un commit ou d&#8217;un objet arbre, préexistant ou en attente d&#8217;écriture. Le chemin est relatif au niveau supérieur de l&#8217;arbre nommé par <span class='synopsis'><em>&lt;réf-data&gt;</em></span>.</p>
 <div class="literalblock">
 <div class="content">
 <pre>	'ls' SP &lt;réf-data&gt; SP &lt;chemin&gt; LF</pre>
@@ -990,10 +1029,10 @@ from :938</pre>
 </dl>
 </div>
 <div class="paragraph">
-<p>Voir <code>filemodify</code> ci-dessus pour une description détaillée de <code>&lt;chemin&gt;</code>.</p>
+<p>Voir <span class='synopsis'><code>filemodify</code></span> ci-dessus pour une description détaillée de <span class='synopsis'><em>&lt;chemin&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
-<p>La sortie utilise le même format que <code>git ls-tree &lt;arbre&gt; -- &lt;chemin&gt;</code> :</p>
+<p>La sortie utilise le même format que <span class='synopsis'><code>git</code> <code>ls-tree</code> <em>&lt;arbre&gt;</em> <code>--</code> <em>&lt;chemin&gt;</em></span> :</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1024,7 +1063,7 @@ from :938</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_feature"><a class="anchor" href="#_feature"></a><code>feature</code></h3>
+<h3 id="_feature"><a class="anchor" href="#_feature"></a><span class='synopsis'><code>feature</code></span></h3>
 <div class="paragraph">
 <p>Exige que fast-import prenne en charge la fonctionnalité spécifiée, ou abandonne si ce n&#8217;est pas le cas.</p>
 </div>
@@ -1044,7 +1083,7 @@ from :938</pre>
 <dt class="hdlist1" id="git-fast-import-no-relative-marks"> <a class="anchor" href="#git-fast-import-no-relative-marks"></a>no-relative-marks </dt>
 <dt class="hdlist1" id="git-fast-import-forcer"> <a class="anchor" href="#git-fast-import-forcer"></a>forcer </dt>
 <dd>
-<p>Agit comme si l&#8217;option de ligne de commande correspondante avec un <code>--</code> en tête était passée sur la ligne de commande (voir OPTIONS, ci-dessus).</p>
+<p>Agit comme si l&#8217;option de ligne de commande correspondante avec un <span class='synopsis'><code>--</code></span> en tête était passée sur la ligne de commande (voir OPTIONS, ci-dessus).</p>
 </dd>
 <dt class="hdlist1" id="git-fast-import-import-marks"> <a class="anchor" href="#git-fast-import-import-marks"></a>import-marks </dt>
 <dt class="hdlist1" id="git-fast-import-import-marks-if-exists"> <a class="anchor" href="#git-fast-import-import-marks-if-exists"></a>import-marks-if-exists </dt>
@@ -1069,7 +1108,7 @@ from :938</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_option"><a class="anchor" href="#_option"></a><code>option</code></h3>
+<h3 id="_option"><a class="anchor" href="#_option"></a><span class='synopsis'><code>option</code></span></h3>
 <div class="paragraph">
 <p>Traite l&#8217;option spécifiée afin que git fast-import se comporte d&#8217;une manière qui convient aux besoins du frontal Notez que les options spécifiées par le frontal sont remplacées par toutes les options que l&#8217;utilisateur peut spécifier à git fast-import lui-même.</p>
 </div>
@@ -1079,7 +1118,7 @@ from :938</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>La partie <code>&lt;option&gt;</code> de la commande peut contenir n&#8217;importe quelle option listée dans la section OPTIONS qui ne change pas la sémantique de l&#8217;importation, sans le <code>--</code> de tête et est traitée de la même manière.</p>
+<p>La partie <span class='synopsis'><em>&lt;option&gt;</em></span> de la commande peut contenir n&#8217;importe quelle option listée dans la section OPTIONS qui ne change pas la sémantique de l&#8217;importation, sans le <span class='synopsis'><code>--</code></span> de tête et est traitée de la même manière.</p>
 </div>
 <div class="paragraph">
 <p>Les commandes d&#8217;option doivent être les premières commandes sur l&#8217;entrée (sans compter les commandes de fonctionnalité), donner une commande d&#8217;option après une commande de non-option est une erreur.</p>
@@ -1108,12 +1147,12 @@ from :938</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_done"><a class="anchor" href="#_done"></a><code>done</code></h3>
+<h3 id="_done"><a class="anchor" href="#_done"></a><span class='synopsis'><code>done</code></span></h3>
 <div class="paragraph">
-<p>Si la fonction <code>done</code> n&#8217;est pas utilisée, traitée comme si EOF était lu. Ceci peut être utilisé pour dire à fast-import de finir plus tôt.</p>
+<p>Si la fonction <span class='synopsis'><code>done</code></span> n&#8217;est pas utilisée, traitée comme si EOF était lu. Ceci peut être utilisé pour dire à fast-import de finir plus tôt.</p>
 </div>
 <div class="paragraph">
-<p>Si l&#8217;option de ligne de commande <code>--done</code> ou la commande <code>feature done</code> est utilisée, la commande <code>done</code> est obligatoire et marque la fin du flux.</p>
+<p>Si l&#8217;option de ligne de commande <span class='synopsis'><code>--done</code></span> ou la commande <span class='synopsis'><code>feature</code> <code>done</code></span> est utilisée, la commande <span class='synopsis'><code>done</code></span> est obligatoire et marque la fin du flux.</p>
 </div>
 </div>
 </div>
@@ -1139,10 +1178,10 @@ git fast-import &gt;fast-import-output</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Un frontal configuré de cette façon peut utiliser les commandes <code>progress</code>, <code>get-mark</code>, <code>ls</code>, et <code>cat-blob</code> pour lire les informations de l&#8217;import en cours.</p>
+<p>Un frontal configuré de cette façon peut utiliser les commandes <span class='synopsis'><code>progress</code></span>, <span class='synopsis'><code>get-mark</code></span>, <span class='synopsis'><code>ls</code></span>, et <span class='synopsis'><code>cat-blob</code></span> pour lire les informations de l&#8217;import en cours.</p>
 </div>
 <div class="paragraph">
-<p>Pour éviter les blocages, de tels frontaux doivent complètement consommer toute sortie en attente de <code>progress</code>, <code>ls</code>, <code>get-mark</code>, et <code>cat-blob</code> avant d&#8217;effectuer des écritures dans fast-import qui pourraient bloquer.</p>
+<p>Pour éviter les blocages, de tels frontaux doivent complètement consommer toute sortie en attente de <span class='synopsis'><code>progress</code></span>, <span class='synopsis'><code>ls</code></span>, <span class='synopsis'><code>get-mark</code></span>, et <span class='synopsis'><code>cat-blob</code></span> avant d&#8217;effectuer des écritures dans fast-import qui pourraient bloquer.</p>
 </div>
 </div>
 </div>
@@ -1256,7 +1295,7 @@ last pack   :</p>
 <div class="sect2">
 <h3 id="_utiliser_une_marque_par_commit"><a class="anchor" href="#_utiliser_une_marque_par_commit"></a>Utiliser une marque par commit</h3>
 <div class="paragraph">
-<p>Lors d&#8217;une conversion de dépôt, utilisez une marque unique par commit (<code>mark :&lt;n&gt;</code>) et fournissez l&#8217;option --export-marks sur la ligne de commande. fast-import va générer un fichier qui liste chaque marque et l&#8217;objet Git SHA-1 qui lui correspond. Si le frontal peut relier les marques au dépôt source, il est facile de vérifier l&#8217;exactitude et l&#8217;exhaustivité de l&#8217;importation en comparant chaque commit Git à la révision source correspondante.</p>
+<p>Lors d&#8217;une conversion de dépôt, utilisez une marque unique par commit (<span class='synopsis'><em>mark :&lt;n&gt;</em></span>) et fournissez l&#8217;option --export-marks sur la ligne de commande. fast-import va générer un fichier qui liste chaque marque et l&#8217;objet Git SHA-1 qui lui correspond. Si le frontal peut relier les marques au dépôt source, il est facile de vérifier l&#8217;exactitude et l&#8217;exhaustivité de l&#8217;importation en comparant chaque commit Git à la révision source correspondante.</p>
 </div>
 <div class="paragraph">
 <p>Si vous venez d&#8217;un système tel que Perforce ou Subversion, cela devrait être assez simple, car la marque d&#8217;importation rapide peut également être le numéro de changeset de Perforce ou le numéro de révision de Subversion.</p>
@@ -1286,13 +1325,13 @@ last pack   :</p>
 <p>Importer ces étiquettes tels quels dans Git est impossible sans faire au moins un commit qui "répare" les fichiers pour qu&#8217;ils correspondent au contenu de l&#8217;étiquette. Utilisez la commande &#8216;reset&#8217; de fast-import&#8217;pour réinitialiser une branche fictive en dehors de votre espace de branche normal au commit de base pour le tag, puis validez un ou plusieurs commits de correction de fichiers, et enfin étiquetez la branche fictive.</p>
 </div>
 <div class="paragraph">
-<p>Par exemple, puisque toutes les branches normales sont stockées sous <code>refs/heads/</code>, nommez la branche de correction des étiquettes <code>CORRECTION_ETIQUETTE</code>. De cette façon, il est impossible que la branche de correction utilisée par l&#8217;importateur ait des conflits d&#8217;espace de noms avec les branches réelles importées depuis la source (le nom <code>CORRECTION_ETIQUETTE</code> n&#8217;est pas <code>refs/heads/CORRECTION_ETIQUETTE</code>).</p>
+<p>Par exemple, puisque toutes les branches normales sont stockées sous <span class='synopsis'><code>refs/heads/</code></span>, nommez la branche de correction des étiquettes <span class='synopsis'><code>CORRECTION_ETIQUETTE</code></span>. De cette façon, il est impossible que la branche de correction utilisée par l&#8217;importateur ait des conflits d&#8217;espace de noms avec les branches réelles importées depuis la source (le nom <span class='synopsis'><code>CORRECTION_ETIQUETTE</code></span> n&#8217;est pas <span class='synopsis'><code>refs/heads/CORRECTION_ETIQUETTE</code></span>).</p>
 </div>
 <div class="paragraph">
-<p>Lorsque vous validez des corrections, pensez à utiliser <code>merge</code> pour connecter le(s) commit(s) qui fournissent des révisions de fichiers à la branche de correction. Cela permettra à des outils tels que <em>git blame</em> de suivre l&#8217;historique réel des commits et d&#8217;annoter correctement les fichiers sources.</p>
+<p>Lorsque vous validez des corrections, pensez à utiliser <span class='synopsis'><code>merge</code></span> pour connecter le(s) commit(s) qui fournissent des révisions de fichiers à la branche de correction. Cela permettra à des outils tels que <em>git blame</em> de suivre l&#8217;historique réel des commits et d&#8217;annoter correctement les fichiers sources.</p>
 </div>
 <div class="paragraph">
-<p>Après que fast-import se termine, le frontal devra faire <code>rm .git/CORRECTION_ETIQUETTE</code> pour supprimer la branche factice.</p>
+<p>Après que fast-import se termine, le frontal devra faire <span class='synopsis'><code>rm</code> <code>.git/CORRECTION_ETIQUETTE</code></span> pour supprimer la branche factice.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1316,7 +1355,7 @@ last pack   :</p>
 <div class="sect2">
 <h3 id="_incluez_des_messages_de_progrès"><a class="anchor" href="#_incluez_des_messages_de_progrès"></a>Incluez des messages de progrès</h3>
 <div class="paragraph">
-<p>Every once in a while have your frontend emit a <code>progress</code> message to fast-import. The contents of the messages are entirely free-form, so one suggestion would be to output the current month and year each time the current commit date moves into the next month. Your users will feel better knowing how much of the data stream has been processed.</p>
+<p>Every once in a while have your frontend emit a <span class='synopsis'><code>progress</code></span> message to fast-import. The contents of the messages are entirely free-form, so one suggestion would be to output the current month and year each time the current commit date moves into the next month. Your users will feel better knowing how much of the data stream has been processed.</p>
 </div>
 </div>
 </div>
@@ -1328,16 +1367,16 @@ last pack   :</p>
 <p>When packing a blob fast-import always attempts to deltify against the last blob written. Unless specifically arranged for by the frontend, this will probably not be a prior version of the same file, so the generated delta will not be the smallest possible. The resulting packfile will be compressed, but will not be optimal.</p>
 </div>
 <div class="paragraph">
-<p>Frontends which have efficient access to all revisions of a single file (for example reading an RCS/CVS ,v file) can choose to supply all revisions of that file as a sequence of consecutive <code>blob</code> commands. This allows fast-import to deltify the different file revisions against each other, saving space in the final packfile. Marks can be used to later identify individual file revisions during a sequence of <code>commit</code> commands.</p>
+<p>Frontends which have efficient access to all revisions of a single file (for example reading an RCS/CVS ,v file) can choose to supply all revisions of that file as a sequence of consecutive <span class='synopsis'><code>blob</code></span> commands. This allows fast-import to deltify the different file revisions against each other, saving space in the final packfile. Marks can be used to later identify individual file revisions during a sequence of <span class='synopsis'><code>commit</code></span> commands.</p>
 </div>
 <div class="paragraph">
 <p>The packfile(s) created by fast-import do not encourage good disk access patterns. This is caused by fast-import writing the data in the order it is received on standard input, while Git typically organizes data within packfiles to make the most recent (current tip) data appear before historical data. Git also clusters commits together, speeding up revision traversal through better cache locality.</p>
 </div>
 <div class="paragraph">
-<p>For this reason it is strongly recommended that users repack the repository with <code>git repack -a -d</code> after fast-import completes, allowing Git to reorganize the packfiles for faster data access. If blob deltas are suboptimal (see above) then also adding the <code>-f</code> option to force recomputation of all deltas can significantly reduce the final packfile size (30-50% smaller can be quite typical).</p>
+<p>For this reason it is strongly recommended that users repack the repository with <span class='synopsis'><code>git</code> <code>repack</code> <code>-a</code> <code>-d</code></span> after fast-import completes, allowing Git to reorganize the packfiles for faster data access. If blob deltas are suboptimal (see above) then also adding the <span class='synopsis'><code>-f</code></span> option to force recomputation of all deltas can significantly reduce the final packfile size (30-50% smaller can be quite typical).</p>
 </div>
 <div class="paragraph">
-<p>Instead of running <code>git repack</code> you can also run <code>git gc --aggressive</code>, which will also optimize other things after an import (e.g. pack loose refs). As noted in the "AGGRESSIVE" section in <a href='{{< relurl "docs/git-gc/fr" >}}'>git-gc[1]</a> the <code>--aggressive</code> option will find new deltas with the <code>-f</code> option to <a href='{{< relurl "docs/git-repack/fr" >}}'>git-repack[1]</a>. For the reasons elaborated on above using <code>--aggressive</code> after a fast-import is one of the few cases where it&#8217;s known to be worthwhile.</p>
+<p>Instead of running <span class='synopsis'><code>git</code> <code>repack</code></span> you can also run <span class='synopsis'><code>git</code> <code>gc</code> <code>--aggressive</code></span>, which will also optimize other things after an import (e.g. pack loose refs). As noted in the "AGGRESSIVE" section in <a href='{{< relurl "docs/git-gc/fr" >}}'>git-gc[1]</a> the <span class='synopsis'><code>--aggressive</code></span> option will find new deltas with the <span class='synopsis'><code>-f</code></span> option to <a href='{{< relurl "docs/git-repack/fr" >}}'>git-repack[1]</a>. For the reasons elaborated on above using <span class='synopsis'><code>--aggressive</code></span> after a fast-import is one of the few cases where it&#8217;s known to be worthwhile.</p>
 </div>
 </div>
 </div>
@@ -1371,13 +1410,13 @@ last pack   :</p>
 <p>Inactive branches are stored in a structure which uses 96 or 120 bytes (32 bit or 64 bit systems, respectively), plus the length of the branch name (typically under 200 bytes), per branch. fast-import will easily handle as many as 10,000 inactive branches in under 2 MiB of memory.</p>
 </div>
 <div class="paragraph">
-<p>Active branches have the same overhead as inactive branches, but also contain copies of every tree that has been recently modified on that branch. If subtree <code>include</code> has not been modified since the branch became active, its contents will not be loaded into memory, but if subtree <code>src</code> has been modified by a commit since the branch became active, then its contents will be loaded in memory.</p>
+<p>Active branches have the same overhead as inactive branches, but also contain copies of every tree that has been recently modified on that branch. If subtree <span class='synopsis'><code>include</code></span> has not been modified since the branch became active, its contents will not be loaded into memory, but if subtree <span class='synopsis'><code>src</code></span> has been modified by a commit since the branch became active, then its contents will be loaded in memory.</p>
 </div>
 <div class="paragraph">
 <p>As active branches store metadata about the files contained on that branch, their in-memory storage size can grow to a considerable size (see below).</p>
 </div>
 <div class="paragraph">
-<p>fast-import automatically moves active branches to inactive status based on a simple least-recently-used algorithm. The LRU chain is updated on each <code>commit</code> command. The maximum number of active branches can be increased or decreased on the command line with --active-branches=.</p>
+<p>fast-import automatically moves active branches to inactive status based on a simple least-recently-used algorithm. The LRU chain is updated on each <span class='synopsis'><code>commit</code></span> command. The maximum number of active branches can be increased or decreased on the command line with --active-branches=.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1401,7 +1440,7 @@ last pack   :</p>
 <h2 id="_signals"><a class="anchor" href="#_signals"></a>SIGNALS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Sending <strong>SIGUSR1</strong> to the <em>git fast-import</em> process ends the current packfile early, simulating a <code>checkpoint</code> command. The impatient operator can use this facility to peek at the objects and refs from an import in progress, at the cost of some added running time and worse compression.</p>
+<p>Sending <strong>SIGUSR1</strong> to the <em>git fast-import</em> process ends the current packfile early, simulating a <span class='synopsis'><code>checkpoint</code></span> command. The impatient operator can use this facility to peek at the objects and refs from an import in progress, at the cost of some added running time and worse compression.</p>
 </div>
 </div>
 </div>
@@ -1419,7 +1458,7 @@ last pack   :</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/fastimport.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/fastimport.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

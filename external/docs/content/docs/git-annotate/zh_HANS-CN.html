@@ -9,6 +9,19 @@ docname: git-annotate
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-annotate/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -44,11 +57,11 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-annotate--b"> <a class="anchor" href="#git-annotate--b"></a>-b </dt>
 <dd>
-<p>为边界提交显示空白的 SHA-1。 这也可以通过 <code>blame.blankBoundary</code> 配置选项来控制。</p>
+<p>为边界提交显示空白的 SHA-1。 这也可以通过 <span class='synopsis'><code>blame.blankBoundary</code></span> 配置选项来控制。</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---root"> <a class="anchor" href="#git-annotate---root"></a>--root </dt>
 <dd>
-<p>不把根提交当作边界。 这也可以通过 <code>blame.showRoot</code> 配置选项来控制。</p>
+<p>不把根提交当作边界。 这也可以通过 <span class='synopsis'><code>blame.showRoot</code></span> 配置选项来控制。</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---show-stats"> <a class="anchor" href="#git-annotate---show-stats"></a>--show-stats </dt>
 <dd>
@@ -59,7 +72,7 @@ aliases:
 <dd>
 <p>仅注释由'&lt;start&gt;，&lt;end&gt;'或功能名称正则表达式'&lt;funcname&gt;'给出的行范围。 可以指定多次。 允许重叠范围。</p>
 <div class="paragraph">
-<p><em>&lt;start&gt;</em> 和 <em>&lt;end&gt;</em> 是可选的 <code>-L &lt;start&gt;</code> 或 <code>-L &lt;start&gt;,</code> 范围从 <em>&lt;start&gt;</em> 到文件末尾。 <code>-L ,&lt;end&gt;</code> 从文件开始到 <em>&lt;end&gt;</em>.</p>
+<p><em>&lt;start&gt;</em> 和 <em>&lt;end&gt;</em> 是可选的 <span class='synopsis'><code>-L</code> <em>&lt;start&gt;</em></span> 或 <span class='synopsis'><code>-L</code> <em>&lt;start&gt;</em><code>,</code></span> 范围从 <em>&lt;start&gt;</em> 到文件末尾。 <span class='synopsis'><code>-L</code> <code>,</code><em>&lt;end&gt;</em></span> 从文件开始到 <em>&lt;end&gt;</em>.</p>
 </div>
 <div class="paragraph">
 <p><em>&lt;开始&gt;</em> 和 <em>&lt;结束&gt;</em> 可以采取这些形式之一：</p>
@@ -73,9 +86,9 @@ aliases:
 </div>
 </li>
 <li>
-<p><code>/正则表达式/</code></p>
+<p><span class='synopsis'><em>/正则表达式/</em></span></p>
 <div class="paragraph">
-<p>这种形式将使用与给定的 POSIX 正则表达式匹配的第一行。如果 <em>&lt;start&gt;</em> 是一个重词，它将从前一个 <code>-L</code> 范围的末尾开始搜索，如果有的话，则从文件的开始。 如果 <em>&lt;start&gt;</em> 是 <code>^/regex/</code>，它将从文件的开始搜索。 如果 <em>&lt;end&gt;</em> 是一个正则表达式，它将从 <em>&lt;start&gt;</em> 所给的行开始搜索。</p>
+<p>这种形式将使用与给定的 POSIX 正则表达式匹配的第一行。如果 <em>&lt;start&gt;</em> 是一个重词，它将从前一个 <span class='synopsis'><code>-L</code></span> 范围的末尾开始搜索，如果有的话，则从文件的开始。 如果 <em>&lt;start&gt;</em> 是 <span class='synopsis'><code>^/regex/</code></span>，它将从文件的开始搜索。 如果 <em>&lt;end&gt;</em> 是一个正则表达式，它将从 <em>&lt;start&gt;</em> 所给的行开始搜索。</p>
 </div>
 </li>
 <li>
@@ -87,7 +100,7 @@ aliases:
 </ul>
 </div>
 <div class="paragraph">
-<p>如果 <code>:&lt;funcname&gt;</code> 代替了 <em>&lt;start&gt;</em> 和 <em>&lt;end&gt;</em> ，它是一个正则表达式，表示从第一个匹配 <em>&lt;funcname&gt;</em> 的 funcname 行开始，直到下一个 funcname 行的范围。<code>:&lt;funcname&gt;</code> 从上一个 <code>-L</code> 范围的末尾开始搜索，如果有的话，则从文件的开始搜索。<code>^:&lt;funcname&gt;`从文件的开始搜索。函数名的确定方式与 `git diff</code> 确定补丁组头的方式相同（见 <a href='{{< relurl "docs/gitattributes/zh_HANS-CN" >}}'>gitattributes[5]</a> 中的&#8217;定义自定义组头'）。</p>
+<p>如果 <span class='synopsis'><code>:</code><em>&lt;funcname&gt;</em></span> 代替了 <em>&lt;start&gt;</em> 和 <em>&lt;end&gt;</em> ，它是一个正则表达式，表示从第一个匹配 <em>&lt;funcname&gt;</em> 的 funcname 行开始，直到下一个 funcname 行的范围。<span class='synopsis'><code>:</code><em>&lt;funcname&gt;</em></span> 从上一个 <span class='synopsis'><code>-L</code></span> 范围的末尾开始搜索，如果有的话，则从文件的开始搜索。<span class='synopsis'><em>^:&lt;funcname&gt;`从文件的开始搜索。函数名的确定方式与 `git diff</em></span> 确定补丁组头的方式相同（见 <a href='{{< relurl "docs/gitattributes/zh_HANS-CN" >}}'>gitattributes[5]</a> 中的&#8217;定义自定义组头'）。</p>
 </div>
 </dd>
 </dl>
@@ -108,7 +121,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-annotate---reverseltgtltgt"> <a class="anchor" href="#git-annotate---reverse"></a> <a class="anchor" href="#git-annotate---reverseltgtltgt"></a>--reverse &lt;修订&gt;..&lt;修订&gt; </dt>
 <dd>
-<p>Walk history forward instead of backward. Instead of showing the revision in which a line appeared, this shows the last revision in which a line has existed. This requires a range of revision like START..END where the path to blame exists in START. <code>git blame --reverse START</code> is taken as <code>git blame --reverse START..HEAD</code> for convenience.</p>
+<p>Walk history forward instead of backward. Instead of showing the revision in which a line appeared, this shows the last revision in which a line has existed. This requires a range of revision like START..END where the path to blame exists in START. <span class='synopsis'><code>git</code> <code>blame</code> <code>--reverse</code> <code>START</code></span> is taken as <span class='synopsis'><code>git</code> <code>blame</code> <code>--reverse</code> <code>START..HEAD</code></span> for convenience.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---first-parent"> <a class="anchor" href="#git-annotate---first-parent"></a>--first-parent </dt>
 <dd>
@@ -129,7 +142,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-annotate---encodingltgt"> <a class="anchor" href="#git-annotate---encoding"></a> <a class="anchor" href="#git-annotate---encodingltgt"></a>--encoding=&lt;编码&gt; </dt>
 <dd>
-<p>指定用于输出作者姓名和提交摘要的编码。设置为 <code>none</code> 会使历史追溯输出未转换的数据。更多信息见 <a href='{{< relurl "docs/git-log/zh_HANS-CN" >}}'>git-log[1]</a> 手册页中关于编码的讨论。</p>
+<p>指定用于输出作者姓名和提交摘要的编码。设置为 <span class='synopsis'><code>none</code></span> 会使历史追溯输出未转换的数据。更多信息见 <a href='{{< relurl "docs/git-log/zh_HANS-CN" >}}'>git-log[1]</a> 手册页中关于编码的讨论。</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---contentsltgt"> <a class="anchor" href="#git-annotate---contents"></a> <a class="anchor" href="#git-annotate---contentsltgt"></a>--contents &lt;文件&gt; </dt>
 <dd>
@@ -141,7 +154,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-annotate---no-progress"> <a class="anchor" href="#git-annotate---no-progress"></a>--[no-]progress </dt>
 <dd>
-<p>当它连接到一个终端时，默认情况下进度状态会在标准错误流中报告。这个标志可以使进度报告即使没有连接到终端。<code>--porcelain`或</code>--incremental` 不能与 <code>--progress</code> 一起使用。</p>
+<p>当它连接到一个终端时，默认情况下进度状态会在标准错误流中报告。这个标志可以使进度报告即使没有连接到终端。<span class='synopsis'><em>--porcelain`或</em></span>--incremental` 不能与 <span class='synopsis'><code>--progress</code></span> 一起使用。</p>
 </dd>
 <dt class="hdlist1" id="git-annotate--Mltgt"> <a class="anchor" href="#git-annotate--M"></a> <a class="anchor" href="#git-annotate--Mltgt"></a>-M[&lt;数量&gt;] </dt>
 <dd>
@@ -154,24 +167,24 @@ aliases:
 <dd>
 <p>除了`-M`之外，还可以检测在同一提交中被修改的其他文件中移动或复制的行。 这在你重新组织程序并在不同文件间移动代码时很有用。 当这个选项被赋予两次时，命令会在创建文件的提交中额外寻找其他文件的拷贝。当这个选项出现三次时，命令会在任何一次提交中额外寻找其他文件的副本。</p>
 <div class="paragraph">
-<p>&lt;num&gt; 是可选的，但它是 Git 必须检测到的在文件之间移动或复制的字母数字字符的数量的下限，以便它将这些行与父提交关联起来。而默认值是 40。如果有一个以上的 <code>-C</code> 选项，只有最后一个 <code>-C</code> 的 &lt;num&gt; 参数起作用。</p>
+<p>&lt;num&gt; 是可选的，但它是 Git 必须检测到的在文件之间移动或复制的字母数字字符的数量的下限，以便它将这些行与父提交关联起来。而默认值是 40。如果有一个以上的 <span class='synopsis'><code>-C</code></span> 选项，只有最后一个 <span class='synopsis'><code>-C</code></span> 的 &lt;num&gt; 参数起作用。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-annotate---ignore-revltgt"> <a class="anchor" href="#git-annotate---ignore-rev"></a> <a class="anchor" href="#git-annotate---ignore-revltgt"></a>--ignore-rev &lt;修订&gt; </dt>
 <dd>
-<p>Ignore changes made by the revision when assigning blame, as if the change never happened. Lines that were changed or added by an ignored commit will be blamed on the previous commit that changed that line or nearby lines. This option may be specified multiple times to ignore more than one revision. If the <code>blame.markIgnoredLines</code> config option is set, then lines that were changed by an ignored commit and attributed to another commit will be marked with a <code>?</code> in the blame output. If the <code>blame.markUnblamableLines</code> config option is set, then those lines touched by an ignored commit that we could not attribute to another revision are marked with a <em>*</em>. In the porcelain modes, we print <em>ignored</em> and <em>unblamable</em> on a newline respectively.</p>
+<p>Ignore changes made by the revision when assigning blame, as if the change never happened. Lines that were changed or added by an ignored commit will be blamed on the previous commit that changed that line or nearby lines. This option may be specified multiple times to ignore more than one revision. If the <span class='synopsis'><code>blame.markIgnoredLines</code></span> config option is set, then lines that were changed by an ignored commit and attributed to another commit will be marked with a <span class='synopsis'><em>?</em></span> in the blame output. If the <span class='synopsis'><code>blame.markUnblamableLines</code></span> config option is set, then those lines touched by an ignored commit that we could not attribute to another revision are marked with a <em>*</em>. In the porcelain modes, we print <em>ignored</em> and <em>unblamable</em> on a newline respectively.</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---ignore-revs-fileltgt"> <a class="anchor" href="#git-annotate---ignore-revs-file"></a> <a class="anchor" href="#git-annotate---ignore-revs-fileltgt"></a>--ignore-revs-file &lt;文件&gt; </dt>
 <dd>
-<p>忽略 <code>file</code> 中列出的修订，其格式必须与 <code>fsck.skipList</code> 相同。 这个选项可以重复使用，这些文件将在任何用 <code>blame.ignoreRevsFile</code> 配置选项指定的文件之后被处理。 一个空的文件名，<code>""</code>，将清除以前处理的文件的 Revs 列表。</p>
+<p>忽略 <span class='synopsis'><code>file</code></span> 中列出的修订，其格式必须与 <span class='synopsis'><code>fsck.skipList</code></span> 相同。 这个选项可以重复使用，这些文件将在任何用 <span class='synopsis'><code>blame.ignoreRevsFile</code></span> 配置选项指定的文件之后被处理。 一个空的文件名，<span class='synopsis'><code>""</code></span>，将清除以前处理的文件的 Revs 列表。</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---color-lines"> <a class="anchor" href="#git-annotate---color-lines"></a>--color-lines </dt>
 <dd>
-<p>在默认格式下，如果行注释与前一行来自同一提交，则颜色不同。这可以让我们更容易区分不同提交的代码块。颜色默认为青色，可以使用 <code>color.blame.repeatedLines</code> 配置选项进行调整。</p>
+<p>在默认格式下，如果行注释与前一行来自同一提交，则颜色不同。这可以让我们更容易区分不同提交的代码块。颜色默认为青色，可以使用 <span class='synopsis'><code>color.blame.repeatedLines</code></span> 配置选项进行调整。</p>
 </dd>
 <dt class="hdlist1" id="git-annotate---color-by-age"> <a class="anchor" href="#git-annotate---color-by-age"></a>--color-by-age </dt>
 <dd>
-<p>根据默认格式的行的阶段，给行的注释着色。 <code>color.blame.highlightRecent</code> 配置选项控制每个阶段范围使用什么颜色。</p>
+<p>根据默认格式的行的阶段，给行的注释着色。 <span class='synopsis'><code>color.blame.highlightRecent</code></span> 配置选项控制每个阶段范围使用什么颜色。</p>
 </dd>
 <dt class="hdlist1" id="git-annotate--h"> <a class="anchor" href="#git-annotate--h"></a>-h </dt>
 <dd>

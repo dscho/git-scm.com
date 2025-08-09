@@ -9,6 +9,17 @@ docname: gitglossary
 lang: ja
 aliases:
 - "/docs/gitglossary/ja/index.html"
+headings:
+- text: NAME
+  id: _name
+- text: 概要
+  id: _概要
+- text: 説明
+  id: _説明
+- text: 関連項目
+  id: _関連項目
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
@@ -37,7 +48,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefbarerepositoryabarerepository"> <a class="anchor" href="#gitglossary-barerepository"></a> <a class="anchor" href="#gitglossary-aiddefbarerepositoryabarerepository"></a><a id="def_bare_repository"></a>ベア リポジトリ (bare repository) </dt>
 <dd>
-<p>ベアリポジトリは、通常、適切な名前の <a href="#def_directory">ディレクトリ</a> に <code>.git</code> という接尾辞が付き、リビジョン管理下のどのファイルもローカルにチェックアウトされたコピーを持っていないものです。つまり、通常であれば隠された <code>.git</code> サブディレクトリに存在する Git 管理ファイルや制御ファイルは、代わりに <code>repository.git</code> ディレクトリに直接存在し、その他のファイルは存在せず、チェックアウトもされていません。たいてい、公開リポジトリの公開者は、ベアリポジトリを利用できるようにしています。</p>
+<p>ベアリポジトリは、通常、適切な名前の <a href="#def_directory">ディレクトリ</a> に <span class='synopsis'><code>.git</code></span> という接尾辞が付き、リビジョン管理下のどのファイルもローカルにチェックアウトされたコピーを持っていないものです。つまり、通常であれば隠された <span class='synopsis'><code>.git</code></span> サブディレクトリに存在する Git 管理ファイルや制御ファイルは、代わりに <span class='synopsis'><code>repository.git</code></span> ディレクトリに直接存在し、その他のファイルは存在せず、チェックアウトもされていません。たいてい、公開リポジトリの公開者は、ベアリポジトリを利用できるようにしています。</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefblobobjectablobobject"> <a class="anchor" href="#gitglossary-blobobject"></a> <a class="anchor" href="#gitglossary-aiddefblobobjectablobobject"></a><a id="def_blob_object"></a>ブロブオブジェクト(blob object) </dt>
 <dd>
@@ -123,7 +134,7 @@ aliases:
 <dd>
 <p>通常、 <a href="#def_HEAD">HEAD</a> には、<a href="#def_branch">ブランチ</a> の名前が格納されており、HEADが示す履歴に対して操作するコマンドは、HEADが指すブランチの先端に続く履歴に対して操作することになります。しかし、Gitでは、必ずしも特定のブランチの先端ではない任意の<a href="#def_commit">コミット</a> を <a href="#def_checkout">チェックアウト</a> することもできます。このような状態のHEADは、"分離した (detached)"と呼ばれます。</p>
 <div class="paragraph">
-<p>現在のブランチの歴史を操作するコマンド（たとえば <code>git commit</code> で新しい歴史をその上に構築する）は、HEAD が分離されている間も動作することに注意してください。これらのコマンドは、どのブランチにも影響を与えずに HEAD を更新し、更新された歴史の先端を指すようにします。現在のブランチに関する情報を更新したり問い合わせたりするコマンド（たとえば 現在のブランチがどのリモート追跡ブランチと統合されているかを設定する <code>git branch --set-upstream-to</code>）は、この状態で尋ねる（実際の）現在のブランチがないため、明らかに機能しません。</p>
+<p>現在のブランチの歴史を操作するコマンド（たとえば <span class='synopsis'><code>git</code> <code>commit</code></span> で新しい歴史をその上に構築する）は、HEAD が分離されている間も動作することに注意してください。これらのコマンドは、どのブランチにも影響を与えずに HEAD を更新し、更新された歴史の先端を指すようにします。現在のブランチに関する情報を更新したり問い合わせたりするコマンド（たとえば 現在のブランチがどのリモート追跡ブランチと統合されているかを設定する <span class='synopsis'><code>git</code> <code>branch</code> <code>--set-upstream-to</code></span>）は、この状態で尋ねる（実際の）現在のブランチがないため、明らかに機能しません。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefdirectoryadirectory"> <a class="anchor" href="#gitglossary-directory"></a> <a class="anchor" href="#gitglossary-aiddefdirectoryadirectory"></a><a id="def_directory"></a>ディレクトリ (directory) </dt>
@@ -156,11 +167,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefgitfileagitgitfile"> <a class="anchor" href="#gitglossary-gitgitfile"></a> <a class="anchor" href="#gitglossary-aiddefgitfileagitgitfile"></a><a id="def_gitfile"></a>gitファイル (gitfile) </dt>
 <dd>
-<p>ワーキングツリーのルートにあるプレーンなファイル <code>.git</code> は、実際のリポジトリとなるディレクトリを指します。適切な使用については <a href='{{< relurl "docs/git-worktree/ja" >}}'>git-worktree[1]</a> または <a href='{{< relurl "docs/git-submodule/ja" >}}'>git-submodule[1]</a> を参照してください。構文については <a href='{{< relurl "docs/gitrepository-layout/ja" >}}'>gitrepository-layout[5]</a> を参照してください。</p>
+<p>ワーキングツリーのルートにあるプレーンなファイル <span class='synopsis'><code>.git</code></span> は、実際のリポジトリとなるディレクトリを指します。適切な使用については <a href='{{< relurl "docs/git-worktree/ja" >}}'>git-worktree[1]</a> または <a href='{{< relurl "docs/git-submodule/ja" >}}'>git-submodule[1]</a> を参照してください。構文については <a href='{{< relurl "docs/gitrepository-layout/ja" >}}'>gitrepository-layout[5]</a> を参照してください。</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefgraftsagrafts"> <a class="anchor" href="#gitglossary-grafts"></a> <a class="anchor" href="#gitglossary-aiddefgraftsagrafts"></a><a id="def_grafts"></a>移植 (grafts) </dt>
 <dd>
-<p>移植を使用すると、コミットの偽の祖先情報を記録することで、2つの異なる開発ラインを結合できます。このようにして、Gitに <a href="#def_commit">コミット</a> の <a href="#def_parent">親 </a>のセット が、コミットが作成されたときに記録したものとは異なるというふりをさせることができます。 <code>.git/info/grafts</code> ファイルを介して構成されます。</p>
+<p>移植を使用すると、コミットの偽の祖先情報を記録することで、2つの異なる開発ラインを結合できます。このようにして、Gitに <a href="#def_commit">コミット</a> の <a href="#def_parent">親 </a>のセット が、コミットが作成されたときに記録したものとは異なるというふりをさせることができます。 <span class='synopsis'><code>.git/info/grafts</code></span> ファイルを介して構成されます。</p>
 <div class="paragraph">
 <p>移植 の仕組みは時代遅れで、リポジトリ間でオブジェクトを転送する際に問題になる場合があることに注意してください。同じことを行うためのより柔軟で堅牢なシステムについては <a href='{{< relurl "docs/git-replace/ja" >}}'>git-replace[1]</a> をご覧ください。</p>
 </div>
@@ -171,7 +182,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefheadahead"> <a class="anchor" href="#gitglossary-head"></a> <a class="anchor" href="#gitglossary-aiddefheadahead"></a><a id="def_head"></a>ヘッド (head) </dt>
 <dd>
-<p><a href="#def_ref">名前を付けて参照</a>する <a href="#def_branch">ブランチ</a> の先端にある <a href="#def_commit">コミット</a> のことです。ヘッダは、パックされた参照を使うとき以外は、 <code>$GIT_DIR/refs/heads/</code> ディレクトリにあるファイルに格納されます。(<a href='{{< relurl "docs/git-pack-refs/ja" >}}'>git-pack-refs[1]</a> を参照してください。)</p>
+<p><a href="#def_ref">名前を付けて参照</a>する <a href="#def_branch">ブランチ</a> の先端にある <a href="#def_commit">コミット</a> のことです。ヘッダは、パックされた参照を使うとき以外は、 <span class='synopsis'><code>$GIT_DIR/refs/heads/</code></span> ディレクトリにあるファイルに格納されます。(<a href='{{< relurl "docs/git-pack-refs/ja" >}}'>git-pack-refs[1]</a> を参照してください。)</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefHEADaHEAD"> <a class="anchor" href="#gitglossary-HEAD"></a> <a class="anchor" href="#gitglossary-aiddefHEADaHEAD"></a><a id="def_HEAD"></a>HEAD </dt>
 <dd>
@@ -183,7 +194,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefhookahook"> <a class="anchor" href="#gitglossary-hook"></a> <a class="anchor" href="#gitglossary-aiddefhookahook"></a><a id="def_hook"></a>フック (hook) </dt>
 <dd>
-<p>Gitコマンドの通常の実行中に、開発者が機能やチェックを追加するためのオプションのスクリプトを呼び出すことができます。典型的には、フックはコマンドの事前検証をして中止を可能にし、操作の終了後に事後通知を可能にします。フックスクリプトは <code>$GIT_DIR/hooks/</code> ディレクトリにあり、ファイル名から <code>.sample</code> というサフィックスを取り除くだけで有効になります。以前のバージョンのGitでは、それらを実行可能にする必要がありました。</p>
+<p>Gitコマンドの通常の実行中に、開発者が機能やチェックを追加するためのオプションのスクリプトを呼び出すことができます。典型的には、フックはコマンドの事前検証をして中止を可能にし、操作の終了後に事後通知を可能にします。フックスクリプトは <span class='synopsis'><code>$GIT_DIR/hooks/</code></span> ディレクトリにあり、ファイル名から <span class='synopsis'><code>.sample</code></span> というサフィックスを取り除くだけで有効になります。以前のバージョンのGitでは、それらを実行可能にする必要がありました。</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefindexaindex"> <a class="anchor" href="#gitglossary-index"></a> <a class="anchor" href="#gitglossary-aiddefindexaindex"></a><a id="def_index"></a>インデックス (index) </dt>
 <dd>
@@ -210,7 +221,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefobjectdatabaseaobjectdatabase"> <a class="anchor" href="#gitglossary-objectdatabase"></a> <a class="anchor" href="#gitglossary-aiddefobjectdatabaseaobjectdatabase"></a><a id="def_object_database"></a>オブジェクトデータベース (object database) </dt>
 <dd>
-<p>「オブジェクト」のセットを保存し、個々の <a href="#def_object">オブジェクト</a> はその <a href="#def_object_name">オブジェクト名</a> によって識別されます。オブジェクトは通常 <code>$GIT_DIR/objects/</code> に格納されています。</p>
+<p>「オブジェクト」のセットを保存し、個々の <a href="#def_object">オブジェクト</a> はその <a href="#def_object_name">オブジェクト名</a> によって識別されます。オブジェクトは通常 <span class='synopsis'><code>$GIT_DIR/objects/</code></span> に格納されています。</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefobjectidentifieraobjectidentifieroid"> <a class="anchor" href="#gitglossary-objectidentifieroid"></a> <a class="anchor" href="#gitglossary-aiddefobjectidentifieraobjectidentifieroid"></a><a id="def_object_identifier"></a>オブジェクト識別子 (object identifier, oid) </dt>
 <dd>
@@ -234,7 +245,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddeforiginaorigin"> <a class="anchor" href="#gitglossary-origin"></a> <a class="anchor" href="#gitglossary-aiddeforiginaorigin"></a><a id="def_origin"></a>origin </dt>
 <dd>
-<p>デフォルトの上流 <a href="#def_repository">リポジトリ</a> です。ほとんどのプロジェクトは、追跡する上流プロジェクトを少なくとも1つ持っています。デフォルトでは <em>origin</em> がそのために使用されます。上流の新しい更新は、origin/上流のブランチに対応する名前 で <a href="#def_remote_tracking_branch">リモートトラッキングブランチ</a> に取り込まれ、<code>git branch -r</code> で確認することができます。</p>
+<p>デフォルトの上流 <a href="#def_repository">リポジトリ</a> です。ほとんどのプロジェクトは、追跡する上流プロジェクトを少なくとも1つ持っています。デフォルトでは <em>origin</em> がそのために使用されます。上流の新しい更新は、origin/上流のブランチに対応する名前 で <a href="#def_remote_tracking_branch">リモートトラッキングブランチ</a> に取り込まれ、<span class='synopsis'><code>git</code> <code>branch</code> <code>-r</code></span> で確認することができます。</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefoverlayaoverlay"> <a class="anchor" href="#gitglossary-overlay"></a> <a class="anchor" href="#gitglossary-aiddefoverlayaoverlay"></a><a id="def_overlay"></a>オーバーレイ (overlay) </dt>
 <dd>
@@ -275,10 +286,10 @@ aliases:
 <p>例えば、Documentation/*.jpg とすると、Documentation/chapter_1/figure_1.jpg を含む、Documentationサブツリーにあるすべての .jpg ファイルにマッチします。</p>
 </div>
 <div class="paragraph">
-<p>コロン <code>:</code> で始まるパススペックは特別な意味を持ちます。短い形式では、先頭のコロン <code>:</code> の後に 0 個以上の「マジックシグネチャ」文字が続き (オプションで別のコロン <code>:</code> で終了します)、残りの部分がパスに対してマッチするパターンになります。「マジックシグネチャ」は英数字でもグロブでも正規表現の特殊文字でもコロンでもないASCIIシンボルで構成されます。「マジックシグネチャ」を終了するオプションのコロンは、「マジックシグネチャ」シンボルセットに属さず、かつコロンでもない文字でパターンが始まっている場合には省略することが可能です。</p>
+<p>コロン <span class='synopsis'><code>:</code></span> で始まるパススペックは特別な意味を持ちます。短い形式では、先頭のコロン <span class='synopsis'><code>:</code></span> の後に 0 個以上の「マジックシグネチャ」文字が続き (オプションで別のコロン <span class='synopsis'><code>:</code></span> で終了します)、残りの部分がパスに対してマッチするパターンになります。「マジックシグネチャ」は英数字でもグロブでも正規表現の特殊文字でもコロンでもないASCIIシンボルで構成されます。「マジックシグネチャ」を終了するオプションのコロンは、「マジックシグネチャ」シンボルセットに属さず、かつコロンでもない文字でパターンが始まっている場合には省略することが可能です。</p>
 </div>
 <div class="paragraph">
-<p>長い形式では、先頭のコロン <code>:</code> の後に、開き括弧 <code>(</code>, カンマで区切られた0個以上の「マジックワード」のリスト、閉じ括弧 <code>)</code> が続き、残りがパスに対してマッチするパターンになります。</p>
+<p>長い形式では、先頭のコロン <span class='synopsis'><code>:</code></span> の後に、開き括弧 <span class='synopsis'>(</span>, カンマで区切られた0個以上の「マジックワード」のリスト、閉じ括弧 <span class='synopsis'>)</span> が続き、残りがパスに対してマッチするパターンになります。</p>
 </div>
 <div class="paragraph">
 <p>コロンのみのパス指定は、「パススペックがない」ことを意味します。この形式は他の パススペック と組み合わせてはいけません。</p>
@@ -289,11 +300,11 @@ aliases:
 <dl>
 <dt class="hdlist1" id="gitglossary-top"> <a class="anchor" href="#gitglossary-top"></a>top </dt>
 <dd>
-<p>マジックワードの <code>top</code> (マジックシグネチャ: <code>/</code>) は、サブディレクトリの中からコマンドを実行した場合でも、ワーキングツリーのルートからパターンにマッチするようにします。</p>
+<p>マジックワードの <span class='synopsis'><code>top</code></span> (マジックシグネチャ: <span class='synopsis'><code>/</code></span>) は、サブディレクトリの中からコマンドを実行した場合でも、ワーキングツリーのルートからパターンにマッチするようにします。</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-literal"> <a class="anchor" href="#gitglossary-literal"></a>literal </dt>
 <dd>
-<p>パターン中の <code>*</code> や <code>?</code> などのワイルドカードは、リテラル文字として扱われます。</p>
+<p>パターン中の <span class='synopsis'><code>*</code></span> や <span class='synopsis'><em>?</em></span> などのワイルドカードは、リテラル文字として扱われます。</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-icase"> <a class="anchor" href="#gitglossary-icase"></a>icase </dt>
 <dd>
@@ -303,18 +314,18 @@ aliases:
 <dd>
 <p>Git はこのパターンを、FNM_PATHNAME フラグを指定した fnmatch(3) に適したシェルグロブとして扱います。パターン中のワイルドカードは、パス名中の / にはマッチしません。例えば、"Documentation/*.html" は "Documentation/git.html" にマッチしますが、"Documentation/ppc/ppc.html" や "tools/perf/Documentation/perf.html" にはマッチしません。</p>
 <div class="paragraph">
-<p>2つ連続したアスタリスク("<code>**</code>")はフルパス名に対してマッチするパターンにおいて、特別な意味を持つ場合があります:</p>
+<p>2つ連続したアスタリスク("<span class='synopsis'><code>**</code></span>")はフルパス名に対してマッチするパターンにおいて、特別な意味を持つ場合があります:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>先頭の "<code>**/</code>" は、すべてのディレクトリにマッチすることを意味します。例えば、"<code>**/foo</code>" はファイルまたはディレクトリ "<code>foo</code>" の任意の場所にマッチし、パターン "<code>foo</code>" と同じです。 "<code>**/foo/bar</code>" はファイルまたはディレクトリ "<code>bar</code>" がディレクトリ "<code>foo</code>" 直下の任意の場所にある場合にマッチします。</p>
+<p>先頭の "<span class='synopsis'><code>**/</code></span>" は、すべてのディレクトリにマッチすることを意味します。例えば、"<span class='synopsis'><code>**/foo</code></span>" はファイルまたはディレクトリ "<span class='synopsis'><code>foo</code></span>" の任意の場所にマッチし、パターン "<span class='synopsis'><code>foo</code></span>" と同じです。 "<span class='synopsis'><code>**/foo/bar</code></span>" はファイルまたはディレクトリ "<span class='synopsis'><code>bar</code></span>" がディレクトリ "<span class='synopsis'><code>foo</code></span>" 直下の任意の場所にある場合にマッチします。</p>
 </li>
 <li>
-<p>末尾の "<code>/**</code>" は、その中にあるすべてのファイルにマッチします。例えば、"<code>abc/**</code>" はディレクトリ "abc" 内のすべてのファイルにマッチします。これは <code>.gitignore</code> ファイルの位置からの相対パスで、深さは無限です。</p>
+<p>末尾の "<span class='synopsis'><code>/**</code></span>" は、その中にあるすべてのファイルにマッチします。例えば、"<span class='synopsis'><code>abc/**</code></span>" はディレクトリ "abc" 内のすべてのファイルにマッチします。これは <span class='synopsis'><code>.gitignore</code></span> ファイルの位置からの相対パスで、深さは無限です。</p>
 </li>
 <li>
-<p>末尾以外での "<code>/**</code>" は、0個以上のディレクトリにマッチします。例えば、"<code>a/**/b</code>" は "<code>a/b</code>", "<code>a/x/b</code>", "<code>a/x/y/b</code>" といった具合にマッチする。</p>
+<p>末尾以外での "<span class='synopsis'><code>/**</code></span>" は、0個以上のディレクトリにマッチします。例えば、"<span class='synopsis'><code>a/**/b</code></span>" は "<span class='synopsis'><code>a/b</code></span>", "<span class='synopsis'><code>a/x/b</code></span>", "<span class='synopsis'><code>a/x/y/b</code></span>" といった具合にマッチする。</p>
 </li>
 <li>
 <p>これら以外の連続したアスタリスクは無効とする。</p>
@@ -327,23 +338,23 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-attr"> <a class="anchor" href="#gitglossary-attr"></a>attr </dt>
 <dd>
-<p><code>attr:</code> の後にはスペースで区切られた「属性要件」のリストが続き、パスがマッチしたとみなされるためには、これらの要件がすべて満たされなければなりません。これは、普通の魔法のないパススペック パターン マッチングに追加されます。<a href='{{< relurl "docs/gitattributes/ja" >}}'>gitattributes[5]</a>を参照してください。</p>
+<p><span class='synopsis'><code>attr:</code></span> の後にはスペースで区切られた「属性要件」のリストが続き、パスがマッチしたとみなされるためには、これらの要件がすべて満たされなければなりません。これは、普通の魔法のないパススペック パターン マッチングに追加されます。<a href='{{< relurl "docs/gitattributes/ja" >}}'>gitattributes[5]</a>を参照してください。</p>
 <div class="paragraph">
 <p>パスの各属性要件は、これらのいずれかの形式をとる:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>"<code>ATTR</code>" は、属性 <code>ATTR</code> を設定することを要求します。</p>
+<p>"<span class='synopsis'><code>ATTR</code></span>" は、属性 <span class='synopsis'><code>ATTR</code></span> を設定することを要求します。</p>
 </li>
 <li>
-<p>"<code>-ATTR</code>" は、属性 <code>ATTR</code> の設定を解除することを要求しています。</p>
+<p>"<span class='synopsis'><code>-ATTR</code></span>" は、属性 <span class='synopsis'><code>ATTR</code></span> の設定を解除することを要求しています。</p>
 </li>
 <li>
-<p>"<code>ATTR=VALUE</code>" は、属性 <code>ATTR</code> に文字列 <code>VALUE</code> を設定することを要求しています。</p>
+<p>"<span class='synopsis'><code>ATTR=VALUE</code></span>" は、属性 <span class='synopsis'><code>ATTR</code></span> に文字列 <span class='synopsis'><code>VALUE</code></span> を設定することを要求しています。</p>
 </li>
 <li>
-<p>"<code>!ATTR</code>" は、属性 <code>ATTR</code> が指定されていないことを要求しています。</p>
+<p>"<span class='synopsis'><code>!ATTR</code></span>" は、属性 <span class='synopsis'><code>ATTR</code></span> が指定されていないことを要求しています。</p>
 <div class="paragraph">
 <p>ツリーオブジェクトに対してマッチングを行う場合、属性は与えられたツリーオブジェクトからではなく、ワーキングツリーから取得されることに注意してください。</p>
 </div>
@@ -353,7 +364,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-exclude"> <a class="anchor" href="#gitglossary-exclude"></a>exclude </dt>
 <dd>
-<p>パスが何らかの非除外パススペックにマッチした後、すべての除外パススペック (マジックシグネチャ: <code>!</code> またはその同義語 <code>^</code>) を通して実行されることになります。マッチした場合、そのパスは無視されます。非除外パススペックがない場合は、パススペックなしで起動された場合と同じように、結果セットに除外が適用されます。</p>
+<p>パスが何らかの非除外パススペックにマッチした後、すべての除外パススペック (マジックシグネチャ: <span class='synopsis'><code>!</code></span> またはその同義語 <span class='synopsis'><code>^</code></span>) を通して実行されることになります。マッチした場合、そのパスは無視されます。非除外パススペックがない場合は、パススペックなしで起動された場合と同じように、結果セットに除外が適用されます。</p>
 </dd>
 </dl>
 </div>
@@ -370,7 +381,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefpickaxeapickaxe"> <a class="anchor" href="#gitglossary-pickaxe"></a> <a class="anchor" href="#gitglossary-aiddefpickaxeapickaxe"></a><a id="def_pickaxe"></a>つるはし (pickaxe) </dt>
 <dd>
-<p><a href="#def_pickaxe">つるはし</a> という用語は、与えられたテキスト文字列を追加または削除する変更を選択するのに役立つ diffcore ルーチンのオプションのことを指します。 <code>--pickaxe-all</code> オプションを使うと、例えば特定の行を追加したり削除したりした <a href="#def_changeset">チェンジセット</a> をすべて表示することができます。<a href='{{< relurl "docs/git-diff/ja" >}}'>git-diff[1]</a> を参照してください。</p>
+<p><a href="#def_pickaxe">つるはし</a> という用語は、与えられたテキスト文字列を追加または削除する変更を選択するのに役立つ diffcore ルーチンのオプションのことを指します。 <span class='synopsis'><code>--pickaxe-all</code></span> オプションを使うと、例えば特定の行を追加したり削除したりした <a href="#def_changeset">チェンジセット</a> をすべて表示することができます。<a href='{{< relurl "docs/git-diff/ja" >}}'>git-diff[1]</a> を参照してください。</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefplumbingaplumbing"> <a class="anchor" href="#gitglossary-plumbing"></a> <a class="anchor" href="#gitglossary-aiddefplumbingaplumbing"></a><a id="def_plumbing"></a>配管 (plumbing) </dt>
 <dd>
@@ -382,7 +393,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefperworktreerefaper-worktreeref"> <a class="anchor" href="#gitglossary-per-worktreeref"></a> <a class="anchor" href="#gitglossary-aiddefperworktreerefaper-worktreeref"></a><a id="def_per_worktree_ref"></a>ワークツリーごとの参照 (per-worktree ref) </dt>
 <dd>
-<p>グローバルではなく、<a href="#def_worktree">ワークツリー</a>ごとの参照。現在は <a href="#def_HEAD">HEAD</a> と <code>refs/bisect/</code> で始まる参照のみですが、将来的には他の珍しい参照も含まれるかもしれません。</p>
+<p>グローバルではなく、<a href="#def_worktree">ワークツリー</a>ごとの参照。現在は <a href="#def_HEAD">HEAD</a> と <span class='synopsis'><code>refs/bisect/</code></span> で始まる参照のみですが、将来的には他の珍しい参照も含まれるかもしれません。</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefpseudorefapseudoref"> <a class="anchor" href="#gitglossary-pseudoref"></a> <a class="anchor" href="#gitglossary-aiddefpseudorefapseudoref"></a><a id="def_pseudoref"></a>疑似参照 (pseudoref) </dt>
 <dd>
@@ -393,10 +404,10 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p><code>FETCH_HEAD</code> は <a href='{{< relurl "docs/git-fetch/ja" >}}'>git-fetch[1]</a> または <a href='{{< relurl "docs/git-pull/ja" >}}'>git-pull[1]</a> によって書き込まれます。複数のオブジェクト ID を指す場合があります。それぞれのオブジェクト ID には、取得元やフェッチ状態を示すメタデータが付加されます。</p>
+<p><span class='synopsis'><code>FETCH_HEAD</code></span> は <a href='{{< relurl "docs/git-fetch/ja" >}}'>git-fetch[1]</a> または <a href='{{< relurl "docs/git-pull/ja" >}}'>git-pull[1]</a> によって書き込まれます。複数のオブジェクト ID を指す場合があります。それぞれのオブジェクト ID には、取得元やフェッチ状態を示すメタデータが付加されます。</p>
 </li>
 <li>
-<p><code>MERGE_HEAD</code> is written by <a href='{{< relurl "docs/git-merge/ja" >}}'>git-merge[1]</a> when resolving merge conflicts. It contains all commit IDs which are being merged.</p>
+<p><span class='synopsis'><code>MERGE_HEAD</code></span> is written by <a href='{{< relurl "docs/git-merge/ja" >}}'>git-merge[1]</a> when resolving merge conflicts. It contains all commit IDs which are being merged.</p>
 </li>
 </ul>
 </div>
@@ -425,7 +436,7 @@ aliases:
 <dd>
 <p>A name that points to an <a href="#def_object_name">object name</a> or another ref (the latter is called a <a href="#def_symref">symbolic ref</a>). For convenience, a ref can sometimes be abbreviated when used as an argument to a Git command; see <a href='{{< relurl "docs/gitrevisions/ja" >}}'>gitrevisions[7]</a> for details. Refs are stored in the <a href="#def_repository">repository</a>.</p>
 <div class="paragraph">
-<p>refの名前空間は階層的です。refの名前は、<code>refs/</code> で始まるか、階層のルートに位置するかのどちらか一方でなければなりません。後者は、次のルールに従わなくてはなりません:</p>
+<p>refの名前空間は階層的です。refの名前は、<span class='synopsis'><code>refs/</code></span> で始まるか、階層のルートに位置するかのどちらか一方でなければなりません。後者は、次のルールに従わなくてはなりません:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -433,27 +444,27 @@ aliases:
 <p>名前は大文字かアンダースコアのみで構成される。</p>
 </li>
 <li>
-<p>名前は "<code>_HEAD</code>" で終わるか "<code>HEAD</code>" と一致する。</p>
+<p>名前は "<span class='synopsis'><code>_HEAD</code></span>" で終わるか "<span class='synopsis'><code>HEAD</code></span>" と一致する。</p>
 <div class="paragraph">
 <p>refの中には、これらのルールに一致しない階層のルートに属するものがあります。後述のリストは、網羅的で今後拡張されてはなりません。</p>
 </div>
 </li>
 <li>
-<p><code>AUTO_MERGE</code></p>
+<p><span class='synopsis'><code>AUTO_MERGE</code></span></p>
 </li>
 <li>
-<p><code>BISECT_EXPECTED_REV</code></p>
+<p><span class='synopsis'><code>BISECT_EXPECTED_REV</code></span></p>
 </li>
 <li>
-<p><code>NOTES_MERGE_PARTIAL</code></p>
+<p><span class='synopsis'><code>NOTES_MERGE_PARTIAL</code></span></p>
 </li>
 <li>
-<p><code>NOTES_MERGE_REF</code></p>
+<p><span class='synopsis'><code>NOTES_MERGE_REF</code></span></p>
 </li>
 <li>
-<p><code>MERGE_AUTOSTASH</code></p>
+<p><span class='synopsis'><code>MERGE_AUTOSTASH</code></span></p>
 <div class="paragraph">
-<p>Different subhierarchies are used for different purposes. For example, the <code>refs/heads/</code> hierarchy is used to represent local branches whereas the <code>refs/tags/</code> hierarchy is used to represent local tags..</p>
+<p>Different subhierarchies are used for different purposes. For example, the <span class='synopsis'><code>refs/heads/</code></span> hierarchy is used to represent local branches whereas the <span class='synopsis'><code>refs/tags/</code></span> hierarchy is used to represent local tags..</p>
 </div>
 </li>
 </ul>
@@ -501,7 +512,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefshallowcloneashallowclone"> <a class="anchor" href="#gitglossary-shallowclone"></a> <a class="anchor" href="#gitglossary-aiddefshallowcloneashallowclone"></a><a id="def_shallow_clone"></a>シャロークローン (shallow clone) </dt>
 <dd>
-<p>主に<a href="#def_shallow_repository">シャローリポジトリ</a>の同義語ですが、この文言は <code>git clone --depth=...</code> コマンドを実行して作成されたことをより明確に表しています。</p>
+<p>主に<a href="#def_shallow_repository">シャローリポジトリ</a>の同義語ですが、この文言は <span class='synopsis'><code>git</code> <code>clone</code> <code>--depth=...</code></span> コマンドを実行して作成されたことをより明確に表しています。</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefshallowrepositoryashallowrepository"> <a class="anchor" href="#gitglossary-shallowrepository"></a> <a class="anchor" href="#gitglossary-aiddefshallowrepositoryashallowrepository"></a><a id="def_shallow_repository"></a>シャローリポジトリ (shallow repository) </dt>
 <dd>

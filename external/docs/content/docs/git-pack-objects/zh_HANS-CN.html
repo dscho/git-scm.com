@@ -9,6 +9,23 @@ docname: git-pack-objects
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-pack-objects/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: DELTA ISLANDS
+  id: _delta_islands
+- text: 配置
+  id: _配置
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -68,15 +85,15 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-pack-objects---revs"> <a class="anchor" href="#git-pack-objects---revs"></a>--revs </dt>
 <dd>
-<p>从标准输入读取修订参数，而不是单个对象名称。 修订版参数的处理方式与带有 <code>--objects</code> 标志的 <em>git rev-list</em> 使用其 <code>commit</code> 参数来建立其输出的对象列表相同。 结果列表上的对象被打包。 除了修订，还接受 <code>--not</code> 或 <code>--shallow &lt;SHA-1&gt;</code> 行。</p>
+<p>从标准输入读取修订参数，而不是单个对象名称。 修订版参数的处理方式与带有 <span class='synopsis'><code>--objects</code></span> 标志的 <em>git rev-list</em> 使用其 <span class='synopsis'><code>commit</code></span> 参数来建立其输出的对象列表相同。 结果列表上的对象被打包。 除了修订，还接受 <span class='synopsis'><code>--not</code></span> 或 <span class='synopsis'><code>--shallow</code> <em>&lt;SHA-1&gt;</em></span> 行。</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---unpacked"> <a class="anchor" href="#git-pack-objects---unpacked"></a>--unpacked </dt>
 <dd>
-<p>这暗指 <code>--revs</code>。 当处理从标准输入读取的修订参数列表时，将打包的对象限制在那些尚未打包的对象。</p>
+<p>这暗指 <span class='synopsis'><code>--revs</code></span>。 当处理从标准输入读取的修订参数列表时，将打包的对象限制在那些尚未打包的对象。</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---all"> <a class="anchor" href="#git-pack-objects---all"></a>--all </dt>
 <dd>
-<p>这暗指 <code>--revs</code>。 除了从标准输入中读取的修订参数列表外，还假设指定要包括 `refs/`下的所有引用。</p>
+<p>这暗指 <span class='synopsis'><code>--revs</code></span>。 除了从标准输入中读取的修订参数列表外，还假设指定要包括 `refs/`下的所有引用。</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---include-tag"> <a class="anchor" href="#git-pack-objects---include-tag"></a>--include-tag </dt>
 <dd>
@@ -84,24 +101,24 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-pack-objects---stdin-packs"> <a class="anchor" href="#git-pack-objects---stdin-packs"></a>--stdin-packs </dt>
 <dd>
-<p>从标准输入中读取 packfiles（例如：<code>pack-1234abcd.pack</code>）的基本名称，而不是对象名称或修订参数。产生的数据包包含所有在包含的数据包中列出的对象（那些不是以 <code>^</code> 开头的），排除在排除的数据包中列出的任何对象（以 <code>^</code> 开头）。</p>
+<p>从标准输入中读取 packfiles（例如：<span class='synopsis'><code>pack-1234abcd.pack</code></span>）的基本名称，而不是对象名称或修订参数。产生的数据包包含所有在包含的数据包中列出的对象（那些不是以 <span class='synopsis'><code>^</code></span> 开头的），排除在排除的数据包中列出的任何对象（以 <span class='synopsis'><code>^</code></span> 开头）。</p>
 <div class="paragraph">
-<p>与 <code>--revs</code> 或暗指 <code>--revs</code> 的选项（如 <code>--all</code>）不兼容，但 <code>--unpacked</code> 除外，它是兼容的。</p>
+<p>与 <span class='synopsis'><code>--revs</code></span> 或暗指 <span class='synopsis'><code>--revs</code></span> 的选项（如 <span class='synopsis'><code>--all</code></span>）不兼容，但 <span class='synopsis'><code>--unpacked</code></span> 除外，它是兼容的。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---cruft"> <a class="anchor" href="#git-pack-objects---cruft"></a>--cruft </dt>
 <dd>
-<p>将无法到达的对象打包到一个单独的 "cruft" 包中，以 <code>.mtimes</code> 文件的存在为标志。通常由`git repack --cruft`使用。调用者提供一个包的名称列表，并指出哪些包将保留在版本库中，以及哪些包将被删除（用 <code>-</code> 前缀表示）。cruft 包的内容是所有不包含在幸存的包中的对象，它们没有超过宽限期（见下面的 <code>--cruft-expiration</code>），或者它们已经超过了宽限期，但可以从其他没有超过宽限期的对象中到达。</p>
+<p>将无法到达的对象打包到一个单独的 "cruft" 包中，以 <span class='synopsis'><code>.mtimes</code></span> 文件的存在为标志。通常由`git repack --cruft`使用。调用者提供一个包的名称列表，并指出哪些包将保留在版本库中，以及哪些包将被删除（用 <span class='synopsis'><code>-</code></span> 前缀表示）。cruft 包的内容是所有不包含在幸存的包中的对象，它们没有超过宽限期（见下面的 <span class='synopsis'><code>--cruft-expiration</code></span>），或者它们已经超过了宽限期，但可以从其他没有超过宽限期的对象中到达。</p>
 <div class="paragraph">
-<p>当输入列出一个包含所有可达对象的包（并将所有其他包列为待删除），相应的 cruft 包将包含所有不可达对象（其 mtime 比 <code>--cruft-expiration</code> 新），以及任何 mtime 比 <code>--cruft-expiration</code> 早，但可从 mtime 比 <code>--cruft-expiration</code> 新的不可达对象到达的不可达对象）。</p>
+<p>当输入列出一个包含所有可达对象的包（并将所有其他包列为待删除），相应的 cruft 包将包含所有不可达对象（其 mtime 比 <span class='synopsis'><code>--cruft-expiration</code></span> 新），以及任何 mtime 比 <span class='synopsis'><code>--cruft-expiration</code></span> 早，但可从 mtime 比 <span class='synopsis'><code>--cruft-expiration</code></span> 新的不可达对象到达的不可达对象）。</p>
 </div>
 <div class="paragraph">
-<p>与 <code>--unpack-unreachable</code>、 <code>--keep-unreachable</code>、 <code>--pack-loose-unreachable</code>、 <code>--stdin-packs</code>，以及其他暗示 <code>--revs</code> 的选项不兼容。</p>
+<p>与 <span class='synopsis'><code>--unpack-unreachable</code></span>、 <span class='synopsis'><code>--keep-unreachable</code></span>、 <span class='synopsis'><code>--pack-loose-unreachable</code></span>、 <span class='synopsis'><code>--stdin-packs</code></span>，以及其他暗示 <span class='synopsis'><code>--revs</code></span> 的选项不兼容。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---cruft-expirationltgt"> <a class="anchor" href="#git-pack-objects---cruft-expiration"></a> <a class="anchor" href="#git-pack-objects---cruft-expirationltgt"></a>--cruft-expiration=&lt;近似值&gt; </dt>
 <dd>
-<p>如果指定了，且对象的 mtime 超过 <code>&lt;approxidate&gt;</code>，就会从 cruft 包中剔除。如果没有指定（并给出 <code>--cruft</code>），那么没有对象被淘汰。</p>
+<p>如果指定了，且对象的 mtime 超过 <span class='synopsis'><em>&lt;approxidate&gt;</em></span>，就会从 cruft 包中剔除。如果没有指定（并给出 <span class='synopsis'><code>--cruft</code></span>），那么没有对象被淘汰。</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---windowltngt"> <a class="anchor" href="#git-pack-objects---windown"></a> <a class="anchor" href="#git-pack-objects---windowltngt"></a>--window=&lt;n&gt; </dt>
 <dt class="hdlist1" id="git-pack-objects---depthltngt"> <a class="anchor" href="#git-pack-objects---depthn"></a> <a class="anchor" href="#git-pack-objects---depthltngt"></a>--depth=&lt;n&gt; </dt>
@@ -113,7 +130,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-pack-objects---window-memoryltngt"> <a class="anchor" href="#git-pack-objects---window-memoryn"></a> <a class="anchor" href="#git-pack-objects---window-memoryltngt"></a>--window-memory=&lt;n&gt; </dt>
 <dd>
-<p>这个选项在 <code>--window</code> 的基础上提供了一个额外的限制；窗口的大小将动态地缩小，以便不占用超过 <em>&lt;n&gt;</em> 字节的内存。 这对有大有小的对象的存储库很有用，它不会因为大窗口而耗尽内存，但仍然能够利用大窗口来处理小对象。 大小可以以 "k"、"m "或 "g "为后缀。 <code>--window-memory=0</code> 使内存使用不受限制。 默认值取自`pack.windowMemory` 配置变量。</p>
+<p>这个选项在 <span class='synopsis'><code>--window</code></span> 的基础上提供了一个额外的限制；窗口的大小将动态地缩小，以便不占用超过 <em>&lt;n&gt;</em> 字节的内存。 这对有大有小的对象的存储库很有用，它不会因为大窗口而耗尽内存，但仍然能够利用大窗口来处理小对象。 大小可以以 "k"、"m "或 "g "为后缀。 <span class='synopsis'><code>--window-memory=0</code></span> 使内存使用不受限制。 默认值取自`pack.windowMemory` 配置变量。</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---max-pack-sizeltngt"> <a class="anchor" href="#git-pack-objects---max-pack-sizen"></a> <a class="anchor" href="#git-pack-objects---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
 <dd>
@@ -125,7 +142,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-pack-objects---keep-packltgt"> <a class="anchor" href="#git-pack-objects---keep-pack"></a> <a class="anchor" href="#git-pack-objects---keep-packltgt"></a>--keep-pack=&lt;包名&gt; </dt>
 <dd>
-<p>这个标志使已经在给定包中的对象被忽略，即使它本来已经被打包。<code>&lt;pack-name&gt;</code> 是不带前导目录的包文件名（例如：<code>pack-123.pack</code>）。该选项可以被多次指定以保留多个包。</p>
+<p>这个标志使已经在给定包中的对象被忽略，即使它本来已经被打包。<span class='synopsis'><em>&lt;pack-name&gt;</em></span> 是不带前导目录的包文件名（例如：<span class='synopsis'><code>pack-123.pack</code></span>）。该选项可以被多次指定以保留多个包。</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---incremental"> <a class="anchor" href="#git-pack-objects---incremental"></a>--incremental </dt>
 <dd>
@@ -169,13 +186,13 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-pack-objects---no-sparse"> <a class="anchor" href="#git-pack-objects---no-sparse"></a>--[no-]sparse </dt>
 <dd>
-<p>与 "--revs" 选项结合使用时，切换 "稀疏" 算法，以确定哪些对象应包含在数据包中。这种算法只行走那些出现在引入新对象的路径中的树。 当计算一个包来发送一个小的变化时，这可能有显著的性能优势。然而，如果所包含的提交包含某些类型的直接重命名，则可能会有额外的对象被添加到包文件中。如果不包括这个选项，它默认为 <code>pack.useSparse</code> 的值，除非另有规定，否则为真。</p>
+<p>与 "--revs" 选项结合使用时，切换 "稀疏" 算法，以确定哪些对象应包含在数据包中。这种算法只行走那些出现在引入新对象的路径中的树。 当计算一个包来发送一个小的变化时，这可能有显著的性能优势。然而，如果所包含的提交包含某些类型的直接重命名，则可能会有额外的对象被添加到包文件中。如果不包括这个选项，它默认为 <span class='synopsis'><code>pack.useSparse</code></span> 的值，除非另有规定，否则为真。</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---thin"> <a class="anchor" href="#git-pack-objects---thin"></a>--thin </dt>
 <dd>
 <p>通过省略发送方和接收方之间的共同对象来创建一个 "轻量" 包，以减少网络传输。这个选项只有在与 --stdout 一起使用时才有意义。</p>
 <div class="paragraph">
-<p>注意：轻量包由于省略了所需的对象而违反了打包的存档格式，因此如果不使其自成一体，Git 就无法使用。使用 <code>git index-pack --fix-thin</code> （ <a href='{{< relurl "docs/git-index-pack/zh_HANS-CN" >}}'>git-index-pack[1]</a>）来恢复自包含的属性。</p>
+<p>注意：轻量包由于省略了所需的对象而违反了打包的存档格式，因此如果不使其自成一体，Git 就无法使用。使用 <span class='synopsis'><code>git</code> <code>index-pack</code> <code>--fix-thin</code></span> （ <a href='{{< relurl "docs/git-index-pack/zh_HANS-CN" >}}'>git-index-pack[1]</a>）来恢复自包含的属性。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---shallow"> <a class="anchor" href="#git-pack-objects---shallow"></a>--shallow </dt>
@@ -186,7 +203,7 @@ aliases:
 <dd>
 <p>打包后的归档文件可以用 20 字节的对象名称或流中的偏移量来表达 delta 的基础对象，但早期版本的 Git 不理解后者。 默认情况下，<em>git pack-objects</em> 只使用前一种格式，以提高兼容性。 这个选项允许该命令使用后者的格式以达到紧凑的目的。 根据 delta 链的平均长度，这个选项通常会将生成的 packfile 缩小 3-5%。</p>
 <div class="paragraph">
-<p>注意: 在现版本 Git 中，诸如 <code>git gc</code> (参见 <a href='{{< relurl "docs/git-gc/zh_HANS-CN" >}}'>git-gc[1]</a>)、<code>git repack</code> (参见 <a href='{{< relurl "docs/git-repack/zh_HANS-CN" >}}'>git-repack[1]</a>)之类的上层命令在将仓库中的对象放入打包文件时，默认会传递这个选项。 当 <code>git bundle</code> (参见 <a href='{{< relurl "docs/git-bundle/zh_HANS-CN" >}}'>git-bundle[1]</a>)创建一个捆绑包时也会这样做。</p>
+<p>注意: 在现版本 Git 中，诸如 <span class='synopsis'><code>git</code> <code>gc</code></span> (参见 <a href='{{< relurl "docs/git-gc/zh_HANS-CN" >}}'>git-gc[1]</a>)、<span class='synopsis'><code>git</code> <code>repack</code></span> (参见 <a href='{{< relurl "docs/git-repack/zh_HANS-CN" >}}'>git-repack[1]</a>)之类的上层命令在将仓库中的对象放入打包文件时，默认会传递这个选项。 当 <span class='synopsis'><code>git</code> <code>bundle</code></span> (参见 <a href='{{< relurl "docs/git-bundle/zh_HANS-CN" >}}'>git-bundle[1]</a>)创建一个捆绑包时也会这样做。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---threadsltngt"> <a class="anchor" href="#git-pack-objects---threadsn"></a> <a class="anchor" href="#git-pack-objects---threadsltngt"></a>--threads=&lt;n&gt; </dt>
@@ -203,11 +220,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-pack-objects---filterltgt"> <a class="anchor" href="#git-pack-objects---filter"></a> <a class="anchor" href="#git-pack-objects---filterltgt"></a>--filter=&lt;过滤器定义&gt; </dt>
 <dd>
-<p>从生成的包文件中省略某些对象（通常是 blob）。 有关有效的 <code>&lt;过滤规则&gt;</code> 形式，请参见 <a href='{{< relurl "docs/git-rev-list/zh_HANS-CN" >}}'>git-rev-list[1]</a>。</p>
+<p>从生成的包文件中省略某些对象（通常是 blob）。 有关有效的 <span class='synopsis'><em>&lt;过滤规则&gt;</em></span> 形式，请参见 <a href='{{< relurl "docs/git-rev-list/zh_HANS-CN" >}}'>git-rev-list[1]</a>。</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---no-filter"> <a class="anchor" href="#git-pack-objects---no-filter"></a>--no-filter </dt>
 <dd>
-<p>关闭之前的 <code>--filter=</code> 参数。</p>
+<p>关闭之前的 <span class='synopsis'><code>--filter=</code></span> 参数。</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---missingltgt"> <a class="anchor" href="#git-pack-objects---missing"></a> <a class="anchor" href="#git-pack-objects---missingltgt"></a>--missing=&lt;缺失行为&gt; </dt>
 <dd>
@@ -236,7 +253,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-pack-objects---unpack-unreachable"> <a class="anchor" href="#git-pack-objects---unpack-unreachable"></a>--unpack-unreachable </dt>
 <dd>
-<p>以松散的形式保存无法访问的对象。这意味着 <code>--revs</code>。</p>
+<p>以松散的形式保存无法访问的对象。这意味着 <span class='synopsis'><code>--revs</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---delta-islands"> <a class="anchor" href="#git-pack-objects---delta-islands"></a>--delta-islands </dt>
 <dd>
@@ -246,10 +263,10 @@ aliases:
 <dd>
 <p>While performing delta compression, Git groups objects that may be similar based on heuristics using the path to that object. While grouping objects by an exact path match is good for paths with many versions, there are benefits for finding delta pairs across different full paths. Git collects objects by type and then by a "name hash" of the path and then by size, hoping to group objects that will compress well together.</p>
 <div class="paragraph">
-<p>The default name hash version is <code>1</code>, which prioritizes hash locality by considering the final bytes of the path as providing the maximum magnitude to the hash function. This version excels at distinguishing short paths and finding renames across directories. However, the hash function depends primarily on the final 16 bytes of the path. If there are many paths in the repo that have the same final 16 bytes and differ only by parent directory, then this name-hash may lead to too many collisions and cause poor results. At the moment, this version is required when writing reachability bitmap files with <code>--write-bitmap-index</code>.</p>
+<p>The default name hash version is <span class='synopsis'><code>1</code></span>, which prioritizes hash locality by considering the final bytes of the path as providing the maximum magnitude to the hash function. This version excels at distinguishing short paths and finding renames across directories. However, the hash function depends primarily on the final 16 bytes of the path. If there are many paths in the repo that have the same final 16 bytes and differ only by parent directory, then this name-hash may lead to too many collisions and cause poor results. At the moment, this version is required when writing reachability bitmap files with <span class='synopsis'><code>--write-bitmap-index</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>The name hash version <code>2</code> has similar locality features as version <code>1</code>, except it considers each path component separately and overlays the hashes with a shift. This still prioritizes the final bytes of the path, but also "salts" the lower bits of the hash using the parent directory names. This method allows for some of the locality benefits of version <code>1</code> while breaking most of the collisions from a similarly-named file appearing in many different directories. At the moment, this version is not allowed when writing reachability bitmap files with <code>--write-bitmap-index</code> and it will be automatically changed to version <code>1</code>.</p>
+<p>The name hash version <span class='synopsis'><code>2</code></span> has similar locality features as version <span class='synopsis'><code>1</code></span>, except it considers each path component separately and overlays the hashes with a shift. This still prioritizes the final bytes of the path, but also "salts" the lower bits of the hash using the parent directory names. This method allows for some of the locality benefits of version <span class='synopsis'><code>1</code></span> while breaking most of the collisions from a similarly-named file appearing in many different directories. At the moment, this version is not allowed when writing reachability bitmap files with <span class='synopsis'><code>--write-bitmap-index</code></span> and it will be automatically changed to version <span class='synopsis'><code>1</code></span>.</p>
 </div>
 </dd>
 </dl>
@@ -260,7 +277,7 @@ aliases:
 <h2 id="_delta_islands"><a class="anchor" href="#_delta_islands"></a>DELTA ISLANDS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在可能的情况下， <code>pack-objects</code> 尝试重用现有的磁盘上的 deltas，以避免临时搜索新的 deltas。这对于服务获取来说是一个重要的优化，因为它意味着服务器可以完全避免膨胀大多数对象，而只是直接从磁盘发送字节。当一个对象以 delta 的形式存储，而接收者并不拥有（而且我们也没有发送）这个基数时，这种优化就不起作用了。在这种情况下，服务器将 “中断” delta，并必须找到一个新的delta，这将产生很高的 CPU 成本。因此，磁盘上 delta 关系中的对象集必须与客户端获取的对象相匹配，这对性能非常重要。</p>
+<p>在可能的情况下， <span class='synopsis'><code>pack-objects</code></span> 尝试重用现有的磁盘上的 deltas，以避免临时搜索新的 deltas。这对于服务获取来说是一个重要的优化，因为它意味着服务器可以完全避免膨胀大多数对象，而只是直接从磁盘发送字节。当一个对象以 delta 的形式存储，而接收者并不拥有（而且我们也没有发送）这个基数时，这种优化就不起作用了。在这种情况下，服务器将 “中断” delta，并必须找到一个新的delta，这将产生很高的 CPU 成本。因此，磁盘上 delta 关系中的对象集必须与客户端获取的对象相匹配，这对性能非常重要。</p>
 </div>
 <div class="paragraph">
 <p>在正常的仓库中，这往往是自动进行的。对象大多可以从分支和标签中获取，这也是客户端获取的内容。我们在服务器上发现的任何脱节都可能是客户端已经拥有或将要拥有的对象之间的脱节。</p>
@@ -269,16 +286,16 @@ aliases:
 <p>但在某些仓库设置中，您可能有几个相关但独立的引用提示组，客户端倾向于独立获取这些组。例如，假设你在一个共享对象存储空间中托管了多个版本库的 "fork"，并通过`GIT_NAMESPACE`或使用替代机制的独立仓库让客户端将它们视为独立的仓库。天真的 repack 可能会发现，一个对象的最佳 delta 是针对只有在另一个 fork 中才能找到的基数。但是，当客户端获取时，他们将没有基础对象，我们将不得不临时找到一个新的 delta。</p>
 </div>
 <div class="paragraph">
-<p>如果在 <code>refs/heads/</code> 和 <code>refs/tags/</code> 之外有许多指向相关对象的引用（例如，某些托管提供商使用的 <code>refs/pull</code> 或 <code>refs/changes</code>），也可能存在类似的情况。默认情况下，客户端只获取 heads 和 tags，因此不能发送只在这些组中找到的对象的 deltas。</p>
+<p>如果在 <span class='synopsis'><code>refs/heads/</code></span> 和 <span class='synopsis'><code>refs/tags/</code></span> 之外有许多指向相关对象的引用（例如，某些托管提供商使用的 <span class='synopsis'><code>refs/pull</code></span> 或 <span class='synopsis'><code>refs/changes</code></span>），也可能存在类似的情况。默认情况下，客户端只获取 heads 和 tags，因此不能发送只在这些组中找到的对象的 deltas。</p>
 </div>
 <div class="paragraph">
-<p>Delta 岛解决了这个问题，它允许您将您的引用分组为不同的 “岛”。Pack-objects 会计算哪些对象可以从哪些岛屿到达，并拒绝从对象 <code>A</code> 针对不存在于所有 <code>A</code> 岛屿中的基准进行 delta。这会导致数据包略微变大(因为我们错过了一些 delta 机会)，但保证了对一个岛的取值不会因为跨越岛的边界而不得不重新计算 delta。</p>
+<p>Delta 岛解决了这个问题，它允许您将您的引用分组为不同的 “岛”。Pack-objects 会计算哪些对象可以从哪些岛屿到达，并拒绝从对象 <span class='synopsis'><code>A</code></span> 针对不存在于所有 <span class='synopsis'><code>A</code></span> 岛屿中的基准进行 delta。这会导致数据包略微变大(因为我们错过了一些 delta 机会)，但保证了对一个岛的取值不会因为跨越岛的边界而不得不重新计算 delta。</p>
 </div>
 <div class="paragraph">
 <p>当使用 delta 岛重新打包时，delta 窗口往往会被配置禁止的候选对象堵塞。使用大的 --window 进行重新打包会有所帮助（而且不会像其他情况下花费那么长的时间，因为在对内容进行任何计算之前，我们可以根据岛拒绝一些对象对）。</p>
 </div>
 <div class="paragraph">
-<p>岛是通过 <code>pack.island</code> 选项配置的，可以多次指定。每个值都是匹配 refnames 的左锚正则表达式。例如 :</p>
+<p>岛是通过 <span class='synopsis'><code>pack.island</code></span> 选项配置的，可以多次指定。每个值都是匹配 refnames 的左锚正则表达式。例如 :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -288,13 +305,13 @@ island = refs/tags/</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>将 heads 和 tags 放入一个 “岛” 中（其名称为空字符串；有关命名的更多信息，请参阅下文）。任何不匹配这些正则表达式的引用（例如 <code>refs/pull/123</code>）都不在任何岛中。因此，任何只能从 <code>refs/pull/</code> (而不能从 heads 或 tags) 访问的对象都不能作为 <code>refs/heads/</code> 的基础。</p>
+<p>将 heads 和 tags 放入一个 “岛” 中（其名称为空字符串；有关命名的更多信息，请参阅下文）。任何不匹配这些正则表达式的引用（例如 <span class='synopsis'><code>refs/pull/123</code></span>）都不在任何岛中。因此，任何只能从 <span class='synopsis'><code>refs/pull/</code></span> (而不能从 heads 或 tags) 访问的对象都不能作为 <span class='synopsis'><code>refs/heads/</code></span> 的基础。</p>
 </div>
 <div class="paragraph">
 <p>参考文件根据其 “名称” 分组，产生相同名称的两个 regex 被视为在同一个岛中。名称是通过连接 regex 中的任何捕获组和中间的 <em>-</em> 破折号来计算的。(如果没有捕获组，则名称为空字符串，如上例）。这允许您创建任意数量的岛屿。但最多只支持 14 个这样的捕获组。</p>
 </div>
 <div class="paragraph">
-<p>例如，假设你在 <code>refs/virtual/ID</code> 中存储了每个 fork 的引用，其中 <code>ID</code> 是一个数字标识符。然后您可以配置 :</p>
+<p>例如，假设你在 <span class='synopsis'><code>refs/virtual/ID</code></span> 中存储了每个 fork 的引用，其中 <span class='synopsis'><code>ID</code></span> 是一个数字标识符。然后您可以配置 :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -319,7 +336,7 @@ island = refs/virtual/([0-9]+)/(pull)/</pre>
 <p>各种配置变量会影响打包，参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> (搜索 "pack" 和 "delta")。</p>
 </div>
 <div class="paragraph">
-<p>值得注意的是，delta 压缩不用于大于 <code>core.bigFileThreshold</code> 配置变量的对象和属性 <code>delta</code> 设置为 false 的文件。</p>
+<p>值得注意的是，delta 压缩不用于大于 <span class='synopsis'><code>core.bigFileThreshold</code></span> 配置变量的对象和属性 <span class='synopsis'><code>delta</code></span> 设置为 false 的文件。</p>
 </div>
 </div>
 </div>

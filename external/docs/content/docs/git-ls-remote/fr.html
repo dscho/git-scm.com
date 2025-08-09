@@ -9,6 +9,25 @@ docname: git-ls-remote
 lang: fr
 aliases:
 - "/docs/git-ls-remote/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: SORTIE
+  id: _sortie
+- text: EXEMPLES
+  id: _exemples
+- text: VOIR AUSSI
+  id: _voir_aussi
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -46,11 +65,11 @@ aliases:
 <dt class="hdlist1" id="git-ls-remote--t"> <a class="anchor" href="#git-ls-remote--t"></a>-t </dt>
 <dt class="hdlist1" id="git-ls-remote---tags"> <a class="anchor" href="#git-ls-remote---tags"></a>--tags </dt>
 <dd>
-<p>Limiter aux branches locales et aux étiquette locales, respectivement. Ces options ne s&#8217;excluent pas mutuellement ; si les deux sont données, les références stockées dans refs/heads et refs/tags sont affichées. Notez que <code>--heads</code> et <code>-h</code> sont des synonymes obsolètes pour <code>--branches</code> et <code>-b</code> et pourront être supprimés dans l&#8217;avenir. Notez aussi que <code>git ls-remote -h</code> utilisé sans rien d&#8217;autre sur la ligne de commande donne de l&#8217;aide, comme les autres sous-commandes de git.</p>
+<p>Limiter aux branches locales et aux étiquette locales, respectivement. Ces options ne s&#8217;excluent pas mutuellement ; si les deux sont données, les références stockées dans refs/heads et refs/tags sont affichées. Notez que <span class='synopsis'><code>--heads</code></span> et <span class='synopsis'><code>-h</code></span> sont des synonymes obsolètes pour <span class='synopsis'><code>--branches</code></span> et <span class='synopsis'><code>-b</code></span> et pourront être supprimés dans l&#8217;avenir. Notez aussi que <span class='synopsis'><code>git</code> <code>ls-remote</code> <code>-h</code></span> utilisé sans rien d&#8217;autre sur la ligne de commande donne de l&#8217;aide, comme les autres sous-commandes de git.</p>
 </dd>
 <dt class="hdlist1" id="git-ls-remote---refs"> <a class="anchor" href="#git-ls-remote---refs"></a>--refs </dt>
 <dd>
-<p>Ne pas afficher les étiquettes pelées ou les pseudorefs comme <code>HEAD</code> dans la sortie.</p>
+<p>Ne pas afficher les étiquettes pelées ou les pseudorefs comme <span class='synopsis'><code>HEAD</code></span> dans la sortie.</p>
 </dd>
 <dt class="hdlist1" id="git-ls-remote--q"> <a class="anchor" href="#git-ls-remote--q"></a>-q </dt>
 <dt class="hdlist1" id="git-ls-remote---quiet"> <a class="anchor" href="#git-ls-remote---quiet"></a>--quiet </dt>
@@ -75,12 +94,12 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-ls-remote---sortltclgt"> <a class="anchor" href="#git-ls-remote---sortcl"></a> <a class="anchor" href="#git-ls-remote---sortltclgt"></a>--sort=&lt;clé&gt; </dt>
 <dd>
-<p>Trier sur la base de la clé donnée. Préfixe <code>-</code> pour trier par ordre décroissant de la valeur. Supporte "version:refname" ou "v:refname" (les noms de balises sont traités comme des versions). L&#8217;ordre de tri "version:refname" peut également être affecté par la variable de configuration "versionsort.suffix". Voir <a href='{{< relurl "docs/git-for-each-ref/fr" >}}'>git-for-each-ref[1]</a> pour plus d&#8217;options de tri, mais soyez conscient que des clés comme <code>committerdate</code> qui requièrent l&#8217;accès aux objets eux-mêmes ne fonctionneront pas pour les refs dont les objets n&#8217;ont pas encore été récupérés du distant, et donneront une erreur <code>missing object</code> (objet manquant).</p>
+<p>Trier sur la base de la clé donnée. Préfixe <span class='synopsis'><code>-</code></span> pour trier par ordre décroissant de la valeur. Supporte "version:refname" ou "v:refname" (les noms de balises sont traités comme des versions). L&#8217;ordre de tri "version:refname" peut également être affecté par la variable de configuration "versionsort.suffix". Voir <a href='{{< relurl "docs/git-for-each-ref/fr" >}}'>git-for-each-ref[1]</a> pour plus d&#8217;options de tri, mais soyez conscient que des clés comme <span class='synopsis'><code>committerdate</code></span> qui requièrent l&#8217;accès aux objets eux-mêmes ne fonctionneront pas pour les refs dont les objets n&#8217;ont pas encore été récupérés du distant, et donneront une erreur <span class='synopsis'><code>missing</code> <code>object</code></span> (objet manquant).</p>
 </dd>
 <dt class="hdlist1" id="git-ls-remote--oltoptiongt"> <a class="anchor" href="#git-ls-remote--ooption"></a> <a class="anchor" href="#git-ls-remote--oltoptiongt"></a>-o &lt;option&gt; </dt>
 <dt class="hdlist1" id="git-ls-remote---server-optionltoptiongt"> <a class="anchor" href="#git-ls-remote---server-optionoption"></a> <a class="anchor" href="#git-ls-remote---server-optionltoptiongt"></a>--server-option=&lt;option&gt; </dt>
 <dd>
-<p>Transmettre la chaîne donnée au serveur lors d&#8217;une communication avec le protocole version 2. La chaîne donnée ne doit pas contenir de caractère <em>NUL</em> ou <em>LF</em>. Lorsque plusieurs <code>--server-option=&lt;option&gt;</code> sont donnés, ils sont tous envoyés de l&#8217;autre côté dans l&#8217;ordre indiqué sur la ligne de commande. Lorsqu&#8217;aucun <code>--server-option=&lt;option&gt;</code> n&#8217;est donné en ligne de commande, les valeurs de la variable de configuration <code>remote.&lt;nom&gt;.serverOption</code> sont utilisées à la place.</p>
+<p>Transmettre la chaîne donnée au serveur lors d&#8217;une communication avec le protocole version 2. La chaîne donnée ne doit pas contenir de caractère <em>NUL</em> ou <em>LF</em>. Lorsque plusieurs <span class='synopsis'><code>--server-option=</code><em>&lt;option&gt;</em></span> sont donnés, ils sont tous envoyés de l&#8217;autre côté dans l&#8217;ordre indiqué sur la ligne de commande. Lorsqu&#8217;aucun <span class='synopsis'><code>--server-option=</code><em>&lt;option&gt;</em></span> n&#8217;est donné en ligne de commande, les valeurs de la variable de configuration <span class='synopsis'><code>remote.</code><em>&lt;nom&gt;</em><code>.serverOption</code></span> sont utilisées à la place.</p>
 </dd>
 <dt class="hdlist1" id="git-ls-remote-ltdptgt"> <a class="anchor" href="#git-ls-remote-dpt"></a> <a class="anchor" href="#git-ls-remote-ltdptgt"></a>&lt;dépôt&gt; </dt>
 <dd>
@@ -88,7 +107,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-ls-remote-ltmotifgt82308203"> <a class="anchor" href="#git-ls-remote-motif"></a> <a class="anchor" href="#git-ls-remote-ltmotifgt82308203"></a>&lt;motif&gt;&#8230;&#8203; </dt>
 <dd>
-<p>Si elle n&#8217;est pas spécifiée, toutes les références, après le filtrage effectué avec --heads et --tags, sont affichées. Lorsque &lt;motif&gt;&#8230;&#8203; est spécifié, seules les références correspondant à un ou plusieurs des motifs donnés sont affichées. Chaque motif est interprété comme un glob (voir <code>glob</code> dans <a href='{{< relurl "docs/gitglossary/fr" >}}'>gitglossary[7]</a>) qui est comparé à la "queue" d&#8217;une référence, en commençant soit par le début de la référence (ainsi un nom complet comme <code>refs/heads/foo</code> correspond), soit par un séparateur (ainsi <code>bar</code> correspond à <code>refs/heads/bar</code> mais pas à <code>refs/heads/foobar</code>).</p>
+<p>Si elle n&#8217;est pas spécifiée, toutes les références, après le filtrage effectué avec --heads et --tags, sont affichées. Lorsque &lt;motif&gt;&#8230;&#8203; est spécifié, seules les références correspondant à un ou plusieurs des motifs donnés sont affichées. Chaque motif est interprété comme un glob (voir <span class='synopsis'><code>glob</code></span> dans <a href='{{< relurl "docs/gitglossary/fr" >}}'>gitglossary[7]</a>) qui est comparé à la "queue" d&#8217;une référence, en commençant soit par le début de la référence (ainsi un nom complet comme <span class='synopsis'><code>refs/heads/foo</code></span> correspond), soit par un séparateur (ainsi <span class='synopsis'><code>bar</code></span> correspond à <span class='synopsis'><code>refs/heads/bar</code></span> mais pas à <span class='synopsis'><code>refs/heads/foobar</code></span>).</p>
 </dd>
 </dl>
 </div>
@@ -106,7 +125,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Lors de l&#8217;affichage d&#8217;une étiquette annotée, à moins qu&#8217;il n&#8217;y ait`--refs` , deux lignes de ce type sont affichées : l&#8217;une avec le nom de référence pour l&#8217;étiquette elle-même comme <code>&lt;réf&gt;</code>, et l&#8217;autre avec <code>&lt;réf&gt;' suivi de `^{}</code>. Le <code>&lt;oid&gt;</code> sur la dernière ligne montre le nom de l&#8217;objet que l&#8217;étiquette pointe.</p>
+<p>Lors de l&#8217;affichage d&#8217;une étiquette annotée, à moins qu&#8217;il n&#8217;y ait`--refs` , deux lignes de ce type sont affichées : l&#8217;une avec le nom de référence pour l&#8217;étiquette elle-même comme <span class='synopsis'><em>&lt;réf&gt;</em></span>, et l&#8217;autre avec <span class='synopsis'><em>&lt;réf&gt;</em> <code>suivi</code> <code>de</code> <code>^{}</code></span>. Le <span class='synopsis'><em>&lt;oid&gt;</em></span> sur la dernière ligne montre le nom de l&#8217;objet que l&#8217;étiquette pointe.</p>
 </div>
 </div>
 </div>

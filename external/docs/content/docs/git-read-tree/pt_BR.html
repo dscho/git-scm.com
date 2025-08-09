@@ -9,6 +9,23 @@ docname: git-read-tree
 lang: pt_BR
 aliases:
 - "/docs/git-read-tree/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: MESCLANDO
+  id: _mesclando
+- text: AVERIGUAÇÃO ESPARSA
+  id: _averiguação_esparsa
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -32,10 +49,10 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Lê as informações da árvore informada através da <code>&lt;árvore&gt;</code> no índice, mas na verdade não <strong>atualize</strong> nenhum dos arquivos que ele "armazena em cache". (consulte: <a href='{{< relurl "docs/git-checkout-index/pt_BR" >}}'>git-checkout-index[1]</a>)</p>
+<p>Lê as informações da árvore informada através da <span class='synopsis'><em>&lt;árvore&gt;</em></span> no índice, mas na verdade não <strong>atualize</strong> nenhum dos arquivos que ele "armazena em cache". (consulte: <a href='{{< relurl "docs/git-checkout-index/pt_BR" >}}'>git-checkout-index[1]</a>)</p>
 </div>
 <div class="paragraph">
-<p>Opcionalmente, ele pode mesclar uma árvore no índice, executar uma mesclagem de avanço rápido (ou seja, de 2 vias) ou uma mesclagem de 3 vias, com a opção <code>-m</code>. Quando usado com a opção <code>-m</code>, a opção <code>-u</code> faz com que ele também atualize os arquivos na árvore de trabalho com o resultado da mesclagem.</p>
+<p>Opcionalmente, ele pode mesclar uma árvore no índice, executar uma mesclagem de avanço rápido (ou seja, de 2 vias) ou uma mesclagem de 3 vias, com a opção <span class='synopsis'><code>-m</code></span>. Quando usado com a opção <span class='synopsis'><code>-m</code></span>, a opção <span class='synopsis'><code>-u</code></span> faz com que ele também atualize os arquivos na árvore de trabalho com o resultado da mesclagem.</p>
 </div>
 <div class="paragraph">
 <p>Apenas as mesclagens triviais são feitas pelo próprio comando <em>git read-tree</em>. Apenas os caminhos conflitantes estarão numa condição não mesclada durante o retorno do comando <em>git read-tree</em>.</p>
@@ -53,7 +70,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-read-tree---reset"> <a class="anchor" href="#git-read-tree---reset"></a>--reset </dt>
 <dd>
-<p>Igual a opção <code>-m</code>, exceto que as entradas não mescladas são descartadas em vez de falharem. Quando usado com a opção <code>-u</code>, as atualizações que levam à perda das alterações na árvore de trabalho ou dos arquivos ou dos diretórios não rastreados não abortarão a operação.</p>
+<p>Igual a opção <span class='synopsis'><code>-m</code></span>, exceto que as entradas não mescladas são descartadas em vez de falharem. Quando usado com a opção <span class='synopsis'><code>-u</code></span>, as atualizações que levam à perda das alterações na árvore de trabalho ou dos arquivos ou dos diretórios não rastreados não abortarão a operação.</p>
 </dd>
 <dt class="hdlist1" id="git-read-tree--u"> <a class="anchor" href="#git-read-tree--u"></a>-u </dt>
 <dd>
@@ -95,11 +112,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-read-tree---prefixltprefixogt"> <a class="anchor" href="#git-read-tree---prefixprefixo"></a> <a class="anchor" href="#git-read-tree---prefixltprefixogt"></a>--prefix=&lt;prefixo&gt; </dt>
 <dd>
-<p>Mantenha o conteúdo do índice atual e leia o conteúdo da árvore mencionada sob o diretório em <code>&lt;prefixo&gt;</code>. O comando se recusará a substituir as entradas que já existiam no arquivo do índice original.</p>
+<p>Mantenha o conteúdo do índice atual e leia o conteúdo da árvore mencionada sob o diretório em <span class='synopsis'><em>&lt;prefixo&gt;</em></span>. O comando se recusará a substituir as entradas que já existiam no arquivo do índice original.</p>
 </dd>
 <dt class="hdlist1" id="git-read-tree---index-outputltarquivogt"> <a class="anchor" href="#git-read-tree---index-outputarquivo"></a> <a class="anchor" href="#git-read-tree---index-outputltarquivogt"></a>--index-output=&lt;arquivo&gt; </dt>
 <dd>
-<p>Em vez de gravar os resultados no <code>$GIT_INDEX_FILE</code>, grave o índice resultante no arquivo mencionado. Enquanto o comando estiver funcionando, o arquivo do índice original será bloqueado com o mesmo mecanismo de sempre. O arquivo deve permitir ser renomeado(2) a partir de um arquivo temporário criado ao lado do arquivo do índice usual; normalmente, isso significa que ele precisa estar no mesmo sistema de arquivos que o próprio arquivo de índice, e você precisa de permissão de gravação nos diretórios onde o arquivo do índice e o arquivo de saída do índice estão localizados.</p>
+<p>Em vez de gravar os resultados no <span class='synopsis'><code>$GIT_INDEX_FILE</code></span>, grave o índice resultante no arquivo mencionado. Enquanto o comando estiver funcionando, o arquivo do índice original será bloqueado com o mesmo mecanismo de sempre. O arquivo deve permitir ser renomeado(2) a partir de um arquivo temporário criado ao lado do arquivo do índice usual; normalmente, isso significa que ele precisa estar no mesmo sistema de arquivos que o próprio arquivo de índice, e você precisa de permissão de gravação nos diretórios onde o arquivo do índice e o arquivo de saída do índice estão localizados.</p>
 </dd>
 <dt class="hdlist1" id="git-read-tree---no-recurse-submodules"> <a class="anchor" href="#git-read-tree---no-recurse-submodules"></a>--[no-]recurse-submodules </dt>
 <dd>
@@ -107,7 +124,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-read-tree---no-sparse-checkout"> <a class="anchor" href="#git-read-tree---no-sparse-checkout"></a>--no-sparse-checkout </dt>
 <dd>
-<p>Desative a compatibilidade com a verificação esparsa, mesmo que o <code>core.sparseCheckout</code> seja verdadeiro.</p>
+<p>Desative a compatibilidade com a verificação esparsa, mesmo que o <span class='synopsis'><code>core.sparseCheckout</code></span> seja verdadeiro.</p>
 </dd>
 <dt class="hdlist1" id="git-read-tree---empty"> <a class="anchor" href="#git-read-tree---empty"></a>--empty </dt>
 <dd>
@@ -130,15 +147,15 @@ aliases:
 <h2 id="_mesclando"><a class="anchor" href="#_mesclando"></a>MESCLANDO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Se <code>-m</code> seja utilizado, o comando <em>git read-tree</em> pode executar 3 tipos de mesclagem, uma única mesclagem na árvore caso apenas uma árvore seja informada, uma mesclagem de avanço rápido nas 2 árvores ou uma mesclagem de 3 vias caso 3 ou mais árvores sejam informadas.</p>
+<p>Se <span class='synopsis'><code>-m</code></span> seja utilizado, o comando <em>git read-tree</em> pode executar 3 tipos de mesclagem, uma única mesclagem na árvore caso apenas uma árvore seja informada, uma mesclagem de avanço rápido nas 2 árvores ou uma mesclagem de 3 vias caso 3 ou mais árvores sejam informadas.</p>
 </div>
 <div class="sect2">
 <h3 id="_mesclagem_única_da_árvore"><a class="anchor" href="#_mesclagem_única_da_árvore"></a>Mesclagem Única da Árvore</h3>
 <div class="paragraph">
-<p>Caso apenas 1 árvore seja informada, <em>git read-tree</em> funcionará como se o usuário não a tivesse informado <code>-m</code>, exceto quando o índice original tiver uma entrada para um determinado nome do caminho e o conteúdo do caminho corresponder à árvore sendo lida, as estatísticas das informações do índice são utilizadas. (Em outras palavras, os <em>stat()</em> do índice têm precedência sobre os da árvore mesclada).</p>
+<p>Caso apenas 1 árvore seja informada, <em>git read-tree</em> funcionará como se o usuário não a tivesse informado <span class='synopsis'><code>-m</code></span>, exceto quando o índice original tiver uma entrada para um determinado nome do caminho e o conteúdo do caminho corresponder à árvore sendo lida, as estatísticas das informações do índice são utilizadas. (Em outras palavras, os <em>stat()</em> do índice têm precedência sobre os da árvore mesclada).</p>
 </div>
 <div class="paragraph">
-<p>Significa que se você fizer um <code>git read-tree -m &lt;newtree&gt;</code> seguido de um <code>git checkout-index -f -u -a</code>, o comando <em>git checkout-index</em> verificará apenas o que realmente mudou.</p>
+<p>Significa que se você fizer um <span class='synopsis'><code>git</code> <code>read-tree</code> <code>-m</code> <em>&lt;newtree&gt;</em></span> seguido de um <span class='synopsis'><code>git</code> <code>checkout-index</code> <code>-f</code> <code>-u</code> <code>-a</code></span>, o comando <em>git checkout-index</em> verificará apenas o que realmente mudou.</p>
 </div>
 <div class="paragraph">
 <p>É utilizado para evitar acertos falsos desnecessários quando <em>git diff-files</em> é executado após <em>git read-tree</em>.</p>
@@ -147,7 +164,7 @@ aliases:
 <div class="sect2">
 <h3 id="_mesclagem_de_duas_três_árvores"><a class="anchor" href="#_mesclagem_de_duas_três_árvores"></a>Mesclagem de duas, três árvores</h3>
 <div class="paragraph">
-<p>Normalmente, isso é invocado como <code>git read-tree -m $H $M</code>, onde <em>$H</em> é o commit principal do repositório atual e o <em>$M</em> é o cabeçalho de uma árvore estrangeira, que está simplesmente à frente de <em>$H</em> ( ou seja, estamos numa situação de avanço rápido).</p>
+<p>Normalmente, isso é invocado como <span class='synopsis'><code>git</code> <code>read-tree</code> <code>-m</code> <code>$H</code> <code>$M</code></span>, onde <em>$H</em> é o commit principal do repositório atual e o <em>$M</em> é o cabeçalho de uma árvore estrangeira, que está simplesmente à frente de <em>$H</em> ( ou seja, estamos numa situação de avanço rápido).</p>
 </div>
 <div class="paragraph">
 <p>Quando duas árvores são definidas, o usuário informa ao <em>git read-tree</em> o seguinte:</p>
@@ -164,7 +181,7 @@ o usuário pode ter alterações locais desde <em>$H</em>.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Nesse caso, o comando <code>git read-tree -m $H $M</code> garante que nenhuma alteração local seja perdida como resultado dessa "mesclagem". Aqui estão as regras de "transporte", onde "I" indica o índice, "clean" significa que o índice e a árvore de trabalho coincidem e "exists"/"nothing" se referem à presença de um caminho no commit informado:</p>
+<p>Nesse caso, o comando <span class='synopsis'><code>git</code> <code>read-tree</code> <code>-m</code> <code>$H</code> <code>$M</code></span> garante que nenhuma alteração local seja perdida como resultado dessa "mesclagem". Aqui estão as regras de "transporte", onde "I" indica o índice, "clean" significa que o índice e a árvore de trabalho coincidem e "exists"/"nothing" se referem à presença de um caminho no commit informado:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -209,13 +226,13 @@ o usuário pode ter alterações locais desde <em>$H</em>.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Em todos os casos de "manter o índice", a entrada do índice permanece como no arquivo original do índice. Se a entrada não estiver atualizada, o comando <em>git read-tree</em> manterá intacta a cópia na árvore de trabalho quando estiver operando com a opção <code>-u</code>.</p>
+<p>Em todos os casos de "manter o índice", a entrada do índice permanece como no arquivo original do índice. Se a entrada não estiver atualizada, o comando <em>git read-tree</em> manterá intacta a cópia na árvore de trabalho quando estiver operando com a opção <span class='synopsis'><code>-u</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Quando essa forma de <em>git read-tree</em> for bem-sucedida, você poderá ver quais das "alterações locais" que você fez foram levadas adiante executando o comando <code>git diff-index --cached $M</code>. Observe que isso não corresponde necessariamente ao que o comando <code>git diff-index --cached $H</code> teria produzido antes dessa mesclagem de duas árvores. Isso ocorre devido aos casos 18 e 19 - se você já tivesse as alterações em $M (talvez você as tenha recebido como um patch por e-mail por exemplo), o <code>git diff-index --cached $H</code> teria informado sobre a alteração antes dessa mesclagem, mas ela não seria exibida na saída do comando <code>git diff-index --cached $M</code> após a mesclagem de duas árvores.</p>
+<p>Quando essa forma de <em>git read-tree</em> for bem-sucedida, você poderá ver quais das "alterações locais" que você fez foram levadas adiante executando o comando <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code> <code>$M</code></span>. Observe que isso não corresponde necessariamente ao que o comando <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code> <code>$H</code></span> teria produzido antes dessa mesclagem de duas árvores. Isso ocorre devido aos casos 18 e 19 - se você já tivesse as alterações em $M (talvez você as tenha recebido como um patch por e-mail por exemplo), o <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code> <code>$H</code></span> teria informado sobre a alteração antes dessa mesclagem, mas ela não seria exibida na saída do comando <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code> <code>$M</code></span> após a mesclagem de duas árvores.</p>
 </div>
 <div class="paragraph">
-<p>O caso 3 é um pouco complicado e precisa de explicação. O resultado dessa regra, logicamente, deve ser a remoção do caminho se o usuário tiver encenado a remoção do caminho e, em seguida, a alteração para um novo ramo. No entanto, isso impedirá a realização do verificação inicial, portanto, a regra é alterada para usar M (uma nova árvore) somente quando o conteúdo do índice estiver vazio. Caso contrário, a remoção do caminho é mantida, desde que <code>$H</code> e <code>$M</code> sejam os mesmos.</p>
+<p>O caso 3 é um pouco complicado e precisa de explicação. O resultado dessa regra, logicamente, deve ser a remoção do caminho se o usuário tiver encenado a remoção do caminho e, em seguida, a alteração para um novo ramo. No entanto, isso impedirá a realização do verificação inicial, portanto, a regra é alterada para usar M (uma nova árvore) somente quando o conteúdo do índice estiver vazio. Caso contrário, a remoção do caminho é mantida, desde que <span class='synopsis'><code>$H</code></span> e <span class='synopsis'><code>$M</code></span> sejam os mesmos.</p>
 </div>
 </div>
 <div class="sect2">
@@ -235,7 +252,7 @@ o usuário pode ter alterações locais desde <em>$H</em>.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Você terá um índice com todas as entradas <code>&lt;árvore1&gt;</code> em <em>stage1</em>, todas as entradas <code>&lt;árvore2&gt;</code> em <em>stage2</em> e todas as entradas <code>&lt;árvore3&gt;</code> em <em>stage3</em>. Ao realizar uma mesclagem de outro ramo no ramo atual, usamos a árvore ancestral comum como <code>&lt;árvore1&gt;</code>, o cabeçalho do ramo atual como <code>&lt;árvore2&gt;</code> e o cabeçalho do outro ramo como <code>&lt;árvore3&gt;</code>.</p>
+<p>Você terá um índice com todas as entradas <span class='synopsis'><em>&lt;árvore1&gt;</em></span> em <em>stage1</em>, todas as entradas <span class='synopsis'><em>&lt;árvore2&gt;</em></span> em <em>stage2</em> e todas as entradas <span class='synopsis'><em>&lt;árvore3&gt;</em></span> em <em>stage3</em>. Ao realizar uma mesclagem de outro ramo no ramo atual, usamos a árvore ancestral comum como <span class='synopsis'><em>&lt;árvore1&gt;</em></span>, o cabeçalho do ramo atual como <span class='synopsis'><em>&lt;árvore2&gt;</em></span> e o cabeçalho do outro ramo como <span class='synopsis'><em>&lt;árvore3&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
 <p>Além disso, o comando <em>git read-tree</em> possui uma lógica para caso especial que diz: caso você veja um arquivo que coincida em todos os aspectos nos seguintes condições, ele irá "retornar" novamente para "stage0":</p>
@@ -260,7 +277,7 @@ o usuário pode ter alterações locais desde <em>$H</em>.</p>
 <p>OK, tudo isso soa como uma coleção de regras totalmente sem sentido, mas na verdade é exatamente o que você quer para fazer uma fusão rápida. Os diferentes estágios representam a "árvore de resultados" (estágio 0, também informado como "mesclado"), a árvore original (estágio 1, também informado como "orig") e as duas árvores que você está tentando mesclar (estágio 2 e 3, respectivamente).</p>
 </div>
 <div class="paragraph">
-<p>A ordem dos estágios 1, 2 e 3 (portanto a ordem dos três argumentos da linha de comando <code>&lt;tree-ish&gt;</code>) tem importância quando você inicia uma mesclagem de três vias com um arquivo do índice que já esteja preenchido. Aqui está um resumo de como o algoritmo funciona:</p>
+<p>A ordem dos estágios 1, 2 e 3 (portanto a ordem dos três argumentos da linha de comando <span class='synopsis'><em>&lt;tree-ish&gt;</em></span>) tem importância quando você inicia uma mesclagem de três vias com um arquivo do índice que já esteja preenchido. Aqui está um resumo de como o algoritmo funciona:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -289,7 +306,7 @@ o usuário pode ter alterações locais desde <em>$H</em>.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Normalmente, você usaria o comando <code>git merge-index</code> com o comando <code>git merge-one-file</code> fornecido para realizar esta última etapa. O script atualiza os arquivos na árvore de trabalho à medida que mescla cada caminho e ao final de uma mesclagem bem-sucedida.</p>
+<p>Normalmente, você usaria o comando <span class='synopsis'><code>git</code> <code>merge-index</code></span> com o comando <span class='synopsis'><code>git</code> <code>merge-one-file</code></span> fornecido para realizar esta última etapa. O script atualiza os arquivos na árvore de trabalho à medida que mescla cada caminho e ao final de uma mesclagem bem-sucedida.</p>
 </div>
 <div class="paragraph">
 <p>Quando você inicia uma mesclagem de três vias com um arquivo já preenchido no índice, presume-se que ele represente a condição dos arquivos na sua árvore de trabalho, e você pode até mesmo ter arquivos com alterações não registradas no arquivo do índice. Supõe-se ainda que esse estado seja "derivado" da árvore no estágio 2. A mesclagem de 3 vias se recusa a ser executada caso encontre uma entrada original no arquivo do índice que não corresponda ao estágio 2.</p>
@@ -304,7 +321,7 @@ $ git checkout-index -f -u -a $JC</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Você faz edições aleatórias, sem executar o comando <code>git update-index</code>. E então você percebe que o cume da sua árvore no topo (upstream) avançou desde que você se afastou dele:</p>
+<p>Você faz edições aleatórias, sem executar o comando <span class='synopsis'><code>git</code> <code>update-index</code></span>. E então você percebe que o cume da sua árvore no topo (upstream) avançou desde que você se afastou dele:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -313,7 +330,7 @@ $ LT=`git rev-parse FETCH_HEAD`</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>A sua árvore de trabalho ainda se baseia em seu <code>HEAD</code> (<code>$JC</code>), mas você fez algumas edições desde então. A mesclagem de 3 vias garante que você não adicionou ou modificou as entradas no índice desde <code>$JC</code> e, se não tiver feito, fará a coisa certa. Portanto, com a sequência a seguir:</p>
+<p>A sua árvore de trabalho ainda se baseia em seu <span class='synopsis'><code>HEAD</code></span> (<span class='synopsis'><code>$JC</code></span>), mas você fez algumas edições desde então. A mesclagem de 3 vias garante que você não adicionou ou modificou as entradas no índice desde <span class='synopsis'><code>$JC</code></span> e, se não tiver feito, fará a coisa certa. Portanto, com a sequência a seguir:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -330,7 +347,7 @@ $ echo "Merge with Linus" | \
 <p>No entanto, caso tenha alterações locais na árvore de trabalho que seriam substituídas através desta mesclagem, o comando <em>git read-tree</em> se recusará a executar evitando que as suas alterações sejam perdidas.</p>
 </div>
 <div class="paragraph">
-<p>Em outras palavras, não há necessidade de se preocupar com o que existe apenas na árvore de trabalho. Quando você tem alterações locais numa parte do projeto que não está envolvida na mesclagem, as suas alterações não interferem na mesclagem e são mantidas intactas. Quando eles <strong>interferem</strong>, a mesclagem nem sequer começa (o comando <code>git read-tree</code> reclama em voz alta e falha sem alterar nada). Nesse caso, você pode simplesmente continuar a fazer o que estava fazendo e, quando a árvore de trabalho estiver pronta (ou seja, você tiver concluído o trabalho em andamento), tente fazer a mesclagem novamente.</p>
+<p>Em outras palavras, não há necessidade de se preocupar com o que existe apenas na árvore de trabalho. Quando você tem alterações locais numa parte do projeto que não está envolvida na mesclagem, as suas alterações não interferem na mesclagem e são mantidas intactas. Quando eles <strong>interferem</strong>, a mesclagem nem sequer começa (o comando <span class='synopsis'><code>git</code> <code>read-tree</code></span> reclama em voz alta e falha sem alterar nada). Nesse caso, você pode simplesmente continuar a fazer o que estava fazendo e, quando a árvore de trabalho estiver pronta (ou seja, você tiver concluído o trabalho em andamento), tente fazer a mesclagem novamente.</p>
 </div>
 </div>
 </div>
@@ -339,19 +356,19 @@ $ echo "Merge with Linus" | \
 <h2 id="_averiguação_esparsa"><a class="anchor" href="#_averiguação_esparsa"></a>AVERIGUAÇÃO ESPARSA</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Observação: Os recursos do <em>skip-worktree</em> do comando <a href='{{< relurl "docs/git-update-index/pt_BR" >}}'>git-update-index[1]</a> e <code>read-tree</code> são anteriores à introdução do <a href='{{< relurl "docs/git-sparse-checkout/pt_BR" >}}'>git-sparse-checkout[1]</a>. Os usuários são incentivados a usar o comando <code>sparse-checkout</code> em vez destes comandos que possam ser redirecionados para necessidades relacionadas a <code>sparse-checkout</code> / <code>skip-worktree</code>. No entanto, as informações abaixo podem ser úteis para os usuários que tentam entender o estilo de predefinição usado no modo <code>non-cone</code> do comando <code>sparse-checkout</code>.</p>
+<p>Observação: Os recursos do <em>skip-worktree</em> do comando <a href='{{< relurl "docs/git-update-index/pt_BR" >}}'>git-update-index[1]</a> e <span class='synopsis'><code>read-tree</code></span> são anteriores à introdução do <a href='{{< relurl "docs/git-sparse-checkout/pt_BR" >}}'>git-sparse-checkout[1]</a>. Os usuários são incentivados a usar o comando <span class='synopsis'><code>sparse-checkout</code></span> em vez destes comandos que possam ser redirecionados para necessidades relacionadas a <span class='synopsis'><code>sparse-checkout</code></span> / <span class='synopsis'><code>skip-worktree</code></span>. No entanto, as informações abaixo podem ser úteis para os usuários que tentam entender o estilo de predefinição usado no modo <span class='synopsis'><code>non-cone</code></span> do comando <span class='synopsis'><code>sparse-checkout</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>O <em>aparse checkout</em> permite preencher o diretório de trabalho de maneira esparsa. Ele usa o bit <code>skip-worktree</code> (consulte <a href='{{< relurl "docs/git-update-index/pt_BR" >}}'>git-update-index[1]</a>) para informar ao Git se vale a pena examinar um arquivo no diretório de trabalho.</p>
+<p>O <em>aparse checkout</em> permite preencher o diretório de trabalho de maneira esparsa. Ele usa o bit <span class='synopsis'><code>skip-worktree</code></span> (consulte <a href='{{< relurl "docs/git-update-index/pt_BR" >}}'>git-update-index[1]</a>) para informar ao Git se vale a pena examinar um arquivo no diretório de trabalho.</p>
 </div>
 <div class="paragraph">
-<p>O <code>git read-tree</code> e outros comandos com base em mesclagem (<code>git merge</code>, <code>git checkout</code>&#8230;&#8203;) podem ajudar a manter o bitmap do <code>skip-worktree</code> e a atualização do diretório de trabalho. O <code>$GIT_DIR/info/sparse-checkout</code> é usado para definir o bitmap de referência do <code>skip-worktree</code>. Quando o <code>git read-tree</code> precisa atualizar o diretório de trabalho, ele redefine o bit <code>skip-worktree</code> no índice com base nesse arquivo, que usa a mesma sintaxe dos arquivos <em>.gitignore</em>. Se uma entrada corresponder a uma predefinição nesse arquivo, ou se a entrada corresponder a um arquivo presente na árvore de trabalho, o <code>skip-worktree</code> não será definido nessa entrada. Caso contrário, o <code>skip-worktree</code> será definido.</p>
+<p>O <span class='synopsis'><code>git</code> <code>read-tree</code></span> e outros comandos com base em mesclagem (<span class='synopsis'><code>git</code> <code>merge</code></span>, <span class='synopsis'><code>git</code> <code>checkout</code></span>&#8230;&#8203;) podem ajudar a manter o bitmap do <span class='synopsis'><code>skip-worktree</code></span> e a atualização do diretório de trabalho. O <span class='synopsis'><code>$GIT_DIR/info/sparse-checkout</code></span> é usado para definir o bitmap de referência do <span class='synopsis'><code>skip-worktree</code></span>. Quando o <span class='synopsis'><code>git</code> <code>read-tree</code></span> precisa atualizar o diretório de trabalho, ele redefine o bit <span class='synopsis'><code>skip-worktree</code></span> no índice com base nesse arquivo, que usa a mesma sintaxe dos arquivos <em>.gitignore</em>. Se uma entrada corresponder a uma predefinição nesse arquivo, ou se a entrada corresponder a um arquivo presente na árvore de trabalho, o <span class='synopsis'><code>skip-worktree</code></span> não será definido nessa entrada. Caso contrário, o <span class='synopsis'><code>skip-worktree</code></span> será definido.</p>
 </div>
 <div class="paragraph">
 <p>Em seguida, ele compara o novo valor <em>skip-worktree</em> com o anterior. Caso o <em>skip-worktree</em> mude de definido para não definido, ele adicionará o arquivo correspondente novamente. Caso passe de não definido para definido, esse arquivo será removido.</p>
 </div>
 <div class="paragraph">
-<p>Enquanto o <code>$GIT_DIR/info/sparse-checkout</code> é normalmente utilizado para definir quais arquivos estão nele, também é possível definir quais arquivos <em>não</em> estão, utilizando padrões de negação. Como por exemplo, para remover o arquivo <code>indesejado</code>:</p>
+<p>Enquanto o <span class='synopsis'><code>$GIT_DIR/info/sparse-checkout</code></span> é normalmente utilizado para definir quais arquivos estão nele, também é possível definir quais arquivos <em>não</em> estão, utilizando padrões de negação. Como por exemplo, para remover o arquivo <span class='synopsis'><code>indesejado</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -360,7 +377,7 @@ $ echo "Merge with Linus" | \
 </div>
 </div>
 <div class="paragraph">
-<p>Outra coisa complicada é repovoar totalmente o diretório ativo quando você não quiser mais uma verificação esparsa. Você não pode simplesmente desativar a "verificação esparsa" porque os bits <em>skip-worktree</em> ainda estão no índice e o seu diretório de trabalho ainda for escassamente preenchido. Você deve preencher novamente o diretório de trabalho com o conteúdo do arquivo <code>$GIT_DIR/info/sparse-checkout</code> da seguinte maneira:</p>
+<p>Outra coisa complicada é repovoar totalmente o diretório ativo quando você não quiser mais uma verificação esparsa. Você não pode simplesmente desativar a "verificação esparsa" porque os bits <em>skip-worktree</em> ainda estão no índice e o seu diretório de trabalho ainda for escassamente preenchido. Você deve preencher novamente o diretório de trabalho com o conteúdo do arquivo <span class='synopsis'><code>$GIT_DIR/info/sparse-checkout</code></span> da seguinte maneira:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -368,7 +385,7 @@ $ echo "Merge with Linus" | \
 </div>
 </div>
 <div class="paragraph">
-<p>Em seguida você pode desativar a averiguação esparsa. A predefinição da compatibilidade à averiguação esparsa no <em>git read-tree</em> e comandos similares é desativada. Você precisa ativar o <code>core.sparseCheckout</code> para ter uma compatibilidade escassa da averiguação.</p>
+<p>Em seguida você pode desativar a averiguação esparsa. A predefinição da compatibilidade à averiguação esparsa no <em>git read-tree</em> e comandos similares é desativada. Você precisa ativar o <span class='synopsis'><code>core.sparseCheckout</code></span> para ter uma compatibilidade escassa da averiguação.</p>
 </div>
 </div>
 </div>

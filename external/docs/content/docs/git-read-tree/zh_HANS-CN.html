@@ -9,6 +9,23 @@ docname: git-read-tree
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-read-tree/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 合并
+  id: _合并
+- text: SPARSE CHECKOUT
+  id: _sparse_checkout
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -35,7 +52,7 @@ aliases:
 <p>将 &lt;树状对象&gt; 提供的树信息读入索引，但实际上不会 <strong>更新</strong> 其 “缓存” 的任何文件。(参见：<a href='{{< relurl "docs/git-checkout-index/zh_HANS-CN" >}}'>git-checkout-index[1]</a>）</p>
 </div>
 <div class="paragraph">
-<p>可以选择使用 <code>-m</code> 标志将工作区合并到索引中、执行快进（即双向）合并或三向合并。 当与 <code>-m</code> 一起使用时，<code>-u</code> 标志会使它用合并的结果更新工作区中的文件。</p>
+<p>可以选择使用 <span class='synopsis'><code>-m</code></span> 标志将工作区合并到索引中、执行快进（即双向）合并或三向合并。 当与 <span class='synopsis'><code>-m</code></span> 一起使用时，<span class='synopsis'><code>-u</code></span> 标志会使它用合并的结果更新工作区中的文件。</p>
 </div>
 <div class="paragraph">
 <p><em>git read-tree</em> 本身只会进行琐碎的合并。 当 <em>git read-tree</em> 返回时，只有冲突路径才会处于未合并状态。</p>
@@ -53,7 +70,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-read-tree---reset"> <a class="anchor" href="#git-read-tree---reset"></a>--reset </dt>
 <dd>
-<p>与 -m 相同，只是未合并的条目会被丢弃，而不是失败。 与 <code>-u</code> 一起使用时，导致丢失工作树更改或未跟踪文件或目录的更新不会中止操作。</p>
+<p>与 -m 相同，只是未合并的条目会被丢弃，而不是失败。 与 <span class='synopsis'><code>-u</code></span> 一起使用时，导致丢失工作树更改或未跟踪文件或目录的更新不会中止操作。</p>
 </dd>
 <dt class="hdlist1" id="git-read-tree--u"> <a class="anchor" href="#git-read-tree--u"></a>-u </dt>
 <dd>
@@ -95,11 +112,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-read-tree---prefixltgt"> <a class="anchor" href="#git-read-tree---prefix"></a> <a class="anchor" href="#git-read-tree---prefixltgt"></a>--prefix=&lt;前缀&gt; </dt>
 <dd>
-<p>保留当前索引内容，并读取位于 <code>&lt;前缀&gt;</code> 目录下的命名树的内容。 该命令将拒绝覆盖原始索引文件中已存在的条目。</p>
+<p>保留当前索引内容，并读取位于 <span class='synopsis'><em>&lt;前缀&gt;</em></span> 目录下的命名树的内容。 该命令将拒绝覆盖原始索引文件中已存在的条目。</p>
 </dd>
 <dt class="hdlist1" id="git-read-tree---index-outputltgt"> <a class="anchor" href="#git-read-tree---index-output"></a> <a class="anchor" href="#git-read-tree---index-outputltgt"></a>--index-output=&lt;文件&gt; </dt>
 <dd>
-<p>不将结果写入 <code>$GIT_INDEX_FILE</code> ，而是将生成的索引写入指定文件。 在执行命令时，原始索引文件会以与平常相同的机制被锁定。 该文件必须允许从通常的索引文件旁边创建的临时文件重命名 (2) 进入；这通常意味着它需要与索引文件本身位于同一文件系统，并且需要获得索引文件和索引输出文件所在目录的写入权限。</p>
+<p>不将结果写入 <span class='synopsis'><code>$GIT_INDEX_FILE</code></span> ，而是将生成的索引写入指定文件。 在执行命令时，原始索引文件会以与平常相同的机制被锁定。 该文件必须允许从通常的索引文件旁边创建的临时文件重命名 (2) 进入；这通常意味着它需要与索引文件本身位于同一文件系统，并且需要获得索引文件和索引输出文件所在目录的写入权限。</p>
 </dd>
 <dt class="hdlist1" id="git-read-tree---no-recurse-submodules"> <a class="anchor" href="#git-read-tree---no-recurse-submodules"></a>--[no-]recurse-submodules </dt>
 <dd>
@@ -107,7 +124,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-read-tree---no-sparse-checkout"> <a class="anchor" href="#git-read-tree---no-sparse-checkout"></a>--no-sparse-checkout </dt>
 <dd>
-<p>即使 <code>core.sparseCheckout</code> 为 true，也会禁用稀疏签出支持。</p>
+<p>即使 <span class='synopsis'><code>core.sparseCheckout</code></span> 为 true，也会禁用稀疏签出支持。</p>
 </dd>
 <dt class="hdlist1" id="git-read-tree---empty"> <a class="anchor" href="#git-read-tree---empty"></a>--empty </dt>
 <dd>
@@ -130,15 +147,15 @@ aliases:
 <h2 id="_合并"><a class="anchor" href="#_合并"></a>合并</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>如果指定了 <code>-m</code> 选项，<em>git read-tree</em> 可以执行 3 种合并：如果只提供了 1 个目录树，则执行单棵目录树合并；如果提供了 2 棵目录树，则执行快进合并；如果提供了 3 棵或更多的目录树，则执行 3 方合并。</p>
+<p>如果指定了 <span class='synopsis'><code>-m</code></span> 选项，<em>git read-tree</em> 可以执行 3 种合并：如果只提供了 1 个目录树，则执行单棵目录树合并；如果提供了 2 棵目录树，则执行快进合并；如果提供了 3 棵或更多的目录树，则执行 3 方合并。</p>
 </div>
 <div class="sect2">
 <h3 id="_单棵树合并"><a class="anchor" href="#_单棵树合并"></a>单棵树合并</h3>
 <div class="paragraph">
-<p>如果只指定了一棵树，<em>git read-tree</em> 就会像用户未指定 <code>-m</code> 一样运行，但如果原始索引中有给定路径名的条目，且该路径的内容与正在读取的树相匹配，则会使用索引中的统计信息。换句话说，索引的 stat() 优先于合并目录树的 stat()）。</p>
+<p>如果只指定了一棵树，<em>git read-tree</em> 就会像用户未指定 <span class='synopsis'><code>-m</code></span> 一样运行，但如果原始索引中有给定路径名的条目，且该路径的内容与正在读取的树相匹配，则会使用索引中的统计信息。换句话说，索引的 stat() 优先于合并目录树的 stat()）。</p>
 </div>
 <div class="paragraph">
-<p>这就意味着，如果先执行 <code>git read-tree -m &lt;新目录树&gt;</code>，然后再执行 <code>git checkout-index -f -u -a</code>，<em>git checkout-index</em> 只会检查出真正发生变化的内容。</p>
+<p>这就意味着，如果先执行 <span class='synopsis'><code>git</code> <code>read-tree</code> <code>-m</code> <em>&lt;新目录树&gt;</em></span>，然后再执行 <span class='synopsis'><code>git</code> <code>checkout-index</code> <code>-f</code> <code>-u</code> <code>-a</code></span>，<em>git checkout-index</em> 只会检查出真正发生变化的内容。</p>
 </div>
 <div class="paragraph">
 <p>当在 <em>git read-tree</em> 之后运行 <em>git diff-files</em> 时，可避免不必要的误报。</p>
@@ -147,7 +164,7 @@ aliases:
 <div class="sect2">
 <h3 id="_两棵目录树合并"><a class="anchor" href="#_两棵目录树合并"></a>两棵目录树合并</h3>
 <div class="paragraph">
-<p>通常的调用方式是 <code>git read-tree -m $H $M</code>，其中 $H 是当前仓库的头提交，$M 是另一棵目录树的头提交，它只是在 $H 之前（即我们处于快速合并状态）。</p>
+<p>通常的调用方式是 <span class='synopsis'><code>git</code> <code>read-tree</code> <code>-m</code> <code>$H</code> <code>$M</code></span>，其中 $H 是当前仓库的头提交，$M 是另一棵目录树的头提交，它只是在 $H 之前（即我们处于快速合并状态）。</p>
 </div>
 <div class="paragraph">
 <p>当指定了两棵目录树时，用户就是在告诉 <em>git read-tree</em> 以下内容：</p>
@@ -164,7 +181,7 @@ aliases:
 </ol>
 </div>
 <div class="paragraph">
-<p>在这种情况下，<code>git read-tree -m $H $M</code> 命令会确保 "merge" （合并）不会丢失任何本地变更。 以下是 “结转” 规则，其中 "I" 表示索引，"clean" 表示索引和工作区重合，"exists"/"nothing" 表示指定提交中存在路径：</p>
+<p>在这种情况下，<span class='synopsis'><code>git</code> <code>read-tree</code> <code>-m</code> <code>$H</code> <code>$M</code></span> 命令会确保 "merge" （合并）不会丢失任何本地变更。 以下是 “结转” 规则，其中 "I" 表示索引，"clean" 表示索引和工作区重合，"exists"/"nothing" 表示指定提交中存在路径：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -212,7 +229,7 @@ aliases:
 <p>在所有 “保留索引” 的情况下，索引条目都会保留在原始索引文件中。 如果条目不是最新的，在使用 -u 标志时，<em>git read-tree</em> 会在工作树中保留完整的副本。</p>
 </div>
 <div class="paragraph">
-<p>当这种形式的 <em>git read-tree</em> 成功返回时，你可以通过运行 <code>git diff-index --cached $M</code> 来查看你所做的哪些 “本地改动” 被继承了下来。 请注意，这并不一定与 <code>git diff-index --cached $H</code> 在两棵目录树合并前的结果一致。 这是因为第 18 和 19 种情况&#8201;&#8212;&#8201;如果 $M 中已经有了这些改动 (例如，你通过电子邮件以补丁的形式获取了它)，<code>git diff-index --cached $H</code> 会在合并前告诉你这些改动，但两个目录树合并后，它不会显示在 <code>git diff-index --cached $M</code> 的输出中。</p>
+<p>当这种形式的 <em>git read-tree</em> 成功返回时，你可以通过运行 <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code> <code>$M</code></span> 来查看你所做的哪些 “本地改动” 被继承了下来。 请注意，这并不一定与 <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code> <code>$H</code></span> 在两棵目录树合并前的结果一致。 这是因为第 18 和 19 种情况&#8201;&#8212;&#8201;如果 $M 中已经有了这些改动 (例如，你通过电子邮件以补丁的形式获取了它)，<span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code> <code>$H</code></span> 会在合并前告诉你这些改动，但两个目录树合并后，它不会显示在 <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code> <code>$M</code></span> 的输出中。</p>
 </div>
 <div class="paragraph">
 <p>情况 3 稍显棘手，需要解释一下。 如果用户分阶段删除路径，然后切换到新的分支，那么从逻辑上讲，这条规则的结果应该是删除路径。 然而，这将阻止初始检出的发生，因此该规则被修改为只有在索引内容为空时才使用 M（新目录树）。 否则，只要 $H 和 $M 相同，就会保留路径的删除。</p>
@@ -339,19 +356,19 @@ $ echo "Merge with Linus" | \
 <h2 id="_sparse_checkout"><a class="anchor" href="#_sparse_checkout"></a>SPARSE CHECKOUT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>注意：<a href='{{< relurl "docs/git-update-index/zh_HANS-CN" >}}'>git-update-index[1]</a> 和 <code>read-tree</code> 中的跳过工作区功能早于 <a href='{{< relurl "docs/git-sparse-checkout/zh_HANS-CN" >}}'>git-sparse-checkout[1]</a> 的引入。 我们鼓励用户优先使用 <code>sparse-checkout</code> 命令，而不是这些底层命令来满足稀疏校验/跳转工作树的相关需求。 不过，以下信息对于试图理解 <code>sparse-checkout</code> 命令的非锥形模式中使用的模式样式的用户可能会有所帮助。</p>
+<p>注意：<a href='{{< relurl "docs/git-update-index/zh_HANS-CN" >}}'>git-update-index[1]</a> 和 <span class='synopsis'><code>read-tree</code></span> 中的跳过工作区功能早于 <a href='{{< relurl "docs/git-sparse-checkout/zh_HANS-CN" >}}'>git-sparse-checkout[1]</a> 的引入。 我们鼓励用户优先使用 <span class='synopsis'><code>sparse-checkout</code></span> 命令，而不是这些底层命令来满足稀疏校验/跳转工作树的相关需求。 不过，以下信息对于试图理解 <span class='synopsis'><code>sparse-checkout</code></span> 命令的非锥形模式中使用的模式样式的用户可能会有所帮助。</p>
 </div>
 <div class="paragraph">
 <p>“稀疏签出” 允许稀疏地填充工作目录。 它使用 skip-worktree 位（参见 <a href='{{< relurl "docs/git-update-index/zh_HANS-CN" >}}'>git-update-index[1]</a>）来告诉 Git 工作目录中的文件是否值得查看。</p>
 </div>
 <div class="paragraph">
-<p><em>git read-tree</em> 和其他基于合并的命令（<em>git merge</em>、<em>git checkout</em>&#8230;&#8203;）可以帮助维护 skip-worktree 位图和工作目录更新。<code>$GIT_DIR/info/sparse-checkout</code> 用于定义跳过工作树的参考位图。当 <em>git read-tree</em> 需要更新工作目录时，它会根据该文件重置索引中的跳过工作树位，其语法与 .gitignore 文件相同。 如果某个条目与该文件中的模式匹配，或者该条目与工作树中的某个文件相对应，则不会在该条目上设置跳过工作树。否则，将设置跳过工作区。</p>
+<p><em>git read-tree</em> 和其他基于合并的命令（<em>git merge</em>、<em>git checkout</em>&#8230;&#8203;）可以帮助维护 skip-worktree 位图和工作目录更新。<span class='synopsis'><code>$GIT_DIR/info/sparse-checkout</code></span> 用于定义跳过工作树的参考位图。当 <em>git read-tree</em> 需要更新工作目录时，它会根据该文件重置索引中的跳过工作树位，其语法与 .gitignore 文件相同。 如果某个条目与该文件中的模式匹配，或者该条目与工作树中的某个文件相对应，则不会在该条目上设置跳过工作树。否则，将设置跳过工作区。</p>
 </div>
 <div class="paragraph">
 <p>然后将新的 skip-worktree 值与之前的值进行比较。如果 skip-worktree 从已设变成未设，它就会重新添加相应的文件。如果从未设改为已设，则会删除该文件。</p>
 </div>
 <div class="paragraph">
-<p>虽然 <code>$GIT_DIR/info/sparse-checkout</code> 通常用于指定包含哪些文件，但也可以使用否定模式来指定 <em>not</em> 包含哪些文件。例如，要删除文件 <code>unwanted</code>：</p>
+<p>虽然 <span class='synopsis'><code>$GIT_DIR/info/sparse-checkout</code></span> 通常用于指定包含哪些文件，但也可以使用否定模式来指定 <em>not</em> 包含哪些文件。例如，要删除文件 <span class='synopsis'><code>unwanted</code></span>：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -360,7 +377,7 @@ $ echo "Merge with Linus" | \
 </div>
 </div>
 <div class="paragraph">
-<p>另一个棘手的问题是，当你不再需要稀疏检出时，如何完全重新填充工作目录。你不能直接禁用 “稀疏检出”，因为跳过的工作区位仍在索引中，你的工作目录仍是稀疏填充的。你应该用 <code>$GIT_DIR/info/sparse-checkout</code> 文件内容重新填充工作目录，如下所示：</p>
+<p>另一个棘手的问题是，当你不再需要稀疏检出时，如何完全重新填充工作目录。你不能直接禁用 “稀疏检出”，因为跳过的工作区位仍在索引中，你的工作目录仍是稀疏填充的。你应该用 <span class='synopsis'><code>$GIT_DIR/info/sparse-checkout</code></span> 文件内容重新填充工作目录，如下所示：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -368,7 +385,7 @@ $ echo "Merge with Linus" | \
 </div>
 </div>
 <div class="paragraph">
-<p>然后就可以禁用稀疏签出。<em>git read-tree</em> 和类似命令中的稀疏签出支持默认是禁用的。你需要打开 <code>core.sparseCheckout</code> 才能获得稀疏签出支持。</p>
+<p>然后就可以禁用稀疏签出。<em>git read-tree</em> 和类似命令中的稀疏签出支持默认是禁用的。你需要打开 <span class='synopsis'><code>core.sparseCheckout</code></span> 才能获得稀疏签出支持。</p>
 </div>
 </div>
 </div>

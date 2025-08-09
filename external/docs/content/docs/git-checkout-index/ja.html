@@ -9,6 +9,21 @@ docname: git-checkout-index
 lang: ja
 aliases:
 - "/docs/git-checkout-index/ja/index.html"
+headings:
+- text: NAME
+  id: _name
+- text: 概要
+  id: _概要
+- text: 説明
+  id: _説明
+- text: オプション
+  id: _オプション
+- text: "--temp または --stage=all の使用"
+  id: _temp_または_stageall_の使用
+- text: 例
+  id: _例
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
@@ -62,7 +77,7 @@ aliases:
 <dt class="hdlist1" id="git-checkout-index--a"> <a class="anchor" href="#git-checkout-index--a"></a>-a </dt>
 <dt class="hdlist1" id="git-checkout-index---all"> <a class="anchor" href="#git-checkout-index---all"></a>--all </dt>
 <dd>
-<p>インデックス内の全ファイルをチェックアウトします。ただし、skip-worktree ビットが設定されているファイルは除きます（<code>--ignore-skip-worktree-bits</code> を参照）。明示的なファイル名と併用することはできません。</p>
+<p>インデックス内の全ファイルをチェックアウトします。ただし、skip-worktree ビットが設定されているファイルは除きます（<span class='synopsis'><code>--ignore-skip-worktree-bits</code></span> を参照）。明示的なファイル名と併用することはできません。</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-index--n"> <a class="anchor" href="#git-checkout-index--n"></a>-n </dt>
 <dt class="hdlist1" id="git-checkout-index---no-create"> <a class="anchor" href="#git-checkout-index---no-create"></a>--no-create </dt>
@@ -91,7 +106,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-checkout-index--z"> <a class="anchor" href="#git-checkout-index--z"></a>-z </dt>
 <dd>
-<p><code>--stdin</code> 使用時にのみ意味があり、パスは LF の代わりに NUL 文字で区切られます。</p>
+<p><span class='synopsis'><code>--stdin</code></span> 使用時にのみ意味があり、パスは LF の代わりに NUL 文字で区切られます。</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-index---"> <a class="anchor" href="#git-checkout-index---"></a>-- </dt>
 <dd>
@@ -103,7 +118,7 @@ aliases:
 <p>以前はフラグの順序が重要でしたが、もはや意味を持ちません。</p>
 </div>
 <div class="paragraph">
-<p>単に <code>git checkout-index</code> を実行しても何も起こりません。おそらく <code>git checkout-index -a</code> という意味だったのでしょう。強制的に実行する場合は、<code>git checkout-index -f -a</code> を使用してください。</p>
+<p>単に <span class='synopsis'><code>git</code> <code>checkout-index</code></span> を実行しても何も起こりません。おそらく <span class='synopsis'><code>git</code> <code>checkout-index</code> <code>-a</code></span> という意味だったのでしょう。強制的に実行する場合は、<span class='synopsis'><code>git</code> <code>checkout-index</code> <code>-f</code> <code>-a</code></span> を使用してください。</p>
 </div>
 <div class="paragraph">
 <p>Intuitiveness is not the goal here. Repeatability is. The reason for the "no arguments means no work" behavior is that from scripts you are supposed to be able to do:</p>
@@ -114,7 +129,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>このコマンドは、既存の全ての <code>*.h</code> ファイルをキャッシュされたコピーに置き換えることを強制します。もし空のコマンドラインが「all」を意味する場合、これはインデックス内の全ファイルをリフレッシュすることになり、目的とは異なります。しかし、<em>git checkout-index</em> は --stdin を受け付けるため、それを使用するほうが高速です。</p>
+<p>このコマンドは、既存の全ての <span class='synopsis'><code>*.h</code></span> ファイルをキャッシュされたコピーに置き換えることを強制します。もし空のコマンドラインが「all」を意味する場合、これはインデックス内の全ファイルをリフレッシュすることになり、目的とは異なります。しかし、<em>git checkout-index</em> は --stdin を受け付けるため、それを使用するほうが高速です。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -122,7 +137,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>残りがファイル名であることが確実な場合、<code>--</code> を使用するのは賢明です。これにより、例えば <code>-a</code> というファイル名による問題を回避できます。スクリプトでは <code>--</code> を使用するのが一般的な方針です。</p>
+<p>残りがファイル名であることが確実な場合、<span class='synopsis'><code>--</code></span> を使用するのは賢明です。これにより、例えば <span class='synopsis'><code>-a</code></span> というファイル名による問題を回避できます。スクリプトでは <span class='synopsis'><code>--</code></span> を使用するのが一般的な方針です。</p>
 </div>
 </div>
 </div>
@@ -130,7 +145,7 @@ aliases:
 <h2 id="_temp_または_stageall_の使用"><a class="anchor" href="#_temp_または_stageall_の使用"></a>--temp または --stage=all の使用</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>もし <code>--temp</code> が使用される（または <code>--stage=all</code> により示される）場合、<em>git checkout-index</em> はチェックアウトされる各インデックスエントリに対して一時ファイルを作成します。この場合、インデックスの状態情報は更新されません。これらのオプションは、未マージのすべてのエントリの全ステージが必要で、外部マージツールで未マージファイルを処理する場合に有用です。</p>
+<p>もし <span class='synopsis'><code>--temp</code></span> が使用される（または <span class='synopsis'><code>--stage=all</code></span> により示される）場合、<em>git checkout-index</em> はチェックアウトされる各インデックスエントリに対して一時ファイルを作成します。この場合、インデックスの状態情報は更新されません。これらのオプションは、未マージのすべてのエントリの全ステージが必要で、外部マージツールで未マージファイルを処理する場合に有用です。</p>
 </div>
 <div class="paragraph">
 <p>一時ファイル名と追跡されるパス名の関連付けを示す一覧が stdout に出力されます。この一覧の形式には 2 つのバリエーションがあります：</p>
@@ -140,13 +155,13 @@ aliases:
 <li>
 <p>tempname TAB path RS</p>
 <div class="paragraph">
-<p>最初の形式は、<code>--stage</code> が省略されるか、もしくは <code>--stage=all</code> でない場合に使用されます。フィールド tempname はファイル内容を保持する一時ファイル名で、path はインデックス内で追跡されるパス名です。要求されたエントリのみが出力されます。</p>
+<p>最初の形式は、<span class='synopsis'><code>--stage</code></span> が省略されるか、もしくは <span class='synopsis'><code>--stage=all</code></span> でない場合に使用されます。フィールド tempname はファイル内容を保持する一時ファイル名で、path はインデックス内で追跡されるパス名です。要求されたエントリのみが出力されます。</p>
 </div>
 </li>
 <li>
 <p>stage1temp SP stage2temp SP stage3tmp TAB path RS</p>
 <div class="paragraph">
-<p>2 番目の形式は、<code>--stage=all</code> が指定された場合に使用されます。3 つのステージ一時フィールド (stage1temp, stage2temp, stage3temp) は、インデックス内にステージエントリがある場合は一時ファイルの名前を、ない場合は <code>.</code> を示します。ステージ 0 エントリのみを持つパスは常に出力から省略されます。</p>
+<p>2 番目の形式は、<span class='synopsis'><code>--stage=all</code></span> が指定された場合に使用されます。3 つのステージ一時フィールド (stage1temp, stage2temp, stage3temp) は、インデックス内にステージエントリがある場合は一時ファイルの名前を、ない場合は <span class='synopsis'><code>.</code></span> を示します。ステージ 0 エントリのみを持つパスは常に出力から省略されます。</p>
 </div>
 </li>
 </ol>
@@ -195,7 +210,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>これにより、現在キャッシュされている <code>Makefile</code> のコピーがファイル <code>.merged-Makefile</code> としてチェックアウトされます。</p>
+<p>これにより、現在キャッシュされている <span class='synopsis'><code>Makefile</code></span> のコピーがファイル <span class='synopsis'><code>.merged-Makefile</code></span> としてチェックアウトされます。</p>
 </div>
 </dd>
 </dl>

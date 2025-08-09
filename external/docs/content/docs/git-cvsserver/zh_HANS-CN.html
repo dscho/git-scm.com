@@ -9,6 +9,33 @@ docname: git-cvsserver
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-cvsserver/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 局限
+  id: _局限
+- text: 安装
+  id: _安装
+- text: 数据库后台
+  id: dbbackend
+- text: 环境变量
+  id: _环境变量
+- text: ECLIPSE CVS 客户端说明
+  id: _eclipse_cvs_客户端说明
+- text: 已知工作的客户
+  id: _已知工作的客户
+- text: 支持的业务
+  id: _支持的业务
+- text: 依赖
+  id: _依赖
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -74,7 +101,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cvsserver---export-all"> <a class="anchor" href="#git-cvsserver---export-all"></a>--export-all </dt>
 <dd>
-<p>不要在配置中检查 <code>gitcvs.enabled</code>。如果要使用此选项，还必须指定允许使用的目录列表（见下文）。</p>
+<p>不要在配置中检查 <span class='synopsis'><code>gitcvs.enabled</code></span>。如果要使用此选项，还必须指定允许使用的目录列表（见下文）。</p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver--V"> <a class="anchor" href="#git-cvsserver--V"></a>-V </dt>
 <dt class="hdlist1" id="git-cvsserver---version"> <a class="anchor" href="#git-cvsserver---version"></a>--version </dt>
@@ -89,7 +116,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cvsserver-ltgt"> <a class="anchor" href="#git-cvsserver-"></a> <a class="anchor" href="#git-cvsserver-ltgt"></a>&lt;目录&gt; </dt>
 <dd>
-<p>其余参数提供了一个目录列表。如果没有给出目录，则允许所有目录。除非指定了 <code>--export-all</code>，否则这些目录中的仓库仍需要使用 <code>gitcvs.enabled</code> 配置选项。</p>
+<p>其余参数提供了一个目录列表。如果没有给出目录，则允许所有目录。除非指定了 <span class='synopsis'><code>--export-all</code></span>，否则这些目录中的仓库仍需要使用 <span class='synopsis'><code>gitcvs.enabled</code></span> 配置选项。</p>
 </dd>
 </dl>
 </div>
@@ -162,7 +189,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>SSH 访问无需特殊设置，只需在 PATH 中安装 Git 工具即可。如果客户端不接受 CVS_SERVER 环境变量，可以将 <em>git-cvsserver</em> 更名为 <code>cvs</code>。</p>
+<p>SSH 访问无需特殊设置，只需在 PATH 中安装 Git 工具即可。如果客户端不接受 CVS_SERVER 环境变量，可以将 <em>git-cvsserver</em> 更名为 <span class='synopsis'><code>cvs</code></span>。</p>
 </div>
 <div class="paragraph">
 <p>注意：较新的 CVS 版本（&gt;= 1.12.11）也支持直接在 CVSROOT 中指定 CVS_SERVER，如</p>
@@ -173,7 +200,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>这样做的好处是，它将保存在你的 <em>CVS/Root</em> 文件中，你不必担心总是设置正确的环境变量。 受限于 <em>git-shell</em> 的 SSH 用户不需要（也不应该）用 CVS_SERVER 覆盖默认值，因为 <em>git-shell</em> 会将 <code>cvs</code> 理解为 <em>git-cvsserver</em>，并假装另一端运行的是真正的 <em>cvs</em>。</p>
+<p>这样做的好处是，它将保存在你的 <em>CVS/Root</em> 文件中，你不必担心总是设置正确的环境变量。 受限于 <em>git-shell</em> 的 SSH 用户不需要（也不应该）用 CVS_SERVER 覆盖默认值，因为 <em>git-shell</em> 会将 <span class='synopsis'><code>cvs</code></span> 理解为 <em>git-cvsserver</em>，并假装另一端运行的是真正的 <em>cvs</em>。</p>
 </div>
 </div>
 </div>
@@ -194,7 +221,7 @@ aliases:
 <p>注意：需要确保每个调用 <em>git-cvsserver</em> 的用户都有写入日志文件和数据库的权限（参见 <a href="#dbbackend">数据库后台</a>）。如果要通过 SSH 提供写访问权限，用户当然也需要有写访问 Git 仓库本身的权限。</p>
 </div>
 <div class="paragraph">
-<p>你还需要确保每个仓库都是 "裸仓库"（没有 Git 索引文件），这样 <code>cvs commit</code> 才能工作。参见 <a href='{{< relurl "docs/gitcvs-migration/zh_HANS-CN" >}}'>gitcvs-migration[7]</a>。</p>
+<p>你还需要确保每个仓库都是 "裸仓库"（没有 Git 索引文件），这样 <span class='synopsis'><code>cvs</code> <code>commit</code></span> 才能工作。参见 <a href='{{< relurl "docs/gitcvs-migration/zh_HANS-CN" >}}'>gitcvs-migration[7]</a>。</p>
 </div>
 <div id="configaccessmethod" class="paragraph">
 <p>所有配置变量都可以针对特定的访问方法进行重载。有效的方法名称是 "ext"（用于 SSH 访问）和 "pserver"。下面的配置示例将禁止 pserver 访问，但仍允许通过 SSH 访问。</p>
@@ -228,7 +255,7 @@ aliases:
 <p>对于会进行提交的 SSH 客户端，请确保其服务器端的 .ssh/environment 文件（或 .bashrc 等，根据其特定的 shell）导出了适当的 GIT_AUTHOR_NAME、GIT_AUTHOR_EMAIL、GIT_COMMITTER_NAME 和 GIT_COMMITTER_EMAIL 值。 对于登录 shell 为 bash 的 SSH 客户端，.bashrc 可能是一个合理的替代方案。</p>
 </li>
 <li>
-<p>客户现在应该可以签出项目了。使用 CVS <em>module</em>（模块）名称来指明你要签出的 Git <em>head</em>（头）。 这也会设置新签出目录的名称，除非你用 <code>-d &lt;目录名&gt;</code> 另作说明。 例如，这将签出 <em>master</em> 分支到 <code>project-master</code> 目录：</p>
+<p>客户现在应该可以签出项目了。使用 CVS <em>module</em>（模块）名称来指明你要签出的 Git <em>head</em>（头）。 这也会设置新签出目录的名称，除非你用 <span class='synopsis'><code>-d</code> <em>&lt;目录名&gt;</em></span> 另作说明。 例如，这将签出 <em>master</em> 分支到 <span class='synopsis'><code>project-master</code></span> 目录：</p>
 <div class="listingblock">
 <div class="content">
 <pre>   cvs co -d project-master master</pre>
@@ -246,16 +273,16 @@ aliases:
 <p><em>git-cvsserver</em> 为每个 Git 头（即 CVS 模块）使用一个数据库来存储有关仓库的信息，以保持一致的 CVS 版本号。每次提交后都需要更新（即写入）数据库。</p>
 </div>
 <div class="paragraph">
-<p>如果直接使用 <code>git</code>（而不是使用 <em>git-cvsserver</em>）提交，则更新需要在下一次使用 <em>git-cvsserver</em> 访问仓库时进行，与访问方式和请求的操作无关。</p>
+<p>如果直接使用 <span class='synopsis'><code>git</code></span>（而不是使用 <em>git-cvsserver</em>）提交，则更新需要在下一次使用 <em>git-cvsserver</em> 访问仓库时进行，与访问方式和请求的操作无关。</p>
 </div>
 <div class="paragraph">
 <p>这就意味着，即使只提供读取访问权限（例如使用 pserver 方法），<em>git-cvsserver</em> 也必须拥有对数据库的写入访问权限，才能可靠地工作（否则就需要确保在执行 <em>git-cvsserver</em> 的任何时候数据库都是最新的）。</p>
 </div>
 <div class="paragraph">
-<p>默认情况下，它使用 Git 目录中的 SQLite 数据库，名为 <code>gitcvs.&lt;模块名&gt;.sqlite</code>。请注意，SQLite 后端在写入时会在与数据库文件相同的目录下创建临时文件，因此只授予使用 <em>git-cvsserver</em> 的用户对数据库文件的写入权限，而不授予他们对目录的写入权限可能是不够的。</p>
+<p>默认情况下，它使用 Git 目录中的 SQLite 数据库，名为 <span class='synopsis'><code>gitcvs.</code><em>&lt;模块名&gt;</em><code>.sqlite</code></span>。请注意，SQLite 后端在写入时会在与数据库文件相同的目录下创建临时文件，因此只授予使用 <em>git-cvsserver</em> 的用户对数据库文件的写入权限，而不授予他们对目录的写入权限可能是不够的。</p>
 </div>
 <div class="paragraph">
-<p>跟踪的分支发生变化后，数据库无法以一致的形式可靠地重新生成。 例如对于合并的分支，<em>git-cvsserver</em> 只能跟踪一个开发分支，而在 <em>git merge</em> 之后，增量更新的数据库可能会与从头开始生成的数据库跟踪不同的分支，从而导致 CVS 版本号不一致。如果在合并前增量运行，<code>git-cvsserver</code> 无法知道自己会选择哪个分支。因此，如果你必须全部或部分（从旧备份）重新生成数据库，你就应该对已经存在的 CVS 沙箱有所怀疑。</p>
+<p>跟踪的分支发生变化后，数据库无法以一致的形式可靠地重新生成。 例如对于合并的分支，<em>git-cvsserver</em> 只能跟踪一个开发分支，而在 <em>git merge</em> 之后，增量更新的数据库可能会与从头开始生成的数据库跟踪不同的分支，从而导致 CVS 版本号不一致。如果在合并前增量运行，<span class='synopsis'><code>git-cvsserver</code></span> 无法知道自己会选择哪个分支。因此，如果你必须全部或部分（从旧备份）重新生成数据库，你就应该对已经存在的 CVS 沙箱有所怀疑。</p>
 </div>
 <div class="paragraph">
 <p>您可以使用以下配置变量配置数据库后台：</p>
@@ -263,25 +290,25 @@ aliases:
 <div class="sect2">
 <h3 id="_配置数据库后台"><a class="anchor" href="#_配置数据库后台"></a>配置数据库后台</h3>
 <div class="paragraph">
-<p><em>git-cvsserver</em> 使用 Perl DBI 模块。如果要更改这些变量，请阅读其文档，尤其是有关 <code>DBI-&gt;connect()</code> 的文档。</p>
+<p><em>git-cvsserver</em> 使用 Perl DBI 模块。如果要更改这些变量，请阅读其文档，尤其是有关 <span class='synopsis'><em>DBI-&gt;connect()</em></span> 的文档。</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-cvsserver-gitcvsdbName"> <a class="anchor" href="#git-cvsserver-gitcvsdbName"></a>gitcvs.dbName </dt>
 <dd>
-<p>数据库名称。具体含义取决于所选的数据库驱动程序，对于 SQLite，这是一个文件名。 支持变量替换（见下文）。不得包含分号 (<code>;</code>)。 默认：<em>%Ggitcvs.%m.sqlite</em></p>
+<p>数据库名称。具体含义取决于所选的数据库驱动程序，对于 SQLite，这是一个文件名。 支持变量替换（见下文）。不得包含分号 (<span class='synopsis'><em>;</em></span>)。 默认：<em>%Ggitcvs.%m.sqlite</em></p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver-gitcvsdbDriver"> <a class="anchor" href="#git-cvsserver-gitcvsdbDriver"></a>gitcvs.dbDriver </dt>
 <dd>
-<p>使用的 DBI 驱动程序。cvsserver 已使用 <em>DBD::SQLite</em> 进行了测试，据报告可使用 <em>DBD::Pg</em>，但*不*能使用 <em>DBD::mysql</em>。 请将其视为试验性功能。不得包含冒号 (<code>:</code>)。 默认：<em>SQLite</em></p>
+<p>使用的 DBI 驱动程序。cvsserver 已使用 <em>DBD::SQLite</em> 进行了测试，据报告可使用 <em>DBD::Pg</em>，但*不*能使用 <em>DBD::mysql</em>。 请将其视为试验性功能。不得包含冒号 (<span class='synopsis'><code>:</code></span>)。 默认：<em>SQLite</em></p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver-gitcvsdbuser"> <a class="anchor" href="#git-cvsserver-gitcvsdbuser"></a>gitcvs.dbuser </dt>
 <dd>
-<p>数据库用户。只有在设置 <code>dbDriver</code> 时才有用，因为 SQLite 没有数据库用户的概念。支持变量替换（见下文）。</p>
+<p>数据库用户。只有在设置 <span class='synopsis'><code>dbDriver</code></span> 时才有用，因为 SQLite 没有数据库用户的概念。支持变量替换（见下文）。</p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver-gitcvsdbPass"> <a class="anchor" href="#git-cvsserver-gitcvsdbPass"></a>gitcvs.dbPass </dt>
 <dd>
-<p>数据库密码。 只有在设置 <code>dbDriver</code> 时才有用，因为 SQLite 没有数据库密码的概念。</p>
+<p>数据库密码。 只有在设置 <span class='synopsis'><code>dbDriver</code></span> 时才有用，因为 SQLite 没有数据库密码的概念。</p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver-gitcvsdbTableNamePrefix"> <a class="anchor" href="#git-cvsserver-gitcvsdbTableNamePrefix"></a>gitcvs.dbTableNamePrefix </dt>
 <dd>
@@ -295,7 +322,7 @@ aliases:
 <div class="sect3">
 <h4 id="_变量替换"><a class="anchor" href="#_变量替换"></a>变量替换</h4>
 <div class="paragraph">
-<p>在 <code>dbDriver</code> 和 <code>dbUser</code> 中，可以使用以下变量：</p>
+<p>在 <span class='synopsis'><code>dbDriver</code></span> 和 <span class='synopsis'><code>dbUser</code></span> 中，可以使用以下变量：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -305,7 +332,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cvsserver-g"> <a class="anchor" href="#git-cvsserver-g"></a>%g </dt>
 <dd>
-<p>Git 目录名称，其中除字母数字、<code>.</code> 和 <code>-</code> 之外的所有字符均替换为 <code>_</code>（这样可以方便在文件名中使用该目录名称）</p>
+<p>Git 目录名称，其中除字母数字、<span class='synopsis'><code>.</code></span> 和 <span class='synopsis'><code>-</code></span> 之外的所有字符均替换为 <span class='synopsis'><code>_</code></span>（这样可以方便在文件名中使用该目录名称）</p>
 </dd>
 <dt class="hdlist1" id="git-cvsserver-m"> <a class="anchor" href="#git-cvsserver-m"></a>%m </dt>
 <dd>
@@ -339,7 +366,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-cvsserver-GITCVSSERVERROOT"> <a class="anchor" href="#git-cvsserver-GITCVSSERVERROOT"></a>GIT_CVSSERVER_ROOT </dt>
 <dd>
-<p>该变量指定了一个单一目录，取代了 <code>&lt;目录&gt;...</code> 参数列表。除非指定了 <code>--export-all</code>，否则仓库仍需要使用 <code>gitcvs.enabled</code> 配置选项。</p>
+<p>该变量指定了一个单一目录，取代了 <span class='synopsis'><em>&lt;目录&gt;</em>...</span> 参数列表。除非指定了 <span class='synopsis'><code>--export-all</code></span>，否则仓库仍需要使用 <span class='synopsis'><code>gitcvs.enabled</code></span> 配置选项。</p>
 </dd>
 </dl>
 </div>
@@ -366,15 +393,15 @@ aliases:
 <p>浏览可用的 "模块"。它将为你提供一份软件源中的模块头列表。在这里，你无法浏览模块树。只能浏览头部。</p>
 </li>
 <li>
-<p>在询问要签出哪个分支/标记时，选择 <code>HEAD</code>。取消勾选 "launch commit wizard" （登录后提交）以避免提交 .project 文件。</p>
+<p>在询问要签出哪个分支/标记时，选择 <span class='synopsis'><code>HEAD</code></span>。取消勾选 "launch commit wizard" （登录后提交）以避免提交 .project 文件。</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>协议说明：如果通过 pserver 使用匿名访问，只需选择该协议即可。 使用 SSH 访问的用户应选择 <em>ext</em> 协议，并在 偏好设置&#8594;团队&#8594;CVS&#8594;外部连接 窗格中配置 <em>ext</em> 访问。将 CVS_SERVER 设置为 "<code>git cvsserver</code>"。请注意，使用 <em>ext</em> 时不支持密码，因此一定要设置 SSH 密钥。</p>
+<p>协议说明：如果通过 pserver 使用匿名访问，只需选择该协议即可。 使用 SSH 访问的用户应选择 <em>ext</em> 协议，并在 偏好设置&#8594;团队&#8594;CVS&#8594;外部连接 窗格中配置 <em>ext</em> 访问。将 CVS_SERVER 设置为 "<span class='synopsis'><code>git</code> <code>cvsserver</code></span>"。请注意，使用 <em>ext</em> 时不支持密码，因此一定要设置 SSH 密钥。</p>
 </div>
 <div class="paragraph">
-<p>或者，你也可以使用 Eclipse 提供的非标准 extssh 协议。在这种情况下，CVS_SERVER 会被忽略，你必须用 <em>git-cvsserver</em> 替换服务器上的 cvs 工具，或者修改你的 <code>.bashrc</code> 以便调用 <em>cvs</em> 时能有效地调用 <em>git-cvsserver</em>。</p>
+<p>或者，你也可以使用 Eclipse 提供的非标准 extssh 协议。在这种情况下，CVS_SERVER 会被忽略，你必须用 <em>git-cvsserver</em> 替换服务器上的 cvs 工具，或者修改你的 <span class='synopsis'><code>.bashrc</code></span> 以便调用 <em>cvs</em> 时能有效地调用 <em>git-cvsserver</em>。</p>
 </div>
 </div>
 </div>
@@ -412,7 +439,7 @@ aliases:
 <p>请注意，有两种方法可以检出特定分支。 正如本页其他地方所述，cvs checkout 的 "模型" 参数会被解释为分支名称，并成为主分支。 即使使用 cvs update -r 将另一个分支暂时置为主干分支，它仍是指定沙盒的主干分支。 或者，-r 参数也可以指示实际签出的其他分支，即使模块仍是 "主" 分支。 权衡（目前的实现方式）：每个新的 "模块" 都会在磁盘上创建一个新的数据库，其中包含给定模块的历史记录。 或者，-r 不会占用任何额外的磁盘空间，但在许多操作（如 cvs 更新）上可能会明显慢一些。</p>
 </div>
 <div class="paragraph">
-<p>如果要引用的 git refspec 包含 CVS 不允许的字符，有两种选择。 首先，直接向相应的 CVS -r 参数提供 git refspec 可能行得通；有些 CVS 客户端似乎不会对参数进行太多的正确性检查。 其次，如果方法失败，可以使用一种特殊的字符转义机制，它只使用 CVS 标记中有效的字符。 由 4 或 5 个字符（下划线 (<code>"_"</code>) 、破折号 (<code>"-"</code>)、一个或两个字符和破折号 (<code>"-"</code>)）组成的序列可以根据一个或两个字母编码各种字符：<code>"s"`表示斜线 (</code>"/"<code>)，</code>"p"<code>表示句号 (</code>"."<code>)，</code>"u"` 表示下划线 (<code>"_"</code>)，或者两个十六进制数字表示任何字节值（通常是 ASCII 数字，也可能是 UTF-8 编码字符的一部分）。</p>
+<p>如果要引用的 git refspec 包含 CVS 不允许的字符，有两种选择。 首先，直接向相应的 CVS -r 参数提供 git refspec 可能行得通；有些 CVS 客户端似乎不会对参数进行太多的正确性检查。 其次，如果方法失败，可以使用一种特殊的字符转义机制，它只使用 CVS 标记中有效的字符。 由 4 或 5 个字符（下划线 (<span class='synopsis'><code>"_"</code></span>) 、破折号 (<span class='synopsis'><code>"-"</code></span>)、一个或两个字符和破折号 (<span class='synopsis'><code>"-"</code></span>)）组成的序列可以根据一个或两个字母编码各种字符：<span class='synopsis'><em>"s"`表示斜线 (</em></span>"/"<span class='synopsis'><em>)，</em></span>"p"<span class='synopsis'><em>表示句号 (</em></span>"."<span class='synopsis'><em>)，</em></span>"u"` 表示下划线 (<span class='synopsis'><code>"_"</code></span>)，或者两个十六进制数字表示任何字节值（通常是 ASCII 数字，也可能是 UTF-8 编码字符的一部分）。</p>
 </div>
 <div class="paragraph">
 <p>不支持传统的监控操作（编辑、监视和相关）。 现阶段不支持导出和标记（标记和分支）。</p>
@@ -420,16 +447,16 @@ aliases:
 <div class="sect2">
 <h3 id="_crlf_行尾转换"><a class="anchor" href="#_crlf_行尾转换"></a>CRLF 行尾转换</h3>
 <div class="paragraph">
-<p>默认情况下，服务器会将所有文件的 <code>-k</code> 模式留空，这将导致 CVS 客户端将这些文件视为文本文件，并在某些平台上进行行尾转换。</p>
+<p>默认情况下，服务器会将所有文件的 <span class='synopsis'><code>-k</code></span> 模式留空，这将导致 CVS 客户端将这些文件视为文本文件，并在某些平台上进行行尾转换。</p>
 </div>
 <div class="paragraph">
-<p>通过设置 <code>gitcvs.usecrlfattr</code> 配置变量，可以让服务器使用行尾转换属性来设置文件的 <code>-k</code> 模式。 有关行尾转换的更多信息，请参阅 <a href='{{< relurl "docs/gitattributes/zh_HANS-CN" >}}'>gitattributes[5]</a>。</p>
+<p>通过设置 <span class='synopsis'><code>gitcvs.usecrlfattr</code></span> 配置变量，可以让服务器使用行尾转换属性来设置文件的 <span class='synopsis'><code>-k</code></span> 模式。 有关行尾转换的更多信息，请参阅 <a href='{{< relurl "docs/gitattributes/zh_HANS-CN" >}}'>gitattributes[5]</a>。</p>
 </div>
 <div class="paragraph">
-<p>另外，如果未启用 <code>gitcvs.usecrlfattr</code> 配置或属性不允许自动检测文件名，则服务器将使用 <code>gitcvs.allBinary</code> 配置作为默认设置。 如果设置了 <code>gitcvs.allBinary</code>，则未指定的文件将默认为 <em>-kb</em> 模式。否则，<code>-k</code> 模式将留空。但如果将 <code>gitcvs.allBinary</code> 设置为 "guess"（猜测），则将根据文件内容猜测正确的 <code>k</code> 模式。</p>
+<p>另外，如果未启用 <span class='synopsis'><code>gitcvs.usecrlfattr</code></span> 配置或属性不允许自动检测文件名，则服务器将使用 <span class='synopsis'><code>gitcvs.allBinary</code></span> 配置作为默认设置。 如果设置了 <span class='synopsis'><code>gitcvs.allBinary</code></span>，则未指定的文件将默认为 <em>-kb</em> 模式。否则，<span class='synopsis'><code>-k</code></span> 模式将留空。但如果将 <span class='synopsis'><code>gitcvs.allBinary</code></span> 设置为 "guess"（猜测），则将根据文件内容猜测正确的 <span class='synopsis'><code>k</code></span> 模式。</p>
 </div>
 <div class="paragraph">
-<p>为了与 <em>cvs</em> 保持一致，最好将 <code>gitcvs.usecrlfattr</code> 设为 true，将 <code>gitcvs.allBinary</code> 设为 "guess"，从而覆盖默认值。</p>
+<p>为了与 <em>cvs</em> 保持一致，最好将 <span class='synopsis'><code>gitcvs.usecrlfattr</code></span> 设为 true，将 <span class='synopsis'><code>gitcvs.allBinary</code></span> 设为 "guess"，从而覆盖默认值。</p>
 </div>
 </div>
 </div>

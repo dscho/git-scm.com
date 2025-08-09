@@ -9,6 +9,19 @@ docname: git-reflog
 lang: fr
 aliases:
 - "/docs/git-reflog/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -41,22 +54,22 @@ aliases:
 <p>Cette commande gère les informations enregistrées dans les reflogs.</p>
 </div>
 <div class="paragraph">
-<p>Les registres de référence, ou "reflogs", enregistrent lorsque les sommets des branches et autres références ont été mis à jour dans le dépôt local. Les résumés sont utiles dans divers commandes Git, pour spécifier la valeur ancienne d&#8217;une référence. Par exemple, <code>HEAD@{2}</code> signifie "où HEAD a été utilisé il y a deux mouvements", <code>master@{one.week.ago}</code> signifie "où master pointait il y a une semaine dans le dépôt local", etc. Voir <a href='{{< relurl "docs/gitrevisions/fr" >}}'>gitrevisions[7]</a> pour plus de détails.</p>
+<p>Les registres de référence, ou "reflogs", enregistrent lorsque les sommets des branches et autres références ont été mis à jour dans le dépôt local. Les résumés sont utiles dans divers commandes Git, pour spécifier la valeur ancienne d&#8217;une référence. Par exemple, <span class='synopsis'><code>HEAD@{2}</code></span> signifie "où HEAD a été utilisé il y a deux mouvements", <span class='synopsis'><code>master@{one.week.ago}</code></span> signifie "où master pointait il y a une semaine dans le dépôt local", etc. Voir <a href='{{< relurl "docs/gitrevisions/fr" >}}'>gitrevisions[7]</a> pour plus de détails.</p>
 </div>
 <div class="paragraph">
 <p>La commande prend diverses sous-commandes et différentes options selon la sous-commande :</p>
 </div>
 <div class="paragraph">
-<p>La sous-commande "show" (qui est aussi celle par défaut, en l&#8217;absence de sous-commandes) montre le journal des références fourni dans la ligne de commande (ou <code>HEAD</code>, par défaut). Le réflog couvre toutes les actions récentes, et en plus les basculements de la branche <code>HEAD</code>. <code>git reflog show</code> is an alias for <code>git log -g --abbrev-commit --pretty=oneline</code> ; voir <a href='{{< relurl "docs/git-log/fr" >}}'>git-log[1]</a> pour plus d&#8217;information.</p>
+<p>La sous-commande "show" (qui est aussi celle par défaut, en l&#8217;absence de sous-commandes) montre le journal des références fourni dans la ligne de commande (ou <span class='synopsis'><code>HEAD</code></span>, par défaut). Le réflog couvre toutes les actions récentes, et en plus les basculements de la branche <span class='synopsis'><code>HEAD</code></span>. <span class='synopsis'><code>git</code> <code>reflog</code> <code>show</code></span> is an alias for <span class='synopsis'><code>git</code> <code>log</code> <code>-g</code> <code>--abbrev-commit</code> <code>--pretty=oneline</code></span> ; voir <a href='{{< relurl "docs/git-log/fr" >}}'>git-log[1]</a> pour plus d&#8217;information.</p>
 </div>
 <div class="paragraph">
 <p>Le sous-commande "list" liste toutes les réfs qui ont un reflog correspondant.</p>
 </div>
 <div class="paragraph">
-<p>La sous-commande "expire" élague les anciennes entrées du reflog. Les entrées plus anciennes que le temps <code>expire</code>, ou les entrées plus anciennes que le temps <code>expire-unreachable</code> et non accessibles à partir du sommet actuel, sont retirées du reflog. Ceci n&#8217;est généralement pas utilisé directement par les utilisateurs finaux&#8201;&#8212;&#8201;plutôt, voir <a href='{{< relurl "docs/git-gc/fr" >}}'>git-gc[1]</a>.</p>
+<p>La sous-commande "expire" élague les anciennes entrées du reflog. Les entrées plus anciennes que le temps <span class='synopsis'><code>expire</code></span>, ou les entrées plus anciennes que le temps <span class='synopsis'><code>expire-unreachable</code></span> et non accessibles à partir du sommet actuel, sont retirées du reflog. Ceci n&#8217;est généralement pas utilisé directement par les utilisateurs finaux&#8201;&#8212;&#8201;plutôt, voir <a href='{{< relurl "docs/git-gc/fr" >}}'>git-gc[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>La sous-commande "delete" supprime les entrées uniques du reflog, mais pas le reflog lui-même. Son argument doit être une entrée <em>exacte</em> (par exemple "<code>git reflog delete master@{2}</code>"). Cette sous-commande n&#8217;est généralement pas utilisée directement par les utilisateurs finaux.</p>
+<p>La sous-commande "delete" supprime les entrées uniques du reflog, mais pas le reflog lui-même. Son argument doit être une entrée <em>exacte</em> (par exemple "<span class='synopsis'><code>git</code> <code>reflog</code> <code>delete</code> <code>master@{2}</code></span>"). Cette sous-commande n&#8217;est généralement pas utilisée directement par les utilisateurs finaux.</p>
 </div>
 <div class="paragraph">
 <p>The "drop" subcommand completely removes the reflog for the specified references. This is in contrast to "expire" and "delete", both of which can be used to delete reflog entries, but not the reflog itself.</p>
@@ -72,7 +85,7 @@ aliases:
 <div class="sect2">
 <h3 id="_options_de_show"><a class="anchor" href="#_options_de_show"></a>Options de `show `</h3>
 <div class="paragraph">
-<p><code>git reflog show</code> accepte toutes les options acceptées par <code>git log</code>.</p>
+<p><span class='synopsis'><code>git</code> <code>reflog</code> <code>show</code></span> accepte toutes les options acceptées par <span class='synopsis'><code>git</code> <code>log</code></span>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -85,15 +98,15 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-reflog---single-worktree"> <a class="anchor" href="#git-reflog---single-worktree"></a>--single-worktree </dt>
 <dd>
-<p>Par défaut, lorsque <code>--all</code> est spécifié, les reflogs de tous les arbres de travail sont traités. Cette option limite le traitement aux reflogs de l&#8217;arbre de travail actuel seulement.</p>
+<p>Par défaut, lorsque <span class='synopsis'><code>--all</code></span> est spécifié, les reflogs de tous les arbres de travail sont traités. Cette option limite le traitement aux reflogs de l&#8217;arbre de travail actuel seulement.</p>
 </dd>
 <dt class="hdlist1" id="git-reflog---expirelttempsgt"> <a class="anchor" href="#git-reflog---expiretemps"></a> <a class="anchor" href="#git-reflog---expirelttempsgt"></a>--expire=&lt;temps&gt; </dt>
 <dd>
-<p>Élaguer les entrées plus anciennes que l&#8217;heure spécifiée. Si cette option n&#8217;est pas spécifiée, le délai d&#8217;expiration est pris à partir du paramètre de configuration <code>gc.reflogExpire</code>, qui par défaut est de 90 jours. <code>--expire=all</code> élague les entrées indépendamment de leur âge ; <code>--expire=never</code> désactive l&#8217;élagage des entrées joignables (mais voir <code>--expire-unreachable</code>).</p>
+<p>Élaguer les entrées plus anciennes que l&#8217;heure spécifiée. Si cette option n&#8217;est pas spécifiée, le délai d&#8217;expiration est pris à partir du paramètre de configuration <span class='synopsis'><code>gc.reflogExpire</code></span>, qui par défaut est de 90 jours. <span class='synopsis'><code>--expire=all</code></span> élague les entrées indépendamment de leur âge ; <span class='synopsis'><code>--expire=never</code></span> désactive l&#8217;élagage des entrées joignables (mais voir <span class='synopsis'><code>--expire-unreachable</code></span>).</p>
 </dd>
 <dt class="hdlist1" id="git-reflog---expire-unreachableltdategt"> <a class="anchor" href="#git-reflog---expire-unreachabledate"></a> <a class="anchor" href="#git-reflog---expire-unreachableltdategt"></a>--expire-unreachable=&lt;date&gt; </dt>
 <dd>
-<p>Élaguer les entrées plus anciennes que <code>&lt;date&gt;</code> et qui ne sont pas accessibles depuis le sommet actuel de la branche. Si cette option n&#8217;est pas spécifiée, le délai d&#8217;expiration est pris à partir du paramètre de configuration <code>gc.reflogExpireUnreachable</code> , qui par défaut est de 30 jours. <code>--expire-unreachable=all</code> élague les entrées inaccessibles quel que soit leur âge ; <code>--expire-unreachable=never</code> arrête l&#8217;élagage rapide des entrées inaccessibles (mais voir <code>--expire</code>).</p>
+<p>Élaguer les entrées plus anciennes que <span class='synopsis'><em>&lt;date&gt;</em></span> et qui ne sont pas accessibles depuis le sommet actuel de la branche. Si cette option n&#8217;est pas spécifiée, le délai d&#8217;expiration est pris à partir du paramètre de configuration <span class='synopsis'><code>gc.reflogExpireUnreachable</code></span> , qui par défaut est de 30 jours. <span class='synopsis'><code>--expire-unreachable=all</code></span> élague les entrées inaccessibles quel que soit leur âge ; <span class='synopsis'><code>--expire-unreachable=never</code></span> arrête l&#8217;élagage rapide des entrées inaccessibles (mais voir <span class='synopsis'><code>--expire</code></span>).</p>
 </dd>
 <dt class="hdlist1" id="git-reflog---updateref"> <a class="anchor" href="#git-reflog---updateref"></a>--updateref </dt>
 <dd>
@@ -125,7 +138,7 @@ aliases:
 <div class="sect2">
 <h3 id="_options_pour_delete"><a class="anchor" href="#_options_pour_delete"></a>Options pour `delete `</h3>
 <div class="paragraph">
-<p><code>git reflog delete</code> accepte les options <code>--updateref</code>, <code>--rewrite</code>, <code>-n</code>, <code>--dry-run</code>, and <code>--verbose</code>, avec la même signification que lorsqu&#8217;elles sont utilisées avec <code>expire</code>.</p>
+<p><span class='synopsis'><code>git</code> <code>reflog</code> <code>delete</code></span> accepte les options <span class='synopsis'><code>--updateref</code></span>, <span class='synopsis'><code>--rewrite</code></span>, <span class='synopsis'><code>-n</code></span>, <span class='synopsis'><code>--dry-run</code></span>, and <span class='synopsis'><code>--verbose</code></span>, avec la même signification que lorsqu&#8217;elles sont utilisées avec <span class='synopsis'><code>expire</code></span>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -138,7 +151,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-reflog---single-worktree-1"> <a class="anchor" href="#git-reflog---single-worktree-1"></a>--single-worktree </dt>
 <dd>
-<p>Par défaut, lorsque <code>--all</code> est spécifié, les reflogs de tous les arbres de travail sont abandonnées. Cette option limite le traitement aux reflogs de l&#8217;arbre de travail actuel seulement.</p>
+<p>Par défaut, lorsque <span class='synopsis'><code>--all</code></span> est spécifié, les reflogs de tous les arbres de travail sont abandonnées. Cette option limite le traitement aux reflogs de l&#8217;arbre de travail actuel seulement.</p>
 </dd>
 </dl>
 </div>

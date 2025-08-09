@@ -9,6 +9,25 @@ docname: git-http-backend
 lang: fr
 aliases:
 - "/docs/git-http-backend/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: SERVICES
+  id: _services
+- text: TRADUCTION D’URL
+  id: _traduction_durl
+- text: EXEMPLES
+  id: _exemples
+- text: ENVIRONNEMENT
+  id: _environnement
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -30,13 +49,13 @@ aliases:
 <h2 id="_description"><a class="anchor" href="#_description"></a>DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Un simple programme CGI pour servir le contenu d&#8217;un dépôt Git aux clients Git qui accèdent au dépôt via les protocoles http:// et https://. Le programme supporte les clients qui récupèrent des données en utilisant à la fois le protocole HTTP intelligent et le protocole HTTP muet rétrocompatible, ainsi que les clients qui poussent des données en utilisant le protocole HTTP intelligent. Il supporte également le protocole "v2" de Git, plus efficace, s&#8217;il est correctement configuré ; voir la discussion sur <code>GIT_PROTOCOL</code> dans la section ENVIRONNEMENT ci-dessous.</p>
+<p>Un simple programme CGI pour servir le contenu d&#8217;un dépôt Git aux clients Git qui accèdent au dépôt via les protocoles http:// et https://. Le programme supporte les clients qui récupèrent des données en utilisant à la fois le protocole HTTP intelligent et le protocole HTTP muet rétrocompatible, ainsi que les clients qui poussent des données en utilisant le protocole HTTP intelligent. Il supporte également le protocole "v2" de Git, plus efficace, s&#8217;il est correctement configuré ; voir la discussion sur <span class='synopsis'><code>GIT_PROTOCOL</code></span> dans la section ENVIRONNEMENT ci-dessous.</p>
 </div>
 <div class="paragraph">
-<p>Il vérifie que le répertoire possède le fichier magique "git-daemon-export-ok", et il refusera d&#8217;exporter tout répertoire Git qui n&#8217;a pas été explicitement marqué pour l&#8217;exportation de cette manière (à moins que la variable d&#8217;environnement <code>GIT_HTTP_EXPORT_ALL</code> ne soit définie).</p>
+<p>Il vérifie que le répertoire possède le fichier magique "git-daemon-export-ok", et il refusera d&#8217;exporter tout répertoire Git qui n&#8217;a pas été explicitement marqué pour l&#8217;exportation de cette manière (à moins que la variable d&#8217;environnement <span class='synopsis'><code>GIT_HTTP_EXPORT_ALL</code></span> ne soit définie).</p>
 </div>
 <div class="paragraph">
-<p>Par défaut, seul le service <code>upload-pack</code> est activé, qui sert les clients <em>git fetch-pack</em> et <em>git ls-remote</em>, qui sont invoqués à partir de <em>git fetch</em>, <em>git pull</em>, et <em>git clone</em>. Si le client est authentifié, le service <code>receive-pack</code> est activé et sert les clients <em>git send-pack</em>, qui sont invoqués à partir de <em>git push</em>.</p>
+<p>Par défaut, seul le service <span class='synopsis'><code>upload-pack</code></span> est activé, qui sert les clients <em>git fetch-pack</em> et <em>git ls-remote</em>, qui sont invoqués à partir de <em>git fetch</em>, <em>git pull</em>, et <em>git clone</em>. Si le client est authentifié, le service <span class='synopsis'><code>receive-pack</code></span> est activé et sert les clients <em>git send-pack</em>, qui sont invoqués à partir de <em>git push</em>.</p>
 </div>
 </div>
 </div>
@@ -50,19 +69,19 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-http-backend-httpgetanyfile"> <a class="anchor" href="#git-http-backend-httpgetanyfile"></a>http.getanyfile </dt>
 <dd>
-<p>Ceci sert les clients Git plus anciens que la version 1.6.6 qui ne sont pas en mesure d&#8217;utiliser le service de téléversement de paquet. Lorsqu&#8217;il est activé, les clients sont capables de lire n&#8217;importe quel fichier dans le dépôt, y compris les objets qui ne sont plus accessibles depuis une branche mais qui sont toujours présents. Il est activé par défaut, mais un dépôt peut le désactiver en mettant cet élément de configuration à <code>false</code>.</p>
+<p>Ceci sert les clients Git plus anciens que la version 1.6.6 qui ne sont pas en mesure d&#8217;utiliser le service de téléversement de paquet. Lorsqu&#8217;il est activé, les clients sont capables de lire n&#8217;importe quel fichier dans le dépôt, y compris les objets qui ne sont plus accessibles depuis une branche mais qui sont toujours présents. Il est activé par défaut, mais un dépôt peut le désactiver en mettant cet élément de configuration à <span class='synopsis'><code>false</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-http-backend-httpuploadpack"> <a class="anchor" href="#git-http-backend-httpuploadpack"></a>http.uploadpack </dt>
 <dd>
-<p>Cela sert aux clients <em>git fetch-pack</em> et <em>git ls-remote</em>. Il est activé par défaut, mais un dépôt peut le désactiver en définissant cet élément de configuration sur <code>false</code>.</p>
+<p>Cela sert aux clients <em>git fetch-pack</em> et <em>git ls-remote</em>. Il est activé par défaut, mais un dépôt peut le désactiver en définissant cet élément de configuration sur <span class='synopsis'><code>false</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-http-backend-httpreceivepack"> <a class="anchor" href="#git-http-backend-httpreceivepack"></a>http.receivepack </dt>
 <dd>
-<p>Ceci sert les clients <em>git send-pack</em>, permettant de pousser. Il est désactivé par défaut pour les utilisateurs anonymes, et activé par défaut pour les utilisateurs authentifiés par le serveur web. Il peut être désactivé en mettant cet élément à <code>false</code>, ou activé pour tous les utilisateurs, y compris les utilisateurs anonymes, en le mettant à <code>true</code>.</p>
+<p>Ceci sert les clients <em>git send-pack</em>, permettant de pousser. Il est désactivé par défaut pour les utilisateurs anonymes, et activé par défaut pour les utilisateurs authentifiés par le serveur web. Il peut être désactivé en mettant cet élément à <span class='synopsis'><code>false</code></span>, ou activé pour tous les utilisateurs, y compris les utilisateurs anonymes, en le mettant à <span class='synopsis'><code>true</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-http-backend-httpuploadarchive"> <a class="anchor" href="#git-http-backend-httpuploadarchive"></a>http.uploadarchive </dt>
 <dd>
-<p>Cela sert les clients de <code>git archive</code> pour des archives distantes sur les protocoles HTTP/HTTPS. Il est désactivé par défaut. Il ne fonctionne que dans le protocole v2.</p>
+<p>Cela sert les clients de <span class='synopsis'><code>git</code> <code>archive</code></span> pour des archives distantes sur les protocoles HTTP/HTTPS. Il est désactivé par défaut. Il ne fonctionne que dans le protocole v2.</p>
 </dd>
 </dl>
 </div>
@@ -80,7 +99,7 @@ aliases:
 <h2 id="_exemples"><a class="anchor" href="#_exemples"></a>EXEMPLES</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Tous les exemples suivants font correspondre <code>http://$hostname/git/foo/bar.git</code> à <code>/var/www/git/foo/bar.git</code>.</p>
+<p>Tous les exemples suivants font correspondre <span class='synopsis'><code>http://$hostname/git/foo/bar.git</code></span> à <span class='synopsis'><code>/var/www/git/foo/bar.git</code></span>.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -128,7 +147,7 @@ RewriteRule ^/git/ - [E=AUTHREQUIRED:yes]
 </div>
 </div>
 <div class="paragraph">
-<p>Si vous n&#8217;avez pas <code>mod_rewrite</code> disponible pour tester la correspondance de la chaîne de requête, il est suffisant de protéger <code>git-receive-pack</code> lui-même, comme :</p>
+<p>Si vous n&#8217;avez pas <span class='synopsis'><code>mod_rewrite</code></span> disponible pour tester la correspondance de la chaîne de requête, il est suffisant de protéger <span class='synopsis'><code>git-receive-pack</code></span> lui-même, comme :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -141,7 +160,7 @@ RewriteRule ^/git/ - [E=AUTHREQUIRED:yes]
 </div>
 </div>
 <div class="paragraph">
-<p>Dans ce mode, le serveur ne demandera pas d&#8217;authentification avant que le client ne commence la phase de négociation de l&#8217;objet de la poussée, plutôt que lors du contact initial. Pour cette raison, vous devez également activer l&#8217;option de configuration <code>http.receivepack</code> dans tous les dépôts qui devraient accepter une poussée. Le comportement par défaut, si <code>http.receivepack</code> n&#8217;est pas activé, est de rejeter toute poussée par des utilisateurs non authentifiés ; la requête initiale rapportera donc <code>403 Forbidden</code> au client, sans même lui donner l&#8217;opportunité de s&#8217;authentifier.</p>
+<p>Dans ce mode, le serveur ne demandera pas d&#8217;authentification avant que le client ne commence la phase de négociation de l&#8217;objet de la poussée, plutôt que lors du contact initial. Pour cette raison, vous devez également activer l&#8217;option de configuration <span class='synopsis'><code>http.receivepack</code></span> dans tous les dépôts qui devraient accepter une poussée. Le comportement par défaut, si <span class='synopsis'><code>http.receivepack</code></span> n&#8217;est pas activé, est de rejeter toute poussée par des utilisateurs non authentifiés ; la requête initiale rapportera donc <span class='synopsis'><code>403</code> <code>Forbidden</code></span> au client, sans même lui donner l&#8217;opportunité de s&#8217;authentifier.</p>
 </div>
 <div class="paragraph">
 <p>Pour exiger l&#8217;authentification à la fois pour les lectures et les écritures, utilisez une directive Location autour du dépôt ou de l&#8217;un de ses répertoires parents :</p>
@@ -216,7 +235,7 @@ ScriptAlias /git/ /var/www/cgi-bin/gitweb.cgi/</pre>
 </dd>
 <dt class="hdlist1" id="git-http-backend-Lighttpd"> <a class="anchor" href="#git-http-backend-Lighttpd"></a>Lighttpd </dt>
 <dd>
-<p>Assurez-vous que <code>mod_cgi</code>, <code>mod_alias</code>, <code>mod_auth</code>, <code>mod_setenv</code> sont chargés, puis définissez <code>GIT_PROJECT_ROOT</code> de manière appropriée et redirigez toutes les requêtes vers le CGI :</p>
+<p>Assurez-vous que <span class='synopsis'><code>mod_cgi</code></span>, <span class='synopsis'><code>mod_alias</code></span>, <span class='synopsis'><code>mod_auth</code></span>, <span class='synopsis'><code>mod_setenv</code></span> sont chargés, puis définissez <span class='synopsis'><code>GIT_PROJECT_ROOT</code></span> de manière appropriée et redirigez toutes les requêtes vers le CGI :</p>
 <div class="listingblock">
 <div class="content">
 <pre>alias.url += ( "/git" =&gt; "/usr/lib/git-core/git-http-backend" )
@@ -243,7 +262,7 @@ $HTTP["url"] =~ "^/git/.*/git-receive-pack$" {
 </div>
 </div>
 <div class="paragraph">
-<p>où <code>git-auth.conf</code> ressemble à quelque chose comme :</p>
+<p>où <span class='synopsis'><code>git-auth.conf</code></span> ressemble à quelque chose comme :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -276,7 +295,7 @@ $HTTP["url"] =~ "^/git/.*/git-receive-pack$" {
 <h2 id="_environnement"><a class="anchor" href="#_environnement"></a>ENVIRONNEMENT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>git http-backend</em> s’appuie sur les variables d’environnement <code>CGI</code> définies par le serveur web appelant, notamment :</p>
+<p><em>git http-backend</em> s’appuie sur les variables d’environnement <span class='synopsis'><code>CGI</code></span> définies par le serveur web appelant, notamment :</p>
 </div>
 <div class="ulist">
 <ul>
@@ -301,19 +320,19 @@ $HTTP["url"] =~ "^/git/.*/git-receive-pack$" {
 </ul>
 </div>
 <div class="paragraph">
-<p>La variable d&#8217;environnement <code>GIT_HTTP_EXPORT_ALL</code> peut être passée à <em>git-http-backend</em> pour contourner la vérification du fichier "git-daemon-export-ok" dans chaque dépôt avant d&#8217;autoriser l&#8217;exportation de ce dépôt.</p>
+<p>La variable d&#8217;environnement <span class='synopsis'><code>GIT_HTTP_EXPORT_ALL</code></span> peut être passée à <em>git-http-backend</em> pour contourner la vérification du fichier "git-daemon-export-ok" dans chaque dépôt avant d&#8217;autoriser l&#8217;exportation de ce dépôt.</p>
 </div>
 <div class="paragraph">
-<p>La variable d&#8217;environnement <code>GIT_HTTP_MAX_REQUEST_BUFFER</code> (ou l&#8217;option de configuration <code>http.maxRequestBuffer</code>) peut être définie pour changer la plus grande requête de négociation de refs que git traitera pendant une récupération ; toute récupération nécessitant un tampon plus grand n&#8217;aboutira pas. Cette valeur n&#8217;a normalement pas besoin d&#8217;être modifiée, mais peut être utile si vous récupérez des données d&#8217;un dépôt avec un très grand nombre de refs. La valeur peut être spécifiée avec une unité (par exemple, <code>100M</code> pour 100 mégaoctets). La valeur par défaut est de 10 mégaoctets.</p>
+<p>La variable d&#8217;environnement <span class='synopsis'><code>GIT_HTTP_MAX_REQUEST_BUFFER</code></span> (ou l&#8217;option de configuration <span class='synopsis'><code>http.maxRequestBuffer</code></span>) peut être définie pour changer la plus grande requête de négociation de refs que git traitera pendant une récupération ; toute récupération nécessitant un tampon plus grand n&#8217;aboutira pas. Cette valeur n&#8217;a normalement pas besoin d&#8217;être modifiée, mais peut être utile si vous récupérez des données d&#8217;un dépôt avec un très grand nombre de refs. La valeur peut être spécifiée avec une unité (par exemple, <span class='synopsis'><code>100M</code></span> pour 100 mégaoctets). La valeur par défaut est de 10 mégaoctets.</p>
 </div>
 <div class="paragraph">
-<p>Les clients peuvent rechercher des capacités optionnelles du protocole (comme le protocole v2) en utilisant l&#8217;en-tête HTTP <code>Git-Protocol</code>. Afin de les prendre en charge, le contenu de cet en-tête doit apparaître dans la variable d&#8217;environnement <code>GIT_PROTOCOL</code>. La plupart des serveurs web passeront cet en-tête au CGI via la variable <code>HTTP_GIT_PROTOCOL</code>, et <code>git-http-backend</code> le copiera automatiquement dans <code>GIT_PROTOCOL</code>. Cependant, certains serveurs web peuvent être plus sélectifs sur les en-têtes qu&#8217;ils passent, dans ce cas ils doivent être configurés explicitement (voir la mention de <code>Git-Protocol</code> dans la configuration d&#8217;Apache dans la section EXEMPLES précédente).</p>
+<p>Les clients peuvent rechercher des capacités optionnelles du protocole (comme le protocole v2) en utilisant l&#8217;en-tête HTTP <span class='synopsis'><code>Git-Protocol</code></span>. Afin de les prendre en charge, le contenu de cet en-tête doit apparaître dans la variable d&#8217;environnement <span class='synopsis'><code>GIT_PROTOCOL</code></span>. La plupart des serveurs web passeront cet en-tête au CGI via la variable <span class='synopsis'><code>HTTP_GIT_PROTOCOL</code></span>, et <span class='synopsis'><code>git-http-backend</code></span> le copiera automatiquement dans <span class='synopsis'><code>GIT_PROTOCOL</code></span>. Cependant, certains serveurs web peuvent être plus sélectifs sur les en-têtes qu&#8217;ils passent, dans ce cas ils doivent être configurés explicitement (voir la mention de <span class='synopsis'><code>Git-Protocol</code></span> dans la configuration d&#8217;Apache dans la section EXEMPLES précédente).</p>
 </div>
 <div class="paragraph">
 <p>Le processus de backend définit GIT_COMMITTER_NAME à <em>$REMOTE_USER</em> et GIT_COMMITTER_EMAIL à <em>${REMOTE_USER}@http.${REMOTE_ADDR}</em>, s&#8217;assurant que tous les reflogs créés par <em>git-receive-pack</em> contiennent des informations d&#8217;identification de l&#8217;utilisateur distant qui a effectué la poussée.</p>
 </div>
 <div class="paragraph">
-<p>Toutes les variables d&#8217;environnement <code>CGI</code> sont disponibles pour chacun des crochets invoqués par <em>git-receive-pack</em>.</p>
+<p>Toutes les variables d&#8217;environnement <span class='synopsis'><code>CGI</code></span> sont disponibles pour chacun des crochets invoqués par <em>git-receive-pack</em>.</p>
 </div>
 </div>
 </div>

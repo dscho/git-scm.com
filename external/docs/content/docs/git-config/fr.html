@@ -9,6 +9,37 @@ docname: git-config
 lang: fr
 aliases:
 - "/docs/git-config/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: COMMANDES
+  id: _commandes
+- text: OPTIONS
+  id: OPTIONS
+- text: MODES OBSOLÈTES
+  id: _modes_obsolètes
+- text: CONFIGURATION
+  id: _configuration
+- text: FICHIERS
+  id: FILES
+- text: PORTÉES
+  id: SCOPES
+- text: ENVIRONNEMENT
+  id: ENVIRONMENT
+- text: EXEMPLES
+  id: EXAMPLES
+- text: FICHIER DE CONFIGURATION
+  id: _fichier_de_configuration
+- text: BOGUES
+  id: _bogues
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -40,16 +71,16 @@ aliases:
 <p>Vous pouvez interroger/définir/remplacer/annuler les options avec cette commande. Le nom est en fait la section et la clé séparées par un point, et la valeur sera échappée.</p>
 </div>
 <div class="paragraph">
-<p>Plusieurs lignes peuvent être ajoutées à une option en utilisant l&#8217;option <code>--append</code>. Si vous voulez mettre à jour ou annuler une option qui peut se trouver sur plusieurs lignes, un "motif-de-valeur" (qui est une expression régulière étendue, à moins que l&#8217;option "--fixed-value" soit donnée) doit être donné. Seules les valeurs existantes qui correspondent au motif sont mises à jour ou annulées. Si vous voulez gérer les lignes qui ne correspondent <strong>pas</strong> au motif, ajoutez simplement un point d&#8217;exclamation devant (voir aussi <a href="#EXAMPLES">EXEMPLES</a>), mais notez que cela ne fonctionne que lorsque l&#8217;option <code>--fixed-value</code> n&#8217;est pas utilisée.</p>
+<p>Plusieurs lignes peuvent être ajoutées à une option en utilisant l&#8217;option <span class='synopsis'><code>--append</code></span>. Si vous voulez mettre à jour ou annuler une option qui peut se trouver sur plusieurs lignes, un "motif-de-valeur" (qui est une expression régulière étendue, à moins que l&#8217;option "--fixed-value" soit donnée) doit être donné. Seules les valeurs existantes qui correspondent au motif sont mises à jour ou annulées. Si vous voulez gérer les lignes qui ne correspondent <strong>pas</strong> au motif, ajoutez simplement un point d&#8217;exclamation devant (voir aussi <a href="#EXAMPLES">EXEMPLES</a>), mais notez que cela ne fonctionne que lorsque l&#8217;option <span class='synopsis'><code>--fixed-value</code></span> n&#8217;est pas utilisée.</p>
 </div>
 <div class="paragraph">
-<p>L&#8217;option <code>--type=&lt;type&gt;</code> indique à <em>git config</em> de s&#8217;assurer que les valeurs entrantes et sortantes peuvent être canonisées sous le &lt;type&gt; donné. Si aucun <code>--type=&lt;type&gt;</code> n&#8217;est donné, aucune canonisation ne sera effectuée. Les appelants peuvent annuler un spécificateur <code>--type</code> existant avec <code>--no-type</code>.</p>
+<p>L&#8217;option <span class='synopsis'><code>--type=</code><em>&lt;type&gt;</em></span> indique à <em>git config</em> de s&#8217;assurer que les valeurs entrantes et sortantes peuvent être canonisées sous le &lt;type&gt; donné. Si aucun <span class='synopsis'><code>--type=</code><em>&lt;type&gt;</em></span> n&#8217;est donné, aucune canonisation ne sera effectuée. Les appelants peuvent annuler un spécificateur <span class='synopsis'><code>--type</code></span> existant avec <span class='synopsis'><code>--no-type</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Lors de la lecture, les valeurs sont lues par défaut à partir des fichiers de configuration du système, du globaux à l&#8217;utilisateur et locaux au dépôt, et les options <code>--system</code>, <code>--global</code>, <code>--local</code>, <code>--worktree</code> et <code>--file &lt;nom-de-fichier&gt;</code> peuvent être utilisées pour indiquer à la commande de lire uniquement à partir de chaque emplacement (voir <a href="#FILES">FICHIERS</a>).</p>
+<p>Lors de la lecture, les valeurs sont lues par défaut à partir des fichiers de configuration du système, du globaux à l&#8217;utilisateur et locaux au dépôt, et les options <span class='synopsis'><code>--system</code></span>, <span class='synopsis'><code>--global</code></span>, <span class='synopsis'><code>--local</code></span>, <span class='synopsis'><code>--worktree</code></span> et <span class='synopsis'><code>--file</code> <em>&lt;nom-de-fichier&gt;</em></span> peuvent être utilisées pour indiquer à la commande de lire uniquement à partir de chaque emplacement (voir <a href="#FILES">FICHIERS</a>).</p>
 </div>
 <div class="paragraph">
-<p>Lors de l&#8217;écriture, la nouvelle valeur est écrite dans le fichier de configuration local du dépôt par défaut, et les options <code>--system</code>, <code>--global</code>, <code>--worktree</code>, <code>--file &lt;fichier&gt;</code> peuvent être utilisées pour dire à la commande d&#8217;écrire à cet endroit (vous pouvez dire <code>--local</code> mais c&#8217;est la valeur par défaut).</p>
+<p>Lors de l&#8217;écriture, la nouvelle valeur est écrite dans le fichier de configuration local du dépôt par défaut, et les options <span class='synopsis'><code>--system</code></span>, <span class='synopsis'><code>--global</code></span>, <span class='synopsis'><code>--worktree</code></span>, <span class='synopsis'><code>--file</code> <em>&lt;fichier&gt;</em></span> peuvent être utilisées pour dire à la commande d&#8217;écrire à cet endroit (vous pouvez dire <span class='synopsis'><code>--local</code></span> mais c&#8217;est la valeur par défaut).</p>
 </div>
 <div class="paragraph">
 <p>Cette commande échouera avec un statut non nul en cas d&#8217;erreur. Certains codes de sortie sont :</p>
@@ -83,7 +114,7 @@ aliases:
 <p>En cas de succès, la commande renvoie le code de sortie 0.</p>
 </div>
 <div class="paragraph">
-<p>Une liste de toutes les variables de configuration disponibles peut être obtenue en utilisant la commande <code>git help --config</code>.</p>
+<p>Une liste de toutes les variables de configuration disponibles peut être obtenue en utilisant la commande <span class='synopsis'><code>git</code> <code>help</code> <code>--config</code></span>.</p>
 </div>
 </div>
 </div>
@@ -98,15 +129,15 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config-get"> <a class="anchor" href="#git-config-get"></a>get </dt>
 <dd>
-<p>Émet la valeur de la clé spécifiée. Si la clé est présente plusieurs fois dans la configuration, émet la dernière valeur. Si <code>--all</code> est spécifié, émet toutes les valeurs associées à la clé. Retourne le code d&#8217;erreur 1 si la clé n&#8217;est pas présente.</p>
+<p>Émet la valeur de la clé spécifiée. Si la clé est présente plusieurs fois dans la configuration, émet la dernière valeur. Si <span class='synopsis'><code>--all</code></span> est spécifié, émet toutes les valeurs associées à la clé. Retourne le code d&#8217;erreur 1 si la clé n&#8217;est pas présente.</p>
 </dd>
 <dt class="hdlist1" id="git-config-set"> <a class="anchor" href="#git-config-set"></a>set </dt>
 <dd>
-<p>Définir la valeur pour une ou plusieurs options de configuration. Par défaut, cette commande refuse d&#8217;écrire des options de configuration multi-valeur. Passer <code>--all</code> remplacera toutes les options de configuration multi-valeur avec la nouvelle valeur, alors que <code>--value=</code> remplacera toutes les options de configuration dont les valeurs correspondent au modèle donné.</p>
+<p>Définir la valeur pour une ou plusieurs options de configuration. Par défaut, cette commande refuse d&#8217;écrire des options de configuration multi-valeur. Passer <span class='synopsis'><code>--all</code></span> remplacera toutes les options de configuration multi-valeur avec la nouvelle valeur, alors que <span class='synopsis'><code>--value=</code></span> remplacera toutes les options de configuration dont les valeurs correspondent au modèle donné.</p>
 </dd>
 <dt class="hdlist1" id="git-config-unset"> <a class="anchor" href="#git-config-unset"></a>unset </dt>
 <dd>
-<p>Valeur désinitialisée pour une ou plusieurs options de configuration. Par défaut, cette commande refuse de désactiver les clés multi-valeurs. Passer <code>--all</code> dé-enregistrera toutes les options de configuration multi-valeur, alors que <code>--value</code> dé-enregistrera toutes les options de configuration dont les valeurs correspondent au modèle donné.</p>
+<p>Valeur désinitialisée pour une ou plusieurs options de configuration. Par défaut, cette commande refuse de désactiver les clés multi-valeurs. Passer <span class='synopsis'><code>--all</code></span> dé-enregistrera toutes les options de configuration multi-valeur, alors que <span class='synopsis'><code>--value</code></span> dé-enregistrera toutes les options de configuration dont les valeurs correspondent au modèle donné.</p>
 </dd>
 <dt class="hdlist1" id="git-config-rename-section"> <a class="anchor" href="#git-config-rename-section"></a>rename-section </dt>
 <dd>
@@ -118,7 +149,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config-edit"> <a class="anchor" href="#git-config-edit"></a>edit </dt>
 <dd>
-<p>Ouvrir un éditeur pour modifier le fichier de configuration spécifié ; soit <code>--system</code>, <code>--global</code>, <code>--local</code> (par défaut), <code>--worktree`ou `--file &lt;fichier-config&gt;</code>.</p>
+<p>Ouvrir un éditeur pour modifier le fichier de configuration spécifié ; soit <span class='synopsis'><code>--system</code></span>, <span class='synopsis'><code>--global</code></span>, <span class='synopsis'><code>--local</code></span> (par défaut), <span class='synopsis'><code>--worktree</code><code>ou</code> <code>--file</code> <em>&lt;fichier-config&gt;</em></span>.</p>
 </dd>
 </dl>
 </div>
@@ -131,11 +162,11 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-config---replace-all"> <a class="anchor" href="#git-config---replace-all"></a>--replace-all </dt>
 <dd>
-<p>Le comportement par défaut est de remplacer au maximum une ligne. Ceci remplace toutes les lignes correspondant à la clé (et optionnellement au <code>motif-de-valeur</code>).</p>
+<p>Le comportement par défaut est de remplacer au maximum une ligne. Ceci remplace toutes les lignes correspondant à la clé (et optionnellement au <span class='synopsis'><code>motif-de-valeur</code></span>).</p>
 </dd>
 <dt class="hdlist1" id="git-config---append"> <a class="anchor" href="#git-config---append"></a>--append </dt>
 <dd>
-<p>Ajoute une nouvelle ligne à l&#8217;option sans modifier les valeurs existantes. C&#8217;est la même chose que de fournir <code>--value=^$</code> à <code>set</code>.</p>
+<p>Ajoute une nouvelle ligne à l&#8217;option sans modifier les valeurs existantes. C&#8217;est la même chose que de fournir <span class='synopsis'><code>--value=^$</code></span> à <span class='synopsis'><code>set</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---commentltmessagegt"> <a class="anchor" href="#git-config---commentmessage"></a> <a class="anchor" href="#git-config---commentltmessagegt"></a>--comment &lt;message&gt; </dt>
 <dd>
@@ -148,11 +179,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config---all"> <a class="anchor" href="#git-config---all"></a>--all </dt>
 <dd>
-<p>Avec <code>get</code>, renvoyer toutes les valeurs pour une clé à valeurs multiples.</p>
+<p>Avec <span class='synopsis'><code>get</code></span>, renvoyer toutes les valeurs pour une clé à valeurs multiples.</p>
 </dd>
 <dt class="hdlist1" id="git-config---regexp"> <a class="anchor" href="#git-config---regexp"></a>--regexp </dt>
 <dd>
-<p>avec <code>get</code>, interpréter le nom comme une expression régulière. La correspondance des expressions régulières est actuellement sensible à la casse et se fait par rapport à une version canonisée de la clé dans laquelle les noms de sections et de variables sont en minuscules, mais pas les noms de sous-sections.</p>
+<p>avec <span class='synopsis'><code>get</code></span>, interpréter le nom comme une expression régulière. La correspondance des expressions régulières est actuellement sensible à la casse et se fait par rapport à une version canonisée de la clé dans laquelle les noms de sections et de variables sont en minuscules, mais pas les noms de sous-sections.</p>
 </dd>
 <dt class="hdlist1" id="git-config---urlltURLgt"> <a class="anchor" href="#git-config---urlURL"></a> <a class="anchor" href="#git-config---urlltURLgt"></a>--url=&lt;URL&gt; </dt>
 <dd>
@@ -160,9 +191,9 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config---global"> <a class="anchor" href="#git-config---global"></a>--global </dt>
 <dd>
-<p>Pour l&#8217;écriture des options : écrire dans le fichier global <code>~/.gitconfig</code> plutôt que dans le <code>.git/config</code> du dépôt, écrire dans le fichier <code>$XDG_CONFIG_HOME/git/config</code> si ce fichier existe et que le fichier <code>~/.gitconfig</code> n&#8217;existe pas.</p>
+<p>Pour l&#8217;écriture des options : écrire dans le fichier global <span class='synopsis'><code>~/.gitconfig</code></span> plutôt que dans le <span class='synopsis'><code>.git/config</code></span> du dépôt, écrire dans le fichier <span class='synopsis'><code>$XDG_CONFIG_HOME/git/config</code></span> si ce fichier existe et que le fichier <span class='synopsis'><code>~/.gitconfig</code></span> n&#8217;existe pas.</p>
 <div class="paragraph">
-<p>Pour les options de lecture : lire uniquement depuis le <code>~/.gitconfig</code> global et depuis <code>$XDG_CONFIG_HOME/git/config</code> plutôt que depuis tous les fichiers disponibles.</p>
+<p>Pour les options de lecture : lire uniquement depuis le <span class='synopsis'><code>~/.gitconfig</code></span> global et depuis <span class='synopsis'><code>$XDG_CONFIG_HOME/git/config</code></span> plutôt que depuis tous les fichiers disponibles.</p>
 </div>
 <div class="paragraph">
 <p>Voir aussi <a href="#FILES">FICHIERS</a>.</p>
@@ -170,9 +201,9 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config---system"> <a class="anchor" href="#git-config---system"></a>--system </dt>
 <dd>
-<p>Pour l&#8217;écriture des options : écrire dans le <code>$(prefix)/etc/gitconfig</code> niveau système plutôt que dans le <code>.git/config</code> du dépôt.</p>
+<p>Pour l&#8217;écriture des options : écrire dans le <span class='synopsis'><code>$</code>(<code>prefix</code>)<code>/etc/gitconfig</code></span> niveau système plutôt que dans le <span class='synopsis'><code>.git/config</code></span> du dépôt.</p>
 <div class="paragraph">
-<p>Pour la lecture des options : lire seulement à partir de <code>$(prefix)/etc/gitconfig</code> niveau système plutôt qu&#8217;à partir de tous les fichiers disponibles.</p>
+<p>Pour la lecture des options : lire seulement à partir de <span class='synopsis'><code>$</code>(<code>prefix</code>)<code>/etc/gitconfig</code></span> niveau système plutôt qu&#8217;à partir de tous les fichiers disponibles.</p>
 </div>
 <div class="paragraph">
 <p>Voir aussi <a href="#FILES">FICHIERS</a>.</p>
@@ -180,9 +211,9 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config---local"> <a class="anchor" href="#git-config---local"></a>--local </dt>
 <dd>
-<p>Pour l&#8217;écriture des options : écrire dans le fichier <code>.git/config</code> du dépôt. C&#8217;est le comportement par défaut.</p>
+<p>Pour l&#8217;écriture des options : écrire dans le fichier <span class='synopsis'><code>.git/config</code></span> du dépôt. C&#8217;est le comportement par défaut.</p>
 <div class="paragraph">
-<p>Pour la lecture des options : lire uniquement depuis le <code>.git/config</code> du dépôt plutôt que depuis tous les fichiers disponibles.</p>
+<p>Pour la lecture des options : lire uniquement depuis le <span class='synopsis'><code>.git/config</code></span> du dépôt plutôt que depuis tous les fichiers disponibles.</p>
 </div>
 <div class="paragraph">
 <p>Voir aussi <a href="#FILES">FICHIERS</a>.</p>
@@ -190,12 +221,12 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config---worktree"> <a class="anchor" href="#git-config---worktree"></a>--worktree </dt>
 <dd>
-<p>Similaire à <code>--local</code> sauf que <code>$GIT_DIR/config.worktree</code> est lu ou écrit si <code>extensions.worktreeConfig</code> est activé. Sinon, c&#8217;est la même chose que <code>--local</code>. Notez que <code>$GIT_DIR</code> est égal à <code>$GIT_COMMON_DIR</code> pour l&#8217;arbre-de-travail principal, mais est de la forme <code>$GIT_DIR/worktrees/&lt;id&gt;/</code> pour les autres arbres-de-travail. Voir <a href='{{< relurl "docs/git-worktree/fr" >}}'>git-worktree[1]</a> pour savoir comment activer <code>extensions.worktreeConfig</code>.</p>
+<p>Similaire à <span class='synopsis'><code>--local</code></span> sauf que <span class='synopsis'><code>$GIT_DIR/config.worktree</code></span> est lu ou écrit si <span class='synopsis'><code>extensions.worktreeConfig</code></span> est activé. Sinon, c&#8217;est la même chose que <span class='synopsis'><code>--local</code></span>. Notez que <span class='synopsis'><code>$GIT_DIR</code></span> est égal à <span class='synopsis'><code>$GIT_COMMON_DIR</code></span> pour l&#8217;arbre-de-travail principal, mais est de la forme <span class='synopsis'><code>$GIT_DIR/worktrees/</code><em>&lt;id&gt;</em><code>/</code></span> pour les autres arbres-de-travail. Voir <a href='{{< relurl "docs/git-worktree/fr" >}}'>git-worktree[1]</a> pour savoir comment activer <span class='synopsis'><code>extensions.worktreeConfig</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config--fltfichier-de-configgt"> <a class="anchor" href="#git-config--ffichier-de-config"></a> <a class="anchor" href="#git-config--fltfichier-de-configgt"></a>-f &lt;fichier-de-config&gt; </dt>
 <dt class="hdlist1" id="git-config---fileltfichier-de-configgt"> <a class="anchor" href="#git-config---filefichier-de-config"></a> <a class="anchor" href="#git-config---fileltfichier-de-configgt"></a>--file &lt;fichier-de-config&gt; </dt>
 <dd>
-<p>Pour l&#8217;écriture des options : écrire dans le fichier spécifié plutôt que dans le <code>.git/config</code> du dépôt.</p>
+<p>Pour l&#8217;écriture des options : écrire dans le fichier spécifié plutôt que dans le <span class='synopsis'><code>.git/config</code></span> du dépôt.</p>
 <div class="paragraph">
 <p>Pour la lecture des options : lire uniquement à partir du fichier spécifié plutôt qu&#8217;à partir de tous les fichiers disponibles.</p>
 </div>
@@ -205,22 +236,22 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config---blobltblobgt"> <a class="anchor" href="#git-config---blobblob"></a> <a class="anchor" href="#git-config---blobltblobgt"></a>--blob &lt;blob&gt; </dt>
 <dd>
-<p>Similaire à <code>--file</code> mais utiliser le blob donné au lieu d&#8217;un fichier. Par exemple, vous pouvez utiliser <em>master:.gitmodules</em> pour lire les valeurs du fichier <em>.gitmodules</em> dans la branche master. Voir la section "SPECIFICATION DE REVISIONS" dans <a href='{{< relurl "docs/gitrevisions/fr" >}}'>gitrevisions[7]</a> pour une liste plus complète des façons d&#8217;épeler les noms de blob.</p>
+<p>Similaire à <span class='synopsis'><code>--file</code></span> mais utiliser le blob donné au lieu d&#8217;un fichier. Par exemple, vous pouvez utiliser <em>master:.gitmodules</em> pour lire les valeurs du fichier <em>.gitmodules</em> dans la branche master. Voir la section "SPECIFICATION DE REVISIONS" dans <a href='{{< relurl "docs/gitrevisions/fr" >}}'>gitrevisions[7]</a> pour une liste plus complète des façons d&#8217;épeler les noms de blob.</p>
 </dd>
 <dt class="hdlist1" id="git-config---fixed-value"> <a class="anchor" href="#git-config---fixed-value"></a>--fixed-value </dt>
 <dd>
-<p>Lorsqu’utilisé avec l’argument <em>value-pattern</em>, traiter <em>motif-de-valeur</em> comme une chaîne exacte au lieu d’une expression régulière. Cela limitera les paires nom/valeur qui sont trouvées à celles dont la valeur est exactement égale au <code>motif-de-valeur</code>.</p>
+<p>Lorsqu’utilisé avec l’argument <em>value-pattern</em>, traiter <em>motif-de-valeur</em> comme une chaîne exacte au lieu d’une expression régulière. Cela limitera les paires nom/valeur qui sont trouvées à celles dont la valeur est exactement égale au <span class='synopsis'><code>motif-de-valeur</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---typelttypegt"> <a class="anchor" href="#git-config---typetype"></a> <a class="anchor" href="#git-config---typelttypegt"></a>--type &lt;type&gt; </dt>
 <dd>
-<p><em>git config</em> s&#8217;assurera que toute entrée ou sortie est valide sous la ou les contraintes de type fournies, et canonisera les valeurs sortantes dans la forme canonique de <code>&lt;type&gt;</code>.</p>
+<p><em>git config</em> s&#8217;assurera que toute entrée ou sortie est valide sous la ou les contraintes de type fournies, et canonisera les valeurs sortantes dans la forme canonique de <span class='synopsis'><em>&lt;type&gt;</em></span>.</p>
 <div class="paragraph">
 <p>Les « &lt;type&gt; » valides comprennent :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><em>bool</em> : canonicaliser les valeurs <code>true</code>, <code>yes</code>,<code>on</code>, et les nombres positifs comme <code>true</code>, et les valeurs <code>false</code>, <code>no</code>, <code>off</code> et <code>0</code> comme <code>false</code>.</p>
+<p><em>bool</em> : canonicaliser les valeurs <span class='synopsis'><code>true</code></span>, <span class='synopsis'><code>yes</code></span>,<span class='synopsis'><code>on</code></span>, et les nombres positifs comme <span class='synopsis'><code>true</code></span>, et les valeurs <span class='synopsis'><code>false</code></span>, <span class='synopsis'><code>no</code></span>, <span class='synopsis'><code>off</code></span> et <span class='synopsis'><code>0</code></span> comme <span class='synopsis'><code>false</code></span>.</p>
 </li>
 <li>
 <p><em>int</em> : canoniser les valeurs sous forme de nombres décimaux simples. Un suffixe facultatif de <em>k</em>, <em>m</em> ou <em>g</em> entraînera la multiplication de la valeur par 1024, 1048576 ou 1073741824 lors de la lecture.</p>
@@ -229,7 +260,7 @@ aliases:
 <p><em>bool-ou-int</em> : canoniser selon <em>bool</em> ou <em>int</em>, comme décrit ci-dessus.</p>
 </li>
 <li>
-<p><em>path</em> : canonise en ajoutant un <code>~</code> à la valeur de <code>$HOME</code> et <code>~user</code> au répertoire personnel de l&#8217;utilisateur spécifié. Ce spécificateur n&#8217;a aucun effet lors de la définition de la valeur (mais vous pouvez utiliser <code>git config section.variable ~/</code> depuis la ligne de commande pour laisser votre shell faire l&#8217;expansion).</p>
+<p><em>path</em> : canonise en ajoutant un <span class='synopsis'><code>~</code></span> à la valeur de <span class='synopsis'><code>$HOME</code></span> et <span class='synopsis'><code>~user</code></span> au répertoire personnel de l&#8217;utilisateur spécifié. Ce spécificateur n&#8217;a aucun effet lors de la définition de la valeur (mais vous pouvez utiliser <span class='synopsis'><code>git</code> <code>config</code> <code>section.variable</code> <code>~/</code></span> depuis la ligne de commande pour laisser votre shell faire l&#8217;expansion).</p>
 </li>
 <li>
 <p>expiry-date' : canonisation en convertissant une chaîne de date fixe ou relative en un horodatage. Ce spécificateur n&#8217;a aucun effet lors de la définition de la valeur.</p>
@@ -246,11 +277,11 @@ aliases:
 <dt class="hdlist1" id="git-config---path"> <a class="anchor" href="#git-config---path"></a>--path </dt>
 <dt class="hdlist1" id="git-config---expiry-date"> <a class="anchor" href="#git-config---expiry-date"></a>--expiry-date </dt>
 <dd>
-<p>Options historiques pour la sélection d&#8217;un spécificateur de type. Préférez plutôt <code>--type</code> (voir ci-dessus).</p>
+<p>Options historiques pour la sélection d&#8217;un spécificateur de type. Préférez plutôt <span class='synopsis'><code>--type</code></span> (voir ci-dessus).</p>
 </dd>
 <dt class="hdlist1" id="git-config---no-type"> <a class="anchor" href="#git-config---no-type"></a>--no-type </dt>
 <dd>
-<p>Défait le spécificateur de type précédemment défini (s&#8217;il y en avait un). Cette option demande à <em>git config</em> de ne pas canoniser la variable récupérée. <code>--no-type</code> n&#8217;a aucun effet sans <code>--type=&lt;type&gt;</code> ou <code>--&lt;type&gt;</code>.</p>
+<p>Défait le spécificateur de type précédemment défini (s&#8217;il y en avait un). Cette option demande à <em>git config</em> de ne pas canoniser la variable récupérée. <span class='synopsis'><code>--no-type</code></span> n&#8217;a aucun effet sans <span class='synopsis'><code>--type=</code><em>&lt;type&gt;</em></span> ou <span class='synopsis'><code>--</code><em>&lt;type&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config--z"> <a class="anchor" href="#git-config--z"></a>-z </dt>
 <dt class="hdlist1" id="git-config---null"> <a class="anchor" href="#git-config---null"></a>--null </dt>
@@ -259,7 +290,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config---name-only"> <a class="anchor" href="#git-config---name-only"></a>--name-only </dt>
 <dd>
-<p>Afficher seulement les noms des variables de configuration pour <code>list</code> ou <code>get</code>.</p>
+<p>Afficher seulement les noms des variables de configuration pour <span class='synopsis'><code>list</code></span> ou <span class='synopsis'><code>get</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---show-origin"> <a class="anchor" href="#git-config---show-origin"></a>--show-origin </dt>
 <dd>
@@ -267,19 +298,19 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config---show-scope"> <a class="anchor" href="#git-config---show-scope"></a>--show-scope </dt>
 <dd>
-<p>Similaire à <code>--show-origin</code> en ce qu&#8217;il augmente la sortie de toutes les options de configuration interrogées avec la portée de cette valeur (arbre-de-travail, locale, globale, système, commande).</p>
+<p>Similaire à <span class='synopsis'><code>--show-origin</code></span> en ce qu&#8217;il augmente la sortie de toutes les options de configuration interrogées avec la portée de cette valeur (arbre-de-travail, locale, globale, système, commande).</p>
 </dd>
 <dt class="hdlist1" id="git-config---get-colorboolltnomgtltstdout-est-ttygt"> <a class="anchor" href="#git-config---get-colorboolnomstdout-est-tty"></a> <a class="anchor" href="#git-config---get-colorboolltnomgtltstdout-est-ttygt"></a>--get-colorbool &lt;nom&gt; [&lt;stdout-est-tty&gt;] </dt>
 <dd>
-<p>Trouver le paramètre de couleur pour <code>&lt;nom&gt;</code> (par exemple, <code>color.diff</code>) et affiche "true" ou "false". <code>&lt;stdout-est-tty&gt;</code> devrait être soit "true" soit "false", et est pris en compte lorsque la configuration est "auto". Si <code>&lt;stdout-est-tty&gt;</code> est absent, alors vérifier la sortie standard de la commande elle-même, et sortir avec le statut 0 si la couleur doit être utilisée, ou sortir avec le statut 1 sinon. Lorsque le paramètre de couleur pour <code>&lt;nom&gt;</code> est indéfini, la commande utilise <code>color.ui</code> comme solution de repli.</p>
+<p>Trouver le paramètre de couleur pour <span class='synopsis'><em>&lt;nom&gt;</em></span> (par exemple, <span class='synopsis'><code>color.diff</code></span>) et affiche "true" ou "false". <span class='synopsis'><em>&lt;stdout-est-tty&gt;</em></span> devrait être soit "true" soit "false", et est pris en compte lorsque la configuration est "auto". Si <span class='synopsis'><em>&lt;stdout-est-tty&gt;</em></span> est absent, alors vérifier la sortie standard de la commande elle-même, et sortir avec le statut 0 si la couleur doit être utilisée, ou sortir avec le statut 1 sinon. Lorsque le paramètre de couleur pour <span class='synopsis'><em>&lt;nom&gt;</em></span> est indéfini, la commande utilise <span class='synopsis'><code>color.ui</code></span> comme solution de repli.</p>
 </dd>
 <dt class="hdlist1" id="git-config---no-includes"> <a class="anchor" href="#git-config---no-includes"></a>--[no-]includes </dt>
 <dd>
-<p>Respecter les directives <code>include.*</code> dans les fichiers de configuration lors de la recherche de valeurs. La valeur par défaut est <code>off</code> lorsqu&#8217;un fichier spécifique est donné (par exemple, en utilisant <code>--file</code>, <code>--global</code>, etc) et <code>on</code> lorsqu&#8217;on cherche dans tous les fichiers de configuration.</p>
+<p>Respecter les directives <span class='synopsis'><code>include.*</code></span> dans les fichiers de configuration lors de la recherche de valeurs. La valeur par défaut est <span class='synopsis'><code>off</code></span> lorsqu&#8217;un fichier spécifique est donné (par exemple, en utilisant <span class='synopsis'><code>--file</code></span>, <span class='synopsis'><code>--global</code></span>, etc) et <span class='synopsis'><code>on</code></span> lorsqu&#8217;on cherche dans tous les fichiers de configuration.</p>
 </dd>
 <dt class="hdlist1" id="git-config---defaultltvaleurgt"> <a class="anchor" href="#git-config---defaultvaleur"></a> <a class="anchor" href="#git-config---defaultltvaleurgt"></a>--default &lt;valeur&gt; </dt>
 <dd>
-<p>Lors de l&#8217;utilisation de <code>get</code>, et que la variable demandée n&#8217;est pas trouvée, se comporter comme si <em>&lt;valeur&gt;</em> était la valeur assignée à cette variable.</p>
+<p>Lors de l&#8217;utilisation de <span class='synopsis'><code>get</code></span>, et que la variable demandée n&#8217;est pas trouvée, se comporter comme si <em>&lt;valeur&gt;</em> était la valeur assignée à cette variable.</p>
 </dd>
 </dl>
 </div>
@@ -295,11 +326,11 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-config-emgitconfigltnomgtem"> <a class="anchor" href="#git-config-gitconfignom"></a> <a class="anchor" href="#git-config-emgitconfigltnomgtem"></a><em>git config &lt;nom&gt;</em> </dt>
 <dd>
-<p>Remplacé par <code>git config get &lt;nom&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>get</code> <em>&lt;nom&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config-emgitconfigltnomgtltmotif-de-valeurgtem"> <a class="anchor" href="#git-config-gitconfignommotif-de-valeur"></a> <a class="anchor" href="#git-config-emgitconfigltnomgtltmotif-de-valeurgtem"></a><em>git config &lt;nom&gt; [&lt;motif-de-valeur&gt;]</em> </dt>
 <dd>
-<p>Remplacé par <code>git config set [--value=&lt;motif&gt;] &lt;nom&gt; &lt;valeur&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>set</code> [<code>--value=</code><em>&lt;motif&gt;</em>] <em>&lt;nom&gt;</em> <em>&lt;valeur&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config--l"> <a class="anchor" href="#git-config--l"></a>-l </dt>
 <dt class="hdlist1" id="git-config---list"> <a class="anchor" href="#git-config---list"></a>--list </dt>
@@ -308,48 +339,48 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config---getltnomgtltmotif-de-valeurgt"> <a class="anchor" href="#git-config---getnommotif-de-valeur"></a> <a class="anchor" href="#git-config---getltnomgtltmotif-de-valeurgt"></a>--get &lt;nom&gt; [&lt;motif-de-valeur&gt;] </dt>
 <dd>
-<p>Remplacé par <code>git config get [--value= &lt;motif&gt;] &lt;nom&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>get</code> [<code>--value=</code> <em>&lt;motif&gt;</em>] <em>&lt;nom&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---get-allltnomgtltmotif-de-valeurgt"> <a class="anchor" href="#git-config---get-allnommotif-de-valeur"></a> <a class="anchor" href="#git-config---get-allltnomgtltmotif-de-valeurgt"></a>--get-all &lt;nom&gt; [&lt;motif-de-valeur&gt;] </dt>
 <dd>
-<p>Remplacé par <code>git config get [--value=&lt;motif&gt;] --all &lt;nom&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>get</code> [<code>--value=</code><em>&lt;motif&gt;</em>] <code>--all</code> <em>&lt;nom&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---get-regexpltregexp-de-nomgt"> <a class="anchor" href="#git-config---get-regexpregexp-de-nom"></a> <a class="anchor" href="#git-config---get-regexpltregexp-de-nomgt"></a>--get-regexp &lt;regexp-de-nom&gt; </dt>
 <dd>
-<p>Remplacé par <code>git config get --all --show-names --regexp &lt;regexp-de-nom&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>get</code> <code>--all</code> <code>--show-names</code> <code>--regexp</code> <em>&lt;regexp-de-nom&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---get-urlmatchltnomgtltURLgt"> <a class="anchor" href="#git-config---get-urlmatchnomURL"></a> <a class="anchor" href="#git-config---get-urlmatchltnomgtltURLgt"></a>--get-urlmatch &lt;nom&gt; &lt;URL&gt; </dt>
 <dd>
-<p>Remplacé par <code>git config get --all --show-names --url= &lt;URL&gt; &lt;nom&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>get</code> <code>--all</code> <code>--show-names</code> <code>--url=</code> <em>&lt;URL&gt;</em> <em>&lt;nom&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---get-colorltnomgtltdfautgt"> <a class="anchor" href="#git-config---get-colornomdfaut"></a> <a class="anchor" href="#git-config---get-colorltnomgtltdfautgt"></a>--get-color &lt;nom&gt; [&lt;défaut&gt;] </dt>
 <dd>
-<p>Remplacé par <code>git config get --type=color [--default= &lt;défaut&gt;] &lt;nom&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>get</code> <code>--type=color</code> [<code>--default=</code> <em>&lt;défaut&gt;</em>] <em>&lt;nom&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---addltnomgtltvaleurgt"> <a class="anchor" href="#git-config---addnomvaleur"></a> <a class="anchor" href="#git-config---addltnomgtltvaleurgt"></a>--add &lt;nom&gt; &lt;valeur&gt; </dt>
 <dd>
-<p>Remplacé par <code>git config set --append &lt;nom&gt; &lt;valeur&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>set</code> <code>--append</code> <em>&lt;nom&gt;</em> <em>&lt;valeur&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---unsetltnomgtltmotif-de-valeurgt"> <a class="anchor" href="#git-config---unsetnommotif-de-valeur"></a> <a class="anchor" href="#git-config---unsetltnomgtltmotif-de-valeurgt"></a>--unset &lt;nom&gt; [&lt;motif-de-valeur&gt;] </dt>
 <dd>
-<p>Remplacé par <code>git config unset [--value= &lt;motif&gt;] &lt;nom&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>unset</code> [<code>--value=</code> <em>&lt;motif&gt;</em>] <em>&lt;nom&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---unset-allltnomgtltmotif-de-valeurgt"> <a class="anchor" href="#git-config---unset-allnommotif-de-valeur"></a> <a class="anchor" href="#git-config---unset-allltnomgtltmotif-de-valeurgt"></a>--unset-all &lt;nom&gt; [&lt;motif-de-valeur&gt;] </dt>
 <dd>
-<p>Remplacé par <code>git config unset [--value=&lt;motif&gt;] --all &lt;nom&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>unset</code> [<code>--value=</code><em>&lt;motif&gt;</em>] <code>--all</code> <em>&lt;nom&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---rename-sectionltancien-nomgtltnouveau-nomgt"> <a class="anchor" href="#git-config---rename-sectionancien-nomnouveau-nom"></a> <a class="anchor" href="#git-config---rename-sectionltancien-nomgtltnouveau-nomgt"></a>--rename-section &lt;ancien-nom&gt; &lt;nouveau-nom&gt; </dt>
 <dd>
-<p>Remplacé par <code>git config rename-section &lt;ancien-nom&gt; &lt;nouveau-nom&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>rename-section</code> <em>&lt;ancien-nom&gt;</em> <em>&lt;nouveau-nom&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---remove-sectionltnomgt"> <a class="anchor" href="#git-config---remove-sectionnom"></a> <a class="anchor" href="#git-config---remove-sectionltnomgt"></a>--remove-section &lt;nom&gt; </dt>
 <dd>
-<p>Remplacé par <code>git config remove-section &lt;nom&gt;</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>remove-section</code> <em>&lt;nom&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-config--e"> <a class="anchor" href="#git-config--e"></a>-e </dt>
 <dt class="hdlist1" id="git-config---edit"> <a class="anchor" href="#git-config---edit"></a>--edit </dt>
 <dd>
-<p>Remplacé par <code>git config edit</code>.</p>
+<p>Remplacé par <span class='synopsis'><code>git</code> <code>config</code> <code>edit</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -359,7 +390,7 @@ aliases:
 <h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>pager.config</code> n&#8217;est respecté que lors de l&#8217;énumération de la configuration, c&#8217;est-à-dire lors de l&#8217;utilisation de <code>list</code> ou de l&#8217;un des <code>get</code> qui peuvent retourner plusieurs résultats. Le défaut est d&#8217;utiliser un pager.</p>
+<p><span class='synopsis'><code>pager.config</code></span> n&#8217;est respecté que lors de l&#8217;énumération de la configuration, c&#8217;est-à-dire lors de l&#8217;utilisation de <span class='synopsis'><code>list</code></span> ou de l&#8217;un des <span class='synopsis'><code>get</code></span> qui peuvent retourner plusieurs résultats. Le défaut est d&#8217;utiliser un pager.</p>
 </div>
 </div>
 </div>
@@ -389,12 +420,12 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-config-GITDIRconfigworktree"> <a class="anchor" href="#git-config-GITDIRconfigworktree"></a>$GIT_DIR/config.worktree </dt>
 <dd>
-<p>Ceci est optionnel et n&#8217;est recherché que si <code>extensions.worktreeConfig</code> est présent dans $GIT_DIR/config.</p>
+<p>Ceci est optionnel et n&#8217;est recherché que si <span class='synopsis'><code>extensions.worktreeConfig</code></span> est présent dans $GIT_DIR/config.</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>Vous pouvez aussi fournir des paramètres de configuration additionnels lorsque vous exécutez une commande git en utilisant l&#8217;option <code>-c</code>. Voir <a href='{{< relurl "docs/git/fr" >}}'>git[1]</a> pour plus de détails.</p>
+<p>Vous pouvez aussi fournir des paramètres de configuration additionnels lorsque vous exécutez une commande git en utilisant l&#8217;option <span class='synopsis'><code>-c</code></span>. Voir <a href='{{< relurl "docs/git/fr" >}}'>git[1]</a> pour plus de détails.</p>
 </div>
 <div class="paragraph">
 <p>Les options seront lues depuis tous ces fichiers lorsqu&#8217;ils sont disponibles. Si le fichier de configuration global ou le fichier de configuration du système sont manquants ou illisibles, ils seront ignorés. Si le fichier de configuration du dépôt est manquant ou illisible, <em>git config</em> se terminera avec un code d&#8217;erreur non nul. Un message d&#8217;erreur sera produit si le fichier n&#8217;est pas lisible, mais pas s&#8217;il est manquant.</p>
@@ -403,10 +434,10 @@ aliases:
 <p>Les fichiers sont lus dans l&#8217;ordre indiqué ci-dessus, la dernière valeur trouvée étant prioritaire sur les valeurs lues précédemment. Lorsque plusieurs valeurs peuvent être concaténées, toutes les valeurs d&#8217;une clé dans tous les fichiers seront utilisées.</p>
 </div>
 <div class="paragraph">
-<p>Par défaut, les options sont seulement écrites dans le fichier de configuration spécifique au dépôt. Notez que cela affecte également les options comme <code>set</code> et <code>unset</code>. <strong><em>git config</em> ne modifiera jamais qu&#8217;un seul fichier à la fois</strong>.</p>
+<p>Par défaut, les options sont seulement écrites dans le fichier de configuration spécifique au dépôt. Notez que cela affecte également les options comme <span class='synopsis'><code>set</code></span> et <span class='synopsis'><code>unset</code></span>. <strong><em>git config</em> ne modifiera jamais qu&#8217;un seul fichier à la fois</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Vous pouvez limiter les sources de configuration qui sont lues ou écrites en spécifiant le chemin d&#8217;un fichier avec l&#8217;option <code>--file</code>, ou en spécifiant une portée de configuration avec <code>--system</code>, <code>--global</code>, <code>--local</code>, ou <code>--worktree</code>. Pour en savoir plus, voir <a href="#OPTIONS">OPTIONS</a> ci-dessus.</p>
+<p>Vous pouvez limiter les sources de configuration qui sont lues ou écrites en spécifiant le chemin d&#8217;un fichier avec l&#8217;option <span class='synopsis'><code>--file</code></span>, ou en spécifiant une portée de configuration avec <span class='synopsis'><code>--system</code></span>, <span class='synopsis'><code>--global</code></span>, <span class='synopsis'><code>--local</code></span>, ou <span class='synopsis'><code>--worktree</code></span>. Pour en savoir plus, voir <a href="#OPTIONS">OPTIONS</a> ci-dessus.</p>
 </div>
 </div>
 </div>
@@ -441,13 +472,13 @@ aliases:
 <dd>
 <p>variables d&#8217;environnement GIT_CONFIG_{COUNT,KEY,VALUE} (voir <a href="#ENVIRONMENT">ENVIRONNEMENT</a> ci-dessous)</p>
 <div class="paragraph">
-<p>l&#8217;option <code>-c</code></p>
+<p>l&#8217;option <span class='synopsis'><code>-c</code></span></p>
 </div>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>À l&#8217;exception de <em>commande</em>, chaque portée correspond à une option de ligne de commande : <code>--system</code>, <code>--global</code>, <code>--local</code>, <code>--worktree</code>.</p>
+<p>À l&#8217;exception de <em>commande</em>, chaque portée correspond à une option de ligne de commande : <span class='synopsis'><code>--system</code></span>, <span class='synopsis'><code>--global</code></span>, <span class='synopsis'><code>--local</code></span>, <span class='synopsis'><code>--worktree</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Lors de la lecture d&#8217;options, la spécification d&#8217;une portée ne lira que les options des fichiers de cette portée. Lors de l&#8217;écriture d&#8217;options, la spécification d&#8217;une portée écrira dans les fichiers de cette portée (au lieu du fichier de configuration spécifique au dépôt). Voir <a href="#OPTIONS">OPTIONS</a> ci-dessus pour une description complète.</p>
@@ -491,14 +522,14 @@ aliases:
 <dt class="hdlist1" id="git-config-GITCONFIGKEYltngt"> <a class="anchor" href="#git-config-GITCONFIGKEYn"></a> <a class="anchor" href="#git-config-GITCONFIGKEYltngt"></a>GIT_CONFIG_KEY_&lt;n&gt; </dt>
 <dt class="hdlist1" id="git-config-GITCONFIGVALUEltngt"> <a class="anchor" href="#git-config-GITCONFIGVALUEn"></a> <a class="anchor" href="#git-config-GITCONFIGVALUEltngt"></a>GIT_CONFIG_VALUE_&lt;n&gt; </dt>
 <dd>
-<p>Si GIT_CONFIG_COUNT est défini comme un nombre positif, toutes les paires d&#8217;environnement GIT_CONFIG_KEY_&lt;n&gt; et GIT_CONFIG_VALUE_&lt;n&gt; jusqu&#8217;à ce nombre seront ajoutées à la configuration d&#8217;exécution du processus. Les paires de configurations sont indexées à zéro. Toute clé ou valeur manquante est traitée comme une erreur. Un GIT_CONFIG_COUNT vide est traité de la même manière que GIT_CONFIG_COUNT=0, c&#8217;est-à-dire qu&#8217;aucune paire n&#8217;est traitée. Ces variables d&#8217;environnement remplaceront les valeurs dans les fichiers de configuration, mais seront remplacées par toute option explicite passée via <code>git -c</code>.</p>
+<p>Si GIT_CONFIG_COUNT est défini comme un nombre positif, toutes les paires d&#8217;environnement GIT_CONFIG_KEY_&lt;n&gt; et GIT_CONFIG_VALUE_&lt;n&gt; jusqu&#8217;à ce nombre seront ajoutées à la configuration d&#8217;exécution du processus. Les paires de configurations sont indexées à zéro. Toute clé ou valeur manquante est traitée comme une erreur. Un GIT_CONFIG_COUNT vide est traité de la même manière que GIT_CONFIG_COUNT=0, c&#8217;est-à-dire qu&#8217;aucune paire n&#8217;est traitée. Ces variables d&#8217;environnement remplaceront les valeurs dans les fichiers de configuration, mais seront remplacées par toute option explicite passée via <span class='synopsis'><code>git</code> <code>-c</code></span>.</p>
 <div class="paragraph">
 <p>C&#8217;est utile dans les cas où vous voulez lancer plusieurs commandes git avec une configuration commune mais ne pouvez pas dépendre d&#8217;un fichier de configuration, par exemple lorsque vous écrivez des scripts.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-config-GITCONFIG"> <a class="anchor" href="#git-config-GITCONFIG"></a>GIT_CONFIG </dt>
 <dd>
-<p>Si aucune option <code>--file</code> n&#8217;est fournie à <code>git config</code>, utiliser le fichier donné par <code>GIT_CONFIG</code> comme s&#8217;il était fourni via <code>--file</code>. Cette variable n&#8217;a aucun effet sur les autres commandes Git, et est surtout destinée à assurer une compatibilité historique ; il n&#8217;y a généralement aucune raison de l&#8217;utiliser à la place de l&#8217;option <code>--file</code>.</p>
+<p>Si aucune option <span class='synopsis'><code>--file</code></span> n&#8217;est fournie à <span class='synopsis'><code>git</code> <code>config</code></span>, utiliser le fichier donné par <span class='synopsis'><code>GIT_CONFIG</code></span> comme s&#8217;il était fourni via <span class='synopsis'><code>--file</code></span>. Cette variable n&#8217;a aucun effet sur les autres commandes Git, et est surtout destinée à assurer une compatibilité historique ; il n&#8217;y a généralement aucune raison de l&#8217;utiliser à la place de l&#8217;option <span class='synopsis'><code>--file</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -639,7 +670,7 @@ echo "${WS}votre color d'espace et bleu sont échangées${RESET}"</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Pour les URLs dans <code>https://weak.example.com</code>, <code>http.sslVerify</code> est mis à false, alors qu&#8217;il est mis à <code>true</code> pour toutes les autres :</p>
+<p>Pour les URLs dans <span class='synopsis'><code>https://weak.example.com</code></span>, <span class='synopsis'><code>http.sslVerify</code></span> est mis à false, alors qu&#8217;il est mis à <span class='synopsis'><code>true</code></span> pour toutes les autres :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -658,10 +689,10 @@ http.sslverify false</pre>
 <h2 id="_fichier_de_configuration"><a class="anchor" href="#_fichier_de_configuration"></a>FICHIER DE CONFIGURATION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Le fichier de configuration Git contient un certain nombre de variables qui affectent le comportement des commandes Git. Les fichiers <code>.git/config</code> et éventuellement <code>config.worktree</code> (voir la section "FICHIER DE CONFIGURATION" de <a href='{{< relurl "docs/git-worktree/fr" >}}'>git-worktree[1]</a>) dans chaque dépôt sont utilisés pour stocker la configuration de ce dépôt, et <code>$HOME/.gitconfig</code> est utilisé pour stocker une configuration par utilisateur comme valeurs de repli pour le fichier <code>.git/config</code>. Le fichier <code>/etc/gitconfig</code> peut être utilisé pour stocker une configuration par défaut pour l&#8217;ensemble du système.</p>
+<p>Le fichier de configuration Git contient un certain nombre de variables qui affectent le comportement des commandes Git. Les fichiers <span class='synopsis'><code>.git/config</code></span> et éventuellement <span class='synopsis'><code>config.worktree</code></span> (voir la section "FICHIER DE CONFIGURATION" de <a href='{{< relurl "docs/git-worktree/fr" >}}'>git-worktree[1]</a>) dans chaque dépôt sont utilisés pour stocker la configuration de ce dépôt, et <span class='synopsis'><code>$HOME/.gitconfig</code></span> est utilisé pour stocker une configuration par utilisateur comme valeurs de repli pour le fichier <span class='synopsis'><code>.git/config</code></span>. Le fichier <span class='synopsis'><code>/etc/gitconfig</code></span> peut être utilisé pour stocker une configuration par défaut pour l&#8217;ensemble du système.</p>
 </div>
 <div class="paragraph">
-<p>Les variables de configuration sont utilisées à la fois par la plomberie Git et les commandes de porcelaine. Les variables sont divisées en sections, dans lesquelles le nom de variable entièrement qualifié de la variable elle-même est le dernier segment séparé par un point et le nom de la section est tout ce qui précède le dernier point. Les noms de variables sont insensibles à la casse, n&#8217;autorisent que les caractères alphanumériques et <code>-</code>, et doivent commencer par un caractère alphabétique. Certaines variables peuvent apparaître plusieurs fois ; on dit alors que la variable est multivaluée.</p>
+<p>Les variables de configuration sont utilisées à la fois par la plomberie Git et les commandes de porcelaine. Les variables sont divisées en sections, dans lesquelles le nom de variable entièrement qualifié de la variable elle-même est le dernier segment séparé par un point et le nom de la section est tout ce qui précède le dernier point. Les noms de variables sont insensibles à la casse, n&#8217;autorisent que les caractères alphanumériques et <span class='synopsis'><code>-</code></span>, et doivent commencer par un caractère alphabétique. Certaines variables peuvent apparaître plusieurs fois ; on dit alors que la variable est multivaluée.</p>
 </div>
 <div class="sect2">
 <h3 id="_syntaxe"><a class="anchor" href="#_syntaxe"></a>Syntaxe</h3>
@@ -669,7 +700,7 @@ http.sslverify false</pre>
 <p>La syntaxe est assez souple et permissive. Les caractères d&#8217;espaces blancs, qui dans ce contexte sont les caractères espace (SP) et les tabulations horizontales (HT) sont généralement ignorés. Les caractères <em>#</em> et <em> ;</em> commencent les commentaires à la fin de la ligne. Les lignes blanches sont ignorées.</p>
 </div>
 <div class="paragraph">
-<p>Le fichier se compose de sections et de variables. Une section commence par le nom de la section entre crochets et se poursuit jusqu&#8217;au début de la section suivante. Les noms de section ne sont pas sensibles à la casse. Seuls les caractères alphanumériques, <code>-</code> et <code>.</code> sont autorisés dans les noms de section. Chaque variable doit appartenir à une section, ce qui signifie qu&#8217;il doit y avoir un en-tête de section avant le premier paramétrage d&#8217;une variable.</p>
+<p>Le fichier se compose de sections et de variables. Une section commence par le nom de la section entre crochets et se poursuit jusqu&#8217;au début de la section suivante. Les noms de section ne sont pas sensibles à la casse. Seuls les caractères alphanumériques, <span class='synopsis'><code>-</code></span> et <span class='synopsis'><code>.</code></span> sont autorisés dans les noms de section. Chaque variable doit appartenir à une section, ce qui signifie qu&#8217;il doit y avoir un en-tête de section avant le premier paramétrage d&#8217;une variable.</p>
 </div>
 <div class="paragraph">
 <p>Les sections peuvent être divisées en sous-sections. Pour commencer une sous-section, mettez son nom entre guillemets, séparé du nom de la section par un espace, dans l&#8217;en-tête de la section, comme dans l&#8217;exemple ci-dessous :</p>
@@ -680,31 +711,31 @@ http.sslverify false</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Les noms de sous-sections sont sensibles à la casse et peuvent contenir n&#8217;importe quel caractère, à l&#8217;exception du saut de ligne et de l&#8217;octet nul. Les guillemets <code>"</code> et les barres obliques inverses peuvent être inclus en les échappant sous la forme <code>\"</code> et <code>\\</code>, respectivement. Les barres obliques inverses précédant d&#8217;autres caractères sont supprimées lors de la lecture ; par exemple, <code>\t</code> est lu comme <code>t</code> et <code>\0</code> est lu comme <code>0</code>. Les en-têtes de section ne peuvent pas s&#8217;étendre sur plusieurs lignes. Les variables peuvent appartenir directement à une section ou à une sous-section donnée. Vous pouvez avoir une <code>[section]</code> si vous avez <code>[section sous-section]</code>, mais vous n&#8217;en avez pas besoin.</p>
+<p>Les noms de sous-sections sont sensibles à la casse et peuvent contenir n&#8217;importe quel caractère, à l&#8217;exception du saut de ligne et de l&#8217;octet nul. Les guillemets <span class='synopsis'><code>"</code></span> et les barres obliques inverses peuvent être inclus en les échappant sous la forme <span class='synopsis'><em>\"</em></span> et <span class='synopsis'><em>\\</em></span>, respectivement. Les barres obliques inverses précédant d&#8217;autres caractères sont supprimées lors de la lecture ; par exemple, <span class='synopsis'><em>\t</em></span> est lu comme <span class='synopsis'><code>t</code></span> et <span class='synopsis'><em>\0</em></span> est lu comme <span class='synopsis'><code>0</code></span>. Les en-têtes de section ne peuvent pas s&#8217;étendre sur plusieurs lignes. Les variables peuvent appartenir directement à une section ou à une sous-section donnée. Vous pouvez avoir une <span class='synopsis'>[<code>section</code>]</span> si vous avez <span class='synopsis'>[<code>section</code> <code>sous-section</code>]</span>, mais vous n&#8217;en avez pas besoin.</p>
 </div>
 <div class="paragraph">
-<p>Il existe également une syntaxe <code>[section.sous-section]</code> obsolète. Avec cette syntaxe, le nom de la sous-section est converti en minuscules et est également comparé en tenant compte de la casse. Ces noms de sous-sections suivent les mêmes restrictions que les noms de sections.</p>
+<p>Il existe également une syntaxe <span class='synopsis'>[<code>section.sous-section</code>]</span> obsolète. Avec cette syntaxe, le nom de la sous-section est converti en minuscules et est également comparé en tenant compte de la casse. Ces noms de sous-sections suivent les mêmes restrictions que les noms de sections.</p>
 </div>
 <div class="paragraph">
-<p>Toutes les autres lignes (et le reste de la ligne après l&#8217;en-tête de section) sont reconnues comme des variables de réglage, sous la forme <em>nom = valeur</em> (ou simplement <em>nom</em>, qui est un raccourci pour dire que la variable est le booléen « vrai »). Les noms des variables sont insensibles à la casse, n&#8217;autorisent que les caractères alphanumériques et <code>-</code>, et doivent commencer par un caractère alphabétique.</p>
+<p>Toutes les autres lignes (et le reste de la ligne après l&#8217;en-tête de section) sont reconnues comme des variables de réglage, sous la forme <em>nom = valeur</em> (ou simplement <em>nom</em>, qui est un raccourci pour dire que la variable est le booléen « vrai »). Les noms des variables sont insensibles à la casse, n&#8217;autorisent que les caractères alphanumériques et <span class='synopsis'><code>-</code></span>, et doivent commencer par un caractère alphabétique.</p>
 </div>
 <div class="paragraph">
-<p>Les caractères d&#8217;espace blanc entourant le <code>nom</code>, <code>=</code> et <code>valeur</code> sont supprimés. Les caractères internes de l&#8217;espace blanc dans la <code>valeur</code> sont conservés verbatim. Les commentaires commençant par <code>#</code> ou <code>;</code> et s&#8217;étendant jusqu&#8217;à la fin de la ligne sont supprimés. Une ligne qui définit une valeur peut être poursuivie jusqu&#8217;à la ligne suivante en la finissant avec un backslash (<code>\</code>) ; les caractères backslash et de fin de ligne sont supprimés.</p>
+<p>Les caractères d&#8217;espace blanc entourant le <span class='synopsis'><code>nom</code></span>, <span class='synopsis'><code>=</code></span> et <span class='synopsis'><code>valeur</code></span> sont supprimés. Les caractères internes de l&#8217;espace blanc dans la <span class='synopsis'><code>valeur</code></span> sont conservés verbatim. Les commentaires commençant par <span class='synopsis'><code>#</code></span> ou <span class='synopsis'><em>;</em></span> et s&#8217;étendant jusqu&#8217;à la fin de la ligne sont supprimés. Une ligne qui définit une valeur peut être poursuivie jusqu&#8217;à la ligne suivante en la finissant avec un backslash (<span class='synopsis'><em>\</em></span>) ; les caractères backslash et de fin de ligne sont supprimés.</p>
 </div>
 <div class="paragraph">
-<p>Si <em>&lt;valeur&gt;</em> doit contenir des caractères d&#8217;espace blancs au début ou à la fin, elle doit être citée en double guillemet (<code>"</code> ). À l ' intérieur des doubles guillemets, les caractères guillemet (<code>"</code>) et barre inversée (<code>\</code>) doivent être échappés : utilisez <code>\"</code> pour <code>"</code> et <code>\\</code> pour <code>\</code>.</p>
+<p>Si <em>&lt;valeur&gt;</em> doit contenir des caractères d&#8217;espace blancs au début ou à la fin, elle doit être citée en double guillemet (<span class='synopsis'><code>"</code></span> ). À l ' intérieur des doubles guillemets, les caractères guillemet (<span class='synopsis'><code>"</code></span>) et barre inversée (<span class='synopsis'><em>\</em></span>) doivent être échappés : utilisez <span class='synopsis'><em>\"</em></span> pour <span class='synopsis'><code>"</code></span> et <span class='synopsis'><em>\\</em></span> pour <span class='synopsis'><em>\</em></span>.</p>
 </div>
 <div class="paragraph">
-<p>Les séquences d&#8217;échappement suivantes (en plus de <code>\"</code> et <code>\\</code>) sont reconnues : <code>\n</code> pour le caractère de retour à la ligne (NL), <code>\t</code> pour la tabulation horizontale (HT, TAB) et <code>\b</code> pour l&#8217;espacement arrière (BS). Les autres séquences d&#8217;échappement de caractères (y compris les séquences d&#8217;échappement octales) ne sont pas valides.</p>
+<p>Les séquences d&#8217;échappement suivantes (en plus de <span class='synopsis'><em>\"</em></span> et <span class='synopsis'><em>\\</em></span>) sont reconnues : <span class='synopsis'><em>\n</em></span> pour le caractère de retour à la ligne (NL), <span class='synopsis'><em>\t</em></span> pour la tabulation horizontale (HT, TAB) et <span class='synopsis'><em>\b</em></span> pour l&#8217;espacement arrière (BS). Les autres séquences d&#8217;échappement de caractères (y compris les séquences d&#8217;échappement octales) ne sont pas valides.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_inclusions"><a class="anchor" href="#_inclusions"></a>Inclusions</h3>
 <div class="paragraph">
-<p>Les sections <code>include</code> et <code>includeIf</code> vous permettent d&#8217;inclure des directives de configuration provenant d&#8217;une autre source. Ces sections se comportent de manière identique, à l&#8217;exception des sections <code>includeIf</code> qui peuvent être ignorées si leur condition n&#8217;est pas évaluée comme vraie ; voir "Inclusions conditionnelles" ci-dessous.</p>
+<p>Les sections <span class='synopsis'><code>include</code></span> et <span class='synopsis'><code>includeIf</code></span> vous permettent d&#8217;inclure des directives de configuration provenant d&#8217;une autre source. Ces sections se comportent de manière identique, à l&#8217;exception des sections <span class='synopsis'><code>includeIf</code></span> qui peuvent être ignorées si leur condition n&#8217;est pas évaluée comme vraie ; voir "Inclusions conditionnelles" ci-dessous.</p>
 </div>
 <div class="paragraph">
-<p>Vous pouvez inclure un fichier de configuration à partir d’un autre en définissant la variable spéciale <code>include.path</code> (ou <code>includeIf.*.path</code>) au nom du fichier à inclure. La variable prend un nom de chemin comme valeur, et est soumise à l’expansion tilde. Ces variables peuvent être données plusieurs fois.</p>
+<p>Vous pouvez inclure un fichier de configuration à partir d’un autre en définissant la variable spéciale <span class='synopsis'><code>include.path</code></span> (ou <span class='synopsis'><code>includeIf.*.path</code></span>) au nom du fichier à inclure. La variable prend un nom de chemin comme valeur, et est soumise à l’expansion tilde. Ces variables peuvent être données plusieurs fois.</p>
 </div>
 <div class="paragraph">
 <p>Le contenu du fichier inclus est inséré immédiatement, comme s&#8217;il avait été trouvé à l&#8217;endroit de la directive d&#8217;inclusion. Si la valeur de la variable est un chemin relatif, le chemin est considéré comme relatif au fichier de configuration dans lequel la directive include a été trouvée. Voir ci-dessous pour des exemples.</p>
@@ -713,53 +744,53 @@ http.sslverify false</pre>
 <div class="sect2">
 <h3 id="_inclusions_conditionnelles"><a class="anchor" href="#_inclusions_conditionnelles"></a>Inclusions conditionnelles</h3>
 <div class="paragraph">
-<p>Vous pouvez inclure conditionnellement un fichier de configuration provenant d&#8217;un autre fichier en définissant une variable <code>includeIf.&lt;condition&gt;.path</code> au nom du fichier à inclure.</p>
+<p>Vous pouvez inclure conditionnellement un fichier de configuration provenant d&#8217;un autre fichier en définissant une variable <span class='synopsis'><code>includeIf.</code><em>&lt;condition&gt;</em><code>.path</code></span> au nom du fichier à inclure.</p>
 </div>
 <div class="paragraph">
 <p>La condition commence par un mot-clé suivi d&#8217;un deux-points et de quelques données dont le format et la signification dépendent du mot-clé. Les mots-clés pris en charge sont les suivants :</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-config-codegitdircode"> <a class="anchor" href="#git-config-gitdir"></a> <a class="anchor" href="#git-config-codegitdircode"></a><code>gitdir</code> </dt>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodegitdircodespan"> <a class="anchor" href="#git-config-gitdir"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodegitdircodespan"></a><span class='synopsis'><code>gitdir</code></span> </dt>
 <dd>
-<p>Les données qui suivent le mot-clé <code>gitdir:</code> sont utilisées comme modèle de motif glob. Si l&#8217;emplacement du répertoire .git correspond au motif, la condition d&#8217;inclusion est remplie.</p>
+<p>Les données qui suivent le mot-clé <span class='synopsis'><code>gitdir:</code></span> sont utilisées comme modèle de motif glob. Si l&#8217;emplacement du répertoire .git correspond au motif, la condition d&#8217;inclusion est remplie.</p>
 <div class="paragraph">
-<p>L&#8217;emplacement de .git peut être découvert automatiquement ou provenir de la variable d&#8217;environnement <code>$GIT_DIR</code>. Si le dépôt est découvert automatiquement via un fichier .git (par exemple à partir de sous-modules ou d&#8217;un arbre de travail lié), l&#8217;emplacement du .git sera l&#8217;emplacement final où se trouve le répertoire .git, et non pas où le fichier .git est.</p>
+<p>L&#8217;emplacement de .git peut être découvert automatiquement ou provenir de la variable d&#8217;environnement <span class='synopsis'><code>$GIT_DIR</code></span>. Si le dépôt est découvert automatiquement via un fichier .git (par exemple à partir de sous-modules ou d&#8217;un arbre de travail lié), l&#8217;emplacement du .git sera l&#8217;emplacement final où se trouve le répertoire .git, et non pas où le fichier .git est.</p>
 </div>
 <div class="paragraph">
-<p>Le motif peut contenir des caractères génériques de globbing standard et deux autres, <code>**/</code> et <code>/**</code>, qui peuvent correspondre à plusieurs composants de chemin d’accès. Veuillez consulter <a href='{{< relurl "docs/gitignore/fr" >}}'>gitignore[5]</a> pour plus de détails. Pour plus de commodité :</p>
+<p>Le motif peut contenir des caractères génériques de globbing standard et deux autres, <span class='synopsis'><code>**/</code></span> et <span class='synopsis'><code>/**</code></span>, qui peuvent correspondre à plusieurs composants de chemin d’accès. Veuillez consulter <a href='{{< relurl "docs/gitignore/fr" >}}'>gitignore[5]</a> pour plus de détails. Pour plus de commodité :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Si le motif commence par <code>~/</code>, <code>~</code> sera remplacé par le contenu de la variable d&#8217;environnement <code>HOME</code>.</p>
+<p>Si le motif commence par <span class='synopsis'><code>~/</code></span>, <span class='synopsis'><code>~</code></span> sera remplacé par le contenu de la variable d&#8217;environnement <span class='synopsis'><code>HOME</code></span>.</p>
 </li>
 <li>
-<p>Si le motif commence par '<code>./</code>, il est remplacé par le répertoire contenant le fichier de configuration actuel.</p>
+<p>Si le motif commence par '<span class='synopsis'><code>./</code></span>, il est remplacé par le répertoire contenant le fichier de configuration actuel.</p>
 </li>
 <li>
-<p>Si le motif ne commence pas par <code>~/</code>, <code>./</code> ou <code>/</code>, <code>**/</code> sera automatiquement ajouté en préfixe. Par exemple, le motif <code>foo/bar</code> devient <code>**/foo/bar</code> et correspondra à <code>tout/chemin/vers/foo/bar</code>.</p>
+<p>Si le motif ne commence pas par <span class='synopsis'><code>~/</code></span>, <span class='synopsis'><code>./</code></span> ou <span class='synopsis'><code>/</code></span>, <span class='synopsis'><code>**/</code></span> sera automatiquement ajouté en préfixe. Par exemple, le motif <span class='synopsis'><code>foo/bar</code></span> devient <span class='synopsis'><code>**/foo/bar</code></span> et correspondra à <span class='synopsis'><code>tout/chemin/vers/foo/bar</code></span>.</p>
 </li>
 <li>
-<p>Si le motif se termine par <code>/</code>, <code>**</code> sera automatiquement ajouté. Par exemple, le motif <code>foo/</code> devient <code>foo/**</code>. En d&#8217;autres termes, il correspond à <code>foo</code> et à tout ce qui se trouve à l&#8217;intérieur, de manière récursive.</p>
+<p>Si le motif se termine par <span class='synopsis'><code>/</code></span>, <span class='synopsis'><code>**</code></span> sera automatiquement ajouté. Par exemple, le motif <span class='synopsis'><code>foo/</code></span> devient <span class='synopsis'><code>foo/**</code></span>. En d&#8217;autres termes, il correspond à <span class='synopsis'><code>foo</code></span> et à tout ce qui se trouve à l&#8217;intérieur, de manière récursive.</p>
 </li>
 </ul>
 </div>
 </dd>
-<dt class="hdlist1" id="git-config-codegitdiricode"> <a class="anchor" href="#git-config-gitdiri"></a> <a class="anchor" href="#git-config-codegitdiricode"></a><code>gitdir/i</code> </dt>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodegitdiricodespan"> <a class="anchor" href="#git-config-gitdiri"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodegitdiricodespan"></a><span class='synopsis'><code>gitdir/i</code></span> </dt>
 <dd>
-<p>C&#8217;est la même chose que <code>gitdir</code> sauf que la correspondance se fait sans tenir compte de la casse (par exemple sur les systèmes de fichiers insensibles à la casse)</p>
+<p>C&#8217;est la même chose que <span class='synopsis'><code>gitdir</code></span> sauf que la correspondance se fait sans tenir compte de la casse (par exemple sur les systèmes de fichiers insensibles à la casse)</p>
 </dd>
-<dt class="hdlist1" id="git-config-codeonbranchcode"> <a class="anchor" href="#git-config-onbranch"></a> <a class="anchor" href="#git-config-codeonbranchcode"></a><code>onbranch</code> </dt>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodeonbranchcodespan"> <a class="anchor" href="#git-config-onbranch"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodeonbranchcodespan"></a><span class='synopsis'><code>onbranch</code></span> </dt>
 <dd>
-<p>Les données qui suivent le mot-clé <code>onbranch:</code> sont considérées comme un motif avec des jokers standard et deux autres, <code>**/</code> et <code>/**</code>, qui peuvent correspondre à plusieurs composants de chemin. Si nous nous trouvons dans un arbre de travail où le nom de la branche actuellement extraite correspond au motif, la condition d&#8217;inclusion est remplie.</p>
+<p>Les données qui suivent le mot-clé <span class='synopsis'><code>onbranch:</code></span> sont considérées comme un motif avec des jokers standard et deux autres, <span class='synopsis'><code>**/</code></span> et <span class='synopsis'><code>/**</code></span>, qui peuvent correspondre à plusieurs composants de chemin. Si nous nous trouvons dans un arbre de travail où le nom de la branche actuellement extraite correspond au motif, la condition d&#8217;inclusion est remplie.</p>
 <div class="paragraph">
-<p>Si le motif se termine par <code>/</code>, <code>**</code> sera automatiquement ajouté. Par exemple, le motif <code>foo/</code> devient <code>foo/**</code>. En d&#8217;autres termes, il correspond à toutes les branches qui commencent par <code>foo/</code>. Ceci est utile si vos branches sont organisées de manière hiérarchique et que vous souhaitez appliquer une configuration à toutes les branches de cette hiérarchie.</p>
+<p>Si le motif se termine par <span class='synopsis'><code>/</code></span>, <span class='synopsis'><code>**</code></span> sera automatiquement ajouté. Par exemple, le motif <span class='synopsis'><code>foo/</code></span> devient <span class='synopsis'><code>foo/**</code></span>. En d&#8217;autres termes, il correspond à toutes les branches qui commencent par <span class='synopsis'><code>foo/</code></span>. Ceci est utile si vos branches sont organisées de manière hiérarchique et que vous souhaitez appliquer une configuration à toutes les branches de cette hiérarchie.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-config-codehasconfigremoteurlcode"> <a class="anchor" href="#git-config-hasconfigremoteurl"></a> <a class="anchor" href="#git-config-codehasconfigremoteurlcode"></a><code>hasconfig:remote.*.url:</code> </dt>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodehasconfigremoteurlcodespan"> <a class="anchor" href="#git-config-hasconfigremoteurl"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodehasconfigremoteurlcodespan"></a><span class='synopsis'><code>hasconfig:remote.*.url:</code></span> </dt>
 <dd>
-<p>Les données qui suivent ce mot-clé sont considérées comme un motif avec des jokers standard et deux autres, <code>**/</code> et <code>/**</code>, qui peuvent correspondre à plusieurs composants. La première fois que ce mot-clé est vu, le reste des fichiers de configuration sera analysé pour trouver des URL distants (sans appliquer aucune valeur). S&#8217;il exist au moint une URL distante qui correspond au motif, la condition d&#8217;inclusion est remplie.</p>
+<p>Les données qui suivent ce mot-clé sont considérées comme un motif avec des jokers standard et deux autres, <span class='synopsis'><code>**/</code></span> et <span class='synopsis'><code>/**</code></span>, qui peuvent correspondre à plusieurs composants. La première fois que ce mot-clé est vu, le reste des fichiers de configuration sera analysé pour trouver des URL distants (sans appliquer aucune valeur). S&#8217;il exist au moint une URL distante qui correspond au motif, la condition d&#8217;inclusion est remplie.</p>
 <div class="paragraph">
 <p>Les fichiers inclus par cette option (directement ou indirectement) ne sont pas autorisés à contenir des URL distants.</p>
 </div>
@@ -773,15 +804,15 @@ http.sslverify false</pre>
 </dl>
 </div>
 <div class="paragraph">
-<p>Quelques notes supplémentaires sur la correspondance via <code>gitdir</code> et <code>gitdir/i</code> :</p>
+<p>Quelques notes supplémentaires sur la correspondance via <span class='synopsis'><code>gitdir</code></span> et <span class='synopsis'><code>gitdir/i</code></span> :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Les liens symboliques dans <code>$GIT_DIR</code> ne sont pas résolus avant la correspondance.</p>
+<p>Les liens symboliques dans <span class='synopsis'><code>$GIT_DIR</code></span> ne sont pas résolus avant la correspondance.</p>
 </li>
 <li>
-<p>Les versions symlink et realpath des chemins seront comparées en dehors de <code>$GIT_DIR</code>. Par exemple, si ~/git est un lien symbolique vers /mnt/stockage/git, <code>gitdir:~/git</code> et <code>gitdir:/mnt/stockage/git</code> correspondront tous deux.</p>
+<p>Les versions symlink et realpath des chemins seront comparées en dehors de <span class='synopsis'><code>$GIT_DIR</code></span>. Par exemple, si ~/git est un lien symbolique vers /mnt/stockage/git, <span class='synopsis'><code>gitdir:~/git</code></span> et <span class='synopsis'><code>gitdir:/mnt/stockage/git</code></span> correspondront tous deux.</p>
 <div class="paragraph">
 <p>Ce n&#8217;était pas le cas dans la version initiale de cette fonctionnalité dans la v2.13.0, qui ne correspondait qu&#8217;à la version realpath. La configuration qui veut être compatible avec la version initiale de cette fonctionnalité doit soit spécifier uniquement la version realpath, soit les deux versions.</p>
 </div>
@@ -867,13 +898,13 @@ les chemins relatifs sont toujours relatifs au fichier
 <dl>
 <dt class="hdlist1" id="git-config-true"> <a class="anchor" href="#git-config-true"></a>true </dt>
 <dd>
-<p>Les littéraux booléens pour vrai sont <code>yes</code>, <code>on</code>, <code>true</code> et <code>1</code>. De plus, une variable définie sans <code>=&lt;valeur&gt;</code> est considérée comme vraie.</p>
+<p>Les littéraux booléens pour vrai sont <span class='synopsis'><code>yes</code></span>, <span class='synopsis'><code>on</code></span>, <span class='synopsis'><code>true</code></span> et <span class='synopsis'><code>1</code></span>. De plus, une variable définie sans <span class='synopsis'><code>=</code><em>&lt;valeur&gt;</em></span> est considérée comme vraie.</p>
 </dd>
 <dt class="hdlist1" id="git-config-faux"> <a class="anchor" href="#git-config-faux"></a>faux </dt>
 <dd>
-<p>Les littéraux booléens faux sont <code>no</code>, <code>off</code>, <code>false</code>, <code>0</code> et la chaîne vide.</p>
+<p>Les littéraux booléens faux sont <span class='synopsis'><code>no</code></span>, <span class='synopsis'><code>off</code></span>, <span class='synopsis'><code>false</code></span>, <span class='synopsis'><code>0</code></span> et la chaîne vide.</p>
 <div class="paragraph">
-<p>Lors de la conversion d&#8217;une valeur sous sa forme canonique en utilisant le spécificateur de type <code>--type=bool</code>, <em>git config</em> s&#8217;assurera que la sortie est "true" ou "false" (écrit en minuscules).</p>
+<p>Lors de la conversion d&#8217;une valeur sous sa forme canonique en utilisant le spécificateur de type <span class='synopsis'><code>--type=bool</code></span>, <em>git config</em> s&#8217;assurera que la sortie est "true" ou "false" (écrit en minuscules).</p>
 </div>
 </dd>
 </dl>
@@ -881,41 +912,41 @@ les chemins relatifs sont toujours relatifs au fichier
 </dd>
 <dt class="hdlist1" id="git-config-Entier"> <a class="anchor" href="#git-config-Entier"></a>Entier </dt>
 <dd>
-<p>La valeur de nombreuses variables qui spécifient différentes tailles peut être suffixée par <code>k</code>, <code>M</code>, &#8230;&#8203; pour signifier « multiplier le nombre par 1024 », « par 1024x1024 », etc.</p>
+<p>La valeur de nombreuses variables qui spécifient différentes tailles peut être suffixée par <span class='synopsis'><code>k</code></span>, <span class='synopsis'><code>M</code></span>, &#8230;&#8203; pour signifier « multiplier le nombre par 1024 », « par 1024x1024 », etc.</p>
 </dd>
 <dt class="hdlist1" id="git-config-color"> <a class="anchor" href="#git-config-color"></a>color </dt>
 <dd>
 <p>La valeur d’une variable qui prend une couleur est une liste de couleurs (au plus deux, une pour le premier plan et une pour l’arrière-plan) et les attributs (autant que vous le souhaitez), séparés par des espaces.</p>
 <div class="paragraph">
-<p>Les couleurs de base acceptées sont <code>normal</code>, <code>black</code>, <code>red</code>, <code>green</code>, <code>yellow</code>, <code>blue</code>, <code>magenta</code>, <code>cyan</code>, <code>white</code> et <code>default</code>. La première couleur donnée est le premier plan ; la seconde est l&#8217;arrière-plan. Toutes les couleurs de base, sauf la couleur <code>normal</code> et <code>default</code>, ont une variante claire qui peut être spécifiée en préfixant la couleur par <code>bright</code>, comme <code>brightred</code>.</p>
+<p>Les couleurs de base acceptées sont <span class='synopsis'><code>normal</code></span>, <span class='synopsis'><code>black</code></span>, <span class='synopsis'><code>red</code></span>, <span class='synopsis'><code>green</code></span>, <span class='synopsis'><code>yellow</code></span>, <span class='synopsis'><code>blue</code></span>, <span class='synopsis'><code>magenta</code></span>, <span class='synopsis'><code>cyan</code></span>, <span class='synopsis'><code>white</code></span> et <span class='synopsis'><code>default</code></span>. La première couleur donnée est le premier plan ; la seconde est l&#8217;arrière-plan. Toutes les couleurs de base, sauf la couleur <span class='synopsis'><code>normal</code></span> et <span class='synopsis'><code>default</code></span>, ont une variante claire qui peut être spécifiée en préfixant la couleur par <span class='synopsis'><code>bright</code></span>, comme <span class='synopsis'><code>brightred</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>La couleur <code>normal</code> ne modifie pas la couleur. C&#8217;est la même chose qu&#8217;une chaîne vide, mais elle peut être utilisée comme couleur de premier plan lorsqu&#8217;on spécifie une couleur d&#8217;arrière-plan seule (par exemple, "normal red").</p>
+<p>La couleur <span class='synopsis'><code>normal</code></span> ne modifie pas la couleur. C&#8217;est la même chose qu&#8217;une chaîne vide, mais elle peut être utilisée comme couleur de premier plan lorsqu&#8217;on spécifie une couleur d&#8217;arrière-plan seule (par exemple, "normal red").</p>
 </div>
 <div class="paragraph">
-<p>La couleur <code>default</code> réinitialise explicitement la couleur par défaut du terminal, par exemple pour spécifier un fond clair. Bien que cela varie d&#8217;un terminal à l&#8217;autre, ce n&#8217;est généralement pas la même chose que de définir un "blanc noir".</p>
+<p>La couleur <span class='synopsis'><code>default</code></span> réinitialise explicitement la couleur par défaut du terminal, par exemple pour spécifier un fond clair. Bien que cela varie d&#8217;un terminal à l&#8217;autre, ce n&#8217;est généralement pas la même chose que de définir un "blanc noir".</p>
 </div>
 <div class="paragraph">
-<p>Les couleurs peuvent également être données en tant que nombres entre 0 et 255 ; ceux-ci utilisent le mode ANSI 256 couleurs (mais notez que certains terminaux ne peuvent pas prendre en charge cela). Si votre terminal le prend en charge, vous pouvez également spécifier des valeurs RGB 24 bits en hexadécimal, comme <code>#ff0ab3</code>, ou des valeurs RGB de 12 bits comme <code>#f1b</code>, qui est équivalent à la couleur 24 bits <code>#ff11bb</code>.</p>
+<p>Les couleurs peuvent également être données en tant que nombres entre 0 et 255 ; ceux-ci utilisent le mode ANSI 256 couleurs (mais notez que certains terminaux ne peuvent pas prendre en charge cela). Si votre terminal le prend en charge, vous pouvez également spécifier des valeurs RGB 24 bits en hexadécimal, comme <span class='synopsis'><code>#ff0ab3</code></span>, ou des valeurs RGB de 12 bits comme <span class='synopsis'><code>#f1b</code></span>, qui est équivalent à la couleur 24 bits <span class='synopsis'><code>#ff11bb</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Les attributs acceptés sont <code>bold</code>, <code>dim</code>, <code>ul</code>, <code>blink</code>, <code>reverse</code>, <code>italic</code>, et <code>strike</code> (pour les lettres barrées ou "surlignées"). La position de tout attribut par rapport aux couleurs (avant, après ou entre les deux) n&#8217;a pas d&#8217;importance. Des attributs spécifiques peuvent être désactivés en les préfixant par <code>no</code> ou <code>no-</code> (par exemple, <code>noreverse</code>, <code>no-ul</code>, etc.).</p>
+<p>Les attributs acceptés sont <span class='synopsis'><code>bold</code></span>, <span class='synopsis'><code>dim</code></span>, <span class='synopsis'><code>ul</code></span>, <span class='synopsis'><code>blink</code></span>, <span class='synopsis'><code>reverse</code></span>, <span class='synopsis'><code>italic</code></span>, et <span class='synopsis'><code>strike</code></span> (pour les lettres barrées ou "surlignées"). La position de tout attribut par rapport aux couleurs (avant, après ou entre les deux) n&#8217;a pas d&#8217;importance. Des attributs spécifiques peuvent être désactivés en les préfixant par <span class='synopsis'><code>no</code></span> ou <span class='synopsis'><code>no-</code></span> (par exemple, <span class='synopsis'><code>noreverse</code></span>, <span class='synopsis'><code>no-ul</code></span>, etc.).</p>
 </div>
 <div class="paragraph">
-<p>Le pseudo-attribut <code>reset</code> réinitialise toutes les couleurs et tous les attributs avant d&#8217;appliquer la coloration spécifiée. Par exemple, <code>reset green</code> aura pour résultat un avant-plan vert et un arrière-plan par défaut sans aucun attribut actif.</p>
+<p>Le pseudo-attribut <span class='synopsis'><code>reset</code></span> réinitialise toutes les couleurs et tous les attributs avant d&#8217;appliquer la coloration spécifiée. Par exemple, <span class='synopsis'><code>reset</code> <code>green</code></span> aura pour résultat un avant-plan vert et un arrière-plan par défaut sans aucun attribut actif.</p>
 </div>
 <div class="paragraph">
 <p>Une chaîne de couleur vide ne produit aucun effet de couleur. Cela peut être utilisé pour éviter de colorer des éléments spécifiques sans désactiver complètement la couleur.</p>
 </div>
 <div class="paragraph">
-<p>Pour les étiquettes de couleur prédéfinies de git, les attributs sont censés être réinitialisés au début de chaque élément de la sortie colorée. Ainsi, mettre <code>color.decorate.branch</code> à <code>black</code> peindra le nom de cette branche en un simple <code>black</code>, même si la chose précédente sur la même ligne de sortie (par exemple, ouvrir une parenthèse avant la liste des noms de branches dans la sortie de <code>log --decorate</code>) est mise à être peinte avec <code>bold</code> ou un autre attribut. Cependant, les formats de log personnalisés peuvent faire une coloration plus compliquée et plus stratifiée, et les formes inversées peuvent être utiles dans ce cas.</p>
+<p>Pour les étiquettes de couleur prédéfinies de git, les attributs sont censés être réinitialisés au début de chaque élément de la sortie colorée. Ainsi, mettre <span class='synopsis'><code>color.decorate.branch</code></span> à <span class='synopsis'><code>black</code></span> peindra le nom de cette branche en un simple <span class='synopsis'><code>black</code></span>, même si la chose précédente sur la même ligne de sortie (par exemple, ouvrir une parenthèse avant la liste des noms de branches dans la sortie de <span class='synopsis'><code>log</code> <code>--decorate</code></span>) est mise à être peinte avec <span class='synopsis'><code>bold</code></span> ou un autre attribut. Cependant, les formats de log personnalisés peuvent faire une coloration plus compliquée et plus stratifiée, et les formes inversées peuvent être utiles dans ce cas.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-config-nom-de-chemin"> <a class="anchor" href="#git-config-nom-de-chemin"></a>nom-de-chemin </dt>
 <dd>
-<p>Une variable qui prend la valeur d&#8217;un nom de chemin peut recevoir une chaîne de caractères commençant par "<code>~/</code>" ou "<code>~user/</code>", et l&#8217;expansion tilde habituelle se fait sur une telle chaîne : <code>~/</code> est développée à la valeur de <code>$HOME</code>, et <code>~user/</code> au répertoire personnel de l&#8217;utilisateur spécifié.</p>
+<p>Une variable qui prend la valeur d&#8217;un nom de chemin peut recevoir une chaîne de caractères commençant par "<span class='synopsis'><code>~/</code></span>" ou "<span class='synopsis'><code>~user/</code></span>", et l&#8217;expansion tilde habituelle se fait sur une telle chaîne : <span class='synopsis'><code>~/</code></span> est développée à la valeur de <span class='synopsis'><code>$HOME</code></span>, et <span class='synopsis'><code>~user/</code></span> au répertoire personnel de l&#8217;utilisateur spécifié.</p>
 <div class="paragraph">
-<p>Si un chemin commence par <code>%(prefix)/</code>, le reste est interprété comme un chemin relatif au "préfixe d&#8217;exécution" de Git, c&#8217;est-à-dire relatif à l&#8217;emplacement où Git lui-même a été installé. Par exemple, <code>%(prefix)/bin/</code> fait référence au répertoire dans lequel se trouve l&#8217;exécutable Git lui-même. Si Git a été compilé sans le support des préfixes d&#8217;exécution, le préfixe compilé sera substitué à la place. Dans le cas peu probable où un chemin littéral doit être spécifié et ne doit <em>pas</em> être étendu, il doit être préfixé par <code>./</code>, comme ceci : <code>./%(préfixe)/bin</code>.</p>
+<p>Si un chemin commence par <span class='synopsis'><code>%</code>(<code>prefix</code>)<code>/</code></span>, le reste est interprété comme un chemin relatif au "préfixe d&#8217;exécution" de Git, c&#8217;est-à-dire relatif à l&#8217;emplacement où Git lui-même a été installé. Par exemple, <span class='synopsis'><code>%</code>(<code>prefix</code>)<code>/bin/</code></span> fait référence au répertoire dans lequel se trouve l&#8217;exécutable Git lui-même. Si Git a été compilé sans le support des préfixes d&#8217;exécution, le préfixe compilé sera substitué à la place. Dans le cas peu probable où un chemin littéral doit être spécifié et ne doit <em>pas</em> être étendu, il doit être préfixé par <span class='synopsis'><code>./</code></span>, comme ceci : <span class='synopsis'><em>./%(préfixe)/bin</em></span>.</p>
 </div>
 </dd>
 </dl>
@@ -937,7 +968,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/add.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/add.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -954,7 +985,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/advice.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/advice.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -971,7 +1002,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/alias.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/alias.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -988,7 +1019,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/am.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/am.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1005,7 +1036,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/apply.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/apply.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1022,7 +1053,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/attr.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/attr.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1039,7 +1070,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/bitmap-pseudo-merge.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/bitmap-pseudo-merge.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1056,7 +1087,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/blame.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/blame.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1073,7 +1104,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/branch.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/branch.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1090,7 +1121,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/browser.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/browser.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1107,7 +1138,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/bundle.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/bundle.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1124,7 +1155,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/checkout.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/checkout.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1141,7 +1172,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/clean.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/clean.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1158,7 +1189,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/clone.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/clone.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1175,7 +1206,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/color.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/color.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1192,7 +1223,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/column.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/column.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1209,7 +1240,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/commit.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/commit.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1226,7 +1257,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/commitgraph.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/commitgraph.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1243,7 +1274,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/completion.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/completion.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1260,7 +1291,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/core.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/core.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1277,7 +1308,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/credential.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/credential.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1294,7 +1325,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/diff.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/diff.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1311,7 +1342,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/difftool.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/difftool.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1328,7 +1359,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/extensions.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/extensions.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1345,7 +1376,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/fastimport.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/fastimport.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1362,7 +1393,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/feature.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/feature.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1379,7 +1410,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/fetch.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/fetch.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1396,7 +1427,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/filter.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/filter.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1413,7 +1444,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/format.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/format.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1430,7 +1461,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/fsck.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/fsck.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1447,7 +1478,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/fsmonitor--daemon.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/fsmonitor--daemon.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1464,7 +1495,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/gc.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/gc.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1481,7 +1512,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/gitcvs.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/gitcvs.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1498,7 +1529,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/gitweb.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/gitweb.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1515,7 +1546,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/gpg.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/gpg.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1532,7 +1563,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/grep.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/grep.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1549,7 +1580,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/gui.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/gui.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1566,7 +1597,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/guitool.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/guitool.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1583,7 +1614,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/help.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/help.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1600,7 +1631,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/http.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/http.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1617,7 +1648,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/i18n.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/i18n.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1634,7 +1665,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/imap.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/imap.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1651,7 +1682,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/includeif.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/includeif.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1668,7 +1699,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/index.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/index.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1685,7 +1716,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/init.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/init.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1702,7 +1733,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/instaweb.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/instaweb.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1719,7 +1750,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/interactive.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/interactive.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1736,7 +1767,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/log.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/log.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1753,7 +1784,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/lsrefs.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/lsrefs.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1770,7 +1801,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/mailinfo.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/mailinfo.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1787,7 +1818,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/mailmap.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/mailmap.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1804,7 +1835,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/maintenance.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/maintenance.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1821,7 +1852,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/man.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/man.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1838,7 +1869,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/merge.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/merge.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1855,7 +1886,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/mergetool.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/mergetool.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1872,7 +1903,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/notes.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/notes.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1889,7 +1920,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/pack.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/pack.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1906,7 +1937,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/pager.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/pager.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1923,7 +1954,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/pretty.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/pretty.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1940,7 +1971,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/promisor.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/promisor.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1957,7 +1988,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/protocol.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/protocol.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1974,7 +2005,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/pull.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/pull.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -1991,7 +2022,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/push.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/push.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2008,7 +2039,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/rebase.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/rebase.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2025,7 +2056,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/receive.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/receive.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2042,7 +2073,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/reftable.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/reftable.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2059,7 +2090,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/remote.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/remote.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2076,7 +2107,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/remotes.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/remotes.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2093,7 +2124,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/repack.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/repack.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2110,7 +2141,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/rerere.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/rerere.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2127,7 +2158,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/revert.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/revert.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2144,7 +2175,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/safe.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/safe.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2161,7 +2192,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/sendemail.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/sendemail.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2178,7 +2209,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/sequencer.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/sequencer.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2195,7 +2226,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/showbranch.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/showbranch.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2212,7 +2243,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/sparse.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/sparse.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2229,7 +2260,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/splitindex.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/splitindex.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2246,7 +2277,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/ssh.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/ssh.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2263,7 +2294,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/stash.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/stash.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2280,7 +2311,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/status.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/status.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2297,7 +2328,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/submodule.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/submodule.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2314,7 +2345,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/tag.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/tag.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2331,7 +2362,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/tar.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/tar.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2348,7 +2379,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/trace2.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/trace2.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2365,7 +2396,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/trailer.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/trailer.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2382,7 +2413,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/transfer.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/transfer.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2399,7 +2430,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/uploadarchive.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/uploadarchive.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2416,7 +2447,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/uploadpack.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/uploadpack.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2433,7 +2464,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/url.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/url.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2450,7 +2481,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/user.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/user.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2467,7 +2498,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/versionsort.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/versionsort.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2484,7 +2515,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/web.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/web.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2501,7 +2532,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/worktree.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/worktree.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -2517,7 +2548,7 @@ les chemins relatifs sont toujours relatifs au fichier
 <h2 id="_bogues"><a class="anchor" href="#_bogues"></a>BOGUES</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Lors de l&#8217;utilisation de la syntaxe dépréciée <code>[section.sous-section]</code>, la modification d&#8217;une valeur entraînera l&#8217;ajout d&#8217;une clé multi-lignes au lieu d&#8217;une modification, si la sous-section est donnée avec au moins un caractère majuscule. Par exemple, lorsque la configuration ressemble à</p>
+<p>Lors de l&#8217;utilisation de la syntaxe dépréciée <span class='synopsis'>[<code>section.sous-section</code>]</span>, la modification d&#8217;une valeur entraînera l&#8217;ajout d&#8217;une clé multi-lignes au lieu d&#8217;une modification, si la sous-section est donnée avec au moins un caractère majuscule. Par exemple, lorsque la configuration ressemble à</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2526,7 +2557,7 @@ les chemins relatifs sont toujours relatifs au fichier
 </div>
 </div>
 <div class="paragraph">
-<p>et l&#8217;exécution de <code>git config section.sous-section.clé valeur2</code> donnera comme résultat</p>
+<p>et l&#8217;exécution de <span class='synopsis'><em>git config section.sous-section.clé valeur2</em></span> donnera comme résultat</p>
 </div>
 <div class="listingblock">
 <div class="content">

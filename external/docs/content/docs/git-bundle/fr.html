@@ -9,6 +9,31 @@ docname: git-bundle
 lang: fr
 aliases:
 - "/docs/git-bundle/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: FORMATS DES COLIS
+  id: _formats_des_colis
+- text: OPTIONS
+  id: _options
+- text: SPÉCIFICATION DES RÉFÉRENCES
+  id: _spécification_des_références
+- text: PRÉ-REQUIS D’OBJET
+  id: _pré_requis_dobjet
+- text: EXEMPLES
+  id: _exemples
+- text: DISCUSSION
+  id: _discussion
+- text: FORMATS DE FICHIER
+  id: _formats_de_fichier
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -40,7 +65,7 @@ aliases:
 <p>Ils peuvent être utilisés pour créer des sauvegardes incrémentielles et complètes d&#8217;un dépôt (voir l&#8217;exemple « sauvegarde complète » dans « EXEMPLE », et pour relayer l&#8217;état des références d&#8217;un dépôt à un autre (voir le second exemple).</p>
 </div>
 <div class="paragraph">
-<p>Les commandes Git qui récupèrent ou autrement "lisent" via des protocoles tels que <code>ssh://</code> et <code>https://</code> peuvent aussi opérer sur des fichiers cois. Il est possible de <a href='{{< relurl "docs/git-clone/fr" >}}'>git-clone[1]</a> un nouveau dépôt à partir d&#8217;un colis, d&#8217;utiliser <a href='{{< relurl "docs/git-fetch/fr" >}}'>git-fetch[1]</a> pour en récupérer, et de lister les références qu&#8217;il contient avec <a href='{{< relurl "docs/git-ls-remote/fr" >}}'>git-ls-remote[1]</a>. Il n&#8217;y a pas de support d'"écriture" correspondant, c&#8217;est-à-dire qu&#8217;un <em>git push</em> dans un colis n&#8217;est pas supporté.</p>
+<p>Les commandes Git qui récupèrent ou autrement "lisent" via des protocoles tels que <span class='synopsis'><code>ssh://</code></span> et <span class='synopsis'><code>https://</code></span> peuvent aussi opérer sur des fichiers cois. Il est possible de <a href='{{< relurl "docs/git-clone/fr" >}}'>git-clone[1]</a> un nouveau dépôt à partir d&#8217;un colis, d&#8217;utiliser <a href='{{< relurl "docs/git-fetch/fr" >}}'>git-fetch[1]</a> pour en récupérer, et de lister les références qu&#8217;il contient avec <a href='{{< relurl "docs/git-ls-remote/fr" >}}'>git-ls-remote[1]</a>. Il n&#8217;y a pas de support d'"écriture" correspondant, c&#8217;est-à-dire qu&#8217;un <em>git push</em> dans un colis n&#8217;est pas supporté.</p>
 </div>
 </div>
 </div>
@@ -48,13 +73,13 @@ aliases:
 <h2 id="_formats_des_colis"><a class="anchor" href="#_formats_des_colis"></a>FORMATS DES COLIS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Les colis sont des fichiers <code>.pack</code> (voir <a href='{{< relurl "docs/git-pack-objects/fr" >}}'>git-pack-objects[1]</a>) avec un en-tête indiquant quelles références sont contenues dans le colis.</p>
+<p>Les colis sont des fichiers <span class='synopsis'><code>.pack</code></span> (voir <a href='{{< relurl "docs/git-pack-objects/fr" >}}'>git-pack-objects[1]</a>) avec un en-tête indiquant quelles références sont contenues dans le colis.</p>
 </div>
 <div class="paragraph">
 <p>Comme le format d&#8217;archive packed lui-même, les colis peuvent être soit autonomes, soit créés à l&#8217;aide d&#8217;exclusions. Voir la section "PRÉREQUIS D&#8217;OBJET" ci-dessous.</p>
 </div>
 <div class="paragraph">
-<p>Les colis créés en utilisant les exclusions de révision sont des "paquets minces" créés en utilisant l&#8217;option <code>--thin</code> de <a href='{{< relurl "docs/git-pack-objects/fr" >}}'>git-pack-objects[1]</a>, et dépaquetés en utilisant l&#8217;option <code>--fix-thin</code> de <a href='{{< relurl "docs/git-index-pack/fr" >}}'>git-index-pack[1]</a>.</p>
+<p>Les colis créés en utilisant les exclusions de révision sont des "paquets minces" créés en utilisant l&#8217;option <span class='synopsis'><code>--thin</code></span> de <a href='{{< relurl "docs/git-pack-objects/fr" >}}'>git-pack-objects[1]</a>, et dépaquetés en utilisant l&#8217;option <span class='synopsis'><code>--fix-thin</code></span> de <a href='{{< relurl "docs/git-index-pack/fr" >}}'>git-index-pack[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>Il n&#8217;y a pas d&#8217;option pour créer un "paquet épais" lors de l&#8217;utilisation des exclusions de révision, et les utilisateurs ne doivent pas s&#8217;inquiéter de la différence. En utilisant des "paquets minces", les paquets créés à l&#8217;aide d&#8217;exclusions sont plus petits en taille. Le fait qu&#8217;ils soient "minces" sous le capot est simplement noté ici comme une curiosité, et comme une référence à d&#8217;autres documents.</p>
@@ -71,23 +96,23 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-bundle-createoptionsltfichiergtltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-createoptionsfichiergit-rev-list-args"></a> <a class="anchor" href="#git-bundle-createoptionsltfichiergtltgit-rev-list-argsgt"></a>create [options] &lt;fichier&gt; &lt;git-rev-list-args&gt; </dt>
 <dd>
-<p>Utilisé pour créer un regroupement nommé <em>fichier</em>. Cela nécessite les arguments <em>&lt;arguments-git-rev-list&gt;</em> pour définir le contenu du regroupement. options' contient les options spécifiques à la sous-commande <em>git bundle create</em>. si <em>fichier</em> est <code>-</code>, le paquet envoyé sur la sortie standard.</p>
+<p>Utilisé pour créer un regroupement nommé <em>fichier</em>. Cela nécessite les arguments <em>&lt;arguments-git-rev-list&gt;</em> pour définir le contenu du regroupement. options' contient les options spécifiques à la sous-commande <em>git bundle create</em>. si <em>fichier</em> est <span class='synopsis'><code>-</code></span>, le paquet envoyé sur la sortie standard.</p>
 </dd>
 <dt class="hdlist1" id="git-bundle-verifyltfichiergt"> <a class="anchor" href="#git-bundle-verifyfichier"></a> <a class="anchor" href="#git-bundle-verifyltfichiergt"></a>verify &lt;fichier&gt; </dt>
 <dd>
-<p>Utilisé pour vérifier qu&#8217;un fichier regroupement est valide et s&#8217;appliquera proprement au dépôt actuel. Cela inclut des vérifications sur le format du regroupement lui-même ainsi que la vérification que les commits pré-requis existent et sont complètement liés dans le dépôt actuel. <em>git bundle</em> affiche une liste des commits manquants, s&#8217;il y en a. Enfin, des informations sur des capacités supplémentaires, telles que "object filter" sont imprimées. Voir "Capacités" dans <a href='{{< relurl "docs/gitformat-bundle/fr" >}}'>gitformat-bundle[5]</a> pour plus d&#8217;informations. Le code de sortie est zéro en cas de succès, mais sera non nul si le fichier colis est invalide. Si <em>fichier</em> est <code>-</code>, le paquet est lu sur l&#8217;entrée standard.</p>
+<p>Utilisé pour vérifier qu&#8217;un fichier regroupement est valide et s&#8217;appliquera proprement au dépôt actuel. Cela inclut des vérifications sur le format du regroupement lui-même ainsi que la vérification que les commits pré-requis existent et sont complètement liés dans le dépôt actuel. <em>git bundle</em> affiche une liste des commits manquants, s&#8217;il y en a. Enfin, des informations sur des capacités supplémentaires, telles que "object filter" sont imprimées. Voir "Capacités" dans <a href='{{< relurl "docs/gitformat-bundle/fr" >}}'>gitformat-bundle[5]</a> pour plus d&#8217;informations. Le code de sortie est zéro en cas de succès, mais sera non nul si le fichier colis est invalide. Si <em>fichier</em> est <span class='synopsis'><code>-</code></span>, le paquet est lu sur l&#8217;entrée standard.</p>
 </dd>
 <dt class="hdlist1" id="git-bundle-list-headsltfichiergt"> <a class="anchor" href="#git-bundle-list-headsfichier"></a> <a class="anchor" href="#git-bundle-list-headsltfichiergt"></a>list-heads &lt;fichier&gt; </dt>
 <dd>
-<p>Liste les références définies dans le regroupement. Si elle est suivie d&#8217;une liste de références, seules les références correspondant à celles données sont imprimées. Si <em>fichier</em> est <code>-</code>, le paquet est lu sur l&#8217;entrée standard.</p>
+<p>Liste les références définies dans le regroupement. Si elle est suivie d&#8217;une liste de références, seules les références correspondant à celles données sont imprimées. Si <em>fichier</em> est <span class='synopsis'><code>-</code></span>, le paquet est lu sur l&#8217;entrée standard.</p>
 </dd>
 <dt class="hdlist1" id="git-bundle-unbundleltfichiergt"> <a class="anchor" href="#git-bundle-unbundlefichier"></a> <a class="anchor" href="#git-bundle-unbundleltfichiergt"></a>unbundle &lt;fichier&gt; </dt>
 <dd>
-<p>Passe les objets du groupement à <em>git index-pack</em> pour qu&#8217;ils soient stockés dans le dépôt, puis affiche les noms de toutes les références définies. Si une liste de références est donnée, seules les références correspondant à celles de la liste sont imprimées. Cette commande est vraiment de plomberie et n&#8217;est définie que pour être appelée par <em>git fetch</em>. si <em>fichier</em> est <code>-</code>, le paquet est lu depuis l&#8217;entrée standard.</p>
+<p>Passe les objets du groupement à <em>git index-pack</em> pour qu&#8217;ils soient stockés dans le dépôt, puis affiche les noms de toutes les références définies. Si une liste de références est donnée, seules les références correspondant à celles de la liste sont imprimées. Cette commande est vraiment de plomberie et n&#8217;est définie que pour être appelée par <em>git fetch</em>. si <em>fichier</em> est <span class='synopsis'><code>-</code></span>, le paquet est lu depuis l&#8217;entrée standard.</p>
 </dd>
 <dt class="hdlist1" id="git-bundle-ltgit-rev-list-argsgt"> <a class="anchor" href="#git-bundle-git-rev-list-args"></a> <a class="anchor" href="#git-bundle-ltgit-rev-list-argsgt"></a>&lt;git-rev-list-args&gt; </dt>
 <dd>
-<p>Une liste d&#8217;arguments, acceptable pour <em>git rev-parse</em> et <em>git rev-list</em> (et contenant une référence nommée, voir SPECIFICATION DES REFERENCES ci-dessous), qui spécifie les objets et références spécifiques à transporter. Par exemple, <code>master~10..master</code> fait en sorte que la référence master actuelle soit regroupée avec tous les objets ajoutés depuis le dixième commit de son ancêtre. Il n&#8217;y a pas de limite explicite au nombre de références et d&#8217;objets qui peuvent être regroupés.</p>
+<p>Une liste d&#8217;arguments, acceptable pour <em>git rev-parse</em> et <em>git rev-list</em> (et contenant une référence nommée, voir SPECIFICATION DES REFERENCES ci-dessous), qui spécifie les objets et références spécifiques à transporter. Par exemple, <span class='synopsis'><code>master~10..master</code></span> fait en sorte que la référence master actuelle soit regroupée avec tous les objets ajoutés depuis le dixième commit de son ancêtre. Il n&#8217;y a pas de limite explicite au nombre de références et d&#8217;objets qui peuvent être regroupés.</p>
 </dd>
 <dt class="hdlist1" id="git-bundle-ltnom-de-rfgt82308203"> <a class="anchor" href="#git-bundle-nom-de-rf"></a> <a class="anchor" href="#git-bundle-ltnom-de-rfgt82308203"></a>[&lt;nom-de-réf&gt;&#8230;&#8203;] </dt>
 <dd>
@@ -114,13 +139,13 @@ aliases:
 <h2 id="_spécification_des_références"><a class="anchor" href="#_spécification_des_références"></a>SPÉCIFICATION DES RÉFÉRENCES</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Les révisions doivent être accompagnées de noms de référence pour être regroupées dans un colis. Alternativement, <code>--all</code> peut être utilisé pour empaqueter toutes les réfs.</p>
+<p>Les révisions doivent être accompagnées de noms de référence pour être regroupées dans un colis. Alternativement, <span class='synopsis'><code>--all</code></span> peut être utilisé pour empaqueter toutes les réfs.</p>
 </div>
 <div class="paragraph">
 <p>Plus d&#8217;une référence peut être empaquetée, et plus d&#8217;un ensemble d&#8217;objets prérequis peut être spécifié. Les objets empaquetés sont ceux qui ne sont pas contenus dans l&#8217;union des prérequis.</p>
 </div>
 <div class="paragraph">
-<p>La commande <em>git bundle create</em> résout les noms de référence pour vous en utilisant les mêmes règles que <code>git rev-parse --abbrev-ref=loose</code>. Chaque pré-requis peut être spécifié explicitement (par exemple <code>^master~10</code>), ou implicitement (par exemple <code>master~10..master</code>, <code>--since=10.days.ago master</code>).</p>
+<p>La commande <em>git bundle create</em> résout les noms de référence pour vous en utilisant les mêmes règles que <span class='synopsis'><code>git</code> <code>rev-parse</code> <code>--abbrev-ref=loose</code></span>. Chaque pré-requis peut être spécifié explicitement (par exemple <span class='synopsis'><code>^master~10</code></span>), ou implicitement (par exemple <span class='synopsis'><code>master~10..master</code></span>, <span class='synopsis'><code>--since=10.days.ago</code> <code>master</code></span>).</p>
 </div>
 <div class="paragraph">
 <p>Tous ces cas simples sont OK (en supposant que nous avons des branches "master" et "next") :</p>
@@ -134,7 +159,7 @@ $ (echo master; echo next) | git bundle create master-and-next.bundle --stdin</p
 </div>
 </div>
 <div class="paragraph">
-<p>Et il en est de même pour ces exemples (et le même mais avec <code>--stdin</code> omis) :</p>
+<p>Et il en est de même pour ces exemples (et le même mais avec <span class='synopsis'><code>--stdin</code></span> omis) :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -162,7 +187,7 @@ fatal: Refus de créer un colis vide.</pre>
 <p>Lors de la création de colis, il est possible de créer un colis autonome qui peut être dégroupé dans un dépôt sans historique commun, ainsi que de fournir des révisions négatives pour exclure les objets nécessaires dans les parties antérieures de l&#8217;historique.</p>
 </div>
 <div class="paragraph">
-<p>Fournir une révision telle que <code>nouveau</code> à <code>git bundle create</code> créera un fichier colis qui contient tous les objets accessibles depuis la révision <code>nouveau</code>. Ce colis peut être dégroupé dans n&#8217;importe quel dépôt pour obtenir un historique complet qui mène à la révision <code>nouveau</code> :</p>
+<p>Fournir une révision telle que <span class='synopsis'><code>nouveau</code></span> à <span class='synopsis'><code>git</code> <code>bundle</code> <code>create</code></span> créera un fichier colis qui contient tous les objets accessibles depuis la révision <span class='synopsis'><code>nouveau</code></span>. Ce colis peut être dégroupé dans n&#8217;importe quel dépôt pour obtenir un historique complet qui mène à la révision <span class='synopsis'><code>nouveau</code></span> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -170,7 +195,7 @@ fatal: Refus de créer un colis vide.</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Une plage de révision telle que <code>ancien..nouveau</code> produira un fichier colis qui nécessitera l&#8217;existence de la révision <code>ancien</code> (et de tout objet pouvant être atteint à partir de celle-ci) pour que le colis puisse être "dégroupé" :</p>
+<p>Une plage de révision telle que <span class='synopsis'><code>ancien..nouveau</code></span> produira un fichier colis qui nécessitera l&#8217;existence de la révision <span class='synopsis'><code>ancien</code></span> (et de tout objet pouvant être atteint à partir de celle-ci) pour que le colis puisse être "dégroupé" :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -178,13 +203,13 @@ fatal: Refus de créer un colis vide.</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Un colis autonome sans pré-requis peut être extrait n&#8217;importe où, même dans un dépôt vide, ou peut être cloné (c-à-d, <code>nouveau</code>, mais pas <code>ancien..nouveau</code>).</p>
+<p>Un colis autonome sans pré-requis peut être extrait n&#8217;importe où, même dans un dépôt vide, ou peut être cloné (c-à-d, <span class='synopsis'><code>nouveau</code></span>, mais pas <span class='synopsis'><code>ancien..nouveau</code></span>).</p>
 </div>
 <div class="paragraph">
 <p>Il n&#8217;y a pas de problème à être prudent et faire en sorte que le fichier regroupement contienne des objets déjà présents dans la destination, car ceux-ci sont ignorés lors du déballage à la destination.</p>
 </div>
 <div class="paragraph">
-<p>Si vous voulez fournir le même ensemble de références qu&#8217;un clone directement depuis le dépôt source, utilisez <code>--branches --tags</code> pour les <code>&lt;arguments-git-rev-list&gt;</code>.</p>
+<p>Si vous voulez fournir le même ensemble de références qu&#8217;un clone directement depuis le dépôt source, utilisez <span class='synopsis'><code>--branches</code> <code>--tags</code></span> pour les <span class='synopsis'><em>&lt;arguments-git-rev-list&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
 <p>La commande <em>git bundle verify</em> peut être utilisée pour vérifier si votre dépôt destinataire possède les commits pré-requis nécessaires pour un colis.</p>
@@ -307,7 +332,7 @@ machineB$ git pull</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Vous pouvez lancer <code>git-bundle verify</code> pour voir si vous pouvez extraire d&#8217;un paquet qui a été créé avec un prérequis :</p>
+<p>Vous pouvez lancer <span class='synopsis'><code>git-bundle</code> <code>verify</code></span> pour voir si vous pouvez extraire d&#8217;un paquet qui a été créé avec un prérequis :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -339,7 +364,7 @@ machineB$ git pull</pre>
 <h2 id="_discussion"><a class="anchor" href="#_discussion"></a>DISCUSSION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Une manière naïve de faire une sauvegarde complète d&#8217;un dépôt est d&#8217;utiliser quelque chose qui fait comme <code>cp -r &lt;dépôt&gt; &lt;destination&gt;</code>. Cela est découragé puisque le dépôt pourrait être écrit pendant l&#8217;opération de copie. À son tour, certains fichiers dans <code>&lt;destination&gt;</code> pourraient être corrompus.</p>
+<p>Une manière naïve de faire une sauvegarde complète d&#8217;un dépôt est d&#8217;utiliser quelque chose qui fait comme <span class='synopsis'><code>cp</code> <code>-r</code> <em>&lt;dépôt&gt;</em> <em>&lt;destination&gt;</em></span>. Cela est découragé puisque le dépôt pourrait être écrit pendant l&#8217;opération de copie. À son tour, certains fichiers dans <span class='synopsis'><em>&lt;destination&gt;</em></span> pourraient être corrompus.</p>
 </div>
 <div class="paragraph">
 <p>C&#8217;est pourquoi il est recommandé d&#8217;utiliser l&#8217;outillage Git pour faire des sauvegardes de dépôt, soit avec cette commande soit par exemple avec <a href='{{< relurl "docs/git-clone/fr" >}}'>git-clone[1]</a>. Mais gardez à l&#8217;esprit que ces outils ne vous aideront pas à sauvegarder l&#8217;état autre que les refs et les commits. En d&#8217;autres termes, ils ne vous aideront pas à sauvegarder le contenu de l&#8217;index, l&#8217;arbre de travail, la remise, la configuration par dépôt, les crochets, etc.</p>

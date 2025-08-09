@@ -9,6 +9,27 @@ docname: git-fast-export
 lang: fr
 aliases:
 - "/docs/git-fast-export/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: EXEMPLES
+  id: _exemples
+- text: ANONYMISATION
+  id: _anonymisation
+- text: LIMITATIONS
+  id: _limitations
+- text: VOIR AUSSI
+  id: _voir_aussi
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -77,7 +98,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fast-export---export-marksltfichiergt"> <a class="anchor" href="#git-fast-export---export-marksfichier"></a> <a class="anchor" href="#git-fast-export---export-marksltfichiergt"></a>--export-marks=&lt;fichier&gt; </dt>
 <dd>
-<p>Décharge la table interne des marques dans un &lt;fichier&gt;, une fois terminé. Les marques sont écrites une par ligne comme <code>:markid SHA-1</code>. Seules les marques des révisions sont écrites ; les marques des blobs sont ignorées. Des moteurs peuvent utiliser ce fichier pour valider les importations après qu&#8217;elles aient été complétées, ou pour sauvegarder la table des marques à travers des exécutions incrémentales. Comme &lt;fichier&gt; n&#8217;est ouvert et tronqué qu&#8217;à la fin de l&#8217;opération, le même chemin peut aussi être donné sans risque à --import-marks. Le fichier ne sera pas écrit si aucun nouvel objet n&#8217;a été marqué/exporté.</p>
+<p>Décharge la table interne des marques dans un &lt;fichier&gt;, une fois terminé. Les marques sont écrites une par ligne comme <span class='synopsis'><code>:markid</code> <code>SHA-1</code></span>. Seules les marques des révisions sont écrites ; les marques des blobs sont ignorées. Des moteurs peuvent utiliser ce fichier pour valider les importations après qu&#8217;elles aient été complétées, ou pour sauvegarder la table des marques à travers des exécutions incrémentales. Comme &lt;fichier&gt; n&#8217;est ouvert et tronqué qu&#8217;à la fin de l&#8217;opération, le même chemin peut aussi être donné sans risque à --import-marks. Le fichier ne sera pas écrit si aucun nouvel objet n&#8217;a été marqué/exporté.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---import-marksltfichiergt"> <a class="anchor" href="#git-fast-export---import-marksfichier"></a> <a class="anchor" href="#git-fast-export---import-marksltfichiergt"></a>--import-marks=&lt;fichier&gt; </dt>
 <dd>
@@ -85,7 +106,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fast-export---mark-tags"> <a class="anchor" href="#git-fast-export---mark-tags"></a>--mark-tags </dt>
 <dd>
-<p>En plus de nommer les blobs et les commits avec des identifiants de marque, vous pouvez aussi nommer les étiquettes. Ceci est utile en conjonction avec <code>--export-marks</code> et <code>--import-marks</code>, et est également utile (et nécessaire) pour l&#8217;exportation de étiquettes imbriquées. Cela ne nuit pas aux autres cas et serait la valeur par défaut, mais beaucoup de frontends d&#8217;import rapide ne sont pas préparés à accepter les étiquettes comprenant des identifiants de marque.</p>
+<p>En plus de nommer les blobs et les commits avec des identifiants de marque, vous pouvez aussi nommer les étiquettes. Ceci est utile en conjonction avec <span class='synopsis'><code>--export-marks</code></span> et <span class='synopsis'><code>--import-marks</code></span>, et est également utile (et nécessaire) pour l&#8217;exportation de étiquettes imbriquées. Cela ne nuit pas aux autres cas et serait la valeur par défaut, mais beaucoup de frontends d&#8217;import rapide ne sont pas préparés à accepter les étiquettes comprenant des identifiants de marque.</p>
 <div class="paragraph">
 <p>Les commits (ou étiquettes) qui ont déjà été marqués ne seront pas exportés à nouveau. Si le backend utilise un fichier --import-marks similaire, cela permet l&#8217;exportation incrémentale bidirectionnelle du dépôt en gardant les marques identiques entre les exécutions.</p>
 </div>
@@ -108,23 +129,23 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fast-export---anonymize"> <a class="anchor" href="#git-fast-export---anonymize"></a>--anonymize </dt>
 <dd>
-<p>Anonymiser le contenu du dépôt tout en conservant la forme de l&#8217;historique et de l&#8217;arbre stocké. Voir la section <code>ANONYMISATION</code> ci-dessous.</p>
+<p>Anonymiser le contenu du dépôt tout en conservant la forme de l&#8217;historique et de l&#8217;arbre stocké. Voir la section <span class='synopsis'><code>ANONYMISATION</code></span> ci-dessous.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---anonymize-mapltdepuisgtltversgt"> <a class="anchor" href="#git-fast-export---anonymize-mapdepuisvers"></a> <a class="anchor" href="#git-fast-export---anonymize-mapltdepuisgtltversgt"></a>--anonymize-map=&lt;depuis&gt;[:&lt;vers&gt;] </dt>
 <dd>
-<p>Convertir le jeton <code>&lt;depuis&gt;</code> en <code>&lt;vers&gt;</code> dans la sortie anonymisée. Si <code>&lt;vers&gt;</code> est omis, convertir <code>&lt;depuis&gt;</code> en lui-même (c&#8217;est-à-dire, ne pa l&#8217;anonymiser). Voir la section sur <code>ANONYMISATION</code> ci-dessous.</p>
+<p>Convertir le jeton <span class='synopsis'><em>&lt;depuis&gt;</em></span> en <span class='synopsis'><em>&lt;vers&gt;</em></span> dans la sortie anonymisée. Si <span class='synopsis'><em>&lt;vers&gt;</em></span> est omis, convertir <span class='synopsis'><em>&lt;depuis&gt;</em></span> en lui-même (c&#8217;est-à-dire, ne pa l&#8217;anonymiser). Voir la section sur <span class='synopsis'><code>ANONYMISATION</code></span> ci-dessous.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---reference-excluded-parents"> <a class="anchor" href="#git-fast-export---reference-excluded-parents"></a>--reference-excluded-parents </dt>
 <dd>
-<p>Par défaut, l&#8217;exécution d&#8217;une commande telle que <code>git fast-export master~5..master</code> n&#8217;inclura pas le commit master~5 et fera que master~4 n&#8217;aura plus master~5 comme parent (bien que l&#8217;ancien master~4 et le nouveau master~4 auront tous les mêmes fichiers). Utilisez --reference-excluded-parents pour que le flux fasse plutôt référence aux commits dans la plage exclue de l&#8217;historique par leur sha1sum. Notez que le flux résultant ne peut être utilisé que par un dépôt qui contient déjà les commits parents nécessaires.</p>
+<p>Par défaut, l&#8217;exécution d&#8217;une commande telle que <span class='synopsis'><code>git</code> <code>fast-export</code> <code>master~5..master</code></span> n&#8217;inclura pas le commit master~5 et fera que master~4 n&#8217;aura plus master~5 comme parent (bien que l&#8217;ancien master~4 et le nouveau master~4 auront tous les mêmes fichiers). Utilisez --reference-excluded-parents pour que le flux fasse plutôt référence aux commits dans la plage exclue de l&#8217;historique par leur sha1sum. Notez que le flux résultant ne peut être utilisé que par un dépôt qui contient déjà les commits parents nécessaires.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---show-original-ids"> <a class="anchor" href="#git-fast-export---show-original-ids"></a>--show-original-ids </dt>
 <dd>
-<p>Ajouter une directive supplémentaire à la sortie pour les commits et les blobs, <code>original-oid &lt;SHA1SUM&gt;</code>. Bien que de telles directives seront probablement ignorées par les importateurs tels que git-fast-import, elles peuvent être utiles pour les filtres intermédiaires (par exemple pour réécrire les messages de commit qui font référence à des commits plus anciens, ou pour dépouiller les blobs par id).</p>
+<p>Ajouter une directive supplémentaire à la sortie pour les commits et les blobs, <span class='synopsis'><code>original-oid</code> <em>&lt;SHA1SUM&gt;</em></span>. Bien que de telles directives seront probablement ignorées par les importateurs tels que git-fast-import, elles peuvent être utiles pour les filtres intermédiaires (par exemple pour réécrire les messages de commit qui font référence à des commits plus anciens, ou pour dépouiller les blobs par id).</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---reencodeyesnoabort"> <a class="anchor" href="#git-fast-export---reencodeyesnoabort"></a>--reencode=(yes|no|abort) </dt>
 <dd>
-<p>Spécifier comment gérer l&#8217;en-tête <code>encoding</code> dans les objets commit. En demandant <em>abort</em> (« abandonner » qui est la valeur par défaut), ce programme mourra lorsqu&#8217;il rencontrera un tel objet commit. Avec <em>yes</em>, le message de livraison sera ré-encodé en UTF-8. Avec <em>no</em>, l&#8217;encodage original sera préservé.</p>
+<p>Spécifier comment gérer l&#8217;en-tête <span class='synopsis'><code>encoding</code></span> dans les objets commit. En demandant <em>abort</em> (« abandonner » qui est la valeur par défaut), ce programme mourra lorsqu&#8217;il rencontrera un tel objet commit. Avec <em>yes</em>, le message de livraison sera ré-encodé en UTF-8. Avec <em>no</em>, l&#8217;encodage original sera préservé.</p>
 </dd>
 <dt class="hdlist1" id="git-fast-export---refspec"> <a class="anchor" href="#git-fast-export---refspec"></a>--refspec </dt>
 <dd>
@@ -132,7 +153,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fast-export-ltgit-rev-list-argsgt82308203"> <a class="anchor" href="#git-fast-export-git-rev-list-args"></a> <a class="anchor" href="#git-fast-export-ltgit-rev-list-argsgt82308203"></a>[&lt;git-rev-list-args&gt;&#8230;&#8203;] </dt>
 <dd>
-<p>Une liste d&#8217;arguments, acceptable pour <em>git rev-parse</em> et <em>git rev-list</em>, qui spécifie les objets et références spécifiques à exporter. Par exemple, <code>master~10..master</code> provoque l&#8217;exportation de la référence master actuelle avec tous les objets ajoutés depuis le commit de son 10ème ancêtre et (à moins que l&#8217;option --reference-excluded-parents soit spécifiée) tous les fichiers communs à master~9 et master~10.</p>
+<p>Une liste d&#8217;arguments, acceptable pour <em>git rev-parse</em> et <em>git rev-list</em>, qui spécifie les objets et références spécifiques à exporter. Par exemple, <span class='synopsis'><code>master~10..master</code></span> provoque l&#8217;exportation de la référence master actuelle avec tous les objets ajoutés depuis le commit de son 10ème ancêtre et (à moins que l&#8217;option --reference-excluded-parents soit spécifiée) tous les fichiers communs à master~9 et master~10.</p>
 </dd>
 </dl>
 </div>
@@ -168,7 +189,7 @@ aliases:
 <h2 id="_anonymisation"><a class="anchor" href="#_anonymisation"></a>ANONYMISATION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Si l&#8217;option <code>--anonymize</code> est donnée, git tentera de supprimer toutes les informations d&#8217;identification du dépôt tout en conservant suffisamment de l&#8217;arbre original et des modèles d&#8217;historique pour reproduire certains bugs. Le but est qu&#8217;un bug git trouvé sur un dépôt privé persiste dans le dépôt anonymisé, et que ce dernier puisse être partagé avec les développeurs git pour aider à résoudre le bug.</p>
+<p>Si l&#8217;option <span class='synopsis'><code>--anonymize</code></span> est donnée, git tentera de supprimer toutes les informations d&#8217;identification du dépôt tout en conservant suffisamment de l&#8217;arbre original et des modèles d&#8217;historique pour reproduire certains bugs. Le but est qu&#8217;un bug git trouvé sur un dépôt privé persiste dans le dépôt anonymisé, et que ce dernier puisse être partagé avec les développeurs git pour aider à résoudre le bug.</p>
 </div>
 <div class="paragraph">
 <p>Avec cette option, git remplacera tous les noms de référence, les chemins, le contenu des blobs, les messages de commit et d&#8217;étiquette, les noms et les adresses email dans la sortie avec des données anonymes. Deux instances de la même chaîne seront remplacées de manière équivalente (par exemple, deux commits avec le même auteur auront le même auteur anonymisé dans la sortie, mais ne présenteront aucune ressemblance avec la chaîne auteur originale). La relation entre les commits, les branches et les tags est conservée, ainsi que l&#8217;horodatage des commits (mais les messages de commit et les refnames ne ressemblent pas aux originaux). La composition relative de l&#8217;arbre est conservée (par exemple, si vous avez un arbre racine avec 10 fichiers et 3 arbres, la sortie le sera aussi), mais leurs noms et le contenu des fichiers seront remplacés.</p>
@@ -193,7 +214,7 @@ $ ... test de votre bogue ...</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Si le dépôt anonyme montre le bogue, il peut être intéressant de partager le <code>flux-anon</code> avec un rapport de bogue normal. Notez que le flux anonymisé se compresse très bien, donc le gzippage est encouragé. Si vous voulez examiner le flux pour vérifier qu&#8217;il ne contient pas de données privées, vous pouvez l&#8217;examiner directement avant de l&#8217;envoyer. Vous pouvez également essayer :</p>
+<p>Si le dépôt anonyme montre le bogue, il peut être intéressant de partager le <span class='synopsis'><code>flux-anon</code></span> avec un rapport de bogue normal. Notez que le flux anonymisé se compresse très bien, donc le gzippage est encouragé. Si vous voulez examiner le flux pour vérifier qu&#8217;il ne contient pas de données privées, vous pouvez l&#8217;examiner directement avant de l&#8217;envoyer. Vous pouvez également essayer :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -204,7 +225,7 @@ $ ... test de votre bogue ...</pre>
 <p>qui montre toutes les lignes uniques (avec des nombres convertis en « X », pour réduire « Utilisateur 0 », « Utilisateur 1 », etc. en « Utilisateur X »). Cela produit une sortie beaucoup plus petite, et il est généralement facile de confirmer rapidement qu’il n’y a pas de données privées dans le flux.</p>
 </div>
 <div class="paragraph">
-<p>La reproduction de certains bogues peut nécessiter la référence à des commits ou des chemins particuliers, ce qui devient difficile après que les refnames et les chemins ont été rendus anonymes. Vous pouvez demander à ce qu&#8217;un jeton particulier soit laissé tel quel ou transformé en une nouvelle valeur. Par exemple, si vous avez un bogue qui se reproduit avec <code>git rev-list sensitive -- secret.c</code>, vous pouvez exécuter :</p>
+<p>La reproduction de certains bogues peut nécessiter la référence à des commits ou des chemins particuliers, ce qui devient difficile après que les refnames et les chemins ont été rendus anonymes. Vous pouvez demander à ce qu&#8217;un jeton particulier soit laissé tel quel ou transformé en une nouvelle valeur. Par exemple, si vous avez un bogue qui se reproduit avec <span class='synopsis'><code>git</code> <code>rev-list</code> <code>sensitive</code> <code>--</code> <code>secret.c</code></span>, vous pouvez exécuter :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -218,10 +239,10 @@ $ ... test de votre bogue ...</pre>
 <p>Après avoir importé le flux, vous pouvez ensuite exécuter <em>git rev-list foo&#8201;&#8212;&#8201;bar.c</em> dans le dépôt anonymisé.</p>
 </div>
 <div class="paragraph">
-<p>Notez que les chemins et les refnames sont séparés en jetons aux frontières des barres obliques. La commande ci-dessus rendrait anonyme <code>sousrép/secret.c</code> comme quelque chose comme <code>chemin123/bar.c</code> ; vous pourriez alors rechercher <code>bar.c</code> dans le dépôt anonymisé pour déterminer le nom de chemin final.</p>
+<p>Notez que les chemins et les refnames sont séparés en jetons aux frontières des barres obliques. La commande ci-dessus rendrait anonyme <span class='synopsis'><em>sousrép/secret.c</em></span> comme quelque chose comme <span class='synopsis'><code>chemin123/bar.c</code></span> ; vous pourriez alors rechercher <span class='synopsis'><code>bar.c</code></span> dans le dépôt anonymisé pour déterminer le nom de chemin final.</p>
 </div>
 <div class="paragraph">
-<p>Pour simplifier le référencement du chemin final, vous pouvez mettre en correspondance chaque composant du chemin ; ainsi, si vous anonymisez également <code>sousrép</code> en <code>réppublic</code>, alors le chemin final sera <code>réppublic/bar.c</code>.</p>
+<p>Pour simplifier le référencement du chemin final, vous pouvez mettre en correspondance chaque composant du chemin ; ainsi, si vous anonymisez également <span class='synopsis'><em>sousrép</em></span> en <span class='synopsis'><em>réppublic</em></span>, alors le chemin final sera <span class='synopsis'><em>réppublic/bar.c</em></span>.</p>
 </div>
 </div>
 </div>

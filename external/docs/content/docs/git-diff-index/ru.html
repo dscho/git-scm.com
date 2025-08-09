@@ -9,6 +9,33 @@ docname: git-diff-index
 lang: ru
 aliases:
 - "/docs/git-diff-index/ru/index.html"
+headings:
+- text: НАЗВАНИЕ
+  id: _название
+- text: ОБЗОР
+  id: _обзор
+- text: ОПИСАНИЕ
+  id: _описание
+- text: ПАРАМЕТРЫ
+  id: _параметры
+- text: Сырой формат вывода
+  id: _сырой_формат_вывода
+- text: Формат списков изменений для слияний
+  id: _формат_списков_изменений_для_слияний
+- text: Создание патчей с помощью -p
+  id: generate_patch_text_with_p
+- text: Комбинированный формат списков изменений
+  id: _комбинированный_формат_списков_изменений
+- text: Другие форматы списка изменений
+  id: _другие_форматы_списка_изменений
+- text: РЕЖИМЫ РАБОТЫ
+  id: _режимы_работы
+- text: РЕЖИМ CACHED
+  id: _режим_cached
+- text: РЕЖИМ БЕЗ CACHED
+  id: _режим_без_cached
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_название"><a class="anchor" href="#_название"></a>НАЗВАНИЕ</h2>
@@ -39,63 +66,63 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-diff-index-code-pcode"> <a class="anchor" href="#git-diff-index--p"></a> <a class="anchor" href="#git-diff-index-code-pcode"></a><code>-p</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code-ucode"> <a class="anchor" href="#git-diff-index--u"></a> <a class="anchor" href="#git-diff-index-code-ucode"></a><code>-u</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--patchcode"> <a class="anchor" href="#git-diff-index---patch"></a> <a class="anchor" href="#git-diff-index-code--patchcode"></a><code>--patch</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-pcodespan"> <a class="anchor" href="#git-diff-index--p"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-pcodespan"></a><span class='synopsis'><code>-p</code></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-ucodespan"> <a class="anchor" href="#git-diff-index--u"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-ucodespan"></a><span class='synopsis'><code>-u</code></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--patchcodespan"> <a class="anchor" href="#git-diff-index---patch"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--patchcodespan"></a><span class='synopsis'><code>--patch</code></span> </dt>
 <dd>
 <p>Сгенерировать патч (см. <a href="#generate_patch_text_with_p">Создание патчей с помощью -p</a>).</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-scode"> <a class="anchor" href="#git-diff-index--s"></a> <a class="anchor" href="#git-diff-index-code-scode"></a><code>-s</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--no-patchcode"> <a class="anchor" href="#git-diff-index---no-patch"></a> <a class="anchor" href="#git-diff-index-code--no-patchcode"></a><code>--no-patch</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-scodespan"> <a class="anchor" href="#git-diff-index--s"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-scodespan"></a><span class='synopsis'><code>-s</code></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--no-patchcodespan"> <a class="anchor" href="#git-diff-index---no-patch"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--no-patchcodespan"></a><span class='synopsis'><code>--no-patch</code></span> </dt>
 <dd>
-<p>Подавлять весь вывод от утилиты сравнения (включая в частности собственно список изменений). Полезно для команд, вроде <code>git show</code>, чтобы подавить вывод патча, который иначе показывается по умолчанию; или чтобы отменить эффект таких параметров, как <code>--patch</code>, или <code>--stat</code>, указанных ранее в командной строке (например для команды сокращения (alias)).</p>
+<p>Подавлять весь вывод от утилиты сравнения (включая в частности собственно список изменений). Полезно для команд, вроде <span class='synopsis'><code>git</code> <code>show</code></span>, чтобы подавить вывод патча, который иначе показывается по умолчанию; или чтобы отменить эффект таких параметров, как <span class='synopsis'><code>--patch</code></span>, или <span class='synopsis'><code>--stat</code></span>, указанных ранее в командной строке (например для команды сокращения (alias)).</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Ultngtcode"> <a class="anchor" href="#git-diff-index--Un"></a> <a class="anchor" href="#git-diff-index-code-Ultngtcode"></a><code>-U&lt;n&gt;</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--unifiedltngtcode"> <a class="anchor" href="#git-diff-index---unifiedn"></a> <a class="anchor" href="#git-diff-index-code--unifiedltngtcode"></a><code>--unified=&lt;n&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Ucodeemltngtemspan"> <a class="anchor" href="#git-diff-index--Un"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Ucodeemltngtemspan"></a><span class='synopsis'><code>-U</code><em>&lt;n&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--unifiedcodeemltngtemspan"> <a class="anchor" href="#git-diff-index---unifiedn"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--unifiedcodeemltngtemspan"></a><span class='synopsis'><code>--unified=</code><em>&lt;n&gt;</em></span> </dt>
 <dd>
 <p>Генерировать списки изменений с <em>&lt;n&gt;</em> строками контекста вместо обычных трёх.
-Подразумевает <code>--patch</code>.</p>
+Подразумевает <span class='synopsis'><code>--patch</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--outputltgtcode"> <a class="anchor" href="#git-diff-index---output"></a> <a class="anchor" href="#git-diff-index-code--outputltgtcode"></a><code>--output=&lt;файл&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--outputcodeemltgtemspan"> <a class="anchor" href="#git-diff-index---output"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--outputcodeemltgtemspan"></a><span class='synopsis'><code>--output=</code><em>&lt;файл&gt;</em></span> </dt>
 <dd>
 <p>Выводить в указанный файл вместо стандартного вывода.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--output-indicator-newltgtcode"> <a class="anchor" href="#git-diff-index---output-indicator-new"></a> <a class="anchor" href="#git-diff-index-code--output-indicator-newltgtcode"></a><code>--output-indicator-new=&lt;символ&gt;</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--output-indicator-oldltgtcode"> <a class="anchor" href="#git-diff-index---output-indicator-old"></a> <a class="anchor" href="#git-diff-index-code--output-indicator-oldltgtcode"></a><code>--output-indicator-old=&lt;символ&gt;</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--output-indicator-contextltgtcode"> <a class="anchor" href="#git-diff-index---output-indicator-context"></a> <a class="anchor" href="#git-diff-index-code--output-indicator-contextltgtcode"></a><code>--output-indicator-context=&lt;символ&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--output-indicator-newcodeemltgtemspan"> <a class="anchor" href="#git-diff-index---output-indicator-new"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--output-indicator-newcodeemltgtemspan"></a><span class='synopsis'><code>--output-indicator-new=</code><em>&lt;символ&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--output-indicator-oldcodeemltgtemspan"> <a class="anchor" href="#git-diff-index---output-indicator-old"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--output-indicator-oldcodeemltgtemspan"></a><span class='synopsis'><code>--output-indicator-old=</code><em>&lt;символ&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--output-indicator-contextcodeemltgtemspan"> <a class="anchor" href="#git-diff-index---output-indicator-context"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--output-indicator-contextcodeemltgtemspan"></a><span class='synopsis'><code>--output-indicator-context=</code><em>&lt;символ&gt;</em></span> </dt>
 <dd>
-<p>Задаёт символ, используемый для обозначения новых, старых или контекстных строк в сгенерированном патче. Обычно это <code>+</code>, <code>-</code> и ` ` соответственно.</p>
+<p>Задаёт символ, используемый для обозначения новых, старых или контекстных строк в сгенерированном патче. Обычно это <span class='synopsis'><code>+</code></span>, <span class='synopsis'><code>-</code></span> и ` ` соответственно.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--rawcode"> <a class="anchor" href="#git-diff-index---raw"></a> <a class="anchor" href="#git-diff-index-code--rawcode"></a><code>--raw</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--rawcodespan"> <a class="anchor" href="#git-diff-index---raw"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--rawcodespan"></a><span class='synopsis'><code>--raw</code></span> </dt>
 <dd>
 <p>Сгенерировать список изменений в сыром формате.
 Это действие по умолчанию.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--patch-with-rawcode"> <a class="anchor" href="#git-diff-index---patch-with-raw"></a> <a class="anchor" href="#git-diff-index-code--patch-with-rawcode"></a><code>--patch-with-raw</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--patch-with-rawcodespan"> <a class="anchor" href="#git-diff-index---patch-with-raw"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--patch-with-rawcodespan"></a><span class='synopsis'><code>--patch-with-raw</code></span> </dt>
 <dd>
-<p>Синоним для <code>-p --raw</code>.</p>
+<p>Синоним для <span class='synopsis'><code>-p</code> <code>--raw</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--indent-heuristiccode"> <a class="anchor" href="#git-diff-index---indent-heuristic"></a> <a class="anchor" href="#git-diff-index-code--indent-heuristiccode"></a><code>--indent-heuristic</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--indent-heuristiccodespan"> <a class="anchor" href="#git-diff-index---indent-heuristic"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--indent-heuristiccodespan"></a><span class='synopsis'><code>--indent-heuristic</code></span> </dt>
 <dd>
 <p>Применять эвристику, которая сдвигает границы блоков списков изменений, дабы сделать патчи более удобными для чтения. Это поведение включено по умолчанию.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--no-indent-heuristiccode"> <a class="anchor" href="#git-diff-index---no-indent-heuristic"></a> <a class="anchor" href="#git-diff-index-code--no-indent-heuristiccode"></a><code>--no-indent-heuristic</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--no-indent-heuristiccodespan"> <a class="anchor" href="#git-diff-index---no-indent-heuristic"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--no-indent-heuristiccodespan"></a><span class='synopsis'><code>--no-indent-heuristic</code></span> </dt>
 <dd>
 <p>Не применять эвристику сдвига границ блоков.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--minimalcode"> <a class="anchor" href="#git-diff-index---minimal"></a> <a class="anchor" href="#git-diff-index-code--minimalcode"></a><code>--minimal</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--minimalcodespan"> <a class="anchor" href="#git-diff-index---minimal"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--minimalcodespan"></a><span class='synopsis'><code>--minimal</code></span> </dt>
 <dd>
 <p>Потратить дополнительное время, чтобы гарантировать, что будет сгенерирован минимально возможный список изменений.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--patiencecode"> <a class="anchor" href="#git-diff-index---patience"></a> <a class="anchor" href="#git-diff-index-code--patiencecode"></a><code>--patience</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--patiencecodespan"> <a class="anchor" href="#git-diff-index---patience"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--patiencecodespan"></a><span class='synopsis'><code>--patience</code></span> </dt>
 <dd>
 <p>Генерировать списки изменений с помощью «терпеливого» алгоритма (patience diff).</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--histogramcode"> <a class="anchor" href="#git-diff-index---histogram"></a> <a class="anchor" href="#git-diff-index-code--histogramcode"></a><code>--histogram</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--histogramcodespan"> <a class="anchor" href="#git-diff-index---histogram"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--histogramcodespan"></a><span class='synopsis'><code>--histogram</code></span> </dt>
 <dd>
 <p>Генерировать списки изменений с помощью «гистограммного» алгоритма (histogram diff).</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--anchoredltgtcode"> <a class="anchor" href="#git-diff-index---anchored"></a> <a class="anchor" href="#git-diff-index-code--anchoredltgtcode"></a><code>--anchored=&lt;текст&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--anchoredcodeemltgtemspan"> <a class="anchor" href="#git-diff-index---anchored"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--anchoredcodeemltgtemspan"></a><span class='synopsis'><code>--anchored=</code><em>&lt;текст&gt;</em></span> </dt>
 <dd>
 <p>Генерировать списки изменений с помощью алгоритма поиска различий «с якорем» (anchored diff).</p>
 <div class="paragraph">
@@ -105,27 +132,27 @@ aliases:
 <p>Если строка существует как в источнике, так и в назначении, встречается только один раз и начинается с <em>&lt;текста&gt;</em>, этот алгоритм пытается не допустить, чтобы эта строка была обозначена в выводе как удаляемая или добавляемая. Для собственно поиска отличий используется «терпеливый» алгоритм.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--diff-algorithmpatienceminimalhistogrammyerscode"> <a class="anchor" href="#git-diff-index---diff-algorithmpatienceminimalhistogrammyers"></a> <a class="anchor" href="#git-diff-index-code--diff-algorithmpatienceminimalhistogrammyerscode"></a><code>--diff-algorithm=(patience|minimal|histogram|myers)</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--diff-algorithmcodecodepatiencecodecodeminimalcodecodehistogramcodecodemyerscodespan"> <a class="anchor" href="#git-diff-index---diff-algorithmpatienceminimalhistogrammyers"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--diff-algorithmcodecodepatiencecodecodeminimalcodecodehistogramcodecodemyerscodespan"></a><span class='synopsis'><code>--diff-algorithm=</code>(<code>patience</code>|<code>minimal</code>|<code>histogram</code>|<code>myers</code>)</span> </dt>
 <dd>
 <p>Выберите алгоритм для получения списка изменений. Доступны следующие варианты:</p>
 <div class="openblock">
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-diff-index-codedefaultcode"> <a class="anchor" href="#git-diff-index-default"></a> <a class="anchor" href="#git-diff-index-codedefaultcode"></a><code>default</code> </dt>
-<dt class="hdlist1" id="git-diff-index-codemyerscode"> <a class="anchor" href="#git-diff-index-myers"></a> <a class="anchor" href="#git-diff-index-codemyerscode"></a><code>myers</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodedefaultcodespan"> <a class="anchor" href="#git-diff-index-default"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodedefaultcodespan"></a><span class='synopsis'><code>default</code></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodemyerscodespan"> <a class="anchor" href="#git-diff-index-myers"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodemyerscodespan"></a><span class='synopsis'><code>myers</code></span> </dt>
 <dd>
-<p>Базовый жадный алгоритм, используемый в стандартной утилите сравнения (<code>diff</code>). В настоящее время это значение по умолчанию.</p>
+<p>Базовый жадный алгоритм, используемый в стандартной утилите сравнения (<span class='synopsis'><code>diff</code></span>). В настоящее время это значение по умолчанию.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codeminimalcode"> <a class="anchor" href="#git-diff-index-minimal"></a> <a class="anchor" href="#git-diff-index-codeminimalcode"></a><code>minimal</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodeminimalcodespan"> <a class="anchor" href="#git-diff-index-minimal"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodeminimalcodespan"></a><span class='synopsis'><code>minimal</code></span> </dt>
 <dd>
 <p>Потратить дополнительное время, чтобы гарантировать, что будет сгенерирован минимально возможный список изменений.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codepatiencecode"> <a class="anchor" href="#git-diff-index-patience"></a> <a class="anchor" href="#git-diff-index-codepatiencecode"></a><code>patience</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodepatiencecodespan"> <a class="anchor" href="#git-diff-index-patience"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodepatiencecodespan"></a><span class='synopsis'><code>patience</code></span> </dt>
 <dd>
 <p>Используйте «терпеливый» алгоритм сравнения (patience diff) для генерации патчей.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codehistogramcode"> <a class="anchor" href="#git-diff-index-histogram"></a> <a class="anchor" href="#git-diff-index-codehistogramcode"></a><code>histogram</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodehistogramcodespan"> <a class="anchor" href="#git-diff-index-histogram"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodehistogramcodespan"></a><span class='synopsis'><code>histogram</code></span> </dt>
 <dd>
 <p>Этот алгоритм расширяет «терпеливый» алгоритм так, что он «поддерживает общие элементы с низкой частотой встречаемости».</p>
 </dd>
@@ -134,51 +161,51 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>В частности, если вы настроили переменную <code>diff.algorithm</code> на нестандартное значение и хотите использовать стандартный алгоритм, то следует задать параметр <code>--diff-algorithm=default</code>.</p>
+<p>В частности, если вы настроили переменную <span class='synopsis'><code>diff.algorithm</code></span> на нестандартное значение и хотите использовать стандартный алгоритм, то следует задать параметр <span class='synopsis'><code>--diff-algorithm=default</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--statltgtlt-gtltgtcode"> <a class="anchor" href="#git-diff-index---stat-"></a> <a class="anchor" href="#git-diff-index-code--statltgtlt-gtltgtcode"></a><code>--stat[=&lt;ширина&gt;[,&lt;ширина-имени&gt;[,&lt;число&gt;]]]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--statcodecodecodeemltgtemcodecodeemlt-gtemcodecodeemltgtemspan"> <a class="anchor" href="#git-diff-index---stat-"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--statcodecodecodeemltgtemcodecodeemlt-gtemcodecodeemltgtemspan"></a><span class='synopsis'><code>--stat</code>[<code>=</code><em>&lt;ширина&gt;</em>[<code>,</code><em>&lt;ширина-имени&gt;</em>[<code>,</code><em>&lt;число&gt;</em>]]]</span> </dt>
 <dd>
-<p>Генерировать статистику изменений diffstat. По умолчанию для имени файла используется столько места, сколько необходимо, а остаток — для графика. Максимальная <em>&lt;ширина&gt;</em> по умолчанию равна ширине терминала или 80 столбцам, если вывод производится не на терминал. Ширину части, отводящейся под имя файла, можно ограничить, указав <em>&lt;ширину-имени&gt;</em> после запятой или установив переменную конфигурации <code>diff.statNameWidth=&lt;ширина-имени&gt;</code>. Ширина части, отводящейся под график также можно ограничить с помощью <code>--stat-graph-width=&lt;ширина-графика&gt;</code> или переменной конфигурации <code>diff.statGraphWidth=&lt;ширина-графика&gt;</code>. Все команды, генерирующие статистические графики принимают параметры <code>--stat</code> или <code>--stat-graph-width</code>, а установка переменных <code>diff.statNameWidth</code> или <code>diff.statGraphWidth</code> влияет на все команды кроме <code>git format-patch</code>. При указании третьей части аргумента вывод ограничивается указанным <em>&lt;числом&gt;</em> строк, а при его превышении вместо оставшихся строк будет выведено <code>...</code>.</p>
+<p>Генерировать статистику изменений diffstat. По умолчанию для имени файла используется столько места, сколько необходимо, а остаток — для графика. Максимальная <em>&lt;ширина&gt;</em> по умолчанию равна ширине терминала или 80 столбцам, если вывод производится не на терминал. Ширину части, отводящейся под имя файла, можно ограничить, указав <em>&lt;ширину-имени&gt;</em> после запятой или установив переменную конфигурации <span class='synopsis'><code>diff.statNameWidth=</code><em>&lt;ширина-имени&gt;</em></span>. Ширина части, отводящейся под график также можно ограничить с помощью <span class='synopsis'><code>--stat-graph-width=</code><em>&lt;ширина-графика&gt;</em></span> или переменной конфигурации <span class='synopsis'><code>diff.statGraphWidth=</code><em>&lt;ширина-графика&gt;</em></span>. Все команды, генерирующие статистические графики принимают параметры <span class='synopsis'><code>--stat</code></span> или <span class='synopsis'><code>--stat-graph-width</code></span>, а установка переменных <span class='synopsis'><code>diff.statNameWidth</code></span> или <span class='synopsis'><code>diff.statGraphWidth</code></span> влияет на все команды кроме <span class='synopsis'><code>git</code> <code>format-patch</code></span>. При указании третьей части аргумента вывод ограничивается указанным <em>&lt;числом&gt;</em> строк, а при его превышении вместо оставшихся строк будет выведено <span class='synopsis'>...</span>.</p>
 <div class="paragraph">
-<p>Эти параметры также могут быть установлены в индивидуальном порядке с помощью <code>--stat-width=&lt;ширина&gt;</code>, <code>--stat-name-width=&lt;ширина-имени&gt;</code> и <code>--stat-count=&lt;число&gt;</code>.</p>
+<p>Эти параметры также могут быть установлены в индивидуальном порядке с помощью <span class='synopsis'><code>--stat-width=</code><em>&lt;ширина&gt;</em></span>, <span class='synopsis'><code>--stat-name-width=</code><em>&lt;ширина-имени&gt;</em></span> и <span class='synopsis'><code>--stat-count=</code><em>&lt;число&gt;</em></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--compact-summarycode"> <a class="anchor" href="#git-diff-index---compact-summary"></a> <a class="anchor" href="#git-diff-index-code--compact-summarycode"></a><code>--compact-summary</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--compact-summarycodespan"> <a class="anchor" href="#git-diff-index---compact-summary"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--compact-summarycodespan"></a><span class='synopsis'><code>--compact-summary</code></span> </dt>
 <dd>
-<p>Выводить в статистике diffstat краткую выжимку информации, содержащейся в расширенном заголовке, в частности, был ли файл создан или удалён («new» или «gone», и возможно с «<code>+l</code>», если это символическая ссылка) и был ли изменён режим доступа к нему (<code>+x</code> или <code>-x</code> для добавления или удаления исполняемого бита соответственно). Эта информация помещается между имени файла и графиком. Подразумевает <code>--stat</code>.</p>
+<p>Выводить в статистике diffstat краткую выжимку информации, содержащейся в расширенном заголовке, в частности, был ли файл создан или удалён («new» или «gone», и возможно с «<span class='synopsis'><code>+l</code></span>», если это символическая ссылка) и был ли изменён режим доступа к нему (<span class='synopsis'><code>+x</code></span> или <span class='synopsis'><code>-x</code></span> для добавления или удаления исполняемого бита соответственно). Эта информация помещается между имени файла и графиком. Подразумевает <span class='synopsis'><code>--stat</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--numstatcode"> <a class="anchor" href="#git-diff-index---numstat"></a> <a class="anchor" href="#git-diff-index-code--numstatcode"></a><code>--numstat</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--numstatcodespan"> <a class="anchor" href="#git-diff-index---numstat"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--numstatcodespan"></a><span class='synopsis'><code>--numstat</code></span> </dt>
 <dd>
-<p>Аналогичен <code>--stat</code>, но показывает количество добавленных и удалённых строк в десятичном формате и полный путь к файлу без сокращения, что делает его более удобным для машинной обработки. Для бинарных файлов выводит две чёрточки <code>-</code> вместо <code>0 0</code>.</p>
+<p>Аналогичен <span class='synopsis'><code>--stat</code></span>, но показывает количество добавленных и удалённых строк в десятичном формате и полный путь к файлу без сокращения, что делает его более удобным для машинной обработки. Для бинарных файлов выводит две чёрточки <span class='synopsis'><code>-</code></span> вместо <span class='synopsis'><code>0</code> <code>0</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--shortstatcode"> <a class="anchor" href="#git-diff-index---shortstat"></a> <a class="anchor" href="#git-diff-index-code--shortstatcode"></a><code>--shortstat</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--shortstatcodespan"> <a class="anchor" href="#git-diff-index---shortstat"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--shortstatcodespan"></a><span class='synopsis'><code>--shortstat</code></span> </dt>
 <dd>
-<p>Выводить только последнюю строку, выводимую <code>--stat</code>, содержащую общее количество изменённых файлов, а также количество добавленных и удалённых строк.</p>
+<p>Выводить только последнюю строку, выводимую <span class='synopsis'><code>--stat</code></span>, содержащую общее количество изменённых файлов, а также количество добавленных и удалённых строк.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Xltgtcode"> <a class="anchor" href="#git-diff-index--X"></a> <a class="anchor" href="#git-diff-index-code-Xltgtcode"></a><code>-X [&lt;аргумент&gt;,...]</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--dirstatltgtcode"> <a class="anchor" href="#git-diff-index---dirstat"></a> <a class="anchor" href="#git-diff-index-code--dirstatltgtcode"></a><code>--dirstat[=&lt;аргумент&gt;,...]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Xcodeemltgtemcodecodespan"> <a class="anchor" href="#git-diff-index--X"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Xcodeemltgtemcodecodespan"></a><span class='synopsis'><code>-X</code> [<em>&lt;аргумент&gt;</em><code>,...</code>]</span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--dirstatcodecodecodeemltgtemcodecodespan"> <a class="anchor" href="#git-diff-index---dirstat"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--dirstatcodecodecodeemltgtemcodecodespan"></a><span class='synopsis'><code>--dirstat</code>[<code>=</code><em>&lt;аргумент&gt;</em><code>,...</code>]</span> </dt>
 <dd>
-<p>Вывести распределение относительного количества изменений для каждого подкаталога (т.е. какой процент от общего числа изменений приходится на каждый конкретный каталог). Поведение <code>--dirstat</code> можно модифицировать, передавая ему список аргументов, разделённых запятыми. Аргументы по умолчанию контролируются переменной конфигурации diff.dirstat (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>). Доступные аргументы:</p>
+<p>Вывести распределение относительного количества изменений для каждого подкаталога (т.е. какой процент от общего числа изменений приходится на каждый конкретный каталог). Поведение <span class='synopsis'><code>--dirstat</code></span> можно модифицировать, передавая ему список аргументов, разделённых запятыми. Аргументы по умолчанию контролируются переменной конфигурации diff.dirstat (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>). Доступные аргументы:</p>
 <div class="openblock">
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-diff-index-codechangescode"> <a class="anchor" href="#git-diff-index-changes"></a> <a class="anchor" href="#git-diff-index-codechangescode"></a><code>changes</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodechangescodespan"> <a class="anchor" href="#git-diff-index-changes"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodechangescodespan"></a><span class='synopsis'><code>changes</code></span> </dt>
 <dd>
 <p>Подсчитывать количество строк, которые были удалены или добавлены. Этот алгоритм игнорирует чистые перемещения кода внутри файла. Другими словами, строки перемещённые внутри файла без изменений не учитываются в отличии от других правок. Это поведение по умолчанию, когда аргумент не указан.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codelinescode"> <a class="anchor" href="#git-diff-index-lines"></a> <a class="anchor" href="#git-diff-index-codelinescode"></a><code>lines</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodelinescodespan"> <a class="anchor" href="#git-diff-index-lines"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodelinescodespan"></a><span class='synopsis'><code>lines</code></span> </dt>
 <dd>
-<p>Подсчитывает количество строк с использованием обычного алгоритма поиска изменений, основываясь на строках и суммируя количество удалённых/добавленных строк. (Для бинарных файлов подсчитываются 64-байтовые блоки, так как у них нет естественного понятия «строк»). Это более затратный алгоритм работы <code>--dirstat</code>, чем <code>changes</code>, но он учитывает переставленные строки внутри файла так же, как и другие изменения. Вывод с этим алгоритмом лучше согласуется с теми данными, которые вы получаете от других параметров <code>--*stat</code>.</p>
+<p>Подсчитывает количество строк с использованием обычного алгоритма поиска изменений, основываясь на строках и суммируя количество удалённых/добавленных строк. (Для бинарных файлов подсчитываются 64-байтовые блоки, так как у них нет естественного понятия «строк»). Это более затратный алгоритм работы <span class='synopsis'><code>--dirstat</code></span>, чем <span class='synopsis'><code>changes</code></span>, но он учитывает переставленные строки внутри файла так же, как и другие изменения. Вывод с этим алгоритмом лучше согласуется с теми данными, которые вы получаете от других параметров <span class='synopsis'><code>--*stat</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codefilescode"> <a class="anchor" href="#git-diff-index-files"></a> <a class="anchor" href="#git-diff-index-codefilescode"></a><code>files</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodefilescodespan"> <a class="anchor" href="#git-diff-index-files"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodefilescodespan"></a><span class='synopsis'><code>files</code></span> </dt>
 <dd>
-<p>Подсчитывает количество изменённых файлов. При анализе каждый изменённый файл учитывается в равной степени. Это наиболее экономичный алгоритм <code>--dirstat</code>, так как он не требует просмотра содержимого файлов.</p>
+<p>Подсчитывает количество изменённых файлов. При анализе каждый изменённый файл учитывается в равной степени. Это наиболее экономичный алгоритм <span class='synopsis'><code>--dirstat</code></span>, так как он не требует просмотра содержимого файлов.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codecumulativecode"> <a class="anchor" href="#git-diff-index-cumulative"></a> <a class="anchor" href="#git-diff-index-codecumulativecode"></a><code>cumulative</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodecumulativecodespan"> <a class="anchor" href="#git-diff-index-cumulative"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodecumulativecodespan"></a><span class='synopsis'><code>cumulative</code></span> </dt>
 <dd>
-<p>Для родительского каталога также учитывает изменения в дочерних подкаталогах. Обратите внимание, что при использовании <code>cumulative</code> сумма процентов может превышать 100%. Поведение по умолчанию (некумулятивное) можно задать с помощью аргумента <code>noncumulative</code>.</p>
+<p>Для родительского каталога также учитывает изменения в дочерних подкаталогах. Обратите внимание, что при использовании <span class='synopsis'><code>cumulative</code></span> сумма процентов может превышать 100%. Поведение по умолчанию (некумулятивное) можно задать с помощью аргумента <span class='synopsis'><code>noncumulative</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-diff-index-emltgtem"> <a class="anchor" href="#git-diff-index-"></a> <a class="anchor" href="#git-diff-index-emltgtem"></a><em>&lt;число&gt;</em> </dt>
 <dd>
@@ -189,122 +216,122 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Пример: Следующая команда будет подсчитывать какую долю составляют файлы, которые были изменены в каждом конкретном каталоге, при этом игнорируя каталоги, на которые приходится менее 10% изменённых файлов и считая изменения в дочерних каталогов, как часть изменений в родительских: <code>--dirstat=files,10,cumulative</code>.</p>
+<p>Пример: Следующая команда будет подсчитывать какую долю составляют файлы, которые были изменены в каждом конкретном каталоге, при этом игнорируя каталоги, на которые приходится менее 10% изменённых файлов и считая изменения в дочерних каталогов, как часть изменений в родительских: <span class='synopsis'><code>--dirstat=files,10,cumulative</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--cumulativecode"> <a class="anchor" href="#git-diff-index---cumulative"></a> <a class="anchor" href="#git-diff-index-code--cumulativecode"></a><code>--cumulative</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--cumulativecodespan"> <a class="anchor" href="#git-diff-index---cumulative"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--cumulativecodespan"></a><span class='synopsis'><code>--cumulative</code></span> </dt>
 <dd>
-<p>Синоним для <code>--dirstat=cumulative</code>.</p>
+<p>Синоним для <span class='synopsis'><code>--dirstat=cumulative</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--dirstat-by-fileltgtcode"> <a class="anchor" href="#git-diff-index---dirstat-by-file"></a> <a class="anchor" href="#git-diff-index-code--dirstat-by-fileltgtcode"></a><code>--dirstat-by-file[=&lt;аргумент&gt;,...]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--dirstat-by-filecodecodecodeemltgtemcodecodespan"> <a class="anchor" href="#git-diff-index---dirstat-by-file"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--dirstat-by-filecodecodecodeemltgtemcodecodespan"></a><span class='synopsis'><code>--dirstat-by-file</code>[<code>=</code><em>&lt;аргумент&gt;</em><code>,...</code>]</span> </dt>
 <dd>
-<p>Синоним для <code>--dirstat=files,&lt;аргумент&gt;,...</code>.</p>
+<p>Синоним для <span class='synopsis'><code>--dirstat=files,</code><em>&lt;аргумент&gt;</em><code>,...</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--summarycode"> <a class="anchor" href="#git-diff-index---summary"></a> <a class="anchor" href="#git-diff-index-code--summarycode"></a><code>--summary</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--summarycodespan"> <a class="anchor" href="#git-diff-index---summary"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--summarycodespan"></a><span class='synopsis'><code>--summary</code></span> </dt>
 <dd>
 <p>Вывести краткую сводку из информации, содержащейся в расширенных заголовках списков изменений. В частности, информацию о создании, переименовании и изменении режима доступа к файлу.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--patch-with-statcode"> <a class="anchor" href="#git-diff-index---patch-with-stat"></a> <a class="anchor" href="#git-diff-index-code--patch-with-statcode"></a><code>--patch-with-stat</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--patch-with-statcodespan"> <a class="anchor" href="#git-diff-index---patch-with-stat"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--patch-with-statcodespan"></a><span class='synopsis'><code>--patch-with-stat</code></span> </dt>
 <dd>
-<p>Синоним для <code>-p --stat</code>.</p>
+<p>Синоним для <span class='synopsis'><code>-p</code> <code>--stat</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-zcode"> <a class="anchor" href="#git-diff-index--z"></a> <a class="anchor" href="#git-diff-index-code-zcode"></a><code>-z</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-zcodespan"> <a class="anchor" href="#git-diff-index--z"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-zcodespan"></a><span class='synopsis'><code>-z</code></span> </dt>
 <dd>
-<p>Когда заданы параметры <code>--raw</code>, <code>--numstat</code>, <code>--name-only</code> или <code>--name-status</code>, не вносить ни
+<p>Когда заданы параметры <span class='synopsis'><code>--raw</code></span>, <span class='synopsis'><code>--numstat</code></span>, <span class='synopsis'><code>--name-only</code></span> или <span class='synopsis'><code>--name-status</code></span>, не вносить ни
 какие изменения в пути файлов и использовать NUL-символ в качестве разделителя полей вывода.</p>
 <div class="paragraph">
-<p>Без данного параметра пути с «необычными» символами берутся в кавычки, как это описано для переменной конфигурации <code>core.quotePath</code> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>).</p>
+<p>Без данного параметра пути с «необычными» символами берутся в кавычки, как это описано для переменной конфигурации <span class='synopsis'><code>core.quotePath</code></span> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--name-onlycode"> <a class="anchor" href="#git-diff-index---name-only"></a> <a class="anchor" href="#git-diff-index-code--name-onlycode"></a><code>--name-only</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--name-onlycodespan"> <a class="anchor" href="#git-diff-index---name-only"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--name-onlycodespan"></a><span class='synopsis'><code>--name-only</code></span> </dt>
 <dd>
 <p>Выводить только имена изменённых файлов в результирующем дереве. Имена файлов обычно используют кодировку UTF-8. Для более подробной информации о кодировках см. обсуждение на справочной странице <a href='{{< relurl "docs/git-log/ru" >}}'>git-log[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--name-statuscode"> <a class="anchor" href="#git-diff-index---name-status"></a> <a class="anchor" href="#git-diff-index-code--name-statuscode"></a><code>--name-status</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--name-statuscodespan"> <a class="anchor" href="#git-diff-index---name-status"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--name-statuscodespan"></a><span class='synopsis'><code>--name-status</code></span> </dt>
 <dd>
-<p>Показывать только имя/имена и статус каждого изменённого файла. См., что означают буквы статуса, в описании параметра <code>--diff-filter</code>. Как и для <code>--name-only</code>, имена файлов обычно используют кодировку UTF-8.</p>
+<p>Показывать только имя/имена и статус каждого изменённого файла. См., что означают буквы статуса, в описании параметра <span class='synopsis'><code>--diff-filter</code></span>. Как и для <span class='synopsis'><code>--name-only</code></span>, имена файлов обычно используют кодировку UTF-8.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--submoduleltgtcode"> <a class="anchor" href="#git-diff-index---submodule"></a> <a class="anchor" href="#git-diff-index-code--submoduleltgtcode"></a><code>--submodule[=&lt;формат&gt;]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--submodulecodecodecodeemltgtemspan"> <a class="anchor" href="#git-diff-index---submodule"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--submodulecodecodecodeemltgtemspan"></a><span class='synopsis'><code>--submodule</code>[<code>=</code><em>&lt;формат&gt;</em>]</span> </dt>
 <dd>
-<p>Задаёт, как должны отображаться различия в подмодулях. При указании <code>--submodule=short</code>, используется формат <code>short</code>. Этот формат показывает только имена коммитов в начале и конце диапазона. При указании <code>--submodule</code> или <code>--submodule=log</code> используется формат <code>log</code>. Этот формат перечисляет все коммиты в диапазоне, как это делает <a href='{{< relurl "docs/git-submodule/ru" >}}'>git-submodule[1]</a> <code>summary</code>. При указании <code>--submodule=diff</code> используется формат <code>diff</code>. Этот формат показывает различия в содержимом подмодуля между началом и концом диапазона в виде списка изменений, встроенного в основной. По умолчанию используется формат указанный в переменной конфигурации <code>diff.submodule</code> или <code>short</code>, если переменная не установлена.</p>
+<p>Задаёт, как должны отображаться различия в подмодулях. При указании <span class='synopsis'><code>--submodule=short</code></span>, используется формат <span class='synopsis'><code>short</code></span>. Этот формат показывает только имена коммитов в начале и конце диапазона. При указании <span class='synopsis'><code>--submodule</code></span> или <span class='synopsis'><code>--submodule=log</code></span> используется формат <span class='synopsis'><code>log</code></span>. Этот формат перечисляет все коммиты в диапазоне, как это делает <a href='{{< relurl "docs/git-submodule/ru" >}}'>git-submodule[1]</a> <span class='synopsis'><code>summary</code></span>. При указании <span class='synopsis'><code>--submodule=diff</code></span> используется формат <span class='synopsis'><code>diff</code></span>. Этот формат показывает различия в содержимом подмодуля между началом и концом диапазона в виде списка изменений, встроенного в основной. По умолчанию используется формат указанный в переменной конфигурации <span class='synopsis'><code>diff.submodule</code></span> или <span class='synopsis'><code>short</code></span>, если переменная не установлена.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--colorltgtcode"> <a class="anchor" href="#git-diff-index---color"></a> <a class="anchor" href="#git-diff-index-code--colorltgtcode"></a><code>--color[=&lt;когда&gt;]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--colorcodecodecodeemltgtemspan"> <a class="anchor" href="#git-diff-index---color"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--colorcodecodecodeemltgtemspan"></a><span class='synopsis'><code>--color</code>[<code>=</code><em>&lt;когда&gt;</em>]</span> </dt>
 <dd>
-<p>Выводить список изменений в цвете. <code>--color</code> (т.е. без аргумента <code>=&lt;когда&gt;</code>) эквивалентно <code>--color=always</code>. <em>&lt;когда&gt;</em> может быть одним из: <code>always</code>, <code>never</code> или <code>auto</code>.</p>
+<p>Выводить список изменений в цвете. <span class='synopsis'><code>--color</code></span> (т.е. без аргумента <span class='synopsis'><code>=</code><em>&lt;когда&gt;</em></span>) эквивалентно <span class='synopsis'><code>--color=always</code></span>. <em>&lt;когда&gt;</em> может быть одним из: <span class='synopsis'><code>always</code></span>, <span class='synopsis'><code>never</code></span> или <span class='synopsis'><code>auto</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--no-colorcode"> <a class="anchor" href="#git-diff-index---no-color"></a> <a class="anchor" href="#git-diff-index-code--no-colorcode"></a><code>--no-color</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--no-colorcodespan"> <a class="anchor" href="#git-diff-index---no-color"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--no-colorcodespan"></a><span class='synopsis'><code>--no-color</code></span> </dt>
 <dd>
 <p>Выключить выделение цветом при выводе списка изменений.
-Эквивалентно <code>--color=never</code>.</p>
+Эквивалентно <span class='synopsis'><code>--color=never</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--color-movedltgtcode"> <a class="anchor" href="#git-diff-index---color-moved"></a> <a class="anchor" href="#git-diff-index-code--color-movedltgtcode"></a><code>--color-moved[=&lt;режим&gt;]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--color-movedcodecodecodeemltgtemspan"> <a class="anchor" href="#git-diff-index---color-moved"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--color-movedcodecodecodeemltgtemspan"></a><span class='synopsis'><code>--color-moved</code>[<code>=</code><em>&lt;режим&gt;</em>]</span> </dt>
 <dd>
 <p>Перемещённые строки кода выделяются другим цветом.
-Если параметр не задан, то <em>&lt;режим&gt;</em> по умолчанию: <code>no</code>; если
-задан, но без явного указания <em>&lt;режима&gt;</em> — то <code>zebra</code>.
+Если параметр не задан, то <em>&lt;режим&gt;</em> по умолчанию: <span class='synopsis'><code>no</code></span>; если
+задан, но без явного указания <em>&lt;режима&gt;</em> — то <span class='synopsis'><code>zebra</code></span>.
 Значение <em>&lt;режима&gt;</em> может быть одним из:</p>
 <div class="openblock">
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-diff-index-codenocode"> <a class="anchor" href="#git-diff-index-no"></a> <a class="anchor" href="#git-diff-index-codenocode"></a><code>no</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodenocodespan"> <a class="anchor" href="#git-diff-index-no"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodenocodespan"></a><span class='synopsis'><code>no</code></span> </dt>
 <dd>
 <p>Перемещённые строки ни как не выделяются.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codedefaultcode-1"> <a class="anchor" href="#git-diff-index-default-1"></a> <a class="anchor" href="#git-diff-index-codedefaultcode-1"></a><code>default</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodedefaultcodespan-1"> <a class="anchor" href="#git-diff-index-default-1"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodedefaultcodespan-1"></a><span class='synopsis'><code>default</code></span> </dt>
 <dd>
-<p>Синоним для <code>zebra</code>. В будущем это может измениться, если появится режим получше.</p>
+<p>Синоним для <span class='synopsis'><code>zebra</code></span>. В будущем это может измениться, если появится режим получше.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codeplaincode"> <a class="anchor" href="#git-diff-index-plain"></a> <a class="anchor" href="#git-diff-index-codeplaincode"></a><code>plain</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodeplaincodespan"> <a class="anchor" href="#git-diff-index-plain"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodeplaincodespan"></a><span class='synopsis'><code>plain</code></span> </dt>
 <dd>
-<p>Любая строка, добавленная в одном месте и удалённая в другом, будет окрашена с помощью <code>color.diff.newMoved</code>. Аналогично <code>color.diff.oldMoved</code> будет использоваться для удалённых строк, которые добавлены в каком-то другом месте. Этот режим подсвечивает все перемещённые строки, но при рецензировании кода знать был ли блок перемещён и при этом без какой-либо информации о перестановках не так уж и полезно.</p>
+<p>Любая строка, добавленная в одном месте и удалённая в другом, будет окрашена с помощью <span class='synopsis'><code>color.diff.newMoved</code></span>. Аналогично <span class='synopsis'><code>color.diff.oldMoved</code></span> будет использоваться для удалённых строк, которые добавлены в каком-то другом месте. Этот режим подсвечивает все перемещённые строки, но при рецензировании кода знать был ли блок перемещён и при этом без какой-либо информации о перестановках не так уж и полезно.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codeblockscode"> <a class="anchor" href="#git-diff-index-blocks"></a> <a class="anchor" href="#git-diff-index-codeblockscode"></a><code>blocks</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodeblockscodespan"> <a class="anchor" href="#git-diff-index-blocks"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodeblockscodespan"></a><span class='synopsis'><code>blocks</code></span> </dt>
 <dd>
-<p>Для поиска блоков перемещённого текста (из не мене чем 20-и алфавитно-цифровых символов) используется жадный алгоритм. Найденные блоки окрашиваются с помощью <code>color.diff.(old|new)Moved</code>. Возможности различить смежные блоки нет.</p>
+<p>Для поиска блоков перемещённого текста (из не мене чем 20-и алфавитно-цифровых символов) используется жадный алгоритм. Найденные блоки окрашиваются с помощью <span class='synopsis'><code>color.diff.</code>(<code>old</code>|<code>new</code>)<code>Moved</code></span>. Возможности различить смежные блоки нет.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codezebracode"> <a class="anchor" href="#git-diff-index-zebra"></a> <a class="anchor" href="#git-diff-index-codezebracode"></a><code>zebra</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodezebracodespan"> <a class="anchor" href="#git-diff-index-zebra"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodezebracodespan"></a><span class='synopsis'><code>zebra</code></span> </dt>
 <dd>
-<p>Поиск блоков перемещённого текста происходит так же, как и в режиме <code>blocks</code>. Блоки окрашиваются с помощью <code>color.diff.(old|new)Moved</code> или <code>color.diff.(old|new)MovedAlternative</code>. Изменение цвета с одного на другой указывает на то, что был найден новый блок.</p>
+<p>Поиск блоков перемещённого текста происходит так же, как и в режиме <span class='synopsis'><code>blocks</code></span>. Блоки окрашиваются с помощью <span class='synopsis'><code>color.diff.</code>(<code>old</code>|<code>new</code>)<code>Moved</code></span> или <span class='synopsis'><code>color.diff.</code>(<code>old</code>|<code>new</code>)<code>MovedAlternative</code></span>. Изменение цвета с одного на другой указывает на то, что был найден новый блок.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codedimmed-zebracode"> <a class="anchor" href="#git-diff-index-dimmed-zebra"></a> <a class="anchor" href="#git-diff-index-codedimmed-zebracode"></a><code>dimmed-zebra</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodedimmed-zebracodespan"> <a class="anchor" href="#git-diff-index-dimmed-zebra"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodedimmed-zebracodespan"></a><span class='synopsis'><code>dimmed-zebra</code></span> </dt>
 <dd>
-<p>Аналогично <code>zebra</code>, но также выполняется дополнительное затемнение «неинтересных» частей перемещённого кода. Интересными считаются пограничные строки двух соседних блоков, остальное — неинтересным. <code>dimmed_zebra</code> — устаревший синоним.</p>
+<p>Аналогично <span class='synopsis'><code>zebra</code></span>, но также выполняется дополнительное затемнение «неинтересных» частей перемещённого кода. Интересными считаются пограничные строки двух соседних блоков, остальное — неинтересным. <span class='synopsis'><code>dimmed_zebra</code></span> — устаревший синоним.</p>
 </dd>
 </dl>
 </div>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--no-color-movedcode"> <a class="anchor" href="#git-diff-index---no-color-moved"></a> <a class="anchor" href="#git-diff-index-code--no-color-movedcode"></a><code>--no-color-moved</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--no-color-movedcodespan"> <a class="anchor" href="#git-diff-index---no-color-moved"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--no-color-movedcodespan"></a><span class='synopsis'><code>--no-color-moved</code></span> </dt>
 <dd>
-<p>Отключить поиск перемещений. Этот параметр можно использовать для переопределения настроек, заданных переменными конфигурации. Эквивалентно <code>--color-moved=no</code>.</p>
+<p>Отключить поиск перемещений. Этот параметр можно использовать для переопределения настроек, заданных переменными конфигурации. Эквивалентно <span class='synopsis'><code>--color-moved=no</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--color-moved-wsltgtcode"> <a class="anchor" href="#git-diff-index---color-moved-ws"></a> <a class="anchor" href="#git-diff-index-code--color-moved-wsltgtcode"></a><code>--color-moved-ws=&lt;режим&gt;,...</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--color-moved-wscodeemltgtemcodecodespan"> <a class="anchor" href="#git-diff-index---color-moved-ws"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--color-moved-wscodeemltgtemcodecodespan"></a><span class='synopsis'><code>--color-moved-ws=</code><em>&lt;режим&gt;</em><code>,...</code></span> </dt>
 <dd>
-<p>Задаёт должны ли игнорироваться пробелы при поиске перемещений для <code>--color-moved</code>.
+<p>Задаёт должны ли игнорироваться пробелы при поиске перемещений для <span class='synopsis'><code>--color-moved</code></span>.
 Следующие режимы могут быть указаны через запятую:</p>
 <div class="openblock">
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-diff-index-codenocode-1"> <a class="anchor" href="#git-diff-index-no-1"></a> <a class="anchor" href="#git-diff-index-codenocode-1"></a><code>no</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodenocodespan-1"> <a class="anchor" href="#git-diff-index-no-1"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodenocodespan-1"></a><span class='synopsis'><code>no</code></span> </dt>
 <dd>
 <p>Не игнорировать пробелы при поиске перемещений.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codeignore-space-at-eolcode"> <a class="anchor" href="#git-diff-index-ignore-space-at-eol"></a> <a class="anchor" href="#git-diff-index-codeignore-space-at-eolcode"></a><code>ignore-space-at-eol</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodeignore-space-at-eolcodespan"> <a class="anchor" href="#git-diff-index-ignore-space-at-eol"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodeignore-space-at-eolcodespan"></a><span class='synopsis'><code>ignore-space-at-eol</code></span> </dt>
 <dd>
 <p>Игнорировать изменения пробелов на концах строк.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codeignore-space-changecode"> <a class="anchor" href="#git-diff-index-ignore-space-change"></a> <a class="anchor" href="#git-diff-index-codeignore-space-changecode"></a><code>ignore-space-change</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodeignore-space-changecodespan"> <a class="anchor" href="#git-diff-index-ignore-space-change"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodeignore-space-changecodespan"></a><span class='synopsis'><code>ignore-space-change</code></span> </dt>
 <dd>
 <p>Игнорировать изменения количества пробелов. Этот режим игнорирует пробелы на концах строк и считает все остальные последовательности одного или более пробельных символов эквивалентными.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codeignore-all-spacecode"> <a class="anchor" href="#git-diff-index-ignore-all-space"></a> <a class="anchor" href="#git-diff-index-codeignore-all-spacecode"></a><code>ignore-all-space</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodeignore-all-spacecodespan"> <a class="anchor" href="#git-diff-index-ignore-all-space"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodeignore-all-spacecodespan"></a><span class='synopsis'><code>ignore-all-space</code></span> </dt>
 <dd>
 <p>Игнорировать все пробелы при сравнении строк. Это игнорирует различия даже если в одной строке пробелы есть там, где в другой их нет.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codeallow-indentation-changecode"> <a class="anchor" href="#git-diff-index-allow-indentation-change"></a> <a class="anchor" href="#git-diff-index-codeallow-indentation-changecode"></a><code>allow-indentation-change</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodeallow-indentation-changecodespan"> <a class="anchor" href="#git-diff-index-allow-indentation-change"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodeallow-indentation-changecodespan"></a><span class='synopsis'><code>allow-indentation-change</code></span> </dt>
 <dd>
 <p>Сначала игнорировать любые пробелы при обнаружении перемещений, а затем группировать перемещённые блоки кода в один только, если изменение пробелов одинаково для каждой строки блока. Этот режим несовместим с остальными.</p>
 </dd>
@@ -313,30 +340,30 @@ aliases:
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--no-color-moved-wscode"> <a class="anchor" href="#git-diff-index---no-color-moved-ws"></a> <a class="anchor" href="#git-diff-index-code--no-color-moved-wscode"></a><code>--no-color-moved-ws</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--no-color-moved-wscodespan"> <a class="anchor" href="#git-diff-index---no-color-moved-ws"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--no-color-moved-wscodespan"></a><span class='synopsis'><code>--no-color-moved-ws</code></span> </dt>
 <dd>
-<p>Не игнорировать пробелы при поиске перемещений. Этот параметр можно использовать для переопределения настроек, заданных переменными конфигурации. Эквивалентно <code>--color-moved-ws=no</code>.</p>
+<p>Не игнорировать пробелы при поиске перемещений. Этот параметр можно использовать для переопределения настроек, заданных переменными конфигурации. Эквивалентно <span class='synopsis'><code>--color-moved-ws=no</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--word-diffltgtcode"> <a class="anchor" href="#git-diff-index---word-diff"></a> <a class="anchor" href="#git-diff-index-code--word-diffltgtcode"></a><code>--word-diff[=&lt;режим&gt;]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--word-diffcodecodecodeemltgtemspan"> <a class="anchor" href="#git-diff-index---word-diff"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--word-diffcodecodecodeemltgtemspan"></a><span class='synopsis'><code>--word-diff</code>[<code>=</code><em>&lt;режим&gt;</em>]</span> </dt>
 <dd>
-<p>По умолчанию слова разделены пробелами; см. <code>--word-diff-regex</code> ниже. Аргумент <em>&lt;режим&gt;</em> по умолчанию равен <code>plain</code>, и должен быть одним из:</p>
+<p>По умолчанию слова разделены пробелами; см. <span class='synopsis'><code>--word-diff-regex</code></span> ниже. Аргумент <em>&lt;режим&gt;</em> по умолчанию равен <span class='synopsis'><code>plain</code></span>, и должен быть одним из:</p>
 <div class="openblock">
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-diff-index-codecolorcode"> <a class="anchor" href="#git-diff-index-color"></a> <a class="anchor" href="#git-diff-index-codecolorcode"></a><code>color</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodecolorcodespan"> <a class="anchor" href="#git-diff-index-color"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodecolorcodespan"></a><span class='synopsis'><code>color</code></span> </dt>
 <dd>
-<p>Выделять изменённые слова только цветом. Подразумевает <code>--color</code>.</p>
+<p>Выделять изменённые слова только цветом. Подразумевает <span class='synopsis'><code>--color</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codeplaincode-1"> <a class="anchor" href="#git-diff-index-plain-1"></a> <a class="anchor" href="#git-diff-index-codeplaincode-1"></a><code>plain</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodeplaincodespan-1"> <a class="anchor" href="#git-diff-index-plain-1"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodeplaincodespan-1"></a><span class='synopsis'><code>plain</code></span> </dt>
 <dd>
-<p>Отображать слова как <code>[-удалено-]</code> и <code>{<code>добавлено</code>}</code>. Этот нежим не пытается экранировать разделители, если они появляются во входных данных, поэтому вывод может быть неоднозначным.</p>
+<p>Отображать слова как <span class='synopsis'><em>[-удалено-]</em></span> и <span class='synopsis'><em>{<span class='synopsis'><em>добавлено</em></span>}</em></span>. Этот нежим не пытается экранировать разделители, если они появляются во входных данных, поэтому вывод может быть неоднозначным.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codeporcelaincode"> <a class="anchor" href="#git-diff-index-porcelain"></a> <a class="anchor" href="#git-diff-index-codeporcelaincode"></a><code>porcelain</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodeporcelaincodespan"> <a class="anchor" href="#git-diff-index-porcelain"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodeporcelaincodespan"></a><span class='synopsis'><code>porcelain</code></span> </dt>
 <dd>
-<p>Использовать специальный построчный формат, предназначенный для программной обработки сценариями. Добавленные/удалённые/неизменённые участки строк исходных документах выводятся в виде обычного унифицированного списка изменений: каждый участок записывается на отдельной строке, начинающейся, соответственно, с символов <code>+</code>/<code>-</code>/` ` и продолжается до конца строки. А собственно переводы строк во входных данных представляются в виде тильды <code>~</code> на отдельной строке.</p>
+<p>Использовать специальный построчный формат, предназначенный для программной обработки сценариями. Добавленные/удалённые/неизменённые участки строк исходных документах выводятся в виде обычного унифицированного списка изменений: каждый участок записывается на отдельной строке, начинающейся, соответственно, с символов <span class='synopsis'><code>+</code></span>/<span class='synopsis'><code>-</code></span>/` ` и продолжается до конца строки. А собственно переводы строк во входных данных представляются в виде тильды <span class='synopsis'><code>~</code></span> на отдельной строке.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codenonecode"> <a class="anchor" href="#git-diff-index-none"></a> <a class="anchor" href="#git-diff-index-codenonecode"></a><code>none</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodenonecodespan"> <a class="anchor" href="#git-diff-index-none"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodenonecodespan"></a><span class='synopsis'><code>none</code></span> </dt>
 <dd>
 <p>Отключить сравнение слов; снова.</p>
 </dd>
@@ -348,123 +375,123 @@ aliases:
 <p>Обратите внимание, что несмотря на название первого режима, цвет используется для выделения изменённых частей во всех режимах, если он включён.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--word-diff-regexlt-gtcode"> <a class="anchor" href="#git-diff-index---word-diff-regex-"></a> <a class="anchor" href="#git-diff-index-code--word-diff-regexlt-gtcode"></a><code>--word-diff-regex=&lt;регулярное-выражение&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--word-diff-regexcodeemlt-gtemspan"> <a class="anchor" href="#git-diff-index---word-diff-regex-"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--word-diff-regexcodeemlt-gtemspan"></a><span class='synopsis'><code>--word-diff-regex=</code><em>&lt;регулярное-выражение&gt;</em></span> </dt>
 <dd>
-<p>Использовать <em>&lt;регулярное_выражение&gt;</em> для определения того, что является словом, вместо того, чтобы считать словом любую последовательность непробельных символов. Также подразумевает параметр <code>--word-diff</code>, если он не было указан до этого.</p>
+<p>Использовать <em>&lt;регулярное_выражение&gt;</em> для определения того, что является словом, вместо того, чтобы считать словом любую последовательность непробельных символов. Также подразумевает параметр <span class='synopsis'><code>--word-diff</code></span>, если он не было указан до этого.</p>
 <div class="paragraph">
-<p>Каждая подстрока, не перекрывающаяся с другими и сопоставленная <em>&lt;регулярному_выражению&gt;</em> считается словом. Всё, что находится между ними, считается пробелами и игнорируется(!) при поиске различий. Возможно, вам понадобиться добавить <code>|[^[:space:]]</code> к вашему регулярному выражению, чтобы быть уверенным, что оно будет сопоставлено с любой непробельным символом. Сопоставленная подстрока, содержащая перевод строки, по-тихому обрезается(!) на символе перевода строки.</p>
+<p>Каждая подстрока, не перекрывающаяся с другими и сопоставленная <em>&lt;регулярному_выражению&gt;</em> считается словом. Всё, что находится между ними, считается пробелами и игнорируется(!) при поиске различий. Возможно, вам понадобиться добавить <span class='synopsis'>|[<code>^</code>[<code>:space:</code>]]</span> к вашему регулярному выражению, чтобы быть уверенным, что оно будет сопоставлено с любой непробельным символом. Сопоставленная подстрока, содержащая перевод строки, по-тихому обрезается(!) на символе перевода строки.</p>
 </div>
 <div class="paragraph">
-<p>Например, <code>--word-diff-regex=.</code> будет обращаться с каждым символом как со словом и, соответственно, показывать различия символ к символу.</p>
+<p>Например, <span class='synopsis'><code>--word-diff-regex=.</code></span> будет обращаться с каждым символом как со словом и, соответственно, показывать различия символ к символу.</p>
 </div>
 <div class="paragraph">
 <p>Это регулярное выражение также можно задать через драйвер пользовательской утилиты сравнения или переменные конфигурации; см. <a href='{{< relurl "docs/gitattributes/ru" >}}'>gitattributes[5]</a> или <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>. Явное указание этого параметра переопределяет любое значение, заданное в драйвере или переменной конфигурации. Кроме того, драйверы переопределяют значения, заданные в переменных конфигурации.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--color-wordslt-gtcode"> <a class="anchor" href="#git-diff-index---color-words-"></a> <a class="anchor" href="#git-diff-index-code--color-wordslt-gtcode"></a><code>--color-words[=&lt;регулярное-выражение&gt;]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--color-wordscodecodecodeemlt-gtemspan"> <a class="anchor" href="#git-diff-index---color-words-"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--color-wordscodecodecodeemlt-gtemspan"></a><span class='synopsis'><code>--color-words</code>[<code>=</code><em>&lt;регулярное-выражение&gt;</em>]</span> </dt>
 <dd>
-<p>Эквивалентно <code>--word-diff=color</code> плюс (если указано регулярное выражение) <code>--word-diff-regex=&lt;регулярное_выражение&gt;</code>.</p>
+<p>Эквивалентно <span class='synopsis'><code>--word-diff=color</code></span> плюс (если указано регулярное выражение) <span class='synopsis'><code>--word-diff-regex=</code><em>&lt;регулярное_выражение&gt;</em></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--no-renamescode"> <a class="anchor" href="#git-diff-index---no-renames"></a> <a class="anchor" href="#git-diff-index-code--no-renamescode"></a><code>--no-renames</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--no-renamescodespan"> <a class="anchor" href="#git-diff-index---no-renames"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--no-renamescodespan"></a><span class='synopsis'><code>--no-renames</code></span> </dt>
 <dd>
 <p>Отключить обнаружение переименований, даже если в файле конфигурации оно включено по умолчанию.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--no-rename-emptycode"> <a class="anchor" href="#git-diff-index---no-rename-empty"></a> <a class="anchor" href="#git-diff-index-code--no-rename-emptycode"></a><code>--[no-]rename-empty</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--codecodeno-codecoderename-emptycodespan"> <a class="anchor" href="#git-diff-index---no-rename-empty"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--codecodeno-codecoderename-emptycodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>rename-empty</code></span> </dt>
 <dd>
 <p>Определяет, рассматривать ли пустые бинарные объекты, как возможные источники переименований.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--checkcode"> <a class="anchor" href="#git-diff-index---check"></a> <a class="anchor" href="#git-diff-index-code--checkcode"></a><code>--check</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--checkcodespan"> <a class="anchor" href="#git-diff-index---check"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--checkcodespan"></a><span class='synopsis'><code>--check</code></span> </dt>
 <dd>
-<p>Предупреждать, если изменения включают маркеры конфликтов или ошибки расстановки пробелов. Что именно считается ошибками расстановки пробелов, настраивается с помощью переменной конфигурации <code>core.whitespace</code>. По умолчанию такими ошибками считаются пробелы в конце строк (включая строки, состоящие только из пробелов), а также пробел внутри начального отступа строки, непосредственно за котором следует табуляция. Программа завершится с ненулевым статусом, если такие проблемы будут обнаружены. Не совместимо с <code>--exit-code</code>.</p>
+<p>Предупреждать, если изменения включают маркеры конфликтов или ошибки расстановки пробелов. Что именно считается ошибками расстановки пробелов, настраивается с помощью переменной конфигурации <span class='synopsis'><code>core.whitespace</code></span>. По умолчанию такими ошибками считаются пробелы в конце строк (включая строки, состоящие только из пробелов), а также пробел внутри начального отступа строки, непосредственно за котором следует табуляция. Программа завершится с ненулевым статусом, если такие проблемы будут обнаружены. Не совместимо с <span class='synopsis'><code>--exit-code</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--ws-error-highlightltgtcode"> <a class="anchor" href="#git-diff-index---ws-error-highlight"></a> <a class="anchor" href="#git-diff-index-code--ws-error-highlightltgtcode"></a><code>--ws-error-highlight=&lt;тип&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--ws-error-highlightcodeemltgtemspan"> <a class="anchor" href="#git-diff-index---ws-error-highlight"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--ws-error-highlightcodeemltgtemspan"></a><span class='synopsis'><code>--ws-error-highlight=</code><em>&lt;тип&gt;</em></span> </dt>
 <dd>
-<p>Выделять цветом ошибки расстановки пробелов в строках <code>context</code> (контекстных), <code>old</code> (старых) или <code>new</code> (новых) в списке изменений. Допустимо несколько значений, разделённых запятой; <code>none</code> сбрасывает предыдущие значения, <code>default</code> сбрасывает список до <code>new</code>, а <code>all</code> — это сокращение для <code>old,new,context</code>. Если этот параметр не указан, и переменная конфигурации <code>diff.wsErrorHighlight</code> не установлена, то ошибки расстановки пробелов будут выделятся только в новых строках. Для выделения используется цвет, указанный в переменной конфигурации <code>color.diff.whitespace</code>.</p>
+<p>Выделять цветом ошибки расстановки пробелов в строках <span class='synopsis'><code>context</code></span> (контекстных), <span class='synopsis'><code>old</code></span> (старых) или <span class='synopsis'><code>new</code></span> (новых) в списке изменений. Допустимо несколько значений, разделённых запятой; <span class='synopsis'><code>none</code></span> сбрасывает предыдущие значения, <span class='synopsis'><code>default</code></span> сбрасывает список до <span class='synopsis'><code>new</code></span>, а <span class='synopsis'><code>all</code></span> — это сокращение для <span class='synopsis'><code>old,new,context</code></span>. Если этот параметр не указан, и переменная конфигурации <span class='synopsis'><code>diff.wsErrorHighlight</code></span> не установлена, то ошибки расстановки пробелов будут выделятся только в новых строках. Для выделения используется цвет, указанный в переменной конфигурации <span class='synopsis'><code>color.diff.whitespace</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--full-indexcode"> <a class="anchor" href="#git-diff-index---full-index"></a> <a class="anchor" href="#git-diff-index-code--full-indexcode"></a><code>--full-index</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--full-indexcodespan"> <a class="anchor" href="#git-diff-index---full-index"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--full-indexcodespan"></a><span class='synopsis'><code>--full-index</code></span> </dt>
 <dd>
 <p>Вместо первых нескольких символов показывать полные имена blob-объектов в строке «index» при выводе патча.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--binarycode"> <a class="anchor" href="#git-diff-index---binary"></a> <a class="anchor" href="#git-diff-index-code--binarycode"></a><code>--binary</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--binarycodespan"> <a class="anchor" href="#git-diff-index---binary"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--binarycodespan"></a><span class='synopsis'><code>--binary</code></span> </dt>
 <dd>
-<p>Выводить список изменений в бинарных файлах, который может быть применён с помощью <code>git-apply</code>. Также подразумевает <code>--full-index</code>.
-Подразумевает <code>--patch</code>.</p>
+<p>Выводить список изменений в бинарных файлах, который может быть применён с помощью <span class='synopsis'><code>git-apply</code></span>. Также подразумевает <span class='synopsis'><code>--full-index</code></span>.
+Подразумевает <span class='synopsis'><code>--patch</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--abbrevltngtcode"> <a class="anchor" href="#git-diff-index---abbrevn"></a> <a class="anchor" href="#git-diff-index-code--abbrevltngtcode"></a><code>--abbrev[=&lt;n&gt;]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--abbrevcodecodecodeemltngtemspan"> <a class="anchor" href="#git-diff-index---abbrevn"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--abbrevcodecodecodeemltngtemspan"></a><span class='synopsis'><code>--abbrev</code>[<code>=</code><em>&lt;n&gt;</em>]</span> </dt>
 <dd>
-<p>Вместо вывода полных 40-байтовых шестнадцатеричных имён объектов в списках изменений в сыром формате, а также в строках заголовков diff-tree, выводить их минимальный префикс, который имеет как минимум <em>&lt;n&gt;</em> шестнадцатеричных цифр и уникально идентифицирует объект. Однако, при выводе списка изменений в виде патча параметр <code>--full-index</code> имеет приоритет, т.е. если задан параметр <code>--full-index</code>, будут выведены полные имена блоков, независимо от того, задан ли <code>--abbrev</code>. Количество выводимых цифр отличное от значения по умолчанию можно задать с помощью <code>--abbrev=&lt;n&gt;</code>.</p>
+<p>Вместо вывода полных 40-байтовых шестнадцатеричных имён объектов в списках изменений в сыром формате, а также в строках заголовков diff-tree, выводить их минимальный префикс, который имеет как минимум <em>&lt;n&gt;</em> шестнадцатеричных цифр и уникально идентифицирует объект. Однако, при выводе списка изменений в виде патча параметр <span class='synopsis'><code>--full-index</code></span> имеет приоритет, т.е. если задан параметр <span class='synopsis'><code>--full-index</code></span>, будут выведены полные имена блоков, независимо от того, задан ли <span class='synopsis'><code>--abbrev</code></span>. Количество выводимых цифр отличное от значения по умолчанию можно задать с помощью <span class='synopsis'><code>--abbrev=</code><em>&lt;n&gt;</em></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Bltngtltmgtcode"> <a class="anchor" href="#git-diff-index--Bnm"></a> <a class="anchor" href="#git-diff-index-code-Bltngtltmgtcode"></a><code>-B[&lt;n&gt;][/&lt;m&gt;]</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--break-rewritesltngtltmgtcode"> <a class="anchor" href="#git-diff-index---break-rewritesnm"></a> <a class="anchor" href="#git-diff-index-code--break-rewritesltngtltmgtcode"></a><code>--break-rewrites[=[&lt;n&gt;][/&lt;m&gt;]]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Bcodeemltngtemcodecodeemltmgtemspan"> <a class="anchor" href="#git-diff-index--Bnm"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Bcodeemltngtemcodecodeemltmgtemspan"></a><span class='synopsis'><code>-B</code>[<em>&lt;n&gt;</em>][<code>/</code><em>&lt;m&gt;</em>]</span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--break-rewritescodecodecodeemltngtemcodecodeemltmgtemspan"> <a class="anchor" href="#git-diff-index---break-rewritesnm"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--break-rewritescodecodecodeemltngtemcodecodeemltmgtemspan"></a><span class='synopsis'><code>--break-rewrites</code>[<code>=</code>[<em>&lt;n&gt;</em>][<code>/</code><em>&lt;m&gt;</em>]]</span> </dt>
 <dd>
 <p>Разбивать изменения, которые полностью переписывают файл на пары удаления и создания. Этот параметр служит двум целям:</p>
 <div class="paragraph">
-<p>Влияет на то, как правка, которая по сути представляет собой полное переписывание файла, отображается в списке изменений не как серия удалений и вставок, смешанных с несколькими строками «контекста», которые оказались таковыми лишь по случайному стечению обстоятельств, а как одно единое удаление старого файла целиком, за которым следует создание нового файла. Число <em>&lt;m&gt;</em>(по умолчанию 60%) в аргументе параметра <code>-B</code> задаёт, какая часть файла должна быть изменена, чтобы он считался полностью переписанным. Например, <code>-B/70%</code> указывает, что, чтобы Git считал файл полностью переписанным, в нём должно оставаться нетронутым менее 30% исходного содержимого (т.е. в случае, если нетронутыми будут больше 30% объёма файла, полученный патч будет серией удалений и вставок, смешанных с контекстными строками, как при обычном выводе).</p>
+<p>Влияет на то, как правка, которая по сути представляет собой полное переписывание файла, отображается в списке изменений не как серия удалений и вставок, смешанных с несколькими строками «контекста», которые оказались таковыми лишь по случайному стечению обстоятельств, а как одно единое удаление старого файла целиком, за которым следует создание нового файла. Число <em>&lt;m&gt;</em>(по умолчанию 60%) в аргументе параметра <span class='synopsis'><code>-B</code></span> задаёт, какая часть файла должна быть изменена, чтобы он считался полностью переписанным. Например, <span class='synopsis'><code>-B/70%</code></span> указывает, что, чтобы Git считал файл полностью переписанным, в нём должно оставаться нетронутым менее 30% исходного содержимого (т.е. в случае, если нетронутыми будут больше 30% объёма файла, полученный патч будет серией удалений и вставок, смешанных с контекстными строками, как при обычном выводе).</p>
 </div>
 <div class="paragraph">
-<p>При использовании совместно с <code>-M</code>, полностью переписанный файл также рассматривается как возможный источник переименований (обычно <code>-M</code> рассматривает в качестве таковых только файлы, которые были удалены). Число <em>&lt;n&gt;</em>(по умолчанию 50%) в аргументе параметра <code>-B</code> задаёт, какая часть файла должна быть изменена, чтобы он рассматривался как возможный источник переименований. Например, при указании <code>-B20%</code> для того, чтобы файл рассматривался в качестве такового, изменения в нём (включая добавления и удаления строк) должны составлять более 20% файла.</p>
+<p>При использовании совместно с <span class='synopsis'><code>-M</code></span>, полностью переписанный файл также рассматривается как возможный источник переименований (обычно <span class='synopsis'><code>-M</code></span> рассматривает в качестве таковых только файлы, которые были удалены). Число <em>&lt;n&gt;</em>(по умолчанию 50%) в аргументе параметра <span class='synopsis'><code>-B</code></span> задаёт, какая часть файла должна быть изменена, чтобы он рассматривался как возможный источник переименований. Например, при указании <span class='synopsis'><code>-B20%</code></span> для того, чтобы файл рассматривался в качестве такового, изменения в нём (включая добавления и удаления строк) должны составлять более 20% файла.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Mltngtcode"> <a class="anchor" href="#git-diff-index--Mn"></a> <a class="anchor" href="#git-diff-index-code-Mltngtcode"></a><code>-M[&lt;n&gt;]</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--find-renamesltngtcode"> <a class="anchor" href="#git-diff-index---find-renamesn"></a> <a class="anchor" href="#git-diff-index-code--find-renamesltngtcode"></a><code>--find-renames[=&lt;n&gt;]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Mcodeemltngtemspan"> <a class="anchor" href="#git-diff-index--Mn"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Mcodeemltngtemspan"></a><span class='synopsis'><code>-M</code>[<em>&lt;n&gt;</em>]</span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--find-renamescodecodecodeemltngtemspan"> <a class="anchor" href="#git-diff-index---find-renamesn"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--find-renamescodecodecodeemltngtemspan"></a><span class='synopsis'><code>--find-renames</code>[<code>=</code><em>&lt;n&gt;</em>]</span> </dt>
 <dd>
 <p>Обнаруживать переименования.
 Если указан аргумент <em>&lt;n&gt;</em>, то это значение является пороговым коэффициентом
 сходства (т.е. количеством добавлений/удалений по отношению к размеру файла).
-Например, <code>-M90%</code> означает, что Git должен считать пару файлов
+Например, <span class='synopsis'><code>-M90%</code></span> означает, что Git должен считать пару файлов
 удалённый/добавленый переименованием, если более 90% файла не изменилось. Без
-знака процента <code>%</code> это число рассматривается как дробная часть десятичной
-дроби (т.е. с нулём и десятичной точкой перед числом). Так например, <code>-M5</code>
-рассматривается «0.5» и таким образом эквивалентно <code>-M50%</code>. Аналогично, <code>-M05</code>
-эквивалентно <code>-M5%</code>. Чтобы ограничиться обнаружением только переименований без
-изменений, используйте <code>-M100%</code>. По умолчанию коэффициент сходства равен 50%.</p>
+знака процента <span class='synopsis'><code>%</code></span> это число рассматривается как дробная часть десятичной
+дроби (т.е. с нулём и десятичной точкой перед числом). Так например, <span class='synopsis'><code>-M5</code></span>
+рассматривается «0.5» и таким образом эквивалентно <span class='synopsis'><code>-M50%</code></span>. Аналогично, <span class='synopsis'><code>-M05</code></span>
+эквивалентно <span class='synopsis'><code>-M5%</code></span>. Чтобы ограничиться обнаружением только переименований без
+изменений, используйте <span class='synopsis'><code>-M100%</code></span>. По умолчанию коэффициент сходства равен 50%.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Cltngtcode"> <a class="anchor" href="#git-diff-index--Cn"></a> <a class="anchor" href="#git-diff-index-code-Cltngtcode"></a><code>-C[&lt;n&gt;]</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--find-copiesltngtcode"> <a class="anchor" href="#git-diff-index---find-copiesn"></a> <a class="anchor" href="#git-diff-index-code--find-copiesltngtcode"></a><code>--find-copies[=&lt;n&gt;]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Ccodeemltngtemspan"> <a class="anchor" href="#git-diff-index--Cn"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Ccodeemltngtemspan"></a><span class='synopsis'><code>-C</code>[<em>&lt;n&gt;</em>]</span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--find-copiescodecodecodeemltngtemspan"> <a class="anchor" href="#git-diff-index---find-copiesn"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--find-copiescodecodecodeemltngtemspan"></a><span class='synopsis'><code>--find-copies</code>[<code>=</code><em>&lt;n&gt;</em>]</span> </dt>
 <dd>
-<p>Обнаруживать копии наряду с переименованиями. См. также <code>--find-copies-harder</code>. Аргумент <em>&lt;n&gt;</em>, если указан, имеет то же значение, что и в <code>-M&lt;n&gt;</code>.</p>
+<p>Обнаруживать копии наряду с переименованиями. См. также <span class='synopsis'><code>--find-copies-harder</code></span>. Аргумент <em>&lt;n&gt;</em>, если указан, имеет то же значение, что и в <span class='synopsis'><code>-M</code><em>&lt;n&gt;</em></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--find-copies-hardercode"> <a class="anchor" href="#git-diff-index---find-copies-harder"></a> <a class="anchor" href="#git-diff-index-code--find-copies-hardercode"></a><code>--find-copies-harder</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--find-copies-hardercodespan"> <a class="anchor" href="#git-diff-index---find-copies-harder"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--find-copies-hardercodespan"></a><span class='synopsis'><code>--find-copies-harder</code></span> </dt>
 <dd>
-<p>По соображениям производительности, по умолчанию параметр <code>-C</code> рассматривает в качестве исходных файлов копий только те файлы, которые были изменены в том же наборе изменений. Этот флаг заставляет команду рассматривать в качестве кандидатов на роль источника копии также и неизмененные файлы. Для больших проектов это очень дорогая операция, поэтому используйте её с осторожностью. Передача параметра <code>-C</code> более одного раза имеет тот же эффект.</p>
+<p>По соображениям производительности, по умолчанию параметр <span class='synopsis'><code>-C</code></span> рассматривает в качестве исходных файлов копий только те файлы, которые были изменены в том же наборе изменений. Этот флаг заставляет команду рассматривать в качестве кандидатов на роль источника копии также и неизмененные файлы. Для больших проектов это очень дорогая операция, поэтому используйте её с осторожностью. Передача параметра <span class='synopsis'><code>-C</code></span> более одного раза имеет тот же эффект.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Dcode"> <a class="anchor" href="#git-diff-index--D"></a> <a class="anchor" href="#git-diff-index-code-Dcode"></a><code>-D</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--irreversible-deletecode"> <a class="anchor" href="#git-diff-index---irreversible-delete"></a> <a class="anchor" href="#git-diff-index-code--irreversible-deletecode"></a><code>--irreversible-delete</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Dcodespan"> <a class="anchor" href="#git-diff-index--D"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Dcodespan"></a><span class='synopsis'><code>-D</code></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--irreversible-deletecodespan"> <a class="anchor" href="#git-diff-index---irreversible-delete"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--irreversible-deletecodespan"></a><span class='synopsis'><code>--irreversible-delete</code></span> </dt>
 <dd>
-<p>Опускать исходное содержимое файла при его удалении, т.е. выводить только заголовок, но не «различия» между удаляемым файлом и <code>/dev/null</code>. Полученный патч не предназначен для применения с помощью <code>patch</code> или <code>git apply</code>, а исключительно для тех людей, кто хочет сосредоточиться на рецензировании или просмотре различий после внесения изменений. Кроме того, с таким патчем, очевидно, не будет возможности обратить изменения, даже вручную; отсюда и название параметра: «irreversible» — необратимый.</p>
+<p>Опускать исходное содержимое файла при его удалении, т.е. выводить только заголовок, но не «различия» между удаляемым файлом и <span class='synopsis'><code>/dev/null</code></span>. Полученный патч не предназначен для применения с помощью <span class='synopsis'><code>patch</code></span> или <span class='synopsis'><code>git</code> <code>apply</code></span>, а исключительно для тех людей, кто хочет сосредоточиться на рецензировании или просмотре различий после внесения изменений. Кроме того, с таким патчем, очевидно, не будет возможности обратить изменения, даже вручную; отсюда и название параметра: «irreversible» — необратимый.</p>
 <div class="paragraph">
-<p>При использовании совместно с <code>-B</code>, опускается также и содержимое удаляемой части в паре «удаление/создание».</p>
+<p>При использовании совместно с <span class='synopsis'><code>-B</code></span>, опускается также и содержимое удаляемой части в паре «удаление/создание».</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-lltgtcode"> <a class="anchor" href="#git-diff-index--l"></a> <a class="anchor" href="#git-diff-index-code-lltgtcode"></a><code>-l&lt;число&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-lcodeemltgtemspan"> <a class="anchor" href="#git-diff-index--l"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-lcodeemltgtemspan"></a><span class='synopsis'><code>-l</code><em>&lt;число&gt;</em></span> </dt>
 <dd>
-<p>Выполнение поиска для параметров <code>-M</code> и <code>-C</code> происходит в два этапа: сначала производится некоторый предварительные шаги, которые позволяют дёшево обнаружить лишь часть переименований/копирований, а затем следует исчерпывающая часть поиска, на которой все оставшиеся назначения для которых не было найдено пары сравниваются со всеми подходящими для них источниками. (Для переименований подходящими считаются только те источники, которым ещё не были найдены пары; для копирований — все исходные источники.) Для N возможных файлов источников и назначений эта исчерпывающая проверка имеет сложность O(N^2). Данный параметр предотвращает запуск исчерпывающей части поиск переименований/копирований, если количество файлов источников/назначений превышает указанное <em>&lt;число&gt;</em> (по умолчанию: <code>diff.renameLimit</code>). Обратите внимание, что значение <code>0</code> означает, что это количество файлов неограниченно.</p>
+<p>Выполнение поиска для параметров <span class='synopsis'><code>-M</code></span> и <span class='synopsis'><code>-C</code></span> происходит в два этапа: сначала производится некоторый предварительные шаги, которые позволяют дёшево обнаружить лишь часть переименований/копирований, а затем следует исчерпывающая часть поиска, на которой все оставшиеся назначения для которых не было найдено пары сравниваются со всеми подходящими для них источниками. (Для переименований подходящими считаются только те источники, которым ещё не были найдены пары; для копирований — все исходные источники.) Для N возможных файлов источников и назначений эта исчерпывающая проверка имеет сложность O(N^2). Данный параметр предотвращает запуск исчерпывающей части поиск переименований/копирований, если количество файлов источников/назначений превышает указанное <em>&lt;число&gt;</em> (по умолчанию: <span class='synopsis'><code>diff.renameLimit</code></span>). Обратите внимание, что значение <span class='synopsis'><code>0</code></span> означает, что это количество файлов неограниченно.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--diff-filterACDMRTUXBcode"> <a class="anchor" href="#git-diff-index---diff-filterACDMRTUXB"></a> <a class="anchor" href="#git-diff-index-code--diff-filterACDMRTUXBcode"></a><code>--diff-filter=[(A|C|D|M|R|T|U|X|B)...[*]]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--diff-filtercodecodeAcodecodeCcodecodeDcodecodeMcodecodeRcodecodeTcodecodeUcodecodeXcodecodeBcodecodecodecodecodespan"> <a class="anchor" href="#git-diff-index---diff-filterACDMRTUXB"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--diff-filtercodecodeAcodecodeCcodecodeDcodecodeMcodecodeRcodecodeTcodecodeUcodecodeXcodecodeBcodecodecodecodecodespan"></a><span class='synopsis'><code>--diff-filter=</code>[(<code>A</code>|<code>C</code>|<code>D</code>|<code>M</code>|<code>R</code>|<code>T</code>|<code>U</code>|<code>X</code>|<code>B</code>)<code>...</code>[<code>*</code>]]</span> </dt>
 <dd>
-<p>Выбирать только файлы, которые были добавлены (<code>A</code>, Added), скопированы (<code>C</code>, Copied), удалены (<code>D</code>, Deleted), изменены (<code>M</code>, Modified), переименованы (<code>R</code>, Renamed), чей тип (т.е. обычный файл, символическая ссылка, подмодуль, &#8230;&#8203;) был изменён (<code>T</code>, Type), не слиты (<code>U</code>, Unmerged), неизвестны (<code>X</code>) или имеют сломанную связь (<code>B</code>, Broken). Может быть задано любое подмножество символов фильтра (включая пустое). При добавлении <code>*</code> (всё или ничего) к аргументам, то или выбираются все пути, если существует хотя бы один файл, соответствующий остальным критериям, или ничего, если такого файла нет.</p>
+<p>Выбирать только файлы, которые были добавлены (<span class='synopsis'><code>A</code></span>, Added), скопированы (<span class='synopsis'><code>C</code></span>, Copied), удалены (<span class='synopsis'><code>D</code></span>, Deleted), изменены (<span class='synopsis'><code>M</code></span>, Modified), переименованы (<span class='synopsis'><code>R</code></span>, Renamed), чей тип (т.е. обычный файл, символическая ссылка, подмодуль, &#8230;&#8203;) был изменён (<span class='synopsis'><code>T</code></span>, Type), не слиты (<span class='synopsis'><code>U</code></span>, Unmerged), неизвестны (<span class='synopsis'><code>X</code></span>) или имеют сломанную связь (<span class='synopsis'><code>B</code></span>, Broken). Может быть задано любое подмножество символов фильтра (включая пустое). При добавлении <span class='synopsis'><code>*</code></span> (всё или ничего) к аргументам, то или выбираются все пути, если существует хотя бы один файл, соответствующий остальным критериям, или ничего, если такого файла нет.</p>
 <div class="paragraph">
-<p>Также если вместо этих прописных букв задать их строчные версии, то соответствующие этому критерию файлы будут наоборот исключены. Например, <code>--diff-filter=ad</code> исключает добавленные и удалённые пути.</p>
+<p>Также если вместо этих прописных букв задать их строчные версии, то соответствующие этому критерию файлы будут наоборот исключены. Например, <span class='synopsis'><code>--diff-filter=ad</code></span> исключает добавленные и удалённые пути.</p>
 </div>
 <div class="paragraph">
 <p>Обратите внимание, что не все списки изменений могут обеспечить доступ ко всем типам изменений. В частности, записи о переименованиях и копированиях не будут доступны, если обнаружение для этих типов не было включено.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Sltgtcode"> <a class="anchor" href="#git-diff-index--S"></a> <a class="anchor" href="#git-diff-index-code-Sltgtcode"></a><code>-S&lt;строка&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Scodeemltgtemspan"> <a class="anchor" href="#git-diff-index--S"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Scodeemltgtemspan"></a><span class='synopsis'><code>-S</code><em>&lt;строка&gt;</em></span> </dt>
 <dd>
 <p>Искать различия, которые изменяют количество вхождений указанной <em>&lt;строки&gt;</em> в файле (т.е. её добавления/удаления, но не изменения/перемещения). Предназначено для использования в скриптах.</p>
 <div class="paragraph">
-<p>Это полезно, если вы ищете точный блок кода (например, структуру), и хотите знать историю этого блока с момента его появления: вызывайте эту функцию последовательно несколько раз, передавая полученный на очередном шаге интересующий вас блок обратно в <code>-S</code>, и продолжайте так до тех пор, пока не получите самую первую версию этого блока.</p>
+<p>Это полезно, если вы ищете точный блок кода (например, структуру), и хотите знать историю этого блока с момента его появления: вызывайте эту функцию последовательно несколько раз, передавая полученный на очередном шаге интересующий вас блок обратно в <span class='synopsis'><code>-S</code></span>, и продолжайте так до тех пор, пока не получите самую первую версию этого блока.</p>
 </div>
 <div class="paragraph">
 <p>Поиск происходит также и в бинарных файлах.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Glt-gtcode"> <a class="anchor" href="#git-diff-index--G-"></a> <a class="anchor" href="#git-diff-index-code-Glt-gtcode"></a><code>-G&lt;регулярное-выражение&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Gcodeemlt-gtemspan"> <a class="anchor" href="#git-diff-index--G-"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Gcodeemlt-gtemspan"></a><span class='synopsis'><code>-G</code><em>&lt;регулярное-выражение&gt;</em></span> </dt>
 <dd>
 <p>Искать списки изменений, текст патча которых содержит добавление/удаление строк, соответствующих <em>&lt;регулярному_выражению&gt;</em>.</p>
 <div class="paragraph">
-<p>Чтобы проиллюстрировать разницу между <code>-S&lt;регулярное_выражение&gt;</code> <code>--pickaxe-regex</code> и <code>-G&lt;регулярное_выражение&gt;</code>, рассмотрим коммит со следующими различиями в одном и том же файле:</p>
+<p>Чтобы проиллюстрировать разницу между <span class='synopsis'><code>-S</code><em>&lt;регулярное_выражение&gt;</em></span> <span class='synopsis'><code>--pickaxe-regex</code></span> и <span class='synopsis'><code>-G</code><em>&lt;регулярное_выражение&gt;</em></span>, рассмотрим коммит со следующими различиями в одном и том же файле:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -474,33 +501,33 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>В то время как команда <code>git log -G"frotznitfol"` выведет этот коммит, `git log -S"frotznitfol" --pickaxe-regex</code> — не выведет (потому что количество вхождений этой строки не изменилось).</p>
+<p>В то время как команда <span class='synopsis'><em>git log -G"frotznitfol"` выведет этот коммит, `git log -S"frotznitfol" --pickaxe-regex</em></span> — не выведет (потому что количество вхождений этой строки не изменилось).</p>
 </div>
 <div class="paragraph">
-<p>Если не указан параметр <code>--text</code> и для данного типа файлов нет фильтра textconv, изменения вносимые патчами в бинарные файлы будут проигнорированы.</p>
+<p>Если не указан параметр <span class='synopsis'><code>--text</code></span> и для данного типа файлов нет фильтра textconv, изменения вносимые патчами в бинарные файлы будут проигнорированы.</p>
 </div>
 <div class="paragraph">
 <p>См. раздел <em>pickaxe</em> в <a href='{{< relurl "docs/gitdiffcore/ru" >}}'>gitdiffcore[7]</a> для более подробной информации.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--find-objectltid-gtcode"> <a class="anchor" href="#git-diff-index---find-objectid-"></a> <a class="anchor" href="#git-diff-index-code--find-objectltid-gtcode"></a><code>--find-object=&lt;id-объекта&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--find-objectcodeemltid-gtemspan"> <a class="anchor" href="#git-diff-index---find-objectid-"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--find-objectcodeemltid-gtemspan"></a><span class='synopsis'><code>--find-object=</code><em>&lt;id-объекта&gt;</em></span> </dt>
 <dd>
-<p>Искать различия, которые меняют количество вхождений указанного объекта. Аналогично <code>-S</code>, но в качестве аргумента вместо конкретной строки для поиска передаётся идентификатор конкретного объекта.</p>
+<p>Искать различия, которые меняют количество вхождений указанного объекта. Аналогично <span class='synopsis'><code>-S</code></span>, но в качестве аргумента вместо конкретной строки для поиска передаётся идентификатор конкретного объекта.</p>
 <div class="paragraph">
-<p>Объект может быть blob-объектом или коммитом в подмодуле. Этот параметр также подразумевает <code>-t</code> в <code>git-log</code>, для поиска деревьев.</p>
+<p>Объект может быть blob-объектом или коммитом в подмодуле. Этот параметр также подразумевает <span class='synopsis'><code>-t</code></span> в <span class='synopsis'><code>git-log</code></span>, для поиска деревьев.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--pickaxe-allcode"> <a class="anchor" href="#git-diff-index---pickaxe-all"></a> <a class="anchor" href="#git-diff-index-code--pickaxe-allcode"></a><code>--pickaxe-all</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--pickaxe-allcodespan"> <a class="anchor" href="#git-diff-index---pickaxe-all"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--pickaxe-allcodespan"></a><span class='synopsis'><code>--pickaxe-all</code></span> </dt>
 <dd>
-<p>Когда поиске с помощью параметров <code>-S</code> или <code>-G</code> находит изменения, показывать все изменения в данном наборе, а не только в тех файлах, которые содержат изменения в заданной <em>&lt;строке&gt;</em>.</p>
+<p>Когда поиске с помощью параметров <span class='synopsis'><code>-S</code></span> или <span class='synopsis'><code>-G</code></span> находит изменения, показывать все изменения в данном наборе, а не только в тех файлах, которые содержат изменения в заданной <em>&lt;строке&gt;</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--pickaxe-regexcode"> <a class="anchor" href="#git-diff-index---pickaxe-regex"></a> <a class="anchor" href="#git-diff-index-code--pickaxe-regexcode"></a><code>--pickaxe-regex</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--pickaxe-regexcodespan"> <a class="anchor" href="#git-diff-index---pickaxe-regex"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--pickaxe-regexcodespan"></a><span class='synopsis'><code>--pickaxe-regex</code></span> </dt>
 <dd>
-<p>Обрабатывать <em>&lt;строку&gt;</em>, переданную в <code>-S</code>, как расширенное регулярное выражение POSIX с котором должно производится сопоставление.</p>
+<p>Обрабатывать <em>&lt;строку&gt;</em>, переданную в <span class='synopsis'><code>-S</code></span>, как расширенное регулярное выражение POSIX с котором должно производится сопоставление.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Olt-gtcode"> <a class="anchor" href="#git-diff-index--O-"></a> <a class="anchor" href="#git-diff-index-code-Olt-gtcode"></a><code>-O&lt;файл-порядка&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Ocodeemlt-gtemspan"> <a class="anchor" href="#git-diff-index--O-"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Ocodeemlt-gtemspan"></a><span class='synopsis'><code>-O</code><em>&lt;файл-порядка&gt;</em></span> </dt>
 <dd>
-<p>Контролирует порядок, в котором файлы появляются в выводе. Этот параметр переопределяет значение указанное в переменной конфигурации <code>diff.orderFile</code> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>). Чтобы отменить использование файла указанного в <code>diff.orderFile</code>, используйте <code>-O/dev/null</code>.</p>
+<p>Контролирует порядок, в котором файлы появляются в выводе. Этот параметр переопределяет значение указанное в переменной конфигурации <span class='synopsis'><code>diff.orderFile</code></span> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>). Чтобы отменить использование файла указанного в <span class='synopsis'><code>diff.orderFile</code></span>, используйте <span class='synopsis'><code>-O/dev/null</code></span>.</p>
 <div class="paragraph">
 <p>Порядок вывода определяется порядком glob-шаблонов в <em>&lt;файле-порядка&gt;</em>. Первыми выводятся все файлы, пути которых соответствуют первому шаблону, затем файлы, соответствующие второму шаблону (но не первому), и так далее. Все файлы, которые не соответствуют ни одному из шаблонов, выводятся в конце, как если бы в конце файла был неявно задан шаблон, который сопоставляется всем путям. Пути одного ранка (которые соответствуют какому-либо одному шаблону, но не одному из предыдущих) относительно друг друга выводятся в нормальном порядке.</p>
 </div>
@@ -515,7 +542,7 @@ aliases:
 <p>Пустые строки игнорируются, так что их можно использовать для улучшения читаемости.</p>
 </li>
 <li>
-<p>Строки, начинающиеся с символа решётки («<code>#</code>»), игнорируются, их можно использовать для комментариев. Если шаблон начинается с решётки, добавьте обратный слэш («<code>\</code>») перед ней.</p>
+<p>Строки, начинающиеся с символа решётки («<span class='synopsis'><code>#</code></span>»), игнорируются, их можно использовать для комментариев. Если шаблон начинается с решётки, добавьте обратный слэш («<span class='synopsis'><em>\</em></span>») перед ней.</p>
 </li>
 <li>
 <p>Все остальные строки являются шаблонами; по одному на строку.</p>
@@ -525,112 +552,112 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Синтаксис и семантика у этих шаблонов те же, что и у шаблонов, используемых для <code>fnmatch</code>(3) без флага <code>FNM_PATHNAME</code>, за исключением того, что путь к файлу также сопоставляются шаблону; при этом в качестве пути к файлу сопоставляется путь к его родительскому каталогу любого уровня. Например, шаблону «<code>foo*bar</code>» будет соответствовать как <code>fooasdfbar</code>, так и «<code>foo/bar/baz/asdf</code>», но не «<code>foobarx</code>».</p>
+<p>Синтаксис и семантика у этих шаблонов те же, что и у шаблонов, используемых для <span class='synopsis'><code>fnmatch</code></span>(3) без флага <span class='synopsis'><code>FNM_PATHNAME</code></span>, за исключением того, что путь к файлу также сопоставляются шаблону; при этом в качестве пути к файлу сопоставляется путь к его родительскому каталогу любого уровня. Например, шаблону «<span class='synopsis'><code>foo*bar</code></span>» будет соответствовать как <span class='synopsis'><code>fooasdfbar</code></span>, так и «<span class='synopsis'><code>foo/bar/baz/asdf</code></span>», но не «<span class='synopsis'><code>foobarx</code></span>».</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--skip-toltgtcode"> <a class="anchor" href="#git-diff-index---skip-to"></a> <a class="anchor" href="#git-diff-index-code--skip-toltgtcode"></a><code>--skip-to=&lt;файл&gt;</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--rotate-toltgtcode"> <a class="anchor" href="#git-diff-index---rotate-to"></a> <a class="anchor" href="#git-diff-index-code--rotate-toltgtcode"></a><code>--rotate-to=&lt;файл&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--skip-tocodeemltgtemspan"> <a class="anchor" href="#git-diff-index---skip-to"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--skip-tocodeemltgtemspan"></a><span class='synopsis'><code>--skip-to=</code><em>&lt;файл&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--rotate-tocodeemltgtemspan"> <a class="anchor" href="#git-diff-index---rotate-to"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--rotate-tocodeemltgtemspan"></a><span class='synopsis'><code>--rotate-to=</code><em>&lt;файл&gt;</em></span> </dt>
 <dd>
-<p>Пропускать в выводе файлы до указанного <em>&lt;файла&gt;</em> (со <code>--skip-to</code>), или вывести их в конец (с <code>--rotate-to</code>). Эти параметры были добавлены в первую очередь для использования в команде <code>git difftool</code> и, вероятно, от них будет не так много пользы в других командах.</p>
+<p>Пропускать в выводе файлы до указанного <em>&lt;файла&gt;</em> (со <span class='synopsis'><code>--skip-to</code></span>), или вывести их в конец (с <span class='synopsis'><code>--rotate-to</code></span>). Эти параметры были добавлены в первую очередь для использования в команде <span class='synopsis'><code>git</code> <code>difftool</code></span> и, вероятно, от них будет не так много пользы в других командах.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Rcode"> <a class="anchor" href="#git-diff-index--R"></a> <a class="anchor" href="#git-diff-index-code-Rcode"></a><code>-R</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Rcodespan"> <a class="anchor" href="#git-diff-index--R"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Rcodespan"></a><span class='synopsis'><code>-R</code></span> </dt>
 <dd>
 <p>Поменять местами два входных файла; т.е. показывать, какие изменения произошли бы при переходя от версии файла в индексе или на диске к той, что содержится в дереве коммита.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--relativeltgtcode"> <a class="anchor" href="#git-diff-index---relative"></a> <a class="anchor" href="#git-diff-index-code--relativeltgtcode"></a><code>--relative[=&lt;путь&gt;]</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--no-relativecode"> <a class="anchor" href="#git-diff-index---no-relative"></a> <a class="anchor" href="#git-diff-index-code--no-relativecode"></a><code>--no-relative</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--relativecodecodecodeemltgtemspan"> <a class="anchor" href="#git-diff-index---relative"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--relativecodecodecodeemltgtemspan"></a><span class='synopsis'><code>--relative</code>[<code>=</code><em>&lt;путь&gt;</em>]</span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--no-relativecodespan"> <a class="anchor" href="#git-diff-index---no-relative"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--no-relativecodespan"></a><span class='synopsis'><code>--no-relative</code></span> </dt>
 <dd>
-<p>При запуске из одного из подкаталогов проекта этот параметр позволяет исключить изменения за пределами этого каталога и отображать пути относительно него. Если вы не находитесь в каком-либо подкаталоге (например, в голом репозитории), можно указать подкаталог, относительно которого будет производиться вывод, передав <em>&lt;путь&gt;</em> в качестве аргумента. Параметр <code>--no-relative</code> можно использовать как для отмены эффекта от переменной конфигурации <code>diff.relative</code>, так и предшествующего параметра <code>--relative</code>.</p>
+<p>При запуске из одного из подкаталогов проекта этот параметр позволяет исключить изменения за пределами этого каталога и отображать пути относительно него. Если вы не находитесь в каком-либо подкаталоге (например, в голом репозитории), можно указать подкаталог, относительно которого будет производиться вывод, передав <em>&lt;путь&gt;</em> в качестве аргумента. Параметр <span class='synopsis'><code>--no-relative</code></span> можно использовать как для отмены эффекта от переменной конфигурации <span class='synopsis'><code>diff.relative</code></span>, так и предшествующего параметра <span class='synopsis'><code>--relative</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-acode"> <a class="anchor" href="#git-diff-index--a"></a> <a class="anchor" href="#git-diff-index-code-acode"></a><code>-a</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--textcode"> <a class="anchor" href="#git-diff-index---text"></a> <a class="anchor" href="#git-diff-index-code--textcode"></a><code>--text</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-acodespan"> <a class="anchor" href="#git-diff-index--a"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-acodespan"></a><span class='synopsis'><code>-a</code></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--textcodespan"> <a class="anchor" href="#git-diff-index---text"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--textcodespan"></a><span class='synopsis'><code>--text</code></span> </dt>
 <dd>
 <p>Обрабатывать все файлы как текстовые.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--ignore-cr-at-eolcode"> <a class="anchor" href="#git-diff-index---ignore-cr-at-eol"></a> <a class="anchor" href="#git-diff-index-code--ignore-cr-at-eolcode"></a><code>--ignore-cr-at-eol</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--ignore-cr-at-eolcodespan"> <a class="anchor" href="#git-diff-index---ignore-cr-at-eol"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--ignore-cr-at-eolcodespan"></a><span class='synopsis'><code>--ignore-cr-at-eol</code></span> </dt>
 <dd>
 <p>Игнорировать символы возврата каретки в конце строк при сравнении.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--ignore-space-at-eolcode"> <a class="anchor" href="#git-diff-index---ignore-space-at-eol"></a> <a class="anchor" href="#git-diff-index-code--ignore-space-at-eolcode"></a><code>--ignore-space-at-eol</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--ignore-space-at-eolcodespan"> <a class="anchor" href="#git-diff-index---ignore-space-at-eol"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--ignore-space-at-eolcodespan"></a><span class='synopsis'><code>--ignore-space-at-eol</code></span> </dt>
 <dd>
 <p>Игнорировать изменения пробелов на концах строк.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-bcode"> <a class="anchor" href="#git-diff-index--b"></a> <a class="anchor" href="#git-diff-index-code-bcode"></a><code>-b</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--ignore-space-changecode"> <a class="anchor" href="#git-diff-index---ignore-space-change"></a> <a class="anchor" href="#git-diff-index-code--ignore-space-changecode"></a><code>--ignore-space-change</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-bcodespan"> <a class="anchor" href="#git-diff-index--b"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-bcodespan"></a><span class='synopsis'><code>-b</code></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--ignore-space-changecodespan"> <a class="anchor" href="#git-diff-index---ignore-space-change"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--ignore-space-changecodespan"></a><span class='synopsis'><code>--ignore-space-change</code></span> </dt>
 <dd>
 <p>Игнорировать изменения количества пробелов. Этот режим игнорирует пробелы на концах строк и считает все остальные последовательности одного или более пробельных символов эквивалентными.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-wcode"> <a class="anchor" href="#git-diff-index--w"></a> <a class="anchor" href="#git-diff-index-code-wcode"></a><code>-w</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--ignore-all-spacecode"> <a class="anchor" href="#git-diff-index---ignore-all-space"></a> <a class="anchor" href="#git-diff-index-code--ignore-all-spacecode"></a><code>--ignore-all-space</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-wcodespan"> <a class="anchor" href="#git-diff-index--w"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-wcodespan"></a><span class='synopsis'><code>-w</code></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--ignore-all-spacecodespan"> <a class="anchor" href="#git-diff-index---ignore-all-space"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--ignore-all-spacecodespan"></a><span class='synopsis'><code>--ignore-all-space</code></span> </dt>
 <dd>
 <p>Игнорировать все пробелы при сравнении строк. Это игнорирует различия даже если в одной строке пробелы есть там, где в другой их нет.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--ignore-blank-linescode"> <a class="anchor" href="#git-diff-index---ignore-blank-lines"></a> <a class="anchor" href="#git-diff-index-code--ignore-blank-linescode"></a><code>--ignore-blank-lines</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--ignore-blank-linescodespan"> <a class="anchor" href="#git-diff-index---ignore-blank-lines"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--ignore-blank-linescodespan"></a><span class='synopsis'><code>--ignore-blank-lines</code></span> </dt>
 <dd>
 <p>Игнорировать изменения, в которых все строки пустые.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Ilt-gtcode"> <a class="anchor" href="#git-diff-index--I-"></a> <a class="anchor" href="#git-diff-index-code-Ilt-gtcode"></a><code>-I&lt;регулярное-выражение&gt;</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--ignore-matching-lineslt-gtcode"> <a class="anchor" href="#git-diff-index---ignore-matching-lines-"></a> <a class="anchor" href="#git-diff-index-code--ignore-matching-lineslt-gtcode"></a><code>--ignore-matching-lines=&lt;регулярное-выражение&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Icodeemlt-gtemspan"> <a class="anchor" href="#git-diff-index--I-"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Icodeemlt-gtemspan"></a><span class='synopsis'><code>-I</code><em>&lt;регулярное-выражение&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--ignore-matching-linescodeemlt-gtemspan"> <a class="anchor" href="#git-diff-index---ignore-matching-lines-"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--ignore-matching-linescodeemlt-gtemspan"></a><span class='synopsis'><code>--ignore-matching-lines=</code><em>&lt;регулярное-выражение&gt;</em></span> </dt>
 <dd>
 <p>Игнорировать изменения, в которых все строки сопоставляются <em>&lt;регулярному-выражению&gt;</em>. Этот параметр может быть указан несколько раз.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--inter-hunk-contextltgtcode"> <a class="anchor" href="#git-diff-index---inter-hunk-context"></a> <a class="anchor" href="#git-diff-index-code--inter-hunk-contextltgtcode"></a><code>--inter-hunk-context=&lt;число&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--inter-hunk-contextcodeemltgtemspan"> <a class="anchor" href="#git-diff-index---inter-hunk-context"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--inter-hunk-contextcodeemltgtemspan"></a><span class='synopsis'><code>--inter-hunk-context=</code><em>&lt;число&gt;</em></span> </dt>
 <dd>
-<p>Выводить в качестве контекста между блоками изменений до указанного <em>&lt;числа&gt;</em> строк, тем самым объединяя близкие блоки изменений. По умолчанию равно значению переменной конфигурации <code>diff.interHunkContext</code> или 0, если оно не установлено.</p>
+<p>Выводить в качестве контекста между блоками изменений до указанного <em>&lt;числа&gt;</em> строк, тем самым объединяя близкие блоки изменений. По умолчанию равно значению переменной конфигурации <span class='synopsis'><code>diff.interHunkContext</code></span> или 0, если оно не установлено.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code-Wcode"> <a class="anchor" href="#git-diff-index--W"></a> <a class="anchor" href="#git-diff-index-code-Wcode"></a><code>-W</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--function-contextcode"> <a class="anchor" href="#git-diff-index---function-context"></a> <a class="anchor" href="#git-diff-index-code--function-contextcode"></a><code>--function-context</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode-Wcodespan"> <a class="anchor" href="#git-diff-index--W"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode-Wcodespan"></a><span class='synopsis'><code>-W</code></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--function-contextcodespan"> <a class="anchor" href="#git-diff-index---function-context"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--function-contextcodespan"></a><span class='synopsis'><code>--function-context</code></span> </dt>
 <dd>
-<p>Показывать всю функцию в качестве контекста для каждого изменения. Для определения имён функций используется тот же механизм, что и для определения заголовков блоков изменений командой <code>git diff</code> (см. «Определение пользовательского заголовка блока» в <a href='{{< relurl "docs/gitattributes/ru" >}}'>gitattributes[5]</a>).</p>
+<p>Показывать всю функцию в качестве контекста для каждого изменения. Для определения имён функций используется тот же механизм, что и для определения заголовков блоков изменений командой <span class='synopsis'><code>git</code> <code>diff</code></span> (см. «Определение пользовательского заголовка блока» в <a href='{{< relurl "docs/gitattributes/ru" >}}'>gitattributes[5]</a>).</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--exit-codecode"> <a class="anchor" href="#git-diff-index---exit-code"></a> <a class="anchor" href="#git-diff-index-code--exit-codecode"></a><code>--exit-code</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--exit-codecodespan"> <a class="anchor" href="#git-diff-index---exit-code"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--exit-codecodespan"></a><span class='synopsis'><code>--exit-code</code></span> </dt>
 <dd>
-<p>Сделать так, чтобы программа завершалась с определённым кодом, аналогично тому, как это делает команда <code>diff</code>(1). То есть при наличии различий она будет завершаться с кодом 1, а при отсутствии — с кодом 0.</p>
+<p>Сделать так, чтобы программа завершалась с определённым кодом, аналогично тому, как это делает команда <span class='synopsis'><code>diff</code></span>(1). То есть при наличии различий она будет завершаться с кодом 1, а при отсутствии — с кодом 0.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--quietcode"> <a class="anchor" href="#git-diff-index---quiet"></a> <a class="anchor" href="#git-diff-index-code--quietcode"></a><code>--quiet</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--quietcodespan"> <a class="anchor" href="#git-diff-index---quiet"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--quietcodespan"></a><span class='synopsis'><code>--quiet</code></span> </dt>
 <dd>
-<p>Отключить весь вывод у данной программы. Подразумевает <code>--exit-code</code>. Также отключает выполнение вспомогательных сторонних утилит сравнения, коду завершения которых нельзя доверять, т.е. если для них не установлена переменная конфигурации <code>diff.trustExitCode</code> или <code>diff.</code><em>&lt;драйвер&gt;</em><code>.trustExitCode</code>, а также если переменная окружения <code>GIT_EXTERNAL_DIFF_TRUST_EXIT_CODE</code> ложна.</p>
+<p>Отключить весь вывод у данной программы. Подразумевает <span class='synopsis'><code>--exit-code</code></span>. Также отключает выполнение вспомогательных сторонних утилит сравнения, коду завершения которых нельзя доверять, т.е. если для них не установлена переменная конфигурации <span class='synopsis'><code>diff.trustExitCode</code></span> или <span class='synopsis'><code>diff.</code></span><em>&lt;драйвер&gt;</em><span class='synopsis'><code>.trustExitCode</code></span>, а также если переменная окружения <span class='synopsis'><code>GIT_EXTERNAL_DIFF_TRUST_EXIT_CODE</code></span> ложна.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--ext-diffcode"> <a class="anchor" href="#git-diff-index---ext-diff"></a> <a class="anchor" href="#git-diff-index-code--ext-diffcode"></a><code>--ext-diff</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--ext-diffcodespan"> <a class="anchor" href="#git-diff-index---ext-diff"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--ext-diffcodespan"></a><span class='synopsis'><code>--ext-diff</code></span> </dt>
 <dd>
 <p>Разрешить выполнение вспомогательных сторонних утилит сравнения. Если вы настроили драйвер сторонней утилиты сравнения с помощью <a href='{{< relurl "docs/gitattributes/ru" >}}'>gitattributes[5]</a>, то вам нужно будет использовать этот параметр с командой <a href='{{< relurl "docs/git-log/ru" >}}'>git-log[1]</a> и другими подобными.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--no-ext-diffcode"> <a class="anchor" href="#git-diff-index---no-ext-diff"></a> <a class="anchor" href="#git-diff-index-code--no-ext-diffcode"></a><code>--no-ext-diff</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--no-ext-diffcodespan"> <a class="anchor" href="#git-diff-index---no-ext-diff"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--no-ext-diffcodespan"></a><span class='synopsis'><code>--no-ext-diff</code></span> </dt>
 <dd>
 <p>Запретить драйверы сторонних утилит сравнения.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--textconvcode"> <a class="anchor" href="#git-diff-index---textconv"></a> <a class="anchor" href="#git-diff-index-code--textconvcode"></a><code>--textconv</code> </dt>
-<dt class="hdlist1" id="git-diff-index-code--no-textconvcode"> <a class="anchor" href="#git-diff-index---no-textconv"></a> <a class="anchor" href="#git-diff-index-code--no-textconvcode"></a><code>--no-textconv</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--textconvcodespan"> <a class="anchor" href="#git-diff-index---textconv"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--textconvcodespan"></a><span class='synopsis'><code>--textconv</code></span> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--no-textconvcodespan"> <a class="anchor" href="#git-diff-index---no-textconv"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--no-textconvcodespan"></a><span class='synopsis'><code>--no-textconv</code></span> </dt>
 <dd>
-<p>Разрешить (или запретить) преобразование бинарных файлов в текст с помощью внешних фильтров при их сравнении. См. подробности в <a href='{{< relurl "docs/gitattributes/ru" >}}'>gitattributes[5]</a>. Полученный вывод подходит для восприятия человеком, но поскольку фильтры <code>textconv</code> обычно представляют из себя одностороннее преобразование, полученный патч нельзя будет применить. По этой причине фильтры <code>textconv</code> по умолчанию включены только для <a href='{{< relurl "docs/git-diff/ru" >}}'>git-diff[1]</a> и <a href='{{< relurl "docs/git-log/ru" >}}'>git-log[1]</a>, но не для <a href='{{< relurl "docs/git-format-patch/ru" >}}'>git-format-patch[1]</a> или низкоуровневых команд сравнения.</p>
+<p>Разрешить (или запретить) преобразование бинарных файлов в текст с помощью внешних фильтров при их сравнении. См. подробности в <a href='{{< relurl "docs/gitattributes/ru" >}}'>gitattributes[5]</a>. Полученный вывод подходит для восприятия человеком, но поскольку фильтры <span class='synopsis'><code>textconv</code></span> обычно представляют из себя одностороннее преобразование, полученный патч нельзя будет применить. По этой причине фильтры <span class='synopsis'><code>textconv</code></span> по умолчанию включены только для <a href='{{< relurl "docs/git-diff/ru" >}}'>git-diff[1]</a> и <a href='{{< relurl "docs/git-log/ru" >}}'>git-log[1]</a>, но не для <a href='{{< relurl "docs/git-format-patch/ru" >}}'>git-format-patch[1]</a> или низкоуровневых команд сравнения.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--ignore-submodulesnoneuntrackeddirtyallcode"> <a class="anchor" href="#git-diff-index---ignore-submodulesnoneuntrackeddirtyall"></a> <a class="anchor" href="#git-diff-index-code--ignore-submodulesnoneuntrackeddirtyallcode"></a><code>--ignore-submodules[=(none|untracked|dirty|all)]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--ignore-submodulescodecodecodecodenonecodecodeuntrackedcodecodedirtycodecodeallcodespan"> <a class="anchor" href="#git-diff-index---ignore-submodulesnoneuntrackeddirtyall"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--ignore-submodulescodecodecodecodenonecodecodeuntrackedcodecodedirtycodecodeallcodespan"></a><span class='synopsis'><code>--ignore-submodules</code>[<code>=</code>(<code>none</code>|<code>untracked</code>|<code>dirty</code>|<code>all</code>)]</span> </dt>
 <dd>
-<p>Игнорировать изменения в подмодулях при создании вывода. Значением по умолчанию является <code>all</code>. При использовании значения <code>none</code> будет считаться, что подмодуль изменён, если он содержит неотслеживаемые или изменённые файлы или если его <code>HEAD</code> отличается от коммита, зафиксированного в надпроекте и может быть использовано для переопределения любых переменных конфигурации с <code>ignore</code> в <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a> или <a href='{{< relurl "docs/gitmodules/ru" >}}'>gitmodules[5]</a>. При использовании <code>untracked</code> подмодули не считаются грязными только из-за того, что они содержат неотслеживаемые файлы (но они всё равно проверяются на наличие изменений в содержимом). При использовании <code>dirty</code> игнорируются все изменения в рабочих каталогах подмодулей и показываются только изменения коммитов, хранящихся в надпроекте (таким было поведение до версии 1.7.0). При использовании <code>all</code> все изменения в подмодулях скрываются.</p>
+<p>Игнорировать изменения в подмодулях при создании вывода. Значением по умолчанию является <span class='synopsis'><code>all</code></span>. При использовании значения <span class='synopsis'><code>none</code></span> будет считаться, что подмодуль изменён, если он содержит неотслеживаемые или изменённые файлы или если его <span class='synopsis'><code>HEAD</code></span> отличается от коммита, зафиксированного в надпроекте и может быть использовано для переопределения любых переменных конфигурации с <span class='synopsis'><code>ignore</code></span> в <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a> или <a href='{{< relurl "docs/gitmodules/ru" >}}'>gitmodules[5]</a>. При использовании <span class='synopsis'><code>untracked</code></span> подмодули не считаются грязными только из-за того, что они содержат неотслеживаемые файлы (но они всё равно проверяются на наличие изменений в содержимом). При использовании <span class='synopsis'><code>dirty</code></span> игнорируются все изменения в рабочих каталогах подмодулей и показываются только изменения коммитов, хранящихся в надпроекте (таким было поведение до версии 1.7.0). При использовании <span class='synopsis'><code>all</code></span> все изменения в подмодулях скрываются.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--src-prefixltgtcode"> <a class="anchor" href="#git-diff-index---src-prefix"></a> <a class="anchor" href="#git-diff-index-code--src-prefixltgtcode"></a><code>--src-prefix=&lt;префикс&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--src-prefixcodeemltgtemspan"> <a class="anchor" href="#git-diff-index---src-prefix"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--src-prefixcodeemltgtemspan"></a><span class='synopsis'><code>--src-prefix=</code><em>&lt;префикс&gt;</em></span> </dt>
 <dd>
 <p>Использовать указанный <em>&lt;префикс&gt;</em> для источника вместо «a/».</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--dst-prefixltgtcode"> <a class="anchor" href="#git-diff-index---dst-prefix"></a> <a class="anchor" href="#git-diff-index-code--dst-prefixltgtcode"></a><code>--dst-prefix=&lt;префикс&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--dst-prefixcodeemltgtemspan"> <a class="anchor" href="#git-diff-index---dst-prefix"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--dst-prefixcodeemltgtemspan"></a><span class='synopsis'><code>--dst-prefix=</code><em>&lt;префикс&gt;</em></span> </dt>
 <dd>
 <p>Использовать указанный <em>&lt;префикс&gt;</em> для назначения вместо «b/».</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--no-prefixcode"> <a class="anchor" href="#git-diff-index---no-prefix"></a> <a class="anchor" href="#git-diff-index-code--no-prefixcode"></a><code>--no-prefix</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--no-prefixcodespan"> <a class="anchor" href="#git-diff-index---no-prefix"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--no-prefixcodespan"></a><span class='synopsis'><code>--no-prefix</code></span> </dt>
 <dd>
 <p>Не выводить ни префикс источника, ни назначения.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--default-prefixcode"> <a class="anchor" href="#git-diff-index---default-prefix"></a> <a class="anchor" href="#git-diff-index-code--default-prefixcode"></a><code>--default-prefix</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--default-prefixcodespan"> <a class="anchor" href="#git-diff-index---default-prefix"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--default-prefixcodespan"></a><span class='synopsis'><code>--default-prefix</code></span> </dt>
 <dd>
-<p>Использовать стандартные префиксы источника и назначения («a/» и «b/»). Это переопределяет такие переменные конфигурации, как <code>diff.noprefix</code>, <code>diff.srcPrefix</code>, <code>diff.dstPrefix</code>, и <code>diff.mnemonicPrefix</code> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>).</p>
+<p>Использовать стандартные префиксы источника и назначения («a/» и «b/»). Это переопределяет такие переменные конфигурации, как <span class='synopsis'><code>diff.noprefix</code></span>, <span class='synopsis'><code>diff.srcPrefix</code></span>, <span class='synopsis'><code>diff.dstPrefix</code></span>, и <span class='synopsis'><code>diff.mnemonicPrefix</code></span> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>).</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--line-prefixltgtcode"> <a class="anchor" href="#git-diff-index---line-prefix"></a> <a class="anchor" href="#git-diff-index-code--line-prefixltgtcode"></a><code>--line-prefix=&lt;префикс&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--line-prefixcodeemltgtemspan"> <a class="anchor" href="#git-diff-index---line-prefix"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--line-prefixcodeemltgtemspan"></a><span class='synopsis'><code>--line-prefix=</code><em>&lt;префикс&gt;</em></span> </dt>
 <dd>
 <p>Добавить дополнительный <em>&lt;префикс&gt;</em> к каждой строке вывода.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-code--ita-invisible-in-indexcode"> <a class="anchor" href="#git-diff-index---ita-invisible-in-index"></a> <a class="anchor" href="#git-diff-index-code--ita-invisible-in-indexcode"></a><code>--ita-invisible-in-index</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--ita-invisible-in-indexcodespan"> <a class="anchor" href="#git-diff-index---ita-invisible-in-index"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--ita-invisible-in-indexcodespan"></a><span class='synopsis'><code>--ita-invisible-in-index</code></span> </dt>
 <dd>
-<p>По умолчанию записи, добавленные командой <code>git add -N</code>, отображаются в выводе <code>git diff</code> как существующий пустой файл, а в выводе git diff --cached` — как новый файл. Этот параметр делает так, что такие записи отображаются как новый файл в выводе <code>git diff</code> и отсутствовать в выводе <code>git diff --cached</code>. Этот параметр может быть переопределён с помощью <code>--ita-visible-in-index</code>. Оба эти параметра являются экспериментальными и могут быть удалены в будущем.</p>
+<p>По умолчанию записи, добавленные командой <span class='synopsis'><code>git</code> <code>add</code> <code>-N</code></span>, отображаются в выводе <span class='synopsis'><code>git</code> <code>diff</code></span> как существующий пустой файл, а в выводе git diff --cached` — как новый файл. Этот параметр делает так, что такие записи отображаются как новый файл в выводе <span class='synopsis'><code>git</code> <code>diff</code></span> и отсутствовать в выводе <span class='synopsis'><code>git</code> <code>diff</code> <code>--cached</code></span>. Этот параметр может быть переопределён с помощью <span class='synopsis'><code>--ita-visible-in-index</code></span>. Оба эти параметра являются экспериментальными и могут быть удалены в будущем.</p>
 </dd>
 </dl>
 </div>
@@ -663,33 +690,33 @@ aliases:
 <h2 id="_сырой_формат_вывода"><a class="anchor" href="#_сырой_формат_вывода"></a>Сырой формат вывода</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Сырой формат вывода команд <code>git-diff-index</code>, <code>git-diff-tree</code>, <code>git-diff-files</code> и <code>git diff --raw</code> очень похож.</p>
+<p>Сырой формат вывода команд <span class='synopsis'><code>git-diff-index</code></span>, <span class='synopsis'><code>git-diff-tree</code></span>, <span class='synopsis'><code>git-diff-files</code></span> и <span class='synopsis'><code>git</code> <code>diff</code> <code>--raw</code></span> очень похож.</p>
 </div>
 <div class="paragraph">
 <p>Все эти команды сравнивают два набора объектов, но то, что именно они сравнивают, отличается:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-diff-index-codegit-diff-indexlt-gtcode"> <a class="anchor" href="#git-diff-index-git-diff-index-"></a> <a class="anchor" href="#git-diff-index-codegit-diff-indexlt-gtcode"></a><code>git-diff-index &lt;указатель-дерева&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodegit-diff-indexcodeemlt-gtemspan"> <a class="anchor" href="#git-diff-index-git-diff-index-"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodegit-diff-indexcodeemlt-gtemspan"></a><span class='synopsis'><code>git-diff-index</code> <em>&lt;указатель-дерева&gt;</em></span> </dt>
 <dd>
 <p>cравнивает <em>&lt;указатель-дерева&gt;</em> и файлы в файловой системе.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codegit-diff-index--cachedlt-gtcode"> <a class="anchor" href="#git-diff-index-git-diff-index--cached-"></a> <a class="anchor" href="#git-diff-index-codegit-diff-index--cachedlt-gtcode"></a><code>git-diff-index --cached &lt;указатель-дерева&gt;</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodegit-diff-indexcodecode--cachedcodeemlt-gtemspan"> <a class="anchor" href="#git-diff-index-git-diff-index--cached-"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodegit-diff-indexcodecode--cachedcodeemlt-gtemspan"></a><span class='synopsis'><code>git-diff-index</code> <code>--cached</code> <em>&lt;указатель-дерева&gt;</em></span> </dt>
 <dd>
 <p>сравнивает содержимое файлов по <em>&lt;указателю-дерева&gt;</em> и в индексе.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codegit-diff-tree-rlt--1gtlt--2gtltgtcode"> <a class="anchor" href="#git-diff-index-git-diff-tree-r--1--2"></a> <a class="anchor" href="#git-diff-index-codegit-diff-tree-rlt--1gtlt--2gtltgtcode"></a><code>git-diff-tree [-r] &lt;указатель-дерева-1&gt; &lt;указатель-дерева-2&gt; [&lt;шаблон&gt;...]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodegit-diff-treecodecode-rcodeemlt--1gtememlt--2gtememltgtemspan"> <a class="anchor" href="#git-diff-index-git-diff-tree-r--1--2"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodegit-diff-treecodecode-rcodeemlt--1gtememlt--2gtememltgtemspan"></a><span class='synopsis'><code>git-diff-tree</code> [<code>-r</code>] <em>&lt;указатель-дерева-1&gt;</em> <em>&lt;указатель-дерева-2&gt;</em> [<em>&lt;шаблон&gt;</em>...]</span> </dt>
 <dd>
 <p>сравнивает деревья, на которые указывают два аргумента.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-index-codegit-diff-filesltgtcode"> <a class="anchor" href="#git-diff-index-git-diff-files"></a> <a class="anchor" href="#git-diff-index-codegit-diff-filesltgtcode"></a><code>git-diff-files [&lt;шаблон&gt;...]</code> </dt>
+<dt class="hdlist1" id="git-diff-index-spanclasssynopsiscodegit-diff-filescodeemltgtemspan"> <a class="anchor" href="#git-diff-index-git-diff-files"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscodegit-diff-filescodeemltgtemspan"></a><span class='synopsis'><code>git-diff-files</code> [<em>&lt;шаблон&gt;</em>...]</span> </dt>
 <dd>
 <p>сравнивает индекс и файлы в файловой системе.</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>Команда <code>git-diff-tree</code> начинает свой вывод с печати хеша того, что сравнивается. После чего она как и все остальные команды выводят информацию об изменённых файлах: по одной строке на файл.</p>
+<p>Команда <span class='synopsis'><code>git-diff-tree</code></span> начинает свой вывод с печати хеша того, что сравнивается. После чего она как и все остальные команды выводят информацию об изменённых файлах: по одной строке на файл.</p>
 </div>
 <div class="paragraph">
 <p>Строки вывода выглядят следующим образом:</p>
@@ -710,7 +737,7 @@ aliases:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>двоеточие (<code>:</code>).</p>
+<p>двоеточие (<span class='synopsis'><code>:</code></span>).</p>
 </li>
 <li>
 <p>режим доступа «исходного» состояния; 000000 при создании файла или когда он не слит.</p>
@@ -740,19 +767,19 @@ aliases:
 <p>статус за которым может следовать «рейтинг схожести» («score»).</p>
 </li>
 <li>
-<p>табуляция или NUL-символ (с параметром <code>-z</code>).</p>
+<p>табуляция или NUL-символ (с параметром <span class='synopsis'><code>-z</code></span>).</p>
 </li>
 <li>
 <p>«исходный» путь</p>
 </li>
 <li>
-<p>табуляция или NUL-символ (с параметром <code>-z</code>); только для статусов C и R.</p>
+<p>табуляция или NUL-символ (с параметром <span class='synopsis'><code>-z</code></span>); только для статусов C и R.</p>
 </li>
 <li>
 <p>«целевой» путь; только для статусов C и R.</p>
 </li>
 <li>
-<p>символ LF или NUL (с параметром <code>-z</code>), который завершает запись.</p>
+<p>символ LF или NUL (с параметром <span class='synopsis'><code>-z</code></span>), который завершает запись.</p>
 </li>
 </ol>
 </div>
@@ -762,10 +789,10 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p><code>A</code>: добавление файла (addition)</p>
+<p><span class='synopsis'><code>A</code></span>: добавление файла (addition)</p>
 </li>
 <li>
-<p><code>C</code>: копирование файла в новый (copy)</p>
+<p><span class='synopsis'><code>C</code></span>: копирование файла в новый (copy)</p>
 </li>
 <li>
 <p>&#8216;D&#8217;: удаление файла (deletion)</p>
@@ -777,18 +804,18 @@ aliases:
 <p>&#8216;R&#8217;: переименование файла (renaming)</p>
 </li>
 <li>
-<p><code>T</code>: изменение типа файла: обычный файл, символическая ссылка или подмодуль (type)</p>
+<p><span class='synopsis'><code>T</code></span>: изменение типа файла: обычный файл, символическая ссылка или подмодуль (type)</p>
 </li>
 <li>
-<p><code>U</code>: файл не слит: вы должны будете завершить слияние, прежде чем будет возможно закоммитить файл (unmerged)</p>
+<p><span class='synopsis'><code>U</code></span>: файл не слит: вы должны будете завершить слияние, прежде чем будет возможно закоммитить файл (unmerged)</p>
 </li>
 <li>
-<p><code>X</code>: «неизвестный» тип изменения (вероятно это ошибка, пожалуйста, сообщите о ней)</p>
+<p><span class='synopsis'><code>X</code></span>: «неизвестный» тип изменения (вероятно это ошибка, пожалуйста, сообщите о ней)</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Статусы <code>C</code> и <code>R</code> всегда сопровождаются рейтингом схожести (обозначающим процент сходства между исходным и целевым состоянием при перемещении или копировании). Статус <code>M</code> также может сопровождаться рейтингом (обозначающим процент различий) для изменений файла.</p>
+<p>Статусы <span class='synopsis'><code>C</code></span> и <span class='synopsis'><code>R</code></span> всегда сопровождаются рейтингом схожести (обозначающим процент сходства между исходным и целевым состоянием при перемещении или копировании). Статус <span class='synopsis'><code>M</code></span> также может сопровождаться рейтингом (обозначающим процент различий) для изменений файла.</p>
 </div>
 <div class="paragraph">
 <p>Если файл в файловой системе ещё не синхронизирован с индексом, то SHA1 для «целевого» состояния будет отображается как строка из нулей.</p>
@@ -802,7 +829,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Без параметра <code>-z</code> пути с «необычными» символами берутся в кавычки, как это описано для переменной конфигурации <code>core.quotePath</code> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>). С параметром <code>-z</code> имя файла выводится без изменений, а строка завершается байтом NUL.</p>
+<p>Без параметра <span class='synopsis'><code>-z</code></span> пути с «необычными» символами берутся в кавычки, как это описано для переменной конфигурации <span class='synopsis'><code>core.quotePath</code></span> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>). С параметром <span class='synopsis'><code>-z</code></span> имя файла выводится без изменений, а строка завершается байтом NUL.</p>
 </div>
 </div>
 </div>
@@ -810,7 +837,7 @@ aliases:
 <h2 id="_формат_списков_изменений_для_слияний"><a class="anchor" href="#_формат_списков_изменений_для_слияний"></a>Формат списков изменений для слияний</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Команды <code>git-diff-tree</code>, <code>git-diff-files</code> и <code>git-diff --raw</code> принимают параметры <code>-c</code> или <code>--cc</code>, которые позволяют выводить списки изменений также и для коммитов слияний. Вывод отличается от описанного выше формата:</p>
+<p>Команды <span class='synopsis'><code>git-diff-tree</code></span>, <span class='synopsis'><code>git-diff-files</code></span> и <span class='synopsis'><code>git-diff</code> <code>--raw</code></span> принимают параметры <span class='synopsis'><code>-c</code></span> или <span class='synopsis'><code>--cc</code></span>, которые позволяют выводить списки изменений также и для коммитов слияний. Вывод отличается от описанного выше формата:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -832,10 +859,10 @@ aliases:
 </ol>
 </div>
 <div class="paragraph">
-<p>Для параметров <code>-c</code> и <code>--cc</code> показываются только целевой или конечный путь к файлу, даже если файл был переименован в одном из предков. С <code>--combined-all-paths</code> будут также выводиться пути в каждом из родителей, за которыми последует путь в коммите слияния.</p>
+<p>Для параметров <span class='synopsis'><code>-c</code></span> и <span class='synopsis'><code>--cc</code></span> показываются только целевой или конечный путь к файлу, даже если файл был переименован в одном из предков. С <span class='synopsis'><code>--combined-all-paths</code></span> будут также выводиться пути в каждом из родителей, за которыми последует путь в коммите слияния.</p>
 </div>
 <div class="paragraph">
-<p>Примеры для <code>-c</code> и <code>--cc</code> без <code>--combined-all-paths</code>:</p>
+<p>Примеры для <span class='synopsis'><code>-c</code></span> и <span class='synopsis'><code>--cc</code></span> без <span class='synopsis'><code>--combined-all-paths</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -845,7 +872,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Примеры, когда к <code>-c</code> или <code>--cc</code> добавляется <code>--combined-all-paths</code>:</p>
+<p>Примеры, когда к <span class='synopsis'><code>-c</code></span> или <span class='synopsis'><code>--cc</code></span> добавляется <span class='synopsis'><code>--combined-all-paths</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -863,10 +890,10 @@ aliases:
 <h2 id="generate_patch_text_with_p"><a class="anchor" href="#generate_patch_text_with_p"></a>Создание патчей с помощью -p</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Запуск команд <a href='{{< relurl "docs/git-diff/ru" >}}'>git-diff[1]</a>, <a href='{{< relurl "docs/git-log/ru" >}}'>git-log[1]</a>, <a href='{{< relurl "docs/git-show/ru" >}}'>git-show[1]</a>, <a href='{{< relurl "docs/git-diff-index/ru" >}}'>git-diff-index[1]</a>, <a href='{{< relurl "docs/git-diff-tree/ru" >}}'>git-diff-tree[1]</a>, или <a href='{{< relurl "docs/git-diff-files/ru" >}}'>git-diff-files[1]</a> с параметром <code>-p</code> выдаёт текст патча. Вы можете изменить некоторые аспекты этого создаваемого текста с помощью переменных окружения <code>GIT_EXTERNAL_DIFF</code> и <code>GIT_DIFF_OPTS</code> (см. <a href='{{< relurl "docs/git/ru" >}}'>git[1]</a>), а также атрибута <code>diff</code> (см. <a href='{{< relurl "docs/gitattributes/ru" >}}'>gitattributes[5]</a>).</p>
+<p>Запуск команд <a href='{{< relurl "docs/git-diff/ru" >}}'>git-diff[1]</a>, <a href='{{< relurl "docs/git-log/ru" >}}'>git-log[1]</a>, <a href='{{< relurl "docs/git-show/ru" >}}'>git-show[1]</a>, <a href='{{< relurl "docs/git-diff-index/ru" >}}'>git-diff-index[1]</a>, <a href='{{< relurl "docs/git-diff-tree/ru" >}}'>git-diff-tree[1]</a>, или <a href='{{< relurl "docs/git-diff-files/ru" >}}'>git-diff-files[1]</a> с параметром <span class='synopsis'><code>-p</code></span> выдаёт текст патча. Вы можете изменить некоторые аспекты этого создаваемого текста с помощью переменных окружения <span class='synopsis'><code>GIT_EXTERNAL_DIFF</code></span> и <span class='synopsis'><code>GIT_DIFF_OPTS</code></span> (см. <a href='{{< relurl "docs/git/ru" >}}'>git[1]</a>), а также атрибута <span class='synopsis'><code>diff</code></span> (см. <a href='{{< relurl "docs/gitattributes/ru" >}}'>gitattributes[5]</a>).</p>
 </div>
 <div class="paragraph">
-<p>Тот текст, которые получается на выходе при запуске с параметром <code>-p</code>, немного отличается от традиционного формата списка изменений:</p>
+<p>Тот текст, которые получается на выходе при запуске с параметром <span class='synopsis'><code>-p</code></span>, немного отличается от традиционного формата списка изменений:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -878,32 +905,32 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Имена файлов <code>a/</code> и <code>b/</code> одинаковы, если изменения не связаны с переименованием или копированием. В частности, даже для создания или удаления вместо имён файлов <code>a/</code> или <code>b/</code> <em>не</em> используется <code>/dev/null</code> .</p>
+<p>Имена файлов <span class='synopsis'><code>a/</code></span> и <span class='synopsis'><code>b/</code></span> одинаковы, если изменения не связаны с переименованием или копированием. В частности, даже для создания или удаления вместо имён файлов <span class='synopsis'><code>a/</code></span> или <span class='synopsis'><code>b/</code></span> <em>не</em> используется <span class='synopsis'><code>/dev/null</code></span> .</p>
 </div>
 <div class="paragraph">
-<p>Когда же изменения являются переименование или копирование, <code>file1</code> и <code>file2</code> отображают имена исходного файла и того, который получается в результате переименования/копирования, соответственно.</p>
+<p>Когда же изменения являются переименование или копирование, <span class='synopsis'><code>file1</code></span> и <span class='synopsis'><code>file2</code></span> отображают имена исходного файла и того, который получается в результате переименования/копирования, соответственно.</p>
 </div>
 </li>
 <li>
 <p>Далее следуют одна или несколько строк расширенного заголовка:</p>
-<div class="paragraph">
-<p>old mode &lt;режим&gt;
-new mode &lt;режим&gt;
-deleted file mode &lt;режим&gt;
-new file mode &lt;режим&gt;
-copy from &lt;путь&gt;
-copy to &lt;путь&gt;
-rename from &lt;путь&gt;
-rename to &lt;путь&gt;
-similarity index &lt;число&gt;
-dissimilarity index &lt;число&gt;
-index &lt;хеш&gt;..&lt;хеш&gt; &lt;режим&gt;</p>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>old</code></span> <span class='synopsis'><code>mode</code></span> <em>&lt;режим&gt;</em>
+<span class='synopsis'><code>new</code></span> <span class='synopsis'><code>mode</code></span> <em>&lt;режим&gt;</em>
+<span class='synopsis'><code>deleted</code></span> <span class='synopsis'><code>file</code></span> <span class='synopsis'><code>mode</code></span> <em>&lt;режим&gt;</em>
+<span class='synopsis'><code>new</code></span> <span class='synopsis'><code>file</code></span> <span class='synopsis'><code>mode</code></span> <em>&lt;режим&gt;</em>
+<span class='synopsis'><code>copy</code></span> <span class='synopsis'><code>from</code></span> <em>&lt;путь&gt;</em>
+<span class='synopsis'><code>copy</code></span> <span class='synopsis'><code>to</code></span> <em>&lt;путь&gt;</em>
+<span class='synopsis'><code>rename</code></span> <span class='synopsis'><code>from</code></span> <em>&lt;путь&gt;</em>
+<span class='synopsis'><code>rename</code></span> <span class='synopsis'><code>to</code></span> <em>&lt;путь&gt;</em>
+<span class='synopsis'><code>similarity</code></span> <span class='synopsis'><code>index</code></span> <em>&lt;число&gt;</em>
+<span class='synopsis'><code>dissimilarity</code></span> <span class='synopsis'><code>index</code></span> <em>&lt;число&gt;</em>
+<span class='synopsis'><code>index</code></span> <em>&lt;хеш&gt;</em><span class='synopsis'><code>..</code></span><em>&lt;хеш&gt;</em> <em>&lt;режим&gt;</em></pre>
 </div>
 <div class="paragraph">
 <p>Режимы файлов <em>`&lt;режим&gt;`</em> печатаются как 6-значные восьмеричные числа, включающие тип файла и биты разрешений.</p>
 </div>
 <div class="paragraph">
-<p>Пути в расширенных заголовках не включают префиксы <code>a/</code> и <code>b/</code>.</p>
+<p>Пути в расширенных заголовках не включают префиксы <span class='synopsis'><code>a/</code></span> и <span class='synopsis'><code>b/</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Индекс сходства — это процент не изменённых строк, а индекс различия — процент изменённых. Он представляет собой округлённое вниз целое число, за которым следует знак процента. Индекс сходства в 100% зарезервирован для двух абсолютно одинаковых файлов, а 100% различий означает, что ни одна строка из старого файла не вошла в новый.</p>
@@ -913,10 +940,10 @@ index &lt;хеш&gt;..&lt;хеш&gt; &lt;режим&gt;</p>
 </div>
 </li>
 <li>
-<p>Путей с «необычными» символами берутся в кавычки, как это описано для переменной конфигурации <code>core.quotePath</code> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>).</p>
+<p>Путей с «необычными» символами берутся в кавычки, как это описано для переменной конфигурации <span class='synopsis'><code>core.quotePath</code></span> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>).</p>
 </li>
 <li>
-<p>Все файлы <code>файл1</code> в выводе относятся к файлам до коммита, а все файлы <code>файл2</code> — к файлам после коммита. Неправильно было бы применять каждое изменение к каждому файлу последовательно. Например, следующий патч поменяет местами <code>a</code> и <code>b</code>:</p>
+<p>Все файлы <span class='synopsis'><em>файл1</em></span> в выводе относятся к файлам до коммита, а все файлы <span class='synopsis'><em>файл2</em></span> — к файлам после коммита. Неправильно было бы применять каждое изменение к каждому файлу последовательно. Например, следующий патч поменяет местами <span class='synopsis'><code>a</code></span> и <span class='synopsis'><code>b</code></span>:</p>
 <div class="literalblock">
 <div class="content">
 <pre>diff --git a/a b/b
@@ -939,7 +966,7 @@ rename to a</pre>
 <h2 id="_комбинированный_формат_списков_изменений"><a class="anchor" href="#_комбинированный_формат_списков_изменений"></a>Комбинированный формат списков изменений</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Любая команда, выводящая список изменений, принимает параметры <code>-c</code> или <code>--cc</code>, которые приводят к созданию списка изменений для слияний в «комбинированном» формате («combined diff»). Это формат по умолчанию при выводе слияний с помощью <a href='{{< relurl "docs/git-diff/ru" >}}'>git-diff[1]</a> или <a href='{{< relurl "docs/git-show/ru" >}}'>git-show[1]</a>. Также обратите внимание, что для того, чтобы заставить эти команды выводить списки изменений в каком-либо другом формате, можно использовать параметр <code>--diff-merges</code> с соответствующими аргументами.</p>
+<p>Любая команда, выводящая список изменений, принимает параметры <span class='synopsis'><code>-c</code></span> или <span class='synopsis'><code>--cc</code></span>, которые приводят к созданию списка изменений для слияний в «комбинированном» формате («combined diff»). Это формат по умолчанию при выводе слияний с помощью <a href='{{< relurl "docs/git-diff/ru" >}}'>git-diff[1]</a> или <a href='{{< relurl "docs/git-show/ru" >}}'>git-show[1]</a>. Также обратите внимание, что для того, чтобы заставить эти команды выводить списки изменений в каком-либо другом формате, можно использовать параметр <span class='synopsis'><code>--diff-merges</code></span> с соответствующими аргументами.</p>
 </div>
 <div class="paragraph">
 <p>Комбинированный формат списков изменений выглядит следующим образом:</p>
@@ -978,14 +1005,14 @@ index fabadb8,cc95eb0..4866510
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>В начале идёт заголовок «git diff», который выглядит следующим образом (при использовании параметра <code>-c</code>):</p>
+<p>В начале идёт заголовок «git diff», который выглядит следующим образом (при использовании параметра <span class='synopsis'><code>-c</code></span>):</p>
 <div class="literalblock">
 <div class="content">
 <pre>diff --combined файл</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>или следующим (при использовании параметра <code>--cc</code>):</p>
+<p>или следующим (при использовании параметра <span class='synopsis'><code>--cc</code></span>):</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -995,14 +1022,14 @@ index fabadb8,cc95eb0..4866510
 </li>
 <li>
 <p>Далее следуют одна или несколько строк расширенного заголовка (в данном примере показано слияние с двумя родителями):</p>
-<div class="paragraph">
-<p>index &lt;хеш&gt;,&lt;хеш&gt;..&lt;хеш&gt;
-mode &lt;режим&gt;,&lt;режим&gt;<code>..</code>&lt;режим&gt;
-new file mode &lt;режим&gt;
-deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>index</code></span> <em>&lt;хеш&gt;</em><span class='synopsis'><code>,</code></span><em>&lt;хеш&gt;</em><span class='synopsis'><code>..</code></span><em>&lt;хеш&gt;</em>
+<span class='synopsis'><code>mode</code></span> <em>&lt;режим&gt;</em><span class='synopsis'><code>,</code></span><em>&lt;режим&gt;</em><span class='synopsis'><code>..</code></span><em>&lt;режим&gt;</em>
+<span class='synopsis'><code>new</code></span> <span class='synopsis'><code>file</code></span> <span class='synopsis'><code>mode</code></span> <em>&lt;режим&gt;</em>
+<span class='synopsis'><code>deleted</code></span> <span class='synopsis'><code>file</code></span> <span class='synopsis'><code>mode</code></span> <em>&lt;режим&gt;</em><span class='synopsis'><code>,</code></span><em>&lt;режим&gt;</em></pre>
 </div>
 <div class="paragraph">
-<p>Строка <code>mode &lt;режим&gt;,&lt;режим&gt;..&lt;режим&gt;</code> присутствует только если хотя бы один из &lt;режимов&gt; отличается от остальных. Расширенные заголовки с информацией о найденных перемещениях содержимого (обнаруженных переименованиях и копированиях) предназначены для работы только со списком изменений строго двух <em>&lt;указателей-дерева&gt;</em> и не используются в комбинированном формате.</p>
+<p>Строка <span class='synopsis'><code>mode</code> <em>&lt;режим&gt;</em><code>,</code><em>&lt;режим&gt;</em><code>..</code><em>&lt;режим&gt;</em></span> присутствует только если хотя бы один из &lt;режимов&gt; отличается от остальных. Расширенные заголовки с информацией о найденных перемещениях содержимого (обнаруженных переименованиях и копированиях) предназначены для работы только со списком изменений строго двух <em>&lt;указателей-дерева&gt;</em> и не используются в комбинированном формате.</p>
 </div>
 </li>
 <li>
@@ -1014,10 +1041,10 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Аналогично тому как это делается и в традиционном формате объединённого («unified») списка изменений, <code>/dev/null</code> используется для обозначения созданных или удалённых файлов.</p>
+<p>Аналогично тому как это делается и в традиционном формате объединённого («unified») списка изменений, <span class='synopsis'><code>/dev/null</code></span> используется для обозначения созданных или удалённых файлов.</p>
 </div>
 <div class="paragraph">
-<p>Однако, если задан параметр <code>--combined-all-paths</code>, то вместо этих двух строк заголовка с из-файла/в-файл, вы получите расширенный заголовок из N+1 строки, где N — это количество родителей в коммите слияния:</p>
+<p>Однако, если задан параметр <span class='synopsis'><code>--combined-all-paths</code></span>, то вместо этих двух строк заголовка с из-файла/в-файл, вы получите расширенный заголовок из N+1 строки, где N — это количество родителей в коммите слияния:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1032,29 +1059,29 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 </div>
 </li>
 <li>
-<p>Формат заголовка блока списка изменений был специально модифицирован, чтобы предотвратить случайное применение его с помощью <code>patch -p1</code>. Комбинированный формат списков изменений был создан для рецензирования изменений в коммитах слияния и не предназначен для прямого применения в виде патчей. Эти модификации аналогичны тем, что были сделаны в расширенном заголовке <code>index</code>:</p>
+<p>Формат заголовка блока списка изменений был специально модифицирован, чтобы предотвратить случайное применение его с помощью <span class='synopsis'><code>patch</code> <code>-p1</code></span>. Комбинированный формат списков изменений был создан для рецензирования изменений в коммитах слияния и не предназначен для прямого применения в виде патчей. Эти модификации аналогичны тем, что были сделаны в расширенном заголовке <span class='synopsis'><code>index</code></span>:</p>
 <div class="literalblock">
 <div class="content">
 <pre>@@@ &lt;исходный-диапазон&gt; &lt;исходный-диапазон&gt; &lt;результирующий-диапазон&gt; @@@</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>В заголовке блока для комбинированного формата (количество родителей + 1) символов <code>@</code>.</p>
+<p>В заголовке блока для комбинированного формата (количество родителей + 1) символов <span class='synopsis'><code>@</code></span>.</p>
 </div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>В отличие традиционном объединённого («unified») формата списка изменений, который показывает разницу между двумя файлами А и Б с одной колонкой, в которой содержится или <code>-</code> (минус — строка есть в А, но удалена в Б), или <code>+</code> (плюс — нет в А, но добавлена в Б), или <code>" "</code> (пробел — без изменений), этот формат сравнивает два или более файла файл1, файл2,&#8230;&#8203; с одним файлом Х и показывает, чем Х отличается от каждого из файлов файлN. Так что по одному столбцу для каждого из файлов файлN добавляется в начало строк вывода, чтобы дать понять, как строки в Х отличается от строк в этих файлах.</p>
+<p>В отличие традиционном объединённого («unified») формата списка изменений, который показывает разницу между двумя файлами А и Б с одной колонкой, в которой содержится или <span class='synopsis'><code>-</code></span> (минус — строка есть в А, но удалена в Б), или <span class='synopsis'><code>+</code></span> (плюс — нет в А, но добавлена в Б), или <span class='synopsis'><code>"</code> <code>"</code></span> (пробел — без изменений), этот формат сравнивает два или более файла файл1, файл2,&#8230;&#8203; с одним файлом Х и показывает, чем Х отличается от каждого из файлов файлN. Так что по одному столбцу для каждого из файлов файлN добавляется в начало строк вывода, чтобы дать понять, как строки в Х отличается от строк в этих файлах.</p>
 </div>
 <div class="paragraph">
-<p>Символ <code>-</code> в столбце N означает, что строка была в файле файлN, но ей нет в итоговом документе. Символ <code>+</code> в столбце N — что строка есть в итоговом документе, но её нет в файле файлN (т.е. с точки зрения этого родителя строка была добавлена).</p>
+<p>Символ <span class='synopsis'><code>-</code></span> в столбце N означает, что строка была в файле файлN, но ей нет в итоговом документе. Символ <span class='synopsis'><code>+</code></span> в столбце N — что строка есть в итоговом документе, но её нет в файле файлN (т.е. с точки зрения этого родителя строка была добавлена).</p>
 </div>
 <div class="paragraph">
-<p>В примере выше сигнатура функции была изменена в обоих файлах (следовательно, в примере два удаления из каждого из файлов файл1 и файл2, кроме того <code>++</code> означает что была добавлена одна строка, которая не появляется ни в файл1, ни в файл1). Также из файла файл1 были взяты восемь других строк, которых не было в файле файл2 (так что они помечены плюсом <code>+</code>).</p>
+<p>В примере выше сигнатура функции была изменена в обоих файлах (следовательно, в примере два удаления из каждого из файлов файл1 и файл2, кроме того <span class='synopsis'><code>++</code></span> означает что была добавлена одна строка, которая не появляется ни в файл1, ни в файл1). Также из файла файл1 были взяты восемь других строк, которых не было в файле файл2 (так что они помечены плюсом <span class='synopsis'><code>+</code></span>).</p>
 </div>
 <div class="paragraph">
-<p>Когда этот формат выводится командой <code>git diff-tree -c</code>, она сравнивает родителей коммита слияния с результатом слияния (т.е. файл1..файлN — это родители). А в выводе команды <code>git diff-files -c</code> сравниваются файлы в двух родителях неразрешённого слияния с файлом в рабочем каталоге (т.е. файл1 — это индекс 2, или «наша версия», файл2 — это индекс 3, или «их версия»).</p>
+<p>Когда этот формат выводится командой <span class='synopsis'><code>git</code> <code>diff-tree</code> <code>-c</code></span>, она сравнивает родителей коммита слияния с результатом слияния (т.е. файл1..файлN — это родители). А в выводе команды <span class='synopsis'><code>git</code> <code>diff-files</code> <code>-c</code></span> сравниваются файлы в двух родителях неразрешённого слияния с файлом в рабочем каталоге (т.е. файл1 — это индекс 2, или «наша версия», файл2 — это индекс 3, или «их версия»).</p>
 </div>
 </div>
 </div>
@@ -1062,10 +1089,10 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 <h2 id="_другие_форматы_списка_изменений"><a class="anchor" href="#_другие_форматы_списка_изменений"></a>Другие форматы списка изменений</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Параметр <code>--summary</code> выводит, какие файлы были созданы, удалены, переименованы и скопированы. А параметром <code>--stat</code> добавляет к выходу графики <code>diffstat</code>(1). Эти параметры могут использоваться совместно с другими, такими как <code>-p</code>, а их вывод предназначен для чтения человеком.</p>
+<p>Параметр <span class='synopsis'><code>--summary</code></span> выводит, какие файлы были созданы, удалены, переименованы и скопированы. А параметром <span class='synopsis'><code>--stat</code></span> добавляет к выходу графики <span class='synopsis'><code>diffstat</code></span>(1). Эти параметры могут использоваться совместно с другими, такими как <span class='synopsis'><code>-p</code></span>, а их вывод предназначен для чтения человеком.</p>
 </div>
 <div class="paragraph">
-<p>Когда отображаются изменения, связанное с переименованием или копированием, вывод <code>--stat</code> компактно форматирует пути, объединяя их общие префиксы и суффиксы. Например, если файл <code>arch/i386/Makefile</code> был перемещён в <code>arch/x86/Makefile</code> с изменением 4-х строк, это будет отображено как:</p>
+<p>Когда отображаются изменения, связанное с переименованием или копированием, вывод <span class='synopsis'><code>--stat</code></span> компактно форматирует пути, объединяя их общие префиксы и суффиксы. Например, если файл <span class='synopsis'><code>arch/i386/Makefile</code></span> был перемещён в <span class='synopsis'><code>arch/x86/Makefile</code></span> с изменением 4-х строк, это будет отображено как:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1073,7 +1100,7 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Параметр <code>--numstat</code> также выдаёт информацию в виде <code>diffstat</code>(1), но его вывод больше подходит для машинного чтения. Запись в выводе <code>--numstat</code> выглядит как:</p>
+<p>Параметр <span class='synopsis'><code>--numstat</code></span> также выдаёт информацию в виде <span class='synopsis'><code>diffstat</code></span>(1), но его вывод больше подходит для машинного чтения. Запись в выводе <span class='synopsis'><code>--numstat</code></span> выглядит как:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1107,7 +1134,7 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Если также используется параметр <code>-z</code>, то вывод форматируется следующим образом:</p>
+<p>Если также используется параметр <span class='synopsis'><code>-z</code></span>, то вывод форматируется следующим образом:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1158,7 +1185,7 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 <h2 id="_режимы_работы"><a class="anchor" href="#_режимы_работы"></a>РЕЖИМЫ РАБОТЫ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Вы можете выбрать, доверять ли полностью файлу индекса (с помощью флага <code>--cached</code>) или попросить алгоритм сравнения показывать любые файлы, чьё состояние stat отличается, как «предварительно изменённые». На самом деле, обе эти операции очень полезны.</p>
+<p>Вы можете выбрать, доверять ли полностью файлу индекса (с помощью флага <span class='synopsis'><code>--cached</code></span>) или попросить алгоритм сравнения показывать любые файлы, чьё состояние stat отличается, как «предварительно изменённые». На самом деле, обе эти операции очень полезны.</p>
 </div>
 </div>
 </div>
@@ -1166,7 +1193,7 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 <h2 id="_режим_cached"><a class="anchor" href="#_режим_cached"></a>РЕЖИМ CACHED</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Указание параметра <code>--cached</code>, позволяет вам попросить:</p>
+<p>Указание параметра <span class='synopsis'><code>--cached</code></span>, позволяет вам попросить:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1183,7 +1210,7 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Пример: предположим, я переименовал <code>commit.c</code> в <code>git-commit.c</code>, и я сделал <code>update-index</code>, чтобы это возымело эффект в файле индекса. <code>git diff-files</code> ничего не покажет, поскольку индексный файл соответствует моему рабочему каталогу. Но запуск <code>git diff-index</code> покажет:</p>
+<p>Пример: предположим, я переименовал <span class='synopsis'><code>commit.c</code></span> в <span class='synopsis'><code>git-commit.c</code></span>, и я сделал <span class='synopsis'><code>update-index</code></span>, чтобы это возымело эффект в файле индекса. <span class='synopsis'><code>git</code> <code>diff-files</code></span> ничего не покажет, поскольку индексный файл соответствует моему рабочему каталогу. Но запуск <span class='synopsis'><code>git</code> <code>diff-index</code></span> покажет:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1196,10 +1223,10 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 <p>Вы можете с лёгкостью заметить, что это является переименованием.</p>
 </div>
 <div class="paragraph">
-<p>По сути, <code>git diff-index --cached</code> <strong>всегда</strong> должен быть полностью эквивалентен выполнению <code>git write-tree</code> и сравнению с получившимся деревом. Однако это намного проще в ситуации, когда вы просто хотите определиться, что происходит.</p>
+<p>По сути, <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code></span> <strong>всегда</strong> должен быть полностью эквивалентен выполнению <span class='synopsis'><code>git</code> <code>write-tree</code></span> и сравнению с получившимся деревом. Однако это намного проще в ситуации, когда вы просто хотите определиться, что происходит.</p>
 </div>
 <div class="paragraph">
-<p>Таким образом, выполнение <code>git diff-index --cached</code> очень полезно, когда вы спрашиваете себя «что я уже отметил для коммита, и в чём отличие от предыдущего дерева».</p>
+<p>Таким образом, выполнение <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code></span> очень полезно, когда вы спрашиваете себя «что я уже отметил для коммита, и в чём отличие от предыдущего дерева».</p>
 </div>
 </div>
 </div>
@@ -1216,10 +1243,10 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 </div>
 </div>
 <div class="paragraph">
-<p>что, очевидно, также является очень полезным запросом, поскольку это говорит вам, что вы <strong>можете</strong> закоммитить[1]. Опять же, вывод совпадает с выводом <code>git diff-tree -r</code> до мелочей, но с одной изюминкой.</p>
+<p>что, очевидно, также является очень полезным запросом, поскольку это говорит вам, что вы <strong>можете</strong> закоммитить[1]. Опять же, вывод совпадает с выводом <span class='synopsis'><code>git</code> <code>diff-tree</code> <code>-r</code></span> до мелочей, но с одной изюминкой.</p>
 </div>
 <div class="paragraph">
-<p>Изюминка заключается в том, что если какой-то файл отличается от его версии в индексе, у нас нет для него резервного хранилища, и мы используем волшебный «нулевой» sha1, чтобы показать это. Итак, допустим, вы отредактировали <code>kernel/sched.c</code>, но еще не сделали <code>git update-index</code>, так что с новым состоянием не связан никакой «объект», и вы получаете:</p>
+<p>Изюминка заключается в том, что если какой-то файл отличается от его версии в индексе, у нас нет для него резервного хранилища, и мы используем волшебный «нулевой» sha1, чтобы показать это. Итак, допустим, вы отредактировали <span class='synopsis'><code>kernel/sched.c</code></span>, но еще не сделали <span class='synopsis'><code>git</code> <code>update-index</code></span>, так что с новым состоянием не связан никакой «объект», и вы получаете:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1228,7 +1255,7 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 </div>
 </div>
 <div class="paragraph">
-<p>то есть он показывает, что дерево изменилось и что <code>kernel/sched.c</code> не является актуальным и может содержать новые данные. «Нулевой» sha1 означает, что для получения реального списка изменений вам нужно смотреть на объект непосредственно в рабочем каталоге, а не искать различая объект-к-объекту.</p>
+<p>то есть он показывает, что дерево изменилось и что <span class='synopsis'><code>kernel/sched.c</code></span> не является актуальным и может содержать новые данные. «Нулевой» sha1 означает, что для получения реального списка изменений вам нужно смотреть на объект непосредственно в рабочем каталоге, а не искать различая объект-к-объекту.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1237,7 +1264,7 @@ deleted file mode &lt;режим&gt;,&lt;режим&gt;</p>
 <div class="title">Note</div>
 </td>
 <td class="content">
-Как и в случае с другими командами этого типа, <em>git diff-index</em> на самом деле вообще не смотрит на содержимое файла. Так что, может быть, собственно содержимое <code>kernel/sched.c</code> на самом деле не было изменено, а просто было обновлено его время последнего изменения. В любом случае, это означает, что вам нужно выполнить <em>git update-index</em>, чтобы синхронизировать индекс.
+Как и в случае с другими командами этого типа, <em>git diff-index</em> на самом деле вообще не смотрит на содержимое файла. Так что, может быть, собственно содержимое <span class='synopsis'><code>kernel/sched.c</code></span> на самом деле не было изменено, а просто было обновлено его время последнего изменения. В любом случае, это означает, что вам нужно выполнить <em>git update-index</em>, чтобы синхронизировать индекс.
 </td>
 </tr>
 </table>

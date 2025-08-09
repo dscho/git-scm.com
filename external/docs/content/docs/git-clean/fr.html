@@ -9,6 +9,25 @@ docname: git-clean
 lang: fr
 aliases:
 - "/docs/git-clean/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: Mode interactif
+  id: _mode_interactif
+- text: CONFIGURATION
+  id: _configuration
+- text: VOIR AUSSI
+  id: _voir_aussi
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -33,10 +52,10 @@ aliases:
 <p>Nettoie l&#8217;arbre de travail en supprimant récursivement les fichiers qui ne sont pas sous contrôle de version, en commençant par le répertoire courant.</p>
 </div>
 <div class="paragraph">
-<p>Normalement, seuls les fichiers inconnus de Git sont supprimés, mais si l&#8217;option <code>-x</code> est spécifiée, les fichiers ignorés sont également supprimés. Cela peut, par exemple, être utile pour supprimer tous les produits de construction.</p>
+<p>Normalement, seuls les fichiers inconnus de Git sont supprimés, mais si l&#8217;option <span class='synopsis'><code>-x</code></span> est spécifiée, les fichiers ignorés sont également supprimés. Cela peut, par exemple, être utile pour supprimer tous les produits de construction.</p>
 </div>
 <div class="paragraph">
-<p>Si des arguments optionnels <code>&lt;spéc-chemin&gt;...</code> sont donnés, seuls ces chemins qui correspondent au spéc-chemin sont affectés.</p>
+<p>Si des arguments optionnels <span class='synopsis'><em>&lt;spéc-chemin&gt;</em>...</span> sont donnés, seuls ces chemins qui correspondent au spéc-chemin sont affectés.</p>
 </div>
 </div>
 </div>
@@ -47,12 +66,12 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-clean--d"> <a class="anchor" href="#git-clean--d"></a>-d </dt>
 <dd>
-<p>Normalement, lorsque aucun &lt;spéc-chemin&gt; n&#8217;est spécifié, git clean ne fera pas de récursion dans les répertoires non suivis pour éviter de supprimer trop de choses. Spécifiez -d pour qu&#8217;il fasse une récursion dans de tels répertoires également. Si un &lt;spéc-chemin&gt; est spécifié, -d n&#8217;est pas pertinent ; tous les fichiers non suivis correspondant aux chemins spécifiés (avec des exceptions pour les répertoires git imbriqués mentionnés sous <code>--force</code>) seront supprimés.</p>
+<p>Normalement, lorsque aucun &lt;spéc-chemin&gt; n&#8217;est spécifié, git clean ne fera pas de récursion dans les répertoires non suivis pour éviter de supprimer trop de choses. Spécifiez -d pour qu&#8217;il fasse une récursion dans de tels répertoires également. Si un &lt;spéc-chemin&gt; est spécifié, -d n&#8217;est pas pertinent ; tous les fichiers non suivis correspondant aux chemins spécifiés (avec des exceptions pour les répertoires git imbriqués mentionnés sous <span class='synopsis'><code>--force</code></span>) seront supprimés.</p>
 </dd>
 <dt class="hdlist1" id="git-clean--f"> <a class="anchor" href="#git-clean--f"></a>-f </dt>
 <dt class="hdlist1" id="git-clean---force"> <a class="anchor" href="#git-clean---force"></a>--force </dt>
 <dd>
-<p>Si la variable de configuration de Git clean.requireForce n&#8217;est pas définie à false, <em>git clean</em> refusera de supprimer des fichiers ou des répertoires à moins qu&#8217;on lui fournisse <code>-f</code>. Git refusera de modifier les dépôts git imbriqués non suivis (répertoires avec un sous-répertoire .git) à moins qu&#8217;un second -f soit fourni.</p>
+<p>Si la variable de configuration de Git clean.requireForce n&#8217;est pas définie à false, <em>git clean</em> refusera de supprimer des fichiers ou des répertoires à moins qu&#8217;on lui fournisse <span class='synopsis'><code>-f</code></span>. Git refusera de modifier les dépôts git imbriqués non suivis (répertoires avec un sous-répertoire .git) à moins qu&#8217;un second -f soit fourni.</p>
 </dd>
 <dt class="hdlist1" id="git-clean--i"> <a class="anchor" href="#git-clean--i"></a>-i </dt>
 <dt class="hdlist1" id="git-clean---interactive"> <a class="anchor" href="#git-clean---interactive"></a>--interactive </dt>
@@ -76,7 +95,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-clean--x"> <a class="anchor" href="#git-clean--x"></a>-x </dt>
 <dd>
-<p>Ne pas utiliser les règles d&#8217;ignorance standard (voir <a href='{{< relurl "docs/gitignore/fr" >}}'>gitignore[5]</a>), mais utiliser quand même les règles d&#8217;ignorance données avec les options <code>-e</code> de la ligne de commande. Cela permet de supprimer tous les fichiers non suivis, y compris les produits de construction. Ceci peut être utilisé (éventuellement en conjonction avec <em>git restore</em> ou <em>git reset</em>) pour créer un répertoire de travail vierge pour tester une construction propre.</p>
+<p>Ne pas utiliser les règles d&#8217;ignorance standard (voir <a href='{{< relurl "docs/gitignore/fr" >}}'>gitignore[5]</a>), mais utiliser quand même les règles d&#8217;ignorance données avec les options <span class='synopsis'><code>-e</code></span> de la ligne de commande. Cela permet de supprimer tous les fichiers non suivis, y compris les produits de construction. Ceci peut être utilisé (éventuellement en conjonction avec <em>git restore</em> ou <em>git reset</em>) pour créer un répertoire de travail vierge pour tester une construction propre.</p>
 </dd>
 <dt class="hdlist1" id="git-clean--X"> <a class="anchor" href="#git-clean--X"></a>-X </dt>
 <dd>
@@ -104,7 +123,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Vous pouvez indiquer <code>c</code> ou <code>clean</code> ci-dessus, à condition que le choix soit unique.</p>
+<p>Vous pouvez indiquer <span class='synopsis'><code>c</code></span> ou <span class='synopsis'><code>clean</code></span> ci-dessus, à condition que le choix soit unique.</p>
 </div>
 <div class="paragraph">
 <p>La boucle de commande principale propose 6 sous-commandes.</p>
@@ -153,7 +172,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/clean.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/clean.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

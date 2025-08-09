@@ -9,6 +9,23 @@ docname: git-init
 lang: ru
 aliases:
 - "/docs/git-init/ru/index.html"
+headings:
+- text: НАЗВАНИЕ
+  id: _название
+- text: ОБЗОР
+  id: _обзор
+- text: ОПИСАНИЕ
+  id: _описание
+- text: ПАРАМЕТРЫ
+  id: _параметры
+- text: КАТАЛОГ ШАБЛОНОВ
+  id: _каталог_шаблонов
+- text: ПРИМЕРЫ
+  id: _примеры
+- text: КОНФИГУРАЦИЯ
+  id: _конфигурация
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_название"><a class="anchor" href="#_название"></a>НАЗВАНИЕ</h2>
@@ -21,12 +38,12 @@ aliases:
 <div class="sect1">
 <h2 id="_обзор"><a class="anchor" href="#_обзор"></a>ОБЗОР</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><em>git init</em> [-q | --quiet] [--bare] [--template=&lt;каталог-шаблонов&gt;]
-	[--separate-git-dir &lt;каталог-git&gt;] [--object-format=&lt;формат&gt;]
-	[--ref-format=&lt;формат&gt;]
-	[-b &lt;ветка&gt; | --initial-branch=&lt;ветка&gt;]
-	[--shared[=&lt;права-доступа&gt;]] [каталог]</p>
+<div class="verseblock">
+<pre class="content"><em>'git init' [-q | --quiet] [--bare] [--template=&lt;каталог-шаблонов&gt;]</em>
+<em>	[--separate-git-dir &lt;каталог-git&gt;] [--object-format=&lt;формат&gt;]</em>
+<em>	[--ref-format=&lt;формат&gt;]</em>
+<em>	[-b &lt;ветка&gt; | --initial-branch=&lt;ветка&gt;]</em>
+<em>	[--shared[=&lt;права-доступа&gt;]] [каталог]</em></pre>
 </div>
 </div>
 </div>
@@ -34,16 +51,16 @@ aliases:
 <h2 id="_описание"><a class="anchor" href="#_описание"></a>ОПИСАНИЕ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Эта команда создаёт пустой репозиторий Git, то есть по существу только каталог <code>.git</code> с подкаталогами <code>objects</code>, <code>refs/heads</code>, <code>refs/tags</code>, и файлами шаблонов. Будет создана начальная ветка без коммитов (см. параметр <code>--initial-branch</code> для изменения её имени).</p>
+<p>Эта команда создаёт пустой репозиторий Git, то есть по существу только каталог <span class='synopsis'><code>.git</code></span> с подкаталогами <span class='synopsis'><code>objects</code></span>, <span class='synopsis'><code>refs/heads</code></span>, <span class='synopsis'><code>refs/tags</code></span>, и файлами шаблонов. Будет создана начальная ветка без коммитов (см. параметр <span class='synopsis'><code>--initial-branch</code></span> для изменения её имени).</p>
 </div>
 <div class="paragraph">
-<p>Если переменная среды <code>GIT_DIR</code> установлена, то она задаёт путь, который будет использоваться вместо <code>.git</code> в качестве базового пути для создания репозитория.</p>
+<p>Если переменная среды <span class='synopsis'><code>GIT_DIR</code></span> установлена, то она задаёт путь, который будет использоваться вместо <span class='synopsis'><code>.git</code></span> в качестве базового пути для создания репозитория.</p>
 </div>
 <div class="paragraph">
-<p>Если каталог хранения объектов задан с помощью переменной среды <code>GIT_OBJECT_DIRECTORY</code>, то каталоги с хеш-кодом sha1 будут создаваться в нём. В противном случае будет использоваться каталог по умолчанию, <code>$GIT_DIR/objects</code>.</p>
+<p>Если каталог хранения объектов задан с помощью переменной среды <span class='synopsis'><code>GIT_OBJECT_DIRECTORY</code></span>, то каталоги с хеш-кодом sha1 будут создаваться в нём. В противном случае будет использоваться каталог по умолчанию, <span class='synopsis'><code>$GIT_DIR/objects</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Запускать <code>git init</code> внутри существующего репозитория безопасно: эта команда не будет перезаписывать то, что там уже есть. Основная цель, для которой это может потребоваться, состоит в том, чтобы подхватились новые шаблоны, добавленные с момента предыдущего запуска (или ещё, например, чтобы переместить репозиторий в другое место с помощью параметра <code>--separate-git-dir</code>).</p>
+<p>Запускать <span class='synopsis'><code>git</code> <code>init</code></span> внутри существующего репозитория безопасно: эта команда не будет перезаписывать то, что там уже есть. Основная цель, для которой это может потребоваться, состоит в том, чтобы подхватились новые шаблоны, добавленные с момента предыдущего запуска (или ещё, например, чтобы переместить репозиторий в другое место с помощью параметра <span class='synopsis'><code>--separate-git-dir</code></span>).</p>
 </div>
 </div>
 </div>
@@ -52,18 +69,18 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-init-code-qcode"> <a class="anchor" href="#git-init--q"></a> <a class="anchor" href="#git-init-code-qcode"></a><code>-q</code> </dt>
-<dt class="hdlist1" id="git-init-code--quietcode"> <a class="anchor" href="#git-init---quiet"></a> <a class="anchor" href="#git-init-code--quietcode"></a><code>--quiet</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode-qcodespan"> <a class="anchor" href="#git-init--q"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode-qcodespan"></a><span class='synopsis'><code>-q</code></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--quietcodespan"> <a class="anchor" href="#git-init---quiet"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--quietcodespan"></a><span class='synopsis'><code>--quiet</code></span> </dt>
 <dd>
 <p>Выводить только ошибки и предупреждения; весь остальной вывод будет скрыт.</p>
 </dd>
-<dt class="hdlist1" id="git-init-code--barecode"> <a class="anchor" href="#git-init---bare"></a> <a class="anchor" href="#git-init-code--barecode"></a><code>--bare</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--barecodespan"> <a class="anchor" href="#git-init---bare"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--barecodespan"></a><span class='synopsis'><code>--bare</code></span> </dt>
 <dd>
-<p>Создать голый репозиторий. Если переменная среды <code>GIT_DIR</code> не задана, то ей будет присвоен текущий рабочий каталог.</p>
+<p>Создать голый репозиторий. Если переменная среды <span class='synopsis'><code>GIT_DIR</code></span> не задана, то ей будет присвоен текущий рабочий каталог.</p>
 </dd>
-<dt class="hdlist1" id="git-init-code--object-formatltgtcode"> <a class="anchor" href="#git-init---object-format"></a> <a class="anchor" href="#git-init-code--object-formatltgtcode"></a><code>--object-format=&lt;формат&gt;</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--object-formatcodeemltgtemspan"> <a class="anchor" href="#git-init---object-format"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--object-formatcodeemltgtemspan"></a><span class='synopsis'><code>--object-format=</code><em>&lt;формат&gt;</em></span> </dt>
 <dd>
-<p>Задаёт <em>&lt;формат&gt;</em> объектов (алгоритм хеширования) репозитория. Допустимые значения: <code>sha1</code> и (если включён) <code>sha256</code>. По умолчанию: <code>sha1</code>.</p>
+<p>Задаёт <em>&lt;формат&gt;</em> объектов (алгоритм хеширования) репозитория. Допустимые значения: <span class='synopsis'><code>sha1</code></span> и (если включён) <span class='synopsis'><code>sha256</code></span>. По умолчанию: <span class='synopsis'><code>sha1</code></span>.</p>
 <div class="paragraph">
 <p>Примечание: в настоящее время между репозиториями с алгоритмом хеширования SHA-256 и репозиториями с SHA-1 нет взаимной совместимости.</p>
 </div>
@@ -75,16 +92,16 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-init-code--ref-formatltgtcode"> <a class="anchor" href="#git-init---ref-format"></a> <a class="anchor" href="#git-init-code--ref-formatltgtcode"></a><code>--ref-format=&lt;формат&gt;</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--ref-formatcodeemltgtemspan"> <a class="anchor" href="#git-init---ref-format"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--ref-formatcodeemltgtemspan"></a><span class='synopsis'><code>--ref-format=</code><em>&lt;формат&gt;</em></span> </dt>
 <dd>
 <p>Задаёт <em>&lt;формат&gt;</em> хранения ссылок репозитория. Допустимые значения:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>files</code>: ссылки хранятся в виде несвязанного набора файлов и файла <code>packed-refs</code>. Это формат по умолчанию.</p>
+<p><span class='synopsis'><code>files</code></span>: ссылки хранятся в виде несвязанного набора файлов и файла <span class='synopsis'><code>packed-refs</code></span>. Это формат по умолчанию.</p>
 </li>
 <li>
-<p><code>reftable</code>: reftable-формат. Этот формат является экспериментальным, и его внутреннее устройство может измениться.</p>
+<p><span class='synopsis'><code>reftable</code></span>: reftable-формат. Этот формат является экспериментальным, и его внутреннее устройство может измениться.</p>
 </li>
 </ul>
 </div>
@@ -93,25 +110,25 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-init-code--templatelt-gtcode"> <a class="anchor" href="#git-init---template-"></a> <a class="anchor" href="#git-init-code--templatelt-gtcode"></a><code>--template=&lt;каталог-шаблонов&gt;</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--templatecodeemlt-gtemspan"> <a class="anchor" href="#git-init---template-"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--templatecodeemlt-gtemspan"></a><span class='synopsis'><code>--template=</code><em>&lt;каталог-шаблонов&gt;</em></span> </dt>
 <dd>
 <p>Задаёт каталог с шаблонами. (См. раздел «КАТАЛОГ ШАБЛОНОВ» ниже)</p>
 </dd>
-<dt class="hdlist1" id="git-init-code--separate-git-dirlt-gitgtcode"> <a class="anchor" href="#git-init---separate-git-dir-git"></a> <a class="anchor" href="#git-init-code--separate-git-dirlt-gitgtcode"></a><code>--separate-git-dir=&lt;каталог-git&gt;</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--separate-git-dircodeemlt-gitgtemspan"> <a class="anchor" href="#git-init---separate-git-dir-git"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--separate-git-dircodeemlt-gitgtemspan"></a><span class='synopsis'><code>--separate-git-dir=</code><em>&lt;каталог-git&gt;</em></span> </dt>
 <dd>
-<p>Вместо того, чтобы инициализировать репозиторий в <code>$GIT_DIR</code> или в <code>./.git/</code>, создать текстовый файл, содержащий путь к реальному репозиторию. Этот файл будет выступать в роли независящей от файловой системы символической ссылки Git на этот репозиторий.</p>
+<p>Вместо того, чтобы инициализировать репозиторий в <span class='synopsis'><code>$GIT_DIR</code></span> или в <span class='synopsis'><code>./.git/</code></span>, создать текстовый файл, содержащий путь к реальному репозиторию. Этот файл будет выступать в роли независящей от файловой системы символической ссылки Git на этот репозиторий.</p>
 <div class="paragraph">
 <p>Если это повторная инициализация, то репозиторий будет перенесён в каталог по указанному пути.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-init-code-blt-gtcode"> <a class="anchor" href="#git-init--b-"></a> <a class="anchor" href="#git-init-code-blt-gtcode"></a><code>-b &lt;имя-ветки&gt;</code> </dt>
-<dt class="hdlist1" id="git-init-code--initial-branchlt-gtcode"> <a class="anchor" href="#git-init---initial-branch-"></a> <a class="anchor" href="#git-init-code--initial-branchlt-gtcode"></a><code>--initial-branch=&lt;имя-ветки&gt;</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode-bcodeemlt-gtemspan"> <a class="anchor" href="#git-init--b-"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode-bcodeemlt-gtemspan"></a><span class='synopsis'><code>-b</code> <em>&lt;имя-ветки&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--initial-branchcodeemlt-gtemspan"> <a class="anchor" href="#git-init---initial-branch-"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--initial-branchcodeemlt-gtemspan"></a><span class='synopsis'><code>--initial-branch=</code><em>&lt;имя-ветки&gt;</em></span> </dt>
 <dd>
-<p>Использовать <em>&lt;имя-ветки&gt;</em> для исходной ветки вновь созданного репозитория. Если не указано, будет использован параметр по умолчанию (в настоящее время — это «<code>master</code>», но это может быть изменено в будущем; это имя можно изменить в переменной конфигурации <code>init.defaultBranch</code>).</p>
+<p>Использовать <em>&lt;имя-ветки&gt;</em> для исходной ветки вновь созданного репозитория. Если не указано, будет использован параметр по умолчанию (в настоящее время — это «<span class='synopsis'><code>master</code></span>», но это может быть изменено в будущем; это имя можно изменить в переменной конфигурации <span class='synopsis'><code>init.defaultBranch</code></span>).</p>
 </dd>
-<dt class="hdlist1" id="git-init-code--sharedfalsetrueumaskgroupallworldeverybodylt-gtcode"> <a class="anchor" href="#git-init---sharedfalsetrueumaskgroupallworldeverybody-"></a> <a class="anchor" href="#git-init-code--sharedfalsetrueumaskgroupallworldeverybodylt-gtcode"></a><code>--shared[=(false|true|umask|group|all|world|everybody|&lt;права-доступа&gt;)]</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscode--sharedcodecodecodecodefalsecodecodetruecodecodeumaskcodecodegroupcodecodeallcodecodeworldcodecodeeverybodycodeemlt-gtemspan"> <a class="anchor" href="#git-init---sharedfalsetrueumaskgroupallworldeverybody-"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--sharedcodecodecodecodefalsecodecodetruecodecodeumaskcodecodegroupcodecodeallcodecodeworldcodecodeeverybodycodeemlt-gtemspan"></a><span class='synopsis'><code>--shared</code>[<code>=</code>(<code>false</code>|<code>true</code>|<code>umask</code>|<code>group</code>|<code>all</code>|<code>world</code>|<code>everybody</code>|<em>&lt;права-доступа&gt;</em>)]</span> </dt>
 <dd>
-<p>Указывает, что репозиторий Git будет использоваться совместно несколькими пользователями. Это позволит пользователям, принадлежащим к одной группе, отправлять (<code>push</code>) изменения в этот репозиторий. При передаче этого параметра, переменная конфигурации <code>core.sharedRepository</code> устанавливается таким образом, чтобы файлы и каталоги в каталоге <code>$GIT_DIR</code> создавались с указанными правами доступа. В противном случае, Git будет использовать права доступа согласно <code>umask</code>(2).</p>
+<p>Указывает, что репозиторий Git будет использоваться совместно несколькими пользователями. Это позволит пользователям, принадлежащим к одной группе, отправлять (<span class='synopsis'><code>push</code></span>) изменения в этот репозиторий. При передаче этого параметра, переменная конфигурации <span class='synopsis'><code>core.sharedRepository</code></span> устанавливается таким образом, чтобы файлы и каталоги в каталоге <span class='synopsis'><code>$GIT_DIR</code></span> создавались с указанными правами доступа. В противном случае, Git будет использовать права доступа согласно <span class='synopsis'><code>umask</code></span>(2).</p>
 <div class="paragraph">
 <p>Данный параметр может принимать следующие значения аргумента (если значение не указано, то по умолчанию — &#8216;group&#8217;):</p>
 </div>
@@ -119,25 +136,25 @@ aliases:
 <div class="content">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-init-codeumaskcode"> <a class="anchor" href="#git-init-umask"></a> <a class="anchor" href="#git-init-codeumaskcode"></a><code>umask</code> </dt>
-<dt class="hdlist1" id="git-init-codefalsecode"> <a class="anchor" href="#git-init-false"></a> <a class="anchor" href="#git-init-codefalsecode"></a><code>false</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeumaskcodespan"> <a class="anchor" href="#git-init-umask"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeumaskcodespan"></a><span class='synopsis'><code>umask</code></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodefalsecodespan"> <a class="anchor" href="#git-init-false"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodefalsecodespan"></a><span class='synopsis'><code>false</code></span> </dt>
 <dd>
-<p>Использовать права доступа согласно <code>umask</code>(2). Значение по умолчанию, если параметр <code>--shared</code> не задан.</p>
+<p>Использовать права доступа согласно <span class='synopsis'><code>umask</code></span>(2). Значение по умолчанию, если параметр <span class='synopsis'><code>--shared</code></span> не задан.</p>
 </dd>
-<dt class="hdlist1" id="git-init-codegroupcode"> <a class="anchor" href="#git-init-group"></a> <a class="anchor" href="#git-init-codegroupcode"></a><code>group</code> </dt>
-<dt class="hdlist1" id="git-init-codetruecode"> <a class="anchor" href="#git-init-true"></a> <a class="anchor" href="#git-init-codetruecode"></a><code>true</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodegroupcodespan"> <a class="anchor" href="#git-init-group"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodegroupcodespan"></a><span class='synopsis'><code>group</code></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodetruecodespan"> <a class="anchor" href="#git-init-true"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodetruecodespan"></a><span class='synopsis'><code>true</code></span> </dt>
 <dd>
-<p>Разрешить запись в репозиторий для группы (а также <code>g+sx</code>, так как группа git может быть основной группой не для всех пользователей). Это нужно, чтобы ослабить требования к правам на запись для в остальном безопасного значения <code>umask</code>(2). Обратите внимание, что umask по-прежнему применяется к остальным битам прав доступа (например, если umask равен <code>0022</code>, использование <code>group</code> не удалит разрешение на чтение для других (не входящих в группу) пользователей). Чтобы указать права доступа явно, см. <code>0xxx</code>.</p>
+<p>Разрешить запись в репозиторий для группы (а также <span class='synopsis'><code>g+sx</code></span>, так как группа git может быть основной группой не для всех пользователей). Это нужно, чтобы ослабить требования к правам на запись для в остальном безопасного значения <span class='synopsis'><code>umask</code></span>(2). Обратите внимание, что umask по-прежнему применяется к остальным битам прав доступа (например, если umask равен <span class='synopsis'><code>0022</code></span>, использование <span class='synopsis'><code>group</code></span> не удалит разрешение на чтение для других (не входящих в группу) пользователей). Чтобы указать права доступа явно, см. <span class='synopsis'><code>0xxx</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-init-codeallcode"> <a class="anchor" href="#git-init-all"></a> <a class="anchor" href="#git-init-codeallcode"></a><code>all</code> </dt>
-<dt class="hdlist1" id="git-init-codeworldcode"> <a class="anchor" href="#git-init-world"></a> <a class="anchor" href="#git-init-codeworldcode"></a><code>world</code> </dt>
-<dt class="hdlist1" id="git-init-codeeverybodycode"> <a class="anchor" href="#git-init-everybody"></a> <a class="anchor" href="#git-init-codeeverybodycode"></a><code>everybody</code> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeallcodespan"> <a class="anchor" href="#git-init-all"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeallcodespan"></a><span class='synopsis'><code>all</code></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeworldcodespan"> <a class="anchor" href="#git-init-world"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeworldcodespan"></a><span class='synopsis'><code>world</code></span> </dt>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeeverybodycodespan"> <a class="anchor" href="#git-init-everybody"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeeverybodycodespan"></a><span class='synopsis'><code>everybody</code></span> </dt>
 <dd>
-<p>То же, что и <code>group</code>, но также сделать репозиторий доступным на чтение для всех пользователей.</p>
+<p>То же, что и <span class='synopsis'><code>group</code></span>, но также сделать репозиторий доступным на чтение для всех пользователей.</p>
 </dd>
 <dt class="hdlist1" id="git-init-emlt-gtem"> <a class="anchor" href="#git-init--"></a> <a class="anchor" href="#git-init-emlt-gtem"></a><em>&lt;права-доступа&gt;</em> </dt>
 <dd>
-<p><em>&lt;права-доступа&gt;</em> — это 3-значное восьмеричное число с префиксом <code>0</code>; каждый файл будет иметь режим доступа равный <em>&lt;правам-доступа&gt;</em>. Значение <em>&lt;прав-доступа&gt;</em> будет полностью перекрывать значение <code>umask</code>(2) пользователя (а не только ослаблять разрешения как это происходит с <code>group</code> и <code>all</code>). Так, <code>0640</code> создаст репозиторий, доступный группе на чтение, но не на запись или на исполнения для всех остальных; <code>0660</code> — доступный на чтение и запись текущему пользователю и его группе, но недоступный для остальных (каталоги и исполняемые файлы получат свой бит <code>x</code> при указании <code>r</code> для соответствующих классов пользователей).</p>
+<p><em>&lt;права-доступа&gt;</em> — это 3-значное восьмеричное число с префиксом <span class='synopsis'><code>0</code></span>; каждый файл будет иметь режим доступа равный <em>&lt;правам-доступа&gt;</em>. Значение <em>&lt;прав-доступа&gt;</em> будет полностью перекрывать значение <span class='synopsis'><code>umask</code></span>(2) пользователя (а не только ослаблять разрешения как это происходит с <span class='synopsis'><code>group</code></span> и <span class='synopsis'><code>all</code></span>). Так, <span class='synopsis'><code>0640</code></span> создаст репозиторий, доступный группе на чтение, но не на запись или на исполнения для всех остальных; <span class='synopsis'><code>0660</code></span> — доступный на чтение и запись текущему пользователю и его группе, но недоступный для остальных (каталоги и исполняемые файлы получат свой бит <span class='synopsis'><code>x</code></span> при указании <span class='synopsis'><code>r</code></span> для соответствующих классов пользователей).</p>
 </dd>
 </dl>
 </div>
@@ -147,7 +164,7 @@ aliases:
 </dl>
 </div>
 <div class="paragraph">
-<p>В общих репозиториях флаг конфигурации <code>receive.denyNonFastForwards</code> по умолчанию включён, так что вы не cможете принудительно отправить в него (<code>git push -f</code>) изменения, которые не могут быть применены с помощью быстрой перемотки.</p>
+<p>В общих репозиториях флаг конфигурации <span class='synopsis'><code>receive.denyNonFastForwards</code></span> по умолчанию включён, так что вы не cможете принудительно отправить в него (<span class='synopsis'><code>git</code> <code>push</code> <code>-f</code></span>) изменения, которые не могут быть применены с помощью быстрой перемотки.</p>
 </div>
 <div class="paragraph">
 <p>Если вы задали <em>&lt;каталог&gt;</em>, команда будет выполняться внутри него. Если этот каталог ещё не существует, он будет создан.</p>
@@ -158,7 +175,7 @@ aliases:
 <h2 id="_каталог_шаблонов"><a class="anchor" href="#_каталог_шаблонов"></a>КАТАЛОГ ШАБЛОНОВ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Файлы и каталоги, из каталога шаблонов, чьи имена начинаются не с точки будут скопированы в <code>$GIT_DIR</code> после того, как он будет создан.</p>
+<p>Файлы и каталоги, из каталога шаблонов, чьи имена начинаются не с точки будут скопированы в <span class='synopsis'><code>$GIT_DIR</code></span> после того, как он будет создан.</p>
 </div>
 <div class="paragraph">
 <p>В качестве каталога шаблонов будет использоваться один из следующих (в порядке перечисления):</p>
@@ -166,16 +183,16 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p>аргумент, указанный в параметре <code>--template</code>;</p>
+<p>аргумент, указанный в параметре <span class='synopsis'><code>--template</code></span>;</p>
 </li>
 <li>
-<p>значение переменной среды <code>$GIT_TEMPLATE_DIR</code>;</p>
+<p>значение переменной среды <span class='synopsis'><code>$GIT_TEMPLATE_DIR</code></span>;</p>
 </li>
 <li>
-<p>переменная настройки <code>init.templateDir</code>; или</p>
+<p>переменная настройки <span class='synopsis'><code>init.templateDir</code></span>; или</p>
 </li>
 <li>
-<p>каталог шаблонов по умолчанию: <code>/usr/share/git-core/templates</code>.</p>
+<p>каталог шаблонов по умолчанию: <span class='synopsis'><code>/usr/share/git-core/templates</code></span>.</p>
 </li>
 </ul>
 </div>
@@ -183,7 +200,7 @@ aliases:
 <p>Каталог шаблонов по умолчанию уже содержит некоторую структуру каталогов: рекомендованные «шаблоны исключений» (exlude patterns, см. <a href='{{< relurl "docs/gitignore/ru" >}}'>gitignore[5]</a>) и примеры файлов-перехватчиков (hook).</p>
 </div>
 <div class="paragraph">
-<p>Примеры файлов-перехватчиков по умолчанию отключены. Чтобы включить один из них, переименуйте его, удалив суффикс <code>.sample</code>.</p>
+<p>Примеры файлов-перехватчиков по умолчанию отключены. Чтобы включить один из них, переименуйте его, удалив суффикс <span class='synopsis'><code>.sample</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>См. подробности того, как происходит вызов перехватчиков в <a href='{{< relurl "docs/githooks/ru" >}}'>githooks[5]</a>.</p>
@@ -208,7 +225,7 @@ $ git commit    <b class="conum">(3)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>Создать каталог <code>/путь/к/моей/кодовой/базе/.git</code>.</p>
+<p>Создать каталог <span class='synopsis'><em>/путь/к/моей/кодовой/базе/.git</em></span>.</p>
 </li>
 <li>
 <p>Добавить все существующие файлы в индекс.</p>
@@ -237,7 +254,7 @@ $ git commit    <b class="conum">(3)</b></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>ru/config/init.adoc</code></p>
+<p>Missing <span class='synopsis'><code>ru/config/init.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

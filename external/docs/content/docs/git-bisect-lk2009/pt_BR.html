@@ -9,6 +9,27 @@ docname: git-bisect-lk2009
 lang: pt_BR
 aliases:
 - "/docs/git-bisect-lk2009/pt_BR/index.html"
+headings:
+- text: Resumo
+  id: _resumo
+- text: Introdução ao "git bisect'
+  id: _introdução_ao_git_bisect
+- text: Uma visão geral da luta contra as regressões
+  id: _uma_visão_geral_da_luta_contra_as_regressões
+- text: Visão geral do "git bisect"
+  id: _visão_geral_do_git_bisect
+- text: Detalhes do "git bisect"
+  id: _detalhes_do_git_bisect
+- text: Melhores práticas para as bisseções
+  id: _melhores_práticas_para_as_bisseções
+- text: O futuro da bisseção
+  id: _o_futuro_da_bisseção
+- text: Conclusão
+  id: _conclusão
+- text: Agradecimentos
+  id: _agradecimentos
+- text: Referências
+  id: _referências
 ---
 <div class="sect1">
 <h2 id="_resumo"><a class="anchor" href="#_resumo"></a>Resumo</h2>
@@ -173,7 +194,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>onde <code>BAD</code>, <code>GOOD</code> e <code>COMMIT</code> são todos os nomes que podem ser resolvidos para um commit.</p>
+<p>onde <span class='synopsis'><code>BAD</code></span>, <span class='synopsis'><code>GOOD</code></span> e <span class='synopsis'><code>COMMIT</code></span> são todos os nomes que podem ser resolvidos para um commit.</p>
 </div>
 <div class="paragraph">
 <p>Então, o comando "git bisect" fará a averiguação de um commit de sua escolha e solicitará que o usuário o teste, assim:</p>
@@ -263,7 +284,7 @@ Switched to branch 'master'</pre>
 <div class="sect2">
 <h3 id="_conduzindo_uma_bisseção_automaticamente"><a class="anchor" href="#_conduzindo_uma_bisseção_automaticamente"></a>Conduzindo uma bisseção automaticamente</h3>
 <div class="paragraph">
-<p>A outra maneira de conduzir o processo de bisseção é dizer ao <code>git bisect</code> para lançar um script ou comando a cada etapa da bisseção para saber se o compromisso atual é "bom" ou "ruim". Para fazer isso, nós usamos o comando "git bisect run". Por exemplo:</p>
+<p>A outra maneira de conduzir o processo de bisseção é dizer ao <span class='synopsis'><code>git</code> <code>bisect</code></span> para lançar um script ou comando a cada etapa da bisseção para saber se o compromisso atual é "bom" ou "ruim". Para fazer isso, nós usamos o comando "git bisect run". Por exemplo:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -297,7 +318,7 @@ bisect run success</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Neste exemplo, passamos "grep <em>^SUBLEVEL = 25</em> Makefile" como parâmetro para o comando <code>git bisect run</code>. Isso significa que, a cada passo, o comando <em>grep</em> que encaminhamos será iniciado. E caso encerre com o código 0 (que significa sucesso), o comando <code>git bisect</code> marcará a condição atual como "bom". Caso encerre com o código 1 (ou qualquer código entre 1 e incluindo o 127, exceto o código especial 125), a condição atual será marcado como "ruim".</p>
+<p>Neste exemplo, passamos "grep <em>^SUBLEVEL = 25</em> Makefile" como parâmetro para o comando <span class='synopsis'><code>git</code> <code>bisect</code> <code>run</code></span>. Isso significa que, a cada passo, o comando <em>grep</em> que encaminhamos será iniciado. E caso encerre com o código 0 (que significa sucesso), o comando <span class='synopsis'><code>git</code> <code>bisect</code></span> marcará a condição atual como "bom". Caso encerre com o código 1 (ou qualquer código entre 1 e incluindo o 127, exceto o código especial 125), a condição atual será marcado como "ruim".</p>
 </div>
 <div class="paragraph">
 <p>O código de saída entre 128 e 255 é especial para o comando "git bisect run". Eles fazem parar imediatamente o processo de bisseção. É útil por exemplo, caso o comando encaminhado demorar muito para ser concluído, por é possível encerrá-lo com um sinal que interromperá o processo de bisseção.</p>
@@ -315,7 +336,7 @@ bisect run success</pre>
 <p>Caso o processo de bisseção tenha sido conduzido manualmente, será possível utilizar o comando "git bisect skip" para realizar a mesma coisa. (De fato, o código de saída especial 125 faz o comando "git bisect run" utilizar "git bisect skip" em segundo plano.)</p>
 </div>
 <div class="paragraph">
-<p>Ou, caso queira mais controle, poderá inspecionar a condição atual usando, por exemplo, o comando "git bisect visualize". Ele iniciará o gitk (ou o comando "git log" caso a variável de ambiente <code>DISPLAY</code> não estiver configurada) para ajudá-lo a encontrar um melhor ponto de bisseção.</p>
+<p>Ou, caso queira mais controle, poderá inspecionar a condição atual usando, por exemplo, o comando "git bisect visualize". Ele iniciará o gitk (ou o comando "git log" caso a variável de ambiente <span class='synopsis'><code>DISPLAY</code></span> não estiver configurada) para ajudá-lo a encontrar um melhor ponto de bisseção.</p>
 </div>
 <div class="paragraph">
 <p>De qualquer forma, caso você tenha uma sequência de commits não testáveis, pode acontecer que a regressão que você está procurando tenha sido introduzido por um destes commits não testáveis. Nesse caso, não é possível saber com certeza qual o commit introduziu a regressão.</p>
@@ -792,7 +813,7 @@ Continuamos mesmo assim.</pre>
 <div class="sect2">
 <h3 id="_usando_conjuntos_de_teste_e_o_comando_git_bisect_juntos"><a class="anchor" href="#_usando_conjuntos_de_teste_e_o_comando_git_bisect_juntos"></a>Usando conjuntos de teste e o comando <em>git bisect</em> juntos</h3>
 <div class="paragraph">
-<p>Caso você possua um conjunto de testes e utiliza o <code>git bisect</code>, torna-se menos importante verificar se todos os testes passam após cada confirmação. Embora, claro, seja provavelmente uma boa ideia fazer algumas verificações para evitar a quebra de muitas coisas pois isso pode dificultar a bisseção dos outros bugs.</p>
+<p>Caso você possua um conjunto de testes e utiliza o <span class='synopsis'><code>git</code> <code>bisect</code></span>, torna-se menos importante verificar se todos os testes passam após cada confirmação. Embora, claro, seja provavelmente uma boa ideia fazer algumas verificações para evitar a quebra de muitas coisas pois isso pode dificultar a bisseção dos outros bugs.</p>
 </div>
 <div class="paragraph">
 <p>Você pode concentrar os teus esforços para verificar alguns pontos (as versões rc e beta por exemplo) que todos os casos de teste <em>T</em> passam por todas as <em>N</em> configurações. E quando alguns testes não passam, você pode usar "git bisect" (ou melhor, "git bisect run"). Então você deve executar a grosso modo:</p>
@@ -1092,7 +1113,7 @@ fi</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Caso esteja utilizando o comando <code>git bisect run</code>, é possível utilizar a mesma correção manual acima e em seguida, iniciar outro comando <code>git bisect run</code> no ramo especial. Ou como diz na página do manual <code>git bisect</code>, o script passado ao <code>git bisect run</code> pode aplicar um patch antes de compilar e testar o software <a href="#8">[8]</a>. O patch deve transformar um commit atual não testável em um testável. Portanto, o teste resultará em "bom" ou "ruim" e o comando <code>git bisect</code> será capaz de encontrar o primeiro commit que estiver ruim. O script não deve se esquecer de remover o patch assim que o teste for concluído antes de encerrar o script.</p>
+<p>Caso esteja utilizando o comando <span class='synopsis'><code>git</code> <code>bisect</code> <code>run</code></span>, é possível utilizar a mesma correção manual acima e em seguida, iniciar outro comando <span class='synopsis'><code>git</code> <code>bisect</code> <code>run</code></span> no ramo especial. Ou como diz na página do manual <span class='synopsis'><code>git</code> <code>bisect</code></span>, o script passado ao <span class='synopsis'><code>git</code> <code>bisect</code> <code>run</code></span> pode aplicar um patch antes de compilar e testar o software <a href="#8">[8]</a>. O patch deve transformar um commit atual não testável em um testável. Portanto, o teste resultará em "bom" ou "ruim" e o comando <span class='synopsis'><code>git</code> <code>bisect</code></span> será capaz de encontrar o primeiro commit que estiver ruim. O script não deve se esquecer de remover o patch assim que o teste for concluído antes de encerrar o script.</p>
 </div>
 <div class="paragraph">
 <p>(Observe que, em vez de um patch, é possível utilizar o comando "git cherry-pick BFC" para aplicar a correção e neste caso, utilizar o comando "git reset --hard HEAD^" para reverter a escolha seletiva após o teste e antes de retornar do script.)</p>
@@ -1180,7 +1201,7 @@ fi</pre>
 <p>Com o Git bisect, é fácil: no melhor dos casos, é possível obter uma bisseção do kernel com ~15 passos entre 20 a 30 minutos de maneira automatizada. Mesmo com ajuda manual ou ao dividir vários bugs acumulados, raramente leva mais de uma hora.</p>
 </div>
 <div class="paragraph">
-<p>Na verdade, é inestimável porque existem bugs que eu nem tentaria depurar caso não fosse pelo comando <code>git bisect</code>. No passado, havia padrões de bug que eram imediatamente inúteis para se depurar - na melhor das hipóteses eu poderia enviar a assinatura da falha/bug para o <em>lkml</em> e esperar que alguém pudesse pensar em algo.</p>
+<p>Na verdade, é inestimável porque existem bugs que eu nem tentaria depurar caso não fosse pelo comando <span class='synopsis'><code>git</code> <code>bisect</code></span>. No passado, havia padrões de bug que eram imediatamente inúteis para se depurar - na melhor das hipóteses eu poderia enviar a assinatura da falha/bug para o <em>lkml</em> e esperar que alguém pudesse pensar em algo.</p>
 </div>
 <div class="paragraph">
 <p>E ainda que uma bisseção falhe, hoje ela nos diz algo valioso sobre o bug: que é não determinístico - depende do tempo ou do layout da imagem do kernel.</p>

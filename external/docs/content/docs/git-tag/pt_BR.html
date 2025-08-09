@@ -9,6 +9,29 @@ docname: git-tag
 lang: pt_BR
 aliases:
 - "/docs/git-tag/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: DISCUSSÃO
+  id: _discussão
+- text: OS FORMATOS DA DATA
+  id: _os_formatos_da_data
+- text: ARQUIVOS
+  id: _arquivos
+- text: OBSERVAÇÕES
+  id: _observações
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -38,28 +61,28 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Adicione uma tag de referência em <code>refs/tags/</code>, a menos que <code>-d/-l/-v</code> seja utilizado para excluir, listar ou verificar as tags.</p>
+<p>Adicione uma tag de referência em <span class='synopsis'><code>refs/tags/</code></span>, a menos que <span class='synopsis'><code>-d/-l/-v</code></span> seja utilizado para excluir, listar ou verificar as tags.</p>
 </div>
 <div class="paragraph">
-<p>A menos que <code>-f</code> seja utilizado, a tag informada não deve existir ainda.</p>
+<p>A menos que <span class='synopsis'><code>-f</code></span> seja utilizado, a tag informada não deve existir ainda.</p>
 </div>
 <div class="paragraph">
-<p>Se um dos itens <code>-a</code>, <code>-s</code> ou <code>-u &lt;id-da-chave&gt;</code> for usada, o comando criará um objeto <em>tags</em> e exigirá uma mensagem para a etiqueta. A menos que a opção <code>-m &lt;msg&gt;</code> ou <code>-F &lt;arquivo&gt;</code> seja usado, um editor é iniciado para que o usuário digite a mensagem das etiquetas.</p>
+<p>Se um dos itens <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span> ou <span class='synopsis'><code>-u</code> <em>&lt;id-da-chave&gt;</em></span> for usada, o comando criará um objeto <em>tags</em> e exigirá uma mensagem para a etiqueta. A menos que a opção <span class='synopsis'><code>-m</code> <em>&lt;msg&gt;</em></span> ou <span class='synopsis'><code>-F</code> <em>&lt;arquivo&gt;</em></span> seja usado, um editor é iniciado para que o usuário digite a mensagem das etiquetas.</p>
 </div>
 <div class="paragraph">
-<p>If <code>-m &lt;msg&gt;</code> or <code>-F &lt;file&gt;</code> or <code>--trailer &lt;token&gt;[=&lt;value&gt;]</code> is given and <code>-a</code>, <code>-s</code>, and <code>-u &lt;key-id&gt;</code> are absent, <code>-a</code> is implied.</p>
+<p>If <span class='synopsis'><code>-m</code> <em>&lt;msg&gt;</em></span> or <span class='synopsis'><code>-F</code> <em>&lt;file&gt;</em></span> or <span class='synopsis'><code>--trailer</code> <em>&lt;token&gt;</em>[<code>=</code><em>&lt;value&gt;</em>]</span> is given and <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span>, and <span class='synopsis'><code>-u</code> <em>&lt;key-id&gt;</em></span> are absent, <span class='synopsis'><code>-a</code></span> is implied.</p>
 </div>
 <div class="paragraph">
 <p>Caso contrário, é criada uma tag de referência que aponte diretamente para o objeto informado (ou seja, uma tag leve).</p>
 </div>
 <div class="paragraph">
-<p>Um objeto de etiquetas assinado pelo GnuPG será criado quando <code>-s</code> ou <code>-u &lt;id-da-chave&gt;</code> for usado. Quando a opção <code>-u &lt;id-da-chave&gt;</code> não é usado, a identidade de quem fez o commit para o usuário atual é usada para localizar a chave de assinatura GnuPG. 	A variável de configuração <code>gpg.program</code> é usada para especificar o binário personalizado do GnuPG.</p>
+<p>Um objeto de etiquetas assinado pelo GnuPG será criado quando <span class='synopsis'><code>-s</code></span> ou <span class='synopsis'><code>-u</code> <em>&lt;id-da-chave&gt;</em></span> for usado. Quando a opção <span class='synopsis'><code>-u</code> <em>&lt;id-da-chave&gt;</em></span> não é usado, a identidade de quem fez o commit para o usuário atual é usada para localizar a chave de assinatura GnuPG. 	A variável de configuração <span class='synopsis'><code>gpg.program</code></span> é usada para especificar o binário personalizado do GnuPG.</p>
 </div>
 <div class="paragraph">
-<p>Os objetos tag (criados com <code>-a</code>, <code>-s</code> ou <code>-u</code>) são chamados de tags "anotadas"; eles contêm uma data de criação, o nome e o e-mail do marcador, uma mensagem de marcação e uma assinatura opcional do GnuPG. Enquanto uma tag "leve" é simplesmente um nome para um objeto (geralmente um objeto commit).</p>
+<p>Os objetos tag (criados com <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span> ou <span class='synopsis'><code>-u</code></span>) são chamados de tags "anotadas"; eles contêm uma data de criação, o nome e o e-mail do marcador, uma mensagem de marcação e uma assinatura opcional do GnuPG. Enquanto uma tag "leve" é simplesmente um nome para um objeto (geralmente um objeto commit).</p>
 </div>
 <div class="paragraph">
-<p>As tags anotadas destinam-se ao lançamento, enquanto as tags leves (light) destinam-se aos rótulos dos objetos particulares ou temporários. Por este motivo que é predefinido que alguns comandos git para nomear os objetos (como <code>git description</code>) ignorem essas tags leves.</p>
+<p>As tags anotadas destinam-se ao lançamento, enquanto as tags leves (light) destinam-se aos rótulos dos objetos particulares ou temporários. Por este motivo que é predefinido que alguns comandos git para nomear os objetos (como <span class='synopsis'><code>git</code> <code>description</code></span>) ignorem essas tags leves.</p>
 </div>
 </div>
 </div>
@@ -76,11 +99,11 @@ aliases:
 <dt class="hdlist1" id="git-tag--s"> <a class="anchor" href="#git-tag--s"></a>-s </dt>
 <dt class="hdlist1" id="git-tag---sign"> <a class="anchor" href="#git-tag---sign"></a>--sign </dt>
 <dd>
-<p>Crie uma etiqueta assinada por GPG, usando a chave do endereço de e-mail predefinido. O comportamento predefinido da assinatura GPG das etiquetas é controlado pela variável de configuração <code>tag.gpgSign</code>, se existir ou caso contrário, é desativado. Consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+<p>Crie uma etiqueta assinada por GPG, usando a chave do endereço de e-mail predefinido. O comportamento predefinido da assinatura GPG das etiquetas é controlado pela variável de configuração <span class='synopsis'><code>tag.gpgSign</code></span>, se existir ou caso contrário, é desativado. Consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-tag---no-sign"> <a class="anchor" href="#git-tag---no-sign"></a>--no-sign </dt>
 <dd>
-<p>Substitua a variável de configuração <code>tag.gpgSign</code> que está configurada para impor a obrigatoriedade da assinatura de cada tag.</p>
+<p>Substitua a variável de configuração <span class='synopsis'><code>tag.gpgSign</code></span> que está configurada para impor a obrigatoriedade da assinatura de cada tag.</p>
 </dd>
 <dt class="hdlist1" id="git-tag--ultkey-idgt"> <a class="anchor" href="#git-tag--ukey-id"></a> <a class="anchor" href="#git-tag--ultkey-idgt"></a>-u &lt;key-id&gt; </dt>
 <dt class="hdlist1" id="git-tag---local-userltkey-idgt"> <a class="anchor" href="#git-tag---local-userkey-id"></a> <a class="anchor" href="#git-tag---local-userltkey-idgt"></a>--local-user=&lt;key-id&gt; </dt>
@@ -104,29 +127,29 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-tag--nltnumgt"> <a class="anchor" href="#git-tag--nnum"></a> <a class="anchor" href="#git-tag--nltnumgt"></a>-n&lt;num&gt; </dt>
 <dd>
-<p>O &lt;num&gt; determina a quantidade das linhas de anotação, caso haja, são exibidas quando utilizadas com <code>-l</code>. Implica no uso da opção <code>--list</code>.</p>
+<p>O &lt;num&gt; determina a quantidade das linhas de anotação, caso haja, são exibidas quando utilizadas com <span class='synopsis'><code>-l</code></span>. Implica no uso da opção <span class='synopsis'><code>--list</code></span>.</p>
 <div class="paragraph">
-<p>A predefinição é não imprimir nenhuma linha de anotação. Se nenhum número for fornecido para a opção <code>-n</code>, apenas a primeira linha será impressa. Se a etiqueta não estiver anotada, a mensagem do commit será exibida.</p>
+<p>A predefinição é não imprimir nenhuma linha de anotação. Se nenhum número for fornecido para a opção <span class='synopsis'><code>-n</code></span>, apenas a primeira linha será impressa. Se a etiqueta não estiver anotada, a mensagem do commit será exibida.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-tag--l"> <a class="anchor" href="#git-tag--l"></a>-l </dt>
 <dt class="hdlist1" id="git-tag---list"> <a class="anchor" href="#git-tag---list"></a>--list </dt>
 <dd>
-<p>Listar as tags. Com <code>&lt;padrão&gt;...</code>, exemplo, <code>git tag --list 'v-*'</code> liste apenas as tags que coincidam ao(s) padrões.</p>
+<p>Listar as tags. Com <span class='synopsis'><em>&lt;padrão&gt;</em>...</span>, exemplo, <span class='synopsis'><code>git</code> <code>tag</code> <code>--list</code> <code>v-*'</code></span> liste apenas as tags que coincidam ao(s) padrões.</p>
 <div class="paragraph">
 <p>Executar "tag git" sem argumentos também lista todas as tags. O padrão é um curinga do shell (exemplo, quando coincidir ao usar fnmatch(3)). Padrões múltiplos podem ser informados; caso haja coincidência entre alguns deles, a tag será exibida.</p>
 </div>
 <div class="paragraph">
-<p>Esta opção é fornecida de forma implícita caso qualquer outra lista como a opção <code>--contains</code> seja utilizada. Para mais detalhes consulte a documentação de cada uma dessas opções.</p>
+<p>Esta opção é fornecida de forma implícita caso qualquer outra lista como a opção <span class='synopsis'><code>--contains</code></span> seja utilizada. Para mais detalhes consulte a documentação de cada uma dessas opções.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-tag---sortltchavegt"> <a class="anchor" href="#git-tag---sortchave"></a> <a class="anchor" href="#git-tag---sortltchavegt"></a>--sort=&lt;chave&gt; </dt>
 <dd>
-<p>Classifica com base na chave fornecida. Prefixo <code>-</code> para classificar em ordem decrescente do valor. É possível usar a opção <code>--sort=&lt;chave&gt;</code> diversas vezes e, neste caso, a última chave se torna a chave primária. Também suporta "version:refname" ou "v:refname" (os nomes das etiquetas são tratadas como versões). A ordem de classificação "version:refname" também pode ser afetada pela variável de configuração "versionsort.suffix". As chaves compatíveis são as mesmas que as do <code>git for-each-ref</code>. A predefinição da ordem de classificação é o valor configurado para a variável <code>tag.sort</code>, se ela existir, caso contrário, a ordem lexicográfica. Consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+<p>Classifica com base na chave fornecida. Prefixo <span class='synopsis'><code>-</code></span> para classificar em ordem decrescente do valor. É possível usar a opção <span class='synopsis'><code>--sort=</code><em>&lt;chave&gt;</em></span> diversas vezes e, neste caso, a última chave se torna a chave primária. Também suporta "version:refname" ou "v:refname" (os nomes das etiquetas são tratadas como versões). A ordem de classificação "version:refname" também pode ser afetada pela variável de configuração "versionsort.suffix". As chaves compatíveis são as mesmas que as do <span class='synopsis'><code>git</code> <code>for-each-ref</code></span>. A predefinição da ordem de classificação é o valor configurado para a variável <span class='synopsis'><code>tag.sort</code></span>, se ela existir, caso contrário, a ordem lexicográfica. Consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-tag---colorltquandogt"> <a class="anchor" href="#git-tag---colorquando"></a> <a class="anchor" href="#git-tag---colorltquandogt"></a>--color[=&lt;quando&gt;] </dt>
 <dd>
-<p>Respeite todas as cores usadas com a opção <code>--format</code>. O campo <code>&lt;quando&gt;</code> deve ser <code>always</code>, <code>never</code> ou <code>auto</code> (comporte-se como <code>always</code> caso <code>&lt;quando&gt;</code> esteja ausente).</p>
+<p>Respeite todas as cores usadas com a opção <span class='synopsis'><code>--format</code></span>. O campo <span class='synopsis'><em>&lt;quando&gt;</em></span> deve ser <span class='synopsis'><code>always</code></span>, <span class='synopsis'><code>never</code></span> ou <span class='synopsis'><code>auto</code></span> (comporte-se como <span class='synopsis'><code>always</code></span> caso <span class='synopsis'><em>&lt;quando&gt;</em></span> esteja ausente).</p>
 </dd>
 <dt class="hdlist1" id="git-tag--i"> <a class="anchor" href="#git-tag--i"></a>-i </dt>
 <dt class="hdlist1" id="git-tag---ignore-case"> <a class="anchor" href="#git-tag---ignore-case"></a>--ignore-case </dt>
@@ -140,18 +163,18 @@ aliases:
 <dt class="hdlist1" id="git-tag---columnltopesgt"> <a class="anchor" href="#git-tag---columnopes"></a> <a class="anchor" href="#git-tag---columnltopesgt"></a>--column[=&lt;opções&gt;] </dt>
 <dt class="hdlist1" id="git-tag---no-column"> <a class="anchor" href="#git-tag---no-column"></a>--no-column </dt>
 <dd>
-<p>Exiba a lista das tags em colunas. Consulte a variável de configuração <code>column.tag</code> para conhecer a sintaxe da opção. <code>--column</code> e <code>--no-column</code> sem opções são respectivamente o mesmo que <em>always</em> e <em>never</em>.</p>
+<p>Exiba a lista das tags em colunas. Consulte a variável de configuração <span class='synopsis'><code>column.tag</code></span> para conhecer a sintaxe da opção. <span class='synopsis'><code>--column</code></span> e <span class='synopsis'><code>--no-column</code></span> sem opções são respectivamente o mesmo que <em>always</em> e <em>never</em>.</p>
 <div class="paragraph">
 <p>Esta opção é aplicável apenas ao listar as tags sem linhas de anotação.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-tag---containsltcommitgt"> <a class="anchor" href="#git-tag---containscommit"></a> <a class="anchor" href="#git-tag---containsltcommitgt"></a>--contains [&lt;commit&gt;] </dt>
 <dd>
-<p>Liste apenas as tags que contenham um commit em específico (<code>HEAD`caso não esteja definido). Implica no uso da opção `--list</code>.</p>
+<p>Liste apenas as tags que contenham um commit em específico (<span class='synopsis'><em>HEAD`caso não esteja definido). Implica no uso da opção `--list</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-tag---no-containsltcommitgt"> <a class="anchor" href="#git-tag---no-containscommit"></a> <a class="anchor" href="#git-tag---no-containsltcommitgt"></a>--no-contains [&lt;commit&gt;] </dt>
 <dd>
-<p>Liste apenas as tags que não contenham nenhum commit em específico (<code>HEAD`caso não esteja definido). Implica no uso da opção `--list</code>.</p>
+<p>Liste apenas as tags que não contenham nenhum commit em específico (<span class='synopsis'><em>HEAD`caso não esteja definido). Implica no uso da opção `--list</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-tag---mergedltcommitgt"> <a class="anchor" href="#git-tag---mergedcommit"></a> <a class="anchor" href="#git-tag---mergedltcommitgt"></a>--merged [&lt;commit&gt;] </dt>
 <dd>
@@ -163,26 +186,26 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-tag---points-atltobjetogt"> <a class="anchor" href="#git-tag---points-atobjeto"></a> <a class="anchor" href="#git-tag---points-atltobjetogt"></a>--points-at &lt;objeto&gt; </dt>
 <dd>
-<p>Liste apenas as tags dos objetos informados (<code>HEAD`caso não esteja definido). Implica no uso da opção `--list</code>.</p>
+<p>Liste apenas as tags dos objetos informados (<span class='synopsis'><em>HEAD`caso não esteja definido). Implica no uso da opção `--list</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-tag--mltmsggt"> <a class="anchor" href="#git-tag--mmsg"></a> <a class="anchor" href="#git-tag--mltmsggt"></a>-m &lt;msg&gt; </dt>
 <dt class="hdlist1" id="git-tag---messageltmsggt"> <a class="anchor" href="#git-tag---messagemsg"></a> <a class="anchor" href="#git-tag---messageltmsggt"></a>--message=&lt;msg&gt; </dt>
 <dd>
-<p>Use a mensagem fornecida nas etiquetas (em vez de solicitar). Se forem fornecidas várias opções <code>-m</code>, os seus valores serão concatenados como parágrafos separados. Implica no uso da opção <code>-a</code> se nenhuma das opções <code>-a</code>, <code>-s</code> ou <code>-u &lt;id-da-chave&gt;</code> for usada.</p>
+<p>Use a mensagem fornecida nas etiquetas (em vez de solicitar). Se forem fornecidas várias opções <span class='synopsis'><code>-m</code></span>, os seus valores serão concatenados como parágrafos separados. Implica no uso da opção <span class='synopsis'><code>-a</code></span> se nenhuma das opções <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span> ou <span class='synopsis'><code>-u</code> <em>&lt;id-da-chave&gt;</em></span> for usada.</p>
 </dd>
 <dt class="hdlist1" id="git-tag--Fltarquivogt"> <a class="anchor" href="#git-tag--Farquivo"></a> <a class="anchor" href="#git-tag--Fltarquivogt"></a>-F &lt;arquivo&gt; </dt>
 <dt class="hdlist1" id="git-tag---fileltarquivogt"> <a class="anchor" href="#git-tag---filearquivo"></a> <a class="anchor" href="#git-tag---fileltarquivogt"></a>--file=&lt;arquivo&gt; </dt>
 <dd>
-<p>Obtém a mensagem da etiqueta do arquivo informado. Use <em>-</em> para ler a mensagem da entrada predefinida. Implica no uso da opção <code>-a</code> se nenhuma das opções <code>-a</code>, <code>-s</code> ou <code>-u &lt;id-da-chave&gt;</code> for usada.</p>
+<p>Obtém a mensagem da etiqueta do arquivo informado. Use <em>-</em> para ler a mensagem da entrada predefinida. Implica no uso da opção <span class='synopsis'><code>-a</code></span> se nenhuma das opções <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span> ou <span class='synopsis'><code>-u</code> <em>&lt;id-da-chave&gt;</em></span> for usada.</p>
 </dd>
 <dt class="hdlist1" id="git-tag---trailerlttokengtltvalorgt"> <a class="anchor" href="#git-tag---trailertokenvalor"></a> <a class="anchor" href="#git-tag---trailerlttokengtltvalorgt"></a>--trailer &lt;token&gt;[(=|:)&lt;valor&gt;] </dt>
 <dd>
-<p>Specify a (&lt;token&gt;, &lt;value&gt;) pair that should be applied as a trailer. (e.g. <code>git tag --trailer "Custom-Key: value"</code> will add a "Custom-Key" trailer to the tag message.) The <code>trailer.*</code> configuration variables (<a href='{{< relurl "docs/git-interpret-trailers/pt_BR" >}}'>git-interpret-trailers[1]</a>) can be used to define if a duplicated trailer is omitted, where in the run of trailers each trailer would appear, and other details. The trailers can be extracted in <code>git tag --list</code>, using <code>--format="%(trailers)"</code> placeholder.</p>
+<p>Specify a (&lt;token&gt;, &lt;value&gt;) pair that should be applied as a trailer. (e.g. <span class='synopsis'><code>git</code> <code>tag</code> <code>--trailer</code> <code>"Custom-Key:</code> <code>value"</code></span> will add a "Custom-Key" trailer to the tag message.) The <span class='synopsis'><code>trailer.*</code></span> configuration variables (<a href='{{< relurl "docs/git-interpret-trailers/pt_BR" >}}'>git-interpret-trailers[1]</a>) can be used to define if a duplicated trailer is omitted, where in the run of trailers each trailer would appear, and other details. The trailers can be extracted in <span class='synopsis'><code>git</code> <code>tag</code> <code>--list</code></span>, using <span class='synopsis'><code>--format="%</code>(<code>trailers</code>)<code>"</code></span> placeholder.</p>
 </dd>
 <dt class="hdlist1" id="git-tag--e"> <a class="anchor" href="#git-tag--e"></a>-e </dt>
 <dt class="hdlist1" id="git-tag---edit"> <a class="anchor" href="#git-tag---edit"></a>--edit </dt>
 <dd>
-<p>A mensagem extraída do arquivo com <code>-F</code> e da linha de comando com <code>-m</code> geralmente é usada como a mensagem das etiquetas sem alterações. Esta opção permite que você edite ainda mais a mensagem extraída dessas fontes.</p>
+<p>A mensagem extraída do arquivo com <span class='synopsis'><code>-F</code></span> e da linha de comando com <span class='synopsis'><code>-m</code></span> geralmente é usada como a mensagem das etiquetas sem alterações. Esta opção permite que você edite ainda mais a mensagem extraída dessas fontes.</p>
 </dd>
 <dt class="hdlist1" id="git-tag---cleanupltmodogt"> <a class="anchor" href="#git-tag---cleanupmodo"></a> <a class="anchor" href="#git-tag---cleanupltmodogt"></a>--cleanup=&lt;modo&gt; </dt>
 <dd>
@@ -190,11 +213,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-tag---create-reflog"> <a class="anchor" href="#git-tag---create-reflog"></a>--create-reflog </dt>
 <dd>
-<p>Cria um reflog para as etiquetas. Para ativar globalmente os reflogs para as etiquetas, consulte <code>core.logAllRefUpdates</code> do comando <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>. A forma negada da opção <code>--no-create-reflog</code> apenas substitui a forma anterior da opção <code>--create-reflog</code>, mas atualmente não nega a configuração em <code>core.logAllRefUpdates</code>.</p>
+<p>Cria um reflog para as etiquetas. Para ativar globalmente os reflogs para as etiquetas, consulte <span class='synopsis'><code>core.logAllRefUpdates</code></span> do comando <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>. A forma negada da opção <span class='synopsis'><code>--no-create-reflog</code></span> apenas substitui a forma anterior da opção <span class='synopsis'><code>--create-reflog</code></span>, mas atualmente não nega a configuração em <span class='synopsis'><code>core.logAllRefUpdates</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-tag---formatltformatogt"> <a class="anchor" href="#git-tag---formatformato"></a> <a class="anchor" href="#git-tag---formatltformatogt"></a>--format=&lt;formato&gt; </dt>
 <dd>
-<p>Uma string que interpola <code>%(fieldname)</code> de uma referência na etiqueta que está sendo mostrada e o objeto para onde ela aponta. O formato é o mesmo do <a href='{{< relurl "docs/git-for-each-ref/pt_BR" >}}'>git-for-each-ref[1]</a>. Quando não especificado, o padrão é <code>%(refname:strip=2)</code>.</p>
+<p>Uma string que interpola <span class='synopsis'><code>%</code>(<code>fieldname</code>)</span> de uma referência na etiqueta que está sendo mostrada e o objeto para onde ela aponta. O formato é o mesmo do <a href='{{< relurl "docs/git-for-each-ref/pt_BR" >}}'>git-for-each-ref[1]</a>. Quando não especificado, o padrão é <span class='synopsis'><code>%</code>(<code>refname:strip=2</code>)</span>.</p>
 </dd>
 <dt class="hdlist1" id="git-tag-ltnome-da-taggt"> <a class="anchor" href="#git-tag-nome-da-tag"></a> <a class="anchor" href="#git-tag-ltnome-da-taggt"></a>&lt;nome-da-tag&gt; </dt>
 <dd>
@@ -213,7 +236,7 @@ aliases:
 <h2 id="_configuração"><a class="anchor" href="#_configuração"></a>CONFIGURAÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>É predefinido que o comando <em>git tag</em> no modo <em>sign-with-default</em> (-s) usará a sua identidade para fazer o commit (no formato <code>Seu nome &lt;seu@endereço.e-mail&gt;</code>) para localizar uma chave. Se quiser usar uma chave diferente, você pode especificá-la na configuração do repositório da seguinte maneira:</p>
+<p>É predefinido que o comando <em>git tag</em> no modo <em>sign-with-default</em> (-s) usará a sua identidade para fazer o commit (no formato <span class='synopsis'><em>Seu nome &lt;seu@endereço.e-mail&gt;</em></span>) para localizar uma chave. Se quiser usar uma chave diferente, você pode especificá-la na configuração do repositório da seguinte maneira:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -222,7 +245,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>O <code>pager.tag</code> só é respeitado ao listar etiquetas, ou seja, quando a opção <code>-l</code> é usada ou está implícita. A predefinição é usar um pager. Consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
+<p>O <span class='synopsis'><code>pager.tag</code></span> só é respeitado ao listar etiquetas, ou seja, quando a opção <span class='synopsis'><code>-l</code></span> é usada ou está implícita. A predefinição é usar um pager. Consulte <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 </div>
 </div>
 </div>
@@ -285,7 +308,7 @@ Perdoe a inconveniência.</pre>
 <div class="sect2">
 <h3 id="_na_sequência_automática"><a class="anchor" href="#_na_sequência_automática"></a>Na sequência automática</h3>
 <div class="paragraph">
-<p>Se estiver seguindo a árvore de outra pessoa, é provável que esteja usando ramificações de rastreamento remoto (por exemplo. <code>refs/remotes/origin/master</code>). Normalmente, você deseja as etiquetas da outra extremidade.</p>
+<p>Se estiver seguindo a árvore de outra pessoa, é provável que esteja usando ramificações de rastreamento remoto (por exemplo. <span class='synopsis'><code>refs/remotes/origin/master</code></span>). Normalmente, você deseja as etiquetas da outra extremidade.</p>
 </div>
 <div class="paragraph">
 <p>Por outro lado, se estiver fazendo um <em>fetch</em> porque deseja uma mesclagem única de outra pessoa, normalmente não deseja obter as etiquetas de lá. Isso acontece com mais frequência com pessoas próximas ao nível superior, mas não se limita apenas a elas. Os meros mortais, quando fazem um <em>pull</em> de um do outro, não querem necessariamente receber automaticamente as etiquetas de pontos de ancoragem privados da outra pessoa.</p>
@@ -329,7 +352,7 @@ para obter as seguintes atualizações...</pre>
 <p>Caso tenha importado algumas alterações de outro VCS e queira adicionar as tags para as principais versões do seu trabalho, é útil poder informar a data que será incorporada no objeto tag; estes dados no objeto tag afetam, por exemplo, a ordem das tags na interface <em>gitweb</em>.</p>
 </div>
 <div class="paragraph">
-<p>Para definir a data usada em objetos com tags futuras, defina a variável de ambiente <code>GIT_COMMITTER_DATE</code> (consulte a discussão posterior sobre os valores possíveis; a forma mais comum é "AAAA-MM-DD HH:MM").</p>
+<p>Para definir a data usada em objetos com tags futuras, defina a variável de ambiente <span class='synopsis'><code>GIT_COMMITTER_DATE</code></span> (consulte a discussão posterior sobre os valores possíveis; a forma mais comum é "AAAA-MM-DD HH:MM").</p>
 </div>
 <div class="paragraph">
 <p>Por exemplo:</p>
@@ -346,21 +369,21 @@ para obter as seguintes atualizações...</pre>
 <h2 id="_os_formatos_da_data"><a class="anchor" href="#_os_formatos_da_data"></a>OS FORMATOS DA DATA</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As variáveis de ambiente <code>GIT_AUTHOR_DATE</code> e <code>GIT_COMMITTER_DATE</code> são compatíveis com os seguintes formatos de data:</p>
+<p>As variáveis de ambiente <span class='synopsis'><code>GIT_AUTHOR_DATE</code></span> e <span class='synopsis'><code>GIT_COMMITTER_DATE</code></span> são compatíveis com os seguintes formatos de data:</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-tag-FormatointernodoGit"> <a class="anchor" href="#git-tag-FormatointernodoGit"></a>Formato interno do Git </dt>
 <dd>
-<p>É <code>&lt;unix-timestamp&gt; &lt;time-zone-offset&gt;</code>, onde desde a época do UNIX <code>&lt;unix-timestamp&gt;</code> é o valor em segundos. O <code>&lt;time-zone-offset&gt;</code> é o desvio positivo ou negativo a partir do UTC. O CET por exemplo (onde é 1 hora à frente do UTC ) é <code>+0100</code>.</p>
+<p>É <span class='synopsis'><em>&lt;unix-timestamp&gt;</em> <em>&lt;time-zone-offset&gt;</em></span>, onde desde a época do UNIX <span class='synopsis'><em>&lt;unix-timestamp&gt;</em></span> é o valor em segundos. O <span class='synopsis'><em>&lt;time-zone-offset&gt;</em></span> é o desvio positivo ou negativo a partir do UTC. O CET por exemplo (onde é 1 hora à frente do UTC ) é <span class='synopsis'><code>+0100</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-tag-RFC2822"> <a class="anchor" href="#git-tag-RFC2822"></a>RFC 2822 </dt>
 <dd>
-<p>The standard date format as described by RFC 2822, for example <code>Thu, 07 Apr 2005 22:13:13 +0200</code>.</p>
+<p>The standard date format as described by RFC 2822, for example <span class='synopsis'><code>Thu,</code> <code>07</code> <code>Apr</code> <code>2005</code> <code>22:13:13</code> <code>+0200</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-tag-ISO8601"> <a class="anchor" href="#git-tag-ISO8601"></a>ISO 8601 </dt>
 <dd>
-<p>A data e hora definidas pela norma ISO 8601 <code>2005-04-07T22:13:13</code> por exemplo. O analisador também aceita um espaço em vez do caractere <code>T</code>. O analisador aceita um espaço em vez do caractere <code>T</code> também. As partes fracionadas de um segundo serão ignoradas, logo <code>2005-04-07T22:13:13.019</code> por exemplo, será tratada como <code>2005-04-07T22:13:13</code>.</p>
+<p>A data e hora definidas pela norma ISO 8601 <span class='synopsis'><code>2005-04-07T22:13:13</code></span> por exemplo. O analisador também aceita um espaço em vez do caractere <span class='synopsis'><code>T</code></span>. O analisador aceita um espaço em vez do caractere <span class='synopsis'><code>T</code></span> também. As partes fracionadas de um segundo serão ignoradas, logo <span class='synopsis'><code>2005-04-07T22:13:13.019</code></span> por exemplo, será tratada como <span class='synopsis'><code>2005-04-07T22:13:13</code></span>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -368,7 +391,7 @@ para obter as seguintes atualizações...</pre>
 <div class="title">Note</div>
 </td>
 <td class="content">
-Além disso, a parte da data é aceita nos seguintes formatos: <code>YYYY.MM.DD</code>, <code>MM/DD/YYYY</code> e <code>DD.MM.YYYY</code>.
+Além disso, a parte da data é aceita nos seguintes formatos: <span class='synopsis'><code>YYYY.MM.DD</code></span>, <span class='synopsis'><code>MM/DD/YYYY</code></span> e <span class='synopsis'><code>DD.MM.YYYY</code></span>.
 </td>
 </tr>
 </table>
@@ -383,9 +406,9 @@ Além disso, a parte da data é aceita nos seguintes formatos: <code>YYYY.MM.DD<
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-tag-codeGITDIRTAGEDITMSGcode"> <a class="anchor" href="#git-tag-GITDIRTAGEDITMSG"></a> <a class="anchor" href="#git-tag-codeGITDIRTAGEDITMSGcode"></a><code>$GIT_DIR/TAG_EDITMSG</code> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscodeGITDIRTAGEDITMSGcodespan"> <a class="anchor" href="#git-tag-GITDIRTAGEDITMSG"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscodeGITDIRTAGEDITMSGcodespan"></a><span class='synopsis'><code>$GIT_DIR/TAG_EDITMSG</code></span> </dt>
 <dd>
-<p>Esse arquivo contém a mensagem de uma tag anotada em andamento. Se o <code>git tag</code> for encerrado devido a um erro antes de criar uma tag anotada, a mensagem da tag que foi fornecida pelo usuário numa sessão do editor estará disponível nesse arquivo, mas poderá ser substituída pela próxima chamada do comando <code>git tag</code>.</p>
+<p>Esse arquivo contém a mensagem de uma tag anotada em andamento. Se o <span class='synopsis'><code>git</code> <code>tag</code></span> for encerrado devido a um erro antes de criar uma tag anotada, a mensagem da tag que foi fornecida pelo usuário numa sessão do editor estará disponível nesse arquivo, mas poderá ser substituída pela próxima chamada do comando <span class='synopsis'><code>git</code> <code>tag</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -395,10 +418,10 @@ Além disso, a parte da data é aceita nos seguintes formatos: <code>YYYY.MM.DD<
 <h2 id="_observações"><a class="anchor" href="#_observações"></a>OBSERVAÇÕES</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Ao combinar diversos filtros a opção <code>--contains</code> e a opção <code>--no-contains</code>, faz referências apenas aos que contenha pelo menos um dos commits <code>--contains</code> e não contenha nenhum dos commits mostrados com <code>--no-contains</code>.</p>
+<p>Ao combinar diversos filtros a opção <span class='synopsis'><code>--contains</code></span> e a opção <span class='synopsis'><code>--no-contains</code></span>, faz referências apenas aos que contenha pelo menos um dos commits <span class='synopsis'><code>--contains</code></span> e não contenha nenhum dos commits mostrados com <span class='synopsis'><code>--no-contains</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Ao combinar diversos filtros a opção <code>--merged</code> e a opção <code>--no-merged</code>, faz referências apenas aos que sejam acessíveis a partir um dos commits <code>--merged</code> e de nenhum dos commits mostrados com <code>--no-merged</code>.</p>
+<p>Ao combinar diversos filtros a opção <span class='synopsis'><code>--merged</code></span> e a opção <span class='synopsis'><code>--no-merged</code></span>, faz referências apenas aos que sejam acessíveis a partir um dos commits <span class='synopsis'><code>--merged</code></span> e de nenhum dos commits mostrados com <span class='synopsis'><code>--no-merged</code></span>.</p>
 </div>
 </div>
 </div>

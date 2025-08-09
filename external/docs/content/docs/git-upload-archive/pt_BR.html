@@ -9,6 +9,19 @@ docname: git-upload-archive
 lang: pt_BR
 aliases:
 - "/docs/git-upload-archive/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: SEGURANÇA
+  id: _segurança
+- text: OPÇÕES
+  id: _opções
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -30,7 +43,7 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Chamado através do comando <code>git archive --remote</code> e envia um arquivo gerado para a outra extremidade através do protocolo Git.</p>
+<p>Chamado através do comando <span class='synopsis'><code>git</code> <code>archive</code> <code>--remote</code></span> e envia um arquivo gerado para a outra extremidade através do protocolo Git.</p>
 </div>
 <div class="paragraph">
 <p>Normalmente, este comando não é invocado diretamente pelo usuário final. A interface do usuário do protocolo está no lado do <em>arquivo git</em>, e o par de programas deve ser usado para obter um arquivo de um repositório remoto.</p>
@@ -41,26 +54,26 @@ aliases:
 <h2 id="_segurança"><a class="anchor" href="#_segurança"></a>SEGURANÇA</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Para proteger a privacidade dos objetos que foram removidos do histórico, mas que podem ainda não ter sido removidos, o <code>git-upload-archive</code> evita servir arquivos para commits e as árvores que não são acessíveis a partir das refs do repositório. No entanto, como o cálculo da acessibilidade do objeto é computacionalmente caro, o <code>git-upload-archive</code> implementa um conjunto de regras mais rigoroso, porém mais fácil de verificar:</p>
+<p>Para proteger a privacidade dos objetos que foram removidos do histórico, mas que podem ainda não ter sido removidos, o <span class='synopsis'><code>git-upload-archive</code></span> evita servir arquivos para commits e as árvores que não são acessíveis a partir das refs do repositório. No entanto, como o cálculo da acessibilidade do objeto é computacionalmente caro, o <span class='synopsis'><code>git-upload-archive</code></span> implementa um conjunto de regras mais rigoroso, porém mais fácil de verificar:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Os clientes podem solicitar um commit ou uma árvore que aponte diretamente por uma referência. <code>git archive --remote=origin v1.0</code> por exemplo.</p>
+<p>Os clientes podem solicitar um commit ou uma árvore que aponte diretamente por uma referência. <span class='synopsis'><code>git</code> <code>archive</code> <code>--remote=origin</code> <code>v1.0</code></span> por exemplo.</p>
 </li>
 <li>
-<p>Os clientes podem solicitar uma subárvore dentro de um commit ou uma árvore utilizando a sintaxe <code>ref:path</code>. Como por exemplo, <code>git archive --remote=origin v1.0:Documentation</code>.</p>
+<p>Os clientes podem solicitar uma subárvore dentro de um commit ou uma árvore utilizando a sintaxe <span class='synopsis'><code>ref:path</code></span>. Como por exemplo, <span class='synopsis'><code>git</code> <code>archive</code> <code>--remote=origin</code> <code>v1.0:Documentation</code></span>.</p>
 </li>
 <li>
-<p>Os clientes não podem utilizar outras expressões SHA-1, mesmo que o resultado final seja acessível. Por exemplo, nem um commit que tenha relação com <code>master^</code> nem um sha1 literal como <code>abcd1234</code> são permitidos, mesmo que o resultado seja acessível através das referências.</p>
+<p>Os clientes não podem utilizar outras expressões SHA-1, mesmo que o resultado final seja acessível. Por exemplo, nem um commit que tenha relação com <span class='synopsis'><code>master^</code></span> nem um sha1 literal como <span class='synopsis'><code>abcd1234</code></span> são permitidos, mesmo que o resultado seja acessível através das referências.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Observe que a regra 3 não permitem muitos casos onde não tenham implicações de privacidade. Essas regras estão sujeitas a alterações nas versões futuras do git, e o servidor acessado pelo <code>git archive --remote</code> pode ou não seguir exatamente estas regras.</p>
+<p>Observe que a regra 3 não permitem muitos casos onde não tenham implicações de privacidade. Essas regras estão sujeitas a alterações nas versões futuras do git, e o servidor acessado pelo <span class='synopsis'><code>git</code> <code>archive</code> <code>--remote</code></span> pode ou não seguir exatamente estas regras.</p>
 </div>
 <div class="paragraph">
-<p>Se a opção de configuração <code>uploadArchive.allowUnreachable</code> for verdadeira, essas regras serão ignoradas e os clientes poderão usar expressões sha1 arbitrárias. Isso é útil se você não se importar com a privacidade de objetos inacessíveis ou se o seu banco de dados de objetos já estiver disponível publicamente para acesso via http não inteligente.</p>
+<p>Se a opção de configuração <span class='synopsis'><code>uploadArchive.allowUnreachable</code></span> for verdadeira, essas regras serão ignoradas e os clientes poderão usar expressões sha1 arbitrárias. Isso é útil se você não se importar com a privacidade de objetos inacessíveis ou se o seu banco de dados de objetos já estiver disponível publicamente para acesso via http não inteligente.</p>
 </div>
 </div>
 </div>

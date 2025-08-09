@@ -9,6 +9,25 @@ docname: gitignore
 lang: pt_BR
 aliases:
 - "/docs/gitignore/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: FORMATO DO PADRÃO
+  id: _formato_do_padrão
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: OBSERVAÇÕES
+  id: _observações
+- text: EXEMPLOS
+  id: _exemplos
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -30,10 +49,10 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Um arquivo <code>gitignore</code> define quais são os arquivos são intencionalmente deixados de fora e não são rastreados. Os arquivos já monitorados pelo Git não são afetados; consulte as NOTAS abaixo para obter detalhes.</p>
+<p>Um arquivo <span class='synopsis'><code>gitignore</code></span> define quais são os arquivos são intencionalmente deixados de fora e não são rastreados. Os arquivos já monitorados pelo Git não são afetados; consulte as NOTAS abaixo para obter detalhes.</p>
 </div>
 <div class="paragraph">
-<p>Cada linha num arquivo <code>gitignore</code> especifica um padrão. Ao decidir se deve ignorar um caminho, o Git normalmente verifica os padrões de várias fontes no <code>gitignore</code>, com a seguinte ordem de precedência, da mais alta para a mais baixa (dentro de um nível de precedência, o último padrão correspondente decide o resultado):</p>
+<p>Cada linha num arquivo <span class='synopsis'><code>gitignore</code></span> especifica um padrão. Ao decidir se deve ignorar um caminho, o Git normalmente verifica os padrões de várias fontes no <span class='synopsis'><code>gitignore</code></span>, com a seguinte ordem de precedência, da mais alta para a mais baixa (dentro de um nível de precedência, o último padrão correspondente decide o resultado):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -41,13 +60,13 @@ aliases:
 <p>Padrões lidos na linha de comando para os comandos que os suportam.</p>
 </li>
 <li>
-<p>Os padrões lidos de um arquivo <code>.gitignore</code> no mesmo diretório que o caminho ou em qualquer diretório principal (até o cume da árvore de trabalho), com padrões nos arquivos de nível superior sendo substituídos por aqueles em arquivos de nível inferior até o diretório que contém o arquivo. Esses padrões correspondem ao local do arquivo <code>.gitignore</code>. Em seu repositório, um projeto normalmente inclui estes arquivos <code>.gitignore</code>, contendo padrões para os arquivos gerados como parte da compilação do projeto.</p>
+<p>Os padrões lidos de um arquivo <span class='synopsis'><code>.gitignore</code></span> no mesmo diretório que o caminho ou em qualquer diretório principal (até o cume da árvore de trabalho), com padrões nos arquivos de nível superior sendo substituídos por aqueles em arquivos de nível inferior até o diretório que contém o arquivo. Esses padrões correspondem ao local do arquivo <span class='synopsis'><code>.gitignore</code></span>. Em seu repositório, um projeto normalmente inclui estes arquivos <span class='synopsis'><code>.gitignore</code></span>, contendo padrões para os arquivos gerados como parte da compilação do projeto.</p>
 </li>
 <li>
-<p>Padrões lidos de <code>$GIT_DIR/info/exclude</code>.</p>
+<p>Padrões lidos de <span class='synopsis'><code>$GIT_DIR/info/exclude</code></span>.</p>
 </li>
 <li>
-<p>Padrões lidos do arquivo especificado pela variável de configuração <code>core.excludesFile</code>.</p>
+<p>Padrões lidos do arquivo especificado pela variável de configuração <span class='synopsis'><code>core.excludesFile</code></span>.</p>
 </li>
 </ul>
 </div>
@@ -57,18 +76,18 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p>Os padrões que devem ser controlados por versão e distribuídos para outros repositórios via clone (ou seja, arquivos que todos os desenvolvedores desejam ignorar) devem ser colocados num arquivo <code>.gitignore</code>.</p>
+<p>Os padrões que devem ser controlados por versão e distribuídos para outros repositórios via clone (ou seja, arquivos que todos os desenvolvedores desejam ignorar) devem ser colocados num arquivo <span class='synopsis'><code>.gitignore</code></span>.</p>
 </li>
 <li>
-<p>Os padrões que são específicos de um determinado repositório, mas que não precisam ser compartilhados com outros repositórios relacionados (por exemplo, arquivos auxiliares que residem dentro do repositório, mas que são específicos do fluxo de trabalho de um usuário), devem ser inseridos no arquivo <code>$GIT_DIR/info/exclude</code>.</p>
+<p>Os padrões que são específicos de um determinado repositório, mas que não precisam ser compartilhados com outros repositórios relacionados (por exemplo, arquivos auxiliares que residem dentro do repositório, mas que são específicos do fluxo de trabalho de um usuário), devem ser inseridos no arquivo <span class='synopsis'><code>$GIT_DIR/info/exclude</code></span>.</p>
 </li>
 <li>
-<p>Os padrões que um usuário deseja que o Git ignore em todas as situações (por exemplo, backup ou arquivos temporários gerados pelo editor de escolha do usuário) geralmente vão para um arquivo especificado em <code>core.excludesFile</code> no <code>~/.gitconfig</code> do usuário. O seu valor predefinido é <code>$XDG_CONFIG_HOME/git/ignore</code>. Se <code>$XDG_CONFIG_HOME</code> não estiver definido ou estiver vazio, <code>$HOME/.config/git/ignore</code> será usado em seu lugar.</p>
+<p>Os padrões que um usuário deseja que o Git ignore em todas as situações (por exemplo, backup ou arquivos temporários gerados pelo editor de escolha do usuário) geralmente vão para um arquivo especificado em <span class='synopsis'><code>core.excludesFile</code></span> no <span class='synopsis'><code>~/.gitconfig</code></span> do usuário. O seu valor predefinido é <span class='synopsis'><code>$XDG_CONFIG_HOME/git/ignore</code></span>. Se <span class='synopsis'><code>$XDG_CONFIG_HOME</code></span> não estiver definido ou estiver vazio, <span class='synopsis'><code>$HOME/.config/git/ignore</code></span> será usado em seu lugar.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>As ferramentas de encanamento subjacentes do Git, como o comando <em>git ls-files</em> e o <em>git read-tree</em>, leem padrões <code>gitignore</code> especificados por opções de linha de comando ou de arquivos especificados pelas opções de linha de comando. Ferramentas Git de nível superior, como o "git status" e o "git add", usam padrões das fontes especificadas acima.</p>
+<p>As ferramentas de encanamento subjacentes do Git, como o comando <em>git ls-files</em> e o <em>git read-tree</em>, leem padrões <span class='synopsis'><code>gitignore</code></span> especificados por opções de linha de comando ou de arquivos especificados pelas opções de linha de comando. Ferramentas Git de nível superior, como o "git status" e o "git add", usam padrões das fontes especificadas acima.</p>
 </div>
 </div>
 </div>
@@ -81,44 +100,44 @@ aliases:
 <p>Uma linha em branco não corresponde a nenhum arquivo, portanto, pode servir como um separador para facilitar a leitura.</p>
 </li>
 <li>
-<p>Uma linha iniciada com <em>#</em> serve como um comentário. Coloque uma barra invertida ("<code>\</code>") na frente do primeiro hash para padrões que começam com um hash.</p>
+<p>Uma linha iniciada com <em>#</em> serve como um comentário. Coloque uma barra invertida ("<span class='synopsis'><em>\</em></span>") na frente do primeiro hash para padrões que começam com um hash.</p>
 </li>
 <li>
-<p>Os espaços finais são ignorados, a menos que estejam entre aspas com barra invertida ("<code>\</code>").</p>
+<p>Os espaços finais são ignorados, a menos que estejam entre aspas com barra invertida ("<span class='synopsis'><em>\</em></span>").</p>
 </li>
 <li>
-<p>Um prefixo opcional "<code>!</code>" que nega o padrão; qualquer arquivo correspondente excluído por um padrão anterior será incluído novamente. Não é possível incluir novamente um arquivo se um diretório principal deste arquivo tenha sido excluído. O Git não lista os diretórios excluídos por motivos de desempenho, portanto, quaisquer padrões nos arquivos contidos não têm efeito, independentemente de onde estejam definidos. Coloque uma barra invertida ("<code>\</code>") na frente do primeiro "<code>!</code>" para padrões que começam com um "<code>!</code>" literal, por exemplo, "<code>\!important!.txt</code>".</p>
+<p>Um prefixo opcional "<span class='synopsis'><code>!</code></span>" que nega o padrão; qualquer arquivo correspondente excluído por um padrão anterior será incluído novamente. Não é possível incluir novamente um arquivo se um diretório principal deste arquivo tenha sido excluído. O Git não lista os diretórios excluídos por motivos de desempenho, portanto, quaisquer padrões nos arquivos contidos não têm efeito, independentemente de onde estejam definidos. Coloque uma barra invertida ("<span class='synopsis'><em>\</em></span>") na frente do primeiro "<span class='synopsis'><code>!</code></span>" para padrões que começam com um "<span class='synopsis'><code>!</code></span>" literal, por exemplo, "<span class='synopsis'><em>\!important!.txt</em></span>".</p>
 </li>
 <li>
-<p>A barra "<code>/</code>" é usada como separador de diretório. Os separadores podem ocorrer no início, no meio ou no final do padrão de pesquisa <code>.gitignore</code>.</p>
+<p>A barra "<span class='synopsis'><code>/</code></span>" é usada como separador de diretório. Os separadores podem ocorrer no início, no meio ou no final do padrão de pesquisa <span class='synopsis'><code>.gitignore</code></span>.</p>
 </li>
 <li>
-<p>Se houver um separador no início ou no meio (ou em ambos) do padrão, então o padrão é relativo ao nível do diretório do próprio arquivo <code>.gitignore</code> específico. Caso contrário, o padrão também poderá corresponder a qualquer nível abaixo do nível <code>.gitignore</code>.</p>
+<p>Se houver um separador no início ou no meio (ou em ambos) do padrão, então o padrão é relativo ao nível do diretório do próprio arquivo <span class='synopsis'><code>.gitignore</code></span> específico. Caso contrário, o padrão também poderá corresponder a qualquer nível abaixo do nível <span class='synopsis'><code>.gitignore</code></span>.</p>
 </li>
 <li>
 <p>Se houver um separador no final do padrão, o padrão corresponderá apenas a diretórios; caso contrário, o padrão poderá corresponder a arquivos e diretórios.</p>
 </li>
 <li>
-<p>Por exemplo, um padrão <code>doc/frotz/</code> corresponde ao diretório <code>doc/frotz</code>, mas não ao diretório <code>a/doc/frotz</code>; no entanto, <code>frotz/</code> corresponde a <code>frotz</code> e <code>a/frotz</code>, que é um diretório (todos os caminhos são relativos a partir do arquivo <code>.gitignore</code>).</p>
+<p>Por exemplo, um padrão <span class='synopsis'><code>doc/frotz/</code></span> corresponde ao diretório <span class='synopsis'><code>doc/frotz</code></span>, mas não ao diretório <span class='synopsis'><code>a/doc/frotz</code></span>; no entanto, <span class='synopsis'><code>frotz/</code></span> corresponde a <span class='synopsis'><code>frotz</code></span> e <span class='synopsis'><code>a/frotz</code></span>, que é um diretório (todos os caminhos são relativos a partir do arquivo <span class='synopsis'><code>.gitignore</code></span>).</p>
 </li>
 <li>
-<p>Um asterisco "<code>*</code>" corresponde a qualquer coisa, exceto uma barra. O caractere "<code>?</code>" corresponde a qualquer caractere, exceto "<code>/</code>". A notação de intervalo, por exemplo, <code>[a-zA-Z]</code>, pode ser usada para corresponder a um dos caracteres num intervalo. Consulte fnmatch(3) e a opção <code>FNM_PATHNAME</code> para obter uma descrição mais detalhada.</p>
+<p>Um asterisco "<span class='synopsis'><code>*</code></span>" corresponde a qualquer coisa, exceto uma barra. O caractere "<span class='synopsis'><em>?</em></span>" corresponde a qualquer caractere, exceto "<span class='synopsis'><code>/</code></span>". A notação de intervalo, por exemplo, <span class='synopsis'>[<code>a-zA-Z</code>]</span>, pode ser usada para corresponder a um dos caracteres num intervalo. Consulte fnmatch(3) e a opção <span class='synopsis'><code>FNM_PATHNAME</code></span> para obter uma descrição mais detalhada.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Dois asteriscos consecutivos ("<code>**</code>") nos padrões coincidentes ao <code>pathname</code> completo podem ter um significado especial:</p>
+<p>Dois asteriscos consecutivos ("<span class='synopsis'><code>**</code></span>") nos padrões coincidentes ao <span class='synopsis'><code>pathname</code></span> completo podem ter um significado especial:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Um "<code>**</code>" inicial seguido de uma barra significa que houve coincidência em todos os diretórios. Por exemplo, "<code>**foo</code>" é coincidente ao arquivo ou diretório "<code>foo</code>" em qualquer lugar, o mesmo que o padrão "<code>foo</code>". "<code>**/foo/bar</code>" é coincidente ao arquivo ou diretório "<code>bar</code>" em qualquer lugar que esteja diretamente sob o diretório "<code>foo</code>".</p>
+<p>Um "<span class='synopsis'><code>**</code></span>" inicial seguido de uma barra significa que houve coincidência em todos os diretórios. Por exemplo, "<span class='synopsis'><code>**foo</code></span>" é coincidente ao arquivo ou diretório "<span class='synopsis'><code>foo</code></span>" em qualquer lugar, o mesmo que o padrão "<span class='synopsis'><code>foo</code></span>". "<span class='synopsis'><code>**/foo/bar</code></span>" é coincidente ao arquivo ou diretório "<span class='synopsis'><code>bar</code></span>" em qualquer lugar que esteja diretamente sob o diretório "<span class='synopsis'><code>foo</code></span>".</p>
 </li>
 <li>
-<p>Um "<code>/**</code>" à direita corresponde a tudo que estiver dentro. Por exemplo, "<code>abc/**</code>" coincide todos os arquivos dentro do diretório "<code>abc</code>", relativos à localização do arquivo <code>.gitignore</code>, com uma profundidade infinita.</p>
+<p>Um "<span class='synopsis'><code>/**</code></span>" à direita corresponde a tudo que estiver dentro. Por exemplo, "<span class='synopsis'><code>abc/**</code></span>" coincide todos os arquivos dentro do diretório "<span class='synopsis'><code>abc</code></span>", relativos à localização do arquivo <span class='synopsis'><code>.gitignore</code></span>, com uma profundidade infinita.</p>
 </li>
 <li>
-<p>Uma barra seguida por dois asteriscos consecutivos e uma barra coincide com zero ou mais diretórios. Por exemplo, "<code>a/**/b</code>" coincide com "<code>a/b</code>", "<code>a/x/b</code>", "<code>a/x/y/b</code>" e assim por diante.</p>
+<p>Uma barra seguida por dois asteriscos consecutivos e uma barra coincide com zero ou mais diretórios. Por exemplo, "<span class='synopsis'><code>a/**/b</code></span>" coincide com "<span class='synopsis'><code>a/b</code></span>", "<span class='synopsis'><code>a/x/b</code></span>", "<span class='synopsis'><code>a/x/y/b</code></span>" e assim por diante.</p>
 </li>
 <li>
 <p>Outros asteriscos consecutivos são considerados asteriscos regulares e corresponderão de acordo com as regras anteriores.</p>
@@ -131,7 +150,7 @@ aliases:
 <h2 id="_configuração"><a class="anchor" href="#_configuração"></a>CONFIGURAÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A variável de configuração opcional <code>core.excludesFile</code> indica um caminho para um arquivo que contém padrões de nomes de arquivos que serão excluídos, semelhante a <code>$GIT_DIR/info/exclude</code>. Os padrões no arquivo de exclusão são usados além dos padrões em <code>$GIT_DIR/info/exclude</code>.</p>
+<p>A variável de configuração opcional <span class='synopsis'><code>core.excludesFile</code></span> indica um caminho para um arquivo que contém padrões de nomes de arquivos que serão excluídos, semelhante a <span class='synopsis'><code>$GIT_DIR/info/exclude</code></span>. Os padrões no arquivo de exclusão são usados além dos padrões em <span class='synopsis'><code>$GIT_DIR/info/exclude</code></span>.</p>
 </div>
 </div>
 </div>
@@ -142,10 +161,10 @@ aliases:
 <p>O objetivo dos arquivos gitignore é garantir que determinados arquivos não rastreados pelo git permaneçam não rastreados.</p>
 </div>
 <div class="paragraph">
-<p>Para parar de rastrear um arquivo que está sendo rastreado no momento, use <em>git rm --cached</em> para remover o arquivo do índice. O nome do arquivo pode então ser adicionado ao arquivo <code>.gitignore</code> para impedir que o arquivo seja reintroduzido em commits posteriores.</p>
+<p>Para parar de rastrear um arquivo que está sendo rastreado no momento, use <em>git rm --cached</em> para remover o arquivo do índice. O nome do arquivo pode então ser adicionado ao arquivo <span class='synopsis'><code>.gitignore</code></span> para impedir que o arquivo seja reintroduzido em commits posteriores.</p>
 </div>
 <div class="paragraph">
-<p>O git não segue links simbólicos ao acessar um arquivo <code>.gitignore</code> na árvore de trabalho. Isso mantém o comportamento consistente quando o arquivo é acessado a partir do índice ou de uma árvore em comparação com o sistema de arquivos.</p>
+<p>O git não segue links simbólicos ao acessar um arquivo <span class='synopsis'><code>.gitignore</code></span> na árvore de trabalho. Isso mantém o comportamento consistente quando o arquivo é acessado a partir do índice ou de uma árvore em comparação com o sistema de arquivos.</p>
 </div>
 </div>
 </div>
@@ -155,16 +174,16 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p>O padrão <code>hello.*</code> corresponde a qualquer arquivo ou diretório cujo nome comece com <code>hello.</code>. Se quisermos restringir isso apenas ao diretório e não aos seus subdiretórios, podemos preceder o padrão com uma barra, ou seja, <code>/hello.*</code>; o padrão agora corresponde a <code>hello.txt</code>, <code>hello.c</code>, mas não a <code>a/hello.java</code>.</p>
+<p>O padrão <span class='synopsis'><code>hello.*</code></span> corresponde a qualquer arquivo ou diretório cujo nome comece com <span class='synopsis'><code>hello.</code></span>. Se quisermos restringir isso apenas ao diretório e não aos seus subdiretórios, podemos preceder o padrão com uma barra, ou seja, <span class='synopsis'><code>/hello.*</code></span>; o padrão agora corresponde a <span class='synopsis'><code>hello.txt</code></span>, <span class='synopsis'><code>hello.c</code></span>, mas não a <span class='synopsis'><code>a/hello.java</code></span>.</p>
 </li>
 <li>
-<p>O padrão <code>foo/</code> corresponderá a um diretório <code>foo</code> e aos caminhos abaixo dele, mas não corresponderá a um arquivo regular ou a um link simbólico <code>foo</code> (isso é consistente com a maneira como o pathpec funciona em geral no git)</p>
+<p>O padrão <span class='synopsis'><code>foo/</code></span> corresponderá a um diretório <span class='synopsis'><code>foo</code></span> e aos caminhos abaixo dele, mas não corresponderá a um arquivo regular ou a um link simbólico <span class='synopsis'><code>foo</code></span> (isso é consistente com a maneira como o pathpec funciona em geral no git)</p>
 </li>
 <li>
-<p>Os padrões <code>doc/frotz</code> e <code>/doc/frotz</code> têm o mesmo efeito em qualquer arquivo <code>.gitignore</code>. Em outras palavras, uma barra na frente não é relevante se já houver uma barra no meio do padrão.</p>
+<p>Os padrões <span class='synopsis'><code>doc/frotz</code></span> e <span class='synopsis'><code>/doc/frotz</code></span> têm o mesmo efeito em qualquer arquivo <span class='synopsis'><code>.gitignore</code></span>. Em outras palavras, uma barra na frente não é relevante se já houver uma barra no meio do padrão.</p>
 </li>
 <li>
-<p>O padrão <code>foo/*</code> corresponde a <code>foo/test.json</code> (um arquivo regular), <code>foo/bar</code> (um diretório), mas não corresponde a <code>foo/bar/hello.c</code> (um arquivo regular), pois o asterisco no padrão não corresponde a <code>bar/hello.c</code>, que tem uma barra.</p>
+<p>O padrão <span class='synopsis'><code>foo/*</code></span> corresponde a <span class='synopsis'><code>foo/test.json</code></span> (um arquivo regular), <span class='synopsis'><code>foo/bar</code></span> (um diretório), mas não corresponde a <span class='synopsis'><code>foo/bar/hello.c</code></span> (um arquivo regular), pois o asterisco no padrão não corresponde a <span class='synopsis'><code>bar/hello.c</code></span>, que tem uma barra.</p>
 </li>
 </ul>
 </div>
@@ -209,10 +228,10 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>O segundo .gitignore impede que o git ignore o <code>arch/foo/kernel/vmlinux.lds.S</code>.</p>
+<p>O segundo .gitignore impede que o git ignore o <span class='synopsis'><code>arch/foo/kernel/vmlinux.lds.S</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Exemplo para excluir tudo, exceto um diretório específico <code>foo/bar</code> (observe o <code>/*</code> - sem a barra, o curinga também excluiria tudo dentro de <code>foo/bar</code>):</p>
+<p>Exemplo para excluir tudo, exceto um diretório específico <span class='synopsis'><code>foo/bar</code></span> (observe o <span class='synopsis'><code>/*</code></span> - sem a barra, o curinga também excluiria tudo dentro de <span class='synopsis'><code>foo/bar</code></span>):</p>
 </div>
 <div class="listingblock">
 <div class="content">

@@ -9,6 +9,21 @@ docname: git-bisect
 lang: pt_BR
 aliases:
 - "/docs/git-bisect/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: EXEMPLOS
+  id: _exemplos
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -49,15 +64,15 @@ git bisect help</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Este comando utiliza um algoritmo de pesquisa binária para descobrir qual o commit no histórico do seu projeto introduziu um "bug" (problema). Você o utiliza informando primeiro a um commit "bad" (ruim) que é informado por conter o bug e um commit "good" (bom) informado antes da introdução do bug. Então o comando <code>git bisect</code> seleciona um commit entre estes dois pontos extremos e pergunta se o commit selecionado é "bom" ou "ruim". Continua estreitando o intervalo até encontrar o commit exato responsável pela introdução da alteração.</p>
+<p>Este comando utiliza um algoritmo de pesquisa binária para descobrir qual o commit no histórico do seu projeto introduziu um "bug" (problema). Você o utiliza informando primeiro a um commit "bad" (ruim) que é informado por conter o bug e um commit "good" (bom) informado antes da introdução do bug. Então o comando <span class='synopsis'><code>git</code> <code>bisect</code></span> seleciona um commit entre estes dois pontos extremos e pergunta se o commit selecionado é "bom" ou "ruim". Continua estreitando o intervalo até encontrar o commit exato responsável pela introdução da alteração.</p>
 </div>
 <div class="paragraph">
-<p>De fato, o comando <code>git bisect</code> pode ser utilizado para encontrar o commit que alterou <strong>qualquer</strong> propriedade do seu projeto; um commit que corrigiu um problema ou um commit que fez com que o desempenho de um benchmark melhorasse por exemplo. Para dar apoio a nesta utilização mais genérica, os termos "old" (antigo) e "new" (novo) podem ser utilizados no lugar de "good" (bom) e "bad" (ruim), ou escolha os seus próprios termos. Consulte a seção "Termos alternativos" abaixo para obter mais informações.</p>
+<p>De fato, o comando <span class='synopsis'><code>git</code> <code>bisect</code></span> pode ser utilizado para encontrar o commit que alterou <strong>qualquer</strong> propriedade do seu projeto; um commit que corrigiu um problema ou um commit que fez com que o desempenho de um benchmark melhorasse por exemplo. Para dar apoio a nesta utilização mais genérica, os termos "old" (antigo) e "new" (novo) podem ser utilizados no lugar de "good" (bom) e "bad" (ruim), ou escolha os seus próprios termos. Consulte a seção "Termos alternativos" abaixo para obter mais informações.</p>
 </div>
 <div class="sect2">
-<h3 id="_comandos_bisect_básicos_start_começar_bad_ruim_good_bom"><a class="anchor" href="#_comandos_bisect_básicos_start_começar_bad_ruim_good_bom"></a>Comandos "bisect" básicos : <code>start</code> (começar), <code>bad</code> (ruim), <code>good</code> (bom)</h3>
+<h3 id="_comandos_bisect_básicos_start_começar_bad_ruim_good_bom"><a class="anchor" href="#_comandos_bisect_básicos_start_começar_bad_ruim_good_bom"></a>Comandos "bisect" básicos : <span class='synopsis'><code>start</code></span> (começar), <span class='synopsis'><code>bad</code></span> (ruim), <span class='synopsis'><code>good</code></span> (bom)</h3>
 <div class="paragraph">
-<p>Como exemplo, suponha que você esteja tentando encontrar um commit que estragou um recurso que funcionava na versão <code>v2.6.13-rc2</code> do seu projeto. Você começa uma seção "besect" como demonstrado abaixo:</p>
+<p>Como exemplo, suponha que você esteja tentando encontrar um commit que estragou um recurso que funcionava na versão <span class='synopsis'><code>v2.6.13-rc2</code></span> do seu projeto. Você começa uma seção "besect" como demonstrado abaixo:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -67,7 +82,7 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 é conhecido por estar bom</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Uma vez que você tenha utilizado pelo menos um commit ruim e um commit bom, o comando <code>git bisect</code> seleciona um commit no meio deste intervalo do histórico, faz a averiguação e produz algo por exemplo:</p>
+<p>Uma vez que você tenha utilizado pelo menos um commit ruim e um commit bom, o comando <span class='synopsis'><code>git</code> <code>bisect</code></span> seleciona um commit no meio deste intervalo do histórico, faz a averiguação e produz algo por exemplo:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -91,7 +106,7 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 é conhecido por estar bom</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Então o comando <code>git bisect</code> irá responder algo como</p>
+<p>Então o comando <span class='synopsis'><code>git</code> <code>bisect</code></span> irá responder algo como</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -99,16 +114,16 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 é conhecido por estar bom</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Continue repetindo o processo: compile a árvore, teste-a e dependendo se ela for boa ou ruim, execute o comando <code>git bisect good</code> ou <code>git bisect bad</code> para solicitar o próximo commit que precisa ser testado.</p>
+<p>Continue repetindo o processo: compile a árvore, teste-a e dependendo se ela for boa ou ruim, execute o comando <span class='synopsis'><code>git</code> <code>bisect</code> <code>good</code></span> ou <span class='synopsis'><code>git</code> <code>bisect</code> <code>bad</code></span> para solicitar o próximo commit que precisa ser testado.</p>
 </div>
 <div class="paragraph">
-<p>Eventualmente, não haverá mais revisões a serem inspecionadas e o comando exibirá uma descrição do primeiro commit ruim. A referência <code>refs/bisect/bad</code> será deixada apontando para o commit.</p>
+<p>Eventualmente, não haverá mais revisões a serem inspecionadas e o comando exibirá uma descrição do primeiro commit ruim. A referência <span class='synopsis'><code>refs/bisect/bad</code></span> será deixada apontando para o commit.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_bisect_reset"><a class="anchor" href="#_bisect_reset"></a>Bisect reset</h3>
 <div class="paragraph">
-<p>Para limpar a condição geral bisseção e retornar ao <code>HEAD</code> original, execute o seguinte comando:</p>
+<p>Para limpar a condição geral bisseção e retornar ao <span class='synopsis'><code>HEAD</code></span> original, execute o seguinte comando:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -116,7 +131,7 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 é conhecido por estar bom</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>É predefinido que isso retornará a sua árvore para o commit que foi verificado antes do comando <code>git bisect start</code>. (Um novo <code>git bisect start</code> também fará isso, já que ele limpa o antigo estado de bisseção.)</p>
+<p>É predefinido que isso retornará a sua árvore para o commit que foi verificado antes do comando <span class='synopsis'><code>git</code> <code>bisect</code> <code>start</code></span>. (Um novo <span class='synopsis'><code>git</code> <code>bisect</code> <code>start</code></span> também fará isso, já que ele limpa o antigo estado de bisseção.)</p>
 </div>
 <div class="paragraph">
 <p>Com um argumento opcional, você pode retornar para um commit diferente:</p>
@@ -127,7 +142,7 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 é conhecido por estar bom</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Por exemplo, <code>git bisect reset bisect/bad</code> irá verificar a primeira revisão ruim enquanto o <code>git bisect reset HEAD</code> deixará você no commit atual da bisseção evitando a alternância para outros commits.</p>
+<p>Por exemplo, <span class='synopsis'><code>git</code> <code>bisect</code> <code>reset</code> <code>bisect/bad</code></span> irá verificar a primeira revisão ruim enquanto o <span class='synopsis'><code>git</code> <code>bisect</code> <code>reset</code> <code>HEAD</code></span> deixará você no commit atual da bisseção evitando a alternância para outros commits.</p>
 </div>
 </div>
 <div class="sect2">
@@ -139,10 +154,10 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 é conhecido por estar bom</pre>
 <p>Nesses casos, pode ser muito confuso utilizar as opções "good" e "bad" para se referir a "condição antes da mudança" e "a condição após a mudança". Portanto, você pode utilizar os termos "old" e "new" respectivamente, no lugar de "good" e "bad". (Observe que não é possível misturar "good" e "bad" com "old" e "new" numa única sessão.)</p>
 </div>
 <div class="paragraph">
-<p>Neste uso mais geral, você utiliza o comando <code>git bisect</code> com um commit "new" que tem alguma propriedade e um commit "old" que não tem nenhuma. Cada vez que o comando <code>git bisect</code> faz a verificação de um commit, você testa se o commit tem a propriedade. Em caso afirmativo, marque o commit como "new"; Caso contrário, marque-o como "old". Quando a bisseção tiver sido concluída, o comando <code>git bisect</code> informará qual o commit que introduziu a propriedade.</p>
+<p>Neste uso mais geral, você utiliza o comando <span class='synopsis'><code>git</code> <code>bisect</code></span> com um commit "new" que tem alguma propriedade e um commit "old" que não tem nenhuma. Cada vez que o comando <span class='synopsis'><code>git</code> <code>bisect</code></span> faz a verificação de um commit, você testa se o commit tem a propriedade. Em caso afirmativo, marque o commit como "new"; Caso contrário, marque-o como "old". Quando a bisseção tiver sido concluída, o comando <span class='synopsis'><code>git</code> <code>bisect</code></span> informará qual o commit que introduziu a propriedade.</p>
 </div>
 <div class="paragraph">
-<p>Para utilizar "old" e "new" em vez de "good" e "bad", você deve executar <code>git bisect start</code> sem nenhum commit e depois executar os seguintes comandos para adicionar os commits:</p>
+<p>Para utilizar "old" e "new" em vez de "good" e "bad", você deve executar <span class='synopsis'><code>git</code> <code>bisect</code> <code>start</code></span> sem nenhum commit e depois executar os seguintes comandos para adicionar os commits:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -169,10 +184,10 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 é conhecido por estar bom</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can get just the old term with <code>git bisect terms --term-old</code> or <code>git bisect terms --term-good</code>; <code>git bisect terms --term-new</code> and <code>git bisect terms --term-bad</code> can be used to learn how to call the commits more recent than the sought change.</p>
+<p>You can get just the old term with <span class='synopsis'><code>git</code> <code>bisect</code> <code>terms</code> <code>--term-old</code></span> or <span class='synopsis'><code>git</code> <code>bisect</code> <code>terms</code> <code>--term-good</code></span>; <span class='synopsis'><code>git</code> <code>bisect</code> <code>terms</code> <code>--term-new</code></span> and <span class='synopsis'><code>git</code> <code>bisect</code> <code>terms</code> <code>--term-bad</code></span> can be used to learn how to call the commits more recent than the sought change.</p>
 </div>
 <div class="paragraph">
-<p>Caso queira utilizar os seus próprios termos em vez de "bad"/"good" ou "new"/"old", escolha qualquer nome que quiser (exceto os subcomandos bisect já existentes como <code>reset</code>, <code>start</code>, &#8230;&#8203;) iniciando uma bisseção utilizando</p>
+<p>Caso queira utilizar os seus próprios termos em vez de "bad"/"good" ou "new"/"old", escolha qualquer nome que quiser (exceto os subcomandos bisect já existentes como <span class='synopsis'><code>reset</code></span>, <span class='synopsis'><code>start</code></span>, &#8230;&#8203;) iniciando uma bisseção utilizando</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -196,13 +211,13 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 é conhecido por estar bom</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Então, utilize <code>git bisect &lt;termo-antigo&gt;</code> e <code>git bisect &lt;novo-termo&gt;</code> em vez de <code>git bisect good</code> e <code>git bisect bad</code> para marcar os commits.</p>
+<p>Então, utilize <span class='synopsis'><code>git</code> <code>bisect</code> <em>&lt;termo-antigo&gt;</em></span> e <span class='synopsis'><code>git</code> <code>bisect</code> <em>&lt;novo-termo&gt;</em></span> em vez de <span class='synopsis'><code>git</code> <code>bisect</code> <code>good</code></span> e <span class='synopsis'><code>git</code> <code>bisect</code> <code>bad</code></span> para marcar os commits.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_bisect_visualizeobserve"><a class="anchor" href="#_bisect_visualizeobserve"></a>Bisect visualize/observe</h3>
 <div class="paragraph">
-<p>Para ver os suspeitos restantes no <em>gitk</em>, utilize o seguinte comando durante o processo de bisseção (o <code>view</code> do subcomando pode ser utilizado como uma alternativa ao <code>visualize</code>):</p>
+<p>Para ver os suspeitos restantes no <em>gitk</em>, utilize o seguinte comando durante o processo de bisseção (o <span class='synopsis'><code>view</code></span> do subcomando pode ser utilizado como uma alternativa ao <span class='synopsis'><code>visualize</code></span>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -210,10 +225,10 @@ $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 é conhecido por estar bom</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>O Git detecta um ambiente gráfico através de várias variáveis de ambiente: <code>DISPLAY</code>, que é definido em ambientes X Window System nos sistemas Unix. <code>SESSIONNAME</code>, que é definido no Cygwin nas sessões de desktop interativas. <code>MSYSTEM</code>, que é definido no Msys2 e o Git para Windows. <code>SECURITYSESSIONID</code>, que pode ser definido no macOS nas sessões de ambiente de trabalho interativas.</p>
+<p>O Git detecta um ambiente gráfico através de várias variáveis de ambiente: <span class='synopsis'><code>DISPLAY</code></span>, que é definido em ambientes X Window System nos sistemas Unix. <span class='synopsis'><code>SESSIONNAME</code></span>, que é definido no Cygwin nas sessões de desktop interativas. <span class='synopsis'><code>MSYSTEM</code></span>, que é definido no Msys2 e o Git para Windows. <span class='synopsis'><code>SECURITYSESSIONID</code></span>, que pode ser definido no macOS nas sessões de ambiente de trabalho interativas.</p>
 </div>
 <div class="paragraph">
-<p>O <em>git log</em> será usado caso nenhuma destas variável de ambiente sejam definidas. Tamém é possível usar as opções de linha de comando como <code>-p</code> e <code>--stat</code>.</p>
+<p>O <em>git log</em> será usado caso nenhuma destas variável de ambiente sejam definidas. Tamém é possível usar as opções de linha de comando como <span class='synopsis'><code>-p</code></span> e <span class='synopsis'><code>--stat</code></span>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -284,7 +299,7 @@ $ git reset --hard HEAD~3		# tente 3 revisões anteriores
 </div>
 </div>
 <div class="paragraph">
-<p>Isso diz ao processo "bisect" que nenhum commit após a versão <code>v2.5</code> e até a versão <code>v2.6</code>, deve ser testada.</p>
+<p>Isso diz ao processo "bisect" que nenhum commit após a versão <span class='synopsis'><code>v2.5</code></span> e até a versão <span class='synopsis'><code>v2.6</code></span>, deve ser testada.</p>
 </div>
 <div class="paragraph">
 <p>Observe que, caso você também queira pular o primeiro commit do intervalo, utilize o seguinte comando:</p>
@@ -295,13 +310,13 @@ $ git reset --hard HEAD~3		# tente 3 revisões anteriores
 </div>
 </div>
 <div class="paragraph">
-<p>Informa ao processo "bisect" que os commits entre as versões <code>v2.5</code> e <code>v2.6</code> (inclusive) devem ser ignorados.</p>
+<p>Informa ao processo "bisect" que os commits entre as versões <span class='synopsis'><code>v2.5</code></span> e <span class='synopsis'><code>v2.6</code></span> (inclusive) devem ser ignorados.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_reduza_a_bisseção_informando_mais_parâmetros_para_o_início_do_bisect"><a class="anchor" href="#_reduza_a_bisseção_informando_mais_parâmetros_para_o_início_do_bisect"></a>Reduza a bisseção informando mais parâmetros para o início do bisect</h3>
 <div class="paragraph">
-<p>É possível reduzir ainda mais a quantidade de tentativas caso saiba qual parte da árvore está envolvida no problema que está sendo rastreado, especificando parâmetros de pathpec ao usar o comando <code>bisect start</code>:</p>
+<p>É possível reduzir ainda mais a quantidade de tentativas caso saiba qual parte da árvore está envolvida no problema que está sendo rastreado, especificando parâmetros de pathpec ao usar o comando <span class='synopsis'><code>bisect</code> <code>start</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -309,7 +324,7 @@ $ git reset --hard HEAD~3		# tente 3 revisões anteriores
 </div>
 </div>
 <div class="paragraph">
-<p>Caso saiba de antemão se há mais de um commit bom, é possível restringir o espaço do "bisect" ao informar todos os commits bons imediatamente após o commit com problema quando utilizar o comando <code>bisect start</code>:</p>
+<p>Caso saiba de antemão se há mais de um commit bom, é possível restringir o espaço do "bisect" ao informar todos os commits bons imediatamente após o commit com problema quando utilizar o comando <span class='synopsis'><code>bisect</code> <code>start</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -330,19 +345,19 @@ $ git reset --hard HEAD~3		# tente 3 revisões anteriores
 </div>
 </div>
 <div class="paragraph">
-<p>Observe que o script (<code>meu_script</code> no exemplo acima) deve encerrar com o código 0 caso o código-fonte atual seja bom/antigo e encerrar com um código entre 1 e 127 (inclusive), exceto 125, caso o código-fonte atual seja ruim/novo.</p>
+<p>Observe que o script (<span class='synopsis'><code>meu_script</code></span> no exemplo acima) deve encerrar com o código 0 caso o código-fonte atual seja bom/antigo e encerrar com um código entre 1 e 127 (inclusive), exceto 125, caso o código-fonte atual seja ruim/novo.</p>
 </div>
 <div class="paragraph">
-<p>Qualquer outro código gerado interromperá o processo bisect. Deve ser observado que um programa que encerra com <code>exit (-1)</code> deixa um $? = 255, (consulte a página do manual exit(3)), pois o valor é cortado com <code>&amp; 0377</code>.</p>
+<p>Qualquer outro código gerado interromperá o processo bisect. Deve ser observado que um programa que encerra com <span class='synopsis'><code>exit</code> (<code>-1</code>)</span> deixa um $? = 255, (consulte a página do manual exit(3)), pois o valor é cortado com <span class='synopsis'><em>&amp; 0377</em></span>.</p>
 </div>
 <div class="paragraph">
-<p>O código especial 125 da saída deve ser utilizado quando o código-fonte atual não puder ser testado. Caso o script encerre com este código, a revisão atual será ignorada (consulte o comando <code>git bisect skip</code> acima). O 125 foi selecionado como o maior valor a ser utilizado para esta finalidade, pois 126 e 127 são utilizandos pelos shells POSIX para sinalizar uma condição de erro específica (127 é utilizado para o comando não encontrado, 126 é para o comando que foi encontrado, mas não é executável - estes detalhes não são importantes, pois são erros normais do script, no que diz respeito ao comando <code>bisect run</code>).</p>
+<p>O código especial 125 da saída deve ser utilizado quando o código-fonte atual não puder ser testado. Caso o script encerre com este código, a revisão atual será ignorada (consulte o comando <span class='synopsis'><code>git</code> <code>bisect</code> <code>skip</code></span> acima). O 125 foi selecionado como o maior valor a ser utilizado para esta finalidade, pois 126 e 127 são utilizandos pelos shells POSIX para sinalizar uma condição de erro específica (127 é utilizado para o comando não encontrado, 126 é para o comando que foi encontrado, mas não é executável - estes detalhes não são importantes, pois são erros normais do script, no que diz respeito ao comando <span class='synopsis'><code>bisect</code> <code>run</code></span>).</p>
 </div>
 <div class="paragraph">
-<p>Muitas vezes você pode achar que durante uma sessão bisect você queira ter alterações temporárias (<code>s/#define DEBUG 0/#define DEBUG 1/</code> ao cabeçalho de um arquivo, ou "a revisão que não tem este commit e precisa que esta correção seja aplicada como um quebra galho que seja irrelevante para esta bisseção por exemplo") aplicada à revisão que está sendo testada.</p>
+<p>Muitas vezes você pode achar que durante uma sessão bisect você queira ter alterações temporárias (<span class='synopsis'><code>s/#define</code> <code>DEBUG</code> <code>0/#define</code> <code>DEBUG</code> <code>1/</code></span> ao cabeçalho de um arquivo, ou "a revisão que não tem este commit e precisa que esta correção seja aplicada como um quebra galho que seja irrelevante para esta bisseção por exemplo") aplicada à revisão que está sendo testada.</p>
 </div>
 <div class="paragraph">
-<p>Para lidar com essa situação, depois que o comando interno <em>git bisect</em> encontrar a próxima revisão que será testada, o script poderá aplicar a correção antes da compilação, executar o teste real, e depois, decidir se a revisão (possivelmente com a correção necessária) passou no teste, em seguida, retorna a árvore para o estado original. Finalmente, o script deve encerrar com a condição real do teste permitindo que o loop do comando <code>git bisect run</code> determine o resultado final da sessão bisect.</p>
+<p>Para lidar com essa situação, depois que o comando interno <em>git bisect</em> encontrar a próxima revisão que será testada, o script poderá aplicar a correção antes da compilação, executar o teste real, e depois, decidir se a revisão (possivelmente com a correção necessária) passou no teste, em seguida, retorna a árvore para o estado original. Finalmente, o script deve encerrar com a condição real do teste permitindo que o loop do comando <span class='synopsis'><code>git</code> <code>bisect</code> <code>run</code></span> determine o resultado final da sessão bisect.</p>
 </div>
 </div>
 </div>
@@ -355,13 +370,13 @@ $ git reset --hard HEAD~3		# tente 3 revisões anteriores
 <dt class="hdlist1" id="git-bisect---no-checkout"> <a class="anchor" href="#git-bisect---no-checkout"></a>--no-checkout </dt>
 <dd>
 <div class="paragraph">
-<p>Não faça o "checkout" da nova árvore de trabalho em cada iteração do processo de bissecção. Em vez disso, basta atualizar a referência chamada <code>BISECT_HEAD</code> para que ela aponte para o commit que deverá ser testado.</p>
+<p>Não faça o "checkout" da nova árvore de trabalho em cada iteração do processo de bissecção. Em vez disso, basta atualizar a referência chamada <span class='synopsis'><code>BISECT_HEAD</code></span> para que ela aponte para o commit que deverá ser testado.</p>
 </div>
 <div class="paragraph">
 <p>Essa opção pode ser útil quando o teste que você executaria em cada etapa não exigir uma árvore com check-out.</p>
 </div>
 <div class="paragraph">
-<p>Caso o repositório seja simples, assume-se a opção <code>--no-checkout</code>.</p>
+<p>Caso o repositório seja simples, assume-se a opção <span class='synopsis'><code>--no-checkout</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-bisect---first-parent"> <a class="anchor" href="#git-bisect---first-parent"></a>--first-parent </dt>
@@ -396,7 +411,7 @@ $ git bisect reset                   # encerra a seção bisect</pre>
 </div>
 </li>
 <li>
-<p>Faça o bisect automaticamente num teste que falhou entre a <code>origin</code> (origem) e o <code>HEAD</code>:</p>
+<p>Faça o bisect automaticamente num teste que falhou entre a <span class='synopsis'><code>origin</code></span> (origem) e o <span class='synopsis'><code>HEAD</code></span>:</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git bisect start HEAD origin --    # HEAD está ruim, origin está bom
@@ -419,10 +434,10 @@ $ git bisect reset                   # encerra a seção bisect</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Aqui utilizamos um script <code>test.sh</code>. Neste scriipt, caso o <code>make</code> falhe, nós ignoramos o commit atual. O arquivo <code>check_test_case.sh</code> deve encerrar com <code>exit 0</code> se o cenário de teste for aprovado, caso contrário, <code>exit 1</code>.</p>
+<p>Aqui utilizamos um script <span class='synopsis'><code>test.sh</code></span>. Neste scriipt, caso o <span class='synopsis'><code>make</code></span> falhe, nós ignoramos o commit atual. O arquivo <span class='synopsis'><code>check_test_case.sh</code></span> deve encerrar com <span class='synopsis'><code>exit</code> <code>0</code></span> se o cenário de teste for aprovado, caso contrário, <span class='synopsis'><code>exit</code> <code>1</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>É mais seguro se os arquivos <code>test.sh</code> e <code>check_test_case.sh</code> estiverem fora do repositório para evitar interações entre os processos <code>bisect</code>, <code>make</code>, <code>test</code> e os scripts.</p>
+<p>É mais seguro se os arquivos <span class='synopsis'><code>test.sh</code></span> e <span class='synopsis'><code>check_test_case.sh</code></span> estiverem fora do repositório para evitar interações entre os processos <span class='synopsis'><code>bisect</code></span>, <span class='synopsis'><code>make</code></span>, <span class='synopsis'><code>test</code></span> e os scripts.</p>
 </div>
 </li>
 <li>
@@ -453,7 +468,7 @@ existir $status</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>São aplicadas alterações de um hotfix para ramificação antes de cada teste, caso o seu ambiente de construção ou teste tenha sido alterado para que as revisões mais antigas precisem de uma correção que as mais recentes já tenham por exemplo. (Certifique-se que o hot-fix do ramo tenha base num commit que está contida em todos as revisões que você esteja fazendo o bisect, para que a mesclagem não realize muitos resgates ou utilize o comando <code>git cherry-pick</code> em vez do <code>git merge</code>. )</p>
+<p>São aplicadas alterações de um hotfix para ramificação antes de cada teste, caso o seu ambiente de construção ou teste tenha sido alterado para que as revisões mais antigas precisem de uma correção que as mais recentes já tenham por exemplo. (Certifique-se que o hot-fix do ramo tenha base num commit que está contida em todos as revisões que você esteja fazendo o bisect, para que a mesclagem não realize muitos resgates ou utilize o comando <span class='synopsis'><code>git</code> <code>cherry-pick</code></span> em vez do <span class='synopsis'><code>git</code> <code>merge</code></span>. )</p>
 </div>
 </li>
 <li>
@@ -514,7 +529,7 @@ $ git bisect broken HEAD~10</pre>
 <div class="sect2">
 <h3 id="_conseguindo_ajuda"><a class="anchor" href="#_conseguindo_ajuda"></a>Conseguindo ajuda</h3>
 <div class="paragraph">
-<p>Utilize o comando <code>git bisect</code> para obter uma descrição resumida da sua utilização e <code>git bisect help</code> ou <code>git bisect -h</code> para obter uma descrição completa.</p>
+<p>Utilize o comando <span class='synopsis'><code>git</code> <code>bisect</code></span> para obter uma descrição resumida da sua utilização e <span class='synopsis'><code>git</code> <code>bisect</code> <code>help</code></span> ou <span class='synopsis'><code>git</code> <code>bisect</code> <code>-h</code></span> para obter uma descrição completa.</p>
 </div>
 </div>
 </div>

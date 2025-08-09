@@ -9,6 +9,23 @@ docname: git-daemon
 lang: pt_BR
 aliases:
 - "/docs/git-daemon/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: SERVIÇOS
+  id: _serviços
+- text: EXEMPLOS
+  id: _exemplos
+- text: VARIÁVEIS DO AMBIENTE
+  id: _variáveis_do_ambiente
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -43,19 +60,19 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>É um daemon TCP Git bem simples que normalmente escuta na porta <code>DEFAULT_GIT_PORT</code> ou 9418. Ele aguarda uma conexão solicitando um serviço e atenderá a este serviço caso esteja ativado.</p>
+<p>É um daemon TCP Git bem simples que normalmente escuta na porta <span class='synopsis'><code>DEFAULT_GIT_PORT</code></span> ou 9418. Ele aguarda uma conexão solicitando um serviço e atenderá a este serviço caso esteja ativado.</p>
 </div>
 <div class="paragraph">
-<p>Ele verifica se o diretório possui o arquivo mágico "git-daemon-export-ok" e se recusará a exportar qualquer diretório Git que não tenha sido explicitamente marcado para exportação dessa maneira (a menos que o parâmetro <code>--export-all</code> seja utilizado). Caso passe alguns caminhos de diretórios como argumentos <em>git daemon</em>, os caminhos serão limitados a repositórios dentro desses diretórios.</p>
+<p>Ele verifica se o diretório possui o arquivo mágico "git-daemon-export-ok" e se recusará a exportar qualquer diretório Git que não tenha sido explicitamente marcado para exportação dessa maneira (a menos que o parâmetro <span class='synopsis'><code>--export-all</code></span> seja utilizado). Caso passe alguns caminhos de diretórios como argumentos <em>git daemon</em>, os caminhos serão limitados a repositórios dentro desses diretórios.</p>
 </div>
 <div class="paragraph">
-<p>É predefinido que apenas o serviço <code>upload-pack</code> esteja ativo, o que atende aos clientes são o <em>git fetch-pack</em> e <em>git ls-remote</em>, que são chamados de <em>git fetch</em>, <em>git pull</em> e <em>git clone</em>.</p>
+<p>É predefinido que apenas o serviço <span class='synopsis'><code>upload-pack</code></span> esteja ativo, o que atende aos clientes são o <em>git fetch-pack</em> e <em>git ls-remote</em>, que são chamados de <em>git fetch</em>, <em>git pull</em> e <em>git clone</em>.</p>
 </div>
 <div class="paragraph">
 <p>Isso é o ideal para as atualizações de somente leitura, ou seja, extrair dos repositórios Git.</p>
 </div>
 <div class="paragraph">
-<p>Também existe um <code>upload-archive</code> para servir o <code>git archive</code> .</p>
+<p>Também existe um <span class='synopsis'><code>upload-archive</code></span> para servir o <span class='synopsis'><code>git</code> <code>archive</code></span> .</p>
 </div>
 </div>
 </div>
@@ -70,7 +87,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-daemon---base-pathltcaminhogt"> <a class="anchor" href="#git-daemon---base-pathcaminho"></a> <a class="anchor" href="#git-daemon---base-pathltcaminhogt"></a>--base-path=&lt;caminho&gt; </dt>
 <dd>
-<p>Remapeia todas as solicitações de caminho como sendo relativas ao caminho informado. Isso é meio que um "Git root" - se você executar o <em>git daemon</em> com a opção <em>--base-path=/srv/git</em> no domínio example.com, então posteriormente tentar fazer um <em>pull</em> em <em>git://example.com/hello.git</em>, o comando <em>git daemon</em> interpretará o caminho como <code>/srv/git/hello.git</code>.</p>
+<p>Remapeia todas as solicitações de caminho como sendo relativas ao caminho informado. Isso é meio que um "Git root" - se você executar o <em>git daemon</em> com a opção <em>--base-path=/srv/git</em> no domínio example.com, então posteriormente tentar fazer um <em>pull</em> em <em>git://example.com/hello.git</em>, o comando <em>git daemon</em> interpretará o caminho como <span class='synopsis'><code>/srv/git/hello.git</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon---base-path-relaxed"> <a class="anchor" href="#git-daemon---base-path-relaxed"></a>--base-path-relaxed </dt>
 <dd>
@@ -86,15 +103,15 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-daemon---inetd"> <a class="anchor" href="#git-daemon---inetd"></a>--inetd </dt>
 <dd>
-<p>Faça com que o servidor seja executado como um serviço <em>inetd</em>. Implica no uso da opção <code>--syslog</code> (pode ser substituído por <code>--log-destination=</code>). É incompatível com as opções <code>--detach</code>, <code>--port</code>, <code>--listen</code>, <code>--user</code> e <code>--group</code>.</p>
+<p>Faça com que o servidor seja executado como um serviço <em>inetd</em>. Implica no uso da opção <span class='synopsis'><code>--syslog</code></span> (pode ser substituído por <span class='synopsis'><code>--log-destination=</code></span>). É incompatível com as opções <span class='synopsis'><code>--detach</code></span>, <span class='synopsis'><code>--port</code></span>, <span class='synopsis'><code>--listen</code></span>, <span class='synopsis'><code>--user</code></span> e <span class='synopsis'><code>--group</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon---listenlthost-ou-endereo-IPgt"> <a class="anchor" href="#git-daemon---listenhost-ou-endereo-IP"></a> <a class="anchor" href="#git-daemon---listenlthost-ou-endereo-IPgt"></a>--listen=&lt;host-ou-endereço-IP&gt; </dt>
 <dd>
-<p>Escute num endereço IP ou host específico. Os endereços IP podem ser um endereço IPv4 ou um endereço IPv6, caso haja suporte. Se não houver suporte para o IPv6, então <code>--listen=&lt;nome-do-host&gt;</code> também será incompatível e a opção <code>--listen</code> deverá usar um endereço IPv4. Pode ser usado mais de uma vez É incompatível com a opção <code>--inetd</code>.</p>
+<p>Escute num endereço IP ou host específico. Os endereços IP podem ser um endereço IPv4 ou um endereço IPv6, caso haja suporte. Se não houver suporte para o IPv6, então <span class='synopsis'><code>--listen=</code><em>&lt;nome-do-host&gt;</em></span> também será incompatível e a opção <span class='synopsis'><code>--listen</code></span> deverá usar um endereço IPv4. Pode ser usado mais de uma vez É incompatível com a opção <span class='synopsis'><code>--inetd</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon---portltngt"> <a class="anchor" href="#git-daemon---portn"></a> <a class="anchor" href="#git-daemon---portltngt"></a>--port=&lt;n&gt; </dt>
 <dd>
-<p>Escuta numa porta alternativa. É incompatível com a opção <code>--inetd</code>.</p>
+<p>Escuta numa porta alternativa. É incompatível com a opção <span class='synopsis'><code>--inetd</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon---init-timeoutltngt"> <a class="anchor" href="#git-daemon---init-timeoutn"></a> <a class="anchor" href="#git-daemon---init-timeoutltngt"></a>--init-timeout=&lt;n&gt; </dt>
 <dd>
@@ -110,22 +127,22 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-daemon---syslog"> <a class="anchor" href="#git-daemon---syslog"></a>--syslog </dt>
 <dd>
-<p>É um atalho para <code>--log-destination=syslog</code>.</p>
+<p>É um atalho para <span class='synopsis'><code>--log-destination=syslog</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon---log-destinationltdestinogt"> <a class="anchor" href="#git-daemon---log-destinationdestino"></a> <a class="anchor" href="#git-daemon---log-destinationltdestinogt"></a>--log-destination=&lt;destino&gt; </dt>
 <dd>
-<p>Envia mensagens do registro log para o destino informado. Observe que esta opção não obriga o uso da opção <code>--verbose</code>, portanto, é predefinido que apenas as condições de erro sejam registradas. O &lt;destino&gt; deve ser um dos seguintes:</p>
+<p>Envia mensagens do registro log para o destino informado. Observe que esta opção não obriga o uso da opção <span class='synopsis'><code>--verbose</code></span>, portanto, é predefinido que apenas as condições de erro sejam registradas. O &lt;destino&gt; deve ser um dos seguintes:</p>
 <div class="openblock">
 <div class="content">
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-daemon-stderr"> <a class="anchor" href="#git-daemon-stderr"></a>stderr </dt>
 <dd>
-<p>Registrar no erro predefinido. Observe que caso a opção <code>--detach</code> for usada, o processo se desconectará do erro real predefinido, tornando esse destino efetivamente equivalente a <code>none</code>.</p>
+<p>Registrar no erro predefinido. Observe que caso a opção <span class='synopsis'><code>--detach</code></span> for usada, o processo se desconectará do erro real predefinido, tornando esse destino efetivamente equivalente a <span class='synopsis'><code>none</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon-syslog"> <a class="anchor" href="#git-daemon-syslog"></a>syslog </dt>
 <dd>
-<p>Escreva para o syslog utilizando o identificador <code>git-daemon</code>.</p>
+<p>Escreva para o syslog utilizando o identificador <span class='synopsis'><code>git-daemon</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon-none"> <a class="anchor" href="#git-daemon-none"></a>none </dt>
 <dd>
@@ -136,13 +153,13 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>A predefinição para o destino é <code>syslog</code> caso <code>--inetd</code> ou <code>--detach</code> seja utilizado, caso contrário será o <code>stderr</code>.</p>
+<p>A predefinição para o destino é <span class='synopsis'><code>syslog</code></span> caso <span class='synopsis'><code>--inetd</code></span> ou <span class='synopsis'><code>--detach</code></span> seja utilizado, caso contrário será o <span class='synopsis'><code>stderr</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-daemon---user-path"> <a class="anchor" href="#git-daemon---user-path"></a>--user-path </dt>
 <dt class="hdlist1" id="git-daemon---user-pathltcaminhogt"> <a class="anchor" href="#git-daemon---user-pathcaminho"></a> <a class="anchor" href="#git-daemon---user-pathltcaminhogt"></a>--user-path=&lt;caminho&gt; </dt>
 <dd>
-<p>Permite que a notação de usuário {~} (tilde) (til) seja usada nas solicitações. Quando especificado sem parâmetro, uma solicitação para <code>git://host/{tilde}alice/foo</code> seja considerada como uma solicitação para acessar o repositório <em>foo</em> no diretório raiz do usuário <code>alice</code>. Se a opção <code>--user-path=&lt;caminho&gt;</code> for especificada, a mesma solicitação será considerada como uma solicitação para acessar o repositório <code>&lt;path&gt;/foo</code> no diretório raiz do usuário <code>alice</code>.</p>
+<p>Permite que a notação de usuário {~} (tilde) (til) seja usada nas solicitações. Quando especificado sem parâmetro, uma solicitação para <span class='synopsis'><code>git://host/{tilde}alice/foo</code></span> seja considerada como uma solicitação para acessar o repositório <em>foo</em> no diretório raiz do usuário <span class='synopsis'><code>alice</code></span>. Se a opção <span class='synopsis'><code>--user-path=</code><em>&lt;caminho&gt;</em></span> for especificada, a mesma solicitação será considerada como uma solicitação para acessar o repositório <span class='synopsis'><em>&lt;path&gt;</em><code>/foo</code></span> no diretório raiz do usuário <span class='synopsis'><code>alice</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon---verbose"> <a class="anchor" href="#git-daemon---verbose"></a>--verbose </dt>
 <dd>
@@ -154,21 +171,21 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-daemon---detach"> <a class="anchor" href="#git-daemon---detach"></a>--detach </dt>
 <dd>
-<p>Desanexe do shell; Implica no uso da opção <code>--syslog</code>.</p>
+<p>Desanexe do shell; Implica no uso da opção <span class='synopsis'><code>--syslog</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon---pid-fileltarquivogt"> <a class="anchor" href="#git-daemon---pid-filearquivo"></a> <a class="anchor" href="#git-daemon---pid-fileltarquivogt"></a>--pid-file=&lt;arquivo&gt; </dt>
 <dd>
-<p>Salva a ID o processo no <em>arquivo</em>. É ignorado quando o daemon é executado com a opção <code>--inetd</code>.</p>
+<p>Salva a ID o processo no <em>arquivo</em>. É ignorado quando o daemon é executado com a opção <span class='synopsis'><code>--inetd</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon---userltusuriogt"> <a class="anchor" href="#git-daemon---userusurio"></a> <a class="anchor" href="#git-daemon---userltusuriogt"></a>--user=&lt;usuário&gt; </dt>
 <dt class="hdlist1" id="git-daemon---groupltgrupogt"> <a class="anchor" href="#git-daemon---groupgrupo"></a> <a class="anchor" href="#git-daemon---groupltgrupogt"></a>--group=&lt;grupo&gt; </dt>
 <dd>
-<p>Altere o uid e o gid do daemon antes de entrar no loop de serviço. Quando apenas a opção <code>--user</code> usada e sem a opção <code>--group</code>, será usada a ID do grupo primário do usuário. Os valores da opção são repassadas ao <code>getpwnam(3)</code> e ao <code>getgrnam(3)</code> não há suporte para IDs numéricas.</p>
+<p>Altere o uid e o gid do daemon antes de entrar no loop de serviço. Quando apenas a opção <span class='synopsis'><code>--user</code></span> usada e sem a opção <span class='synopsis'><code>--group</code></span>, será usada a ID do grupo primário do usuário. Os valores da opção são repassadas ao <span class='synopsis'><code>getpwnam</code>(<code>3</code>)</span> e ao <span class='synopsis'><code>getgrnam</code>(<code>3</code>)</span> não há suporte para IDs numéricas.</p>
 <div class="paragraph">
-<p>Usar estas opções é um erro quando utilizado em conjunto com <code>--inetd</code>; utilize o recurso do inet daemon para obter o mesmo efeito antes de gerar o <em>git daemon</em>, caso seja necessário.</p>
+<p>Usar estas opções é um erro quando utilizado em conjunto com <span class='synopsis'><code>--inetd</code></span>; utilize o recurso do inet daemon para obter o mesmo efeito antes de gerar o <em>git daemon</em>, caso seja necessário.</p>
 </div>
 <div class="paragraph">
-<p>Como muitos programas que alternam o ID do usuário, o daemon não redefine as variáveis de ambiente como <code>$HOME</code> quando executa programas como o git, por exemplo, o <code>upload-pack</code> e <code>receive-pack</code>. Ao usar esta opção, você também pode definir e exportar <code>HOME</code> para apontar para o diretório inicial do <code>&lt;usuário&gt;</code> antes de iniciar o daemon e verifique se todos os arquivos da configuração do Git nesse diretório são legíveis pelo <code>&lt;usuário&gt;</code>.</p>
+<p>Como muitos programas que alternam o ID do usuário, o daemon não redefine as variáveis de ambiente como <span class='synopsis'><code>$HOME</code></span> quando executa programas como o git, por exemplo, o <span class='synopsis'><code>upload-pack</code></span> e <span class='synopsis'><code>receive-pack</code></span>. Ao usar esta opção, você também pode definir e exportar <span class='synopsis'><code>HOME</code></span> para apontar para o diretório inicial do <span class='synopsis'><em>&lt;usuário&gt;</em></span> antes de iniciar o daemon e verifique se todos os arquivos da configuração do Git nesse diretório são legíveis pelo <span class='synopsis'><em>&lt;usuário&gt;</em></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-daemon---enableltserviogt"> <a class="anchor" href="#git-daemon---enableservio"></a> <a class="anchor" href="#git-daemon---enableltserviogt"></a>--enable=&lt;serviço&gt; </dt>
@@ -183,18 +200,18 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-daemon---no-informative-errors"> <a class="anchor" href="#git-daemon---no-informative-errors"></a>--[no-]informative-errors </dt>
 <dd>
-<p>Quando os erros informativos estiverem ativados, o <em>git-daemon</em> relatará ao cliente erros mais detalhados, diferenciando as condições como "não existe tal repositório" de "repositório não exportado". Isso é bem mais conveniente para os clientes, contudo, pode vazar informações sobre a existência de repositórios que não foram exportados. Quando os erros informativos não estão ativados, todos os erros informam "acesso negado" ao cliente. A predefinição é <code>--no-informative-errors</code>.</p>
+<p>Quando os erros informativos estiverem ativados, o <em>git-daemon</em> relatará ao cliente erros mais detalhados, diferenciando as condições como "não existe tal repositório" de "repositório não exportado". Isso é bem mais conveniente para os clientes, contudo, pode vazar informações sobre a existência de repositórios que não foram exportados. Quando os erros informativos não estão ativados, todos os erros informam "acesso negado" ao cliente. A predefinição é <span class='synopsis'><code>--no-informative-errors</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon---access-hookltcaminhogt"> <a class="anchor" href="#git-daemon---access-hookcaminho"></a> <a class="anchor" href="#git-daemon---access-hookltcaminhogt"></a>--access-hook=&lt;caminho&gt; </dt>
 <dd>
-<p>Toda vez que um cliente se conectar, primeiro execute um comando externo especificado pelo <code>&lt;caminho&gt;</code> com o nome do serviço ("upload-pack" por exemplo), o caminho para o repositório, o nome do host (<em>%H</em>), o nome do host canônico (<em>%CH</em>), o endereço IP (<em>%IP</em>) e a porta TCP (<em>%IP</em>) como seus argumentos de linha de comando. O comando externo pode decidir recusar o serviço, encerrando com uma condição diferente de zero (ou permitindo, encerrando com uma condição igual a zero). Ele também pode examinar as variáveis de ambiente <code>$REMOTE_ADDR</code> e <code>$REMOTE_PORT</code> para saber mais sobre o solicitante ao tomar esta decisão.</p>
+<p>Toda vez que um cliente se conectar, primeiro execute um comando externo especificado pelo <span class='synopsis'><em>&lt;caminho&gt;</em></span> com o nome do serviço ("upload-pack" por exemplo), o caminho para o repositório, o nome do host (<em>%H</em>), o nome do host canônico (<em>%CH</em>), o endereço IP (<em>%IP</em>) e a porta TCP (<em>%IP</em>) como seus argumentos de linha de comando. O comando externo pode decidir recusar o serviço, encerrando com uma condição diferente de zero (ou permitindo, encerrando com uma condição igual a zero). Ele também pode examinar as variáveis de ambiente <span class='synopsis'><code>$REMOTE_ADDR</code></span> e <span class='synopsis'><code>$REMOTE_PORT</code></span> para saber mais sobre o solicitante ao tomar esta decisão.</p>
 <div class="paragraph">
 <p>O comando externo pode, opcionalmente, gravar uma única linha em sua saída padrão para ser enviada ao solicitante como uma mensagem de erro quando ele recusar o serviço.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-daemon-ltdiretriogt"> <a class="anchor" href="#git-daemon-diretrio"></a> <a class="anchor" href="#git-daemon-ltdiretriogt"></a>&lt;diretório&gt; </dt>
 <dd>
-<p>Os argumentos restantes fornecem uma lista de diretórios. Caso algum diretório seja definido, então o processo <code>git-daemon</code> ofertará um diretório solicitado somente se este estiver contido num destes diretórios. Caso a opção <code>--strict-paths</code> seja informada, o diretório solicitado deve corresponder exatamente a um destes diretórios.</p>
+<p>Os argumentos restantes fornecem uma lista de diretórios. Caso algum diretório seja definido, então o processo <span class='synopsis'><code>git-daemon</code></span> ofertará um diretório solicitado somente se este estiver contido num destes diretórios. Caso a opção <span class='synopsis'><code>--strict-paths</code></span> seja informada, o diretório solicitado deve corresponder exatamente a um destes diretórios.</p>
 </dd>
 </dl>
 </div>
@@ -210,15 +227,15 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-daemon-upload-pack"> <a class="anchor" href="#git-daemon-upload-pack"></a>upload-pack </dt>
 <dd>
-<p>Isso oferece aos clientes <em>git fetch-pack</em> e <em>git ls-remote</em>. Ele é ativado por padrão, mas um repositório pode desativá-lo definindo o item de configuração <code>daemon.uploadpack</code> como <code>false</code>.</p>
+<p>Isso oferece aos clientes <em>git fetch-pack</em> e <em>git ls-remote</em>. Ele é ativado por padrão, mas um repositório pode desativá-lo definindo o item de configuração <span class='synopsis'><code>daemon.uploadpack</code></span> como <span class='synopsis'><code>false</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon-upload-archive"> <a class="anchor" href="#git-daemon-upload-archive"></a>upload-archive </dt>
 <dd>
-<p>This oferece <em>git archive --remote</em>. Ele é desativado por padrão, mas um repositório pode ativá-lo definindo o item de configuração <code>daemon.uploadarch</code> como <code>true</code>.</p>
+<p>This oferece <em>git archive --remote</em>. Ele é desativado por padrão, mas um repositório pode ativá-lo definindo o item de configuração <span class='synopsis'><code>daemon.uploadarch</code></span> como <span class='synopsis'><code>true</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-daemon-receive-pack"> <a class="anchor" href="#git-daemon-receive-pack"></a>receive-pack </dt>
 <dd>
-<p>Isso oferece aos clientes <em>git send-pack</em>, permitindo um <code>push</code> anônimo. Ele é desativado por padrão, pois não há nenhuma autenticação no protocolo (em outras palavras, qualquer pessoa pode enviar qualquer coisa para o repositório, inclusive a remoção das referências). Isso se destina exclusivamente a uma configuração com LAN fechada onde todos sejam conhecidos. Esse serviço pode ser ativado definindo o item de configuração <code>daemon.receivepack</code> como <code>true</code>.</p>
+<p>Isso oferece aos clientes <em>git send-pack</em>, permitindo um <span class='synopsis'><code>push</code></span> anônimo. Ele é desativado por padrão, pois não há nenhuma autenticação no protocolo (em outras palavras, qualquer pessoa pode enviar qualquer coisa para o repositório, inclusive a remoção das referências). Isso se destina exclusivamente a uma configuração com LAN fechada onde todos sejam conhecidos. Esse serviço pode ser ativado definindo o item de configuração <span class='synopsis'><code>daemon.receivepack</code></span> como <span class='synopsis'><code>true</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -229,7 +246,7 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-daemon-Assumimososeguinteemcodeetcservicescode"> <a class="anchor" href="#git-daemon-Assumimososeguinteemetcservices"></a> <a class="anchor" href="#git-daemon-Assumimososeguinteemcodeetcservicescode"></a>Assumimos o seguinte em <code>/etc/services</code> </dt>
+<dt class="hdlist1" id="git-daemon-Assumimososeguinteemspanclasssynopsiscodeetcservicescodespan"> <a class="anchor" href="#git-daemon-Assumimososeguinteemetcservices"></a> <a class="anchor" href="#git-daemon-Assumimososeguinteemspanclasssynopsiscodeetcservicescodespan"></a>Assumimos o seguinte em <span class='synopsis'><code>/etc/services</code></span> </dt>
 <dd>
 <div class="listingblock">
 <div class="content">
@@ -240,7 +257,7 @@ git		9418/tcp		# Controle de Versão do Sistema Git</pre>
 </dd>
 <dt class="hdlist1" id="git-daemon-emgitdaemonemcomoumservidorinetd"> <a class="anchor" href="#git-daemon-gitdaemoncomoumservidorinetd"></a> <a class="anchor" href="#git-daemon-emgitdaemonemcomoumservidorinetd"></a><em>git daemon</em> como um servidor inetd </dt>
 <dd>
-<p>Para configurar o <em>git daemon</em> como um serviço inetd que lida com qualquer repositório dentro de <code>/pub/foo</code> ou <code>/pub/bar</code>, insira uma entrada como demonstrado abaixo em <code>/etc/inetd</code>, tudo numa linha só:</p>
+<p>Para configurar o <em>git daemon</em> como um serviço inetd que lida com qualquer repositório dentro de <span class='synopsis'><code>/pub/foo</code></span> ou <span class='synopsis'><code>/pub/bar</code></span>, insira uma entrada como demonstrado abaixo em <span class='synopsis'><code>/etc/inetd</code></span>, tudo numa linha só:</p>
 <div class="listingblock">
 <div class="content">
 <pre>	git stream tcp nowait nobody  /usr/bin/git
@@ -251,7 +268,7 @@ git		9418/tcp		# Controle de Versão do Sistema Git</pre>
 </dd>
 <dt class="hdlist1" id="git-daemon-emgitdaemonemcomoservidorinetdparahostsvirtuais"> <a class="anchor" href="#git-daemon-gitdaemoncomoservidorinetdparahostsvirtuais"></a> <a class="anchor" href="#git-daemon-emgitdaemonemcomoservidorinetdparahostsvirtuais"></a><em>git daemon</em> como servidor inetd para hosts virtuais </dt>
 <dd>
-<p>Para configurar o <em>git daemon</em> como um serviço inetd que lida com repositórios com diferentes hosts virtuais, <code>www.example.com</code> e <code>www.example.org</code>, coloque uma entrada como a seguinte em <code>/etc/inetd</code> tudo numa linha:</p>
+<p>Para configurar o <em>git daemon</em> como um serviço inetd que lida com repositórios com diferentes hosts virtuais, <span class='synopsis'><code>www.example.com</code></span> e <span class='synopsis'><code>www.example.org</code></span>, coloque uma entrada como a seguinte em <span class='synopsis'><code>/etc/inetd</code></span> tudo numa linha:</p>
 <div class="listingblock">
 <div class="content">
 <pre>	git stream tcp nowait nobody /usr/bin/git
@@ -263,7 +280,7 @@ git		9418/tcp		# Controle de Versão do Sistema Git</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Neste exemplo, o diretório de nível raiz <code>/pub</code> terá um subdiretório para cada nome de host virtual suportado. Além disso, ambos os hosts anunciam os repositórios simplesmente como <code>git://www.example.com/software/repo.git</code>. Para clientes anteriores à versão 1.4.0, também é possível criar um link simbólico de <code>/software</code> para o repositório padrão apropriado.</p>
+<p>Neste exemplo, o diretório de nível raiz <span class='synopsis'><code>/pub</code></span> terá um subdiretório para cada nome de host virtual suportado. Além disso, ambos os hosts anunciam os repositórios simplesmente como <span class='synopsis'><code>git://www.example.com/software/repo.git</code></span>. Para clientes anteriores à versão 1.4.0, também é possível criar um link simbólico de <span class='synopsis'><code>/software</code></span> para o repositório padrão apropriado.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-daemon-Oemgitdaemonemcomodaemonregularparahostsvirtuais"> <a class="anchor" href="#git-daemon-Ogitdaemoncomodaemonregularparahostsvirtuais"></a> <a class="anchor" href="#git-daemon-Oemgitdaemonemcomodaemonregularparahostsvirtuais"></a>O <em>git daemon</em> como daemon regular para hosts virtuais </dt>
@@ -278,12 +295,12 @@ git		9418/tcp		# Controle de Versão do Sistema Git</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Neste exemplo, o diretório de nível raiz <code>/pub</code> terá um subdiretório para cada endereço IP de host virtual suportado. No entanto, os repositórios ainda podem ser acessados pelo nome do host, desde que correspondam a estes endereços IP.</p>
+<p>Neste exemplo, o diretório de nível raiz <span class='synopsis'><code>/pub</code></span> terá um subdiretório para cada endereço IP de host virtual suportado. No entanto, os repositórios ainda podem ser acessados pelo nome do host, desde que correspondam a estes endereços IP.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-daemon-ativaroudesativarseletivamenteosserviosporrepositrio"> <a class="anchor" href="#git-daemon-ativaroudesativarseletivamenteosserviosporrepositrio"></a>ativar ou desativar seletivamente os serviços por repositório </dt>
 <dd>
-<p>Para ativar faça <code>git archive --remote</code> e desative o <code>git fetch</code> num repositório, faça o seguinte no arquivo de configuração no repositório (que é o arquivo <em>config</em> próximo ao <code>HEAD</code>, <em>refs</em> e 'objects ').</p>
+<p>Para ativar faça <span class='synopsis'><code>git</code> <code>archive</code> <code>--remote</code></span> e desative o <span class='synopsis'><code>git</code> <code>fetch</code></span> num repositório, faça o seguinte no arquivo de configuração no repositório (que é o arquivo <em>config</em> próximo ao <span class='synopsis'><code>HEAD</code></span>, <em>refs</em> e 'objects ').</p>
 <div class="listingblock">
 <div class="content">
 <pre>	[daemon]
@@ -300,7 +317,7 @@ git		9418/tcp		# Controle de Versão do Sistema Git</pre>
 <h2 id="_variáveis_do_ambiente"><a class="anchor" href="#_variáveis_do_ambiente"></a>VARIÁVEIS DO AMBIENTE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O <code>git daemon</code> configurará o <code>REMOTE_ADDR</code> para o endereço IP do cliente conectado a ele caso o endereço IP esteja disponível. O <code>REMOTE_ADDR</code> estará disponível no ambiente dos chamados ganchos quando os serviços forem executados.</p>
+<p>O <span class='synopsis'><code>git</code> <code>daemon</code></span> configurará o <span class='synopsis'><code>REMOTE_ADDR</code></span> para o endereço IP do cliente conectado a ele caso o endereço IP esteja disponível. O <span class='synopsis'><code>REMOTE_ADDR</code></span> estará disponível no ambiente dos chamados ganchos quando os serviços forem executados.</p>
 </div>
 </div>
 </div>

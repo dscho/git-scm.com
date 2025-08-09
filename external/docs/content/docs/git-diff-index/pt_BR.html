@@ -9,6 +9,23 @@ docname: git-diff-index
 lang: pt_BR
 aliases:
 - "/docs/git-diff-index/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: MODOS DE OPERAÇÃO
+  id: _modos_de_operação
+- text: MODO EM CACHE
+  id: _modo_em_cache
+- text: MODO SEM CACHE
+  id: _modo_sem_cache
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -45,7 +62,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/diff-options.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/diff-options.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -66,7 +83,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-diff-index---merge-base"> <a class="anchor" href="#git-diff-index---merge-base"></a>--merge-base </dt>
 <dd>
-<p>Em vez de fazer a comparação direta de <code>&lt;tree-ish&gt;</code> , use a base mesclada entre <code>&lt;tree-ish&gt;</code> e <code>HEAD</code>. O <code>&lt;tree-ish&gt;</code> deve ser um commit.</p>
+<p>Em vez de fazer a comparação direta de <span class='synopsis'><em>&lt;tree-ish&gt;</em></span> , use a base mesclada entre <span class='synopsis'><em>&lt;tree-ish&gt;</em></span> e <span class='synopsis'><code>HEAD</code></span>. O <span class='synopsis'><em>&lt;tree-ish&gt;</em></span> deve ser um commit.</p>
 </dd>
 <dt class="hdlist1" id="git-diff-index--m"> <a class="anchor" href="#git-diff-index--m"></a>-m </dt>
 <dd>
@@ -82,7 +99,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/diff-format.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/diff-format.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -97,7 +114,7 @@ aliases:
 <h2 id="_modos_de_operação"><a class="anchor" href="#_modos_de_operação"></a>MODOS DE OPERAÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Você pode escolher se deseja confiar totalmente no arquivo no índice (usando o a opção <code>--cached</code>) ou solicitar que a lógica do diff mostre todos os arquivos que não correspondam ao estado de estatísticas como sendo "provisoriamente alterados". Ambas as operações são realmente úteis.</p>
+<p>Você pode escolher se deseja confiar totalmente no arquivo no índice (usando o a opção <span class='synopsis'><code>--cached</code></span>) ou solicitar que a lógica do diff mostre todos os arquivos que não correspondam ao estado de estatísticas como sendo "provisoriamente alterados". Ambas as operações são realmente úteis.</p>
 </div>
 </div>
 </div>
@@ -105,7 +122,7 @@ aliases:
 <h2 id="_modo_em_cache"><a class="anchor" href="#_modo_em_cache"></a>MODO EM CACHE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Caso <code>--cached</code> seja utilizado, será permitido que você pergunte:</p>
+<p>Caso <span class='synopsis'><code>--cached</code></span> seja utilizado, será permitido que você pergunte:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -122,7 +139,7 @@ teor (os que eu escreveria utilizando 'git write-tree')</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Exemplo: digamos que eu tenha renomeado o arquivo <code>commit.c</code> para <code>git-commit.c</code> e tenha feito um <code>update-index</code> para tornar isso efetivo no índice do arquivo. O comando <code>git diff-files</code> não mostraria nada, pois o índice do arquivo corresponde ao meu diretório de trabalho. Porém, ao o comando <em>git diff-index</em> ele faz:</p>
+<p>Exemplo: digamos que eu tenha renomeado o arquivo <span class='synopsis'><code>commit.c</code></span> para <span class='synopsis'><code>git-commit.c</code></span> e tenha feito um <span class='synopsis'><code>update-index</code></span> para tornar isso efetivo no índice do arquivo. O comando <span class='synopsis'><code>git</code> <code>diff-files</code></span> não mostraria nada, pois o índice do arquivo corresponde ao meu diretório de trabalho. Porém, ao o comando <em>git diff-index</em> ele faz:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -135,10 +152,10 @@ teor (os que eu escreveria utilizando 'git write-tree')</pre>
 <p>É possível ver facilmente que o item acima foi renomeado.</p>
 </div>
 <div class="paragraph">
-<p>De fato, o comando <code>git diff-index --cached</code> <strong>deve</strong> sempre ser totalmente equivalente a fazer um <code>git write-tree</code> e comparar. Exceto que este é muito melhor para o caso onde você queira apenas averiguar onde você está.</p>
+<p>De fato, o comando <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code></span> <strong>deve</strong> sempre ser totalmente equivalente a fazer um <span class='synopsis'><code>git</code> <code>write-tree</code></span> e comparar. Exceto que este é muito melhor para o caso onde você queira apenas averiguar onde você está.</p>
 </div>
 <div class="paragraph">
-<p>Portanto, fazer um <code>git diff-index --cached</code> é basicamente muito mais útil quando você está se perguntando "o quê eu já marquei para ser feito o commit e qual a diferença com uma árvore anterior".</p>
+<p>Portanto, fazer um <span class='synopsis'><code>git</code> <code>diff-index</code> <code>--cached</code></span> é basicamente muito mais útil quando você está se perguntando "o quê eu já marquei para ser feito o commit e qual a diferença com uma árvore anterior".</p>
 </div>
 </div>
 </div>
@@ -158,7 +175,7 @@ tree - índice do conteúdo _e_ os arquivos que não estão atualizados</pre>
 <p>o que obviamente também é uma pergunta muito útil, pois isso indica qual commit você <strong>poderia</strong> fazer. Novamente, a saída coincidente à saída <em>git diff-tree -r</em> para um "tee", mas com uma desvantagem.</p>
 </div>
 <div class="paragraph">
-<p>A desvantagem é que, caso algum arquivo não coincida com o índice, nós não temos uma uma estrutura de armazenamento para tanto e utilizamos a mágica do sha1 "zerado" para exibi-los. Então, digamos que você editou o arquivo <code>kernel/sched.c</code>, mas ainda não fez um <code>git update-index</code> nele - ainda não há um "objeto" associado a nova condição obtendo:</p>
+<p>A desvantagem é que, caso algum arquivo não coincida com o índice, nós não temos uma uma estrutura de armazenamento para tanto e utilizamos a mágica do sha1 "zerado" para exibi-los. Então, digamos que você editou o arquivo <span class='synopsis'><code>kernel/sched.c</code></span>, mas ainda não fez um <span class='synopsis'><code>git</code> <code>update-index</code></span> nele - ainda não há um "objeto" associado a nova condição obtendo:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -167,7 +184,7 @@ tree - índice do conteúdo _e_ os arquivos que não estão atualizados</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>isto é, exiba que a árvore mudou, que o <code>kernel/sched.c</code> não está atualizado e pode haver novas coisas. O sha1 zerado significa que, para obter um "diff" real, é necessário olhar diretamente para o objeto no diretório de trabalho, em vez de um "diff" de objeto para objeto.</p>
+<p>isto é, exiba que a árvore mudou, que o <span class='synopsis'><code>kernel/sched.c</code></span> não está atualizado e pode haver novas coisas. O sha1 zerado significa que, para obter um "diff" real, é necessário olhar diretamente para o objeto no diretório de trabalho, em vez de um "diff" de objeto para objeto.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -176,7 +193,7 @@ tree - índice do conteúdo _e_ os arquivos que não estão atualizados</pre>
 <div class="title">Note</div>
 </td>
 <td class="content">
-Como em outros comandos desse tipo, o <em>git diff-index</em> não analisa de forma alguma o conteúdo do arquivo. Então talvez o <code>kernel/sched.c</code> não tenha realmente mudado, e é só que você mexeu. Em ambos os casos, é importante observar que você precisa fazer um <em>git update-index</em> para sincronizar o índice.
+Como em outros comandos desse tipo, o <em>git diff-index</em> não analisa de forma alguma o conteúdo do arquivo. Então talvez o <span class='synopsis'><code>kernel/sched.c</code></span> não tenha realmente mudado, e é só que você mexeu. Em ambos os casos, é importante observar que você precisa fazer um <em>git update-index</em> para sincronizar o índice.
 </td>
 </tr>
 </table>

@@ -9,6 +9,35 @@ docname: git-p4
 lang: pt_BR
 aliases:
 - "/docs/git-p4/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: EXEMPLOS
+  id: _exemplos
+- text: COMANDOS
+  id: _comandos
+- text: OPÇÕES
+  id: _opções
+- text: Ganchos para envio
+  id: _ganchos_para_envio
+- text: SINTAXE DO CAMINHO DO DEPÓSITO
+  id: _sintaxe_do_caminho_do_depósito
+- text: ESPECIFICAÇÃO DO CLIENTE
+  id: _especificação_do_cliente
+- text: DETECÇÃO DO RAMO
+  id: _detecção_do_ramo
+- text: DESEMPENHO
+  id: _desempenho
+- text: VARIÁVEIS DE CONFIGURAÇÃO
+  id: _variáveis_de_configuração
+- text: DETALHES DA IMPLEMENTAÇÃO
+  id: _detalhes_da_implementação
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -146,13 +175,13 @@ $ git p4 sync //path/in/your/perforce/depot</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Isso importa o depósito especificado para <em>refs/remotes/p4/master</em> num repositório Git já existente. A opção <code>--branch</code> pode ser usada para especificar uma ramificação diferente a ser usada para o conteúdo do p4.</p>
+<p>Isso importa o depósito especificado para <em>refs/remotes/p4/master</em> num repositório Git já existente. A opção <span class='synopsis'><code>--branch</code></span> pode ser usada para especificar uma ramificação diferente a ser usada para o conteúdo do p4.</p>
 </div>
 <div class="paragraph">
 <p>Se um repositório Git incluir as ramificações <em>refs/remotes/origin/p4</em>, elas serão obtidas e consultadas primeiro durante a execução do comando <em>git p4 sync</em>. Como a importação direta do p4 é consideravelmente mais lenta do que a extração de alterações de um Git remoto, isso pode ser útil num ambiente com vários desenvolvedores.</p>
 </div>
 <div class="paragraph">
-<p>Se houver várias ramificações, o comando <em>git p4 sync</em> usará automaticamente o algoritmo "BRANCH DETECTION" para tentar dividir as novas alterações na ramificação correta. Isso pode ser substituído pela opção <code>--branch</code> especificando apenas um único ramo para ser atualizado.</p>
+<p>Se houver várias ramificações, o comando <em>git p4 sync</em> usará automaticamente o algoritmo "BRANCH DETECTION" para tentar dividir as novas alterações na ramificação correta. Isso pode ser substituído pela opção <span class='synopsis'><code>--branch</code></span> especificando apenas um único ramo para ser atualizado.</p>
 </div>
 </div>
 <div class="sect2">
@@ -169,7 +198,7 @@ $ git p4 sync //path/in/your/perforce/depot</pre>
 <div class="sect2">
 <h3 id="_envio"><a class="anchor" href="#_envio"></a>Envio</h3>
 <div class="paragraph">
-<p>O envio das alterações de um repositório Git de volta ao repositório p4 requer um espaço de trabalho separado do cliente p4. Isso deve ser especificado usando a variável de ambiente <code>P4CLIENT</code> ou a variável de configuração do Git <em>git-p4.client</em>. O cliente p4 deve existir, mas a raiz do cliente será criada e preenchida se ainda não existir.</p>
+<p>O envio das alterações de um repositório Git de volta ao repositório p4 requer um espaço de trabalho separado do cliente p4. Isso deve ser especificado usando a variável de ambiente <span class='synopsis'><code>P4CLIENT</code></span> ou a variável de configuração do Git <em>git-p4.client</em>. O cliente p4 deve existir, mas a raiz do cliente será criada e preenchida se ainda não existir.</p>
 </div>
 <div class="paragraph">
 <p>Para enviar todas as alterações que estão no ramo Git atual, mas não no ramo <em>p4/master</em>, utilize:</p>
@@ -197,13 +226,13 @@ $ git p4 submit --commit &lt;sha1..sha1&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>A referência upstream geralmente é <em>refs/remotes/p4/master</em>, mas pode ser substituída utilizando a opção da linha de comando <code>--origin=</code>.</p>
+<p>A referência upstream geralmente é <em>refs/remotes/p4/master</em>, mas pode ser substituída utilizando a opção da linha de comando <span class='synopsis'><code>--origin=</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>As alterações p4 serão criadas assim que o usuário invocar o comando <em>git p4 submit</em>. A opção <code>--preserve-user</code> fará com que a propriedade seja modificada de acordo com o autor do commit. Essa opção requer privilégios de administrador no p4, que podem ser concedidos usando <em>p4 protect</em>.</p>
+<p>As alterações p4 serão criadas assim que o usuário invocar o comando <em>git p4 submit</em>. A opção <span class='synopsis'><code>--preserve-user</code></span> fará com que a propriedade seja modificada de acordo com o autor do commit. Essa opção requer privilégios de administrador no p4, que podem ser concedidos usando <em>p4 protect</em>.</p>
 </div>
 <div class="paragraph">
-<p>Para arquivar as alterações em vez de enviá-las, utilize <code>--shelve</code> e <code>--update-shelve</code>:</p>
+<p>Para arquivar as alterações em vez de enviá-las, utilize <span class='synopsis'><code>--shelve</code></span> e <span class='synopsis'><code>--update-shelve</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -218,13 +247,13 @@ $ git p4 submit --update-shelve 1234 --update-shelve 2345</pre>
 <p>O desarquivamento pega uma lista de alterações P4 arquivada e produz o commit equivalente com o git no ramo refs/remotes/p4-unshelved/&lt;changelist&gt;.</p>
 </div>
 <div class="paragraph">
-<p>O commit do git é criado em relação à revisão de origem atual (a predefinição é <code>HEAD</code>). Um commit principal é criado com base na origem e, em seguida, o commit armazenado é criado com base nele.</p>
+<p>O commit do git é criado em relação à revisão de origem atual (a predefinição é <span class='synopsis'><code>HEAD</code></span>). Um commit principal é criado com base na origem e, em seguida, o commit armazenado é criado com base nele.</p>
 </div>
 <div class="paragraph">
 <p>A revisão da origem pode ser alterada com a opção "--origin".</p>
 </div>
 <div class="paragraph">
-<p>Se o ramo de destino em <code>refs/remotes/p4-unshelved</code> já existir, o antigo será renomeado.</p>
+<p>Se o ramo de destino em <span class='synopsis'><code>refs/remotes/p4-unshelved</code></span> já existir, o antigo será renomeado.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -251,7 +280,7 @@ $ git p4 unshelve 12345
 <dl>
 <dt class="hdlist1" id="git-p4---git-dirltdirgt"> <a class="anchor" href="#git-p4---git-dirdir"></a> <a class="anchor" href="#git-p4---git-dirltdirgt"></a>--git-dir &lt;dir&gt; </dt>
 <dd>
-<p>Defina a variável de ambiente <code>GIT_DIR</code>. Consulte <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a>.</p>
+<p>Defina a variável de ambiente <span class='synopsis'><code>GIT_DIR</code></span>. Consulte <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-p4--v"> <a class="anchor" href="#git-p4--v"></a>-v </dt>
 <dt class="hdlist1" id="git-p4---verbose"> <a class="anchor" href="#git-p4---verbose"></a>--verbose </dt>
@@ -270,9 +299,9 @@ $ git p4 unshelve 12345
 <dl>
 <dt class="hdlist1" id="git-p4---branchltrefgt"> <a class="anchor" href="#git-p4---branchref"></a> <a class="anchor" href="#git-p4---branchltrefgt"></a>--branch &lt;ref&gt; </dt>
 <dd>
-<p>Importar as alterações para <code>&lt;ref&gt;</code> em vez de <em>refs/remotes/p4/master</em>. Se <code>&lt;ref&gt;</code> começar com <em>refs/</em>, ele será usado como está. Caso contrário, se não começar com <em>p4/</em>, esse prefixo será adicionado.</p>
+<p>Importar as alterações para <span class='synopsis'><em>&lt;ref&gt;</em></span> em vez de <em>refs/remotes/p4/master</em>. Se <span class='synopsis'><em>&lt;ref&gt;</em></span> começar com <em>refs/</em>, ele será usado como está. Caso contrário, se não começar com <em>p4/</em>, esse prefixo será adicionado.</p>
 <div class="paragraph">
-<p>Por padrão, uma <code>&lt;ref&gt;</code> que não comece com <em>refs/</em> é tratada como o nome de uma ramificação de rastreamento remoto (em <em>refs/remotes/</em>). Esse comportamento pode ser alterado usando a opção <code>--import-local</code>.</p>
+<p>Por padrão, uma <span class='synopsis'><em>&lt;ref&gt;</em></span> que não comece com <em>refs/</em> é tratada como o nome de uma ramificação de rastreamento remoto (em <em>refs/remotes/</em>). Esse comportamento pode ser alterado usando a opção <span class='synopsis'><code>--import-local</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>A predefinição do &lt;ref&gt; é "master".</p>
@@ -309,7 +338,7 @@ $ git p4 unshelve 12345
 </dd>
 <dt class="hdlist1" id="git-p4---import-local"> <a class="anchor" href="#git-p4---import-local"></a>--import-local </dt>
 <dd>
-<p>É predefinido que as ramificações p4 sejam armazenadas em <em>refs/remotes/p4/</em>, onde serão tratadas como ramificações de rastreamento remoto pelo <a href='{{< relurl "docs/git-branch/pt_BR" >}}'>git-branch[1]</a> e outros comandos. Em vez disso, essa opção coloca as ramificações p4 em <em>refs/heads/p4/</em>. Observe que as futuras operações de sincronização também devem especificar a opção <code>--import-local</code> para que possam encontrar as ramificações do p4 em <em>refs/heads</em>.</p>
+<p>É predefinido que as ramificações p4 sejam armazenadas em <em>refs/remotes/p4/</em>, onde serão tratadas como ramificações de rastreamento remoto pelo <a href='{{< relurl "docs/git-branch/pt_BR" >}}'>git-branch[1]</a> e outros comandos. Em vez disso, essa opção coloca as ramificações p4 em <em>refs/heads/p4/</em>. Observe que as futuras operações de sincronização também devem especificar a opção <span class='synopsis'><code>--import-local</code></span> para que possam encontrar as ramificações do p4 em <em>refs/heads</em>.</p>
 </dd>
 <dt class="hdlist1" id="git-p4---max-changesltngt"> <a class="anchor" href="#git-p4---max-changesn"></a> <a class="anchor" href="#git-p4---max-changesltngt"></a>--max-changes &lt;n&gt; </dt>
 <dd>
@@ -321,7 +350,7 @@ $ git p4 unshelve 12345
 </dd>
 <dt class="hdlist1" id="git-p4---keep-path"> <a class="anchor" href="#git-p4---keep-path"></a>--keep-path </dt>
 <dd>
-<p>É predefinido que o mapeamento dos nomes dos arquivos do caminho do depósito p4 para o Git, envolve a remoção de todo o caminho do depósito. Com esta opção, o caminho completo do depósito p4 é mantido no Git. Por exemplo, o caminho <em>//depot/main/foo/bar.c</em>, quando for importado de <em>//depot/main/</em>, torna-se <em>foo/bar.c</em>. Com a opção <code>--keep-path</code>, o caminho do Git se torna, <em>depot/main/foo/bar.c</em>.</p>
+<p>É predefinido que o mapeamento dos nomes dos arquivos do caminho do depósito p4 para o Git, envolve a remoção de todo o caminho do depósito. Com esta opção, o caminho completo do depósito p4 é mantido no Git. Por exemplo, o caminho <em>//depot/main/foo/bar.c</em>, quando for importado de <em>//depot/main/</em>, torna-se <em>foo/bar.c</em>. Com a opção <span class='synopsis'><code>--keep-path</code></span>, o caminho do Git se torna, <em>depot/main/foo/bar.c</em>.</p>
 </dd>
 <dt class="hdlist1" id="git-p4---use-client-spec"> <a class="anchor" href="#git-p4---use-client-spec"></a>--use-client-spec </dt>
 <dd>
@@ -361,7 +390,7 @@ $ git p4 unshelve 12345
 <dl>
 <dt class="hdlist1" id="git-p4---originltcommitgt"> <a class="anchor" href="#git-p4---origincommit"></a> <a class="anchor" href="#git-p4---originltcommitgt"></a>--origin &lt;commit&gt; </dt>
 <dd>
-<p>O local upstream a partir de onde os commits são identificados para envio ao p4. É predefinido que este é o commit p4 mais recente acessível a partir do <code>HEAD</code>.</p>
+<p>O local upstream a partir de onde os commits são identificados para envio ao p4. É predefinido que este é o commit p4 mais recente acessível a partir do <span class='synopsis'><code>HEAD</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-p4--M"> <a class="anchor" href="#git-p4--M"></a>-M </dt>
 <dd>
@@ -390,7 +419,7 @@ $ git p4 unshelve 12345
 </dd>
 <dt class="hdlist1" id="git-p4---update-shelveCHANGELIST"> <a class="anchor" href="#git-p4---update-shelveCHANGELIST"></a>--update-shelve CHANGELIST </dt>
 <dd>
-<p>Atualize uma lista de alterações existentes que foram arquivadas com este commit. Implica no uso da opção <code>--shelve</code>. Repita o procedimento para as várias listas de alterações que foram arquivadas.</p>
+<p>Atualize uma lista de alterações existentes que foram arquivadas com este commit. Implica no uso da opção <span class='synopsis'><code>--shelve</code></span>. Repita o procedimento para as várias listas de alterações que foram arquivadas.</p>
 </dd>
 <dt class="hdlist1" id="git-p4---conflictaskskipquit"> <a class="anchor" href="#git-p4---conflictaskskipquit"></a>--conflict=(ask|skip|quit) </dt>
 <dd>
@@ -410,7 +439,7 @@ $ git p4 unshelve 12345
 </dd>
 <dt class="hdlist1" id="git-p4---disable-p4sync"> <a class="anchor" href="#git-p4---disable-p4sync"></a>--disable-p4sync </dt>
 <dd>
-<p>Desative a sincronização automática do <em>p4/master</em> do "Perforce" depois que os commits tenham sido enviados. Implica no uso da opção <code>--disable-rebase</code>. Também pode ser definido com git-p4.disableP4Sync. A sincronização com <em>origin/master</em> se for possível ainda continua.</p>
+<p>Desative a sincronização automática do <em>p4/master</em> do "Perforce" depois que os commits tenham sido enviados. Implica no uso da opção <span class='synopsis'><code>--disable-rebase</code></span>. Também pode ser definido com git-p4.disableP4Sync. A sincronização com <em>origin/master</em> se for possível ainda continua.</p>
 </dd>
 </dl>
 </div>
@@ -423,7 +452,7 @@ $ git p4 unshelve 12345
 <div class="sect2">
 <h3 id="_p4_pre_submit"><a class="anchor" href="#_p4_pre_submit"></a>p4-pre-submit</h3>
 <div class="paragraph">
-<p>O gancho <code>p4-pre-submit</code> é executado se existir e for executável. O gancho não recebe parâmetros e nada da entrada predefinida. Ao encerrar com uma condição de encerramento diferente de zero desse script impede que o comando <code>git-p4 submit</code> seja iniciado. Ele pode ser ignorado com a opção de linha de comando <code>--no-verify</code>.</p>
+<p>O gancho <span class='synopsis'><code>p4-pre-submit</code></span> é executado se existir e for executável. O gancho não recebe parâmetros e nada da entrada predefinida. Ao encerrar com uma condição de encerramento diferente de zero desse script impede que o comando <span class='synopsis'><code>git-p4</code> <code>submit</code></span> seja iniciado. Ele pode ser ignorado com a opção de linha de comando <span class='synopsis'><code>--no-verify</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Um cenário para a sua utilização é executar os testes da unidade no gancho.</p>
@@ -432,16 +461,16 @@ $ git p4 unshelve 12345
 <div class="sect2">
 <h3 id="_p4_prepare_changelist"><a class="anchor" href="#_p4_prepare_changelist"></a>p4-prepare-changelist</h3>
 <div class="paragraph">
-<p>O gancho <code>p4-prepare-changelist</code> é executado logo após a preparação da mensagem predefinida da lista de alterações e antes do editor ser iniciado. Ele recebe um parâmetro, o nome do arquivo que contém o texto da lista de alterações. Ao encerrar o script com um status diferente de zero fará com que o processo seja encerrado.</p>
+<p>O gancho <span class='synopsis'><code>p4-prepare-changelist</code></span> é executado logo após a preparação da mensagem predefinida da lista de alterações e antes do editor ser iniciado. Ele recebe um parâmetro, o nome do arquivo que contém o texto da lista de alterações. Ao encerrar o script com um status diferente de zero fará com que o processo seja encerrado.</p>
 </div>
 <div class="paragraph">
-<p>O objetivo do gancho é editar o arquivo de mensagem no local, não sendo suprimido pela opção <code>--no-verify</code>. Este gancho é chamado mesmo se a opção <code>--prepare-p4-only</code> estivesse definida.</p>
+<p>O objetivo do gancho é editar o arquivo de mensagem no local, não sendo suprimido pela opção <span class='synopsis'><code>--no-verify</code></span>. Este gancho é chamado mesmo se a opção <span class='synopsis'><code>--prepare-p4-only</code></span> estivesse definida.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_p4_changelist"><a class="anchor" href="#_p4_changelist"></a>p4-changelist</h3>
 <div class="paragraph">
-<p>O gancho <code>p4-changelist</code> é executado depois que mensagem da lista de alterações tenha sido editada pelo usuário. Pode ser ignorado com a opção <code>--no-verify</code>. É necessário um único parâmetro, o nome do arquivo que contenha o texto da lista das alterações propostas. Encerre com uma condição diferente de zero, faz com que o comando seja cancelado.</p>
+<p>O gancho <span class='synopsis'><code>p4-changelist</code></span> é executado depois que mensagem da lista de alterações tenha sido editada pelo usuário. Pode ser ignorado com a opção <span class='synopsis'><code>--no-verify</code></span>. É necessário um único parâmetro, o nome do arquivo que contenha o texto da lista das alterações propostas. Encerre com uma condição diferente de zero, faz com que o comando seja cancelado.</p>
 </div>
 <div class="paragraph">
 <p>O gancho tem permissão para editar o arquivo da lista de alterações e pode ser utilizado para normalizar o texto em algum formato predefinido pelo projeto. Também pode ser utilizado para recusar o envio após a inspeção da mensagem do arquivo.</p>
@@ -450,7 +479,7 @@ $ git p4 unshelve 12345
 <div class="sect2">
 <h3 id="_p4_post_changelist"><a class="anchor" href="#_p4_post_changelist"></a>p4-post-changelist</h3>
 <div class="paragraph">
-<p>O gancho <code>p4-post-changelist</code> é executado depois que o envio tenha ocorrido com êxito no P4. Não precisa de quaisquer parâmetros e serve primeiramente para notificações e pode não afetar o resultado da ação do comando <em>git p4 submit</em>.</p>
+<p>O gancho <span class='synopsis'><code>p4-post-changelist</code></span> é executado depois que o envio tenha ocorrido com êxito no P4. Não precisa de quaisquer parâmetros e serve primeiramente para notificações e pode não afetar o resultado da ação do comando <em>git p4 submit</em>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -502,7 +531,7 @@ $ git p4 unshelve 12345
 </dd>
 <dt class="hdlist1" id="git-p4-depotproj1alldepotproj2all"> <a class="anchor" href="#git-p4-depotproj1alldepotproj2all"></a>"//depot/proj1@all //depot/proj2@all" </dt>
 <dd>
-<p>Importe todas as alterações de ambos os caminhos de depósito nomeados num único repositório. Somente os arquivos abaixo desses diretórios são incluídos. Não há um subdiretório no Git para cada "proj1" e "proj2". Você deve usar a opção <code>--destination</code> ao especificar mais de um caminho para o depósito. A opção da revisão deve ser informado de forma idêntica em cada caminho para o depósito. Se houver arquivos nos caminhos do depósito com o mesmo nome, o caminho com a versão atualizada mais recente do arquivo é o que aparece no Git.</p>
+<p>Importe todas as alterações de ambos os caminhos de depósito nomeados num único repositório. Somente os arquivos abaixo desses diretórios são incluídos. Não há um subdiretório no Git para cada "proj1" e "proj2". Você deve usar a opção <span class='synopsis'><code>--destination</code></span> ao especificar mais de um caminho para o depósito. A opção da revisão deve ser informado de forma idêntica em cada caminho para o depósito. Se houver arquivos nos caminhos do depósito com o mesmo nome, o caminho com a versão atualizada mais recente do arquivo é o que aparece no Git.</p>
 </dd>
 </dl>
 </div>
@@ -515,7 +544,7 @@ $ git p4 unshelve 12345
 <h2 id="_especificação_do_cliente"><a class="anchor" href="#_especificação_do_cliente"></a>ESPECIFICAÇÃO DO CLIENTE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A especificação do cliente p4 é mantida com o comando <em>p4 client</em> e contém, entre outros campos, uma visualização que especifica como o depósito é mapeado no repositório do cliente. Os comandos <em>clone</em> e <em>sync</em> podem consultar a especificação do cliente quando a opção <code>--use-client-spec</code> é usada ou quando a variável <em>useClientSpec</em> é verdadeira. Após o <em>git p4 clone</em>, a variável <em>useClientSpec</em> é definida automaticamente no arquivo de configuração do repositório. Isso permite que os futuros comandos <em>git p4 submit</em> funcionem corretamente; o comando <em>submit</em> olha apenas para a variável e não tem uma opção de linha de comando.</p>
+<p>A especificação do cliente p4 é mantida com o comando <em>p4 client</em> e contém, entre outros campos, uma visualização que especifica como o depósito é mapeado no repositório do cliente. Os comandos <em>clone</em> e <em>sync</em> podem consultar a especificação do cliente quando a opção <span class='synopsis'><code>--use-client-spec</code></span> é usada ou quando a variável <em>useClientSpec</em> é verdadeira. Após o <em>git p4 clone</em>, a variável <em>useClientSpec</em> é definida automaticamente no arquivo de configuração do repositório. Isso permite que os futuros comandos <em>git p4 submit</em> funcionem corretamente; o comando <em>submit</em> olha apenas para a variável e não tem uma opção de linha de comando.</p>
 </div>
 <div class="paragraph">
 <p>A sintaxe completa de uma visualização p4 está documentada em <em>p4 help views</em>. O comando <em>git p4</em> conhece apenas um subconjunto da sintaxe da visualização. Ele entende mapeamentos de várias linhas, sobreposições com <em>+</em>, exclusões com <em>-</em> e aspas duplas ao redor de espaços em branco. Dos curingas possíveis, o comando <em>git p4</em> só lida com <em>&#8230;&#8203;</em>, e somente quando ele está no final do caminho. O comando <em>git p4</em> reclamará ao se deparar com um curinga não manipulado.</p>
@@ -524,7 +553,7 @@ $ git p4 unshelve 12345
 <p>Existem bugs na implementação dos mapeamentos da sobreposição. Se vários caminhos de depósito forem mapeados por meio de sobreposições para o mesmo local no repositório, o comando <em>git p4</em> poderá escolher o caminho errado. Isso é difícil de resolver sem dedicar uma especificação de cliente apenas para o <em>git p4</em>.</p>
 </div>
 <div class="paragraph">
-<p>O nome do cliente pode ser fornecido ao <em>git p4</em> de várias maneiras. A variável <em>git-p4.client</em> tem precedência caso ele exista. Caso contrário, serão usados os mecanismos normais do p4 para determinar o cliente: a variável de ambiente <code>P4CLIENT</code>, um arquivo referenciado por <code>P4CONFIG</code> ou o nome do host local.</p>
+<p>O nome do cliente pode ser fornecido ao <em>git p4</em> de várias maneiras. A variável <em>git-p4.client</em> tem precedência caso ele exista. Caso contrário, serão usados os mecanismos normais do p4 para determinar o cliente: a variável de ambiente <span class='synopsis'><code>P4CLIENT</code></span>, um arquivo referenciado por <span class='synopsis'><code>P4CONFIG</code></span> ou o nome do host local.</p>
 </div>
 </div>
 </div>
@@ -535,7 +564,7 @@ $ git p4 unshelve 12345
 <p>O P4 não tem o mesmo conceito de ramificação que o Git. Em vez disso, o p4 organiza seu conteúdo como uma árvore de diretórios, onde, por convenção, diferentes ramificações lógicas estão em diferentes locais da árvore. O comando <em>p4 branch</em> é usado para manter mapeamentos entre diferentes áreas da árvore e indicar o conteúdo relacionado. O comando <em>git p4</em> pode usar esses mapeamentos para determinar as relações de ramificação.</p>
 </div>
 <div class="paragraph">
-<p>Caso você possua um repositório onde todas as ramificações de interesse existam como subdiretórios de um único caminho do depósito, é possível utilizar o comando <code>--detect-branches</code> durante a clonagem ou sincronização para que o comando <em>git p4</em> encontre automaticamente os subdiretórios p4 e gere-os como os ramos no Git.</p>
+<p>Caso você possua um repositório onde todas as ramificações de interesse existam como subdiretórios de um único caminho do depósito, é possível utilizar o comando <span class='synopsis'><code>--detect-branches</code></span> durante a clonagem ou sincronização para que o comando <em>git p4</em> encontre automaticamente os subdiretórios p4 e gere-os como os ramos no Git.</p>
 </div>
 <div class="paragraph">
 <p>Por exemplo, se a estrutura do repositório P4 for:</p>
@@ -598,19 +627,19 @@ git p4 clone --detect-branches //depot@all .</pre>
 <dl>
 <dt class="hdlist1" id="git-p4-git-p4user"> <a class="anchor" href="#git-p4-git-p4user"></a>git-p4.user </dt>
 <dd>
-<p>Usuário especificado como uma opção para todos os comandos p4, com <em>-u &lt;usuário&gt;</em>. Em vez disso, pode ser usada a variável de ambiente <code>P4USER</code>.</p>
+<p>Usuário especificado como uma opção para todos os comandos p4, com <em>-u &lt;usuário&gt;</em>. Em vez disso, pode ser usada a variável de ambiente <span class='synopsis'><code>P4USER</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4password"> <a class="anchor" href="#git-p4-git-p4password"></a>git-p4.password </dt>
 <dd>
-<p>A senha especificada como uma opção para todos os comandos p4, com <em>-P &lt;senha&gt;</em>. Em vez disso, pode ser usada a variável de ambiente <code>P4PASS</code>.</p>
+<p>A senha especificada como uma opção para todos os comandos p4, com <em>-P &lt;senha&gt;</em>. Em vez disso, pode ser usada a variável de ambiente <span class='synopsis'><code>P4PASS</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4port"> <a class="anchor" href="#git-p4-git-p4port"></a>git-p4.port </dt>
 <dd>
-<p>Porta especificada como uma opção para todos os comandos p4, com <em>-p &lt;porta&gt;</em>. Em vez disso, pode ser usada a variável de ambiente <code>P4PORT</code>.</p>
+<p>Porta especificada como uma opção para todos os comandos p4, com <em>-p &lt;porta&gt;</em>. Em vez disso, pode ser usada a variável de ambiente <span class='synopsis'><code>P4PORT</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4host"> <a class="anchor" href="#git-p4-git-p4host"></a>git-p4.host </dt>
 <dd>
-<p>O host é especificado como uma opção para todos os comandos p4, com <em>-h &lt;host&gt;</em>. Em vez disso, pode ser usada a variável de ambiente <code>P4HOST</code>.</p>
+<p>O host é especificado como uma opção para todos os comandos p4, com <em>-h &lt;host&gt;</em>. Em vez disso, pode ser usada a variável de ambiente <span class='synopsis'><code>P4HOST</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4client"> <a class="anchor" href="#git-p4-git-p4client"></a>git-p4.client </dt>
 <dd>
@@ -659,7 +688,7 @@ git config --add git-p4.branchList main:branchB</pre>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4useClientSpec"> <a class="anchor" href="#git-p4-git-p4useClientSpec"></a>git-p4.useClientSpec </dt>
 <dd>
-<p>Especifique que a especificação do cliente p4 deve ser usada para identificar os caminhos do depósito p4 de interesse. Isso é equivalente a usar a opção <code>--use-client-spec</code>. Consulte a seção "ESPECIFICAÇÃO DO CLIENTE" acima. Esta variável é um booleano, não o nome de um cliente p4.</p>
+<p>Especifique que a especificação do cliente p4 deve ser usada para identificar os caminhos do depósito p4 de interesse. Isso é equivalente a usar a opção <span class='synopsis'><code>--use-client-spec</code></span>. Consulte a seção "ESPECIFICAÇÃO DO CLIENTE" acima. Esta variável é um booleano, não o nome de um cliente p4.</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4pathEncoding"> <a class="anchor" href="#git-p4-git-p4pathEncoding"></a>git-p4.pathEncoding </dt>
 <dd>
@@ -763,7 +792,7 @@ git config --add git-p4.branchList main:branchB</pre>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4exportLabels"> <a class="anchor" href="#git-p4-git-p4exportLabels"></a>git-p4.exportLabels </dt>
 <dd>
-<p>Exporte as tags Git para os rótulos p4, conforme a opção <code>--export-labels</code>.</p>
+<p>Exporte as tags Git para os rótulos p4, conforme a opção <span class='synopsis'><code>--export-labels</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4labelExportRegexp"> <a class="anchor" href="#git-p4-git-p4labelExportRegexp"></a>git-p4.labelExportRegexp </dt>
 <dd>
@@ -771,7 +800,7 @@ git config --add git-p4.branchList main:branchB</pre>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4conflict"> <a class="anchor" href="#git-p4-git-p4conflict"></a>git-p4.conflict </dt>
 <dd>
-<p>Especifica o comportamento de envio quando um conflito com o p4 é encontrado, conforme <code>--conflict</code>. O comportamento predefinido é <em>ask</em>.</p>
+<p>Especifica o comportamento de envio quando um conflito com o p4 é encontrado, conforme <span class='synopsis'><code>--conflict</code></span>. O comportamento predefinido é <em>ask</em>.</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4disableRebase"> <a class="anchor" href="#git-p4-git-p4disableRebase"></a>git-p4.disableRebase </dt>
 <dd>

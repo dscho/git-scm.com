@@ -9,6 +9,29 @@ docname: git-tag
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-tag/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 配置
+  id: _配置
+- text: 讨论
+  id: _讨论
+- text: 日期格式
+  id: _日期格式
+- text: 文件
+  id: _文件
+- text: 注释
+  id: _注释
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -38,25 +61,25 @@ aliases:
 <h2 id="_描述"><a class="anchor" href="#_描述"></a>描述</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在`refs/tags/<code>中添加一个标签引用，除非给出</code>-d/-l/-v`来删除、列出或验证标签。</p>
+<p>在`refs/tags/<span class='synopsis'><em>中添加一个标签引用，除非给出</em></span>-d/-l/-v`来删除、列出或验证标签。</p>
 </div>
 <div class="paragraph">
 <p>除非给出`-f`，否则命名的标签必须还不存在。</p>
 </div>
 <div class="paragraph">
-<p>如果传递了 <code>-a</code>、 <code>-s</code> 或 <code>-u &lt;key-id&gt;`中的一个，该命令会创建一个 '标签' 对象，并要求提供一个标签信息。 除非给出</code>-m &lt;信息&gt;<code>或</code>-F &lt;文件&gt;`，否则会启动一个编辑器，让用户输入标签信息。</p>
+<p>如果传递了 <span class='synopsis'><code>-a</code></span>、 <span class='synopsis'><code>-s</code></span> 或 <span class='synopsis'><em>-u &lt;key-id&gt;`中的一个，该命令会创建一个 '标签' 对象，并要求提供一个标签信息。 除非给出</em></span>-m &lt;信息&gt;<span class='synopsis'><em>或</em></span>-F &lt;文件&gt;`，否则会启动一个编辑器，让用户输入标签信息。</p>
 </div>
 <div class="paragraph">
-<p>If <code>-m &lt;msg&gt;</code> or <code>-F &lt;file&gt;</code> or <code>--trailer &lt;token&gt;[=&lt;value&gt;]</code> is given and <code>-a</code>, <code>-s</code>, and <code>-u &lt;key-id&gt;</code> are absent, <code>-a</code> is implied.</p>
+<p>If <span class='synopsis'><code>-m</code> <em>&lt;msg&gt;</em></span> or <span class='synopsis'><code>-F</code> <em>&lt;file&gt;</em></span> or <span class='synopsis'><code>--trailer</code> <em>&lt;token&gt;</em>[<code>=</code><em>&lt;value&gt;</em>]</span> is given and <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span>, and <span class='synopsis'><code>-u</code> <em>&lt;key-id&gt;</em></span> are absent, <span class='synopsis'><code>-a</code></span> is implied.</p>
 </div>
 <div class="paragraph">
 <p>否则，就会创建一个直接指向给定对象的标签引用（即一个轻量级标签）。</p>
 </div>
 <div class="paragraph">
-<p>当使用`-s`或`-u &lt;键-id&gt;<code>时，将创建一个GnuPG签名标签对象。 当没有使用</code>-u &lt;键-id&gt;<code>时，当前用户的提交者身份会被用来寻找GnuPG密钥进行签名。 	配置变量 `gpg.program</code> 用于指定自定义 GnuPG 二进制文件。</p>
+<p>当使用`-s`或`-u &lt;键-id&gt;<span class='synopsis'><em>时，将创建一个GnuPG签名标签对象。 当没有使用</em></span>-u &lt;键-id&gt;<span class='synopsis'><em>时，当前用户的提交者身份会被用来寻找GnuPG密钥进行签名。 	配置变量 `gpg.program</em></span> 用于指定自定义 GnuPG 二进制文件。</p>
 </div>
 <div class="paragraph">
-<p>标签对象（用`-a`、<code>-s`或</code>-u`创建）被称为 "注释 "标签；它们包含创建日期、标记者姓名和电子邮件、标记信息和可选的GnuPG签名。而 "轻量级 "标签只是一个对象（通常是一个提交对象）的名称。</p>
+<p>标签对象（用`-a`、<span class='synopsis'><em>-s`或</em></span>-u`创建）被称为 "注释 "标签；它们包含创建日期、标记者姓名和电子邮件、标记信息和可选的GnuPG签名。而 "轻量级 "标签只是一个对象（通常是一个提交对象）的名称。</p>
 </div>
 <div class="paragraph">
 <p>注释性标签是用来发布的，而轻量级标签则是用于私人或临时对象的标签。由于这个原因，一些命名对象的git命令（如`git describe`）默认会忽略轻量级标签。</p>
@@ -104,15 +127,15 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-tag--nltnumgt"> <a class="anchor" href="#git-tag--nnum"></a> <a class="anchor" href="#git-tag--nltnumgt"></a>-n&lt;num&gt; </dt>
 <dd>
-<p>&lt;数字&gt;指定在使用-l时打印多少行注释，-l 是指 <code>--list</code>。</p>
+<p>&lt;数字&gt;指定在使用-l时打印多少行注释，-l 是指 <span class='synopsis'><code>--list</code></span>。</p>
 <div class="paragraph">
-<p>默认是不打印任何注释行。 如果没有给 <code>-n</code> 加上数字，则只打印第一行。 如果标签没有注释，则会显示提交信息。</p>
+<p>默认是不打印任何注释行。 如果没有给 <span class='synopsis'><code>-n</code></span> 加上数字，则只打印第一行。 如果标签没有注释，则会显示提交信息。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-tag--l"> <a class="anchor" href="#git-tag--l"></a>-l </dt>
 <dt class="hdlist1" id="git-tag---list"> <a class="anchor" href="#git-tag---list"></a>--list </dt>
 <dd>
-<p>列出标签。使用可选的`&lt;模式&gt;&#8230;&#8203;<code>，例如`git tag --list 'v-*'</code>，只列出符合模式的标签。</p>
+<p>列出标签。使用可选的`&lt;模式&gt;&#8230;&#8203;<span class='synopsis'><em>，例如`git tag --list 'v-*'</em></span>，只列出符合模式的标签。</p>
 <div class="paragraph">
 <p>运行 "git tag "时不加参数也会列出所有标签。模式是一个shell通配符（即用fnmatch(3)匹配）。可以给出多个模式；如果其中任何一个匹配，就会显示该标签。</p>
 </div>
@@ -122,11 +145,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-tag---sortltgt"> <a class="anchor" href="#git-tag---sort"></a> <a class="anchor" href="#git-tag---sortltgt"></a>--sort=&lt;键&gt; </dt>
 <dd>
-<p>根据给定的键进行排序。 前缀 <code>-</code> 表示按照数值的降序排序。你可以多次使用 --sort=&lt;键&gt; 选项，在这种情况下，最后一个键成为主键。也支持 "version:refname" 或 "v:refname"（标签名被视为版本）。"version:refname" 的排序顺序也可以由 "versionsort.suffix" 配置变量影响。 支持的键与 <code>git for-each-ref</code> 中的相同。 排序顺序默认为 <code>tag.sort</code> 变量的配置值（如果存在的话），否则为词法顺序。见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>。</p>
+<p>根据给定的键进行排序。 前缀 <span class='synopsis'><code>-</code></span> 表示按照数值的降序排序。你可以多次使用 --sort=&lt;键&gt; 选项，在这种情况下，最后一个键成为主键。也支持 "version:refname" 或 "v:refname"（标签名被视为版本）。"version:refname" 的排序顺序也可以由 "versionsort.suffix" 配置变量影响。 支持的键与 <span class='synopsis'><code>git</code> <code>for-each-ref</code></span> 中的相同。 排序顺序默认为 <span class='synopsis'><code>tag.sort</code></span> 变量的配置值（如果存在的话），否则为词法顺序。见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>。</p>
 </dd>
 <dt class="hdlist1" id="git-tag---colorltwhengt"> <a class="anchor" href="#git-tag---colorwhen"></a> <a class="anchor" href="#git-tag---colorltwhengt"></a>--color[=&lt;when&gt;] </dt>
 <dd>
-<p>尊重`--format`选项中指定的任何颜色。<code>&lt;什么时候&gt;`字段必须是`always</code>、<code>never`或`auto`之一（如果没有</code>&lt;什么时候&gt;<code>，则表现为`always</code>）。</p>
+<p>尊重`--format`选项中指定的任何颜色。<span class='synopsis'><em>&lt;什么时候&gt;`字段必须是`always</em></span>、<span class='synopsis'><em>never`或`auto`之一（如果没有</em></span>&lt;什么时候&gt;<span class='synopsis'><em>，则表现为`always</em></span>）。</p>
 </dd>
 <dt class="hdlist1" id="git-tag--i"> <a class="anchor" href="#git-tag--i"></a>-i </dt>
 <dt class="hdlist1" id="git-tag---ignore-case"> <a class="anchor" href="#git-tag---ignore-case"></a>--ignore-case </dt>
@@ -140,7 +163,7 @@ aliases:
 <dt class="hdlist1" id="git-tag---columnltgt"> <a class="anchor" href="#git-tag---column"></a> <a class="anchor" href="#git-tag---columnltgt"></a>--column[=&lt;选项&gt;] </dt>
 <dt class="hdlist1" id="git-tag---no-column"> <a class="anchor" href="#git-tag---no-column"></a>--no-column </dt>
 <dd>
-<p>在列中显示标签列表。选项语法见配置变量`column.tag`。<code>--column</code> 和 <code>--no-column</code> 没有选项，分别等同于&#8217;永远&#8217;和&#8217;从不'。</p>
+<p>在列中显示标签列表。选项语法见配置变量`column.tag`。<span class='synopsis'><code>--column</code></span> 和 <span class='synopsis'><code>--no-column</code></span> 没有选项，分别等同于&#8217;永远&#8217;和&#8217;从不'。</p>
 <div class="paragraph">
 <p>这个选项只适用于列出没有注释线的标签。</p>
 </div>
@@ -168,16 +191,16 @@ aliases:
 <dt class="hdlist1" id="git-tag--mltgt"> <a class="anchor" href="#git-tag--m"></a> <a class="anchor" href="#git-tag--mltgt"></a>-m &lt;消息&gt; </dt>
 <dt class="hdlist1" id="git-tag---messageltmsggt"> <a class="anchor" href="#git-tag---messagemsg"></a> <a class="anchor" href="#git-tag---messageltmsggt"></a>--message=&lt;msg&gt; </dt>
 <dd>
-<p>使用给定的标签信息（而不是提示）。 如果给出多个 <code>-m</code> 选项，它们的值将作为单独的段落连接起来。 如果未给出 <code>-a</code>、<code>-s</code> 或 <code>-u &lt;键 ID&gt;</code> 选项，则默认为 <code>-a</code>。</p>
+<p>使用给定的标签信息（而不是提示）。 如果给出多个 <span class='synopsis'><code>-m</code></span> 选项，它们的值将作为单独的段落连接起来。 如果未给出 <span class='synopsis'><code>-a</code></span>、<span class='synopsis'><code>-s</code></span> 或 <span class='synopsis'><em>-u &lt;键 ID&gt;</em></span> 选项，则默认为 <span class='synopsis'><code>-a</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-tag--Fltgt"> <a class="anchor" href="#git-tag--F"></a> <a class="anchor" href="#git-tag--Fltgt"></a>-F &lt;文件&gt; </dt>
 <dt class="hdlist1" id="git-tag---fileltgt"> <a class="anchor" href="#git-tag---file"></a> <a class="anchor" href="#git-tag---fileltgt"></a>--file=&lt;文件&gt; </dt>
 <dd>
-<p>从给定文件中获取标记信息。 使用 <em>-</em> 从标准输入读取信息。 如果未给出 <code>-a</code> 、<code>-s</code> 或 <code>-u &lt;键 ID&gt;</code> 则默认为 <code>-a</code>。</p>
+<p>从给定文件中获取标记信息。 使用 <em>-</em> 从标准输入读取信息。 如果未给出 <span class='synopsis'><code>-a</code></span> 、<span class='synopsis'><code>-s</code></span> 或 <span class='synopsis'><em>-u &lt;键 ID&gt;</em></span> 则默认为 <span class='synopsis'><code>-a</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-tag---trailerltgtltgt"> <a class="anchor" href="#git-tag---trailer"></a> <a class="anchor" href="#git-tag---trailerltgtltgt"></a>--trailer &lt;令牌&gt;[(=|:)&lt;值&gt;] </dt>
 <dd>
-<p>Specify a (&lt;token&gt;, &lt;value&gt;) pair that should be applied as a trailer. (e.g. <code>git tag --trailer "Custom-Key: value"</code> will add a "Custom-Key" trailer to the tag message.) The <code>trailer.*</code> configuration variables (<a href='{{< relurl "docs/git-interpret-trailers/zh_HANS-CN" >}}'>git-interpret-trailers[1]</a>) can be used to define if a duplicated trailer is omitted, where in the run of trailers each trailer would appear, and other details. The trailers can be extracted in <code>git tag --list</code>, using <code>--format="%(trailers)"</code> placeholder.</p>
+<p>Specify a (&lt;token&gt;, &lt;value&gt;) pair that should be applied as a trailer. (e.g. <span class='synopsis'><code>git</code> <code>tag</code> <code>--trailer</code> <code>"Custom-Key:</code> <code>value"</code></span> will add a "Custom-Key" trailer to the tag message.) The <span class='synopsis'><code>trailer.*</code></span> configuration variables (<a href='{{< relurl "docs/git-interpret-trailers/zh_HANS-CN" >}}'>git-interpret-trailers[1]</a>) can be used to define if a duplicated trailer is omitted, where in the run of trailers each trailer would appear, and other details. The trailers can be extracted in <span class='synopsis'><code>git</code> <code>tag</code> <code>--list</code></span>, using <span class='synopsis'><code>--format="%</code>(<code>trailers</code>)<code>"</code></span> placeholder.</p>
 </dd>
 <dt class="hdlist1" id="git-tag--e"> <a class="anchor" href="#git-tag--e"></a>-e </dt>
 <dt class="hdlist1" id="git-tag---edit"> <a class="anchor" href="#git-tag---edit"></a>--edit </dt>
@@ -190,7 +213,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-tag---create-reflog"> <a class="anchor" href="#git-tag---create-reflog"></a>--create-reflog </dt>
 <dd>
-<p>为标签创建一个引用日志。要全局性地启用标签的引用日志，请参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <code>core.logAllRefUpdates</code>。 否定形式的 <code>--no-create-reflog</code> 会覆盖先前的 <code>--create-reflog</code> ，但目前不会否定 <code>core.logAllRefUpdates</code> 的设置。</p>
+<p>为标签创建一个引用日志。要全局性地启用标签的引用日志，请参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 中的 <span class='synopsis'><code>core.logAllRefUpdates</code></span>。 否定形式的 <span class='synopsis'><code>--no-create-reflog</code></span> 会覆盖先前的 <span class='synopsis'><code>--create-reflog</code></span> ，但目前不会否定 <span class='synopsis'><code>core.logAllRefUpdates</code></span> 的设置。</p>
 </dd>
 <dt class="hdlist1" id="git-tag---formatltgt"> <a class="anchor" href="#git-tag---format"></a> <a class="anchor" href="#git-tag---formatltgt"></a>--format=&lt;格式&gt; </dt>
 <dd>
@@ -222,7 +245,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p><code>pager.tag`只在列出标签时被尊重，即使用或暗示使用</code>-l`时。默认是使用分页器。 参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>。</p>
+<p><span class='synopsis'><em>pager.tag`只在列出标签时被尊重，即使用或暗示使用</em></span>-l`时。默认是使用分页器。 参见 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a>。</p>
 </div>
 </div>
 </div>
@@ -285,7 +308,7 @@ aliases:
 <div class="sect2">
 <h3 id="_在下列情况下自动进行"><a class="anchor" href="#_在下列情况下自动进行"></a>在下列情况下自动进行</h3>
 <div class="paragraph">
-<p>如果你在跟踪别人的树目录，你很可能在使用远程跟踪的分支（例如：<code>refs/remotes/origin/master</code>）。 你通常希望得到另一端的标签。</p>
+<p>如果你在跟踪别人的树目录，你很可能在使用远程跟踪的分支（例如：<span class='synopsis'><code>refs/remotes/origin/master</code></span>）。 你通常希望得到另一端的标签。</p>
 </div>
 <div class="paragraph">
 <p>另一方面，如果你是因为想从别人那里获得一次性合并而取的，你通常不希望从那里获得标签。 这种情况更经常发生在接近高层的人身上，但不限于他们。 普通人从对方那里取东西时，不一定想从对方那里自动获得私人锚点标签。</p>
@@ -346,21 +369,21 @@ aliases:
 <h2 id="_日期格式"><a class="anchor" href="#_日期格式"></a>日期格式</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>GIT_AUTHOR_DATE</code>, <code>GIT_COMMITTER_DATE</code> 环境变量：</p>
+<p><span class='synopsis'><code>GIT_AUTHOR_DATE</code></span>, <span class='synopsis'><code>GIT_COMMITTER_DATE</code></span> 环境变量：</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-tag-Git"> <a class="anchor" href="#git-tag-Git"></a>Git 内部格式 </dt>
 <dd>
-<p><code>&lt;unix 时间戳&gt; &lt;时区偏移量&gt;</code>，其中 <code>&lt;unix 时间戳&gt;</code> 是自 UNIX epoch 以来的秒数。 <code>&lt;时区偏移量&gt;</code> 是相对于 UTC 的正或负偏移量。例如，CET（比 UTC 提前1小时）为 <code>+0100</code>。</p>
+<p><span class='synopsis'><em>&lt;unix 时间戳&gt; &lt;时区偏移量&gt;</em></span>，其中 <span class='synopsis'><em>&lt;unix 时间戳&gt;</em></span> 是自 UNIX epoch 以来的秒数。 <span class='synopsis'><em>&lt;时区偏移量&gt;</em></span> 是相对于 UTC 的正或负偏移量。例如，CET（比 UTC 提前1小时）为 <span class='synopsis'><code>+0100</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-tag-RFC2822"> <a class="anchor" href="#git-tag-RFC2822"></a>RFC 2822 </dt>
 <dd>
-<p>The standard date format as described by RFC 2822, for example <code>Thu, 07 Apr 2005 22:13:13 +0200</code>.</p>
+<p>The standard date format as described by RFC 2822, for example <span class='synopsis'><code>Thu,</code> <code>07</code> <code>Apr</code> <code>2005</code> <code>22:13:13</code> <code>+0200</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-tag-ISO8601"> <a class="anchor" href="#git-tag-ISO8601"></a>ISO 8601 </dt>
 <dd>
-<p>按 ISO 8601 标准指定的时间和日期，例如 <code>2005-04-07T22:13:13</code>。解析器也接受空格代替 <code>T</code> 字符。秒的小数部分将被忽略，例如 <code>2005-04-07T22:13:13.019</code> 将被视为 <code>2005-04-07T22:13:13</code> 。</p>
+<p>按 ISO 8601 标准指定的时间和日期，例如 <span class='synopsis'><code>2005-04-07T22:13:13</code></span>。解析器也接受空格代替 <span class='synopsis'><code>T</code></span> 字符。秒的小数部分将被忽略，例如 <span class='synopsis'><code>2005-04-07T22:13:13.019</code></span> 将被视为 <span class='synopsis'><code>2005-04-07T22:13:13</code></span> 。</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -368,7 +391,7 @@ aliases:
 <div class="title">Note</div>
 </td>
 <td class="content">
-此外，日期部分还接受以下格式：<code>YYYY.MM.DD</code>，<code>MM/DD/YYYY</code> 和 <code>DD.MM.YYYY</code>。
+此外，日期部分还接受以下格式：<span class='synopsis'><code>YYYY.MM.DD</code></span>，<span class='synopsis'><code>MM/DD/YYYY</code></span> 和 <span class='synopsis'><code>DD.MM.YYYY</code></span>。
 </td>
 </tr>
 </table>
@@ -383,9 +406,9 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-tag-codeGITDIRTAGEDITMSGcode"> <a class="anchor" href="#git-tag-GITDIRTAGEDITMSG"></a> <a class="anchor" href="#git-tag-codeGITDIRTAGEDITMSGcode"></a><code>$GIT_DIR/TAG_EDITMSG</code> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscodeGITDIRTAGEDITMSGcodespan"> <a class="anchor" href="#git-tag-GITDIRTAGEDITMSG"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscodeGITDIRTAGEDITMSGcodespan"></a><span class='synopsis'><code>$GIT_DIR/TAG_EDITMSG</code></span> </dt>
 <dd>
-<p>该文件包含一个进行中的注释标记的信息。如果 <code>git tag</code> 在创建注释标记前出错退出，则用户在编辑器会话中提供的标记信息将在此文件中提供，但可能会被下一次调用 <code>git tag</code> 时覆盖。</p>
+<p>该文件包含一个进行中的注释标记的信息。如果 <span class='synopsis'><code>git</code> <code>tag</code></span> 在创建注释标记前出错退出，则用户在编辑器会话中提供的标记信息将在此文件中提供，但可能会被下一次调用 <span class='synopsis'><code>git</code> <code>tag</code></span> 时覆盖。</p>
 </dd>
 </dl>
 </div>
@@ -395,10 +418,10 @@ aliases:
 <h2 id="_注释"><a class="anchor" href="#_注释"></a>注释</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>当组合多个 <code>--contains</code> 和 <code>--no-contains</code> 过滤器时，只显示至少包含一个 <code>--contains</code> 的提交，并且不包含 <code>--no-contains</code> 的提交引用。</p>
+<p>当组合多个 <span class='synopsis'><code>--contains</code></span> 和 <span class='synopsis'><code>--no-contains</code></span> 过滤器时，只显示至少包含一个 <span class='synopsis'><code>--contains</code></span> 的提交，并且不包含 <span class='synopsis'><code>--no-contains</code></span> 的提交引用。</p>
 </div>
 <div class="paragraph">
-<p>当结合多个 <code>--merged</code> 和 <code>--no-merged</code> 过滤器时，只显示至少有一个 <code>--merged</code> 提交和没有 <code>--no-merged</code> 提交的引用。</p>
+<p>当结合多个 <span class='synopsis'><code>--merged</code></span> 和 <span class='synopsis'><code>--no-merged</code></span> 过滤器时，只显示至少有一个 <span class='synopsis'><code>--merged</code></span> 提交和没有 <span class='synopsis'><code>--no-merged</code></span> 提交的引用。</p>
 </div>
 </div>
 </div>

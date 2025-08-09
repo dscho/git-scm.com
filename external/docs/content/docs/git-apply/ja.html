@@ -9,6 +9,23 @@ docname: git-apply
 lang: ja
 aliases:
 - "/docs/git-apply/ja/index.html"
+headings:
+- text: NAME
+  id: _name
+- text: 概要
+  id: _概要
+- text: 説明
+  id: _説明
+- text: オプション
+  id: _オプション
+- text: 設定
+  id: _設定
+- text: サブモジュール
+  id: _サブモジュール
+- text: 関連項目
+  id: _関連項目
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
@@ -38,7 +55,7 @@ aliases:
 <h2 id="_説明"><a class="anchor" href="#_説明"></a>説明</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>提供された差分出力（つまり「パッチ」）を読み込んで、ファイルに適用します。リポジトリのサブディレクトリから実行する場合、ディレクトリ外のパッチパスは無視されます。<code>--index`オプションを使用すると、パッチはインデックスにも適用され、</code>--cached`オプションを使用すると、パッチはインデックスにのみ適用されます。これらのオプションがない場合、コマンドはパッチをファイルにのみ適用し、それらがGitリポジトリ内にあることを要求しません。</p>
+<p>提供された差分出力（つまり「パッチ」）を読み込んで、ファイルに適用します。リポジトリのサブディレクトリから実行する場合、ディレクトリ外のパッチパスは無視されます。<span class='synopsis'><em>--index`オプションを使用すると、パッチはインデックスにも適用され、</em></span>--cached`オプションを使用すると、パッチはインデックスにのみ適用されます。これらのオプションがない場合、コマンドはパッチをファイルにのみ適用し、それらがGitリポジトリ内にあることを要求しません。</p>
 </div>
 <div class="paragraph">
 <p>このコマンドはパッチを適用しますが、コミットは作成しません。<a href='{{< relurl "docs/git-format-patch/ja" >}}'>git-format-patch[1]</a>で生成されたパッチやメールで受け取ったパッチからコミットを作成するには、<a href='{{< relurl "docs/git-am/ja" >}}'>git-am[1]</a>を使用してください。</p>
@@ -60,7 +77,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-apply---numstat"> <a class="anchor" href="#git-apply---numstat"></a>--numstat </dt>
 <dd>
-<p><code>--stat</code> と似ていますが、追加された行数と削除された行数を10進数で表示し、マシンフレンドリーとなるようにパス名は省略せずに表示します。バイナリファイルの場合、<code>0 0</code> の代わりに <code>-</code> を2つ出力します。"apply"をオフにします。</p>
+<p><span class='synopsis'><code>--stat</code></span> と似ていますが、追加された行数と削除された行数を10進数で表示し、マシンフレンドリーとなるようにパス名は省略せずに表示します。バイナリファイルの場合、<span class='synopsis'><code>0</code> <code>0</code></span> の代わりに <span class='synopsis'><code>-</code></span> を2つ出力します。"apply"をオフにします。</p>
 </dd>
 <dt class="hdlist1" id="git-apply---summary"> <a class="anchor" href="#git-apply---summary"></a>--summary </dt>
 <dd>
@@ -80,12 +97,12 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-apply---intent-to-add"> <a class="anchor" href="#git-apply---intent-to-add"></a>--intent-to-add </dt>
 <dd>
-<p>パッチを作業ツリーにのみ適用する場合、新しいファイルを後でインデックスに追加するためにマークします（<a href='{{< relurl "docs/git-add/ja" >}}'>git-add[1]</a>の`--intent-to-add`オプションを参照）。このオプションは、Gitリポジトリで実行していて、<code>--index`が指定されていない場合にのみ有効です。</code>--index`は`--cached`や`--3way`などの他のオプションによって暗黙的に指定される場合があることに注意してください。</p>
+<p>パッチを作業ツリーにのみ適用する場合、新しいファイルを後でインデックスに追加するためにマークします（<a href='{{< relurl "docs/git-add/ja" >}}'>git-add[1]</a>の`--intent-to-add`オプションを参照）。このオプションは、Gitリポジトリで実行していて、<span class='synopsis'><em>--index`が指定されていない場合にのみ有効です。</em></span>--index`は`--cached`や`--3way`などの他のオプションによって暗黙的に指定される場合があることに注意してください。</p>
 </dd>
 <dt class="hdlist1" id="git-apply--3"> <a class="anchor" href="#git-apply--3"></a>-3 </dt>
 <dt class="hdlist1" id="git-apply---3way"> <a class="anchor" href="#git-apply---3way"></a>--3way </dt>
 <dd>
-<p>パッチが適用されるべきblobのIDを記録していて、それらのblobがローカルで利用可能な場合、3方向マージを試みます。これにより、ユーザーが解決するための競合マーカーが作業ツリー内のファイルに残される可能性があります。このオプションは、<code>--cached`オプションが使用されていない限り、</code>--index`オプションを暗黙的に指定し、<code>--reject`オプションとは互換性がありません。</code>--cached`オプションと一緒に使用すると、競合はキャッシュ内の高いステージに残されます。</p>
+<p>パッチが適用されるべきblobのIDを記録していて、それらのblobがローカルで利用可能な場合、3方向マージを試みます。これにより、ユーザーが解決するための競合マーカーが作業ツリー内のファイルに残される可能性があります。このオプションは、<span class='synopsis'><em>--cached`オプションが使用されていない限り、</em></span>--index`オプションを暗黙的に指定し、<span class='synopsis'><em>--reject`オプションとは互換性がありません。</em></span>--cached`オプションと一緒に使用すると、競合はキャッシュ内の高いステージに残されます。</p>
 </dd>
 <dt class="hdlist1" id="git-apply---ours"> <a class="anchor" href="#git-apply---ours"></a>--ours </dt>
 <dt class="hdlist1" id="git-apply---theirs"> <a class="anchor" href="#git-apply---theirs"></a>--theirs </dt>
@@ -113,7 +130,7 @@ aliases:
 <dd>
 <p>`--numstat`が指定されている場合、パス名を加工せず、NUL終端の機械可読形式を使用します。</p>
 <div class="paragraph">
-<p>このオプションがない場合、パス名に "通常ではない" 文字が含まれていても、設定変数 <code>core.quotePath</code> の解釈に従って引用されます (<a href='{{< relurl "docs/git-config/ja" >}}'>git-config[1]</a> を参照)。</p>
+<p>このオプションがない場合、パス名に "通常ではない" 文字が含まれていても、設定変数 <span class='synopsis'><code>core.quotePath</code></span> の解釈に従って引用されます (<a href='{{< relurl "docs/git-config/ja" >}}'>git-config[1]</a> を参照)。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-apply--pltngt"> <a class="anchor" href="#git-apply--pn"></a> <a class="anchor" href="#git-apply--pltngt"></a>-p&lt;n&gt; </dt>
@@ -126,7 +143,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-apply---unidiff-zero"> <a class="anchor" href="#git-apply---unidiff-zero"></a>--unidiff-zero </dt>
 <dd>
-<p>デフォルトでは、'git apply&#8217;は適用されるパッチが少なくとも1行のコンテキストを持つ統一差分であることを期待しています。これは良い安全対策を提供しますが、<code>--unified=0`で生成された差分を適用する際に機能しません。これらのチェックをバイパスするには</code>--unidiff-zero`を使用します。</p>
+<p>デフォルトでは、'git apply&#8217;は適用されるパッチが少なくとも1行のコンテキストを持つ統一差分であることを期待しています。これは良い安全対策を提供しますが、<span class='synopsis'><em>--unified=0`で生成された差分を適用する際に機能しません。これらのチェックをバイパスするには</em></span>--unidiff-zero`を使用します。</p>
 <div class="paragraph">
 <p>上記の理由から、コンテキストのないパッチの使用はお勧めしません。</p>
 </div>
@@ -152,7 +169,7 @@ aliases:
 <dd>
 <p>指定されたパスパターンに一致するファイルに変更を適用します。これは、特定のファイルやディレクトリを含めたいパッチセットをインポートする場合に役立ちます。</p>
 <div class="paragraph">
-<p><code>--exclude`および</code>--include`パターンが使用されている場合、それらはコマンドラインに表示される順に調査され、最初の一致が各パスへのパッチが使用されるかどうかを決定します。どのinclude/excludeパターンにも一致しないパスへのパッチは、コマンドラインにincludeパターンがない場合はデフォルトで使用され、includeパターンがある場合は無視されます。</p>
+<p><span class='synopsis'><em>--exclude`および</em></span>--include`パターンが使用されている場合、それらはコマンドラインに表示される順に調査され、最初の一致が各パスへのパッチが使用されるかどうかを決定します。どのinclude/excludeパターンにも一致しないパスへのパッチは、コマンドラインにincludeパターンがない場合はデフォルトで使用され、includeパターンがある場合は無視されます。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-apply---ignore-space-change"> <a class="anchor" href="#git-apply---ignore-space-change"></a>--ignore-space-change </dt>
@@ -162,7 +179,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-apply---whitespaceltgt"> <a class="anchor" href="#git-apply---whitespace"></a> <a class="anchor" href="#git-apply---whitespaceltgt"></a>--whitespace=&lt;アクション&gt; </dt>
 <dd>
-<p>パッチを適用する際、新しく追加または変更された行にホワイトスペースエラーがないか検出します。どのようなものをホワイトスペースエラーと見なすかは、<code>core.whitespace</code> の設定で制御されます。デフォルトでは、行末の空白（空白だけの行も含む）や、行頭インデント部分でスペースの直後にタブが続く場合がホワイトスペースエラーとされます。</p>
+<p>パッチを適用する際、新しく追加または変更された行にホワイトスペースエラーがないか検出します。どのようなものをホワイトスペースエラーと見なすかは、<span class='synopsis'><code>core.whitespace</code></span> の設定で制御されます。デフォルトでは、行末の空白（空白だけの行も含む）や、行頭インデント部分でスペースの直後にタブが続く場合がホワイトスペースエラーとされます。</p>
 <div class="paragraph">
 <p>デフォルトでは、コマンドは警告メッセージを出力しますが、パッチを適用します。`git-apply`が統計情報のために使用され、パッチを適用しない場合、デフォルトは`nowarn`です。</p>
 </div>
@@ -218,7 +235,7 @@ aliases:
 <dd>
 <p>デフォルトでは、作業領域（Gitが制御する作業ツリー、または「git apply」がGNU patchの代替として使用される場合の現在の作業ディレクトリ）の外に影響するパッチは、ミスまたは悪意のあるものとして拒否されます。</p>
 <div class="paragraph">
-<p><code>git apply`が「より良いGNU patch」として使用される場合、ユーザーは</code>--unsafe-paths`オプションを渡してこの安全性チェックを上書きできます。このオプションは、<code>--index`または</code>--cached`が使用されている場合は効果がありません。</p>
+<p><span class='synopsis'><em>git apply`が「より良いGNU patch」として使用される場合、ユーザーは</em></span>--unsafe-paths`オプションを渡してこの安全性チェックを上書きできます。このオプションは、<span class='synopsis'><em>--index`または</em></span>--cached`が使用されている場合は効果がありません。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-apply---allow-empty"> <a class="anchor" href="#git-apply---allow-empty"></a>--allow-empty </dt>
@@ -243,7 +260,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>ja/config/apply.adoc</code></p>
+<p>Missing <span class='synopsis'><code>ja/config/apply.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

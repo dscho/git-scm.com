@@ -9,6 +9,31 @@ docname: git-format-patch
 lang: pt_BR
 aliases:
 - "/docs/git-format-patch/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: DISCUSSÃO
+  id: _discussão
+- text: DICAS ESPECÍFICAS PARA CLIENTES DE E-MAIL
+  id: _dicas_específicas_para_clientes_de_e_mail
+- text: INFORMAÇÃO BASE DA ÁRVORE
+  id: _informação_base_da_árvore
+- text: EXEMPLOS
+  id: _exemplos
+- text: RESSALVAS
+  id: _ressalvas
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -60,7 +85,7 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p>Um breve cabeçalho de metadados que começa com <code>From &lt;commit&gt;</code> com um registro de data e hora fixo, como <code>Seg Set 17 00:00:00 2001</code> para auxiliar programas como "arquivo(1)" a reconhecer que o arquivo foi gerado deste comando, campos que registrem a identidade do autor, a data da autoria e o título da alteração (retirado do primeiro parágrafo da mensagem do log do commit).</p>
+<p>Um breve cabeçalho de metadados que começa com <span class='synopsis'><code>From</code> <em>&lt;commit&gt;</em></span> com um registro de data e hora fixo, como <span class='synopsis'><code>Seg</code> <code>Set</code> <code>17</code> <code>00:00:00</code> <code>2001</code></span> para auxiliar programas como "arquivo(1)" a reconhecer que o arquivo foi gerado deste comando, campos que registrem a identidade do autor, a data da autoria e o título da alteração (retirado do primeiro parágrafo da mensagem do log do commit).</p>
 </li>
 <li>
 <p>O segundo ou o parágrafo subsequente da mensagem do registro do commit.</p>
@@ -79,7 +104,7 @@ aliases:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Um único commit, <code>&lt;since&gt;</code>, determina que os commits que levem ao cume do ramo atual que não estão no histórico que levem ao <code>&lt;since&gt;</code> para ser gerado.</p>
+<p>Um único commit, <span class='synopsis'><em>&lt;since&gt;</em></span>, determina que os commits que levem ao cume do ramo atual que não estão no histórico que levem ao <span class='synopsis'><em>&lt;since&gt;</em></span> para ser gerado.</p>
 </li>
 <li>
 <p>A expressão genérica &lt;faixa-da-revisão&gt; (consulte a seção "ESPECIFICANDO REVISÕES" do comando <a href='{{< relurl "docs/gitrevisions/pt_BR" >}}'>gitrevisions[7]</a>) significa os commits no intervalo especificado.</p>
@@ -87,22 +112,22 @@ aliases:
 </ol>
 </div>
 <div class="paragraph">
-<p>A primeira regra tem precedência no caso de um único &lt;commit&gt;. Para aplicar a segunda regra, ou seja, formatar tudo desde o início do histórico até &lt;commit&gt;, use a opção <code>--root</code>: <code>git format-patch --root &lt;commit&gt;</code>. Se quiser formatar apenas o &lt;commit&gt;, você pode fazer isso com <code>git format-patch -1 &lt;commit&gt;</code>.</p>
+<p>A primeira regra tem precedência no caso de um único &lt;commit&gt;. Para aplicar a segunda regra, ou seja, formatar tudo desde o início do histórico até &lt;commit&gt;, use a opção <span class='synopsis'><code>--root</code></span>: <span class='synopsis'><code>git</code> <code>format-patch</code> <code>--root</code> <em>&lt;commit&gt;</em></span>. Se quiser formatar apenas o &lt;commit&gt;, você pode fazer isso com <span class='synopsis'><code>git</code> <code>format-patch</code> <code>-1</code> <em>&lt;commit&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
-<p>É predefinido que cada arquivo gerado seja numerado de maneira sequencial a partir de 1 e usa a primeira linha da mensagem de confirmação (ajustada para segurança do nome do caminho) como o nome do arquivo. Com a opção <code>--numbered-files</code>, os nomes dos arquivos de saída serão apenas números, sem a primeira linha do commit anexada. Os nomes dos arquivos gerados são impressos na saída predefinida, a menos que a opção <code>--stdout</code> seja especificada.</p>
+<p>É predefinido que cada arquivo gerado seja numerado de maneira sequencial a partir de 1 e usa a primeira linha da mensagem de confirmação (ajustada para segurança do nome do caminho) como o nome do arquivo. Com a opção <span class='synopsis'><code>--numbered-files</code></span>, os nomes dos arquivos de saída serão apenas números, sem a primeira linha do commit anexada. Os nomes dos arquivos gerados são impressos na saída predefinida, a menos que a opção <span class='synopsis'><code>--stdout</code></span> seja especificada.</p>
 </div>
 <div class="paragraph">
-<p>Caso a opção <code>-o</code> seja usada, os arquivos gerados serão criados em &lt;dir&gt;. Caso contrário, eles são criados no diretório de trabalho atual. O caminho predefinido pode ser definido com a opção de configuração <code>format.outputDirectory</code>. A opção <code>-o</code> tem precedência sobre <code>format.outputDirectory</code>. Para armazenar as correções no diretório de trabalho atual, mesmo quando o <code>format.outputDirectory</code> apontar para outro local, use <code>-o .</code>. Todos os componentes do diretório serão criados.</p>
+<p>Caso a opção <span class='synopsis'><code>-o</code></span> seja usada, os arquivos gerados serão criados em &lt;dir&gt;. Caso contrário, eles são criados no diretório de trabalho atual. O caminho predefinido pode ser definido com a opção de configuração <span class='synopsis'><code>format.outputDirectory</code></span>. A opção <span class='synopsis'><code>-o</code></span> tem precedência sobre <span class='synopsis'><code>format.outputDirectory</code></span>. Para armazenar as correções no diretório de trabalho atual, mesmo quando o <span class='synopsis'><code>format.outputDirectory</code></span> apontar para outro local, use <span class='synopsis'><code>-o</code> <code>.</code></span>. Todos os componentes do diretório serão criados.</p>
 </div>
 <div class="paragraph">
 <p>É predefinido que o assunto de um único patch seja "[PATCH]" seguido da concatenação das linhas da mensagem do commit até a primeira linha em branco (consulte a seção DISCUSSÃO em <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a>).</p>
 </div>
 <div class="paragraph">
-<p>Quando várias correções forem emitidas, o prefixo do assunto será "[PATCH n/m] ". Para forçar a adição de 1/1 numa única correção, use <code>-n</code>. Para omitir números dos patches de correção do assunto, use a opção <code>-N</code>.</p>
+<p>Quando várias correções forem emitidas, o prefixo do assunto será "[PATCH n/m] ". Para forçar a adição de 1/1 numa única correção, use <span class='synopsis'><code>-n</code></span>. Para omitir números dos patches de correção do assunto, use a opção <span class='synopsis'><code>-N</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Caso a opção <code>--thread</code> seja utilizada, o <code>git-format-patch</code> irá gerar cabeçalhos <code>In-Reply-To</code> (Em-Resposta-Para) e <code>References</code> para fazer com que o e-mail do segundo e das correções (patches) subsequentes apareçam como resposta ao primeiro e-mail; isso também gera um cabeçalho <code>Message-Id</code> para a referência.</p>
+<p>Caso a opção <span class='synopsis'><code>--thread</code></span> seja utilizada, o <span class='synopsis'><code>git-format-patch</code></span> irá gerar cabeçalhos <span class='synopsis'><code>In-Reply-To</code></span> (Em-Resposta-Para) e <span class='synopsis'><code>References</code></span> para fazer com que o e-mail do segundo e das correções (patches) subsequentes apareçam como resposta ao primeiro e-mail; isso também gera um cabeçalho <span class='synopsis'><code>Message-Id</code></span> para a referência.</p>
 </div>
 </div>
 </div>
@@ -117,7 +142,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/diff-options.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/diff-options.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -130,12 +155,12 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-format-patch--ltngt"> <a class="anchor" href="#git-format-patch--n"></a> <a class="anchor" href="#git-format-patch--ltngt"></a>-&lt;n&gt; </dt>
 <dd>
-<p>Prepare os patches a partir do <code>&lt;n&gt;</code> do nível mais alto dos commits.</p>
+<p>Prepare os patches a partir do <span class='synopsis'><em>&lt;n&gt;</em></span> do nível mais alto dos commits.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch--oltdirgt"> <a class="anchor" href="#git-format-patch--odir"></a> <a class="anchor" href="#git-format-patch--oltdirgt"></a>-o &lt;dir&gt; </dt>
 <dt class="hdlist1" id="git-format-patch---output-directoryltdirgt"> <a class="anchor" href="#git-format-patch---output-directorydir"></a> <a class="anchor" href="#git-format-patch---output-directoryltdirgt"></a>--output-directory &lt;dir&gt; </dt>
 <dd>
-<p>Utilize <code>&lt;dir&gt;</code> para armazenar os arquivos resultantes em vez do diretório de trabalho atual.</p>
+<p>Utilize <span class='synopsis'><em>&lt;dir&gt;</em></span> para armazenar os arquivos resultantes em vez do diretório de trabalho atual.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch--n-1"> <a class="anchor" href="#git-format-patch--n-1"></a>-n </dt>
 <dt class="hdlist1" id="git-format-patch---numbered"> <a class="anchor" href="#git-format-patch---numbered"></a>--numbered </dt>
@@ -163,7 +188,7 @@ aliases:
 <dt class="hdlist1" id="git-format-patch--s"> <a class="anchor" href="#git-format-patch--s"></a>-s </dt>
 <dt class="hdlist1" id="git-format-patch---signoff"> <a class="anchor" href="#git-format-patch---signoff"></a>--signoff </dt>
 <dd>
-<p>Adicione um trailer <code>Signed-off-by</code> à mensagem do commit, usando a sua identidade de committer. Consulte a opção signoff do comando <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a> para obter mais informações.</p>
+<p>Adicione um trailer <span class='synopsis'><code>Signed-off-by</code></span> à mensagem do commit, usando a sua identidade de committer. Consulte a opção signoff do comando <a href='{{< relurl "docs/git-commit/pt_BR" >}}'>git-commit[1]</a> para obter mais informações.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---stdout"> <a class="anchor" href="#git-format-patch---stdout"></a>--stdout </dt>
 <dd>
@@ -171,7 +196,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-format-patch---attachltdivisagt"> <a class="anchor" href="#git-format-patch---attachdivisa"></a> <a class="anchor" href="#git-format-patch---attachltdivisagt"></a>--attach[=&lt;divisa&gt;] </dt>
 <dd>
-<p>Crie anexos com diversas partes/misto onde a primeira parte é a mensagem do commit e o próprio patch na segunda parte utilizando <code>Content-Disposition: attachment</code>.</p>
+<p>Crie anexos com diversas partes/misto onde a primeira parte é a mensagem do commit e o próprio patch na segunda parte utilizando <span class='synopsis'><code>Content-Disposition:</code> <code>attachment</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---no-attach"> <a class="anchor" href="#git-format-patch---no-attach"></a>--no-attach </dt>
 <dd>
@@ -179,29 +204,29 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-format-patch---inlineltdivisagt"> <a class="anchor" href="#git-format-patch---inlinedivisa"></a> <a class="anchor" href="#git-format-patch---inlineltdivisagt"></a>--inline[=&lt;divisa&gt;] </dt>
 <dd>
-<p>Crie um anexo com diversas partes/misto onde a primeira parte é a mensagem do commit e o próprio patch na segunda parte utilizando <code>Content-Disposition: inline</code>.</p>
+<p>Crie um anexo com diversas partes/misto onde a primeira parte é a mensagem do commit e o próprio patch na segunda parte utilizando <span class='synopsis'><code>Content-Disposition:</code> <code>inline</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---threadltestilogt"> <a class="anchor" href="#git-format-patch---threadestilo"></a> <a class="anchor" href="#git-format-patch---threadltestilogt"></a>--thread[=&lt;estilo&gt;] </dt>
 <dt class="hdlist1" id="git-format-patch---no-thread"> <a class="anchor" href="#git-format-patch---no-thread"></a>--no-thread </dt>
 <dd>
-<p>Controla a adição dos cabeçalhos <code>In-Reply-To</code> e <code>References</code> para fazer com que o segundo e-mail e os seguintes apareçam como respostas ao primeiro. Também controla a geração do cabeçalho <code>Message-ID</code> para referência.</p>
+<p>Controla a adição dos cabeçalhos <span class='synopsis'><code>In-Reply-To</code></span> e <span class='synopsis'><code>References</code></span> para fazer com que o segundo e-mail e os seguintes apareçam como respostas ao primeiro. Também controla a geração do cabeçalho <span class='synopsis'><code>Message-ID</code></span> para referência.</p>
 <div class="paragraph">
-<p>O argumento opcional &lt;estilo&gt; pode ser <code>shallow</code> ou <code>deep</code>. A instância <em>shallow</em> faz com que cada e-mail seja uma resposta ao cabeçalho da série, onde o cabeçalho é escolhido a partir da carta de apresentação do <code>--in-reply-to</code> e do primeiro e-mail de correção, nesta ordem. A instância <em>deep</em> faz com que cada e-mail seja uma resposta a resposta anterior.</p>
+<p>O argumento opcional &lt;estilo&gt; pode ser <span class='synopsis'><code>shallow</code></span> ou <span class='synopsis'><code>deep</code></span>. A instância <em>shallow</em> faz com que cada e-mail seja uma resposta ao cabeçalho da série, onde o cabeçalho é escolhido a partir da carta de apresentação do <span class='synopsis'><code>--in-reply-to</code></span> e do primeiro e-mail de correção, nesta ordem. A instância <em>deep</em> faz com que cada e-mail seja uma resposta a resposta anterior.</p>
 </div>
 <div class="paragraph">
-<p>A predefinição é <code>--no-thread</code>, a menos que a configuração <code>format.thread</code> seja definida. A opção <code>--thread</code> sem um argumento é o mesmo que <code>--thread=shallow</code>.</p>
+<p>A predefinição é <span class='synopsis'><code>--no-thread</code></span>, a menos que a configuração <span class='synopsis'><code>format.thread</code></span> seja definida. A opção <span class='synopsis'><code>--thread</code></span> sem um argumento é o mesmo que <span class='synopsis'><code>--thread=shallow</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Observe que o padrão do <em>git send-email</em> é cadenciar os próprios e-mails. Se você quiser que o <code>git format-patch</code> cuide do encadeamento, será necessário garantir que o encadeamento esteja desativado para o <code>git send-email</code>.</p>
+<p>Observe que o padrão do <em>git send-email</em> é cadenciar os próprios e-mails. Se você quiser que o <span class='synopsis'><code>git</code> <code>format-patch</code></span> cuide do encadeamento, será necessário garantir que o encadeamento esteja desativado para o <span class='synopsis'><code>git</code> <code>send-email</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---in-reply-toltid-da-menssagemgt"> <a class="anchor" href="#git-format-patch---in-reply-toid-da-menssagem"></a> <a class="anchor" href="#git-format-patch---in-reply-toltid-da-menssagemgt"></a>--in-reply-to=&lt;id-da-menssagem&gt; </dt>
 <dd>
-<p>Faz com que o primeiro e-mail (ou todos os e-mails que estejam usando <code>--no-thread</code>) apareça como uma resposta ao &lt;id-da-menssagem&gt; informado, o que evita a quebra das threads para fornecer uma nova série de correções.</p>
+<p>Faz com que o primeiro e-mail (ou todos os e-mails que estejam usando <span class='synopsis'><code>--no-thread</code></span>) apareça como uma resposta ao &lt;id-da-menssagem&gt; informado, o que evita a quebra das threads para fornecer uma nova série de correções.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---ignore-if-in-upstream"> <a class="anchor" href="#git-format-patch---ignore-if-in-upstream"></a>--ignore-if-in-upstream </dt>
 <dd>
-<p>Não inclua uma correção que corresponda a um commit em <code>&lt;até&gt;..&lt;desde&gt;</code>. Isso examinará todas as correções acessíveis a partir de &lt;desde&gt;, mas não de &lt;até&gt; e os comparará com as correções que estão sendo geradas, e qualquer correção correspondente será ignorado.</p>
+<p>Não inclua uma correção que corresponda a um commit em <span class='synopsis'><em>&lt;até&gt;</em><code>..</code><em>&lt;desde&gt;</em></span>. Isso examinará todas as correções acessíveis a partir de &lt;desde&gt;, mas não de &lt;até&gt; e os comparará com as correções que estão sendo geradas, e qualquer correção correspondente será ignorado.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---always"> <a class="anchor" href="#git-format-patch---always"></a>--always </dt>
 <dd>
@@ -211,16 +236,16 @@ aliases:
 <dd>
 <p>Controla quais as partes da carta de apresentação serão preenchidas automaticamente utilizando ao descritivo do ramo.</p>
 <div class="paragraph">
-<p>Caso <code>&lt;modo&gt;</code> seja <code>message</code> ou <code>default</code>, o assunto da carta de apresentação será preenchido com um texto em um espaço reservado. O corpo da carta de apresentação será preenchido com a descrição do ramo. Este é o modo predefinido quando nenhuma configuração ou opção na linha de comando for utilizada.</p>
+<p>Caso <span class='synopsis'><em>&lt;modo&gt;</em></span> seja <span class='synopsis'><code>message</code></span> ou <span class='synopsis'><code>default</code></span>, o assunto da carta de apresentação será preenchido com um texto em um espaço reservado. O corpo da carta de apresentação será preenchido com a descrição do ramo. Este é o modo predefinido quando nenhuma configuração ou opção na linha de comando for utilizada.</p>
 </div>
 <div class="paragraph">
-<p>Caso o <code>&lt;modo&gt;</code> seja <code>subject</code>, o primeiro parágrafo do descritivo do ramo preencherá o assunto da carta de apresentação. O restante do descritivo preencherá o corpo da carta de apresentação.</p>
+<p>Caso o <span class='synopsis'><em>&lt;modo&gt;</em></span> seja <span class='synopsis'><code>subject</code></span>, o primeiro parágrafo do descritivo do ramo preencherá o assunto da carta de apresentação. O restante do descritivo preencherá o corpo da carta de apresentação.</p>
 </div>
 <div class="paragraph">
-<p>Caso <code>&lt;modo&gt;</code> seja <code>auto</code> e se o primeiro parágrafo do descritivo do ramo for maior que 100 bytes, o modo será <code>message</code>, caso contrário, o <code>subject</code> será utilizado.</p>
+<p>Caso <span class='synopsis'><em>&lt;modo&gt;</em></span> seja <span class='synopsis'><code>auto</code></span> e se o primeiro parágrafo do descritivo do ramo for maior que 100 bytes, o modo será <span class='synopsis'><code>message</code></span>, caso contrário, o <span class='synopsis'><code>subject</code></span> será utilizado.</p>
 </div>
 <div class="paragraph">
-<p>Caso <code>&lt;modo&gt;</code> seja <code>none</code>, tanto o assunto e o corpo da carta serão preenchidos com o texto do espaço reservado.</p>
+<p>Caso <span class='synopsis'><em>&lt;modo&gt;</em></span> seja <span class='synopsis'><code>none</code></span>, tanto o assunto e o corpo da carta serão preenchidos com o texto do espaço reservado.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---description-fileltarquivogt"> <a class="anchor" href="#git-format-patch---description-filearquivo"></a> <a class="anchor" href="#git-format-patch---description-fileltarquivogt"></a>--description-file=&lt;arquivo&gt; </dt>
@@ -229,14 +254,14 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-format-patch---subject-prefixltprefixo-do-assuntogt"> <a class="anchor" href="#git-format-patch---subject-prefixprefixo-do-assunto"></a> <a class="anchor" href="#git-format-patch---subject-prefixltprefixo-do-assuntogt"></a>--subject-prefix=&lt;prefixo-do-assunto&gt; </dt>
 <dd>
-<p>Em vez do prefixo padrão <em>[PATCH]</em> na linha de assunto, use <em>[&lt;prefixo-do-assunto&gt;]</em>. Isso pode ser usado para nomear uma série de correções e pode ser combinado com a opção <code>--numbered</code>.</p>
+<p>Em vez do prefixo padrão <em>[PATCH]</em> na linha de assunto, use <em>[&lt;prefixo-do-assunto&gt;]</em>. Isso pode ser usado para nomear uma série de correções e pode ser combinado com a opção <span class='synopsis'><code>--numbered</code></span>.</p>
 <div class="paragraph">
-<p>A variável de configuração <code>format.subjectPrefix</code> também pode ser usada para configurar um prefixo de assunto que será aplicado a um determinado repositório para todos os patches. Isso costuma ser útil em listas de discussão que recebem patches de vários repositórios e pode ser usado para desambiguar os patches (com um valor de, por exemplo, "PATCH my-project").</p>
+<p>A variável de configuração <span class='synopsis'><code>format.subjectPrefix</code></span> também pode ser usada para configurar um prefixo de assunto que será aplicado a um determinado repositório para todos os patches. Isso costuma ser útil em listas de discussão que recebem patches de vários repositórios e pode ser usado para desambiguar os patches (com um valor de, por exemplo, "PATCH my-project").</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---filename-max-lengthltngt"> <a class="anchor" href="#git-format-patch---filename-max-lengthn"></a> <a class="anchor" href="#git-format-patch---filename-max-lengthltngt"></a>--filename-max-length=&lt;n&gt; </dt>
 <dd>
-<p>Em vez dos 64 bytes predefinidos, corte os nomes de arquivos gerados na saída em cerca de <em>&lt;n&gt;</em> bytes (um valor muito curto será silenciosamente aumentado para um tamanho razoável). A predefinição é o valor na variável de configuração <code>format.filenameMaxLength</code> ou 64, caso não esteja configurada.</p>
+<p>Em vez dos 64 bytes predefinidos, corte os nomes de arquivos gerados na saída em cerca de <em>&lt;n&gt;</em> bytes (um valor muito curto será silenciosamente aumentado para um tamanho razoável). A predefinição é o valor na variável de configuração <span class='synopsis'><code>format.filenameMaxLength</code></span> ou 64, caso não esteja configurada.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---rfcltrfcgt"> <a class="anchor" href="#git-format-patch---rfcrfc"></a> <a class="anchor" href="#git-format-patch---rfcltrfcgt"></a>--rfc[=&lt;rfc&gt;] </dt>
 <dd>
@@ -245,37 +270,37 @@ aliases:
 <p>RFC means "Request For Comments"; use this when sending an experimental patch for discussion rather than application. "--rfc=WIP" may also be a useful way to indicate that a patch is not complete yet ("WIP" stands for "Work In Progress").</p>
 </div>
 <div class="paragraph">
-<p>If the convention of the receiving community for a particular extra string is to have it <em>after</em> the subject prefix, the string <em>&lt;rfc&gt;</em> can be prefixed with a dash ("<code>-</code>") to signal that the rest of the <em>&lt;rfc&gt;</em> string should be appended to the subject prefix instead, e.g., <code>--rfc='-(WIP)'</code> results in "PATCH (WIP)".</p>
+<p>If the convention of the receiving community for a particular extra string is to have it <em>after</em> the subject prefix, the string <em>&lt;rfc&gt;</em> can be prefixed with a dash ("<span class='synopsis'><code>-</code></span>") to signal that the rest of the <em>&lt;rfc&gt;</em> string should be appended to the subject prefix instead, e.g., <span class='synopsis'><code>--rfc='-</code>(<code>WIP</code>)</span> results in "PATCH (WIP)".</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch--vltngt"> <a class="anchor" href="#git-format-patch--vn"></a> <a class="anchor" href="#git-format-patch--vltngt"></a>-v &lt;n&gt; </dt>
 <dt class="hdlist1" id="git-format-patch---reroll-countltngt"> <a class="anchor" href="#git-format-patch---reroll-countn"></a> <a class="anchor" href="#git-format-patch---reroll-countltngt"></a>--reroll-count=&lt;n&gt; </dt>
 <dd>
-<p>Marque a série como a &lt;n&gt;-ésima iteração do tópico. Os nomes dos arquivos de saída têm <code>v&lt;n&gt;</code> anexado a eles, e o prefixo do assunto ("PATCH" por padrão, mas configurável através da opção <code>--subject-prefix</code>) tem ` v&lt;n&gt;` anexado a ele. Por exemplo, <code>--reroll-count=4</code> pode produzir o arquivo <code>v4-0001-add-makefile.patch</code> que tem "Subject: [PATCH v4 1/20] Add makefile" nele. O <code>&lt;n&gt;</code> não precisa ser um número inteiro ("--reroll-count=4.4" ou "--reroll-count=4rev2" são permitidos por exemplo), mas a desvantagem de usar esse tipo de reroll-count é que o range-diff/interdiff com a versão anterior não indica exatamente com qual versão a nova iteração é comparada.</p>
+<p>Marque a série como a &lt;n&gt;-ésima iteração do tópico. Os nomes dos arquivos de saída têm <span class='synopsis'><code>v</code><em>&lt;n&gt;</em></span> anexado a eles, e o prefixo do assunto ("PATCH" por padrão, mas configurável através da opção <span class='synopsis'><code>--subject-prefix</code></span>) tem ` v&lt;n&gt;` anexado a ele. Por exemplo, <span class='synopsis'><code>--reroll-count=4</code></span> pode produzir o arquivo <span class='synopsis'><code>v4-0001-add-makefile.patch</code></span> que tem "Subject: [PATCH v4 1/20] Add makefile" nele. O <span class='synopsis'><em>&lt;n&gt;</em></span> não precisa ser um número inteiro ("--reroll-count=4.4" ou "--reroll-count=4rev2" são permitidos por exemplo), mas a desvantagem de usar esse tipo de reroll-count é que o range-diff/interdiff com a versão anterior não indica exatamente com qual versão a nova iteração é comparada.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---tolte-mailgt"> <a class="anchor" href="#git-format-patch---toe-mail"></a> <a class="anchor" href="#git-format-patch---tolte-mailgt"></a>--to=&lt;e-mail&gt; </dt>
 <dd>
-<p>Adicione um cabeçalho <code>To:</code> aos cabeçalhos de e-mail. Isso se soma a qualquer cabeçalho configurado e pode ser usado várias vezes. A forma negada <code>--no-to</code> descarta todos os cabeçalhos <code>To:</code> adicionados até o momento (a partir da configuração ou da linha de comando).</p>
+<p>Adicione um cabeçalho <span class='synopsis'><code>To:</code></span> aos cabeçalhos de e-mail. Isso se soma a qualquer cabeçalho configurado e pode ser usado várias vezes. A forma negada <span class='synopsis'><code>--no-to</code></span> descarta todos os cabeçalhos <span class='synopsis'><code>To:</code></span> adicionados até o momento (a partir da configuração ou da linha de comando).</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---cclte-mailgt"> <a class="anchor" href="#git-format-patch---cce-mail"></a> <a class="anchor" href="#git-format-patch---cclte-mailgt"></a>--cc=&lt;e-mail&gt; </dt>
 <dd>
-<p>Adicione um cabeçalho <code>Cc:</code> aos cabeçalhos de e-mail. Isso se soma a qualquer cabeçalho configurado e pode ser usado várias vezes. A forma negada <code>--no-cc</code> descarta todos os cabeçalhos <code>Cc:</code> adicionados até o momento (a partir da configuração ou da linha de comando).</p>
+<p>Adicione um cabeçalho <span class='synopsis'><code>Cc:</code></span> aos cabeçalhos de e-mail. Isso se soma a qualquer cabeçalho configurado e pode ser usado várias vezes. A forma negada <span class='synopsis'><code>--no-cc</code></span> descarta todos os cabeçalhos <span class='synopsis'><code>Cc:</code></span> adicionados até o momento (a partir da configuração ou da linha de comando).</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---from"> <a class="anchor" href="#git-format-patch---from"></a>--from </dt>
 <dt class="hdlist1" id="git-format-patch---fromltidentgt"> <a class="anchor" href="#git-format-patch---fromident"></a> <a class="anchor" href="#git-format-patch---fromltidentgt"></a>--from=&lt;ident&gt; </dt>
 <dd>
-<p>Utilize <code>ident</code> (identidade) no cabeçalho <code>De:</code> de cada email do commit. Caso o <code>ident</code> do autor do commit não seja textualmente idêntica ao <code>ident</code> informado, coloque um cabeçalho <code>De:</code> no corpo da mensagem com o autor original. Caso nenhum <code>ident</code> seja informado, utilize o <code>ident</code> de quem fez o commit.</p>
+<p>Utilize <span class='synopsis'><code>ident</code></span> (identidade) no cabeçalho <span class='synopsis'><code>De:</code></span> de cada email do commit. Caso o <span class='synopsis'><code>ident</code></span> do autor do commit não seja textualmente idêntica ao <span class='synopsis'><code>ident</code></span> informado, coloque um cabeçalho <span class='synopsis'><code>De:</code></span> no corpo da mensagem com o autor original. Caso nenhum <span class='synopsis'><code>ident</code></span> seja informado, utilize o <span class='synopsis'><code>ident</code></span> de quem fez o commit.</p>
 <div class="paragraph">
-<p>Observe que esta opção só é útil caso esteja realmente enviando os e-mails e quiser se identificar como remetente mantendo o autor original (o <code>git am</code> pegará corretamente o cabeçalho interno). Observe também que o comando <code>git send-email</code> já lida com essa transformação para você, essa opção não deve ser utilizada caso esteja alimentando o resultado com o comando <code>git send-email</code>.</p>
+<p>Observe que esta opção só é útil caso esteja realmente enviando os e-mails e quiser se identificar como remetente mantendo o autor original (o <span class='synopsis'><code>git</code> <code>am</code></span> pegará corretamente o cabeçalho interno). Observe também que o comando <span class='synopsis'><code>git</code> <code>send-email</code></span> já lida com essa transformação para você, essa opção não deve ser utilizada caso esteja alimentando o resultado com o comando <span class='synopsis'><code>git</code> <code>send-email</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---no-force-in-body-from"> <a class="anchor" href="#git-format-patch---no-force-in-body-from"></a>--[no-]force-in-body-from </dt>
 <dd>
-<p>Com o remetente do e-mail especificado por meio da opção <code>--from</code>, é predefinido que, um "From:" no corpo da mensagem para identificar o verdadeiro autor do commit é adicionado na parte superior da mensagem de registro do commit se o remetente for diferente do autor. Com essa opção, o "From:" no corpo da mensagem é adicionado mesmo quando o remetente e o autor têm o mesmo nome e endereço, o que pode ajudar se o software da lista de discussão confundir a identidade do remetente. A predefinição é o valor na variável de configuração <code>format.forceInBodyFrom</code>.</p>
+<p>Com o remetente do e-mail especificado por meio da opção <span class='synopsis'><code>--from</code></span>, é predefinido que, um "From:" no corpo da mensagem para identificar o verdadeiro autor do commit é adicionado na parte superior da mensagem de registro do commit se o remetente for diferente do autor. Com essa opção, o "From:" no corpo da mensagem é adicionado mesmo quando o remetente e o autor têm o mesmo nome e endereço, o que pode ajudar se o software da lista de discussão confundir a identidade do remetente. A predefinição é o valor na variável de configuração <span class='synopsis'><code>format.forceInBodyFrom</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---add-headerltcabealhogt"> <a class="anchor" href="#git-format-patch---add-headercabealho"></a> <a class="anchor" href="#git-format-patch---add-headerltcabealhogt"></a>--add-header=&lt;cabeçalho&gt; </dt>
 <dd>
-<p>Adiciona um cabeçalho arbitrário aos cabeçalhos do e-mail. Isso se soma a qualquer cabeçalho configurado e pode ser usado várias vezes. Por exemplo, <code>--add-header="Organization: git-foo"</code>. A forma negada <code>--no-add-header</code> descarta <strong>todos</strong> os cabeçalhos (<code>To:</code>, <code>Cc:</code> e os personalizados) adicionados a partir da configuração ou da linha de comando.</p>
+<p>Adiciona um cabeçalho arbitrário aos cabeçalhos do e-mail. Isso se soma a qualquer cabeçalho configurado e pode ser usado várias vezes. Por exemplo, <span class='synopsis'><code>--add-header="Organization:</code> <code>git-foo"</code></span>. A forma negada <span class='synopsis'><code>--no-add-header</code></span> descarta <strong>todos</strong> os cabeçalhos (<span class='synopsis'><code>To:</code></span>, <span class='synopsis'><code>Cc:</code></span> e os personalizados) adicionados a partir da configuração ou da linha de comando.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---no-cover-letter"> <a class="anchor" href="#git-format-patch---no-cover-letter"></a>--[no-]cover-letter </dt>
 <dd>
@@ -284,22 +309,22 @@ aliases:
 <dt class="hdlist1" id="git-format-patch---encode-email-headers"> <a class="anchor" href="#git-format-patch---encode-email-headers"></a>--encode-email-headers </dt>
 <dt class="hdlist1" id="git-format-patch---no-encode-email-headers"> <a class="anchor" href="#git-format-patch---no-encode-email-headers"></a>--no-encode-email-headers </dt>
 <dd>
-<p>Codifique os cabeçalhos do e-mail que possuam caracteres não ASCII com "Q-encoding" (descrito na RFC 2047), em vez de emitir os cabeçalhos de forma literal. A predefinição retorna para o valor da variável de configuração <code>format.encodeEmailHeaders</code>.</p>
+<p>Codifique os cabeçalhos do e-mail que possuam caracteres não ASCII com "Q-encoding" (descrito na RFC 2047), em vez de emitir os cabeçalhos de forma literal. A predefinição retorna para o valor da variável de configuração <span class='synopsis'><code>format.encodeEmailHeaders</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---interdiffltanteriorgt"> <a class="anchor" href="#git-format-patch---interdiffanterior"></a> <a class="anchor" href="#git-format-patch---interdiffltanteriorgt"></a>--interdiff=&lt;anterior&gt; </dt>
 <dd>
-<p>Como um auxílio ao revisor, insira um "interdiff" na carta de apresentação ou como um comentário único do patch de uma série de 1, exibindo as diferenças entre a versão anterior da série do patch e a série atualmente sendo formatada. <code>previous</code> (anterior) é uma única revisão que informa a ponta da série anterior que compartilha uma base comum com a série que está sendo formatada (<code>git format-patch --cover-letter --interdiff=feature/v1 -3 feature/v2</code> por exemplo).</p>
+<p>Como um auxílio ao revisor, insira um "interdiff" na carta de apresentação ou como um comentário único do patch de uma série de 1, exibindo as diferenças entre a versão anterior da série do patch e a série atualmente sendo formatada. <span class='synopsis'><code>previous</code></span> (anterior) é uma única revisão que informa a ponta da série anterior que compartilha uma base comum com a série que está sendo formatada (<span class='synopsis'><code>git</code> <code>format-patch</code> <code>--cover-letter</code> <code>--interdiff=feature/v1</code> <code>-3</code> <code>feature/v2</code></span> por exemplo).</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---range-diffltanteriorgt"> <a class="anchor" href="#git-format-patch---range-diffanterior"></a> <a class="anchor" href="#git-format-patch---range-diffltanteriorgt"></a>--range-diff=&lt;anterior&gt; </dt>
 <dd>
-<p>Como auxílio ao revisor, insira um "range-diff" (consulte <a href='{{< relurl "docs/git-range-diff/pt_BR" >}}'>git-range-diff[1]</a>) na carta de apresentação ou como comentário da única correção de uma série de 1 correções, mostrando as diferenças entre a versão anterior da série de correções e a série que está sendo formatada no momento. <code>previous</code> pode ser uma única revisão nomeando a ponta da série anterior se ela compartilhar uma base comum com a série que está sendo formatada (<code>git format-patch --cover-letter --range-diff=feature/v1 -3 feature/v2</code> por exemplo), ou uma faixa de revisão se ambas versões da série forem distintas (por exemplo, <code>git format-patch --cover-letter --range-diff=feature/v1~3..feature/v1 -3 feature/v2</code>).</p>
+<p>Como auxílio ao revisor, insira um "range-diff" (consulte <a href='{{< relurl "docs/git-range-diff/pt_BR" >}}'>git-range-diff[1]</a>) na carta de apresentação ou como comentário da única correção de uma série de 1 correções, mostrando as diferenças entre a versão anterior da série de correções e a série que está sendo formatada no momento. <span class='synopsis'><code>previous</code></span> pode ser uma única revisão nomeando a ponta da série anterior se ela compartilhar uma base comum com a série que está sendo formatada (<span class='synopsis'><code>git</code> <code>format-patch</code> <code>--cover-letter</code> <code>--range-diff=feature/v1</code> <code>-3</code> <code>feature/v2</code></span> por exemplo), ou uma faixa de revisão se ambas versões da série forem distintas (por exemplo, <span class='synopsis'><code>git</code> <code>format-patch</code> <code>--cover-letter</code> <code>--range-diff=feature/v1~3..feature/v1</code> <code>-3</code> <code>feature/v2</code></span>).</p>
 <div class="paragraph">
-<p>Observe que as opções diff passadas ao comando afetam como o produto primário do <code>format-patch</code> será gerado, não são passadas para o mecanismo subjacente do <code>range-diff</code> usado para gerar o material da carta de apresentação (isso pode mudar no futuro).</p>
+<p>Observe que as opções diff passadas ao comando afetam como o produto primário do <span class='synopsis'><code>format-patch</code></span> será gerado, não são passadas para o mecanismo subjacente do <span class='synopsis'><code>range-diff</code></span> usado para gerar o material da carta de apresentação (isso pode mudar no futuro).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---creation-factorltpercentualgt"> <a class="anchor" href="#git-format-patch---creation-factorpercentual"></a> <a class="anchor" href="#git-format-patch---creation-factorltpercentualgt"></a>--creation-factor=&lt;percentual&gt; </dt>
 <dd>
-<p>Usado com <code>--range-diff</code>, ajusta a heurística que combina os commits entre a série anterior e a atual de patches, ajustando o fator de correção do custo de criação/exclusão. Para mais detalhes consulte <a href='{{< relurl "docs/git-range-diff/pt_BR" >}}'>git-range-diff[1]</a>).</p>
+<p>Usado com <span class='synopsis'><code>--range-diff</code></span>, ajusta a heurística que combina os commits entre a série anterior e a atual de patches, ajustando o fator de correção do custo de criação/exclusão. Para mais detalhes consulte <a href='{{< relurl "docs/git-range-diff/pt_BR" >}}'>git-range-diff[1]</a>).</p>
 <div class="paragraph">
 <p>Defaults to 999 (the <a href='{{< relurl "docs/git-range-diff/pt_BR" >}}'>git-range-diff[1]</a> uses 60), as the use case is to show comparison with an older iteration of the same topic and the tool should find more correspondence between the two sets of patches.</p>
 </div>
@@ -309,10 +334,10 @@ aliases:
 <dd>
 <p>Adiciona as anotações (consulte <a href='{{< relurl "docs/git-notes/pt_BR" >}}'>git-notes[1]</a>) para o commit depois da linha com três traços.</p>
 <div class="paragraph">
-<p>É esperado que seja utilizado para escrever uma explicação de suporte para o commit que não pertença à mensagem do registro log do commit e seja incluída no envio do patch. Embora seja possível simplesmente escrever essas explicações após a execução do <code>format-patch</code>, antes do envio, mantê-las como notas do Git permite que elas sejam mantidas entre as versões da série de patches (ainda assim consulte a discussão das opções de configuração do <code>notes.rewrite</code> em <a href='{{< relurl "docs/git-notes/pt_BR" >}}'>git-notes[1]</a> para compreender este fluxo de trabalho).</p>
+<p>É esperado que seja utilizado para escrever uma explicação de suporte para o commit que não pertença à mensagem do registro log do commit e seja incluída no envio do patch. Embora seja possível simplesmente escrever essas explicações após a execução do <span class='synopsis'><code>format-patch</code></span>, antes do envio, mantê-las como notas do Git permite que elas sejam mantidas entre as versões da série de patches (ainda assim consulte a discussão das opções de configuração do <span class='synopsis'><code>notes.rewrite</code></span> em <a href='{{< relurl "docs/git-notes/pt_BR" >}}'>git-notes[1]</a> para compreender este fluxo de trabalho).</p>
 </div>
 <div class="paragraph">
-<p>A predefinição é <code>--no-notes</code>, a menos que a configuração <code>format.notes</code> esteja definida.</p>
+<p>A predefinição é <span class='synopsis'><code>--no-notes</code></span>, a menos que a configuração <span class='synopsis'><code>format.notes</code></span> esteja definida.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---no-signatureltassinaturagt"> <a class="anchor" href="#git-format-patch---no-signatureassinatura"></a> <a class="anchor" href="#git-format-patch---no-signatureltassinaturagt"></a>--[no-]signature=&lt;assinatura&gt; </dt>
@@ -321,13 +346,13 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-format-patch---signature-fileltarquivogt"> <a class="anchor" href="#git-format-patch---signature-filearquivo"></a> <a class="anchor" href="#git-format-patch---signature-fileltarquivogt"></a>--signature-file=&lt;arquivo&gt; </dt>
 <dd>
-<p>Funciona exatamente como <code>--signature</code>, exceto que a assinatura é lida num arquivo.</p>
+<p>Funciona exatamente como <span class='synopsis'><code>--signature</code></span>, exceto que a assinatura é lida num arquivo.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---suffixltsfxgt"> <a class="anchor" href="#git-format-patch---suffixsfx"></a> <a class="anchor" href="#git-format-patch---suffixltsfxgt"></a>--suffix=.&lt;sfx&gt; </dt>
 <dd>
-<p>Em vez de usar <code>.patch</code> como sufixo para os nomes de arquivos gerados, use o sufixo especificado. Uma alternativa comum é <code>--suffix=.txt</code>. Deixar esse campo vazio removerá o sufixo <code>.patch</code>.</p>
+<p>Em vez de usar <span class='synopsis'><code>.patch</code></span> como sufixo para os nomes de arquivos gerados, use o sufixo especificado. Uma alternativa comum é <span class='synopsis'><code>--suffix=.txt</code></span>. Deixar esse campo vazio removerá o sufixo <span class='synopsis'><code>.patch</code></span>.</p>
 <div class="paragraph">
-<p>Observe que o caractere principal não precisa ser um ponto; você pode usar <code>--suffix=-patch</code> para obter <code>0001-description-of-my-change-patch</code> por exemplo.</p>
+<p>Observe que o caractere principal não precisa ser um ponto; você pode usar <span class='synopsis'><code>--suffix=-patch</code></span> para obter <span class='synopsis'><code>0001-description-of-my-change-patch</code></span> por exemplo.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch--q"> <a class="anchor" href="#git-format-patch--q"></a>-q </dt>
@@ -345,7 +370,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-format-patch---no-baseltcommitgt"> <a class="anchor" href="#git-format-patch---no-basecommit"></a> <a class="anchor" href="#git-format-patch---no-baseltcommitgt"></a>--[no-]base[=&lt;commit&gt;] </dt>
 <dd>
-<p>Registre as informações da árvore base para identificar o estado ao qual a série de correções se aplica. Para mais detalhes consulte a seção INFORMAÇÕES SOBRE A ÁRVORE BASE abaixo. Se o &lt;commit&gt; for "auto", um commit básico será escolhido automaticamente. A opção <code>--no-base</code> substitui uma configuração <code>format.useAutoBase</code>.</p>
+<p>Registre as informações da árvore base para identificar o estado ao qual a série de correções se aplica. Para mais detalhes consulte a seção INFORMAÇÕES SOBRE A ÁRVORE BASE abaixo. Se o &lt;commit&gt; for "auto", um commit básico será escolhido automaticamente. A opção <span class='synopsis'><code>--no-base</code></span> substitui uma configuração <span class='synopsis'><code>format.useAutoBase</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---root"> <a class="anchor" href="#git-format-patch---root"></a>--root </dt>
 <dd>
@@ -411,7 +436,7 @@ Faça o mesmo com o ia64, para que possamos ter uma aparência elegante e orname
 <p>Normalmente, ele será colocado na pasta de rascunhos do MUA, editado para adicionar comentários oportunos que não devem ir para o changelog após os três traços e, em seguida, enviado como uma mensagem cujo corpo, em nosso exemplo, começa com "arch/arm config files were&#8230;&#8203;". Na extremidade receptora, os leitores podem salvar correções interessantes numa caixa de correio UNIX e aplicá-las com <a href='{{< relurl "docs/git-am/pt_BR" >}}'>git-am[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Quando uma correção faz parte de uma discussão em andamento, a correção gerada pelo <em>git format-patch</em> pode ser ajustada para aproveitar o recurso <em>git am --scissors</em>. Após a sua resposta à discussão, vem uma linha que consiste apenas em "<code>-- &gt;8 --</code>" (tesoura e perfuração), seguida da correção com os campos de cabeçalho desnecessários removidos:</p>
+<p>Quando uma correção faz parte de uma discussão em andamento, a correção gerada pelo <em>git format-patch</em> pode ser ajustada para aproveitar o recurso <em>git am --scissors</em>. Após a sua resposta à discussão, vem uma linha que consiste apenas em "<span class='synopsis'><em>-- &gt;8 --</em></span>" (tesoura e perfuração), seguida da correção com os campos de cabeçalho desnecessários removidos:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -428,7 +453,7 @@ Os arquivos da configuração arch/arm foram reduzidos utilizando um script pyth
 </div>
 </div>
 <div class="paragraph">
-<p>Ao enviar uma correção dessa forma, na maioria das vezes você está enviando a sua própria correção, portanto, além do marcador "<code>From $SHA1 $magic_timestamp</code>", você deve omitir as linhas <code>From:</code> e <code>Date:</code> do arquivo de correção. É provável que o título do patch seja diferente do assunto da discussão à qual a correção está respondendo, portanto, é provável que você queira manter a linha Subject:, como no exemplo acima.</p>
+<p>Ao enviar uma correção dessa forma, na maioria das vezes você está enviando a sua própria correção, portanto, além do marcador "<span class='synopsis'><code>From</code> <code>$SHA1</code> <code>$magic_timestamp</code></span>", você deve omitir as linhas <span class='synopsis'><code>From:</code></span> e <span class='synopsis'><code>Date:</code></span> do arquivo de correção. É provável que o título do patch seja diferente do assunto da discussão à qual a correção está respondendo, portanto, é provável que você queira manter a linha Subject:, como no exemplo acima.</p>
 </div>
 <div class="sect2">
 <h3 id="_verificando_o_corrompimento_dos_patches"><a class="anchor" href="#_verificando_o_corrompimento_dos_patches"></a>Verificando o corrompimento dos patches</h3>
@@ -536,11 +561,11 @@ $ git am a.patch</pre>
 <p>No Thunderbird 2: Vá em Ferramentas &#8594; Opções &#8594; Edição &#8594; Geral, defina como 0 (zero) caracteres a opção "Quebrar a linha, em mensagem sem formatação, após"</p>
 </div>
 <div class="paragraph">
-<p>No Thunderbird 3: Editar&#8230;&#8203;Preferências&#8230;&#8203;Avançado&#8230;&#8203;Editor de configuração. Busque por "mail.wrap_long_lines". Altere e tenha certeza que esteja definido como <code>false</code>. Além disso, procure por "mailnews.wraplength" e defina o valor como 0.</p>
+<p>No Thunderbird 3: Editar&#8230;&#8203;Preferências&#8230;&#8203;Avançado&#8230;&#8203;Editor de configuração. Busque por "mail.wrap_long_lines". Altere e tenha certeza que esteja definido como <span class='synopsis'><code>false</code></span>. Além disso, procure por "mailnews.wraplength" e defina o valor como 0.</p>
 </div>
 </li>
 <li>
-<p>Desative o uso de <code>format=flowed</code>: Editar&#8230;&#8203;Preferências&#8230;&#8203;Avançado&#8230;&#8203;Editor de configuração. Busque por "mailnews.send_plaintext_flowed". Altere e tenha certeza que esteja definido como <code>false</code>.</p>
+<p>Desative o uso de <span class='synopsis'><code>format=flowed</code></span>: Editar&#8230;&#8203;Preferências&#8230;&#8203;Avançado&#8230;&#8203;Editor de configuração. Busque por "mailnews.send_plaintext_flowed". Altere e tenha certeza que esteja definido como <span class='synopsis'><code>false</code></span>.</p>
 </li>
 </ol>
 </div>
@@ -627,7 +652,7 @@ $ git am a.patch</pre>
 <p>O bloco de informação da base da árvore é utilizado para que os mantenedores ou os testadores de terceiros saibam a condição exata ao qual a série de patches se aplicam. É a <em>base do commit</em>, é um commit informado que faz parte da parte estável do histórico do projeto onde todos os outros usam para trabalhar. Zero ou mais <em>patches de pré-requisição</em> são patches informados em transição, porém ainda não fazem parte da <em>base do commit</em> que precisam ser aplicados sobre o cume da <em>base do commit</em> em ordem topológica antes que os patches possam ser aplicados.</p>
 </div>
 <div class="paragraph">
-<p>O "commit básico" é mostrado como "base-commit: " seguido do 40 hexadecimal do nome do objeto do commit. Uma "pré-requisito de correção" é mostrado como "prerequisite-patch-id: " seguido do "patch id" de 40 hexadecimais, que pode ser obtido passando a correção pelo comando <code>git patch-id --stable</code>.</p>
+<p>O "commit básico" é mostrado como "base-commit: " seguido do 40 hexadecimal do nome do objeto do commit. Uma "pré-requisito de correção" é mostrado como "prerequisite-patch-id: " seguido do "patch id" de 40 hexadecimais, que pode ser obtido passando a correção pelo comando <span class='synopsis'><code>git</code> <code>patch-id</code> <code>--stable</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Imagine que, em cima do commit público P, foi aplicado os patches informados X, Y e Z de outra pessoa e construiu a sua série de três patches A, B, C, o histórico ficaria assim:</p>
@@ -638,7 +663,7 @@ $ git am a.patch</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Com o <code>git format-patch --base=P -3 C</code> (ou variantes do mesmo com <code>--cover-letter</code> ou utilizando <code>Z..C</code> em vez de <code>-3 C</code> para especificar o intervalo por exemplo), o bloco das informações da base da árvore é exibido no final da primeira mensagem que o comando gera (o primeiro patch ou a carta de apresentação), assim:</p>
+<p>Com o <span class='synopsis'><code>git</code> <code>format-patch</code> <code>--base=P</code> <code>-3</code> <code>C</code></span> (ou variantes do mesmo com <span class='synopsis'><code>--cover-letter</code></span> ou utilizando <span class='synopsis'><code>Z..C</code></span> em vez de <span class='synopsis'><code>-3</code> <code>C</code></span> para especificar o intervalo por exemplo), o bloco das informações da base da árvore é exibido no final da primeira mensagem que o comando gera (o primeiro patch ou a carta de apresentação), assim:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -659,10 +684,10 @@ prerequisite-patch-id: Z</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Você também pode usar o comando <code>git format-patch --base=P -3 C</code> para gerar as correções para A, B e C, os identificadores para P, X, Y, Z serão anexados no final da primeira mensagem.</p>
+<p>Você também pode usar o comando <span class='synopsis'><code>git</code> <code>format-patch</code> <code>--base=P</code> <code>-3</code> <code>C</code></span> para gerar as correções para A, B e C, os identificadores para P, X, Y, Z serão anexados no final da primeira mensagem.</p>
 </div>
 <div class="paragraph">
-<p>Se for definido <code>--base=auto</code> na linha de comando, ele calculará automaticamente o commit base como a base de mesclagem do commit do cume do ramo rastreado remotamente e do intervalo de revisão especificado na linha de comando. Para uma ramificação local, você precisa fazer com que ela faça o rastreios de uma ramificação remota com <code>git branch --set-upstream-to</code> antes de usar essa opção.</p>
+<p>Se for definido <span class='synopsis'><code>--base=auto</code></span> na linha de comando, ele calculará automaticamente o commit base como a base de mesclagem do commit do cume do ramo rastreado remotamente e do intervalo de revisão especificado na linha de comando. Para uma ramificação local, você precisa fazer com que ela faça o rastreios de uma ramificação remota com <span class='synopsis'><code>git</code> <code>branch</code> <code>--set-upstream-to</code></span> antes de usar essa opção.</p>
 </div>
 </div>
 </div>
@@ -725,7 +750,7 @@ prerequisite-patch-id: Z</pre>
 <h2 id="_ressalvas"><a class="anchor" href="#_ressalvas"></a>RESSALVAS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Observe que <code>format-patch</code> irá omitir a mesclagem dos commits que forem gerados, ainda que eles façam parte do intervalo solicitado. Um simples "patch" não inclui informações suficientes para que a parte receptora reproduza a mesma mesclagem do commit.</p>
+<p>Observe que <span class='synopsis'><code>format-patch</code></span> irá omitir a mesclagem dos commits que forem gerados, ainda que eles façam parte do intervalo solicitado. Um simples "patch" não inclui informações suficientes para que a parte receptora reproduza a mesma mesclagem do commit.</p>
 </div>
 </div>
 </div>

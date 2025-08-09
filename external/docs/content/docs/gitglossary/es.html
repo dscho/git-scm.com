@@ -9,6 +9,17 @@ docname: gitglossary
 lang: es
 aliases:
 - "/docs/gitglossary/es/index.html"
+headings:
+- text: NOMBRE
+  id: _nombre
+- text: SINOPSIS
+  id: _sinopsis
+- text: DESCRIPCIÓN
+  id: _descripción
+- text: VER TAMBIÉN
+  id: _ver_también
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nombre"><a class="anchor" href="#_nombre"></a>NOMBRE</h2>
@@ -37,7 +48,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefbarerepositoryarepositoriobsico"> <a class="anchor" href="#gitglossary-repositoriobsico"></a> <a class="anchor" href="#gitglossary-aiddefbarerepositoryarepositoriobsico"></a><a id="def_bare_repository"></a>repositorio básico </dt>
 <dd>
-<p>Normalmente, un repositorio básico es un <a href="#def_directory">directory</a> apropiadamente nombrado con un sufijo <code>.git`que no tiene una copia local en checkout de cualquiera de los ficheros bajo control de revisión. Esto es, todos los ficheros administrativos y de control de Git que normalmente estarían presentes en el sub-directorio oculto `.git</code> están presentes en el directorio <code>repository.git</code> y no hay otros ficheros presentes y en checkout. Usualmente los publicadores de repositorios públicos hacen repositorios básicos disponibles.</p>
+<p>Normalmente, un repositorio básico es un <a href="#def_directory">directory</a> apropiadamente nombrado con un sufijo <span class='synopsis'><em>.git`que no tiene una copia local en checkout de cualquiera de los ficheros bajo control de revisión. Esto es, todos los ficheros administrativos y de control de Git que normalmente estarían presentes en el sub-directorio oculto `.git</em></span> están presentes en el directorio <span class='synopsis'><code>repository.git</code></span> y no hay otros ficheros presentes y en checkout. Usualmente los publicadores de repositorios públicos hacen repositorios básicos disponibles.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefblobobjectaobjetoblob"> <a class="anchor" href="#gitglossary-objetoblob"></a> <a class="anchor" href="#gitglossary-aiddefblobobjectaobjetoblob"></a><a id="def_blob_object"></a>objeto blob </dt>
 <dd>
@@ -123,7 +134,7 @@ aliases:
 <dd>
 <p>Normalmente <a href="#def_HEAD">HEAD</a> almacena el nombre de una <a href="#def_branch">rama</a>, y los comandos que figuran en el historial de HEAD representan operaciones en el historial hacia la punta de la rama a la que apunta HEAD. Sin embargo, Git también te permite hacer <a href="#def_checkout">checkout</a> de un <a href="#def_commit">commit</a> arbitrario que no es necesariamente la punta de una rama en particular. Un HEAD en tal estado se le denomina "separado".</p>
 <div class="paragraph">
-<p>Nótese que los comandos que figuran en el historial de la rama actual (ej. <code>git commit</code> para crear una nueva entrada en la punta del historial ) aún funcionan mientras HEAD este separada. Actualizan HEAD para apuntar a la punta del historial actualizado sin afectar cualquier otra rama. Comandos que actualizan o solicitan información acerca de la rama actual (ej. <code>git branch --set-upstream-to</code> que asigna con cuál rama de rastreo-remoto se integra) obviamente no funcionan, ya que no hay -realmente- una rama actual para consultar en este estado.</p>
+<p>Nótese que los comandos que figuran en el historial de la rama actual (ej. <span class='synopsis'><code>git</code> <code>commit</code></span> para crear una nueva entrada en la punta del historial ) aún funcionan mientras HEAD este separada. Actualizan HEAD para apuntar a la punta del historial actualizado sin afectar cualquier otra rama. Comandos que actualizan o solicitan información acerca de la rama actual (ej. <span class='synopsis'><code>git</code> <code>branch</code> <code>--set-upstream-to</code></span> que asigna con cuál rama de rastreo-remoto se integra) obviamente no funcionan, ya que no hay -realmente- una rama actual para consultar en este estado.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefdirectoryadirectorio"> <a class="anchor" href="#gitglossary-directorio"></a> <a class="anchor" href="#gitglossary-aiddefdirectoryadirectorio"></a><a id="def_directory"></a>directorio </dt>
@@ -156,11 +167,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefgitfileaficherogit"> <a class="anchor" href="#gitglossary-ficherogit"></a> <a class="anchor" href="#gitglossary-aiddefgitfileaficherogit"></a><a id="def_gitfile"></a>fichero git </dt>
 <dd>
-<p>Un simple fichero <code>.git</code> en la raíz de un árbol de trabajo que apunta al directorio que es el repositorio real. Para su uso apropiado ver <a href='{{< relurl "docs/git-worktree/es" >}}'>git-worktree[1]</a> o <a href='{{< relurl "docs/git-submodule/es" >}}'>git-submodule[1]</a>. Para sintaxis ver <a href='{{< relurl "docs/gitrepository-layout/es" >}}'>gitrepository-layout[5]</a>.</p>
+<p>Un simple fichero <span class='synopsis'><code>.git</code></span> en la raíz de un árbol de trabajo que apunta al directorio que es el repositorio real. Para su uso apropiado ver <a href='{{< relurl "docs/git-worktree/es" >}}'>git-worktree[1]</a> o <a href='{{< relurl "docs/git-submodule/es" >}}'>git-submodule[1]</a>. Para sintaxis ver <a href='{{< relurl "docs/gitrepository-layout/es" >}}'>gitrepository-layout[5]</a>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefgraftsainjertos"> <a class="anchor" href="#gitglossary-injertos"></a> <a class="anchor" href="#gitglossary-aiddefgraftsainjertos"></a><a id="def_grafts"></a>injertos </dt>
 <dd>
-<p>Injertos permiten juntar dos lineas distintas de desarrollo al guardar información falsa de antecesor para confirmaciones. De esta manera se puede hacer que Git asuma que el conjunto de <a href="#def_parent">padres</a> de una <a href="#def_commit">confirmación</a> sea diferente de lo que realmente fue guardado cuando la confirmación fue creada. Configurar mediante el fichero <code>.git/info/grafts</code>.</p>
+<p>Injertos permiten juntar dos lineas distintas de desarrollo al guardar información falsa de antecesor para confirmaciones. De esta manera se puede hacer que Git asuma que el conjunto de <a href="#def_parent">padres</a> de una <a href="#def_commit">confirmación</a> sea diferente de lo que realmente fue guardado cuando la confirmación fue creada. Configurar mediante el fichero <span class='synopsis'><code>.git/info/grafts</code></span>.</p>
 <div class="paragraph">
 <p>Notar que el mecanismo de injertos es obsoleto y puede provocar problemas al transferir objetos entre repositorios; ver <a href='{{< relurl "docs/git-replace/es" >}}'>git-replace[1]</a> para un sistema más flexible y robusto que hace lo mismo.</p>
 </div>
@@ -171,7 +182,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefheadacabeza"> <a class="anchor" href="#gitglossary-cabeza"></a> <a class="anchor" href="#gitglossary-aiddefheadacabeza"></a><a id="def_head"></a>cabeza </dt>
 <dd>
-<p>Una <a href="#def_ref">referencia nombrada</a> a la <a href="#def_commit">confirmación</a> en la punta de una <a href="#def_branch">rama</a>. Los head se almacenan en un fichero en el directorio <code>$GIT_DIR/refs/heads/</code>, excepto cuando se usan referencias empaquetadas (Ver <a href='{{< relurl "docs/git-pack-refs/es" >}}'>git-pack-refs[1]</a>.)</p>
+<p>Una <a href="#def_ref">referencia nombrada</a> a la <a href="#def_commit">confirmación</a> en la punta de una <a href="#def_branch">rama</a>. Los head se almacenan en un fichero en el directorio <span class='synopsis'><code>$GIT_DIR/refs/heads/</code></span>, excepto cuando se usan referencias empaquetadas (Ver <a href='{{< relurl "docs/git-pack-refs/es" >}}'>git-pack-refs[1]</a>.)</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefHEADaHEADangl"> <a class="anchor" href="#gitglossary-HEADangl"></a> <a class="anchor" href="#gitglossary-aiddefHEADaHEADangl"></a><a id="def_HEAD"></a>HEAD (angl.) </dt>
 <dd>
@@ -183,7 +194,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefhookahookangl"> <a class="anchor" href="#gitglossary-hookangl"></a> <a class="anchor" href="#gitglossary-aiddefhookahookangl"></a><a id="def_hook"></a>hook (angl.) </dt>
 <dd>
-<p>Durante la ejecución normal de varios comandos Git se realizan llamadas a scripts opcionales que permiten al desarrollador agregar funcionalidad o verificaciones. Típicamente, los hooks permiten pre-verificar un comando y potencialmente abortarlo, así como una pos-notificación después de terminar la operación. Los scripts de hooks se encuentran en directorio <code>$GIT_DIR/hooks/</code> y se habilitan simplemente al quitar del nombre del fichero el sufijo <code>.sample</code>; en las primeras versiones de Git se tenían que hacer ejecutables.</p>
+<p>Durante la ejecución normal de varios comandos Git se realizan llamadas a scripts opcionales que permiten al desarrollador agregar funcionalidad o verificaciones. Típicamente, los hooks permiten pre-verificar un comando y potencialmente abortarlo, así como una pos-notificación después de terminar la operación. Los scripts de hooks se encuentran en directorio <span class='synopsis'><code>$GIT_DIR/hooks/</code></span> y se habilitan simplemente al quitar del nombre del fichero el sufijo <span class='synopsis'><code>.sample</code></span>; en las primeras versiones de Git se tenían que hacer ejecutables.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefindexandice"> <a class="anchor" href="#gitglossary-ndice"></a> <a class="anchor" href="#gitglossary-aiddefindexandice"></a><a id="def_index"></a>índice </dt>
 <dd>
@@ -210,7 +221,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefobjectdatabaseabasededatosdeobjetos"> <a class="anchor" href="#gitglossary-basededatosdeobjetos"></a> <a class="anchor" href="#gitglossary-aiddefobjectdatabaseabasededatosdeobjetos"></a><a id="def_object_database"></a>base de datos de objetos </dt>
 <dd>
-<p>Almacena un conjunto de "objetos". Un <a href="#def_object">objeto</a> individual es identificado por su <a href="#def_object_name">nombre de objeto</a>. Los objetos suelen estar en <code>$GIT_DIR/objects/</code>.</p>
+<p>Almacena un conjunto de "objetos". Un <a href="#def_object">objeto</a> individual es identificado por su <a href="#def_object_name">nombre de objeto</a>. Los objetos suelen estar en <span class='synopsis'><code>$GIT_DIR/objects/</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefobjectidentifieraidentificadordeobjeto"> <a class="anchor" href="#gitglossary-identificadordeobjeto"></a> <a class="anchor" href="#gitglossary-aiddefobjectidentifieraidentificadordeobjeto"></a><a id="def_object_identifier"></a>identificador de objeto </dt>
 <dd>
@@ -234,7 +245,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddeforiginaorigen"> <a class="anchor" href="#gitglossary-origen"></a> <a class="anchor" href="#gitglossary-aiddeforiginaorigen"></a><a id="def_origin"></a>origen </dt>
 <dd>
-<p>El <a href="#def_repository">repositorio</a> de subida predeterminado. La mayoría de los proyectos tienen por lo menos un proyecto principal a seguir; por default <code>origin</code> es usado para ése propósito. Nuevas actualizaciones al flujo principal serán extraídas en las <a href="#def_remote_tracking_branch">ramas de seguimiento-remoto</a> nombradas origin/nombre-de-la-rama-de-subida, las cuales puedes ver usando <code>git branch -r</code>.</p>
+<p>El <a href="#def_repository">repositorio</a> de subida predeterminado. La mayoría de los proyectos tienen por lo menos un proyecto principal a seguir; por default <span class='synopsis'><code>origin</code></span> es usado para ése propósito. Nuevas actualizaciones al flujo principal serán extraídas en las <a href="#def_remote_tracking_branch">ramas de seguimiento-remoto</a> nombradas origin/nombre-de-la-rama-de-subida, las cuales puedes ver usando <span class='synopsis'><code>git</code> <code>branch</code> <code>-r</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefoverlayasobreponer"> <a class="anchor" href="#gitglossary-sobreponer"></a> <a class="anchor" href="#gitglossary-aiddefoverlayasobreponer"></a><a id="def_overlay"></a>sobreponer </dt>
 <dd>
@@ -275,10 +286,10 @@ aliases:
 <p>Por ejemplo, Documentación/*.jpg coincidirá con todos los ficheros .jpg en el sub-árbol Documentación, incluyendo Documentación/capitulo_1/figura_1.jpg.</p>
 </div>
 <div class="paragraph">
-<p>Una especificación de ruta que comienza con dos puntos <code>:</code> tiene un significado especial. En la forma corta, a los dos puntos iniciales le siguen cero o mas letras de "marca mágica" (las cuales terminan opcionalmente con otros dos puntos <code>:</code>), y el resto es el patrón a comparar con la ruta. La "marca mágica" consiste de símbolos ASCII que no son ni alfanuméricos, ni glob, ni caracteres especiales de expresiones regulares, ni dos puntos. Los dos puntos opcionales con los que termina una "marca mágica" pueden ser omitidos si el patrón comienza con un caracter que no pertenece al conjunto de símbolos de "marca mágica" y no es dos puntos.</p>
+<p>Una especificación de ruta que comienza con dos puntos <span class='synopsis'><code>:</code></span> tiene un significado especial. En la forma corta, a los dos puntos iniciales le siguen cero o mas letras de "marca mágica" (las cuales terminan opcionalmente con otros dos puntos <span class='synopsis'><code>:</code></span>), y el resto es el patrón a comparar con la ruta. La "marca mágica" consiste de símbolos ASCII que no son ni alfanuméricos, ni glob, ni caracteres especiales de expresiones regulares, ni dos puntos. Los dos puntos opcionales con los que termina una "marca mágica" pueden ser omitidos si el patrón comienza con un caracter que no pertenece al conjunto de símbolos de "marca mágica" y no es dos puntos.</p>
 </div>
 <div class="paragraph">
-<p>En la forma larga, a los dos puntos iniciales <code>:</code> le sigue una apertura de paréntesis <code>(</code>, una lista separada por comas de cero o mas "palabras mágicas", y un cierre de paréntesis <code>)</code>, el resto es el patrón de comparación con la ruta.</p>
+<p>En la forma larga, a los dos puntos iniciales <span class='synopsis'><code>:</code></span> le sigue una apertura de paréntesis <span class='synopsis'>(</span>, una lista separada por comas de cero o mas "palabras mágicas", y un cierre de paréntesis <span class='synopsis'>)</span>, el resto es el patrón de comparación con la ruta.</p>
 </div>
 <div class="paragraph">
 <p>Una especificación de ruta con sólo dos puntos significa "no hay especificación de ruta". Esta forma no debe combinarse con otras especificaciones de ruta.</p>
@@ -289,11 +300,11 @@ aliases:
 <dl>
 <dt class="hdlist1" id="gitglossary-top"> <a class="anchor" href="#gitglossary-top"></a>top </dt>
 <dd>
-<p>La palabra mágica <code>top</code> (marca mágica: <code>/</code>) hace la comparación del patrón desde la raíz el árbol de trabajo, incluso cuando el comando se ejecuta desde el interior de un subdirectorio.</p>
+<p>La palabra mágica <span class='synopsis'><code>top</code></span> (marca mágica: <span class='synopsis'><code>/</code></span>) hace la comparación del patrón desde la raíz el árbol de trabajo, incluso cuando el comando se ejecuta desde el interior de un subdirectorio.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-literal"> <a class="anchor" href="#gitglossary-literal"></a>literal </dt>
 <dd>
-<p>Comodines en patrones como <code>*</code> o <code>?</code> son tratados como caracteres literales.</p>
+<p>Comodines en patrones como <span class='synopsis'><code>*</code></span> o <span class='synopsis'><em>?</em></span> son tratados como caracteres literales.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-icase"> <a class="anchor" href="#gitglossary-icase"></a>icase </dt>
 <dd>
@@ -303,18 +314,18 @@ aliases:
 <dd>
 <p>Git trata el patrón como un glob adecuado para consumo por fnmatch(3) con la bandera FNM_PATHNAME: comodines en el patrón no coincidirán con / en el nombre de la ruta. Por ejemplo, "Documentación/*.html" coincidirá con "Documentación/git.html" pero no con "Documentación/ppc/ppc.html" o "herramientas/perf/Documentación/perf.html".</p>
 <div class="paragraph">
-<p>Dos asteriscos consecutivos ("<code>**</code>") en patrones comparados con nombre de ruta completo puede tener un significado especial:</p>
+<p>Dos asteriscos consecutivos ("<span class='synopsis'><code>**</code></span>") en patrones comparados con nombre de ruta completo puede tener un significado especial:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Un "<code>**</code>" inicial seguido por una diagonal significa coincidir en todos los directorios. Por ejemplo, "<code>**/foo</code>" coincidirá con el fichero o directorio "<code>foo</code>" donde sea, lo mismo que "<code>foo</code>". "<code>**/foo/bar</code>" coincidirá con el fichero o directorio <code>bar</code> donde sea que esté directamente debajo del directorio "<code>foo</code>".</p>
+<p>Un "<span class='synopsis'><code>**</code></span>" inicial seguido por una diagonal significa coincidir en todos los directorios. Por ejemplo, "<span class='synopsis'><code>**/foo</code></span>" coincidirá con el fichero o directorio "<span class='synopsis'><code>foo</code></span>" donde sea, lo mismo que "<span class='synopsis'><code>foo</code></span>". "<span class='synopsis'><code>**/foo/bar</code></span>" coincidirá con el fichero o directorio <span class='synopsis'><code>bar</code></span> donde sea que esté directamente debajo del directorio "<span class='synopsis'><code>foo</code></span>".</p>
 </li>
 <li>
-<p>Un "<code>/**</code>" final coincidirá con todo lo que este dentro. Por ejemplo, "<code>abc/**</code>" coincidirá con todos los ficheros dentro del directorio "abc", relativos a la ubicación del fichero <code>.gitignore</code>, con profundidad infinita.</p>
+<p>Un "<span class='synopsis'><code>/**</code></span>" final coincidirá con todo lo que este dentro. Por ejemplo, "<span class='synopsis'><code>abc/**</code></span>" coincidirá con todos los ficheros dentro del directorio "abc", relativos a la ubicación del fichero <span class='synopsis'><code>.gitignore</code></span>, con profundidad infinita.</p>
 </li>
 <li>
-<p>Una diagonal seguida por dos asteriscos consecutivos y luego otra diagonal coincide con cero o mas directorios. Por ejemplo, "<code>a/**/b</code>" coincidirá con "<code>a/b</code>", "<code>a/x/b</code>", "<code>a/x/y/b</code>" y así sucesivamente.</p>
+<p>Una diagonal seguida por dos asteriscos consecutivos y luego otra diagonal coincide con cero o mas directorios. Por ejemplo, "<span class='synopsis'><code>a/**/b</code></span>" coincidirá con "<span class='synopsis'><code>a/b</code></span>", "<span class='synopsis'><code>a/x/b</code></span>", "<span class='synopsis'><code>a/x/y/b</code></span>" y así sucesivamente.</p>
 </li>
 <li>
 <p>Otros asteriscos consecutivos son considerados inválidos.</p>
@@ -327,23 +338,23 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-attr"> <a class="anchor" href="#gitglossary-attr"></a>attr </dt>
 <dd>
-<p>Después de <code>attr:</code> viene una lista separada por espacios de "requerimientos de atributo", todos los cuales deben estar en orden para que la ruta sea considerada una coincidencia; esto en adición a la usual comparación de patrones de especificaciones de ruta no-mágicas. Ver <a href='{{< relurl "docs/gitattributes/es" >}}'>gitattributes[5]</a>.</p>
+<p>Después de <span class='synopsis'><code>attr:</code></span> viene una lista separada por espacios de "requerimientos de atributo", todos los cuales deben estar en orden para que la ruta sea considerada una coincidencia; esto en adición a la usual comparación de patrones de especificaciones de ruta no-mágicas. Ver <a href='{{< relurl "docs/gitattributes/es" >}}'>gitattributes[5]</a>.</p>
 <div class="paragraph">
 <p>Cada atributo requerido para la ruta toma una de estas formas:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>"<code>ATTR</code>" requiere que el atributo <code>ATTR</code> se encuentre.</p>
+<p>"<span class='synopsis'><code>ATTR</code></span>" requiere que el atributo <span class='synopsis'><code>ATTR</code></span> se encuentre.</p>
 </li>
 <li>
-<p>"<code>-ATTR</code>" requiere que el atributo <code>ATTR</code> no se encuentre.</p>
+<p>"<span class='synopsis'><code>-ATTR</code></span>" requiere que el atributo <span class='synopsis'><code>ATTR</code></span> no se encuentre.</p>
 </li>
 <li>
-<p>"<code>ATTR=VALUE</code>" requiere que el atributo <code>ATTR</code> se encuentre asignado con la cadena <code>VALUE</code>.</p>
+<p>"<span class='synopsis'><code>ATTR=VALUE</code></span>" requiere que el atributo <span class='synopsis'><code>ATTR</code></span> se encuentre asignado con la cadena <span class='synopsis'><code>VALUE</code></span>.</p>
 </li>
 <li>
-<p>"<code>!ATTR</code>" requiere que el atributo <code>ATTR</code> no este especificado.</p>
+<p>"<span class='synopsis'><code>!ATTR</code></span>" requiere que el atributo <span class='synopsis'><code>ATTR</code></span> no este especificado.</p>
 <div class="paragraph">
 <p>Note que cuando se compara con un objeto árbol, los atributos aún se obtienen del árbol de trabajo, no del objeto árbol proporcionado.</p>
 </div>
@@ -353,7 +364,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-exclude"> <a class="anchor" href="#gitglossary-exclude"></a>exclude </dt>
 <dd>
-<p>Después que una ruta coincide con cualquiera de las especificaciones de ruta no-excluyentes, será corrida por todas las especificaciones de ruta excluyentes (marca mágica: <code>!</code> o su sinónimo <code>^</code>). Si coincide, la ruta es ignorada. Cuando no hay especificación de ruta no-excluyente, la exclusión se aplica al conjunto resultante como si se hubiera invocado sin una especificación de ruta.</p>
+<p>Después que una ruta coincide con cualquiera de las especificaciones de ruta no-excluyentes, será corrida por todas las especificaciones de ruta excluyentes (marca mágica: <span class='synopsis'><code>!</code></span> o su sinónimo <span class='synopsis'><code>^</code></span>). Si coincide, la ruta es ignorada. Cuando no hay especificación de ruta no-excluyente, la exclusión se aplica al conjunto resultante como si se hubiera invocado sin una especificación de ruta.</p>
 </dd>
 </dl>
 </div>
@@ -370,7 +381,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefpickaxeapickaxe"> <a class="anchor" href="#gitglossary-pickaxe"></a> <a class="anchor" href="#gitglossary-aiddefpickaxeapickaxe"></a><a id="def_pickaxe"></a>pickaxe </dt>
 <dd>
-<p>El término <a href="#def_pickaxe">pickaxe</a> se refiere a una opción para las rutinas de diffcore que ayudan a seleccionar los cambios que agregan o eliminan cierta cadena de texto. La opción <code>--pickaxe-all</code> puede usarse para ver el <a href="#def_changeset">conjunto de cambios</a> completo que introdujo o removió, digamos, a línea de texto en particular. Ver <a href='{{< relurl "docs/git-diff/es" >}}'>git-diff[1]</a>.</p>
+<p>El término <a href="#def_pickaxe">pickaxe</a> se refiere a una opción para las rutinas de diffcore que ayudan a seleccionar los cambios que agregan o eliminan cierta cadena de texto. La opción <span class='synopsis'><code>--pickaxe-all</code></span> puede usarse para ver el <a href="#def_changeset">conjunto de cambios</a> completo que introdujo o removió, digamos, a línea de texto en particular. Ver <a href='{{< relurl "docs/git-diff/es" >}}'>git-diff[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefplumbingaplomera"> <a class="anchor" href="#gitglossary-plomera"></a> <a class="anchor" href="#gitglossary-aiddefplumbingaplomera"></a><a id="def_plumbing"></a>plomería </dt>
 <dd>
@@ -382,7 +393,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefperworktreerefareferenciapor-rbol-de-trabajo"> <a class="anchor" href="#gitglossary-referenciapor-rbol-de-trabajo"></a> <a class="anchor" href="#gitglossary-aiddefperworktreerefareferenciapor-rbol-de-trabajo"></a><a id="def_per_worktree_ref"></a>referencia por-árbol-de-trabajo </dt>
 <dd>
-<p>Referencia que es por-<a href="#def_worktree">árbol de trabajo</a>, en lugar de global. Esto es presentemente sólo <a href="#def_HEAD">HEAD</a> y cualquier referencia que comienza con <code>refs/bisect/</code>, pero posteriormente puede incluir otras referencias inusuales.</p>
+<p>Referencia que es por-<a href="#def_worktree">árbol de trabajo</a>, en lugar de global. Esto es presentemente sólo <a href="#def_HEAD">HEAD</a> y cualquier referencia que comienza con <span class='synopsis'><code>refs/bisect/</code></span>, pero posteriormente puede incluir otras referencias inusuales.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefpseudorefapseudoreferencia"> <a class="anchor" href="#gitglossary-pseudoreferencia"></a> <a class="anchor" href="#gitglossary-aiddefpseudorefapseudoreferencia"></a><a id="def_pseudoref"></a>pseudoreferencia </dt>
 <dd>
@@ -393,10 +404,10 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p><code>FETCH_HEAD</code> es escrito por <a href='{{< relurl "docs/git-fetch/es" >}}'>git-fetch[1]</a> o <a href='{{< relurl "docs/git-pull/es" >}}'>git-pull[1]</a>. Se puede referir a múltiples identificadores de objeto. Cada identificador de objeto es anotado con metadatos indicando de dónde se obtuvo y el estado del fetch.</p>
+<p><span class='synopsis'><code>FETCH_HEAD</code></span> es escrito por <a href='{{< relurl "docs/git-fetch/es" >}}'>git-fetch[1]</a> o <a href='{{< relurl "docs/git-pull/es" >}}'>git-pull[1]</a>. Se puede referir a múltiples identificadores de objeto. Cada identificador de objeto es anotado con metadatos indicando de dónde se obtuvo y el estado del fetch.</p>
 </li>
 <li>
-<p><code>MERGE_HEAD</code> es escrito por <a href='{{< relurl "docs/git-merge/es" >}}'>git-merge[1]</a> cuando se resuelven conflictos de fusión. Contiene todos los identificadores de las confirmaciones que se están fusionando.</p>
+<p><span class='synopsis'><code>MERGE_HEAD</code></span> es escrito por <a href='{{< relurl "docs/git-merge/es" >}}'>git-merge[1]</a> cuando se resuelven conflictos de fusión. Contiene todos los identificadores de las confirmaciones que se están fusionando.</p>
 </li>
 </ul>
 </div>
@@ -425,7 +436,7 @@ aliases:
 <dd>
 <p>Un nombre que apunta a un <a href="#def_object_name">nombre de objeto</a> o a otra referencia (a éste último se le llama <a href="#def_symref">referencia simbólica</a>). Por conveniencia, una referencia puede a veces ser abreviada cuando se usa como argumento de un comando Git; ver <a href='{{< relurl "docs/gitrevisions/es" >}}'>gitrevisions[7]</a> para detalles. Las referencias se almacenan en el <a href="#def_repository">repositorio</a>.</p>
 <div class="paragraph">
-<p>El espacio de nombres de referencias es jerárquico. Los nombres de referencias deben comenzar con <code>refs/</code> o estar ubicados en la raíz de la jerarquía. Para éste último, su nombre debe cumplir las reglas siguientes:</p>
+<p>El espacio de nombres de referencias es jerárquico. Los nombres de referencias deben comenzar con <span class='synopsis'><code>refs/</code></span> o estar ubicados en la raíz de la jerarquía. Para éste último, su nombre debe cumplir las reglas siguientes:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -433,27 +444,27 @@ aliases:
 <p>El nombre consiste sólo en caracteres en mayúsculas y guiones bajos.</p>
 </li>
 <li>
-<p>El nombre termina con "<code>_HEAD</code>" o es igual a "<code>HEAD</code>".</p>
+<p>El nombre termina con "<span class='synopsis'><code>_HEAD</code></span>" o es igual a "<span class='synopsis'><code>HEAD</code></span>".</p>
 <div class="paragraph">
 <p>Hay algunas referencias irregulares en la raíz de la jerarquía que no cumplen con esas reglas. La lista siguiente es exhaustiva y no deberá extenderse en el futuro:</p>
 </div>
 </li>
 <li>
-<p><code>AUTO_MERGE</code></p>
+<p><span class='synopsis'><code>AUTO_MERGE</code></span></p>
 </li>
 <li>
-<p><code>BISECT_EXPECTED_REV</code></p>
+<p><span class='synopsis'><code>BISECT_EXPECTED_REV</code></span></p>
 </li>
 <li>
-<p><code>NOTES_MERGE_PARTIAL</code></p>
+<p><span class='synopsis'><code>NOTES_MERGE_PARTIAL</code></span></p>
 </li>
 <li>
-<p><code>NOTES_MERGE_REF</code></p>
+<p><span class='synopsis'><code>NOTES_MERGE_REF</code></span></p>
 </li>
 <li>
-<p><code>MERGE_AUTOSTASH</code></p>
+<p><span class='synopsis'><code>MERGE_AUTOSTASH</code></span></p>
 <div class="paragraph">
-<p>Diferentes sub-jerarquías se usan para fines distintos. Por ejemplo, la jerarquía <code>refs/heads/</code> se usa para representar ramas locales, y la jerarquía <code>refs/tags/</code> se usa para representar etiquetas locales.</p>
+<p>Diferentes sub-jerarquías se usan para fines distintos. Por ejemplo, la jerarquía <span class='synopsis'><code>refs/heads/</code></span> se usa para representar ramas locales, y la jerarquía <span class='synopsis'><code>refs/tags/</code></span> se usa para representar etiquetas locales.</p>
 </div>
 </li>
 </ul>
@@ -501,11 +512,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefshallowcloneaclonsuperficial"> <a class="anchor" href="#gitglossary-clonsuperficial"></a> <a class="anchor" href="#gitglossary-aiddefshallowcloneaclonsuperficial"></a><a id="def_shallow_clone"></a>clon superficial </dt>
 <dd>
-<p>Comúnmente un sinónimo de <a href="#def_shallow_repository">repositorio superficial</a> pero la frase hace mas explícito que fue creado por la ejecución del comando <code>git clone --depth=...</code>.</p>
+<p>Comúnmente un sinónimo de <a href="#def_shallow_repository">repositorio superficial</a> pero la frase hace mas explícito que fue creado por la ejecución del comando <span class='synopsis'><code>git</code> <code>clone</code> <code>--depth=...</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefshallowrepositoryarepositoriosuperficial"> <a class="anchor" href="#gitglossary-repositoriosuperficial"></a> <a class="anchor" href="#gitglossary-aiddefshallowrepositoryarepositoriosuperficial"></a><a id="def_shallow_repository"></a>repositorio superficial </dt>
 <dd>
-<p>Un <a href="#def_repository">repositorio</a> superficial tienen un historial incompleto, donde algunos de los <a href="#def_parent">padres</a> de sus <a href="#def_commit">confirmaciones</a> han sido cauterizados (en otras palabras, se le ha instruido a Git a pretender que esas confirmaciones no tienen padres, aunque estén registrados en el <a href="#def_commit_object">objeto confirmación</a>). En ocasiones esto es útil cuando sólo se esta interesado en el historial reciente de un proyecto, aunque el historial real almacenado en el upstream es mucho mayor. Un repositorio superficial es creado al proporcionar la opción <code>--depth</code> a <a href='{{< relurl "docs/git-clone/es" >}}'>git-clone[1]</a>, y su historial puede ser profundizado posteriormente con <a href='{{< relurl "docs/git-fetch/es" >}}'>git-fetch[1]</a>.</p>
+<p>Un <a href="#def_repository">repositorio</a> superficial tienen un historial incompleto, donde algunos de los <a href="#def_parent">padres</a> de sus <a href="#def_commit">confirmaciones</a> han sido cauterizados (en otras palabras, se le ha instruido a Git a pretender que esas confirmaciones no tienen padres, aunque estén registrados en el <a href="#def_commit_object">objeto confirmación</a>). En ocasiones esto es útil cuando sólo se esta interesado en el historial reciente de un proyecto, aunque el historial real almacenado en el upstream es mucho mayor. Un repositorio superficial es creado al proporcionar la opción <span class='synopsis'><code>--depth</code></span> a <a href='{{< relurl "docs/git-clone/es" >}}'>git-clone[1]</a>, y su historial puede ser profundizado posteriormente con <a href='{{< relurl "docs/git-fetch/es" >}}'>git-fetch[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefstashaentradadereserva"> <a class="anchor" href="#gitglossary-entradadereserva"></a> <a class="anchor" href="#gitglossary-aiddefstashaentradadereserva"></a><a id="def_stash"></a>entrada de reserva </dt>
 <dd>
@@ -525,7 +536,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddeftagatagetiqueta"> <a class="anchor" href="#gitglossary-tagetiqueta"></a> <a class="anchor" href="#gitglossary-aiddeftagatagetiqueta"></a><a id="def_tag"></a>tag (etiqueta) </dt>
 <dd>
-<p>Una <a href="#def_ref">referencia</a> bajo el espacio de nombres <code>refs/tags/`que apunta a un objeto de tipo arbitrario (típicamente una etiqueta que apunta ya sea a una &lt;&lt;def_tag_object,etiqueta&gt;&gt; o a un &lt;&lt;def_commit_object,commit&gt;&gt;). En contraste a &lt;&lt;def_head,head&gt;&gt;, una etiqueta no es actualizada por el comando `commit</code>. Una etiqueta Git no tiene nada que ver con una etiqueta Lisp (la cual sería llamada <a href="#def_object_type">tipo de objeto</a> en contexto Git). Una etiqueta es más típicamente usada para marcar un punto en particular en la <a href="#def_chain">cadena</a> de ascendencia.</p>
+<p>Una <a href="#def_ref">referencia</a> bajo el espacio de nombres <span class='synopsis'><em>refs/tags/`que apunta a un objeto de tipo arbitrario (típicamente una etiqueta que apunta ya sea a una &lt;&lt;def_tag_object,etiqueta&gt;&gt; o a un &lt;&lt;def_commit_object,commit&gt;&gt;). En contraste a &lt;&lt;def_head,head&gt;&gt;, una etiqueta no es actualizada por el comando `commit</em></span>. Una etiqueta Git no tiene nada que ver con una etiqueta Lisp (la cual sería llamada <a href="#def_object_type">tipo de objeto</a> en contexto Git). Una etiqueta es más típicamente usada para marcar un punto en particular en la <a href="#def_chain">cadena</a> de ascendencia.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddeftagobjectaobjetoetiqueta"> <a class="anchor" href="#gitglossary-objetoetiqueta"></a> <a class="anchor" href="#gitglossary-aiddeftagobjectaobjetoetiqueta"></a><a id="def_tag_object"></a>objeto etiqueta </dt>
 <dd>

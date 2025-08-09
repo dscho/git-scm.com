@@ -9,6 +9,25 @@ docname: git-replace
 lang: pt_BR
 aliases:
 - "/docs/git-replace/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: FORMATOS
+  id: _formatos
+- text: CRIANDO OBJETOS DE SUBSTITUIÇÃO
+  id: _criando_objetos_de_substituição
+- text: BUGS
+  id: _bugs
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -35,16 +54,16 @@ aliases:
 <h2 id="_descrição"><a class="anchor" href="#_descrição"></a>DESCRIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Adiciona uma referência <em>replace</em> (substituir) no espaço de nomes <code>refs/replace/</code>.</p>
+<p>Adiciona uma referência <em>replace</em> (substituir) no espaço de nomes <span class='synopsis'><code>refs/replace/</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>O nome da referência <em>replace</em> é o SHA-1 do objeto que é substituído. O conteúdo da referência <em>replace</em> é o SHA-1 do objeto de reposição.</p>
 </div>
 <div class="paragraph">
-<p>O objeto substituído e o objeto de substituição devem ser do mesmo tipo. Esta restrição pode ser contornada usando <code>-f</code>.</p>
+<p>O objeto substituído e o objeto de substituição devem ser do mesmo tipo. Esta restrição pode ser contornada usando <span class='synopsis'><code>-f</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>A menos que <code>-f</code> seja utilizado, a referência <em>replace</em> ainda não deve existir.</p>
+<p>A menos que <span class='synopsis'><code>-f</code></span> seja utilizado, a referência <em>replace</em> ainda não deve existir.</p>
 </div>
 <div class="paragraph">
 <p>Não há nenhuma outra restrição sobre os objetos substituídos e de substituição. A mesclagem dos commits podem ser substituídos por commits sem mesclagem e vice-versa.</p>
@@ -53,7 +72,7 @@ aliases:
 <p>É predefinido que as referências de reposição seja utilizadas por todos os comandos do Git, exceto aqueles que executem o percurso de acessibilidade (remoção "prune", transferência de pacotes "pack transfer" e "fsck").</p>
 </div>
 <div class="paragraph">
-<p>É possível desativar o uso do rearranjo das referências para qualquer comando utilizando a opção <code>--no-replace-objects</code> logo após o <em>git</em>.</p>
+<p>É possível desativar o uso do rearranjo das referências para qualquer comando utilizando a opção <span class='synopsis'><code>--no-replace-objects</code></span> logo após o <em>git</em>.</p>
 </div>
 <div class="paragraph">
 <p>Como por exemplo, caso o commit <em>foo</em> foi substituído pelo commit <em>bar</em>:</p>
@@ -75,7 +94,7 @@ aliases:
 <p>exibe as informações sobre o commit <em>bar</em>.</p>
 </div>
 <div class="paragraph">
-<p>A variável de ambiente <code>GIT_NO_REPLACE_OBJECTS</code> pode ser configurada para obter o mesmo efeito que a opção <code>--no-replace-objects</code>.</p>
+<p>A variável de ambiente <span class='synopsis'><code>GIT_NO_REPLACE_OBJECTS</code></span> pode ser configurada para obter o mesmo efeito que a opção <span class='synopsis'><code>--no-replace-objects</code></span>.</p>
 </div>
 </div>
 </div>
@@ -96,7 +115,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-replace---editltobjetogt"> <a class="anchor" href="#git-replace---editobjeto"></a> <a class="anchor" href="#git-replace---editltobjetogt"></a>--edit &lt;objeto&gt; </dt>
 <dd>
-<p>Edita o conteúdo de um objeto interativamente. O conteúdo existente para <code>&lt;objeto&gt;</code> é impresso num arquivo temporário, um editor é iniciado no arquivo e o resultado é analisado para criar um novo objeto do mesmo tipo que <code>&lt;objeto&gt;</code>. Um <code>ref</code> de reposição é criado para substituir <code>&lt;objeto&gt;</code> com um objeto recém-criado. Para mais detalhes de como o editor será selecionado, consulte <a href='{{< relurl "docs/git-var/pt_BR" >}}'>git-var[1]</a>.</p>
+<p>Edita o conteúdo de um objeto interativamente. O conteúdo existente para <span class='synopsis'><em>&lt;objeto&gt;</em></span> é impresso num arquivo temporário, um editor é iniciado no arquivo e o resultado é analisado para criar um novo objeto do mesmo tipo que <span class='synopsis'><em>&lt;objeto&gt;</em></span>. Um <span class='synopsis'><code>ref</code></span> de reposição é criado para substituir <span class='synopsis'><em>&lt;objeto&gt;</em></span> com um objeto recém-criado. Para mais detalhes de como o editor será selecionado, consulte <a href='{{< relurl "docs/git-var/pt_BR" >}}'>git-var[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-replace---raw"> <a class="anchor" href="#git-replace---raw"></a>--raw </dt>
 <dd>
@@ -104,16 +123,16 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-replace---graftltcommitgtltorigemgt82308203"> <a class="anchor" href="#git-replace---graftcommitorigem"></a> <a class="anchor" href="#git-replace---graftltcommitgtltorigemgt82308203"></a>--graft &lt;commit&gt; [&lt;origem&gt;&#8230;&#8203;] </dt>
 <dd>
-<p>Cria um commit com enxerto. Um novo commit é criado com o mesmo conteúdo de <code>&lt;commit&gt;</code> exceto que as suas origens serão [&lt;origem&gt;&#8230;&#8203;] em vez do &lt;commit&gt; das origens. Uma ref de reposição é então criada para substituir o <code>&lt;commit&gt;</code> pelo commit recém-criado. Utilize <code>--convert-graft-file</code> para converter um arquivo <code>$GIT_DIR/info/grafts</code> e utilize as refs de reposição em seu lugar.</p>
+<p>Cria um commit com enxerto. Um novo commit é criado com o mesmo conteúdo de <span class='synopsis'><em>&lt;commit&gt;</em></span> exceto que as suas origens serão [&lt;origem&gt;&#8230;&#8203;] em vez do &lt;commit&gt; das origens. Uma ref de reposição é então criada para substituir o <span class='synopsis'><em>&lt;commit&gt;</em></span> pelo commit recém-criado. Utilize <span class='synopsis'><code>--convert-graft-file</code></span> para converter um arquivo <span class='synopsis'><code>$GIT_DIR/info/grafts</code></span> e utilize as refs de reposição em seu lugar.</p>
 </dd>
 <dt class="hdlist1" id="git-replace---convert-graft-file"> <a class="anchor" href="#git-replace---convert-graft-file"></a>--convert-graft-file </dt>
 <dd>
-<p>Cria commits com enxertos para todas as entradas em <code>$GIT_DIR/info/grafts</code> e exclui este arquivo quando for bem sucedido. O objetivo é ajudar os usuários a fazer a transição do arquivo de enxerto agora, obsoleto.</p>
+<p>Cria commits com enxertos para todas as entradas em <span class='synopsis'><code>$GIT_DIR/info/grafts</code></span> e exclui este arquivo quando for bem sucedido. O objetivo é ajudar os usuários a fazer a transição do arquivo de enxerto agora, obsoleto.</p>
 </dd>
 <dt class="hdlist1" id="git-replace--lltpadrogt"> <a class="anchor" href="#git-replace--lpadro"></a> <a class="anchor" href="#git-replace--lltpadrogt"></a>-l &lt;padrão&gt; </dt>
 <dt class="hdlist1" id="git-replace---listltpadrogt"> <a class="anchor" href="#git-replace---listpadro"></a> <a class="anchor" href="#git-replace---listltpadrogt"></a>--list &lt;padrão&gt; </dt>
 <dd>
-<p>Lista as refs de substituição dos objetos que correspondem a predefinição informada (ou a todos, caso nenhuma predefinição seja usada). Ao usar o comando <code>git replace</code> sem argumentos também lista todas substituições das referências.</p>
+<p>Lista as refs de substituição dos objetos que correspondem a predefinição informada (ou a todos, caso nenhuma predefinição seja usada). Ao usar o comando <span class='synopsis'><code>git</code> <code>replace</code></span> sem argumentos também lista todas substituições das referências.</p>
 </dd>
 <dt class="hdlist1" id="git-replace---formatltformatogt"> <a class="anchor" href="#git-replace---formatformato"></a> <a class="anchor" href="#git-replace---formatltformatogt"></a>--format=&lt;formato&gt; </dt>
 <dd>
@@ -151,7 +170,7 @@ aliases:
 <h2 id="_criando_objetos_de_substituição"><a class="anchor" href="#_criando_objetos_de_substituição"></a>CRIANDO OBJETOS DE SUBSTITUIÇÃO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O <a href='{{< relurl "docs/git-hash-object/pt_BR" >}}'>git-hash-object[1]</a>, <a href='{{< relurl "docs/git-rebase/pt_BR" >}}'>git-rebase[1]</a>, e <a href="https://github.com/newren/git-filter-repo">git-filter-repo</a>, dentre outros comandos git podem ser utilizados para criar a reposição dos objetos a partir dos objetos já existentes. A opção <code>--edit</code> também pode ser usada com <em>git replace</em> para criar a reposição de um objeto editando um objeto já existente.</p>
+<p>O <a href='{{< relurl "docs/git-hash-object/pt_BR" >}}'>git-hash-object[1]</a>, <a href='{{< relurl "docs/git-rebase/pt_BR" >}}'>git-rebase[1]</a>, e <a href="https://github.com/newren/git-filter-repo">git-filter-repo</a>, dentre outros comandos git podem ser utilizados para criar a reposição dos objetos a partir dos objetos já existentes. A opção <span class='synopsis'><code>--edit</code></span> também pode ser usada com <em>git replace</em> para criar a reposição de um objeto editando um objeto já existente.</p>
 </div>
 <div class="paragraph">
 <p>Caso queira substituir várias bolhas, árvores ou commits que fazem parte de uma cadência de commits, você pode apenas criar uma cadência de reposição dos commits e então substituir apenas o commit no topo da cadeia alvo dos commits pelos commits do topo da cadência de substituições dos commits.</p>
@@ -162,7 +181,7 @@ aliases:
 <h2 id="_bugs"><a class="anchor" href="#_bugs"></a>BUGS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Comparando as bolhas ou as árvores que foram substituídos por aqueles que os substituem, não funcionará de forma correta. E utilizar o comando <code>git reset --hard</code> para voltar para um commit que foi reposto, moverá o ramo para o commit que foi substituído em vez do commit que foi resposto.</p>
+<p>Comparando as bolhas ou as árvores que foram substituídos por aqueles que os substituem, não funcionará de forma correta. E utilizar o comando <span class='synopsis'><code>git</code> <code>reset</code> <code>--hard</code></span> para voltar para um commit que foi reposto, moverá o ramo para o commit que foi substituído em vez do commit que foi resposto.</p>
 </div>
 <div class="paragraph">
 <p>Pode haver outros problemas durante a utilização do comando <em>git rev-list</em> relacionadas com objetos pendentes.</p>

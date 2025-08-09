@@ -9,6 +9,19 @@ docname: git-check-ref-format
 lang: pt_BR
 aliases:
 - "/docs/git-check-ref-format/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: EXEMPLOS
+  id: _exemplos
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -36,7 +49,7 @@ aliases:
 <p>Verifica se um determinado <em>refnome</em> é aceitável e sai com um status diferente de zero, se não for.</p>
 </div>
 <div class="paragraph">
-<p>Uma referência é usada no Git para especificar as ramificações e as etiquetas. Uma <code>HEAD</code> do ramo é armazenado na hierarquia <code>refs/heads</code>, enquanto uma etiqueta (tag) é armazenada na hierarquia <code>refs/tags</code> da referência do espaço de nomes (normalmente nos diretórios <code>$GIT_DIR/refs/heads</code> e <code>$GIT_DIR/refs/tags</code> ou como entradas no arquivo <code>$GIT_DIR/packed-refs</code> caso as referências forem empacotadas através do comando <code>git gc</code>).</p>
+<p>Uma referência é usada no Git para especificar as ramificações e as etiquetas. Uma <span class='synopsis'><code>HEAD</code></span> do ramo é armazenado na hierarquia <span class='synopsis'><code>refs/heads</code></span>, enquanto uma etiqueta (tag) é armazenada na hierarquia <span class='synopsis'><code>refs/tags</code></span> da referência do espaço de nomes (normalmente nos diretórios <span class='synopsis'><code>$GIT_DIR/refs/heads</code></span> e <span class='synopsis'><code>$GIT_DIR/refs/tags</code></span> ou como entradas no arquivo <span class='synopsis'><code>$GIT_DIR/packed-refs</code></span> caso as referências forem empacotadas através do comando <span class='synopsis'><code>git</code> <code>gc</code></span>).</p>
 </div>
 <div class="paragraph">
 <p>O Git impõe as seguintes regras sobre como as referências são nomeadas:</p>
@@ -44,34 +57,34 @@ aliases:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Eles podem incluir barras <code>/</code> para agrupamento hierárquico (diretório), mas nenhum componente separado por barras pode começar com um ponto <code>.</code> ou terminar com a sequência <code>.lock</code>.</p>
+<p>Eles podem incluir barras <span class='synopsis'><code>/</code></span> para agrupamento hierárquico (diretório), mas nenhum componente separado por barras pode começar com um ponto <span class='synopsis'><code>.</code></span> ou terminar com a sequência <span class='synopsis'><code>.lock</code></span>.</p>
 </li>
 <li>
-<p>Eles devem ter pelo menos um <code>/</code>. Isso reforça a presença de uma categoria como <code>heads/</code>, <code>tags/</code> etc. Porém os nomes reais não são restritos. Caso a opção <code>--allow-onelevel</code> seja utilizada, esta regra será dispensada.</p>
+<p>Eles devem ter pelo menos um <span class='synopsis'><code>/</code></span>. Isso reforça a presença de uma categoria como <span class='synopsis'><code>heads/</code></span>, <span class='synopsis'><code>tags/</code></span> etc. Porém os nomes reais não são restritos. Caso a opção <span class='synopsis'><code>--allow-onelevel</code></span> seja utilizada, esta regra será dispensada.</p>
 </li>
 <li>
-<p>Eles não podem ter dois pontos consecutivos <code>..</code> em qualquer lugar.</p>
+<p>Eles não podem ter dois pontos consecutivos <span class='synopsis'><code>..</code></span> em qualquer lugar.</p>
 </li>
 <li>
-<p>Eles não podem ter caracteres de controle ASCII (ou seja, bytes cujos valores são menores que \040, ou \177 <code>DEL</code>), espaço, til `~ `, circunflexo `^ `ou dois pontos `: `em qualquer lugar.</p>
+<p>Eles não podem ter caracteres de controle ASCII (ou seja, bytes cujos valores são menores que \040, ou \177 <span class='synopsis'><code>DEL</code></span>), espaço, til `~ `, circunflexo `^ `ou dois pontos `: `em qualquer lugar.</p>
 </li>
 <li>
-<p>Eles não podem ter ponto de interrogação <code>?</code>, asterisco <code>*</code> ou colchete aberto <code>[</code> em lugar nenhum. Consulte a opção <code>--refspec-pattern</code> abaixo para ver uma exceção a esta regra.</p>
+<p>Eles não podem ter ponto de interrogação <span class='synopsis'><em>?</em></span>, asterisco <span class='synopsis'><code>*</code></span> ou colchete aberto <span class='synopsis'>[</span> em lugar nenhum. Consulte a opção <span class='synopsis'><code>--refspec-pattern</code></span> abaixo para ver uma exceção a esta regra.</p>
 </li>
 <li>
-<p>Eles não podem iniciar ou terminar com uma barra <code>/</code> ou conter múltiplas barras consecutivas (veja a opção <code>--normalize</code> abaixo para uma exceção a esta regra).</p>
+<p>Eles não podem iniciar ou terminar com uma barra <span class='synopsis'><code>/</code></span> ou conter múltiplas barras consecutivas (veja a opção <span class='synopsis'><code>--normalize</code></span> abaixo para uma exceção a esta regra).</p>
 </li>
 <li>
-<p>Eles não podem terminar com um ponto <code>.</code>.</p>
+<p>Eles não podem terminar com um ponto <span class='synopsis'><code>.</code></span>.</p>
 </li>
 <li>
-<p>Eles não podem conter uma sequência <code>@{</code>.</p>
+<p>Eles não podem conter uma sequência <span class='synopsis'><code>@{</code></span>.</p>
 </li>
 <li>
-<p>Eles não podem ser o único caractere <code>@</code>.</p>
+<p>Eles não podem ser o único caractere <span class='synopsis'><code>@</code></span>.</p>
 </li>
 <li>
-<p>Eles não podem conter um <code>\</code>.</p>
+<p>Eles não podem conter um <span class='synopsis'><em>\</em></span>.</p>
 </li>
 </ol>
 </div>
@@ -81,21 +94,21 @@ aliases:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Um ponto duplo <code>..</code> é freqüentemente utilizado como em` ref1..ref2` e, em alguns contextos, essa notação significa <code>^ref1 ref2</code> (isto é, não em` ref1` e em <code>ref2</code>).</p>
+<p>Um ponto duplo <span class='synopsis'><code>..</code></span> é freqüentemente utilizado como em` ref1..ref2` e, em alguns contextos, essa notação significa <span class='synopsis'><code>^ref1</code> <code>ref2</code></span> (isto é, não em` ref1` e em <span class='synopsis'><code>ref2</code></span>).</p>
 </li>
 <li>
-<p>Um til <code>~</code> e um caractere circunflexo <code>^</code> são utilizados para introduzir a operação do postfix <em>nth parent</em> e <em>peel onion</em>.</p>
+<p>Um til <span class='synopsis'><code>~</code></span> e um caractere circunflexo <span class='synopsis'><code>^</code></span> são utilizados para introduzir a operação do postfix <em>nth parent</em> e <em>peel onion</em>.</p>
 </li>
 <li>
-<p>Dois pontos <code>:</code> para indicar são usados como em <code>srcref:dstref</code> "use o valor de srcref e armazene-o em dstref" nas operações de busca e envio. Ele também pode ser usado para selecionar um objeto específico, como em <em>git cat-file</em>: "git cat-file blob v1.3.3:refs.c".</p>
+<p>Dois pontos <span class='synopsis'><code>:</code></span> para indicar são usados como em <span class='synopsis'><code>srcref:dstref</code></span> "use o valor de srcref e armazene-o em dstref" nas operações de busca e envio. Ele também pode ser usado para selecionar um objeto específico, como em <em>git cat-file</em>: "git cat-file blob v1.3.3:refs.c".</p>
 </li>
 <li>
-<p>at-open-brace <code>@{</code> é utilizado como uma notação para acessar uma entrada de reflog.</p>
+<p>at-open-brace <span class='synopsis'><code>@{</code></span> é utilizado como uma notação para acessar uma entrada de reflog.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Com a opção <code>--branch</code>, o comando recebe um nome e verifica se ele pode ser usado como um nome de ramo válido (por exemplo, ao criar um novo ramo). Mas tenha cuidado ao usar a sintaxe "checkout" anterior que pode se referir a um estado <code>HEAD</code> desvinculado. A regra que o <code>git check-ref-format --branch $name</code> implementa pode ser mais rígida do que o que o <code>git check-ref-format refs/heads/$name</code> diz (um traço pode aparecer no início de um componente ref, mas é explicitamente proibido no início de um nome de ramo por exemplo). Quando executado com a opção <code>--branch</code> num repositório, a entrada é primeiro expandida para a &#8220;sintaxe "checkout" anterior&#8221; <code>@{-n}</code>. Por exemplo, <code>@{-1}</code> é uma maneira de indicar a última coisa que foi verificada usando a operação "git switch" ou "git checkout". Essa opção deve ser usada pelas porcelanas para aceitar esta sintaxe em qualquer lugar onde se espera um nome do ramo, para que elas possam agir como se você tivesse digitado o nome do ramo. Como exceção, observe que a &#8220;operação de "checkout" anterior&#8221; pode resultar num nome de objeto commit quando a enésima última coisa baixada não for um ramo.</p>
+<p>Com a opção <span class='synopsis'><code>--branch</code></span>, o comando recebe um nome e verifica se ele pode ser usado como um nome de ramo válido (por exemplo, ao criar um novo ramo). Mas tenha cuidado ao usar a sintaxe "checkout" anterior que pode se referir a um estado <span class='synopsis'><code>HEAD</code></span> desvinculado. A regra que o <span class='synopsis'><code>git</code> <code>check-ref-format</code> <code>--branch</code> <code>$name</code></span> implementa pode ser mais rígida do que o que o <span class='synopsis'><code>git</code> <code>check-ref-format</code> <code>refs/heads/$name</code></span> diz (um traço pode aparecer no início de um componente ref, mas é explicitamente proibido no início de um nome de ramo por exemplo). Quando executado com a opção <span class='synopsis'><code>--branch</code></span> num repositório, a entrada é primeiro expandida para a &#8220;sintaxe "checkout" anterior&#8221; <span class='synopsis'><code>@{-n}</code></span>. Por exemplo, <span class='synopsis'><code>@{-1}</code></span> é uma maneira de indicar a última coisa que foi verificada usando a operação "git switch" ou "git checkout". Essa opção deve ser usada pelas porcelanas para aceitar esta sintaxe em qualquer lugar onde se espera um nome do ramo, para que elas possam agir como se você tivesse digitado o nome do ramo. Como exceção, observe que a &#8220;operação de "checkout" anterior&#8221; pode resultar num nome de objeto commit quando a enésima última coisa baixada não for um ramo.</p>
 </div>
 </div>
 </div>
@@ -106,15 +119,15 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-check-ref-format---no-allow-onelevel"> <a class="anchor" href="#git-check-ref-format---no-allow-onelevel"></a>--[no-]allow-onelevel </dt>
 <dd>
-<p>Controla se os <em>refnames</em> de um nível são aceitos (ou seja, refnames que não contêm vários componentes separados por <code>/</code>). A predefinição é <code>--no-allow-onelevel</code>.</p>
+<p>Controla se os <em>refnames</em> de um nível são aceitos (ou seja, refnames que não contêm vários componentes separados por <span class='synopsis'><code>/</code></span>). A predefinição é <span class='synopsis'><code>--no-allow-onelevel</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-check-ref-format---refspec-pattern"> <a class="anchor" href="#git-check-ref-format---refspec-pattern"></a>--refspec-pattern </dt>
 <dd>
-<p>Interprete &lt;refname&gt; como um padrão de nome de referência para um refspec (conforme é usado com repositórios remotos). Se esta opção estiver ativada, &lt;refname&gt; poderá conter um único <code>*</code> na refspec (<code>foo/bar*/baz</code> ou <code>foo/bar*baz/</code>, mas não <code>foo/bar*/baz*</code> por exemplo).</p>
+<p>Interprete &lt;refname&gt; como um padrão de nome de referência para um refspec (conforme é usado com repositórios remotos). Se esta opção estiver ativada, &lt;refname&gt; poderá conter um único <span class='synopsis'><code>*</code></span> na refspec (<span class='synopsis'><code>foo/bar*/baz</code></span> ou <span class='synopsis'><code>foo/bar*baz/</code></span>, mas não <span class='synopsis'><code>foo/bar*/baz*</code></span> por exemplo).</p>
 </dd>
 <dt class="hdlist1" id="git-check-ref-format---normalize"> <a class="anchor" href="#git-check-ref-format---normalize"></a>--normalize </dt>
 <dd>
-<p>Normalize o <em>refname</em> removendo todos os caracteres de barra (<code>/</code>) à esquerda e reduzindo as séries de barras adjacentes entre os componentes do nome numa única barra. Se o <em>refname</em> normalizado for válido, imprima-o na saída predefinida e encerre com o a condição 0; caso contrário, encerre com uma condição diferente de zero. (a opção <code>--print</code> é uma forma obsoleta de escrever <code>--normalize</code>.)</p>
+<p>Normalize o <em>refname</em> removendo todos os caracteres de barra (<span class='synopsis'><code>/</code></span>) à esquerda e reduzindo as séries de barras adjacentes entre os componentes do nome numa única barra. Se o <em>refname</em> normalizado for válido, imprima-o na saída predefinida e encerre com o a condição 0; caso contrário, encerre com uma condição diferente de zero. (a opção <span class='synopsis'><code>--print</code></span> é uma forma obsoleta de escrever <span class='synopsis'><code>--normalize</code></span>.)</p>
 </dd>
 </dl>
 </div>

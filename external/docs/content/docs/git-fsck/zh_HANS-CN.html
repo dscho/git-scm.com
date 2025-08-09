@@ -9,6 +9,27 @@ docname: git-fsck
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-fsck/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 配置
+  id: _配置
+- text: 讨论
+  id: _讨论
+- text: 提取的诊断方法
+  id: _提取的诊断方法
+- text: FSCK 信息
+  id: _fsck_信息
+- text: 环境变量
+  id: _环境变量
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -46,7 +67,7 @@ aliases:
 <dd>
 <p>一个要作为不可及性追踪的头的对象。</p>
 <div class="paragraph">
-<p>如果没有给出对象，<em>git fsck</em> 默认使用索引文件、<code>refs</code> 命名空间中的所有 SHA-1 引用，以及所有引用日志（除非 --no-reflogs 选项被给出）作为头。</p>
+<p>如果没有给出对象，<em>git fsck</em> 默认使用索引文件、<span class='synopsis'><code>refs</code></span> 命名空间中的所有 SHA-1 引用，以及所有引用日志（除非 --no-reflogs 选项被给出）作为头。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fsck---unreachable"> <a class="anchor" href="#git-fsck---unreachable"></a>--unreachable </dt>
@@ -55,7 +76,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fsck---no-dangling"> <a class="anchor" href="#git-fsck---no-dangling"></a>--[no-]dangling </dt>
 <dd>
-<p>打印存在但从未 'directly ' 使用的对象（默认）。 <code>--no-dangling</code> 可以用来从输出中省略这一信息。</p>
+<p>打印存在但从未 'directly ' 使用的对象（默认）。 <span class='synopsis'><code>--no-dangling</code></span> 可以用来从输出中省略这一信息。</p>
 </dd>
 <dt class="hdlist1" id="git-fsck---root"> <a class="anchor" href="#git-fsck---root"></a>--root </dt>
 <dd>
@@ -81,7 +102,7 @@ aliases:
 <dd>
 <p>只检查可达对象的连接性，确保可达标签、提交或目录树所引用的任何对象都存在。这样可以完全避免读取 blobs，从而加快操作速度（尽管它仍然会检查被引用的 blobs 是否存在）。这将检测提交和树的损坏，但不做任何语义检查（例如，格式错误）。blob 对象中的损坏将完全不会被检测到。</p>
 <div class="paragraph">
-<p>无法到达的标签、提交和树也会被访问，以找到历史的悬空部分的提示。如果你不关心这个输出并想进一步加快它的速度，请使用 <code>--no-dangling</code>。</p>
+<p>无法到达的标签、提交和树也会被访问，以找到历史的悬空部分的提示。如果你不关心这个输出并想进一步加快它的速度，请使用 <span class='synopsis'><code>--no-dangling</code></span>。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fsck---strict"> <a class="anchor" href="#git-fsck---strict"></a>--strict </dt>
@@ -98,7 +119,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-fsck---name-objects"> <a class="anchor" href="#git-fsck---name-objects"></a>--name-objects </dt>
 <dd>
-<p>当显示可达对象的名称时，除了 SHA-1外，还显示描述 <strong>如何</strong> 可达的名称，与 <a href='{{< relurl "docs/git-rev-parse/zh_HANS-CN" >}}'>git-rev-parse[1]</a> 兼容，例如，<code>HEAD@{1234567890}~25^2:src/</code>。</p>
+<p>当显示可达对象的名称时，除了 SHA-1外，还显示描述 <strong>如何</strong> 可达的名称，与 <a href='{{< relurl "docs/git-rev-parse/zh_HANS-CN" >}}'>git-rev-parse[1]</a> 兼容，例如，<span class='synopsis'><code>HEAD@{1234567890}~25^2:src/</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-fsck---no-progress"> <a class="anchor" href="#git-fsck---no-progress"></a>--[no-]progress </dt>
 <dd>
@@ -126,7 +147,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>zh_HANS-CN/config/fsck.adoc</code></p>
+<p>Missing <span class='synopsis'><code>zh_HANS-CN/config/fsck.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -141,7 +162,7 @@ aliases:
 <h2 id="_讨论"><a class="anchor" href="#_讨论"></a>讨论</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>git-fsck 测试 SHA-1和一般对象的正确性，并对结果的可及性和其他一切进行全面跟踪。它打印出它发现的任何损坏（缺失或坏的对象），如果你使用 <code>--unreachable</code> 标志，它也会打印出存在但从任何指定的头部节点（或默认集，如上所述）无法到达的对象。</p>
+<p>git-fsck 测试 SHA-1和一般对象的正确性，并对结果的可及性和其他一切进行全面跟踪。它打印出它发现的任何损坏（缺失或坏的对象），如果你使用 <span class='synopsis'><code>--unreachable</code></span> 标志，它也会打印出存在但从任何指定的头部节点（或默认集，如上所述）无法到达的对象。</p>
 </div>
 <div class="paragraph">
 <p>任何损坏的对象，你将不得不在备份或其他档案中找到（也就是说，你可以直接删除它们，并与其他网站做一个 <em>rsync</em>，希望别人拥有你损坏的对象）。</p>
@@ -180,7 +201,7 @@ aliases:
 <h2 id="_fsck_信息"><a class="anchor" href="#_fsck_信息"></a>FSCK 信息</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>下面列出了 <code>git fsck</code> 检测的错误类型和每个错误的含义，以及它们的默认严重程度。 除了那些被标记为 "(FATAL)" 的错误，其他错误的严重程度可以通过设置相应的 <code>fsck.&lt;msg-id&gt;</code> 配置变量来调整。</p>
+<p>下面列出了 <span class='synopsis'><code>git</code> <code>fsck</code></span> 检测的错误类型和每个错误的含义，以及它们的默认严重程度。 除了那些被标记为 "(FATAL)" 的错误，其他错误的严重程度可以通过设置相应的 <span class='synopsis'><code>fsck.</code><em>&lt;msg-id&gt;</em></span> 配置变量来调整。</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -190,7 +211,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>zh_HANS-CN/fsck-msgids.adoc</code></p>
+<p>Missing <span class='synopsis'><code>zh_HANS-CN/fsck-msgids.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

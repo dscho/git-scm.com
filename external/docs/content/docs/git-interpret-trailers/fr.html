@@ -9,6 +9,25 @@ docname: git-interpret-trailers
 lang: fr
 aliases:
 - "/docs/git-interpret-trailers/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: VARIABLES DE CONFIGURATION
+  id: _variables_de_configuration
+- text: EXEMPLES
+  id: _exemples
+- text: VOIR AUSSI
+  id: _voir_aussi
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -48,19 +67,19 @@ Signed-off-by: Bob &lt;bob@exemple.com&gt;</pre>
 <p>les deux dernières lignes commençant par "Signed-off-by" sont des lignes terminales.</p>
 </div>
 <div class="paragraph">
-<p>Cette commande lit des messages de validation provenant soit des &lt;fichier&gt;s en argument, soit de l&#8217;entrée standard, si aucun &lt;fichier&gt; n&#8217;est spécifié. Si <code>--parse</code> est spécifié, la sortie se compose des lignes terminales analysées provenant de l ' entrée, sans les influencer avec des options de ligne de commande ou des variables de configuration.</p>
+<p>Cette commande lit des messages de validation provenant soit des &lt;fichier&gt;s en argument, soit de l&#8217;entrée standard, si aucun &lt;fichier&gt; n&#8217;est spécifié. Si <span class='synopsis'><code>--parse</code></span> est spécifié, la sortie se compose des lignes terminales analysées provenant de l ' entrée, sans les influencer avec des options de ligne de commande ou des variables de configuration.</p>
 </div>
 <div class="paragraph">
-<p>Sinon, cette commande s&#8217;applique les variables de configuration`trailer.*` (qui pourraient potentiellement ajouter de nouvelles lignes terminales, ainsi que les repositionner), ainsi que tous les arguments de ligne de commande qui peuvent remplacer les variables de configuration (comme <code>--trailer=...</code> qui pourraient également ajouter de nouvelles lignes terminales), à chaque fichier d&#8217;entrée. Le résultat est émis sur la sortie standard.</p>
+<p>Sinon, cette commande s&#8217;applique les variables de configuration`trailer.*` (qui pourraient potentiellement ajouter de nouvelles lignes terminales, ainsi que les repositionner), ainsi que tous les arguments de ligne de commande qui peuvent remplacer les variables de configuration (comme <span class='synopsis'><code>--trailer=...</code></span> qui pourraient également ajouter de nouvelles lignes terminales), à chaque fichier d&#8217;entrée. Le résultat est émis sur la sortie standard.</p>
 </div>
 <div class="paragraph">
-<p>Cette commande peut également fonctionner sur la sortie de <a href='{{< relurl "docs/git-format-patch/fr" >}}'>git-format-patch[1]</a>, qui est plus élaboré qu&#8217;un simple message de validation. Plus précisément, cette sortie comprend un message de validation (comme ci-dessus), une ligne de séparation "---" et une rustine. Pour ces entrées, le séparateur et les rustines ne sont pas modifiés par cette commande et sont émis tel quels sur la sortie, à moins que <code>--no-divider</code> soit spécifié.</p>
+<p>Cette commande peut également fonctionner sur la sortie de <a href='{{< relurl "docs/git-format-patch/fr" >}}'>git-format-patch[1]</a>, qui est plus élaboré qu&#8217;un simple message de validation. Plus précisément, cette sortie comprend un message de validation (comme ci-dessus), une ligne de séparation "---" et une rustine. Pour ces entrées, le séparateur et les rustines ne sont pas modifiés par cette commande et sont émis tel quels sur la sortie, à moins que <span class='synopsis'><code>--no-divider</code></span> soit spécifié.</p>
 </div>
 <div class="paragraph">
-<p>Certaines variables de configuration contrôlent la façon dont les arguments <code>--trailer</code> sont appliqués à chaque entrée et la façon dont toute ligne terminale existante dans l&#8217;entrée est changée. Elles permettent également d&#8217;ajouter automatiquement des lignes terminales.</p>
+<p>Certaines variables de configuration contrôlent la façon dont les arguments <span class='synopsis'><code>--trailer</code></span> sont appliqués à chaque entrée et la façon dont toute ligne terminale existante dans l&#8217;entrée est changée. Elles permettent également d&#8217;ajouter automatiquement des lignes terminales.</p>
 </div>
 <div class="paragraph">
-<p>Par défaut, l&#8217;argument <em>&lt;clé&gt;=&lt;valeur&gt;</em> or <em>&lt;clé&gt;:&lt;valeur&gt;</em> fourni en utilisant <code>--trailer</code> ne sera ajouté après les lignes terminales existantes que si la dernière ligne terminale a une paire (&lt;clé&gt;, &lt;valeur&gt;) différente (ou s&#8217;il n&#8217;y a pas de ligne terminale). Les parties &lt;clé&gt; et &lt;valeur&gt; seront raccourcis pour supprimer les espaces blancs de début et de fin, et les &lt;clé&gt; et &lt;valeur&gt; nettoyés résultants seront apposés dans la sortie comme ceci :</p>
+<p>Par défaut, l&#8217;argument <em>&lt;clé&gt;=&lt;valeur&gt;</em> or <em>&lt;clé&gt;:&lt;valeur&gt;</em> fourni en utilisant <span class='synopsis'><code>--trailer</code></span> ne sera ajouté après les lignes terminales existantes que si la dernière ligne terminale a une paire (&lt;clé&gt;, &lt;valeur&gt;) différente (ou s&#8217;il n&#8217;y a pas de ligne terminale). Les parties &lt;clé&gt; et &lt;valeur&gt; seront raccourcis pour supprimer les espaces blancs de début et de fin, et les &lt;clé&gt; et &lt;valeur&gt; nettoyés résultants seront apposés dans la sortie comme ceci :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -68,10 +87,10 @@ Signed-off-by: Bob &lt;bob@exemple.com&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Cela signifie que les &lt;clé&gt; et &lt;valeur&gt; nettoyés seront séparés par <code>': '</code> (deux points suivis d&#8217;un espace).</p>
+<p>Cela signifie que les &lt;clé&gt; et &lt;valeur&gt; nettoyés seront séparés par <span class='synopsis'><code>:</code> </span> (deux points suivis d&#8217;un espace).</p>
 </div>
 <div class="paragraph">
-<p>Pour plus de commodité, on peut configurer un &lt;alias-de-clé&gt; afin d&#8217;utiliser un <code>--trailer</code> plus court à taper sur la ligne de commande. Cela peut être configuré à l&#8217;aide de la variable de configuration <em>trailer.&lt;alias-de-clé&gt;.key</em>. L'&lt;alias-de-clé&gt; doit être un préfixe de la chaîne complète &lt;clé&gt;, bien que la sensibilité à la casse n&#8217;a pas d&#8217;importance. Par exemple, si vous avez</p>
+<p>Pour plus de commodité, on peut configurer un &lt;alias-de-clé&gt; afin d&#8217;utiliser un <span class='synopsis'><code>--trailer</code></span> plus court à taper sur la ligne de commande. Cela peut être configuré à l&#8217;aide de la variable de configuration <em>trailer.&lt;alias-de-clé&gt;.key</em>. L'&lt;alias-de-clé&gt; doit être un préfixe de la chaîne complète &lt;clé&gt;, bien que la sensibilité à la casse n&#8217;a pas d&#8217;importance. Par exemple, si vous avez</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -79,7 +98,7 @@ Signed-off-by: Bob &lt;bob@exemple.com&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>dans votre configuration, vous devez seulement spécifier <code>--trailer="sign: foo"</code> sur la ligne de commande au lieu de <code>--trailer="Signed-off-by: foo"</code>.</p>
+<p>dans votre configuration, vous devez seulement spécifier <span class='synopsis'><code>--trailer="sign:</code> <code>foo"</code></span> sur la ligne de commande au lieu de <span class='synopsis'><code>--trailer="Signed-off-by:</code> <code>foo"</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Par défaut, la nouvelle ligne terminale apparaîtra après toutes les lignes terminales existantes. S&#8217;il n&#8217;y a pas de ligne terminale existante, la nouvelle ligne terminale apparaîtra à la fin de l&#8217;entrée. S&#8217;il n&#8217;y a pas déjà de ligne avec seulement des espaces à la fin, une ligne vierge sera ajoutée avant la nouvelle ligne terminale.</p>
@@ -121,17 +140,17 @@ Signed-off-by: Bob &lt;bob@exemple.com&gt;</pre>
 <dt class="hdlist1" id="git-interpret-trailers---whereltplacementgt"> <a class="anchor" href="#git-interpret-trailers---whereplacement"></a> <a class="anchor" href="#git-interpret-trailers---whereltplacementgt"></a>--where &lt;placement&gt; </dt>
 <dt class="hdlist1" id="git-interpret-trailers---no-where"> <a class="anchor" href="#git-interpret-trailers---no-where"></a>--no-where </dt>
 <dd>
-<p>Préciser où toutes les nouvelles lignes terminales seront ajoutées. Un paramètre fourni avec <em>--where</em> a précédence sur la variable de configuration <code>trailer.where</code> et toute autre <code>trailer.&lt;alias-de-clé&gt;.where</code> et s&#8217;applique à toutes les options <em>--trailer</em> jusqu&#8217;à la prochaine occurrence de <em>--where</em> ou <em>--no-where</em>. La présence du <code>--no-where`réinitialise l'effet de toute utilisation antérieure de `--where</code>, de sorte que les variables de configuration pertinentes ne sont plus outrepassées. Les placements possibles sont <code>after</code>, <code>before</code>, <code>end</code> ou <code>start</code>.</p>
+<p>Préciser où toutes les nouvelles lignes terminales seront ajoutées. Un paramètre fourni avec <em>--where</em> a précédence sur la variable de configuration <span class='synopsis'><code>trailer.where</code></span> et toute autre <span class='synopsis'><code>trailer.</code><em>&lt;alias-de-clé&gt;</em><code>.where</code></span> et s&#8217;applique à toutes les options <em>--trailer</em> jusqu&#8217;à la prochaine occurrence de <em>--where</em> ou <em>--no-where</em>. La présence du <span class='synopsis'><em>--no-where`réinitialise l'effet de toute utilisation antérieure de `--where</em></span>, de sorte que les variables de configuration pertinentes ne sont plus outrepassées. Les placements possibles sont <span class='synopsis'><code>after</code></span>, <span class='synopsis'><code>before</code></span>, <span class='synopsis'><code>end</code></span> ou <span class='synopsis'><code>start</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-interpret-trailers---if-existsltactiongt"> <a class="anchor" href="#git-interpret-trailers---if-existsaction"></a> <a class="anchor" href="#git-interpret-trailers---if-existsltactiongt"></a>--if-exists &lt;action&gt; </dt>
 <dt class="hdlist1" id="git-interpret-trailers---no-if-exists"> <a class="anchor" href="#git-interpret-trailers---no-if-exists"></a>--no-if-exists </dt>
 <dd>
-<p>Spécifier l&#8217;action qui sera exécutée lorsqu&#8217;il y a déjà au moins une ligne terminale avec la même &lt;clé&gt; dans l&#8217;entrée. Un paramètre fourni avec "--if-exists" surcharge les variables de configuration <code>trailer.ifExists`et toute autre `trailer.&lt;alias-de-clé&gt;.ifExists</code> et s&#8217;applique à toutes les options <em>--trailer</em> jusqu&#8217;à la prochaine occurrence de <em>--if-exists</em> ou <em>-no-if-exists</em>. L&#8217;occurrence de <code>--no-if-exists</code> réinitialise l&#8217;effet de toute utilisation antérieure <code>--if-exist</code>, de sorte que les variables de configurations pertinentes ne sont plus surchargées. Les actions possibles sont <code>addIfDifferent</code>, <code>addIfDifferentNeighbor</code>, <code>add</code>, <code>replace</code> et <code>doNothing</code>.</p>
+<p>Spécifier l&#8217;action qui sera exécutée lorsqu&#8217;il y a déjà au moins une ligne terminale avec la même &lt;clé&gt; dans l&#8217;entrée. Un paramètre fourni avec "--if-exists" surcharge les variables de configuration <span class='synopsis'><code>trailer.ifExists</code><code>et</code> <code>toute</code> <code>autre</code> <code>trailer.</code><em>&lt;alias-de-clé&gt;</em><code>.ifExists</code></span> et s&#8217;applique à toutes les options <em>--trailer</em> jusqu&#8217;à la prochaine occurrence de <em>--if-exists</em> ou <em>-no-if-exists</em>. L&#8217;occurrence de <span class='synopsis'><code>--no-if-exists</code></span> réinitialise l&#8217;effet de toute utilisation antérieure <span class='synopsis'><code>--if-exist</code></span>, de sorte que les variables de configurations pertinentes ne sont plus surchargées. Les actions possibles sont <span class='synopsis'><code>addIfDifferent</code></span>, <span class='synopsis'><code>addIfDifferentNeighbor</code></span>, <span class='synopsis'><code>add</code></span>, <span class='synopsis'><code>replace</code></span> et <span class='synopsis'><code>doNothing</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-interpret-trailers---if-missingltactiongt"> <a class="anchor" href="#git-interpret-trailers---if-missingaction"></a> <a class="anchor" href="#git-interpret-trailers---if-missingltactiongt"></a>--if-missing &lt;action&gt; </dt>
 <dt class="hdlist1" id="git-interpret-trailers---no-if-missing"> <a class="anchor" href="#git-interpret-trailers---no-if-missing"></a>--no-if-missing </dt>
 <dd>
-<p>Spécifier l&#8217;action qui sera exécutée lorsqu&#8217;il n&#8217;y a pas d&#8217;autre ligne-terminale avec le même &lt;clé&gt; dans l&#8217;entrée. Un paramètre fourni avec <code>--if-missing</code> surcharge les variables de configuration <code>trailer.ifMissing</code> et toute autre <code>trailer.&lt;alias-de-clé&gt;.ifMissing</code> et s&#8217;applique à toutes les options <code>--trailer</code> jusqu&#8217;à la prochaine occurrence de <code>--if-missing</code> ou <code>--no-if-missing</code>. L&#8217;occurrence de <code>--no-if-missing</code> réinitialise l&#8217;effet de toute utilisation antérieure de <code>--if-missing</code>, de sorte que les variables de configurations pertinentes ne sont plus surchargées. Les actions possibles sont <code>doNothing</code> ou <code>add</code>.</p>
+<p>Spécifier l&#8217;action qui sera exécutée lorsqu&#8217;il n&#8217;y a pas d&#8217;autre ligne-terminale avec le même &lt;clé&gt; dans l&#8217;entrée. Un paramètre fourni avec <span class='synopsis'><code>--if-missing</code></span> surcharge les variables de configuration <span class='synopsis'><code>trailer.ifMissing</code></span> et toute autre <span class='synopsis'><code>trailer.</code><em>&lt;alias-de-clé&gt;</em><code>.ifMissing</code></span> et s&#8217;applique à toutes les options <span class='synopsis'><code>--trailer</code></span> jusqu&#8217;à la prochaine occurrence de <span class='synopsis'><code>--if-missing</code></span> ou <span class='synopsis'><code>--no-if-missing</code></span>. L&#8217;occurrence de <span class='synopsis'><code>--no-if-missing</code></span> réinitialise l&#8217;effet de toute utilisation antérieure de <span class='synopsis'><code>--if-missing</code></span>, de sorte que les variables de configurations pertinentes ne sont plus surchargées. Les actions possibles sont <span class='synopsis'><code>doNothing</code></span> ou <span class='synopsis'><code>add</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-interpret-trailers---only-trailers"> <a class="anchor" href="#git-interpret-trailers---only-trailers"></a>--only-trailers </dt>
 <dd>
@@ -147,11 +166,11 @@ Signed-off-by: Bob &lt;bob@exemple.com&gt;</pre>
 </dd>
 <dt class="hdlist1" id="git-interpret-trailers---parse"> <a class="anchor" href="#git-interpret-trailers---parse"></a>--parse </dt>
 <dd>
-<p>Un alias de commodité pour les <code>--only-trailers --only-input --unfold</code> . Cela rend plus facile de voir seulement les lignes terminales provenant de l&#8217;entrée sans les influer sur toutes les options de ligne de commande ou de configuration, tout en rendant la sortie compatible avec un traitement automatique e avec --unfold.</p>
+<p>Un alias de commodité pour les <span class='synopsis'><code>--only-trailers</code> <code>--only-input</code> <code>--unfold</code></span> . Cela rend plus facile de voir seulement les lignes terminales provenant de l&#8217;entrée sans les influer sur toutes les options de ligne de commande ou de configuration, tout en rendant la sortie compatible avec un traitement automatique e avec --unfold.</p>
 </dd>
 <dt class="hdlist1" id="git-interpret-trailers---no-divider"> <a class="anchor" href="#git-interpret-trailers---no-divider"></a>--no-divider </dt>
 <dd>
-<p>Ne pas traiter <code>---</code> comme la fin du message de validation. Utilisez ceci lorsque vous savez que votre entrée contient simplement le message de validation lui-même (et non un courriel ou la sortie de <code>git format-patch</code>).</p>
+<p>Ne pas traiter <span class='synopsis'><code>---</code></span> comme la fin du message de validation. Utilisez ceci lorsque vous savez que votre entrée contient simplement le message de validation lui-même (et non un courriel ou la sortie de <span class='synopsis'><code>git</code> <code>format-patch</code></span>).</p>
 </dd>
 </dl>
 </div>
@@ -171,7 +190,7 @@ Signed-off-by: Bob &lt;bob@exemple.com&gt;</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/trailer.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/trailer.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -207,7 +226,7 @@ Signed-off-by: Bob &lt;bob@exemple.com&gt;</pre>
 </div>
 </li>
 <li>
-<p>Utilisez l&#8217;option <code>--in-place</code> pour modifier un fichier de message de validation en place :</p>
+<p>Utilisez l&#8217;option <span class='synopsis'><code>--in-place</code></span> pour modifier un fichier de message de validation en place :</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ cat msg.txt
@@ -284,7 +303,7 @@ Fix #42</pre>
 </div>
 </li>
 <li>
-<p>Configurer une ligne terminale <em>help</em> avec un cmd, utiliser un script <code>glog-find-author</code> qui recherche l&#8217;identité de l&#8217;auteur spécifié dans le journal git dans le dépôt git et montrer comment cela fonctionne :</p>
+<p>Configurer une ligne terminale <em>help</em> avec un cmd, utiliser un script <span class='synopsis'><code>glog-find-author</code></span> qui recherche l&#8217;identité de l&#8217;auteur spécifié dans le journal git dans le dépôt git et montrer comment cela fonctionne :</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ cat ~/bin/glog-find-author
@@ -308,7 +327,7 @@ Helped-by: Christian Couder &lt;christian.couder@gmail.com&gt;</pre>
 </div>
 </li>
 <li>
-<p>Configurer une ligne terminale <em>ref</em> avec un script <code>glog-grep</code> pour rechercher le dernier commit pertinent dans le journal git du dépôt git et montrer comment cela fonctionne :</p>
+<p>Configurer une ligne terminale <em>ref</em> avec un script <span class='synopsis'><code>glog-grep</code></span> pour rechercher le dernier commit pertinent dans le journal git du dépôt git et montrer comment cela fonctionne :</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ cat ~/bin/glog-grep

@@ -9,6 +9,19 @@ docname: git-send-pack
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-send-pack/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 指定引用
+  id: _指定引用
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -62,7 +75,7 @@ aliases:
 <dd>
 <p>从标准输入流获取各个引用列表，每行一个。如果命令行中除此选项外还指定了其他引用，则会在处理命令行中的引用后再处理来自标准输入流的多个引用。</p>
 <div class="paragraph">
-<p>如果与此选项一起指定了 <code>--stateless-rpc</code>，那么引用列表必须是数据包格式（pkt-line）。每个引用必须在一个单独的数据包中，并且列表必须以清除数据包结束。</p>
+<p>如果与此选项一起指定了 <span class='synopsis'><code>--stateless-rpc</code></span>，那么引用列表必须是数据包格式（pkt-line）。每个引用必须在一个单独的数据包中，并且列表必须以清除数据包结束。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-send-pack---dry-run"> <a class="anchor" href="#git-send-pack---dry-run"></a>--dry-run </dt>
@@ -88,7 +101,7 @@ aliases:
 <dt class="hdlist1" id="git-send-pack---no-signed"> <a class="anchor" href="#git-send-pack---no-signed"></a>--[no-]signed </dt>
 <dt class="hdlist1" id="git-send-pack---signedtruefalseif-asked"> <a class="anchor" href="#git-send-pack---signedtruefalseif-asked"></a>--signed=(true|false|if-asked) </dt>
 <dd>
-<p>对推送请求进行 GPG 签名，以更新接收方的引用，使其能够被钩子检查和/或被记录下来。 如果指定 <code>false</code> 或 <code>--no-signed</code>，将不尝试签名。 如果指定 <code>true</code> 或 <code>--signed</code>，且服务器不支持签名推送，推送将失败。 如果设置为 <code>if-asked</code>，仅当服务器支持签名推送时才签名。 如果实际调用 <code>gpg --sign</code> 失败，推送也将失败。 关于接收端的细节，见 <a href='{{< relurl "docs/git-receive-pack/zh_HANS-CN" >}}'>git-receive-pack[1]</a>。</p>
+<p>对推送请求进行 GPG 签名，以更新接收方的引用，使其能够被钩子检查和/或被记录下来。 如果指定 <span class='synopsis'><code>false</code></span> 或 <span class='synopsis'><code>--no-signed</code></span>，将不尝试签名。 如果指定 <span class='synopsis'><code>true</code></span> 或 <span class='synopsis'><code>--signed</code></span>，且服务器不支持签名推送，推送将失败。 如果设置为 <span class='synopsis'><code>if-asked</code></span>，仅当服务器支持签名推送时才签名。 如果实际调用 <span class='synopsis'><code>gpg</code> <code>--sign</code></span> 失败，推送也将失败。 关于接收端的细节，见 <a href='{{< relurl "docs/git-receive-pack/zh_HANS-CN" >}}'>git-receive-pack[1]</a>。</p>
 </dd>
 <dt class="hdlist1" id="git-send-pack---push-optionltgt"> <a class="anchor" href="#git-send-pack---push-option"></a> <a class="anchor" href="#git-send-pack---push-optionltgt"></a>--push-option=&lt;字符串&gt; </dt>
 <dd>
@@ -117,13 +130,13 @@ aliases:
 <p>有三种方法可以指定在远程端更新哪些参考文件。</p>
 </div>
 <div class="paragraph">
-<p>使用 <code>--all</code> 标志时，本地存在的所有引用都会被传输到远端。 使用该标记时，不能指定任何 <code>&lt;引用&gt;</code>。</p>
+<p>使用 <span class='synopsis'><code>--all</code></span> 标志时，本地存在的所有引用都会被传输到远端。 使用该标记时，不能指定任何 <span class='synopsis'><em>&lt;引用&gt;</em></span>。</p>
 </div>
 <div class="paragraph">
-<p>如果不使用 <code>--all</code>，也不使用任何 <code>&lt;引用&gt;</code>，本地和远程都存在的磁头都会被更新。</p>
+<p>如果不使用 <span class='synopsis'><code>--all</code></span>，也不使用任何 <span class='synopsis'><em>&lt;引用&gt;</em></span>，本地和远程都存在的磁头都会被更新。</p>
 </div>
 <div class="paragraph">
-<p>当一个或多个 <em>&lt;引用&gt;</em> 被明确指定时（无论是在命令行还是通过 <code>--stdin</code>），它既可以是一个单独的模式，也可以是一对由冒号 ":" 分隔的模式（这意味着引用名称中不能有冒号）。 单一模式 <em>&lt;名称&gt;</em> 只是 <em>&lt;名称&gt;:&lt;名称&gt;</em> 的简称。</p>
+<p>当一个或多个 <em>&lt;引用&gt;</em> 被明确指定时（无论是在命令行还是通过 <span class='synopsis'><code>--stdin</code></span>），它既可以是一个单独的模式，也可以是一对由冒号 ":" 分隔的模式（这意味着引用名称中不能有冒号）。 单一模式 <em>&lt;名称&gt;</em> 只是 <em>&lt;名称&gt;:&lt;名称&gt;</em> 的简称。</p>
 </div>
 <div class="paragraph">
 <p>每个模式对包括源端（冒号前）和目标端（冒号后）。 要推送的引用是通过找到与源侧相匹配的匹配来确定的，而推送到哪里则是通过目的地侧来确定的。用于匹配引用的规则与 "git rev-parse" 用于解析符号引用名称的规则相同。参见 <a href='{{< relurl "docs/git-rev-parse/zh_HANS-CN" >}}'>git-rev-parse[1]</a>。</p>
@@ -152,10 +165,10 @@ aliases:
 </ul>
 </div>
 <div class="paragraph">
-<p>如果不使用 <code>--force</code>，只有当 &lt;目标&gt; 不存在，或者 &lt;目标&gt; 是 &lt;源&gt; 的适当子集（即祖先）时，&lt;源&gt; 引用才会被存储到远程引用中。 这种检查被称为 "快进检查"（fast-forward check），执行这种检查是为了避免意外覆盖远程引用并丢失其他人从那里提交的内容。</p>
+<p>如果不使用 <span class='synopsis'><code>--force</code></span>，只有当 &lt;目标&gt; 不存在，或者 &lt;目标&gt; 是 &lt;源&gt; 的适当子集（即祖先）时，&lt;源&gt; 引用才会被存储到远程引用中。 这种检查被称为 "快进检查"（fast-forward check），执行这种检查是为了避免意外覆盖远程引用并丢失其他人从那里提交的内容。</p>
 </div>
 <div class="paragraph">
-<p>使用 <code>--force</code>，所有裁判的快进检查都被禁用。</p>
+<p>使用 <span class='synopsis'><code>--force</code></span>，所有裁判的快进检查都被禁用。</p>
 </div>
 <div class="paragraph">
 <p>可以选择在 &lt;ref&gt; 参数前加上一个加号 <em>+</em> 号，以便仅在该引用上禁用快进检查。</p>

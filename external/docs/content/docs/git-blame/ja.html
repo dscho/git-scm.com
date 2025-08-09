@@ -9,6 +9,31 @@ docname: git-blame
 lang: ja
 aliases:
 - "/docs/git-blame/ja/index.html"
+headings:
+- text: NAME
+  id: _name
+- text: 概要
+  id: _概要
+- text: 説明
+  id: _説明
+- text: オプション
+  id: _オプション
+- text: デフォルトフォーマット
+  id: _デフォルトフォーマット
+- text: PORCELAIN フォーマット
+  id: _porcelain_フォーマット
+- text: 範囲の指定
+  id: _範囲の指定
+- text: インクリメンタル出力
+  id: _インクリメンタル出力
+- text: MAPPING AUTHORS
+  id: _mapping_authors
+- text: 設定
+  id: _設定
+- text: 関連項目
+  id: _関連項目
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
@@ -37,16 +62,16 @@ aliases:
 <p>指定したファイルの各行に、その行を最後に変更したリビジョンの情報を付加します。必要に応じて、指定したリビジョンから注釈を開始することもできます。</p>
 </div>
 <div class="paragraph">
-<p><code>-L</code> を1回以上指定すると、注釈を付ける範囲を指定した行に限定できます。</p>
+<p><span class='synopsis'><code>-L</code></span> を1回以上指定すると、注釈を付ける範囲を指定した行に限定できます。</p>
 </div>
 <div class="paragraph">
-<p>行の由来は、ファイル全体のリネームをまたいで自動的に追跡されます（現時点ではリネーム追跡を無効にするオプションはありません）。他のファイルから移動された行や、コピー＆ペーストされた行なども追跡したい場合は、<code>-C</code> および <code>-M</code> オプションを参照してください。</p>
+<p>行の由来は、ファイル全体のリネームをまたいで自動的に追跡されます（現時点ではリネーム追跡を無効にするオプションはありません）。他のファイルから移動された行や、コピー＆ペーストされた行なども追跡したい場合は、<span class='synopsis'><code>-C</code></span> および <span class='synopsis'><code>-M</code></span> オプションを参照してください。</p>
 </div>
 <div class="paragraph">
 <p>このレポートでは、削除または置換された行については何も表示されません。そのような行を調べるには、<em>git diff</em> や、次の段落で簡単に触れる「pickaxe」インターフェースなどのツールを利用してください。</p>
 </div>
 <div class="paragraph">
-<p>ファイルへの注釈付け（blame）機能に加えて、Git にはコード片がどの変更で現れたかを履歴から検索する機能もあります。これにより、コード片がファイルに追加された時期や、ファイル間で移動・コピーされ、最終的に削除または置換された時期を追跡できます。これは差分（diff）内の文字列を検索することで実現しています。<code>blame_usage</code> を検索する pickaxe インターフェースの簡単な例を以下に示します:</p>
+<p>ファイルへの注釈付け（blame）機能に加えて、Git にはコード片がどの変更で現れたかを履歴から検索する機能もあります。これにより、コード片がファイルに追加された時期や、ファイル間で移動・コピーされ、最終的に削除または置換された時期を追跡できます。これは差分（diff）内の文字列を検索することで実現しています。<span class='synopsis'><code>blame_usage</code></span> を検索する pickaxe インターフェースの簡単な例を以下に示します:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -64,11 +89,11 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <dl>
 <dt class="hdlist1" id="git-blame--b"> <a class="anchor" href="#git-blame--b"></a>-b </dt>
 <dd>
-<p>履歴の境界となるコミットの SHA-1 を空欄で表示します。この動作は <code>blame.blankBoundary</code> 設定でも切り替え可能です。</p>
+<p>履歴の境界となるコミットの SHA-1 を空欄で表示します。この動作は <span class='synopsis'><code>blame.blankBoundary</code></span> 設定でも切り替え可能です。</p>
 </dd>
 <dt class="hdlist1" id="git-blame---root"> <a class="anchor" href="#git-blame---root"></a>--root </dt>
 <dd>
-<p>履歴の最初のコミット（ルート）を境界として扱いません。この動作は <code>blame.showRoot</code> 設定でも切り替え可能です。</p>
+<p>履歴の最初のコミット（ルート）を境界として扱いません。この動作は <span class='synopsis'><code>blame.showRoot</code></span> 設定でも切り替え可能です。</p>
 </dd>
 <dt class="hdlist1" id="git-blame---show-stats"> <a class="anchor" href="#git-blame---show-stats"></a>--show-stats </dt>
 <dd>
@@ -79,7 +104,7 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <dd>
 <p><em>&lt;開始&gt;,&lt;終了&gt;</em> または関数名の正規表現 <em>&lt;関数名&gt;</em> で指定した範囲の行だけに注釈を付けます。複数回指定でき、範囲が重なっても問題ありません。</p>
 <div class="paragraph">
-<p><em>&lt;開始&gt;</em> と <em>&lt;終了&gt;</em> は省略できます。<code>-L &lt;開始&gt;</code> または <code>-L &lt;開始&gt;,</code> なら <em>&lt;開始&gt;</em> からファイル末尾まで、<code>-L ,&lt;終了&gt;</code> ならファイル先頭から <em>&lt;終了&gt;</em> までが対象です。</p>
+<p><em>&lt;開始&gt;</em> と <em>&lt;終了&gt;</em> は省略できます。<span class='synopsis'><code>-L</code> <em>&lt;開始&gt;</em></span> または <span class='synopsis'><code>-L</code> <em>&lt;開始&gt;</em><code>,</code></span> なら <em>&lt;開始&gt;</em> からファイル末尾まで、<span class='synopsis'><code>-L</code> <code>,</code><em>&lt;終了&gt;</em></span> ならファイル先頭から <em>&lt;終了&gt;</em> までが対象です。</p>
 </div>
 </dd>
 </dl>
@@ -92,7 +117,7 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>ja/line-range-format.adoc</code></p>
+<p>Missing <span class='synopsis'><code>ja/line-range-format.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -117,7 +142,7 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 </dd>
 <dt class="hdlist1" id="git-blame---reverseltgtltgt"> <a class="anchor" href="#git-blame---reverse"></a> <a class="anchor" href="#git-blame---reverseltgtltgt"></a>--reverse &lt;リビジョン&gt;..&lt;リビジョン&gt; </dt>
 <dd>
-<p>履歴を通常とは逆に（過去から未来へ）たどります。各行が現れたリビジョンではなく、その行が最後に存在したリビジョンを表示します。START..END のようなリビジョン範囲が必要で、START に blame 対象のパスが存在している必要があります。<code>git blame --reverse START</code> は <code>git blame --reverse START..HEAD</code> と同じ意味になります。</p>
+<p>履歴を通常とは逆に（過去から未来へ）たどります。各行が現れたリビジョンではなく、その行が最後に存在したリビジョンを表示します。START..END のようなリビジョン範囲が必要で、START に blame 対象のパスが存在している必要があります。<span class='synopsis'><code>git</code> <code>blame</code> <code>--reverse</code> <code>START</code></span> は <span class='synopsis'><code>git</code> <code>blame</code> <code>--reverse</code> <code>START..HEAD</code></span> と同じ意味になります。</p>
 </dd>
 <dt class="hdlist1" id="git-blame---first-parent"> <a class="anchor" href="#git-blame---first-parent"></a>--first-parent </dt>
 <dd>
@@ -138,7 +163,7 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 </dd>
 <dt class="hdlist1" id="git-blame---encodingltgt"> <a class="anchor" href="#git-blame---encoding"></a> <a class="anchor" href="#git-blame---encodingltgt"></a>--encoding=&lt;エンコーディング&gt; </dt>
 <dd>
-<p>著者名やコミット要約の出力エンコーディングを指定します。<code>none</code> を指定すると変換せずそのまま出力します。詳しくは <a href='{{< relurl "docs/git-log/ja" >}}'>git-log[1]</a> のエンコーディングの説明を参照してください。</p>
+<p>著者名やコミット要約の出力エンコーディングを指定します。<span class='synopsis'><code>none</code></span> を指定すると変換せずそのまま出力します。詳しくは <a href='{{< relurl "docs/git-log/ja" >}}'>git-log[1]</a> のエンコーディングの説明を参照してください。</p>
 </dd>
 <dt class="hdlist1" id="git-blame---contentsltgt"> <a class="anchor" href="#git-blame---contents"></a> <a class="anchor" href="#git-blame---contentsltgt"></a>--contents &lt;ファイル&gt; </dt>
 <dd>
@@ -150,7 +175,7 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 </dd>
 <dt class="hdlist1" id="git-blame---no-progress"> <a class="anchor" href="#git-blame---no-progress"></a>--[no-]progress </dt>
 <dd>
-<p>進捗状況は、デフォルトでは標準エラー出力が端末に接続されている場合に表示されます。このフラグを指定すると、端末に接続されていなくても進捗が表示されます。<code>--progress</code> は <code>--porcelain</code> や <code>--incremental</code> と同時に使用できません。</p>
+<p>進捗状況は、デフォルトでは標準エラー出力が端末に接続されている場合に表示されます。このフラグを指定すると、端末に接続されていなくても進捗が表示されます。<span class='synopsis'><code>--progress</code></span> は <span class='synopsis'><code>--porcelain</code></span> や <span class='synopsis'><code>--incremental</code></span> と同時に使用できません。</p>
 </dd>
 <dt class="hdlist1" id="git-blame--Mltgt"> <a class="anchor" href="#git-blame--M"></a> <a class="anchor" href="#git-blame--Mltgt"></a>-M[&lt;数値&gt;] </dt>
 <dd>
@@ -161,22 +186,22 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 </dd>
 <dt class="hdlist1" id="git-blame--Cltgt"> <a class="anchor" href="#git-blame--C"></a> <a class="anchor" href="#git-blame--Cltgt"></a>-C[&lt;数値&gt;] </dt>
 <dd>
-<p><code>-M</code> に加えて、同じコミット内で他のファイルから移動またはコピーされた行も検出します。規模が大きいリファクタリング時に便利です。このオプションを2回指定すると、ファイルを新規作成したコミット内の他のファイルからのコピーも検出対象になります。3回指定した場合は、あらゆるコミット内の他のファイルからのコピーも検出されます。</p>
+<p><span class='synopsis'><code>-M</code></span> に加えて、同じコミット内で他のファイルから移動またはコピーされた行も検出します。規模が大きいリファクタリング時に便利です。このオプションを2回指定すると、ファイルを新規作成したコミット内の他のファイルからのコピーも検出対象になります。3回指定した場合は、あらゆるコミット内の他のファイルからのコピーも検出されます。</p>
 <div class="paragraph">
-<p>&lt;num&gt; は省略可能ですが、Gitがファイル間で移動やコピーと判定するために必要な英数字の最小文字数を指定します。デフォルト値は40です。<code>-C</code> オプションが複数指定された場合、最後に指定した <code>-C</code> の &lt;num&gt; が有効になります。</p>
+<p>&lt;num&gt; は省略可能ですが、Gitがファイル間で移動やコピーと判定するために必要な英数字の最小文字数を指定します。デフォルト値は40です。<span class='synopsis'><code>-C</code></span> オプションが複数指定された場合、最後に指定した <span class='synopsis'><code>-C</code></span> の &lt;num&gt; が有効になります。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-blame---ignore-revltgt"> <a class="anchor" href="#git-blame---ignore-rev"></a> <a class="anchor" href="#git-blame---ignore-revltgt"></a>--ignore-rev &lt;リビジョン&gt; </dt>
 <dd>
-<p>Ignore changes made by the revision when assigning blame, as if the change never happened. Lines that were changed or added by an ignored commit will be blamed on the previous commit that changed that line or nearby lines. This option may be specified multiple times to ignore more than one revision. If the <code>blame.markIgnoredLines</code> config option is set, then lines that were changed by an ignored commit and attributed to another commit will be marked with a <code>?</code> in the blame output. If the <code>blame.markUnblamableLines</code> config option is set, then those lines touched by an ignored commit that we could not attribute to another revision are marked with a <em>*</em>. In the porcelain modes, we print <em>ignored</em> and <em>unblamable</em> on a newline respectively.</p>
+<p>Ignore changes made by the revision when assigning blame, as if the change never happened. Lines that were changed or added by an ignored commit will be blamed on the previous commit that changed that line or nearby lines. This option may be specified multiple times to ignore more than one revision. If the <span class='synopsis'><code>blame.markIgnoredLines</code></span> config option is set, then lines that were changed by an ignored commit and attributed to another commit will be marked with a <span class='synopsis'><em>?</em></span> in the blame output. If the <span class='synopsis'><code>blame.markUnblamableLines</code></span> config option is set, then those lines touched by an ignored commit that we could not attribute to another revision are marked with a <em>*</em>. In the porcelain modes, we print <em>ignored</em> and <em>unblamable</em> on a newline respectively.</p>
 </dd>
 <dt class="hdlist1" id="git-blame---ignore-revs-fileltgt"> <a class="anchor" href="#git-blame---ignore-revs-file"></a> <a class="anchor" href="#git-blame---ignore-revs-fileltgt"></a>--ignore-revs-file &lt;ファイル&gt; </dt>
 <dd>
-<p><code>fsck.skipList</code> と同じ形式でリビジョンを列挙したファイル内のリビジョンを無視します。複数回指定でき、blame.ignoreRevsFile 設定より後に処理されます。空文字（""）を指定すると、これまでに処理したリストをクリアします。</p>
+<p><span class='synopsis'><code>fsck.skipList</code></span> と同じ形式でリビジョンを列挙したファイル内のリビジョンを無視します。複数回指定でき、blame.ignoreRevsFile 設定より後に処理されます。空文字（""）を指定すると、これまでに処理したリストをクリアします。</p>
 </dd>
 <dt class="hdlist1" id="git-blame---color-lines"> <a class="anchor" href="#git-blame---color-lines"></a>--color-lines </dt>
 <dd>
-<p>デフォルト形式で、直前の行と同じコミット由来の行を色分けします。これにより、異なるコミットによるコードブロックの区別がしやすくなります。色はデフォルトでシアンですが、 <code>color.blame.repeatedLines</code> 設定で変更できます。</p>
+<p>デフォルト形式で、直前の行と同じコミット由来の行を色分けします。これにより、異なるコミットによるコードブロックの区別がしやすくなります。色はデフォルトでシアンですが、 <span class='synopsis'><code>color.blame.repeatedLines</code></span> 設定で変更できます。</p>
 </dd>
 <dt class="hdlist1" id="git-blame---color-by-age"> <a class="anchor" href="#git-blame---color-by-age"></a>--color-by-age </dt>
 <dd>
@@ -196,7 +221,7 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 </dd>
 <dt class="hdlist1" id="git-blame---score-debug"> <a class="anchor" href="#git-blame---score-debug"></a>--score-debug </dt>
 <dd>
-<p>ファイル間で行が移動した場合（<code>-C`参照）や、ファイル内で行が移動した場合（</code>-M`参照）に関するデバッグ情報を含めます。最初に表示される数値はスコアであり、これはファイル間またはファイル内で移動したと判定された英数字の文字数です。この値が一定の閾値を超えた場合にのみ、<em>git blame</em> はその行を移動したものとみなします。</p>
+<p>ファイル間で行が移動した場合（<span class='synopsis'><em>-C`参照）や、ファイル内で行が移動した場合（</em></span>-M`参照）に関するデバッグ情報を含めます。最初に表示される数値はスコアであり、これはファイル間またはファイル内で移動したと判定された英数字の文字数です。この値が一定の閾値を超えた場合にのみ、<em>git blame</em> はその行を移動したものとみなします。</p>
 </dd>
 <dt class="hdlist1" id="git-blame--f"> <a class="anchor" href="#git-blame--f"></a>-f </dt>
 <dt class="hdlist1" id="git-blame---show-name"> <a class="anchor" href="#git-blame---show-name"></a>--show-name </dt>
@@ -215,7 +240,7 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <dt class="hdlist1" id="git-blame--e"> <a class="anchor" href="#git-blame--e"></a>-e </dt>
 <dt class="hdlist1" id="git-blame---show-email"> <a class="anchor" href="#git-blame---show-email"></a>--show-email </dt>
 <dd>
-<p>作者名の代わりにメールアドレスを表示します（デフォルトは無効）。この設定は <code>blame.showEmail</code> オプションでも制御できます。</p>
+<p>作者名の代わりにメールアドレスを表示します（デフォルトは無効）。この設定は <span class='synopsis'><code>blame.showEmail</code></span> オプションでも制御できます。</p>
 </dd>
 <dt class="hdlist1" id="git-blame--w"> <a class="anchor" href="#git-blame--w"></a>-w </dt>
 <dd>
@@ -233,7 +258,7 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <h2 id="_デフォルトフォーマット"><a class="anchor" href="#_デフォルトフォーマット"></a>デフォルトフォーマット</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>--porcelain</code> または <code>--incremental</code> オプションが指定されていない場合、<code>git blame</code> は各行について以下の情報を注釈として出力します:</p>
+<p><span class='synopsis'><code>--porcelain</code></span> または <span class='synopsis'><code>--incremental</code></span> オプションが指定されていない場合、<span class='synopsis'><code>git</code> <code>blame</code></span> は各行について以下の情報を注釈として出力します:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -241,7 +266,7 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <p>その行が属するコミットの省略オブジェクト名;</p>
 </li>
 <li>
-<p>著者識別情報（デフォルトでは著者名と日付。ただし <code>-s</code> または <code>-e</code> が指定された場合は異なります）；および</p>
+<p>著者識別情報（デフォルトでは著者名と日付。ただし <span class='synopsis'><code>-s</code></span> または <span class='synopsis'><code>-e</code></span> が指定された場合は異なります）；および</p>
 </li>
 <li>
 <p>行番号</p>
@@ -295,7 +320,7 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <p>実際の行の内容は、上記ヘッダーの後にタブで区切って出力されます。これは将来的にヘッダー要素を追加できるようにするためです。</p>
 </div>
 <div class="paragraph">
-<p>The porcelain format generally suppresses commit information that has already been seen. For example, two lines that are blamed to the same commit will both be shown, but the details for that commit will be shown only once. Information which is specific to individual lines will not be grouped together, like revs to be marked <em>ignored</em> or <em>unblamable</em>. This is more efficient, but may require more state be kept by the reader. The <code>--line-porcelain</code> option can be used to output full commit information for each line, allowing simpler (but less efficient) usage like:</p>
+<p>The porcelain format generally suppresses commit information that has already been seen. For example, two lines that are blamed to the same commit will both be shown, but the details for that commit will be shown only once. Information which is specific to individual lines will not be grouped together, like revs to be marked <em>ignored</em> or <em>unblamable</em>. This is more efficient, but may require more state be kept by the reader. The <span class='synopsis'><code>--line-porcelain</code></span> option can be used to output full commit information for each line, allowing simpler (but less efficient) usage like:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -311,10 +336,10 @@ sort | uniq -c | sort -rn</pre>
 <h2 id="_範囲の指定"><a class="anchor" href="#_範囲の指定"></a>範囲の指定</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>古いバージョンの <em>git blame</em> や <em>git annotate</em> と異なり、注釈の範囲は行範囲・リビジョン範囲の両方で制限できます。行範囲を制限する <code>-L</code> オプションは複数回指定可能です。</p>
+<p>古いバージョンの <em>git blame</em> や <em>git annotate</em> と異なり、注釈の範囲は行範囲・リビジョン範囲の両方で制限できます。行範囲を制限する <span class='synopsis'><code>-L</code></span> オプションは複数回指定可能です。</p>
 </div>
 <div class="paragraph">
-<p>ファイル <code>foo</code> の40～60行目の由来を調べたい場合、<code>-L</code> オプションを次のように使えます（どちらも40行目から21行分を指定する意味です）:</p>
+<p>ファイル <span class='synopsis'><code>foo</code></span> の40～60行目の由来を調べたい場合、<span class='synopsis'><code>-L</code></span> オプションを次のように使えます（どちらも40行目から21行分を指定する意味です）:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -331,7 +356,7 @@ git blame -L 40,+21 foo</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><code>hello</code> サブルーチン本体だけに注釈を限定します。</p>
+<p><span class='synopsis'><code>hello</code></span> サブルーチン本体だけに注釈を限定します。</p>
 </div>
 <div class="paragraph">
 <p>バージョン v2.6.18 より古い変更や、3週間より前の変更に興味がない場合は、<em>git rev-list</em> と同様のリビジョン範囲指定子を使うことができます:</p>
@@ -354,7 +379,7 @@ git blame --since=3.weeks -- foo</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>そして、そのコミットと親コミットの差分に対して <code>commit^!</code> 記法を使って注釈を付けます:</p>
+<p>そして、そのコミットと親コミットの差分に対して <span class='synopsis'><code>commit^!</code></span> 記法を使って注釈を付けます:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -367,7 +392,7 @@ git blame --since=3.weeks -- foo</pre>
 <h2 id="_インクリメンタル出力"><a class="anchor" href="#_インクリメンタル出力"></a>インクリメンタル出力</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>--incremental</code> オプションを付けて実行すると、コマンドは結果を生成しながら順次出力します。この出力は、より新しいコミットで変更された行から順に（つまり順不同で）注釈が付けられるのが一般的で、対話的なビューア向けの形式です。</p>
+<p><span class='synopsis'><code>--incremental</code></span> オプションを付けて実行すると、コマンドは結果を生成しながら順次出力します。この出力は、より新しいコミットで変更された行から順に（つまり順不同で）注釈が付けられるのが一般的で、対話的なビューア向けの形式です。</p>
 </div>
 <div class="paragraph">
 <p>出力フォーマットはPorcelainフォーマットに似ていますが、注釈対象ファイルの実際の行内容は含まれません。</p>
@@ -437,7 +462,7 @@ git blame --since=3.weeks -- foo</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>ja/config/blame.adoc</code></p>
+<p>Missing <span class='synopsis'><code>ja/config/blame.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

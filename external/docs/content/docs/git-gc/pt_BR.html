@@ -9,6 +9,27 @@ docname: git-gc
 lang: pt_BR
 aliases:
 - "/docs/git-gc/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: AGRESSIVO
+  id: _agressivo
+- text: CONFIGURAÇÃO
+  id: _configuração
+- text: OBSERVAÇÕES
+  id: _observações
+- text: GANCHOS
+  id: _ganchos
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -33,10 +54,10 @@ aliases:
 <p>Executa várias tarefas de limpeza no repositório atual, como a compactação dos arquivos das revisões (para reduzir o espaço em disco e aumentar o desempenho), a remoção dos objetos inacessíveis que podem ter sido criados a partir de invocações anteriores ao <em>git add</em>, pacotes refs, a remoção do "reflog", metadados reerere ou árvores de trabalho obsoletas. Pode também atualizar os índices auxiliares, como o grafo do commit.</p>
 </div>
 <div class="paragraph">
-<p>Quando as operações porcelana tradicionais que criam os objetos são executadas, elas verificam se o repositório cresceu substancialmente desde a última manutenção e se for o caso, executam o o comando <code>git gc</code> automaticamente. Consulte <code>gc.auto</code> abaixo para saber como desativar este comportamento.</p>
+<p>Quando as operações porcelana tradicionais que criam os objetos são executadas, elas verificam se o repositório cresceu substancialmente desde a última manutenção e se for o caso, executam o o comando <span class='synopsis'><code>git</code> <code>gc</code></span> automaticamente. Consulte <span class='synopsis'><code>gc.auto</code></span> abaixo para saber como desativar este comportamento.</p>
 </div>
 <div class="paragraph">
-<p>A execução manual do comando <code>git gc</code> só é necessária ao adicionar objetos em um repositório quando não executar regularmente estes comandos porcelana, para executar uma otimização única do repositório ou por exemplo, para limpar uma importação em massa que esteja abaixo do ideal. Consulte a seção "OTIMIZAÇÃO DE PACOTE" no <a href='{{< relurl "docs/git-fast-import/pt_BR" >}}'>git-fast-import[1]</a> para obter mais detalhes sobre o caso de importação.</p>
+<p>A execução manual do comando <span class='synopsis'><code>git</code> <code>gc</code></span> só é necessária ao adicionar objetos em um repositório quando não executar regularmente estes comandos porcelana, para executar uma otimização única do repositório ou por exemplo, para limpar uma importação em massa que esteja abaixo do ideal. Consulte a seção "OTIMIZAÇÃO DE PACOTE" no <a href='{{< relurl "docs/git-fast-import/pt_BR" >}}'>git-fast-import[1]</a> para obter mais detalhes sobre o caso de importação.</p>
 </div>
 </div>
 </div>
@@ -53,31 +74,31 @@ aliases:
 <dd>
 <p>Com esta opção, o comando <em>git gc</em> verifica se é necessário alguma limpeza; caso contrário, sai sem fazer nada.</p>
 <div class="paragraph">
-<p>Consulte a opção <code>gc.auto</code> na seção "CONFIGURAÇÃO" abaixo para saber como essa heurística funciona.</p>
+<p>Consulte a opção <span class='synopsis'><code>gc.auto</code></span> na seção "CONFIGURAÇÃO" abaixo para saber como essa heurística funciona.</p>
 </div>
 <div class="paragraph">
-<p>Caso seja excedido os limites definidos nas opções de configuração como <code>gc.auto</code> e <code>gc.autoPackLimit</code> o processo de limpeza é acionado, todas as outras tarefas de limpeza (como rerere, árvores de trabalho, reflog&#8230;&#8203;, etc) também serão executados.</p>
+<p>Caso seja excedido os limites definidos nas opções de configuração como <span class='synopsis'><code>gc.auto</code></span> e <span class='synopsis'><code>gc.autoPackLimit</code></span> o processo de limpeza é acionado, todas as outras tarefas de limpeza (como rerere, árvores de trabalho, reflog&#8230;&#8203;, etc) também serão executados.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-gc---no-detach"> <a class="anchor" href="#git-gc---no-detach"></a>--[no-]detach </dt>
 <dd>
-<p>Run in the background if the system supports it. This option overrides the <code>gc.autoDetach</code> config.</p>
+<p>Run in the background if the system supports it. This option overrides the <span class='synopsis'><code>gc.autoDetach</code></span> config.</p>
 </dd>
 <dt class="hdlist1" id="git-gc---no-cruft"> <a class="anchor" href="#git-gc---no-cruft"></a>--[no-]cruft </dt>
 <dd>
-<p>Ao expirar os objetos inalcançáveis, empacote-os separadamente num pacote simples em vez de armazena-los como objetos soltos. É predefinido que a opção <code>--cruft</code> esteja ativa.</p>
+<p>Ao expirar os objetos inalcançáveis, empacote-os separadamente num pacote simples em vez de armazena-los como objetos soltos. É predefinido que a opção <span class='synopsis'><code>--cruft</code></span> esteja ativa.</p>
 </dd>
 <dt class="hdlist1" id="git-gc---max-cruft-sizeltngt"> <a class="anchor" href="#git-gc---max-cruft-sizen"></a> <a class="anchor" href="#git-gc---max-cruft-sizeltngt"></a>--max-cruft-size=&lt;n&gt; </dt>
 <dd>
-<p>Ao empacotar objetos inalcançáveis num pacote de cruft, limite o tamanho dos novos pacotes de cruft para que tenham no máximo <code>&lt;n&gt;</code> bytes. Substitui qualquer valor especificado por meio da configuração <code>gc.maxCruftSize</code>. Consulte a opção <code>--max-cruft-size</code> do <a href='{{< relurl "docs/git-repack/pt_BR" >}}'>git-repack[1]</a> para obter mais informações.</p>
+<p>Ao empacotar objetos inalcançáveis num pacote de cruft, limite o tamanho dos novos pacotes de cruft para que tenham no máximo <span class='synopsis'><em>&lt;n&gt;</em></span> bytes. Substitui qualquer valor especificado por meio da configuração <span class='synopsis'><code>gc.maxCruftSize</code></span>. Consulte a opção <span class='synopsis'><code>--max-cruft-size</code></span> do <a href='{{< relurl "docs/git-repack/pt_BR" >}}'>git-repack[1]</a> para obter mais informações.</p>
 </dd>
 <dt class="hdlist1" id="git-gc---expire-toltdiretriogt"> <a class="anchor" href="#git-gc---expire-todiretrio"></a> <a class="anchor" href="#git-gc---expire-toltdiretriogt"></a>--expire-to=&lt;diretório&gt; </dt>
 <dd>
-<p>When packing unreachable objects into a cruft pack, write a cruft pack containing pruned objects (if any) to the directory <code>&lt;dir&gt;</code>. This option only has an effect when used together with <code>--cruft</code>. See the <code>--expire-to</code> option of <a href='{{< relurl "docs/git-repack/pt_BR" >}}'>git-repack[1]</a> for more information.</p>
+<p>When packing unreachable objects into a cruft pack, write a cruft pack containing pruned objects (if any) to the directory <span class='synopsis'><em>&lt;dir&gt;</em></span>. This option only has an effect when used together with <span class='synopsis'><code>--cruft</code></span>. See the <span class='synopsis'><code>--expire-to</code></span> option of <a href='{{< relurl "docs/git-repack/pt_BR" >}}'>git-repack[1]</a> for more information.</p>
 </dd>
 <dt class="hdlist1" id="git-gc---pruneltdatagt"> <a class="anchor" href="#git-gc---prunedata"></a> <a class="anchor" href="#git-gc---pruneltdatagt"></a>--prune=&lt;data&gt; </dt>
 <dd>
-<p>Elimina objetos soltos mais antigos que a data (a predefinição é 2 semanas atrás, substituível pela variável de configuração <code>gc.pruneExpire</code>). A opção <code>--prune=now</code> remove objetos soltos independentemente de sua idade e aumenta o risco de corrupção se outro processo estiver gravando no repositório simultaneamente; consulte "NOTAS" abaixo. A predefinição é que a opção <code>--prune</code> sempre esteja ativada.</p>
+<p>Elimina objetos soltos mais antigos que a data (a predefinição é 2 semanas atrás, substituível pela variável de configuração <span class='synopsis'><code>gc.pruneExpire</code></span>). A opção <span class='synopsis'><code>--prune=now</code></span> remove objetos soltos independentemente de sua idade e aumenta o risco de corrupção se outro processo estiver gravando no repositório simultaneamente; consulte "NOTAS" abaixo. A predefinição é que a opção <span class='synopsis'><code>--prune</code></span> sempre esteja ativada.</p>
 </dd>
 <dt class="hdlist1" id="git-gc---no-prune"> <a class="anchor" href="#git-gc---no-prune"></a>--no-prune </dt>
 <dd>
@@ -89,11 +110,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-gc---force"> <a class="anchor" href="#git-gc---force"></a>--force </dt>
 <dd>
-<p>Imponha a execução do <code>git gc</code> mesmo que possa haver uma outra instância do <code>git gc</code> em execução neste repositório.</p>
+<p>Imponha a execução do <span class='synopsis'><code>git</code> <code>gc</code></span> mesmo que possa haver uma outra instância do <span class='synopsis'><code>git</code> <code>gc</code></span> em execução neste repositório.</p>
 </dd>
 <dt class="hdlist1" id="git-gc---keep-largest-pack"> <a class="anchor" href="#git-gc---keep-largest-pack"></a>--keep-largest-pack </dt>
 <dd>
-<p>Todos os pacotes, exceto o maior pacote que não seja de rascunho, todos os pacotes marcados com um arquivo <code>.keep</code> e todos os pacotes de rascunho são consolidados num único pacote. Quando esta opção é utilizada, o <code>gc.bigPackThreshold</code> é ignorado.</p>
+<p>Todos os pacotes, exceto o maior pacote que não seja de rascunho, todos os pacotes marcados com um arquivo <span class='synopsis'><code>.keep</code></span> e todos os pacotes de rascunho são consolidados num único pacote. Quando esta opção é utilizada, o <span class='synopsis'><code>gc.bigPackThreshold</code></span> é ignorado.</p>
 </dd>
 </dl>
 </div>
@@ -103,13 +124,13 @@ aliases:
 <h2 id="_agressivo"><a class="anchor" href="#_agressivo"></a>AGRESSIVO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Quando a opção <code>--aggressive</code> é utilizada, <a href='{{< relurl "docs/git-repack/pt_BR" >}}'>git-repack[1]</a> será invocado com a opção <code>-f</code>, que por sua vez passará a opção <code>--no-reuse-delta</code> para <a href='{{< relurl "docs/git-pack-objects/pt_BR" >}}'>git-pack-objects[1]</a>. Isso descartará quaisquer deltas existentes e os computará novamente, às custas de se gastar muito mais tempo na re-embalagem.</p>
+<p>Quando a opção <span class='synopsis'><code>--aggressive</code></span> é utilizada, <a href='{{< relurl "docs/git-repack/pt_BR" >}}'>git-repack[1]</a> será invocado com a opção <span class='synopsis'><code>-f</code></span>, que por sua vez passará a opção <span class='synopsis'><code>--no-reuse-delta</code></span> para <a href='{{< relurl "docs/git-pack-objects/pt_BR" >}}'>git-pack-objects[1]</a>. Isso descartará quaisquer deltas existentes e os computará novamente, às custas de se gastar muito mais tempo na re-embalagem.</p>
 </div>
 <div class="paragraph">
 <p>Os efeitos disso são predominantemente persistentes, por exemplo, quando os pacotes e os objetos soltos são reunidos entre si, os deltas existentes neste pacote podem ser reutilizados, porém também existem vários casos onde em vez disso, podemos escolher um delta não otimizado de um pacote mais novo.</p>
 </div>
 <div class="paragraph">
-<p>Além disso, utilizar <code>--aggressive</code> irá ajustar as opções <code>--depth</code> e <code>--window</code> encaminhadas para o <a href='{{< relurl "docs/git-repack/pt_BR" >}}'>git-repack[1]</a>. Consulte as configurações <code>gc.aggressiveDepth</code> e <code>gc.aggressiveWindow</code> abaixo. Ao utilizar um tamanho de janela maior, é mais provável que encontremos deltas mais otimizados.</p>
+<p>Além disso, utilizar <span class='synopsis'><code>--aggressive</code></span> irá ajustar as opções <span class='synopsis'><code>--depth</code></span> e <span class='synopsis'><code>--window</code></span> encaminhadas para o <a href='{{< relurl "docs/git-repack/pt_BR" >}}'>git-repack[1]</a>. Consulte as configurações <span class='synopsis'><code>gc.aggressiveDepth</code></span> e <span class='synopsis'><code>gc.aggressiveWindow</code></span> abaixo. Ao utilizar um tamanho de janela maior, é mais provável que encontremos deltas mais otimizados.</p>
 </div>
 <div class="paragraph">
 <p>Provavelmente não vale a pena utilizar esta opção em um determinado repositório sem antes executar um benchmark de desempenho sob medida. Leva muito mais tempo e a otimização de espaço/delta resultante pode ou não valer a pena. Não utilizar isso de forma alguma é um dilema para a maioria dos usuários e seus repositórios.</p>
@@ -130,7 +151,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>pt_BR/config/gc.adoc</code></p>
+<p>Missing <span class='synopsis'><code>pt_BR/config/gc.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -153,7 +174,7 @@ aliases:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Qualquer objeto com um tempo de modificação mais recente que a data <code>--prune</code> é mantido, junto com tudo o que pode ser acessado.</p>
+<p>Qualquer objeto com um tempo de modificação mais recente que a data <span class='synopsis'><code>--prune</code></span> é mantido, junto com tudo o que pode ser acessado.</p>
 </li>
 <li>
 <p>A maioria das operações que adicionam um objeto ao banco de dados atualiza a hora da modificação do objeto, caso já esteja presente para que #1 se aplique.</p>

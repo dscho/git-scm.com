@@ -9,6 +9,27 @@ docname: git-add
 lang: ru
 aliases:
 - "/docs/git-add/ru/index.html"
+headings:
+- text: НАЗВАНИЕ
+  id: _название
+- text: ОБЗОР
+  id: _обзор
+- text: ОПИСАНИЕ
+  id: _описание
+- text: ПАРАМЕТРЫ
+  id: _параметры
+- text: ПРИМЕРЫ
+  id: _примеры
+- text: ИНТЕРАКТИВНЫЙ РЕЖИМ
+  id: _интерактивный_режим
+- text: РЕДАКТИРОВАНИЕ ПАТЧЕЙ
+  id: _редактирование_патчей
+- text: КОНФИГУРАЦИЯ
+  id: _конфигурация
+- text: СМОТРИТЕ ТАКЖЕ
+  id: _смотрите_также
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_название"><a class="anchor" href="#_название"></a>НАЗВАНИЕ</h2>
@@ -21,12 +42,12 @@ aliases:
 <div class="sect1">
 <h2 id="_обзор"><a class="anchor" href="#_обзор"></a>ОБЗОР</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><em>git add</em> [--verbose | -v] [--dry-run | -n] [--force | -f] [--interactive | -i] [--patch | -p]
-	[--edit | -e] [--[no-]all | -A | --[no-]ignore-removal | [--update | -u]] [--sparse]
-	[--intent-to-add | -N] [--refresh] [--ignore-errors] [--ignore-missing] [--renormalize]
-	[--chmod=(+|-)x] [--pathspec-from-file=&lt;файл&gt; [--pathspec-file-nul]]
-	[--] [&lt;спецификатор-пути&gt;&#8230;&#8203;]</p>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>add'</code></span> [<span class='synopsis'><code>--verbose</code></span> | <span class='synopsis'><code>-v</code></span>] [<span class='synopsis'><code>--dry-run</code></span> | <span class='synopsis'><code>-n</code></span>] [<span class='synopsis'><code>--force</code></span> | <span class='synopsis'><code>-f</code></span>] [<span class='synopsis'><code>--interactive</code></span> | <span class='synopsis'><code>-i</code></span>] [<span class='synopsis'><code>--patch</code></span> | <span class='synopsis'><code>-p</code></span>]
+	[<span class='synopsis'><code>--edit</code></span> | <span class='synopsis'><code>-e</code></span>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>all</code></span> | <span class='synopsis'><code>-A</code></span> | <span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>ignore-removal</code></span> | [<span class='synopsis'><code>--update</code></span> | <span class='synopsis'><code>-u</code></span>]] [<span class='synopsis'><code>--sparse</code></span>]
+	[<span class='synopsis'><code>--intent-to-add</code></span> | <span class='synopsis'><code>-N</code></span>] [<span class='synopsis'><code>--refresh</code></span>] [<span class='synopsis'><code>--ignore-errors</code></span>] [<span class='synopsis'><code>--ignore-missing</code></span>] [<span class='synopsis'><code>--renormalize</code></span>]
+	[<span class='synopsis'><code>--chmod=</code></span>(<span class='synopsis'><code>+</code></span>|<span class='synopsis'><code>-</code></span>)<span class='synopsis'><code>x</code></span>] [<span class='synopsis'><code>--pathspec-from-file=</code></span><em>&lt;файл&gt;</em> [<span class='synopsis'><code>--pathspec-file-nul</code></span>]]
+	[<span class='synopsis'><code>--</code></span>] [<em>&lt;спецификатор-пути&gt;</em>&#8230;&#8203;]</pre>
 </div>
 </div>
 </div>
@@ -37,16 +58,16 @@ aliases:
 <p>Эта команда обновляет индекс, основываясь на текущем содержимом рабочего каталога, чтобы подготовить список изменений для следующего коммита. Обычно она добавляет текущее содержимое существующих файлов как единое целое, но при применении определённых параметров её также можно использовать для индексирования только части изменений, имеющихся в рабочем каталоге, или удаления путей, которые более не существуют.</p>
 </div>
 <div class="paragraph">
-<p>Так называемый «индекс» содержит снимок содержимого рабочего каталога, и именно этот снимок используется в качестве содержимого последующего коммита. Таким образом, после внесения любых изменений в рабочий каталог и перед запуском команды commit вы должны добавить любые новые или изменённые файлы в индекс с помощью команды <code>add</code>.</p>
+<p>Так называемый «индекс» содержит снимок содержимого рабочего каталога, и именно этот снимок используется в качестве содержимого последующего коммита. Таким образом, после внесения любых изменений в рабочий каталог и перед запуском команды commit вы должны добавить любые новые или изменённые файлы в индекс с помощью команды <span class='synopsis'><code>add</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Эту команду можно выполнить несколько раз перед коммитом. Непосредственно во время выполнения эта команды только добавляет содержимое указанного файла(ов); если вы хотите, чтобы изменения, сделанные после запуска оной, были включены в следующий коммит, вы должны запустить <code>git add</code> ещё раз, чтобы добавить новое содержимое в индекс.</p>
+<p>Эту команду можно выполнить несколько раз перед коммитом. Непосредственно во время выполнения эта команды только добавляет содержимое указанного файла(ов); если вы хотите, чтобы изменения, сделанные после запуска оной, были включены в следующий коммит, вы должны запустить <span class='synopsis'><code>git</code> <code>add</code></span> ещё раз, чтобы добавить новое содержимое в индекс.</p>
 </div>
 <div class="paragraph">
-<p>Команда <code>git status</code> может быть использована для получения информации о том, какие файлы содержат изменения, подготовленные для следующего коммита.</p>
+<p>Команда <span class='synopsis'><code>git</code> <code>status</code></span> может быть использована для получения информации о том, какие файлы содержат изменения, подготовленные для следующего коммита.</p>
 </div>
 <div class="paragraph">
-<p>Команда <code>git add</code> по умолчанию не добавляет игнорируемые файлы. Если какие-либо игнорируемые файлы были явно указаны в командной строке, <code>git add</code> завершится ошибкой со списком игнорируемых файлов. Игнорируемые файлы, найденные в результате рекурсивного обхода каталогов или подстановки шаблонов имён (globbing), которые выполняет сам Git (заключите шаблон в кавычки, чтобы он не обрабатывался оболочкой), будут проигнорированы без вывода дополнительных уведомлений. Заставить команду <code>git add</code> обрабатывать игнорируемые файлы можно с помощью параметра <code>-f</code> (force, принудительно).</p>
+<p>Команда <span class='synopsis'><code>git</code> <code>add</code></span> по умолчанию не добавляет игнорируемые файлы. Если какие-либо игнорируемые файлы были явно указаны в командной строке, <span class='synopsis'><code>git</code> <code>add</code></span> завершится ошибкой со списком игнорируемых файлов. Игнорируемые файлы, найденные в результате рекурсивного обхода каталогов или подстановки шаблонов имён (globbing), которые выполняет сам Git (заключите шаблон в кавычки, чтобы он не обрабатывался оболочкой), будут проигнорированы без вывода дополнительных уведомлений. Заставить команду <span class='synopsis'><code>git</code> <code>add</code></span> обрабатывать игнорируемые файлы можно с помощью параметра <span class='synopsis'><code>-f</code></span> (force, принудительно).</p>
 </div>
 <div class="paragraph">
 <p>По ссылке <a href='{{< relurl "docs/git-commit/ru" >}}'>git-commit[1]</a> доступны альтернативные пути добавления файлов в коммит.</p>
@@ -58,116 +79,116 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-add-codelt-gtcode"> <a class="anchor" href="#git-add--"></a> <a class="anchor" href="#git-add-codelt-gtcode"></a><code>&lt;спецификатор-пути&gt;…</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsisemlt-gtemspan"> <a class="anchor" href="#git-add--"></a> <a class="anchor" href="#git-add-spanclasssynopsisemlt-gtemspan"></a><span class='synopsis'><em>&lt;спецификатор-пути&gt;…</em></span> </dt>
 <dd>
-<p>Файлы для добавления. Маска (например, <code>*.c</code>) может быть указана для добавления всех файлов. Кроме того, вы можете указать родительский каталог (например, <code>dir</code> чтобы добавить <code>dir/file1</code> и <code>dir/file2</code>) для отслеживания каталога целиком (например, указав <code>dir</code> будет добавлен не только файл <code>dir/file1</code>, но и файл <code>dir/file3</code>, который был удалён из рабочего каталога). Заметим, что в более ранних версиях Git игнорировал удалённые файлы; используйте параметр <code>--no-all</code> если вы хотите добавить изменённые или созданные файлы, но игнорировать удалённые.</p>
+<p>Файлы для добавления. Маска (например, <span class='synopsis'><code>*.c</code></span>) может быть указана для добавления всех файлов. Кроме того, вы можете указать родительский каталог (например, <span class='synopsis'><code>dir</code></span> чтобы добавить <span class='synopsis'><code>dir/file1</code></span> и <span class='synopsis'><code>dir/file2</code></span>) для отслеживания каталога целиком (например, указав <span class='synopsis'><code>dir</code></span> будет добавлен не только файл <span class='synopsis'><code>dir/file1</code></span>, но и файл <span class='synopsis'><code>dir/file3</code></span>, который был удалён из рабочего каталога). Заметим, что в более ранних версиях Git игнорировал удалённые файлы; используйте параметр <span class='synopsis'><code>--no-all</code></span> если вы хотите добавить изменённые или созданные файлы, но игнорировать удалённые.</p>
 <div class="paragraph">
 <p>Более детально синтаксис <em>&lt;спецификатора-пути&gt;</em> рассматривается в разделе «спецификатор пути (pathspec)» в <a href='{{< relurl "docs/gitglossary/ru" >}}'>gitglossary[7]</a>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code-ncode"> <a class="anchor" href="#git-add--n"></a> <a class="anchor" href="#git-add-code-ncode"></a><code>-n</code> </dt>
-<dt class="hdlist1" id="git-add-code--dry-runcode"> <a class="anchor" href="#git-add---dry-run"></a> <a class="anchor" href="#git-add-code--dry-runcode"></a><code>--dry-run</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-ncodespan"> <a class="anchor" href="#git-add--n"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-ncodespan"></a><span class='synopsis'><code>-n</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--dry-runcodespan"> <a class="anchor" href="#git-add---dry-run"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--dry-runcodespan"></a><span class='synopsis'><code>--dry-run</code></span> </dt>
 <dd>
 <p>Не добавлять указанные файл(ы), а просто показать, существуют ли они и/или будут ли проигнорированы.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code-vcode"> <a class="anchor" href="#git-add--v"></a> <a class="anchor" href="#git-add-code-vcode"></a><code>-v</code> </dt>
-<dt class="hdlist1" id="git-add-code--verbosecode"> <a class="anchor" href="#git-add---verbose"></a> <a class="anchor" href="#git-add-code--verbosecode"></a><code>--verbose</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-vcodespan"> <a class="anchor" href="#git-add--v"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-vcodespan"></a><span class='synopsis'><code>-v</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--verbosecodespan"> <a class="anchor" href="#git-add---verbose"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--verbosecodespan"></a><span class='synopsis'><code>--verbose</code></span> </dt>
 <dd>
 <p>Быть многословнее.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code-fcode"> <a class="anchor" href="#git-add--f"></a> <a class="anchor" href="#git-add-code-fcode"></a><code>-f</code> </dt>
-<dt class="hdlist1" id="git-add-code--forcecode"> <a class="anchor" href="#git-add---force"></a> <a class="anchor" href="#git-add-code--forcecode"></a><code>--force</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-fcodespan"> <a class="anchor" href="#git-add--f"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-fcodespan"></a><span class='synopsis'><code>-f</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--forcecodespan"> <a class="anchor" href="#git-add---force"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--forcecodespan"></a><span class='synopsis'><code>--force</code></span> </dt>
 <dd>
 <p>Разрешить добавление файлов, которые иначе были бы проигнорированы.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--sparsecode"> <a class="anchor" href="#git-add---sparse"></a> <a class="anchor" href="#git-add-code--sparsecode"></a><code>--sparse</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--sparsecodespan"> <a class="anchor" href="#git-add---sparse"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--sparsecodespan"></a><span class='synopsis'><code>--sparse</code></span> </dt>
 <dd>
-<p>Разрешить обновление объектов индекса за пределами извлечённой области разреженного состояния (sparse-checkout). Обычно <code>git add</code> отказывается обновлять данные индекса, не входящие в область, извлечённую sparse-checkout, поскольку эти файлы могут быть удалены из рабочей копии без предупреждения. См. подробности в <a href='{{< relurl "docs/git-sparse-checkout/ru" >}}'>git-sparse-checkout[1]</a>.</p>
+<p>Разрешить обновление объектов индекса за пределами извлечённой области разреженного состояния (sparse-checkout). Обычно <span class='synopsis'><code>git</code> <code>add</code></span> отказывается обновлять данные индекса, не входящие в область, извлечённую sparse-checkout, поскольку эти файлы могут быть удалены из рабочей копии без предупреждения. См. подробности в <a href='{{< relurl "docs/git-sparse-checkout/ru" >}}'>git-sparse-checkout[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code-icode"> <a class="anchor" href="#git-add--i"></a> <a class="anchor" href="#git-add-code-icode"></a><code>-i</code> </dt>
-<dt class="hdlist1" id="git-add-code--interactivecode"> <a class="anchor" href="#git-add---interactive"></a> <a class="anchor" href="#git-add-code--interactivecode"></a><code>--interactive</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-icodespan"> <a class="anchor" href="#git-add--i"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-icodespan"></a><span class='synopsis'><code>-i</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--interactivecodespan"> <a class="anchor" href="#git-add---interactive"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--interactivecodespan"></a><span class='synopsis'><code>--interactive</code></span> </dt>
 <dd>
 <p>Добавление изменённых файлов рабочего каталога в индекс в интерактивном режиме. Для работы с отдельными подкаталогами рабочего каталога вы можете указать пути в виде дополнительных аргументом. См. подробности в разделе «Интерактивный режим».</p>
 </dd>
-<dt class="hdlist1" id="git-add-code-pcode"> <a class="anchor" href="#git-add--p"></a> <a class="anchor" href="#git-add-code-pcode"></a><code>-p</code> </dt>
-<dt class="hdlist1" id="git-add-code--patchcode"> <a class="anchor" href="#git-add---patch"></a> <a class="anchor" href="#git-add-code--patchcode"></a><code>--patch</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-pcodespan"> <a class="anchor" href="#git-add--p"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-pcodespan"></a><span class='synopsis'><code>-p</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--patchcodespan"> <a class="anchor" href="#git-add---patch"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--patchcodespan"></a><span class='synopsis'><code>--patch</code></span> </dt>
 <dd>
 <p>Вручную, по кусочкам отобрать из всех измерений между индексом и рабочим каталогом те, которые будут добавлены в индекс. Это даёт пользователю возможность перепроверить изменения перед добавлением изменённого содержимого в индекс.</p>
 <div class="paragraph">
-<p>По сути это запускает <code>add --interactive</code>, но пропускает начальное меню и сразу переходит к подкоманде <code>patch</code>. См. подробности в разделе «Интерактивный режим».</p>
+<p>По сути это запускает <span class='synopsis'><code>add</code> <code>--interactive</code></span>, но пропускает начальное меню и сразу переходит к подкоманде <span class='synopsis'><code>patch</code></span>. См. подробности в разделе «Интерактивный режим».</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code-ecode"> <a class="anchor" href="#git-add--e"></a> <a class="anchor" href="#git-add-code-ecode"></a><code>-e</code> </dt>
-<dt class="hdlist1" id="git-add-code--editcode"> <a class="anchor" href="#git-add---edit"></a> <a class="anchor" href="#git-add-code--editcode"></a><code>--edit</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-ecodespan"> <a class="anchor" href="#git-add--e"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-ecodespan"></a><span class='synopsis'><code>-e</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--editcodespan"> <a class="anchor" href="#git-add---edit"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--editcodespan"></a><span class='synopsis'><code>--edit</code></span> </dt>
 <dd>
 <p>Открыть отличия от индекса в редакторе в виде патча и дать пользователю возможность отредактировать его. После закрытия редактора, подправить заголовки блоков изменений и применить этот патч к индексу.</p>
 <div class="paragraph">
 <p>Назначение этого параметра состоит в том, чтобы отобрать для применения и добавления в индекс только некоторых строк патча или даже изменения их содержимого. Это может быть более быстрый и гибкий подход, чем использование интерактивный выбор блоков кода. Однако при таком подходе довольно легко запутаться и создать патч, который не получится применить к индексу. См. раздел «РЕДАКТИРОВАНИЕ ПАТЧЕЙ» далее.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code-ucode"> <a class="anchor" href="#git-add--u"></a> <a class="anchor" href="#git-add-code-ucode"></a><code>-u</code> </dt>
-<dt class="hdlist1" id="git-add-code--updatecode"> <a class="anchor" href="#git-add---update"></a> <a class="anchor" href="#git-add-code--updatecode"></a><code>--update</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-ucodespan"> <a class="anchor" href="#git-add--u"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-ucodespan"></a><span class='synopsis'><code>-u</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--updatecodespan"> <a class="anchor" href="#git-add---update"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--updatecodespan"></a><span class='synopsis'><code>--update</code></span> </dt>
 <dd>
 <p>Обновить индекс только для тех <em>&lt;спецификаторов-пути&gt;</em>, которые уже содержатся в нём. Это удаляет, а также изменяет записи индекса так, чтобы он соответствовал рабочему каталогу, но не добавляет в него никаких новых файлов.</p>
 <div class="paragraph">
-<p>Если совместно с параметром <code>-u</code> не задан ни один <em>&lt;спецификатор-пути&gt;</em>, обновляются все отслеженные файлы во всём рабочем каталоге (более старые версии Git ограничивались обновлением только текущего рабочего каталога и его подкаталогов).</p>
+<p>Если совместно с параметром <span class='synopsis'><code>-u</code></span> не задан ни один <em>&lt;спецификатор-пути&gt;</em>, обновляются все отслеженные файлы во всём рабочем каталоге (более старые версии Git ограничивались обновлением только текущего рабочего каталога и его подкаталогов).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code-Acode"> <a class="anchor" href="#git-add--A"></a> <a class="anchor" href="#git-add-code-Acode"></a><code>-A</code> </dt>
-<dt class="hdlist1" id="git-add-code--allcode"> <a class="anchor" href="#git-add---all"></a> <a class="anchor" href="#git-add-code--allcode"></a><code>--all</code> </dt>
-<dt class="hdlist1" id="git-add-code--no-ignore-removalcode"> <a class="anchor" href="#git-add---no-ignore-removal"></a> <a class="anchor" href="#git-add-code--no-ignore-removalcode"></a><code>--no-ignore-removal</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-Acodespan"> <a class="anchor" href="#git-add--A"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-Acodespan"></a><span class='synopsis'><code>-A</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--allcodespan"> <a class="anchor" href="#git-add---all"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--allcodespan"></a><span class='synopsis'><code>--all</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--no-ignore-removalcodespan"> <a class="anchor" href="#git-add---no-ignore-removal"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--no-ignore-removalcodespan"></a><span class='synopsis'><code>--no-ignore-removal</code></span> </dt>
 <dd>
 <p>Обновить индекс не только для тех файлов в рабочем каталоге, для которых заданы <em>&lt;спецификаторы-путей&gt;</em>, но и для всех файлов, которые уже содержатся в индексе. Это удаляет, изменяет и добавляет записи в индекс так, чтобы он соответствовал рабочей копии.</p>
 <div class="paragraph">
-<p>Если совместно с параметром <code>-A</code> не задан ни один <em>&lt;спецификатор-пути&gt;</em>, обновляются все файлы во всём рабочем каталоге (более старые версии Git ограничивались обновлением только текущего рабочего каталога и его подкаталогов).</p>
+<p>Если совместно с параметром <span class='synopsis'><code>-A</code></span> не задан ни один <em>&lt;спецификатор-пути&gt;</em>, обновляются все файлы во всём рабочем каталоге (более старые версии Git ограничивались обновлением только текущего рабочего каталога и его подкаталогов).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code--no-allcode"> <a class="anchor" href="#git-add---no-all"></a> <a class="anchor" href="#git-add-code--no-allcode"></a><code>--no-all</code> </dt>
-<dt class="hdlist1" id="git-add-code--ignore-removalcode"> <a class="anchor" href="#git-add---ignore-removal"></a> <a class="anchor" href="#git-add-code--ignore-removalcode"></a><code>--ignore-removal</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--no-allcodespan"> <a class="anchor" href="#git-add---no-all"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--no-allcodespan"></a><span class='synopsis'><code>--no-all</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--ignore-removalcodespan"> <a class="anchor" href="#git-add---ignore-removal"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--ignore-removalcodespan"></a><span class='synopsis'><code>--ignore-removal</code></span> </dt>
 <dd>
 <p>Обновить индекс добавив новые файлы, которые пока неизвестны индексу, и файлы, изменённые в рабочей копии, но игнорируйте файлы, которые были удалены из рабочего каталога. Если совместно с данным параметром не задан ни один <em>&lt;спецификатор-пути&gt;</em>, то не будет произведено ни каких действий.</p>
 <div class="paragraph">
-<p>Этот параметр, в первую очередь, призван помочь тем пользователям, которые привыкли к более старым версиям Git, в которых <code>git add &lt;спецификатор-пути&gt;...</code> работал как <code>git add --no-all &lt;спецификатор-пути&gt;...</code>, т.е. игнорировал удалённые файлы.</p>
+<p>Этот параметр, в первую очередь, призван помочь тем пользователям, которые привыкли к более старым версиям Git, в которых <span class='synopsis'><code>git</code> <code>add</code> <em>&lt;спецификатор-пути&gt;</em>...</span> работал как <span class='synopsis'><code>git</code> <code>add</code> <code>--no-all</code> <em>&lt;спецификатор-пути&gt;</em>...</span>, т.е. игнорировал удалённые файлы.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code-Ncode"> <a class="anchor" href="#git-add--N"></a> <a class="anchor" href="#git-add-code-Ncode"></a><code>-N</code> </dt>
-<dt class="hdlist1" id="git-add-code--intent-to-addcode"> <a class="anchor" href="#git-add---intent-to-add"></a> <a class="anchor" href="#git-add-code--intent-to-addcode"></a><code>--intent-to-add</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-Ncodespan"> <a class="anchor" href="#git-add--N"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-Ncodespan"></a><span class='synopsis'><code>-N</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--intent-to-addcodespan"> <a class="anchor" href="#git-add---intent-to-add"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--intent-to-addcodespan"></a><span class='synopsis'><code>--intent-to-add</code></span> </dt>
 <dd>
-<p>Записать только тот факт, что путь будет добавлен позже. Путь будет добавлен в индекс, но не содержимое файла. Это полезно, среди прочего, для того, чтобы выводить неиндексированное содержимое таких файлов с помощью <code>git diff</code>, а также возможности их закоммитить с помощью <code>git commit -a</code>.</p>
+<p>Записать только тот факт, что путь будет добавлен позже. Путь будет добавлен в индекс, но не содержимое файла. Это полезно, среди прочего, для того, чтобы выводить неиндексированное содержимое таких файлов с помощью <span class='synopsis'><code>git</code> <code>diff</code></span>, а также возможности их закоммитить с помощью <span class='synopsis'><code>git</code> <code>commit</code> <code>-a</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--refreshcode"> <a class="anchor" href="#git-add---refresh"></a> <a class="anchor" href="#git-add-code--refreshcode"></a><code>--refresh</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--refreshcodespan"> <a class="anchor" href="#git-add---refresh"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--refreshcodespan"></a><span class='synopsis'><code>--refresh</code></span> </dt>
 <dd>
 <p>Не добавлять файл(ы), а только обновить в индексе stat()-информацию о них.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--ignore-errorscode"> <a class="anchor" href="#git-add---ignore-errors"></a> <a class="anchor" href="#git-add-code--ignore-errorscode"></a><code>--ignore-errors</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--ignore-errorscodespan"> <a class="anchor" href="#git-add---ignore-errors"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--ignore-errorscodespan"></a><span class='synopsis'><code>--ignore-errors</code></span> </dt>
 <dd>
-<p>Если некоторые файлы не могут быть добавлены из-за ошибок при их индексации, не прерывать операцию, а продолжить добавление остальных файлов. Тем не менее, команда должна завершится с ненулевым статусом. Переменную конфигурации <code>add.ignoreErrors</code> может быть установлена в <code>true</code>, дабы сделать это поведением по умолчанию.</p>
+<p>Если некоторые файлы не могут быть добавлены из-за ошибок при их индексации, не прерывать операцию, а продолжить добавление остальных файлов. Тем не менее, команда должна завершится с ненулевым статусом. Переменную конфигурации <span class='synopsis'><code>add.ignoreErrors</code></span> может быть установлена в <span class='synopsis'><code>true</code></span>, дабы сделать это поведением по умолчанию.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--ignore-missingcode"> <a class="anchor" href="#git-add---ignore-missing"></a> <a class="anchor" href="#git-add-code--ignore-missingcode"></a><code>--ignore-missing</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--ignore-missingcodespan"> <a class="anchor" href="#git-add---ignore-missing"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--ignore-missingcodespan"></a><span class='synopsis'><code>--ignore-missing</code></span> </dt>
 <dd>
-<p>Этот параметр может использоваться только совместно с <code>--dry-run</code>. Используя этот параметр, пользователь может проверить, будет ли какой-либо из заданных файлов проигнорирован, независимо от того, присутствуют ли они уже в рабочем каталоге или нет.</p>
+<p>Этот параметр может использоваться только совместно с <span class='synopsis'><code>--dry-run</code></span>. Используя этот параметр, пользователь может проверить, будет ли какой-либо из заданных файлов проигнорирован, независимо от того, присутствуют ли они уже в рабочем каталоге или нет.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--no-warn-embedded-repocode"> <a class="anchor" href="#git-add---no-warn-embedded-repo"></a> <a class="anchor" href="#git-add-code--no-warn-embedded-repocode"></a><code>--no-warn-embedded-repo</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--no-warn-embedded-repocodespan"> <a class="anchor" href="#git-add---no-warn-embedded-repo"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--no-warn-embedded-repocodespan"></a><span class='synopsis'><code>--no-warn-embedded-repo</code></span> </dt>
 <dd>
-<p>По-умолчанию, <code>git add</code> показывает предупреждение при попытке добавить в индекс вложенный репозиторий, если данный вложенный репозитория не был ранее добавлен в <code>.gitmodules</code> с помощью <code>git submodule add</code>. Этот параметр отключает данное предупреждение (например, когда вы работаете с подмодулями вручную).</p>
+<p>По-умолчанию, <span class='synopsis'><code>git</code> <code>add</code></span> показывает предупреждение при попытке добавить в индекс вложенный репозиторий, если данный вложенный репозитория не был ранее добавлен в <span class='synopsis'><code>.gitmodules</code></span> с помощью <span class='synopsis'><code>git</code> <code>submodule</code> <code>add</code></span>. Этот параметр отключает данное предупреждение (например, когда вы работаете с подмодулями вручную).</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--renormalizecode"> <a class="anchor" href="#git-add---renormalize"></a> <a class="anchor" href="#git-add-code--renormalizecode"></a><code>--renormalize</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--renormalizecodespan"> <a class="anchor" href="#git-add---renormalize"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--renormalizecodespan"></a><span class='synopsis'><code>--renormalize</code></span> </dt>
 <dd>
-<p>Применить процесс «очистки» заново ко всем отслеживаемым файлам, чтобы снова принудительно добавить их в индекс. Это полезно после изменения переменной конфигурации <code>core.autocrlf</code> или атрибута <code>text</code>, дабы исправить файлы, добавленные с неправильными окончаниями строк (<em>CRLF/LF</em>). Этот параметр подразумевает <code>-u</code>. Одинокие CR-символы не будут затронуты, поэтому в то время как <em>CRLF</em> будут очищены до <em>LF</em>, последовательность <em>CRCRLF</em> будет только частично очищаться до <em>CRLF</em>.</p>
+<p>Применить процесс «очистки» заново ко всем отслеживаемым файлам, чтобы снова принудительно добавить их в индекс. Это полезно после изменения переменной конфигурации <span class='synopsis'><code>core.autocrlf</code></span> или атрибута <span class='synopsis'><code>text</code></span>, дабы исправить файлы, добавленные с неправильными окончаниями строк (<em>CRLF/LF</em>). Этот параметр подразумевает <span class='synopsis'><code>-u</code></span>. Одинокие CR-символы не будут затронуты, поэтому в то время как <em>CRLF</em> будут очищены до <em>LF</em>, последовательность <em>CRCRLF</em> будет только частично очищаться до <em>CRLF</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--chmod-xcode"> <a class="anchor" href="#git-add---chmod-x"></a> <a class="anchor" href="#git-add-code--chmod-xcode"></a><code>--chmod=(+|-)x</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--chmodcodecodecodecode-codecodexcodespan"> <a class="anchor" href="#git-add---chmod-x"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--chmodcodecodecodecode-codecodexcodespan"></a><span class='synopsis'><code>--chmod=</code>(<code>+</code>|<code>-</code>)<code>x</code></span> </dt>
 <dd>
 <p>Переопределить исполняемый бит добавленных файлов. Исполняемый бит изменяется только в индексе, файлы на диске не изменяются.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--pathspec-from-fileltgtcode"> <a class="anchor" href="#git-add---pathspec-from-file"></a> <a class="anchor" href="#git-add-code--pathspec-from-fileltgtcode"></a><code>--pathspec-from-file=&lt;файл&gt;</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--pathspec-from-filecodeemltgtemspan"> <a class="anchor" href="#git-add---pathspec-from-file"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--pathspec-from-filecodeemltgtemspan"></a><span class='synopsis'><code>--pathspec-from-file=</code><em>&lt;файл&gt;</em></span> </dt>
 <dd>
-<p>Спецификатор пути передаётся в <em>&lt;файле&gt;</em>, а не в аргументах командной строки. Если в качестве <em>&lt;файла&gt;</em> указано в точности <code>-</code>, то используется стандартный поток ввода. Элементы спецификатора пути отделяются друг от друга символами <em>LF</em> или <em>CR/LF</em>. Элементы спецификатора пути могут указываться в кавычках, как это описано для переменной конфигурации <code>core.quotePath</code> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>). См. также <code>--pathspec-file-nul</code> и глобальный параметр <code>--literal-pathspecs</code>.</p>
+<p>Спецификатор пути передаётся в <em>&lt;файле&gt;</em>, а не в аргументах командной строки. Если в качестве <em>&lt;файла&gt;</em> указано в точности <span class='synopsis'><code>-</code></span>, то используется стандартный поток ввода. Элементы спецификатора пути отделяются друг от друга символами <em>LF</em> или <em>CR/LF</em>. Элементы спецификатора пути могут указываться в кавычках, как это описано для переменной конфигурации <span class='synopsis'><code>core.quotePath</code></span> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>). См. также <span class='synopsis'><code>--pathspec-file-nul</code></span> и глобальный параметр <span class='synopsis'><code>--literal-pathspecs</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--pathspec-file-nulcode"> <a class="anchor" href="#git-add---pathspec-file-nul"></a> <a class="anchor" href="#git-add-code--pathspec-file-nulcode"></a><code>--pathspec-file-nul</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--pathspec-file-nulcodespan"> <a class="anchor" href="#git-add---pathspec-file-nul"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--pathspec-file-nulcodespan"></a><span class='synopsis'><code>--pathspec-file-nul</code></span> </dt>
 <dd>
-<p>Имеет значение только при указании <code>--pathspec-from-file</code>. Элементы спецификатора пути отделяются друг от друга с помощью <em>NUL</em>-символа, а все остальные символы интерпретируются буквально (включая кавычки и переводы строк).</p>
+<p>Имеет значение только при указании <span class='synopsis'><code>--pathspec-from-file</code></span>. Элементы спецификатора пути отделяются друг от друга с помощью <em>NUL</em>-символа, а все остальные символы интерпретируются буквально (включая кавычки и переводы строк).</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--code"> <a class="anchor" href="#git-add---"></a> <a class="anchor" href="#git-add-code--code"></a><code>--</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--codespan"> <a class="anchor" href="#git-add---"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--codespan"></a><span class='synopsis'><code>--</code></span> </dt>
 <dd>
 <p>Этот параметр — разделитель, который можно использовать для отделения параметров командной строки от списка файлов (полезно, когда имена файлов могут быть ошибочно приняты за параметры командной строки).</p>
 </dd>
@@ -181,25 +202,25 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p>Добавляет содержимое из всех файлов <code>*.txt</code> в каталоге <code>Documentation</code> и его подкаталогах:</p>
+<p>Добавляет содержимое из всех файлов <span class='synopsis'><code>*.txt</code></span> в каталоге <span class='synopsis'><code>Documentation</code></span> и его подкаталогах:</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git add Documentation/\*.txt</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Обратите внимание, что в этом примере звёздочка <code>*</code> экранируется от обработки системной оболочкой; это позволяет команде включать файлы из подкаталогов каталога <code>Documentation/</code>.</p>
+<p>Обратите внимание, что в этом примере звёздочка <span class='synopsis'><code>*</code></span> экранируется от обработки системной оболочкой; это позволяет команде включать файлы из подкаталогов каталога <span class='synopsis'><code>Documentation/</code></span>.</p>
 </div>
 </li>
 <li>
-<p>Рассмотрим добавление содержимого всех скриптов с именем <code>git-*.sh</code>:</p>
+<p>Рассмотрим добавление содержимого всех скриптов с именем <span class='synopsis'><code>git-*.sh</code></span>:</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git add git-*.sh</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Поскольку этот пример позволяет системной оболочке самой обработать звездочку (т.е. вы явно перечисляете файлы), он не учитывает файл <code>subdir / git-foo.sh</code>.</p>
+<p>Поскольку этот пример позволяет системной оболочке самой обработать звездочку (т.е. вы явно перечисляете файлы), он не учитывает файл <span class='synopsis'><code>subdir</code> <code>/</code> <code>git-foo.sh</code></span>.</p>
 </div>
 </li>
 </ul>
@@ -224,7 +245,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Также, вместо <code>1</code> вы можете написать <code>s</code>, <code>sta</code>, <code>status</code> или иначе, при этом выбор должен быть однозначен.</p>
+<p>Также, вместо <span class='synopsis'><code>1</code></span> вы можете написать <span class='synopsis'><code>s</code></span>, <span class='synopsis'><code>sta</code></span>, <span class='synopsis'><code>status</code></span> или иначе, при этом выбор должен быть однозначен.</p>
 </div>
 <div class="paragraph">
 <p>Основной цикл команд содержит 6 подкоманд (плюс help (помощь) и quit (выход)).</p>
@@ -233,7 +254,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-add-status"> <a class="anchor" href="#git-add-status"></a>status </dt>
 <dd>
-<p>Эта команда показывает различия между <code>HEAD</code> и индексом (т.е. что будет зафиксировано при выполнении <code>git commit</code>) и между рабочей копией и индексом (т.е. что вы ещё можете добавить в индекс с помощью <code>git add</code>, прежде чем выполнить <code>git commit</code>) для каждого файла. Пример вывода:</p>
+<p>Эта команда показывает различия между <span class='synopsis'><code>HEAD</code></span> и индексом (т.е. что будет зафиксировано при выполнении <span class='synopsis'><code>git</code> <code>commit</code></span>) и между рабочей копией и индексом (т.е. что вы ещё можете добавить в индекс с помощью <span class='synopsis'><code>git</code> <code>add</code></span>, прежде чем выполнить <span class='synopsis'><code>git</code> <code>commit</code></span>) для каждого файла. Пример вывода:</p>
 <div class="listingblock">
 <div class="content">
 <pre>              в индексе не в индексе путь
@@ -242,7 +263,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Из этого видно, что в <code>foo.png</code> есть отличия от версии в <code>HEAD</code> (но, т.к. это двоичный файл, количество отличающихся строк не подсчитывается), а версии в рабочей копии и в индексе не отличаются (если бы версия в индексе отличалась от рабочей копии, то вместо <em>ничего</em> была бы надпись <em>двоичный</em>). Для файла <code>add-interactive.c</code> в индекс добавлены изменения (403 добавленных и 35 удалённых строк), но в рабочей копии есть ещё изменения этого файла (1 добавленная и 1 удалённая строка).</p>
+<p>Из этого видно, что в <span class='synopsis'><code>foo.png</code></span> есть отличия от версии в <span class='synopsis'><code>HEAD</code></span> (но, т.к. это двоичный файл, количество отличающихся строк не подсчитывается), а версии в рабочей копии и в индексе не отличаются (если бы версия в индексе отличалась от рабочей копии, то вместо <em>ничего</em> была бы надпись <em>двоичный</em>). Для файла <span class='synopsis'><code>add-interactive.c</code></span> в индекс добавлены изменения (403 добавленных и 35 удалённых строк), но в рабочей копии есть ещё изменения этого файла (1 добавленная и 1 удалённая строка).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-add-update"> <a class="anchor" href="#git-add-update"></a>update </dt>
@@ -259,7 +280,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Чтобы убрать выбор, добавьте в начало знак <code>-</code>, например:</p>
+<p>Чтобы убрать выбор, добавьте в начало знак <span class='synopsis'><code>-</code></span>, например:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -304,12 +325,12 @@ p - вывести текущий блок
 <p>После решения судьбы всех блоков изменений выбранные фрагменты добавляются в индекс.</p>
 </div>
 <div class="paragraph">
-<p>Чтобы после ввода команды не приходилось нажимать Enter, можно установить переменную конфигурации <code>interactive.singleKey</code> = <code>true</code>.</p>
+<p>Чтобы после ввода команды не приходилось нажимать Enter, можно установить переменную конфигурации <span class='synopsis'><code>interactive.singleKey</code></span> = <span class='synopsis'><code>true</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-add-diff"> <a class="anchor" href="#git-add-diff"></a>diff </dt>
 <dd>
-<p>Это даёт вам возможность просмотреть, какие изменения будут включены в коммит (то есть разницу между <code>HEAD</code> и индексом).</p>
+<p>Это даёт вам возможность просмотреть, какие изменения будут включены в коммит (то есть разницу между <span class='synopsis'><code>HEAD</code></span> и индексом).</p>
 </dd>
 </dl>
 </div>
@@ -319,7 +340,7 @@ p - вывести текущий блок
 <h2 id="_редактирование_патчей"><a class="anchor" href="#_редактирование_патчей"></a>РЕДАКТИРОВАНИЕ ПАТЧЕЙ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Вызов <code>git add -e</code> или выбор <code>e</code> при интерактивном выборе фрагментов откроет патч в вашем редакторе; после закрытия редактора результат применяется к индексу. Вы вольны вносить в патч любые изменения, но помните, что некоторые изменения могут привести к неожиданным результатам или даже к невозможности применения патча. Если вы хотите прервать операцию (т.е. не вносить ни какие изменения в индекс), просто удалите все строки из патча. Следующий список описывает элементы, которые вы зачастую можете встретить в патчах, и какие изменения имеет смысл в них вносить.</p>
+<p>Вызов <span class='synopsis'><code>git</code> <code>add</code> <code>-e</code></span> или выбор <span class='synopsis'><code>e</code></span> при интерактивном выборе фрагментов откроет патч в вашем редакторе; после закрытия редактора результат применяется к индексу. Вы вольны вносить в патч любые изменения, но помните, что некоторые изменения могут привести к неожиданным результатам или даже к невозможности применения патча. Если вы хотите прервать операцию (т.е. не вносить ни какие изменения в индекс), просто удалите все строки из патча. Следующий список описывает элементы, которые вы зачастую можете встретить в патчах, и какие изменения имеет смысл в них вносить.</p>
 </div>
 <div class="openblock">
 <div class="content">
@@ -342,7 +363,7 @@ p - вывести текущий блок
 </div>
 </div>
 <div class="paragraph">
-<p>Существуют также более сложные операции. Но учитывайте, что, поскольку патч применяется только к индексу, а не к рабочей копии, будет казаться, что рабочая копия «отменяет» изменения в индексе. Например, добавление в индекс новой строки, которой ещё нет ни в <code>HEAD</code>, ни в рабочей копии, подготовит эту строку для коммита, но будет казаться, что это добавление строки откачено в рабочей копии.</p>
+<p>Существуют также более сложные операции. Но учитывайте, что, поскольку патч применяется только к индексу, а не к рабочей копии, будет казаться, что рабочая копия «отменяет» изменения в индексе. Например, добавление в индекс новой строки, которой ещё нет ни в <span class='synopsis'><code>HEAD</code></span>, ни в рабочей копии, подготовит эту строку для коммита, но будет казаться, что это добавление строки откачено в рабочей копии.</p>
 </div>
 <div class="paragraph">
 <p>Избегайте использования таких конструкций или делайте это с крайней осторожностью.</p>
@@ -399,7 +420,7 @@ p - вывести текущий блок
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>ru/config/add.adoc</code></p>
+<p>Missing <span class='synopsis'><code>ru/config/add.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

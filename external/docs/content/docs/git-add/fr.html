@@ -9,6 +9,29 @@ docname: git-add
 lang: fr
 aliases:
 - "/docs/git-add/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: EXEMPLES
+  id: _exemples
+- text: MODE INTERACTIF
+  id: _mode_interactif
+- text: ÉDITER LES CORRECTIFS
+  id: _éditer_les_correctifs
+- text: CONFIGURATION
+  id: _configuration
+- text: VOIR AUSSI
+  id: _voir_aussi
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -21,12 +44,12 @@ aliases:
 <div class="sect1">
 <h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>git add [--verbose | -v] [--dry-run | -n] [--force | -f] [--interactive | -i] [--patch | -p]
-	[--edit | -e] [--[no-]all | -A | --[no-]ignore-removal | [--update | -u]] [--sparse]
-	[--intent-to-add | -N] [--refresh] [--ignore-errors] [--ignore-missing] [--renormalize]
-	[--chmod=(+|-)x] [--pathspec-from-file=&lt;fichier&gt; [--pathspec-file-nul]]
-	[--] [&lt;spécificateur-de-chemin&gt;&#8230;&#8203;]</p>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>add</code></span> [<span class='synopsis'><code>--verbose</code></span> | <span class='synopsis'><code>-v</code></span>] [<span class='synopsis'><code>--dry-run</code></span> | <span class='synopsis'><code>-n</code></span>] [<span class='synopsis'><code>--force</code></span> | <span class='synopsis'><code>-f</code></span>] [<span class='synopsis'><code>--interactive</code></span> | <span class='synopsis'><code>-i</code></span>] [<span class='synopsis'><code>--patch</code></span> | <span class='synopsis'><code>-p</code></span>]
+	[<span class='synopsis'><code>--edit</code></span> | <span class='synopsis'><code>-e</code></span>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>all</code></span> | <span class='synopsis'><code>-A</code></span> | <span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>ignore-removal</code></span> | [<span class='synopsis'><code>--update</code></span> | <span class='synopsis'><code>-u</code></span>]] [<span class='synopsis'><code>--sparse</code></span>]
+	[<span class='synopsis'><code>--intent-to-add</code></span> | <span class='synopsis'><code>-N</code></span>] [<span class='synopsis'><code>--refresh</code></span>] [<span class='synopsis'><code>--ignore-errors</code></span>] [<span class='synopsis'><code>--ignore-missing</code></span>] [<span class='synopsis'><code>--renormalize</code></span>]
+	[<span class='synopsis'><code>--chmod=</code></span>(<span class='synopsis'><code>+</code></span>|<span class='synopsis'><code>-</code></span>)<span class='synopsis'><code>x</code></span>] [<span class='synopsis'><code>--pathspec-from-file=</code></span><em>&lt;fichier&gt;</em> [<span class='synopsis'><code>--pathspec-file-nul</code></span>]]
+	[<span class='synopsis'><code>--</code></span>] [<em>&lt;spécificateur-de-chemin&gt;</em>&#8230;&#8203;]</pre>
 </div>
 </div>
 </div>
@@ -37,16 +60,16 @@ aliases:
 <p>Cette commande met à jour l&#8217;index en utilisant le contenu actuel trouvé dans l&#8217;arbre de travail, pour préparer le contenu de la prochaine validation. Typiquement, elle ajoute intégralement le contenu actuel des chemins existants, mais peut aussi n&#8217;ajouter que certaines parties des modifications au moyen d&#8217;options ou soustraire certains chemins qui n&#8217;existent plus dans l&#8217;arbre de travail.</p>
 </div>
 <div class="paragraph">
-<p>L'« index » contient un instantané du contenu de la copie de travail et c&#8217;est cet instantané qui sera utilisé comme contenu du prochain commit. Ainsi, après avoir réalisé des modifications dans la copie de travail, et avant de lancer la commande commit, vous devez utiliser la commande <code>add</code> pour ajouter tout fichier nouveau ou modifié à l&#8217;index.</p>
+<p>L'« index » contient un instantané du contenu de la copie de travail et c&#8217;est cet instantané qui sera utilisé comme contenu du prochain commit. Ainsi, après avoir réalisé des modifications dans la copie de travail, et avant de lancer la commande commit, vous devez utiliser la commande <span class='synopsis'><code>add</code></span> pour ajouter tout fichier nouveau ou modifié à l&#8217;index.</p>
 </div>
 <div class="paragraph">
-<p>Cette commande peut être effectuée plusieurs fois avant la validation. Elle n&#8217;ajoute que le contenu des fichiers spécifiés au moment où la commande <code>add</code> est lancée ; si vous souhaitez inclure des modifications postérieures à un <code>add</code> dans la prochaine validation, vous devez alors lancer <code>git add</code> à nouveau pour ajouter le nouveau contenu à l&#8217;index.</p>
+<p>Cette commande peut être effectuée plusieurs fois avant la validation. Elle n&#8217;ajoute que le contenu des fichiers spécifiés au moment où la commande <span class='synopsis'><code>add</code></span> est lancée ; si vous souhaitez inclure des modifications postérieures à un <span class='synopsis'><code>add</code></span> dans la prochaine validation, vous devez alors lancer <span class='synopsis'><code>git</code> <code>add</code></span> à nouveau pour ajouter le nouveau contenu à l&#8217;index.</p>
 </div>
 <div class="paragraph">
-<p>La commande <code>git status</code> permet d&#8217;obtenir un résumé des fichiers modifiés qui sont préparés pour la prochaine validation.</p>
+<p>La commande <span class='synopsis'><code>git</code> <code>status</code></span> permet d&#8217;obtenir un résumé des fichiers modifiés qui sont préparés pour la prochaine validation.</p>
 </div>
 <div class="paragraph">
-<p>Par défaut, la commande <code>git add</code> n&#8217;ajoute pas les fichiers ignorés. Si des fichiers ignorés sont spécifiés explicitement en ligne de commande, <code>git add</code> échouera avec la liste des fichiers ignorés. Les fichiers ignorés atteints via la récursion de répertoires ou les patrons de fichiers gérés par Git (les patrons doivent alors être échappés du shell par des quotes) seront ignorés silencieusement. La commande <code>git add</code> peut tout de même ajouter des fichiers ignorés avec l&#8217;option <code>-f</code> (force).</p>
+<p>Par défaut, la commande <span class='synopsis'><code>git</code> <code>add</code></span> n&#8217;ajoute pas les fichiers ignorés. Si des fichiers ignorés sont spécifiés explicitement en ligne de commande, <span class='synopsis'><code>git</code> <code>add</code></span> échouera avec la liste des fichiers ignorés. Les fichiers ignorés atteints via la récursion de répertoires ou les patrons de fichiers gérés par Git (les patrons doivent alors être échappés du shell par des quotes) seront ignorés silencieusement. La commande <span class='synopsis'><code>git</code> <code>add</code></span> peut tout de même ajouter des fichiers ignorés avec l&#8217;option <span class='synopsis'><code>-f</code></span> (force).</p>
 </div>
 <div class="paragraph">
 <p>Référez-vous <a href='{{< relurl "docs/git-commit/fr" >}}'>git-commit[1]</a> pour des méthodes alternatives d&#8217;ajout de contenu à une validation.</p>
@@ -58,116 +81,116 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-add-codeltspcificateur-de-chemingtcode"> <a class="anchor" href="#git-add-spcificateur-de-chemin"></a> <a class="anchor" href="#git-add-codeltspcificateur-de-chemingtcode"></a><code>&lt;spécificateur-de-chemin&gt;...</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsisemltspcificateur-de-chemingtemspan"> <a class="anchor" href="#git-add-spcificateur-de-chemin"></a> <a class="anchor" href="#git-add-spanclasssynopsisemltspcificateur-de-chemingtemspan"></a><span class='synopsis'><em>&lt;spécificateur-de-chemin&gt;</em>...</span> </dt>
 <dd>
-<p>Fichiers dont le contenu doit être ajouté. Les patrons (ex : <code>*.c</code>) permettent de restreindre à tous les fichiers correspondants. Un nom de répertoire (ex : <code>rep</code> pour ajouter <code>rep/fichier1</code> et <code>rep/fichier2</code>) permet d&#8217;ajouter récursivement tous les fichiers d&#8217;un répertoire (par exemple spécifier <code>rep</code> n&#8217;enregistrera pas seulement le fichier modifié dans l&#8217;arbre de travail <code>rep/fichier1</code> ou un fichier ajouté <code>rep/fichier2</code>, mais aussi un fichier <code>rep/fichier3</code> supprimé de l&#8217;arbre de travail). Veuillez noter que des version anciennes de Git ignoraient les fichiers supprimés ; utilisez l&#8217;option <code>--no-all</code> si vous souhaitez ajouter les fichiers nouveaux ou modifiés mais ignorer les fichiers supprimés.</p>
+<p>Fichiers dont le contenu doit être ajouté. Les patrons (ex : <span class='synopsis'><code>*.c</code></span>) permettent de restreindre à tous les fichiers correspondants. Un nom de répertoire (ex : <span class='synopsis'><code>rep</code></span> pour ajouter <span class='synopsis'><code>rep/fichier1</code></span> et <span class='synopsis'><code>rep/fichier2</code></span>) permet d&#8217;ajouter récursivement tous les fichiers d&#8217;un répertoire (par exemple spécifier <span class='synopsis'><code>rep</code></span> n&#8217;enregistrera pas seulement le fichier modifié dans l&#8217;arbre de travail <span class='synopsis'><code>rep/fichier1</code></span> ou un fichier ajouté <span class='synopsis'><code>rep/fichier2</code></span>, mais aussi un fichier <span class='synopsis'><code>rep/fichier3</code></span> supprimé de l&#8217;arbre de travail). Veuillez noter que des version anciennes de Git ignoraient les fichiers supprimés ; utilisez l&#8217;option <span class='synopsis'><code>--no-all</code></span> si vous souhaitez ajouter les fichiers nouveaux ou modifiés mais ignorer les fichiers supprimés.</p>
 <div class="paragraph">
 <p>Pour de plus amples détails sur la syntaxe <em>&lt;spécificateur-de-chemin&gt;</em>, référez-vous à la section <em>pathspec</em> dans <a href='{{< relurl "docs/gitglossary/fr" >}}'>gitglossary[7]</a>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code-ncode"> <a class="anchor" href="#git-add--n"></a> <a class="anchor" href="#git-add-code-ncode"></a><code>-n</code> </dt>
-<dt class="hdlist1" id="git-add-code--dry-runcode"> <a class="anchor" href="#git-add---dry-run"></a> <a class="anchor" href="#git-add-code--dry-runcode"></a><code>--dry-run</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-ncodespan"> <a class="anchor" href="#git-add--n"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-ncodespan"></a><span class='synopsis'><code>-n</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--dry-runcodespan"> <a class="anchor" href="#git-add---dry-run"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--dry-runcodespan"></a><span class='synopsis'><code>--dry-run</code></span> </dt>
 <dd>
 <p>Ne pas ajouter réellement les fichiers. Montrer juste ceux qui existent ou seront ignorés.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code-vcode"> <a class="anchor" href="#git-add--v"></a> <a class="anchor" href="#git-add-code-vcode"></a><code>-v</code> </dt>
-<dt class="hdlist1" id="git-add-code--verbosecode"> <a class="anchor" href="#git-add---verbose"></a> <a class="anchor" href="#git-add-code--verbosecode"></a><code>--verbose</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-vcodespan"> <a class="anchor" href="#git-add--v"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-vcodespan"></a><span class='synopsis'><code>-v</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--verbosecodespan"> <a class="anchor" href="#git-add---verbose"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--verbosecodespan"></a><span class='synopsis'><code>--verbose</code></span> </dt>
 <dd>
 <p>Mode bavard.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code-fcode"> <a class="anchor" href="#git-add--f"></a> <a class="anchor" href="#git-add-code-fcode"></a><code>-f</code> </dt>
-<dt class="hdlist1" id="git-add-code--forcecode"> <a class="anchor" href="#git-add---force"></a> <a class="anchor" href="#git-add-code--forcecode"></a><code>--force</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-fcodespan"> <a class="anchor" href="#git-add--f"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-fcodespan"></a><span class='synopsis'><code>-f</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--forcecodespan"> <a class="anchor" href="#git-add---force"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--forcecodespan"></a><span class='synopsis'><code>--force</code></span> </dt>
 <dd>
 <p>Permettre l&#8217;ajout de fichiers qui sont normalement ignorés.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--sparsecode"> <a class="anchor" href="#git-add---sparse"></a> <a class="anchor" href="#git-add-code--sparsecode"></a><code>--sparse</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--sparsecodespan"> <a class="anchor" href="#git-add---sparse"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--sparsecodespan"></a><span class='synopsis'><code>--sparse</code></span> </dt>
 <dd>
-<p>Autoriser la mise à jour des entrées d&#8217;index en dehors du cône d&#8217;extraction clairsemée. Normalement, <code>git add</code> refuse de mettre à jour les entrées d&#8217;index dont les chemins ne rentrent pas dans le cône d&#8217;extraction clairsemée, car ces fichiers pourraient être supprimés de l&#8217;arbre de travail sans avertissement. Voir <a href='{{< relurl "docs/git-sparse-checkout/fr" >}}'>git-sparse-checkout[1]</a> pour plus de détails.</p>
+<p>Autoriser la mise à jour des entrées d&#8217;index en dehors du cône d&#8217;extraction clairsemée. Normalement, <span class='synopsis'><code>git</code> <code>add</code></span> refuse de mettre à jour les entrées d&#8217;index dont les chemins ne rentrent pas dans le cône d&#8217;extraction clairsemée, car ces fichiers pourraient être supprimés de l&#8217;arbre de travail sans avertissement. Voir <a href='{{< relurl "docs/git-sparse-checkout/fr" >}}'>git-sparse-checkout[1]</a> pour plus de détails.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code-icode"> <a class="anchor" href="#git-add--i"></a> <a class="anchor" href="#git-add-code-icode"></a><code>-i</code> </dt>
-<dt class="hdlist1" id="git-add-code--interactivecode"> <a class="anchor" href="#git-add---interactive"></a> <a class="anchor" href="#git-add-code--interactivecode"></a><code>--interactive</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-icodespan"> <a class="anchor" href="#git-add--i"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-icodespan"></a><span class='synopsis'><code>-i</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--interactivecodespan"> <a class="anchor" href="#git-add---interactive"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--interactivecodespan"></a><span class='synopsis'><code>--interactive</code></span> </dt>
 <dd>
 <p>Ajouter le contenu modifié dans l&#8217;arbre de travail à l&#8217;index. Les arguments optionnels de chemin permettent de limiter les opérations à un sous-ensemble de l&#8217;arbre de travail. Référez-vous à « Mode interactif » pour plus de détails.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code-pcode"> <a class="anchor" href="#git-add--p"></a> <a class="anchor" href="#git-add-code-pcode"></a><code>-p</code> </dt>
-<dt class="hdlist1" id="git-add-code--patchcode"> <a class="anchor" href="#git-add---patch"></a> <a class="anchor" href="#git-add-code--patchcode"></a><code>--patch</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-pcodespan"> <a class="anchor" href="#git-add--p"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-pcodespan"></a><span class='synopsis'><code>-p</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--patchcodespan"> <a class="anchor" href="#git-add---patch"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--patchcodespan"></a><span class='synopsis'><code>--patch</code></span> </dt>
 <dd>
 <p>Choisir de manière interactive les sections de patch entre l&#8217;index et la copie de travail et les ajouter à l&#8217;index. Cela permet à l&#8217;utilisateur de passer en revue les différences avant d&#8217;ajouter le contenu modifié à l&#8217;index.</p>
 <div class="paragraph">
-<p>Cela lance effectivement <code>add --interactive</code> mais court-circuite le menu initial et saute directement à la sous-commande <code>patch</code>. Référez-vous à « Mode interactif » pour plus de détails.</p>
+<p>Cela lance effectivement <span class='synopsis'><code>add</code> <code>--interactive</code></span> mais court-circuite le menu initial et saute directement à la sous-commande <span class='synopsis'><code>patch</code></span>. Référez-vous à « Mode interactif » pour plus de détails.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code-ecode"> <a class="anchor" href="#git-add--e"></a> <a class="anchor" href="#git-add-code-ecode"></a><code>-e</code> </dt>
-<dt class="hdlist1" id="git-add-code--editcode"> <a class="anchor" href="#git-add---edit"></a> <a class="anchor" href="#git-add-code--editcode"></a><code>--edit</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-ecodespan"> <a class="anchor" href="#git-add--e"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-ecodespan"></a><span class='synopsis'><code>-e</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--editcodespan"> <a class="anchor" href="#git-add---edit"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--editcodespan"></a><span class='synopsis'><code>--edit</code></span> </dt>
 <dd>
 <p>Ouvrir les différences avec l&#8217;index dans un éditeur et laisser l&#8217;utilisateur les éditer. Après la fermeture de l&#8217;éditeur, ajuster les entêtes de sections et appliquer le patch à l&#8217;index.</p>
 <div class="paragraph">
 <p>L&#8217;objectif de cette option est de permettre de choisir et retenir les lignes de la rustine à appliquer, ou même de modifier le contenu des lignes à indexer. Cela peut être plus rapide et plus flexible que l&#8217;utilisation du sélecteur interactif. Cependant, il est plus facile de se tromper et de créer un patch qui ne s&#8217;applique pas. Référez-vous à ÉDITER LES RUSTINES ci-dessous.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code-ucode"> <a class="anchor" href="#git-add--u"></a> <a class="anchor" href="#git-add-code-ucode"></a><code>-u</code> </dt>
-<dt class="hdlist1" id="git-add-code--updatecode"> <a class="anchor" href="#git-add---update"></a> <a class="anchor" href="#git-add-code--updatecode"></a><code>--update</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-ucodespan"> <a class="anchor" href="#git-add--u"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-ucodespan"></a><span class='synopsis'><code>-u</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--updatecodespan"> <a class="anchor" href="#git-add---update"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--updatecodespan"></a><span class='synopsis'><code>--update</code></span> </dt>
 <dd>
 <p>Mettre à jour l&#8217;index sur les seuls fichiers déjà présents et correspondant à <em>&lt;spec-de-chemin&gt;</em>. Cela retire ou modifie les entrées d&#8217;index pour correspondre à la copie de travail, mais n&#8217;ajoute pas de fichier.</p>
 <div class="paragraph">
-<p>Si aucun <em>&lt;spec-de-chemin&gt;</em> n&#8217;est spécifié quand l&#8217;option <code>-u</code> est utilisée, tous les fichiers suivis dans la totalité de l&#8217;arbre de travail sont mis à jour (les versions anciennes de Git limitaient la mise à jour au répertoire courant et ses sous-répertoires).</p>
+<p>Si aucun <em>&lt;spec-de-chemin&gt;</em> n&#8217;est spécifié quand l&#8217;option <span class='synopsis'><code>-u</code></span> est utilisée, tous les fichiers suivis dans la totalité de l&#8217;arbre de travail sont mis à jour (les versions anciennes de Git limitaient la mise à jour au répertoire courant et ses sous-répertoires).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code-Acode"> <a class="anchor" href="#git-add--A"></a> <a class="anchor" href="#git-add-code-Acode"></a><code>-A</code> </dt>
-<dt class="hdlist1" id="git-add-code--allcode"> <a class="anchor" href="#git-add---all"></a> <a class="anchor" href="#git-add-code--allcode"></a><code>--all</code> </dt>
-<dt class="hdlist1" id="git-add-code--no-ignore-removalcode"> <a class="anchor" href="#git-add---no-ignore-removal"></a> <a class="anchor" href="#git-add-code--no-ignore-removalcode"></a><code>--no-ignore-removal</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-Acodespan"> <a class="anchor" href="#git-add--A"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-Acodespan"></a><span class='synopsis'><code>-A</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--allcodespan"> <a class="anchor" href="#git-add---all"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--allcodespan"></a><span class='synopsis'><code>--all</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--no-ignore-removalcodespan"> <a class="anchor" href="#git-add---no-ignore-removal"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--no-ignore-removalcodespan"></a><span class='synopsis'><code>--no-ignore-removal</code></span> </dt>
 <dd>
 <p>Mettre à jour l&#8217;index non seulement pour tous les fichiers de l&#8217;arbre de travail correspondant à <em>&lt;spec-de-chemin&gt;</em> mais aussi pour toutes les entrées existant déjà dans l&#8217;index. Ceci ajoute, modifie et retire des entrées d&#8217;index pour correspondre à la copie de travail.</p>
 <div class="paragraph">
-<p>Si aucun <em>&lt;spec-de-chemin&gt;</em> n&#8217;est spécifié quand l&#8217;option <code>-A</code> est utilisée, tous les fichiers de l&#8217;arbre de travail sont mis à jour (les versions anciennes de Git utilisaient le répertoire courant et ses sous-répertoires).</p>
+<p>Si aucun <em>&lt;spec-de-chemin&gt;</em> n&#8217;est spécifié quand l&#8217;option <span class='synopsis'><code>-A</code></span> est utilisée, tous les fichiers de l&#8217;arbre de travail sont mis à jour (les versions anciennes de Git utilisaient le répertoire courant et ses sous-répertoires).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code--no-allcode"> <a class="anchor" href="#git-add---no-all"></a> <a class="anchor" href="#git-add-code--no-allcode"></a><code>--no-all</code> </dt>
-<dt class="hdlist1" id="git-add-code--ignore-removalcode"> <a class="anchor" href="#git-add---ignore-removal"></a> <a class="anchor" href="#git-add-code--ignore-removalcode"></a><code>--ignore-removal</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--no-allcodespan"> <a class="anchor" href="#git-add---no-all"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--no-allcodespan"></a><span class='synopsis'><code>--no-all</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--ignore-removalcodespan"> <a class="anchor" href="#git-add---ignore-removal"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--ignore-removalcodespan"></a><span class='synopsis'><code>--ignore-removal</code></span> </dt>
 <dd>
 <p>Mettre à jour l&#8217;index en y ajoutant les nouveaux fichiers qui sont inconnus et les fichiers modifiés dans la copie de travail, mais ignore les fichiers qui ont été effacés de la copie de travail. Cette option ne fait rien quand aucun <em>&lt;spec-de-chemin&gt;</em> n&#8217;est utilisé.</p>
 <div class="paragraph">
-<p>Cette option sert principalement à aider les utilisateurs de versions anciennes de Git pour lesquels <code>git add &lt;spec-de-chemin&gt;...</code> était synonyme de <code>git add --no-all &lt;spec-de-chemin&gt;...</code>, c&#8217;est-à-dire qui ignorait les fichiers effacés.</p>
+<p>Cette option sert principalement à aider les utilisateurs de versions anciennes de Git pour lesquels <span class='synopsis'><code>git</code> <code>add</code> <em>&lt;spec-de-chemin&gt;</em>...</span> était synonyme de <span class='synopsis'><code>git</code> <code>add</code> <code>--no-all</code> <em>&lt;spec-de-chemin&gt;</em>...</span>, c&#8217;est-à-dire qui ignorait les fichiers effacés.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-add-code-Ncode"> <a class="anchor" href="#git-add--N"></a> <a class="anchor" href="#git-add-code-Ncode"></a><code>-N</code> </dt>
-<dt class="hdlist1" id="git-add-code--intent-to-addcode"> <a class="anchor" href="#git-add---intent-to-add"></a> <a class="anchor" href="#git-add-code--intent-to-addcode"></a><code>--intent-to-add</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-Ncodespan"> <a class="anchor" href="#git-add--N"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-Ncodespan"></a><span class='synopsis'><code>-N</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--intent-to-addcodespan"> <a class="anchor" href="#git-add---intent-to-add"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--intent-to-addcodespan"></a><span class='synopsis'><code>--intent-to-add</code></span> </dt>
 <dd>
-<p>N&#8217;enregistrer que le fait que le chemin sera ajouté plus tard. Une entrée pour le chemin est placée en index sans contenu. C&#8217;est particulièrement utile pour, entre autres choses, montrer le contenu non indexé de ces fichiers avec <code>git diff</code> et les valider avec <code>git commit -a</code>.</p>
+<p>N&#8217;enregistrer que le fait que le chemin sera ajouté plus tard. Une entrée pour le chemin est placée en index sans contenu. C&#8217;est particulièrement utile pour, entre autres choses, montrer le contenu non indexé de ces fichiers avec <span class='synopsis'><code>git</code> <code>diff</code></span> et les valider avec <span class='synopsis'><code>git</code> <code>commit</code> <code>-a</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--refreshcode"> <a class="anchor" href="#git-add---refresh"></a> <a class="anchor" href="#git-add-code--refreshcode"></a><code>--refresh</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--refreshcodespan"> <a class="anchor" href="#git-add---refresh"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--refreshcodespan"></a><span class='synopsis'><code>--refresh</code></span> </dt>
 <dd>
 <p>Ne pas ajouter le ou les fichiers mais rafraîchir seulement leur information de stat() dans l&#8217;index.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--ignore-errorscode"> <a class="anchor" href="#git-add---ignore-errors"></a> <a class="anchor" href="#git-add-code--ignore-errorscode"></a><code>--ignore-errors</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--ignore-errorscodespan"> <a class="anchor" href="#git-add---ignore-errors"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--ignore-errorscodespan"></a><span class='synopsis'><code>--ignore-errors</code></span> </dt>
 <dd>
-<p>Si des fichiers n&#8217;ont pas pu être ajoutés à cause d&#8217;erreurs lors de leur indexation, ne pas annuler l&#8217;opération mais continuer l&#8217;ajout des autres fichiers. La commande se terminera tout de même avec un code d&#8217;erreur non nul. Le paramètre de configuration <code>add.ignoreErrors</code> peut être positionné à true pour que ce comportement soit celui par défaut.</p>
+<p>Si des fichiers n&#8217;ont pas pu être ajoutés à cause d&#8217;erreurs lors de leur indexation, ne pas annuler l&#8217;opération mais continuer l&#8217;ajout des autres fichiers. La commande se terminera tout de même avec un code d&#8217;erreur non nul. Le paramètre de configuration <span class='synopsis'><code>add.ignoreErrors</code></span> peut être positionné à true pour que ce comportement soit celui par défaut.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--ignore-missingcode"> <a class="anchor" href="#git-add---ignore-missing"></a> <a class="anchor" href="#git-add-code--ignore-missingcode"></a><code>--ignore-missing</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--ignore-missingcodespan"> <a class="anchor" href="#git-add---ignore-missing"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--ignore-missingcodespan"></a><span class='synopsis'><code>--ignore-missing</code></span> </dt>
 <dd>
-<p>Cette option ne peut être utilisée que couplée avec <code>--dry-run</code>. L&#8217;utilisation de cette option permet à l&#8217;utilisateur de vérifier si un des fichiers indiqués serait ignoré, qu&#8217;il soit présent ou non dans la copie de travail.</p>
+<p>Cette option ne peut être utilisée que couplée avec <span class='synopsis'><code>--dry-run</code></span>. L&#8217;utilisation de cette option permet à l&#8217;utilisateur de vérifier si un des fichiers indiqués serait ignoré, qu&#8217;il soit présent ou non dans la copie de travail.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--no-warn-embedded-repocode"> <a class="anchor" href="#git-add---no-warn-embedded-repo"></a> <a class="anchor" href="#git-add-code--no-warn-embedded-repocode"></a><code>--no-warn-embedded-repo</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--no-warn-embedded-repocodespan"> <a class="anchor" href="#git-add---no-warn-embedded-repo"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--no-warn-embedded-repocodespan"></a><span class='synopsis'><code>--no-warn-embedded-repo</code></span> </dt>
 <dd>
-<p>Par défaut, <code>git add</code> avertit l&#8217;utilisateur lors de l&#8217;ajout d&#8217;un dépôt embarqué dans l&#8217;index sans utilisation de <code>git submodule add</code> pour créer une entrée dans <code>.gitmodules</code>. Cette option supprime cet avertissement (par exemple, si vous effectuez manuellement des opérations sur des sous-modules).</p>
+<p>Par défaut, <span class='synopsis'><code>git</code> <code>add</code></span> avertit l&#8217;utilisateur lors de l&#8217;ajout d&#8217;un dépôt embarqué dans l&#8217;index sans utilisation de <span class='synopsis'><code>git</code> <code>submodule</code> <code>add</code></span> pour créer une entrée dans <span class='synopsis'><code>.gitmodules</code></span>. Cette option supprime cet avertissement (par exemple, si vous effectuez manuellement des opérations sur des sous-modules).</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--renormalizecode"> <a class="anchor" href="#git-add---renormalize"></a> <a class="anchor" href="#git-add-code--renormalizecode"></a><code>--renormalize</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--renormalizecodespan"> <a class="anchor" href="#git-add---renormalize"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--renormalizecodespan"></a><span class='synopsis'><code>--renormalize</code></span> </dt>
 <dd>
-<p>Forcer l&#8217;application du filtre "clean" à tous les fichiers suivis pour les ajouter en force à l&#8217;index. C&#8217;est utile après avoir changé la variable de configuration <code>core.autocrlf</code> ou l&#8217;attribut <code>text</code> pour corriger des fichiers ajoutés avec des fins de lignes erronées <em>CRLF/LF</em>. Cette option implique <code>-u</code>. Les caractères <em>CR</em> solitaires ne sont pas traités, donc alors qu&#8217;un <em>CRLF</em> est nettoyé en <em>LF</em>, une séquence <em>CRCRLF</em> n&#8217;est que partiellement nettoyée en <em>CRLF</em>.</p>
+<p>Forcer l&#8217;application du filtre "clean" à tous les fichiers suivis pour les ajouter en force à l&#8217;index. C&#8217;est utile après avoir changé la variable de configuration <span class='synopsis'><code>core.autocrlf</code></span> ou l&#8217;attribut <span class='synopsis'><code>text</code></span> pour corriger des fichiers ajoutés avec des fins de lignes erronées <em>CRLF/LF</em>. Cette option implique <span class='synopsis'><code>-u</code></span>. Les caractères <em>CR</em> solitaires ne sont pas traités, donc alors qu&#8217;un <em>CRLF</em> est nettoyé en <em>LF</em>, une séquence <em>CRCRLF</em> n&#8217;est que partiellement nettoyée en <em>CRLF</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--chmod-xcode"> <a class="anchor" href="#git-add---chmod-x"></a> <a class="anchor" href="#git-add-code--chmod-xcode"></a><code>--chmod=(+|-)x</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--chmodcodecodecodecode-codecodexcodespan"> <a class="anchor" href="#git-add---chmod-x"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--chmodcodecodecodecode-codecodexcodespan"></a><span class='synopsis'><code>--chmod=</code>(<code>+</code>|<code>-</code>)<code>x</code></span> </dt>
 <dd>
 <p>Forcer le bit exécutable des fichiers ajoutés. Le bit exécutable n&#8217;est modifié que dans l&#8217;index, les fichiers de la copie de travail ne sont pas modifiés.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--pathspec-from-fileltfichiergtcode"> <a class="anchor" href="#git-add---pathspec-from-filefichier"></a> <a class="anchor" href="#git-add-code--pathspec-from-fileltfichiergtcode"></a><code>--pathspec-from-file=&lt;fichier&gt;</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--pathspec-from-filecodeemltfichiergtemspan"> <a class="anchor" href="#git-add---pathspec-from-filefichier"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--pathspec-from-filecodeemltfichiergtemspan"></a><span class='synopsis'><code>--pathspec-from-file=</code><em>&lt;fichier&gt;</em></span> </dt>
 <dd>
-<p>Le spécificateur de chemin est passé dans <em>&lt;fichier&gt;</em> au lieu des arguments de la ligne de commande. Si <em>&lt;fichier&gt;</em> vaut <code>-</code> alors l&#8217;entrée standard est utilisée. Les éléments du spécificateur de chemin sont séparés par <em>LF</em> ou <em>CR/LF</em>. Les éléments du spécificateur de chemin peuvent être cités comme expliqué pour la variable de configuration <code>core.quotePath</code> (voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>). Voir aussi l&#8217;option <code>--pathspec-file-nul</code> et l&#8217;option globale <code>--literal-pathspecs</code>.</p>
+<p>Le spécificateur de chemin est passé dans <em>&lt;fichier&gt;</em> au lieu des arguments de la ligne de commande. Si <em>&lt;fichier&gt;</em> vaut <span class='synopsis'><code>-</code></span> alors l&#8217;entrée standard est utilisée. Les éléments du spécificateur de chemin sont séparés par <em>LF</em> ou <em>CR/LF</em>. Les éléments du spécificateur de chemin peuvent être cités comme expliqué pour la variable de configuration <span class='synopsis'><code>core.quotePath</code></span> (voir <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>). Voir aussi l&#8217;option <span class='synopsis'><code>--pathspec-file-nul</code></span> et l&#8217;option globale <span class='synopsis'><code>--literal-pathspecs</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--pathspec-file-nulcode"> <a class="anchor" href="#git-add---pathspec-file-nul"></a> <a class="anchor" href="#git-add-code--pathspec-file-nulcode"></a><code>--pathspec-file-nul</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--pathspec-file-nulcodespan"> <a class="anchor" href="#git-add---pathspec-file-nul"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--pathspec-file-nulcodespan"></a><span class='synopsis'><code>--pathspec-file-nul</code></span> </dt>
 <dd>
-<p>Uniquement significatif avec <code>--pathspec-from-file</code>. Les éléments du spécificateur de chemin sont séparés par le caractère <em>NUL</em> et tous les autres caractères sont utilisés littéralement (y compris les retours à la ligne et les guillemets).</p>
+<p>Uniquement significatif avec <span class='synopsis'><code>--pathspec-from-file</code></span>. Les éléments du spécificateur de chemin sont séparés par le caractère <em>NUL</em> et tous les autres caractères sont utilisés littéralement (y compris les retours à la ligne et les guillemets).</p>
 </dd>
-<dt class="hdlist1" id="git-add-code--code"> <a class="anchor" href="#git-add---"></a> <a class="anchor" href="#git-add-code--code"></a><code>--</code> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--codespan"> <a class="anchor" href="#git-add---"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--codespan"></a><span class='synopsis'><code>--</code></span> </dt>
 <dd>
 <p>Cette option permet de séparer les options de la ligne de commande de la liste des fichiers (utile si certains noms de fichiers peuvent être confondus avec des options).</p>
 </dd>
@@ -181,25 +204,25 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p>Ajouter le contenu de tous les fichiers <code>*.txt</code> sous le répertoire <code>Documentation</code> et ses sous-répertoires :</p>
+<p>Ajouter le contenu de tous les fichiers <span class='synopsis'><code>*.txt</code></span> sous le répertoire <span class='synopsis'><code>Documentation</code></span> et ses sous-répertoires :</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git add Documentation/\*.txt</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Remarquez que l&#8217;astérisque <code>*</code> est échappé du shell dans cet exemple ; cela permet d&#8217;inclure les fichiers dans les sous-répertoires du répertoire <code>Documentation/</code>.</p>
+<p>Remarquez que l&#8217;astérisque <span class='synopsis'><code>*</code></span> est échappé du shell dans cet exemple ; cela permet d&#8217;inclure les fichiers dans les sous-répertoires du répertoire <span class='synopsis'><code>Documentation/</code></span>.</p>
 </div>
 </li>
 <li>
-<p>Ajouter le contenu de tous les scripts <code>git-*.sh</code> :</p>
+<p>Ajouter le contenu de tous les scripts <span class='synopsis'><code>git-*.sh</code></span> :</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git add git-*.sh</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Comme cet exemple laisse le shell réaliser l&#8217;expansion de l&#8217;astérisque (c&#8217;est-à-dire que vous listez explicitement les fichiers du répertoire), il ne traite pas <code>subdir/git-foo.sh</code>.</p>
+<p>Comme cet exemple laisse le shell réaliser l&#8217;expansion de l&#8217;astérisque (c&#8217;est-à-dire que vous listez explicitement les fichiers du répertoire), il ne traite pas <span class='synopsis'><code>subdir/git-foo.sh</code></span>.</p>
 </div>
 </li>
 </ul>
@@ -224,7 +247,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Vous pouvez indiquer <code>s</code> ou <code>sta</code> ou <code>status</code> dans le cas ci-dessus, à condition que le choix soit univoque.</p>
+<p>Vous pouvez indiquer <span class='synopsis'><code>s</code></span> ou <span class='synopsis'><code>sta</code></span> ou <span class='synopsis'><code>status</code></span> dans le cas ci-dessus, à condition que le choix soit univoque.</p>
 </div>
 <div class="paragraph">
 <p>La boucle de commande principale propose 6 sous-commandes (plus help (aide) et quit (quitter)).</p>
@@ -233,7 +256,7 @@ aliases:
 <dl>
 <dt class="hdlist1" id="git-add-status"> <a class="anchor" href="#git-add-status"></a>status </dt>
 <dd>
-<p>Ceci affiche les modifications entre <code>HEAD</code> et l&#8217;index (c-à-d ce qui seraient validées si vous lanciez <code>git commit</code>), et entre l&#8217;index et les fichiers de la copie de travail (c-à-d ce que vous pourriez indexer au moyen de <code>git add</code> avant de lancer <code>git commit</code>) pour chaque chemin. Un exemple d&#8217;affichage ressemble à ceci :</p>
+<p>Ceci affiche les modifications entre <span class='synopsis'><code>HEAD</code></span> et l&#8217;index (c-à-d ce qui seraient validées si vous lanciez <span class='synopsis'><code>git</code> <code>commit</code></span>), et entre l&#8217;index et les fichiers de la copie de travail (c-à-d ce que vous pourriez indexer au moyen de <span class='synopsis'><code>git</code> <code>add</code></span> avant de lancer <span class='synopsis'><code>git</code> <code>commit</code></span>) pour chaque chemin. Un exemple d&#8217;affichage ressemble à ceci :</p>
 <div class="listingblock">
 <div class="content">
 <pre>              staged     unstaged path
@@ -242,7 +265,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Cela montre que <code>foo.png</code> contient des différences avec <code>HEAD</code> (mais c&#8217;est un format binaire donc le nombre de lignes ne peut pas être affiché) et qu&#8217;il n&#8217;y a pas de différence entre la copie indexée et la copie de travail (si la copie de travail aussi avait été différente, <em>binary</em> aurait été affiché à la place de <em>nothing</em>). L&#8217;autre fichier, add-interactive.c, a 430 lignes ajoutées et 35 effacées si vous validez ce qui est dans l&#8217;index, mais la copie de travail contient d&#8217;autres modifications (un ajout et un retrait).</p>
+<p>Cela montre que <span class='synopsis'><code>foo.png</code></span> contient des différences avec <span class='synopsis'><code>HEAD</code></span> (mais c&#8217;est un format binaire donc le nombre de lignes ne peut pas être affiché) et qu&#8217;il n&#8217;y a pas de différence entre la copie indexée et la copie de travail (si la copie de travail aussi avait été différente, <em>binary</em> aurait été affiché à la place de <em>nothing</em>). L&#8217;autre fichier, add-interactive.c, a 430 lignes ajoutées et 35 effacées si vous validez ce qui est dans l&#8217;index, mais la copie de travail contient d&#8217;autres modifications (un ajout et un retrait).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-add-update"> <a class="anchor" href="#git-add-update"></a>update </dt>
@@ -259,7 +282,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Pour retirer une sélection, préfixez-la avec <code>-</code> comme ceci :</p>
+<p>Pour retirer une sélection, préfixez-la avec <span class='synopsis'><code>-</code></span> comme ceci :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -304,12 +327,12 @@ p - print the current hunk
 <p>Après avoir décidé du devenir de chaque section, l&#8217;index est mis à jour avec les sections sélectionnées.</p>
 </div>
 <div class="paragraph">
-<p>Vous pouvez vous éviter de taper Entrée ici, en mettant la variable de configuration <code>interactive.singleKey</code> à <code>true</code>.</p>
+<p>Vous pouvez vous éviter de taper Entrée ici, en mettant la variable de configuration <span class='synopsis'><code>interactive.singleKey</code></span> à <span class='synopsis'><code>true</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-add-diff"> <a class="anchor" href="#git-add-diff"></a>diff </dt>
 <dd>
-<p>Ceci permet de faire une revue de ce qui sera validé (c&#8217;est une différence entre <code>HEAD</code> et index).</p>
+<p>Ceci permet de faire une revue de ce qui sera validé (c&#8217;est une différence entre <span class='synopsis'><code>HEAD</code></span> et index).</p>
 </dd>
 </dl>
 </div>
@@ -319,7 +342,7 @@ p - print the current hunk
 <h2 id="_éditer_les_correctifs"><a class="anchor" href="#_éditer_les_correctifs"></a>ÉDITER LES CORRECTIFS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Invoquer <code>git add -e</code> ou sélectionner <code>e</code> depuis le sélecteur interactif de sections ouvre un correctif dans votre éditeur ; après avoir quitté l&#8217;éditeur, le résultat est appliqué à l&#8217;index. Vous êtes libre de modifier en tout point le correctif, mais notez cependant que certaines modifications provoquent des résultats inattendus ou même créent des correctifs inapplicables. Si vous souhaitez abandonner complètement l&#8217;opération (c&#8217;est-à-dire ne rien ajouter à l&#8217;index), effacez toutes les lignes du correctif. La liste ci-dessous décrit des formes habituelles dans les correctifs et quelles opérations d&#8217;édition peuvent être réalisées.</p>
+<p>Invoquer <span class='synopsis'><code>git</code> <code>add</code> <code>-e</code></span> ou sélectionner <span class='synopsis'><code>e</code></span> depuis le sélecteur interactif de sections ouvre un correctif dans votre éditeur ; après avoir quitté l&#8217;éditeur, le résultat est appliqué à l&#8217;index. Vous êtes libre de modifier en tout point le correctif, mais notez cependant que certaines modifications provoquent des résultats inattendus ou même créent des correctifs inapplicables. Si vous souhaitez abandonner complètement l&#8217;opération (c&#8217;est-à-dire ne rien ajouter à l&#8217;index), effacez toutes les lignes du correctif. La liste ci-dessous décrit des formes habituelles dans les correctifs et quelles opérations d&#8217;édition peuvent être réalisées.</p>
 </div>
 <div class="openblock">
 <div class="content">
@@ -342,7 +365,7 @@ p - print the current hunk
 </div>
 </div>
 <div class="paragraph">
-<p>Il existe aussi des opérations plus complexes qui peuvent être réalisées. Méfiez-vous : quand le correctif n&#8217;est appliqué que dans l&#8217;index et pas dans l&#8217;arbre de travail, l&#8217;arbre de travail semblera « défaire » les modifications de l&#8217;index. Par exemple, l&#8217;introduction dans l&#8217;index d&#8217;une nouvelle ligne qui n’apparaît ni dans <code>HEAD</code> ni dans l&#8217;arbre de travail indexera la nouvelle ligne pour validation, mais cette ligne semblera être supprimée dans l&#8217;arbre de travail.</p>
+<p>Il existe aussi des opérations plus complexes qui peuvent être réalisées. Méfiez-vous : quand le correctif n&#8217;est appliqué que dans l&#8217;index et pas dans l&#8217;arbre de travail, l&#8217;arbre de travail semblera « défaire » les modifications de l&#8217;index. Par exemple, l&#8217;introduction dans l&#8217;index d&#8217;une nouvelle ligne qui n’apparaît ni dans <span class='synopsis'><code>HEAD</code></span> ni dans l&#8217;arbre de travail indexera la nouvelle ligne pour validation, mais cette ligne semblera être supprimée dans l&#8217;arbre de travail.</p>
 </div>
 <div class="paragraph">
 <p>Évitez d&#8217;utiliser ces constructions, ou faites-le avec une extrême précaution.</p>
@@ -399,7 +422,7 @@ p - print the current hunk
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/add.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/add.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

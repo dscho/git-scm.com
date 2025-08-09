@@ -9,6 +9,25 @@ docname: git-switch
 lang: fr
 aliases:
 - "/docs/git-switch/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: EXEMPLES
+  id: _exemples
+- text: CONFIGURATION
+  id: _configuration
+- text: VOIR AUSSI
+  id: _voir_aussi
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -36,10 +55,10 @@ aliases:
 <p>Passe à une branche spécifiée. L&#8217;arbre de travail et l&#8217;index sont mis à jour pour correspondre à la branche. Tous les nouveaux commits seront ajoutés au sommet de cette branche.</p>
 </div>
 <div class="paragraph">
-<p>En option, une nouvelle branche peut être créée avec les options <code>-c</code>, <code>-C</code>, automatiquement à partir d&#8217;une branche distante du même nom (voir <code>--guess</code>), ou détacher l&#8217;arbre de travail de toute branche avec <code>--detach</code> en même temps que la commutation.</p>
+<p>En option, une nouvelle branche peut être créée avec les options <span class='synopsis'><code>-c</code></span>, <span class='synopsis'><code>-C</code></span>, automatiquement à partir d&#8217;une branche distante du même nom (voir <span class='synopsis'><code>--guess</code></span>), ou détacher l&#8217;arbre de travail de toute branche avec <span class='synopsis'><code>--detach</code></span> en même temps que la commutation.</p>
 </div>
 <div class="paragraph">
-<p>La commutation de branche ne nécessite pas d&#8217;index et d&#8217;arbre de travail propres(c.-à-d. aucune différence par rapport à <code>HEAD</code>). L&#8217;opération est interrompue cependant si l&#8217;opération entraîne une perte de modifications locales, sauf indication contraire via <code>--discard-changes</code> ou <code>--merge</code>.</p>
+<p>La commutation de branche ne nécessite pas d&#8217;index et d&#8217;arbre de travail propres(c.-à-d. aucune différence par rapport à <span class='synopsis'><code>HEAD</code></span>). L&#8217;opération est interrompue cependant si l&#8217;opération entraîne une perte de modifications locales, sauf indication contraire via <span class='synopsis'><code>--discard-changes</code></span> ou <span class='synopsis'><code>--merge</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>CETTE COMMANDE EST EXPÉRIMENTALE. LE COMPORTEMENT PEUT CHANGER.</p>
@@ -61,18 +80,18 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-switch-ltpointdedpartgt"> <a class="anchor" href="#git-switch-pointdedpart"></a> <a class="anchor" href="#git-switch-ltpointdedpartgt"></a>&lt;point_de_départ&gt; </dt>
 <dd>
-<p>The starting point for the new branch. Specifying a <code>&lt;start-point&gt;</code> allows you to create a branch based on some other point in history than where HEAD currently points. (Or, in the case of <code>--detach</code>, allows you to inspect and detach from some other point.)</p>
+<p>The starting point for the new branch. Specifying a <span class='synopsis'><em>&lt;start-point&gt;</em></span> allows you to create a branch based on some other point in history than where HEAD currently points. (Or, in the case of <span class='synopsis'><code>--detach</code></span>, allows you to inspect and detach from some other point.)</p>
 <div class="paragraph">
-<p>Vous pouvez utiliser la syntaxe <code>@{-N}</code> pour faire référence à la N-ième dernière branche ou commit sur lesquels on a basculé en utilisant une opération « git switch » ou « git checkout ». Vous pouvez aussi spécifier <code>-</code> qui est synonyme de <code>@{-1}</code>. C&#8217;est souvent utilisé pour basculer rapidement entre deux branches ou pour annuler un basculement par erreur.</p>
+<p>Vous pouvez utiliser la syntaxe <span class='synopsis'><code>@{-N}</code></span> pour faire référence à la N-ième dernière branche ou commit sur lesquels on a basculé en utilisant une opération « git switch » ou « git checkout ». Vous pouvez aussi spécifier <span class='synopsis'><code>-</code></span> qui est synonyme de <span class='synopsis'><code>@{-1}</code></span>. C&#8217;est souvent utilisé pour basculer rapidement entre deux branches ou pour annuler un basculement par erreur.</p>
 </div>
 <div class="paragraph">
-<p>Autre cas spécial supplémentaire, vous pouvez utiliser <code>A...B</code> comme raccourci pour la base de fusion de <code>A</code> et <code>B</code> s&#8217;il y a exactement une seule base de fusion. Vous pouvez ne pas spécifier <code>A</code> ou <code>B</code>, auquel cas ce sera <code>HEAD</code> par défaut.</p>
+<p>Autre cas spécial supplémentaire, vous pouvez utiliser <span class='synopsis'><code>A...B</code></span> comme raccourci pour la base de fusion de <span class='synopsis'><code>A</code></span> et <span class='synopsis'><code>B</code></span> s&#8217;il y a exactement une seule base de fusion. Vous pouvez ne pas spécifier <span class='synopsis'><code>A</code></span> ou <span class='synopsis'><code>B</code></span>, auquel cas ce sera <span class='synopsis'><code>HEAD</code></span> par défaut.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-switch--cltnouvelle-branchegt"> <a class="anchor" href="#git-switch--cnouvelle-branche"></a> <a class="anchor" href="#git-switch--cltnouvelle-branchegt"></a>-c &lt;nouvelle-branche&gt; </dt>
 <dt class="hdlist1" id="git-switch---createltnouvelle-branchegt"> <a class="anchor" href="#git-switch---createnouvelle-branche"></a> <a class="anchor" href="#git-switch---createltnouvelle-branchegt"></a>--create &lt;nouvelle-branche&gt; </dt>
 <dd>
-<p>Créer une nouvelle branche nommée <code>&lt;nouvelle-branche&gt;</code> commençant à <code>&lt;point-de-départ&gt;</code> avant de basculer sur cette branche. C&#8217;est l&#8217;équivalent transactionnel de</p>
+<p>Créer une nouvelle branche nommée <span class='synopsis'><em>&lt;nouvelle-branche&gt;</em></span> commençant à <span class='synopsis'><em>&lt;point-de-départ&gt;</em></span> avant de basculer sur cette branche. C&#8217;est l&#8217;équivalent transactionnel de</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git branch &lt;nouvelle-branche&gt;
@@ -86,7 +105,7 @@ $ git switch &lt;nouvelle-branche&gt;</pre>
 <dt class="hdlist1" id="git-switch--Cltnouvelle-branchegt"> <a class="anchor" href="#git-switch--Cnouvelle-branche"></a> <a class="anchor" href="#git-switch--Cltnouvelle-branchegt"></a>-C &lt;nouvelle-branche&gt; </dt>
 <dt class="hdlist1" id="git-switch---force-createltnouvelle-branchegt"> <a class="anchor" href="#git-switch---force-createnouvelle-branche"></a> <a class="anchor" href="#git-switch---force-createltnouvelle-branchegt"></a>--force-create &lt;nouvelle-branche&gt; </dt>
 <dd>
-<p>Similar to <code>--create</code> except that if <code>&lt;new-branch&gt;</code> already exists, it will be reset to <code>&lt;start-point&gt;</code>. This is a convenient shortcut for:</p>
+<p>Similar to <span class='synopsis'><code>--create</code></span> except that if <span class='synopsis'><em>&lt;new-branch&gt;</em></span> already exists, it will be reset to <span class='synopsis'><em>&lt;start-point&gt;</em></span>. This is a convenient shortcut for:</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git branch -f &lt;nouvelle-branche&gt;
@@ -102,42 +121,42 @@ $ git switch &lt;nouvelle-branche&gt;</pre>
 <dt class="hdlist1" id="git-switch---guess"> <a class="anchor" href="#git-switch---guess"></a>--guess </dt>
 <dt class="hdlist1" id="git-switch---no-guess"> <a class="anchor" href="#git-switch---no-guess"></a>--no-guess </dt>
 <dd>
-<p>Si la <code>&lt;branche&gt;</code> n&#8217;est pas trouvée mais qu&#8217;il existe une branche de suivi pour un dépôt distant unique (appelé <code>&lt;distant&gt;</code>) avec un nom correspondant, le traiter comme équivalent à</p>
+<p>Si la <span class='synopsis'><em>&lt;branche&gt;</em></span> n&#8217;est pas trouvée mais qu&#8217;il existe une branche de suivi pour un dépôt distant unique (appelé <span class='synopsis'><em>&lt;distant&gt;</em></span>) avec un nom correspondant, le traiter comme équivalent à</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git switch -c &lt;branche&gt; --track &lt;distant&gt;/&lt;branche&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Si la branche existe dans plus d&#8217;un distant et que l&#8217;un d&#8217;entre eux est la valeur de la variable de configuration <code>checkout.defaultRemote</code>, celui-ci sera utilisé pour désambiguïser, même si la &lt;branche&gt; n&#8217;est pas unique parmi tous les distants. Réglez la variable <code>checkout.defaultRemote=origin</code> par exemple pour extraire toujours les branches distantes depuis celle-ci si &lt;branche&gt; est ambigüe mais existe sur le distant <em>origin</em>. Voir aussi <code>checkout.defaultRemote</code> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>.</p>
+<p>Si la branche existe dans plus d&#8217;un distant et que l&#8217;un d&#8217;entre eux est la valeur de la variable de configuration <span class='synopsis'><code>checkout.defaultRemote</code></span>, celui-ci sera utilisé pour désambiguïser, même si la &lt;branche&gt; n&#8217;est pas unique parmi tous les distants. Réglez la variable <span class='synopsis'><code>checkout.defaultRemote=origin</code></span> par exemple pour extraire toujours les branches distantes depuis celle-ci si &lt;branche&gt; est ambigüe mais existe sur le distant <em>origin</em>. Voir aussi <span class='synopsis'><code>checkout.defaultRemote</code></span> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p><code>--guess</code> est le comportement par défaut. Utilisez <code>--no-guess</code> pour le désactiver.</p>
+<p><span class='synopsis'><code>--guess</code></span> est le comportement par défaut. Utilisez <span class='synopsis'><code>--no-guess</code></span> pour le désactiver.</p>
 </div>
 <div class="paragraph">
-<p>Le comportement par défaut peut être défini via la variable de configuration <code>checkout.guess</code>.</p>
+<p>Le comportement par défaut peut être défini via la variable de configuration <span class='synopsis'><code>checkout.guess</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-switch--f"> <a class="anchor" href="#git-switch--f"></a>-f </dt>
 <dt class="hdlist1" id="git-switch---force"> <a class="anchor" href="#git-switch---force"></a>--force </dt>
 <dd>
-<p>An alias for <code>--discard-changes</code>.</p>
+<p>An alias for <span class='synopsis'><code>--discard-changes</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-switch---discard-changes"> <a class="anchor" href="#git-switch---discard-changes"></a>--discard-changes </dt>
 <dd>
-<p>Proceed even if the index or the working tree differs from <code>HEAD</code>. Both the index and working tree are restored to match the switching target. If <code>--recurse-submodules</code> is specified, submodule content is also restored to match the switching target. This is used to throw away local changes.</p>
+<p>Proceed even if the index or the working tree differs from <span class='synopsis'><code>HEAD</code></span>. Both the index and working tree are restored to match the switching target. If <span class='synopsis'><code>--recurse-submodules</code></span> is specified, submodule content is also restored to match the switching target. This is used to throw away local changes.</p>
 </dd>
 <dt class="hdlist1" id="git-switch--m"> <a class="anchor" href="#git-switch--m"></a>-m </dt>
 <dt class="hdlist1" id="git-switch---merge"> <a class="anchor" href="#git-switch---merge"></a>--merge </dt>
 <dd>
 <p>Si vous avez des modifications locales sur un fichier ou plus qui sont différentes entre la branche actuelle et celle sur laquelle vous basculez, la commande refuse le basculement pour préserver vos modifications dans leur contexte. Cependant, avec cette option, une fusion à trois points entre la branche actuelle, le contenu de votre arbre de travail et la nouvelle branche est opérée et vous serez sur la nouvelle branche.</p>
 <div class="paragraph">
-<p>Quand un conflit de fusion apparaît, les entrées d&#8217;index pour les chemins en conflit sont laissées non-fusionnées et vous devez résoudre les conflits et les marquer résolus pour les chemins concernés avec <code>git add</code> (ou <code>git rm</code> si la fusion doit aboutir à la suppression du chemin).</p>
+<p>Quand un conflit de fusion apparaît, les entrées d&#8217;index pour les chemins en conflit sont laissées non-fusionnées et vous devez résoudre les conflits et les marquer résolus pour les chemins concernés avec <span class='synopsis'><code>git</code> <code>add</code></span> (ou <span class='synopsis'><code>git</code> <code>rm</code></span> si la fusion doit aboutir à la suppression du chemin).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-switch---conflictltstylegt"> <a class="anchor" href="#git-switch---conflictstyle"></a> <a class="anchor" href="#git-switch---conflictltstylegt"></a>--conflict=&lt;style&gt; </dt>
 <dd>
-<p>Identique à l&#8217;option <code>--merge</code> ci-dessus, mais la manière dont les sections en conflits sont présentées est modifiée, en surchargeant la variable de configuration <code>merge.conflictStyle</code>. Les valeurs possibles sont <code>merge</code> (fusion, par défaut), <code>diff3</code> et <code>zdiff3</code>.</p>
+<p>Identique à l&#8217;option <span class='synopsis'><code>--merge</code></span> ci-dessus, mais la manière dont les sections en conflits sont présentées est modifiée, en surchargeant la variable de configuration <span class='synopsis'><code>merge.conflictStyle</code></span>. Les valeurs possibles sont <span class='synopsis'><code>merge</code></span> (fusion, par défaut), <span class='synopsis'><code>diff3</code></span> et <span class='synopsis'><code>zdiff3</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-switch--q"> <a class="anchor" href="#git-switch--q"></a>-q </dt>
 <dt class="hdlist1" id="git-switch---quiet"> <a class="anchor" href="#git-switch---quiet"></a>--quiet </dt>
@@ -147,32 +166,32 @@ $ git switch &lt;nouvelle-branche&gt;</pre>
 <dt class="hdlist1" id="git-switch---progress"> <a class="anchor" href="#git-switch---progress"></a>--progress </dt>
 <dt class="hdlist1" id="git-switch---no-progress"> <a class="anchor" href="#git-switch---no-progress"></a>--no-progress </dt>
 <dd>
-<p>L&#8217;état d&#8217;avancement est affiché sur la sortie standard d&#8217;erreur par défaut quand elle est attachée à un terminal, à moins que <code>--quiet</code> ne soit spécifié. Cette bascule active l&#8217;état d&#8217;avancement même sans être attaché à un terminal, indépendamment de <code>--quiet</code>.</p>
+<p>L&#8217;état d&#8217;avancement est affiché sur la sortie standard d&#8217;erreur par défaut quand elle est attachée à un terminal, à moins que <span class='synopsis'><code>--quiet</code></span> ne soit spécifié. Cette bascule active l&#8217;état d&#8217;avancement même sans être attaché à un terminal, indépendamment de <span class='synopsis'><code>--quiet</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-switch--t"> <a class="anchor" href="#git-switch--t"></a>-t </dt>
 <dt class="hdlist1" id="git-switch---trackdirectinherit"> <a class="anchor" href="#git-switch---trackdirectinherit"></a>--track [direct|inherit] </dt>
 <dd>
-<p>À la création d&#8217;une nouvelle branche, établir la configuration <em>upstream</em> (branche amont). <code>-c</code> est implicite. Voir <code>--track</code> dans <a href='{{< relurl "docs/git-branch/fr" >}}'>git-branch[1]</a> pour plus de détails.</p>
+<p>À la création d&#8217;une nouvelle branche, établir la configuration <em>upstream</em> (branche amont). <span class='synopsis'><code>-c</code></span> est implicite. Voir <span class='synopsis'><code>--track</code></span> dans <a href='{{< relurl "docs/git-branch/fr" >}}'>git-branch[1]</a> pour plus de détails.</p>
 <div class="paragraph">
-<p>Si aucune option <code>-c</code> n&#8217;est fournie, le nom de la nouvelle branche sera dérivé de la branche de suivi à distance, en regardant la partie locale de la spécification de référence configurée pour le distant correspondant et en enlevant la partie initiale jusqu&#8217;au "*". Cela indiquerait d&#8217;utiliser le nom <code>hack</code> comme branche locale créée à partir de <code>origin/hack</code> (ou <code>remotes/origin/hack</code>, ou même <code>refs/remotes/origin/hack</code>). Si le nom fourni ne contient pas de barre oblique, ou si le résultat de la dérivation est un nom vide, la dérivation échoue. Vous pouvez spécifier explicitement un nom avec <code>-c</code> dans ce cas.</p>
+<p>Si aucune option <span class='synopsis'><code>-c</code></span> n&#8217;est fournie, le nom de la nouvelle branche sera dérivé de la branche de suivi à distance, en regardant la partie locale de la spécification de référence configurée pour le distant correspondant et en enlevant la partie initiale jusqu&#8217;au "*". Cela indiquerait d&#8217;utiliser le nom <span class='synopsis'><code>hack</code></span> comme branche locale créée à partir de <span class='synopsis'><code>origin/hack</code></span> (ou <span class='synopsis'><code>remotes/origin/hack</code></span>, ou même <span class='synopsis'><code>refs/remotes/origin/hack</code></span>). Si le nom fourni ne contient pas de barre oblique, ou si le résultat de la dérivation est un nom vide, la dérivation échoue. Vous pouvez spécifier explicitement un nom avec <span class='synopsis'><code>-c</code></span> dans ce cas.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-switch---no-track"> <a class="anchor" href="#git-switch---no-track"></a>--no-track </dt>
 <dd>
-<p>Ne pas renseigner la configuration « amont », même si la configuration <code>branch.autoSetupMerge</code> est true.</p>
+<p>Ne pas renseigner la configuration « amont », même si la configuration <span class='synopsis'><code>branch.autoSetupMerge</code></span> est true.</p>
 </dd>
 <dt class="hdlist1" id="git-switch---orphanltnouvelle-branchegt"> <a class="anchor" href="#git-switch---orphannouvelle-branche"></a> <a class="anchor" href="#git-switch---orphanltnouvelle-branchegt"></a>--orphan &lt;nouvelle-branche&gt; </dt>
 <dd>
-<p>Create a new unborn branch, named <code>&lt;new-branch&gt;</code>. All tracked files are removed.</p>
+<p>Create a new unborn branch, named <span class='synopsis'><em>&lt;new-branch&gt;</em></span>. All tracked files are removed.</p>
 </dd>
 <dt class="hdlist1" id="git-switch---ignore-other-worktrees"> <a class="anchor" href="#git-switch---ignore-other-worktrees"></a>--ignore-other-worktrees </dt>
 <dd>
-<p><code>git switch</code> échoue quand la référence voulue est déjà extraite dans un autre arbre de travail. Cette option force l&#8217;extraction. En d&#8217;autres termes, la réf peut être tenue par plus d&#8217;un arbre de travail.</p>
+<p><span class='synopsis'><code>git</code> <code>switch</code></span> échoue quand la référence voulue est déjà extraite dans un autre arbre de travail. Cette option force l&#8217;extraction. En d&#8217;autres termes, la réf peut être tenue par plus d&#8217;un arbre de travail.</p>
 </dd>
 <dt class="hdlist1" id="git-switch---recurse-submodules"> <a class="anchor" href="#git-switch---recurse-submodules"></a>--recurse-submodules </dt>
 <dt class="hdlist1" id="git-switch---no-recurse-submodules"> <a class="anchor" href="#git-switch---no-recurse-submodules"></a>--no-recurse-submodules </dt>
 <dd>
-<p>L&#8217;utilisation de <code>--recurse-submodules</code> permet de mettre à jour le contenu de tous les sous-modules actifs en fonction du commit enregistré dans le super-projet. Si l&#8217;option n&#8217;est pas spécifiée (ou si <code>--no-recurse-submodules</code> est spécifié), les arbres de travail des sous-modules ne sont pas mis à jour. Comme <a href='{{< relurl "docs/git-submodule/fr" >}}'>git-submodule[1]</a>, les <code>HEAD</code> des sous-modules seront détachées.</p>
+<p>L&#8217;utilisation de <span class='synopsis'><code>--recurse-submodules</code></span> permet de mettre à jour le contenu de tous les sous-modules actifs en fonction du commit enregistré dans le super-projet. Si l&#8217;option n&#8217;est pas spécifiée (ou si <span class='synopsis'><code>--no-recurse-submodules</code></span> est spécifié), les arbres de travail des sous-modules ne sont pas mis à jour. Comme <a href='{{< relurl "docs/git-submodule/fr" >}}'>git-submodule[1]</a>, les <span class='synopsis'><code>HEAD</code></span> des sous-modules seront détachées.</p>
 </dd>
 </dl>
 </div>
@@ -207,7 +226,7 @@ error : Vos modifications locales aux fichiers suivants seraient écrasées pa
 </div>
 </div>
 <div class="paragraph">
-<p>Vous pouvez fournir l&#8217;option <code>-m</code> à la commande, ce qui essaierait une fusion à trois points :</p>
+<p>Vous pouvez fournir l&#8217;option <span class='synopsis'><code>-m</code></span> à la commande, ce qui essaierait une fusion à trois points :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -216,7 +235,7 @@ Fusion automatique de frotz</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Après cette fusion à trois points, les modifications locales ne sont <em>pas</em> enregistrées dans votre index, donc <code>git diff</code> vous montrerait ce qui a changé depuis le sommet de la nouvelle branche.</p>
+<p>Après cette fusion à trois points, les modifications locales ne sont <em>pas</em> enregistrées dans votre index, donc <span class='synopsis'><code>git</code> <code>diff</code></span> vous montrerait ce qui a changé depuis le sommet de la nouvelle branche.</p>
 </div>
 <div class="paragraph">
 <p>To switch back to the previous branch before we switched to mytopic (i.e. "master" branch):</p>
@@ -246,7 +265,7 @@ Switched to a new branch 'new-topic'</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>To check out commit <code>HEAD~3</code> for temporary inspection or experiment without creating a new branch:</p>
+<p>To check out commit <span class='synopsis'><code>HEAD~3</code></span> for temporary inspection or experiment without creating a new branch:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -278,7 +297,7 @@ HEAD is now at 9fc9555312 Merge branch 'cc/shared-index-permbits'</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/checkout.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/checkout.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

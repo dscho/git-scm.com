@@ -9,6 +9,23 @@ docname: git-cherry
 lang: fr
 aliases:
 - "/docs/git-cherry/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: EXEMPLES
+  id: _exemples
+- text: VOIR AUSSI
+  id: _voir_aussi
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -30,13 +47,13 @@ aliases:
 <h2 id="_description"><a class="anchor" href="#_description"></a>DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Détermine s&#8217;il existe des commits dans <code>&lt;tête&gt;..&lt;amont&gt;</code> qui sont équivalents à ceux de la plage <code>&lt;limite&gt;..&lt;tête&gt;</code>.</p>
+<p>Détermine s&#8217;il existe des commits dans <span class='synopsis'><em>&lt;tête&gt;</em><code>..</code><em>&lt;amont&gt;</em></span> qui sont équivalents à ceux de la plage <span class='synopsis'><em>&lt;limite&gt;</em><code>..</code><em>&lt;tête&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
 <p>Le test d&#8217;équivalence est basé sur le diff, après avoir supprimé les espaces et les numéros de ligne. git-cherry détecte donc quand les commits ont été « copiés » au moyen de <a href='{{< relurl "docs/git-cherry-pick/fr" >}}'>git-cherry-pick[1]</a>, <a href='{{< relurl "docs/git-am/fr" >}}'>git-am[1]</a> ou <a href='{{< relurl "docs/git-rebase/fr" >}}'>git-rebase[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Sort le SHA1 de chaque commit dans <code>&lt;limite&gt;..&lt;tête&gt;</code>, préfixé avec <code>-</code> pour les commits qui ont un équivalent dans &lt;amont&gt;, et <code>+</code> pour les commits qui n&#8217;en ont pas.</p>
+<p>Sort le SHA1 de chaque commit dans <span class='synopsis'><em>&lt;limite&gt;</em><code>..</code><em>&lt;tête&gt;</em></span>, préfixé avec <span class='synopsis'><code>-</code></span> pour les commits qui ont un équivalent dans &lt;amont&gt;, et <span class='synopsis'><code>+</code></span> pour les commits qui n&#8217;en ont pas.</p>
 </div>
 </div>
 </div>
@@ -82,7 +99,7 @@ $ git send-email ... 00*</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Plus tard, vous pourrez voir si vos modifications ont été appliquées en disant (toujours sur <code>theme</code>) :</p>
+<p>Plus tard, vous pourrez voir si vos modifications ont été appliquées en disant (toujours sur <span class='synopsis'><code>theme</code></span>) :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -123,7 +140,7 @@ o 1234567 branch point</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Ici, nous voyons que les commits A et C (marqués par <code>-</code>) peuvent être supprimés de votre branche <code>theme</code> lorsque vous la rebasez au-dessus de <code>origin/master</code>, alors que le commit B (marqué par <code>+</code>) doit encore être conservé pour qu&#8217;il soit envoyé pour être appliqué à <code>origin/master</code>.</p>
+<p>Ici, nous voyons que les commits A et C (marqués par <span class='synopsis'><code>-</code></span>) peuvent être supprimés de votre branche <span class='synopsis'><code>theme</code></span> lorsque vous la rebasez au-dessus de <span class='synopsis'><code>origin/master</code></span>, alors que le commit B (marqué par <span class='synopsis'><code>+</code></span>) doit encore être conservé pour qu&#8217;il soit envoyé pour être appliqué à <span class='synopsis'><code>origin/master</code></span>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -150,7 +167,7 @@ o 1234567 base de fusion entre amont et theme</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>En spécifiant <code>base</code> comme limite, vous pouvez éviter de lister les commits entre <code>base</code> et <code>theme</code> :</p>
+<p>En spécifiant <span class='synopsis'><code>base</code></span> comme limite, vous pouvez éviter de lister les commits entre <span class='synopsis'><code>base</code></span> et <span class='synopsis'><code>theme</code></span> :</p>
 </div>
 <div class="listingblock">
 <div class="content">

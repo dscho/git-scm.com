@@ -9,6 +9,19 @@ docname: git-upload-archive
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-upload-archive/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 安全
+  id: _安全
+- text: 选项
+  id: _选项
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -41,26 +54,26 @@ aliases:
 <h2 id="_安全"><a class="anchor" href="#_安全"></a>安全</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>为了保护已从历史中删除但可能尚未被剪枝的对象的隐私，<code>git-upload-archive</code> 避免为从版本库的 refs 无法访问的提交和树提供存档。 不过，由于计算对象可达性的计算成本很高，<code>git-upload-archive</code> 实现了一套更严格但更容易检查的规则：</p>
+<p>为了保护已从历史中删除但可能尚未被剪枝的对象的隐私，<span class='synopsis'><code>git-upload-archive</code></span> 避免为从版本库的 refs 无法访问的提交和树提供存档。 不过，由于计算对象可达性的计算成本很高，<span class='synopsis'><code>git-upload-archive</code></span> 实现了一套更严格但更容易检查的规则：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>客户端可以请求由 ref 直接指向的提交或树。例如，<code>git archive --remote=origin v1.0</code>。</p>
+<p>客户端可以请求由 ref 直接指向的提交或树。例如，<span class='synopsis'><code>git</code> <code>archive</code> <code>--remote=origin</code> <code>v1.0</code></span>。</p>
 </li>
 <li>
-<p>客户端可以使用 <code>ref:path</code> 语法请求提交或树中的子树。例如，<code>git archive --remote=origin v1.0:Documentation</code>。</p>
+<p>客户端可以使用 <span class='synopsis'><code>ref:path</code></span> 语法请求提交或树中的子树。例如，<span class='synopsis'><code>git</code> <code>archive</code> <code>--remote=origin</code> <code>v1.0:Documentation</code></span>。</p>
 </li>
 <li>
-<p>客户端不得_使用其他 sha1 表达式，即使最终结果是可达的。例如，既不允许使用像 <code>master^</code> 这样的相对提交，也不允许使用像 <code>abcd1234</code> 这样的字面 sha1 表达式，即便结果能够从引用中找到。</p>
+<p>客户端不得_使用其他 sha1 表达式，即使最终结果是可达的。例如，既不允许使用像 <span class='synopsis'><code>master^</code></span> 这样的相对提交，也不允许使用像 <span class='synopsis'><code>abcd1234</code></span> 这样的字面 sha1 表达式，即便结果能够从引用中找到。</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>请注意，规则 3 不允许许多不涉及隐私的情况。这些规则可能会在未来的 git 版本中修改，而通过 <code>git archive --remote</code> 访问的服务器可能会也可能不会完全遵循这些规则。</p>
+<p>请注意，规则 3 不允许许多不涉及隐私的情况。这些规则可能会在未来的 git 版本中修改，而通过 <span class='synopsis'><code>git</code> <code>archive</code> <code>--remote</code></span> 访问的服务器可能会也可能不会完全遵循这些规则。</p>
 </div>
 <div class="paragraph">
-<p>如果配置选项 <code>uploadArchive.allowUnreachable</code> 为 true，这些规则将被忽略，客户端可以使用任意的 sha1 表达式。 如果你不关心无法访问对象的隐私，或者如果你的对象数据库已经公开，可以通过非智能 HTTP 访问，那么这将非常有用。</p>
+<p>如果配置选项 <span class='synopsis'><code>uploadArchive.allowUnreachable</code></span> 为 true，这些规则将被忽略，客户端可以使用任意的 sha1 表达式。 如果你不关心无法访问对象的隐私，或者如果你的对象数据库已经公开，可以通过非智能 HTTP 访问，那么这将非常有用。</p>
 </div>
 </div>
 </div>

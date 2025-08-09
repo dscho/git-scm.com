@@ -9,6 +9,21 @@ docname: git-checkout-index
 lang: pt_BR
 aliases:
 - "/docs/git-checkout-index/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: Utilizando --temp ou --stage=all
+  id: _utilizando_temp_ou_stageall
+- text: EXEMPLOS
+  id: _exemplos
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -62,7 +77,7 @@ aliases:
 <dt class="hdlist1" id="git-checkout-index--a"> <a class="anchor" href="#git-checkout-index--a"></a>-a </dt>
 <dt class="hdlist1" id="git-checkout-index---all"> <a class="anchor" href="#git-checkout-index---all"></a>--all </dt>
 <dd>
-<p>Verifica todos os arquivos no índice, exceto aqueles com o bit skip-worktree definido (consulte <code>--ignore-skip-worktree-bits</code>). Não pode ser usado junto com nomes específicos de arquivos.</p>
+<p>Verifica todos os arquivos no índice, exceto aqueles com o bit skip-worktree definido (consulte <span class='synopsis'><code>--ignore-skip-worktree-bits</code></span>). Não pode ser usado junto com nomes específicos de arquivos.</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-index--n"> <a class="anchor" href="#git-checkout-index--n"></a>-n </dt>
 <dt class="hdlist1" id="git-checkout-index---no-create"> <a class="anchor" href="#git-checkout-index---no-create"></a>--no-create </dt>
@@ -71,11 +86,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-checkout-index---prefixlttextogt"> <a class="anchor" href="#git-checkout-index---prefixtexto"></a> <a class="anchor" href="#git-checkout-index---prefixlttextogt"></a>--prefix=&lt;texto&gt; </dt>
 <dd>
-<p>Ao criar os arquivos, anexe uma <code>&lt;texto&gt;</code> (geralmente um diretório incluindo uma barra <code>/</code>)</p>
+<p>Ao criar os arquivos, anexe uma <span class='synopsis'><em>&lt;texto&gt;</em></span> (geralmente um diretório incluindo uma barra <span class='synopsis'><code>/</code></span>)</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-index---stageltnmerogtall"> <a class="anchor" href="#git-checkout-index---stagenmeroall"></a> <a class="anchor" href="#git-checkout-index---stageltnmerogtall"></a>--stage=&lt;número&gt;|all </dt>
 <dd>
-<p>Em vez de verificar as entradas não mescladas, copie os arquivos de determinado estágio. &lt;número&gt; deve ser entre 1 e 3. Observação: a opção <code>--stage=all</code> automaticamente implica no uso da opção <code>--temp</code>.</p>
+<p>Em vez de verificar as entradas não mescladas, copie os arquivos de determinado estágio. &lt;número&gt; deve ser entre 1 e 3. Observação: a opção <span class='synopsis'><code>--stage=all</code></span> automaticamente implica no uso da opção <span class='synopsis'><code>--temp</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-index---temp"> <a class="anchor" href="#git-checkout-index---temp"></a>--temp </dt>
 <dd>
@@ -91,7 +106,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-checkout-index--z"> <a class="anchor" href="#git-checkout-index--z"></a>-z </dt>
 <dd>
-<p>Somente faz sentido se utilizado junto com a opção <code>--stdin</code>; os caminhos são separados com caracteres <code>NUL</code> em vez de <code>LF</code>.</p>
+<p>Somente faz sentido se utilizado junto com a opção <span class='synopsis'><code>--stdin</code></span>; os caminhos são separados com caracteres <span class='synopsis'><code>NUL</code></span> em vez de <span class='synopsis'><code>LF</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-index---"> <a class="anchor" href="#git-checkout-index---"></a>-- </dt>
 <dd>
@@ -103,7 +118,7 @@ aliases:
 <p>A ordem das opções costumava importar, agora não mais.</p>
 </div>
 <div class="paragraph">
-<p>Agora ao executar o comando <code>git checkout-index</code>, ele não faz nada. Você provavelmente quis utilizar <code>git checkout-index -a</code>. E caso queira impor a sua utilização, utilize <code>git checkout-index -f -a</code>.</p>
+<p>Agora ao executar o comando <span class='synopsis'><code>git</code> <code>checkout-index</code></span>, ele não faz nada. Você provavelmente quis utilizar <span class='synopsis'><code>git</code> <code>checkout-index</code> <code>-a</code></span>. E caso queira impor a sua utilização, utilize <span class='synopsis'><code>git</code> <code>checkout-index</code> <code>-f</code> <code>-a</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>A intuição não é o objetivo aqui. A repetibilidade é. A razão para o comportamento "sem argumentos significa que não há trabalho" é que, a partir dos scripts que você deve ser capaz de executar:</p>
@@ -114,7 +129,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Que impõem que todos os arquivos <code>*.h</code> já existentes sejam substituídos pelas suas cópias no cache. Se uma linha de comando vazia implicasse em "all", isso impõem a atualização de tudo no índice, o que não era o objetivo. Mas como o comando <em>git checkout-index</em> aceita a opção <code>--stdin</code>, seria mais rápido usá-la:</p>
+<p>Que impõem que todos os arquivos <span class='synopsis'><code>*.h</code></span> já existentes sejam substituídos pelas suas cópias no cache. Se uma linha de comando vazia implicasse em "all", isso impõem a atualização de tudo no índice, o que não era o objetivo. Mas como o comando <em>git checkout-index</em> aceita a opção <span class='synopsis'><code>--stdin</code></span>, seria mais rápido usá-la:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -122,15 +137,15 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>O <code>--</code> é apenas uma boa ideia quando você sabe que o restante será nomes de arquivos; isso evitará problemas com um nome de arquivo de, por exemplo, <code>-a</code>. Usar <code>--</code> é provavelmente uma boa política em scripts.</p>
+<p>O <span class='synopsis'><code>--</code></span> é apenas uma boa ideia quando você sabe que o restante será nomes de arquivos; isso evitará problemas com um nome de arquivo de, por exemplo, <span class='synopsis'><code>-a</code></span>. Usar <span class='synopsis'><code>--</code></span> é provavelmente uma boa política em scripts.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_utilizando_temp_ou_stageall"><a class="anchor" href="#_utilizando_temp_ou_stageall"></a>Utilizando <code>--temp</code> ou <code>--stage=all</code></h2>
+<h2 id="_utilizando_temp_ou_stageall"><a class="anchor" href="#_utilizando_temp_ou_stageall"></a>Utilizando <span class='synopsis'><code>--temp</code></span> ou <span class='synopsis'><code>--stage=all</code></span></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Quando <code>--temp</code> é usado (ou implícito pela opção <code>--stage=all</code>), o comando <em>git checkout-index</em> criará um arquivo temporário para cada entrada do índice que estiver sendo verificada. O índice não será atualizado com informações de estatísticas. Estas opções podem ser úteis se aquele que o invocar precisar de todos os estágios de todas as entradas não mescladas para que os arquivos não mesclados possam ser processados por uma ferramenta de mesclagem externa.</p>
+<p>Quando <span class='synopsis'><code>--temp</code></span> é usado (ou implícito pela opção <span class='synopsis'><code>--stage=all</code></span>), o comando <em>git checkout-index</em> criará um arquivo temporário para cada entrada do índice que estiver sendo verificada. O índice não será atualizado com informações de estatísticas. Estas opções podem ser úteis se aquele que o invocar precisar de todos os estágios de todas as entradas não mescladas para que os arquivos não mesclados possam ser processados por uma ferramenta de mesclagem externa.</p>
 </div>
 <div class="paragraph">
 <p>Uma listagem será gravada no stdout, fornecendo a associação dos nomes dos arquivos temporários aos nomes dos caminhos rastreados. O formato da listagem tem duas variações:</p>
@@ -140,19 +155,19 @@ aliases:
 <li>
 <p>tempname TAB path RS</p>
 <div class="paragraph">
-<p>O primeiro formato é o que é usado quando a opção <code>--stage</code> é omitida ou quando não seja <code>--stage=all</code>. O campo "tempname" é o nome do arquivo temporário que contém o conteúdo do arquivo e "path" é o nome do caminho rastreado no índice. Apenas as entradas solicitadas são emitidas.</p>
+<p>O primeiro formato é o que é usado quando a opção <span class='synopsis'><code>--stage</code></span> é omitida ou quando não seja <span class='synopsis'><code>--stage=all</code></span>. O campo "tempname" é o nome do arquivo temporário que contém o conteúdo do arquivo e "path" é o nome do caminho rastreado no índice. Apenas as entradas solicitadas são emitidas.</p>
 </div>
 </li>
 <li>
 <p>stage1temp SP stage2temp SP stage3tmp TAB path RS</p>
 <div class="paragraph">
-<p>O segundo formato é quando se usa a opção <code>--stage=all</code>. Os três campos de estágio temporários (stage1temp, stage2temp, stage3temp) listam o nome do arquivo temporário se houver uma entrada de estágio no índice ou <code>.</code> se não houver nenhuma. Sempre serão omitidos na saída os caminhos que tiverem apenas uma entrada de estágio 0.</p>
+<p>O segundo formato é quando se usa a opção <span class='synopsis'><code>--stage=all</code></span>. Os três campos de estágio temporários (stage1temp, stage2temp, stage3temp) listam o nome do arquivo temporário se houver uma entrada de estágio no índice ou <span class='synopsis'><code>.</code></span> se não houver nenhuma. Sempre serão omitidos na saída os caminhos que tiverem apenas uma entrada de estágio 0.</p>
 </div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Em ambos os formatos RS (o separador de registros) é uma nova linha por padrão, mas será o byte nulo caso a opção <code>-z</code> tenha sido usado na linha de comando. Os nomes dos arquivos temporários são sempre strings seguras; nunca conterão separadores de diretório ou caracteres de espaço vazio. O campo "path" é sempre relativo ao diretório atual, os nomes dos arquivos temporários são sempre relativos ao diretório de nível superior.</p>
+<p>Em ambos os formatos RS (o separador de registros) é uma nova linha por padrão, mas será o byte nulo caso a opção <span class='synopsis'><code>-z</code></span> tenha sido usado na linha de comando. Os nomes dos arquivos temporários são sempre strings seguras; nunca conterão separadores de diretório ou caracteres de espaço vazio. O campo "path" é sempre relativo ao diretório atual, os nomes dos arquivos temporários são sempre relativos ao diretório de nível superior.</p>
 </div>
 <div class="paragraph">
 <p>Se o objeto que estiver sendo copiado para um arquivo temporário for um link simbólico, o conteúdo do link será gravado num arquivo normal. Cabe ao usuário final ou à porcelana fazer uso destas informações.</p>
@@ -181,7 +196,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>O comando <code>git checkout-index</code> irá "exportar" o índice para um determinado diretório.</p>
+<p>O comando <span class='synopsis'><code>git</code> <code>checkout-index</code></span> irá "exportar" o índice para um determinado diretório.</p>
 </div>
 <div class="paragraph">
 <p>O "/" no final é importante. O nome exportado é literalmente prefixado com a string definida. Compare isso com o exemplo a seguir.</p>
@@ -195,7 +210,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Verifica se a cópia disponível no cache do <code>Makefile</code> está no arquivo <code>.merged-Makefile</code>.</p>
+<p>Verifica se a cópia disponível no cache do <span class='synopsis'><code>Makefile</code></span> está no arquivo <span class='synopsis'><code>.merged-Makefile</code></span>.</p>
 </div>
 </dd>
 </dl>

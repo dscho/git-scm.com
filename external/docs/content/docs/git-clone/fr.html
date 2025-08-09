@@ -9,6 +9,25 @@ docname: git-clone
 lang: fr
 aliases:
 - "/docs/git-clone/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: URL GIT
+  id: _url_git
+- text: EXEMPLES
+  id: _exemples
+- text: CONFIGURATION
+  id: _configuration
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -21,16 +40,16 @@ aliases:
 <div class="sect1">
 <h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>git clone [--template=&lt;répertoire-de-modèles&gt;]
-	[-l] [-s] [--no-hardlinks] [-q] [-n] [--bare] [--mirror]
-	[-o &lt;nom&gt;] [-b &lt;nom&gt;] [-u &lt;upload-pack&gt;] [--reference &lt;dépôt&gt;]
-	[--dissociate] [--separate-git-dir &lt;répertoire-git&gt;]
-	[--depth &lt;profondeur&gt;] [--[no-]single-branch] [--[no-]tags]
-	[--recurse-submodules[=&lt;spéc-de-chemin&gt;]] [--[no-]shallow-submodules]
-	[--[no-]remote-submodules] [--jobs &lt;n&gt;] [--sparse] [--[no-]reject-shallow]
-	[--filter=&lt;filtre&gt;] [--also-filter-submodules]] [--] &lt;dépôt&gt;
-	[&lt;répertoire&gt;]</p>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>clone</code></span> [<span class='synopsis'><code>--template=</code></span><em>&lt;répertoire-de-modèles&gt;</em>]
+	[<span class='synopsis'><code>-l</code></span>] [<span class='synopsis'><code>-s</code></span>] [<span class='synopsis'><code>--no-hardlinks</code></span>] [<span class='synopsis'><code>-q</code></span>] [<span class='synopsis'><code>-n</code></span>] [<span class='synopsis'><code>--bare</code></span>] [<span class='synopsis'><code>--mirror</code></span>]
+	[<span class='synopsis'><code>-o</code></span> <em>&lt;nom&gt;</em>] [<span class='synopsis'><code>-b</code></span> <em>&lt;nom&gt;</em>] [<span class='synopsis'><code>-u</code></span> <em>&lt;upload-pack&gt;</em>] [<span class='synopsis'><code>--reference</code></span> <em>&lt;dépôt&gt;</em>]
+	[<span class='synopsis'><code>--dissociate</code></span>] [<span class='synopsis'><code>--separate-git-dir</code></span> <em>&lt;répertoire-git&gt;</em>]
+	[<span class='synopsis'><code>--depth</code></span> <em>&lt;profondeur&gt;</em>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>single-branch</code></span>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>tags</code></span>]
+	[<span class='synopsis'><code>--recurse-submodules</code></span>[<span class='synopsis'><code>=</code></span><em>&lt;spéc-de-chemin&gt;</em>]] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>shallow-submodules</code></span>]
+	[<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>remote-submodules</code></span>] [<span class='synopsis'><code>--jobs</code></span> <em>&lt;n&gt;</em>] [<span class='synopsis'><code>--sparse</code></span>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>reject-shallow</code></span>]
+	[<span class='synopsis'><code>--filter=</code></span><em>&lt;filtre&gt;</em>] [<span class='synopsis'><code>--also-filter-submodules</code></span>]] [<span class='synopsis'><code>--</code></span>] <em>&lt;dépôt&gt;</em>
+	[<em>&lt;répertoire&gt;</em>]</pre>
 </div>
 </div>
 </div>
@@ -38,13 +57,13 @@ aliases:
 <h2 id="_description"><a class="anchor" href="#_description"></a>DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Clone un dépôt dans un répertoire nouvellement créé, crée une branche de suivi à distance pour chaque branche du dépôt cloné (visible en utilisant <code>git branch --remotes</code>) et crée et extrait une branche initiale qui est dupliquée depuis la branche active actuelle du dépôt cloné.</p>
+<p>Clone un dépôt dans un répertoire nouvellement créé, crée une branche de suivi à distance pour chaque branche du dépôt cloné (visible en utilisant <span class='synopsis'><code>git</code> <code>branch</code> <code>--remotes</code></span>) et crée et extrait une branche initiale qui est dupliquée depuis la branche active actuelle du dépôt cloné.</p>
 </div>
 <div class="paragraph">
-<p>Après clonage, un simple <code>git fetch</code> sans argument va mettre à jour toutes les branches de suivi à distance, et <code>git pull</code> sans argument va en plus fusionner la branche master distante dans la branche master actuelle, si elle existe (ceci est inexact quand <code>--single-branch</code> est indiqué ; voir ci-dessous).</p>
+<p>Après clonage, un simple <span class='synopsis'><code>git</code> <code>fetch</code></span> sans argument va mettre à jour toutes les branches de suivi à distance, et <span class='synopsis'><code>git</code> <code>pull</code></span> sans argument va en plus fusionner la branche master distante dans la branche master actuelle, si elle existe (ceci est inexact quand <span class='synopsis'><code>--single-branch</code></span> est indiqué ; voir ci-dessous).</p>
 </div>
 <div class="paragraph">
-<p>Cette configuration par défaut est réalisée en créant des références aux sommets des branches distantes sous <code>refs/remotes/origin</code> et en initialisant les variables de configuration <code>remote.origin.url</code> et <code>remote.origin.fetch</code>.</p>
+<p>Cette configuration par défaut est réalisée en créant des références aux sommets des branches distantes sous <span class='synopsis'><code>refs/remotes/origin</code></span> et en initialisant les variables de configuration <span class='synopsis'><code>remote.origin.url</code></span> et <span class='synopsis'><code>remote.origin.fetch</code></span>.</p>
 </div>
 </div>
 </div>
@@ -53,185 +72,185 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-clone-code-lcode"> <a class="anchor" href="#git-clone--l"></a> <a class="anchor" href="#git-clone-code-lcode"></a><code>-l</code> </dt>
-<dt class="hdlist1" id="git-clone-code--localcode"> <a class="anchor" href="#git-clone---local"></a> <a class="anchor" href="#git-clone-code--localcode"></a><code>--local</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode-lcodespan"> <a class="anchor" href="#git-clone--l"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode-lcodespan"></a><span class='synopsis'><code>-l</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--localcodespan"> <a class="anchor" href="#git-clone---local"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--localcodespan"></a><span class='synopsis'><code>--local</code></span> </dt>
 <dd>
-<p>Quand le dépôt à cloner est sur la machine locale, cette option court-circuite les mécanismes de transport « spécial Git » normaux et clone le dépôt en faisant une copie de <code>HEAD</code> et de tout ce qu&#8217;il y a dans les répertoires objects et refs. Les fichiers sous le répertoire <code>.git/objects/</code> sont liés physiquement si possible pour économiser l&#8217;espace disque.</p>
+<p>Quand le dépôt à cloner est sur la machine locale, cette option court-circuite les mécanismes de transport « spécial Git » normaux et clone le dépôt en faisant une copie de <span class='synopsis'><code>HEAD</code></span> et de tout ce qu&#8217;il y a dans les répertoires objects et refs. Les fichiers sous le répertoire <span class='synopsis'><code>.git/objects/</code></span> sont liés physiquement si possible pour économiser l&#8217;espace disque.</p>
 <div class="paragraph">
-<p>Si le dépôt est spécifié comme un chemin local (par exemple <code>/chemin/vers/le/dépôt</code>), c&#8217;est le comportement par défaut et <code>--local</code> ne sert à rien. Si le dépôt est spécifié par une URL, alors ce drapeau est ignoré (et l&#8217;optimisation du fait de localité n&#8217;est jamais utilisée). Spécifier <code>--no-local</code> permet de surcharger le comportement par défaut quand la forme <code>/chemin/vers/le/dépôt</code> est utilisée, et provoque l&#8217;utilisation de transport Git normal à la place.</p>
+<p>Si le dépôt est spécifié comme un chemin local (par exemple <span class='synopsis'><em>/chemin/vers/le/dépôt</em></span>), c&#8217;est le comportement par défaut et <span class='synopsis'><code>--local</code></span> ne sert à rien. Si le dépôt est spécifié par une URL, alors ce drapeau est ignoré (et l&#8217;optimisation du fait de localité n&#8217;est jamais utilisée). Spécifier <span class='synopsis'><code>--no-local</code></span> permet de surcharger le comportement par défaut quand la forme <span class='synopsis'><em>/chemin/vers/le/dépôt</em></span> est utilisée, et provoque l&#8217;utilisation de transport Git normal à la place.</p>
 </div>
 <div class="paragraph">
-<p>Si le répertoire <code>$GIT_DIR/objects</code> du dépôt a des liens symboliques ou est un lien symbolique, le clone échouera. C&#8217;est une mesure de sécurité pour empêcher la copie involontaire de fichiers en déréférençant les liens symboliques.</p>
+<p>Si le répertoire <span class='synopsis'><code>$GIT_DIR/objects</code></span> du dépôt a des liens symboliques ou est un lien symbolique, le clone échouera. C&#8217;est une mesure de sécurité pour empêcher la copie involontaire de fichiers en déréférençant les liens symboliques.</p>
 </div>
 <div class="paragraph">
-<p>Cette option ne fonctionne pas avec des dépôts appartenant à d&#8217;autres utilisateurs pour des raisons de sécurité, et <code>--no-local</code> doit être spécifié pour que le clone réussisse.</p>
+<p>Cette option ne fonctionne pas avec des dépôts appartenant à d&#8217;autres utilisateurs pour des raisons de sécurité, et <span class='synopsis'><code>--no-local</code></span> doit être spécifié pour que le clone réussisse.</p>
 </div>
 <div class="paragraph">
-<p><strong>NOTE</strong> : cette opération peut se dérouler avec une modification simultanée du dépôt source, similaire à l’exécution de <code>cp-r &lt;src&gt; &lt;dst&gt;</code> tout en modifiant <em>&lt;src&gt;</em>.</p>
+<p><strong>NOTE</strong> : cette opération peut se dérouler avec une modification simultanée du dépôt source, similaire à l’exécution de <span class='synopsis'><code>cp-r</code> <em>&lt;src&gt;</em> <em>&lt;dst&gt;</em></span> tout en modifiant <em>&lt;src&gt;</em>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--no-hardlinkscode"> <a class="anchor" href="#git-clone---no-hardlinks"></a> <a class="anchor" href="#git-clone-code--no-hardlinkscode"></a><code>--no-hardlinks</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--no-hardlinkscodespan"> <a class="anchor" href="#git-clone---no-hardlinks"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--no-hardlinkscodespan"></a><span class='synopsis'><code>--no-hardlinks</code></span> </dt>
 <dd>
-<p>Forcer le processus de clonage depuis un dépôt sur un système de fichier local à copier les fichiers sous le répertoire <code>.git\objects</code> au lieu d&#8217;utiliser des liens physiques. Ceci peut être voulu si vous souhaitez faire une copie de sauvegarde de votre dépôt.</p>
+<p>Forcer le processus de clonage depuis un dépôt sur un système de fichier local à copier les fichiers sous le répertoire <span class='synopsis'><em>.git\objects</em></span> au lieu d&#8217;utiliser des liens physiques. Ceci peut être voulu si vous souhaitez faire une copie de sauvegarde de votre dépôt.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-scode"> <a class="anchor" href="#git-clone--s"></a> <a class="anchor" href="#git-clone-code-scode"></a><code>-s</code> </dt>
-<dt class="hdlist1" id="git-clone-code--sharedcode"> <a class="anchor" href="#git-clone---shared"></a> <a class="anchor" href="#git-clone-code--sharedcode"></a><code>--shared</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode-scodespan"> <a class="anchor" href="#git-clone--s"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode-scodespan"></a><span class='synopsis'><code>-s</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--sharedcodespan"> <a class="anchor" href="#git-clone---shared"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--sharedcodespan"></a><span class='synopsis'><code>--shared</code></span> </dt>
 <dd>
-<p>Quand le dépôt à cloner est sur la machine locale, au lieu d&#8217;utiliser des liens physiques, créer automatiquement <code>.git/objects/info/alternates</code> pour partager les objets du dépôt source. Le dépôt résultant démarre sans aucun objet qui lui soit propre.</p>
+<p>Quand le dépôt à cloner est sur la machine locale, au lieu d&#8217;utiliser des liens physiques, créer automatiquement <span class='synopsis'><code>.git/objects/info/alternates</code></span> pour partager les objets du dépôt source. Le dépôt résultant démarre sans aucun objet qui lui soit propre.</p>
 <div class="paragraph">
-<p><strong>NOTE</strong> : c&#8217;est une opération potentiellement dangereuse ; <strong>ne</strong> l&#8217;utilisez <strong>pas</strong> à moins de comprendre ce qu&#8217;elle fait. Si vous clonez votre dépôt en utilisant cette option puis que vous supprimez des branches (ou utilisez toute autre commande Git qui élimine les références sur un commit existant) dans le dépôt source, certains objets peuvent ne plus être référencés (ou esseulés). Ces objets pourraient être supprimés lors d&#8217;opérations normales de Git (telles que <code>git commit</code>) qui appellent automatiquement <code>git maintenance --auto</code>. (Voir <a href='{{< relurl "docs/git-maintenance/fr" >}}'>git-maintenance[1]</a>.) Si ces objets sont supprimés et qu&#8217;ils étaient référencés dans un dépôt cloné, alors le dépôt cloné sera corrompu.</p>
+<p><strong>NOTE</strong> : c&#8217;est une opération potentiellement dangereuse ; <strong>ne</strong> l&#8217;utilisez <strong>pas</strong> à moins de comprendre ce qu&#8217;elle fait. Si vous clonez votre dépôt en utilisant cette option puis que vous supprimez des branches (ou utilisez toute autre commande Git qui élimine les références sur un commit existant) dans le dépôt source, certains objets peuvent ne plus être référencés (ou esseulés). Ces objets pourraient être supprimés lors d&#8217;opérations normales de Git (telles que <span class='synopsis'><code>git</code> <code>commit</code></span>) qui appellent automatiquement <span class='synopsis'><code>git</code> <code>maintenance</code> <code>--auto</code></span>. (Voir <a href='{{< relurl "docs/git-maintenance/fr" >}}'>git-maintenance[1]</a>.) Si ces objets sont supprimés et qu&#8217;ils étaient référencés dans un dépôt cloné, alors le dépôt cloné sera corrompu.</p>
 </div>
 <div class="paragraph">
-<p>Notez que lancer <code>git repack</code> sans l&#8217;option <code>--local</code> dans un dépôt cloné avec <code>--shared</code> va copier les objets depuis le dépôt source dans un paquet dans le répertoire cloné, éliminant de ce fait les économies d&#8217;espace disque de <code>clone --shared</code>. Par contre, il est possible de lancer <code>git gc</code>, qui utilise l&#8217;option <code>--local</code> par défaut.</p>
+<p>Notez que lancer <span class='synopsis'><code>git</code> <code>repack</code></span> sans l&#8217;option <span class='synopsis'><code>--local</code></span> dans un dépôt cloné avec <span class='synopsis'><code>--shared</code></span> va copier les objets depuis le dépôt source dans un paquet dans le répertoire cloné, éliminant de ce fait les économies d&#8217;espace disque de <span class='synopsis'><code>clone</code> <code>--shared</code></span>. Par contre, il est possible de lancer <span class='synopsis'><code>git</code> <code>gc</code></span>, qui utilise l&#8217;option <span class='synopsis'><code>--local</code></span> par défaut.</p>
 </div>
 <div class="paragraph">
-<p>Si vous souhaitez casser la dépendance d&#8217;un dépôt cloné avec <code>--shared</code> à son dépôt source, vous pouvez simplement lancer <code>git repack -a</code> pour copier tous les objets depuis le dépôt source dans un paquet dans le dépôt cloné.</p>
+<p>Si vous souhaitez casser la dépendance d&#8217;un dépôt cloné avec <span class='synopsis'><code>--shared</code></span> à son dépôt source, vous pouvez simplement lancer <span class='synopsis'><code>git</code> <code>repack</code> <code>-a</code></span> pour copier tous les objets depuis le dépôt source dans un paquet dans le dépôt cloné.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--reference-if-ableltdptgtcode"> <a class="anchor" href="#git-clone---reference-if-abledpt"></a> <a class="anchor" href="#git-clone-code--reference-if-ableltdptgtcode"></a><code>--reference[-if-able] &lt;dépôt&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--referencecodecode-if-ablecodeemltdptgtemspan"> <a class="anchor" href="#git-clone---reference-if-abledpt"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--referencecodecode-if-ablecodeemltdptgtemspan"></a><span class='synopsis'><code>--reference</code>[<code>-if-able</code>] <em>&lt;dépôt&gt;</em></span> </dt>
 <dd>
-<p>Si le <em>&lt;dépôt&gt;</em> référence est sur la machine locale, créer automatiquement <code>.git/objects/info/alternates</code> pour obtenir les objets depuis le <em>&lt;dépôt&gt;</em> référence. L&#8217;utilisation d&#8217;un dépôt déjà existant comme alternative nécessitera moins d&#8217;objets à copier depuis le dépôt à cloner, limitant les coûts de réseau et de stockage local. Avec l&#8217;utilisation de <code>--reference-if-able</code>, un répertoire inexistant est ignoré avec un message d&#8217;avertissement au lieu de faire échouer le clonage.</p>
+<p>Si le <em>&lt;dépôt&gt;</em> référence est sur la machine locale, créer automatiquement <span class='synopsis'><code>.git/objects/info/alternates</code></span> pour obtenir les objets depuis le <em>&lt;dépôt&gt;</em> référence. L&#8217;utilisation d&#8217;un dépôt déjà existant comme alternative nécessitera moins d&#8217;objets à copier depuis le dépôt à cloner, limitant les coûts de réseau et de stockage local. Avec l&#8217;utilisation de <span class='synopsis'><code>--reference-if-able</code></span>, un répertoire inexistant est ignoré avec un message d&#8217;avertissement au lieu de faire échouer le clonage.</p>
 <div class="paragraph">
-<p><strong>NOTE</strong> : voir la NOTE pour l&#8217;option <code>--shared</code>, et aussi l&#8217;option <code>--dissociate</code>.</p>
+<p><strong>NOTE</strong> : voir la NOTE pour l&#8217;option <span class='synopsis'><code>--shared</code></span>, et aussi l&#8217;option <span class='synopsis'><code>--dissociate</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--dissociatecode"> <a class="anchor" href="#git-clone---dissociate"></a> <a class="anchor" href="#git-clone-code--dissociatecode"></a><code>--dissociate</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--dissociatecodespan"> <a class="anchor" href="#git-clone---dissociate"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--dissociatecodespan"></a><span class='synopsis'><code>--dissociate</code></span> </dt>
 <dd>
-<p>Emprunter les objets des dépôts référence spécifiés avec les options <code>--reference</code> seulement pour réduire les transferts réseau, et arrêter de les emprunter après la création d&#8217;un clone en créant les copies locales nécessaires des objets empruntés. Cette option peut aussi être utilisée lors d&#8217;un clonage local depuis un dépôt qui emprunte déjà des objets à un autre dépôt&#8201;&#8212;&#8201;le nouveau dépôt va emprunter des objets au même dépôt, et cette option peut être utilisée pour arrêter l&#8217;emprunt.</p>
+<p>Emprunter les objets des dépôts référence spécifiés avec les options <span class='synopsis'><code>--reference</code></span> seulement pour réduire les transferts réseau, et arrêter de les emprunter après la création d&#8217;un clone en créant les copies locales nécessaires des objets empruntés. Cette option peut aussi être utilisée lors d&#8217;un clonage local depuis un dépôt qui emprunte déjà des objets à un autre dépôt&#8201;&#8212;&#8201;le nouveau dépôt va emprunter des objets au même dépôt, et cette option peut être utilisée pour arrêter l&#8217;emprunt.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-qcode"> <a class="anchor" href="#git-clone--q"></a> <a class="anchor" href="#git-clone-code-qcode"></a><code>-q</code> </dt>
-<dt class="hdlist1" id="git-clone-code--quietcode"> <a class="anchor" href="#git-clone---quiet"></a> <a class="anchor" href="#git-clone-code--quietcode"></a><code>--quiet</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode-qcodespan"> <a class="anchor" href="#git-clone--q"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode-qcodespan"></a><span class='synopsis'><code>-q</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--quietcodespan"> <a class="anchor" href="#git-clone---quiet"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--quietcodespan"></a><span class='synopsis'><code>--quiet</code></span> </dt>
 <dd>
 <p>Mode silencieux. L&#8217;avancement n&#8217;est pas affiché sur le flux d&#8217;erreur standard.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-vcode"> <a class="anchor" href="#git-clone--v"></a> <a class="anchor" href="#git-clone-code-vcode"></a><code>-v</code> </dt>
-<dt class="hdlist1" id="git-clone-code--verbosecode"> <a class="anchor" href="#git-clone---verbose"></a> <a class="anchor" href="#git-clone-code--verbosecode"></a><code>--verbose</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode-vcodespan"> <a class="anchor" href="#git-clone--v"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode-vcodespan"></a><span class='synopsis'><code>-v</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--verbosecodespan"> <a class="anchor" href="#git-clone---verbose"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--verbosecodespan"></a><span class='synopsis'><code>--verbose</code></span> </dt>
 <dd>
 <p>Mode verbeux. N&#8217;agit pas sur l&#8217;affichage de l&#8217;état d&#8217;avancement sur le flux d&#8217;erreur standard.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--progresscode"> <a class="anchor" href="#git-clone---progress"></a> <a class="anchor" href="#git-clone-code--progresscode"></a><code>--progress</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--progresscodespan"> <a class="anchor" href="#git-clone---progress"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--progresscodespan"></a><span class='synopsis'><code>--progress</code></span> </dt>
 <dd>
-<p>L&#8217;état d&#8217;avancement est affiché sur la sortie d&#8217;erreur standard quand elle est attachée à un terminal, à moins que <code>--quiet</code> soit spécifié. Ce drapeau force l&#8217;état d&#8217;avancement même si le flux d&#8217;erreur standard n&#8217;est pas dirigé vers un terminal.</p>
+<p>L&#8217;état d&#8217;avancement est affiché sur la sortie d&#8217;erreur standard quand elle est attachée à un terminal, à moins que <span class='synopsis'><code>--quiet</code></span> soit spécifié. Ce drapeau force l&#8217;état d&#8217;avancement même si le flux d&#8217;erreur standard n&#8217;est pas dirigé vers un terminal.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--server-optionltoptiongtcode"> <a class="anchor" href="#git-clone---server-optionoption"></a> <a class="anchor" href="#git-clone-code--server-optionltoptiongtcode"></a><code>--server-option=&lt;option&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--server-optioncodeemltoptiongtemspan"> <a class="anchor" href="#git-clone---server-optionoption"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--server-optioncodeemltoptiongtemspan"></a><span class='synopsis'><code>--server-option=</code><em>&lt;option&gt;</em></span> </dt>
 <dd>
-<p>Transmettre la chaîne donnée au serveur lors d&#8217;une communication utilisant la version 2 du protocole. La chaîne donnée ne doit pas contenir de caractère NUL ou LF. La gestion par le serveur des options du serveur, y compris les options inconnues, est spécifique au serveur. Lorsque plusieurs <code>--server-option=&lt;option&gt;</code> sont donnés, ils sont tous envoyés à l&#8217;autre côté dans l&#8217;ordre indiqué sur la ligne de commande. Quand <code>--server-option=&lt;option&gt;</code> est fourni sur la ligne de commande, les valeurs de la variable de configuration <code>remote.&lt;nom&gt;.serverOption</code> sont utilisées à la place.</p>
+<p>Transmettre la chaîne donnée au serveur lors d&#8217;une communication utilisant la version 2 du protocole. La chaîne donnée ne doit pas contenir de caractère NUL ou LF. La gestion par le serveur des options du serveur, y compris les options inconnues, est spécifique au serveur. Lorsque plusieurs <span class='synopsis'><code>--server-option=</code><em>&lt;option&gt;</em></span> sont donnés, ils sont tous envoyés à l&#8217;autre côté dans l&#8217;ordre indiqué sur la ligne de commande. Quand <span class='synopsis'><code>--server-option=</code><em>&lt;option&gt;</em></span> est fourni sur la ligne de commande, les valeurs de la variable de configuration <span class='synopsis'><code>remote.</code><em>&lt;nom&gt;</em><code>.serverOption</code></span> sont utilisées à la place.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-ncode"> <a class="anchor" href="#git-clone--n"></a> <a class="anchor" href="#git-clone-code-ncode"></a><code>-n</code> </dt>
-<dt class="hdlist1" id="git-clone-code--no-checkoutcode"> <a class="anchor" href="#git-clone---no-checkout"></a> <a class="anchor" href="#git-clone-code--no-checkoutcode"></a><code>--no-checkout</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode-ncodespan"> <a class="anchor" href="#git-clone--n"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode-ncodespan"></a><span class='synopsis'><code>-n</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--no-checkoutcodespan"> <a class="anchor" href="#git-clone---no-checkout"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--no-checkoutcodespan"></a><span class='synopsis'><code>--no-checkout</code></span> </dt>
 <dd>
-<p>Aucune extraction de <code>HEAD</code> n&#8217;est effectuée après la fin du clonage.</p>
+<p>Aucune extraction de <span class='synopsis'><code>HEAD</code></span> n&#8217;est effectuée après la fin du clonage.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--codecodeno-codecodereject-shallowcode"> <a class="anchor" href="#git-clone---no-reject-shallow"></a> <a class="anchor" href="#git-clone-code--codecodeno-codecodereject-shallowcode"></a><code>--</code>[<code>no-</code>]<code>reject-shallow</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codespanspanclasssynopsiscodeno-codespanspanclasssynopsiscodereject-shallowcodespan"> <a class="anchor" href="#git-clone---no-reject-shallow"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codespanspanclasssynopsiscodeno-codespanspanclasssynopsiscodereject-shallowcodespan"></a><span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>reject-shallow</code></span> </dt>
 <dd>
-<p>Échouer si le dépôt source est un dépôt superficiel. La variable de configuration <code>clone.rejectShallow</code> peut être utilisée pour spécifier la valeur par défaut.</p>
+<p>Échouer si le dépôt source est un dépôt superficiel. La variable de configuration <span class='synopsis'><code>clone.rejectShallow</code></span> peut être utilisée pour spécifier la valeur par défaut.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--barecode"> <a class="anchor" href="#git-clone---bare"></a> <a class="anchor" href="#git-clone-code--barecode"></a><code>--bare</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--barecodespan"> <a class="anchor" href="#git-clone---bare"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--barecodespan"></a><span class='synopsis'><code>--bare</code></span> </dt>
 <dd>
-<p>Créer un dépôt Git « nu ». Cela signifie qu&#8217;au lieu de créer <em>&lt;répertoire&gt;</em> et de placer les fichiers administratifs dans <code>&lt;répertoire&gt;/.git</code>, faire de <em>&lt;répertoire&gt;</em> lui-même le <code>$GIT_DIR</code>. Cela implique évidemment l&#8217;option <code>--no-checkout</code> parce qu&#8217;il n&#8217;y a nulle part où extraire l&#8217;arbre de travail. De plus, les têtes de branches distantes sont également copiées directement dans les têtes de branches locales correspondantes, sans les préfixer de <code>refs/remotes/origin/</code>. Lorsque cette option est utilisée, ni les branches de suivi à distance ni les variables de configuration s&#8217;y rattachant ne sont créées.</p>
+<p>Créer un dépôt Git « nu ». Cela signifie qu&#8217;au lieu de créer <em>&lt;répertoire&gt;</em> et de placer les fichiers administratifs dans <span class='synopsis'><em>&lt;répertoire&gt;</em><code>/.git</code></span>, faire de <em>&lt;répertoire&gt;</em> lui-même le <span class='synopsis'><code>$GIT_DIR</code></span>. Cela implique évidemment l&#8217;option <span class='synopsis'><code>--no-checkout</code></span> parce qu&#8217;il n&#8217;y a nulle part où extraire l&#8217;arbre de travail. De plus, les têtes de branches distantes sont également copiées directement dans les têtes de branches locales correspondantes, sans les préfixer de <span class='synopsis'><code>refs/remotes/origin/</code></span>. Lorsque cette option est utilisée, ni les branches de suivi à distance ni les variables de configuration s&#8217;y rattachant ne sont créées.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--sparsecode"> <a class="anchor" href="#git-clone---sparse"></a> <a class="anchor" href="#git-clone-code--sparsecode"></a><code>--sparse</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--sparsecodespan"> <a class="anchor" href="#git-clone---sparse"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--sparsecodespan"></a><span class='synopsis'><code>--sparse</code></span> </dt>
 <dd>
 <p>Employer une extraction clairsemée, avec seulement les fichiers dans le répertoire de plus haut niveau initialement présent. La commande <a href='{{< relurl "docs/git-sparse-checkout/fr" >}}'>git-sparse-checkout[1]</a> peut être utilisée pour agrandir le répertoire de travail si nécessaire.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--filterltspcdufiltregtcode"> <a class="anchor" href="#git-clone---filterspcdufiltre"></a> <a class="anchor" href="#git-clone-code--filterltspcdufiltregtcode"></a><code>--filter=&lt;spéc. du filtre&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsisem--filterltspcdufiltregtemspan"> <a class="anchor" href="#git-clone---filterspcdufiltre"></a> <a class="anchor" href="#git-clone-spanclasssynopsisem--filterltspcdufiltregtemspan"></a><span class='synopsis'><em>--filter=&lt;spéc. du filtre&gt;</em></span> </dt>
 <dd>
-<p>Utiliser la fonction de clonage partiel et demander que le serveur envoie un sous-ensemble d&#8217;objets accessibles selon un filtre d&#8217;objets donné. Lorsque l&#8217;on utilise <code>--filter</code>, le <em>&lt;spéc-de-filtre&gt;</em> fourni est utilisé pour le filtre de clonage partiel. Par exemple, <code>--filter=blob:none</code> filtrera tous les blobs (contenu des fichiers) jusqu&#8217;à ce que Git en ait besoin. De même, <code>--filter=blob:limit=&lt;taille&gt;</code> filtrera tous les blobs de taille au moins égale à <em>&lt;taille&gt;</em>. Pour plus de détails sur les spécifications de filtre, voir l&#8217;option <code>--filter</code> dans <a href='{{< relurl "docs/git-rev-list/fr" >}}'>git-rev-list[1]</a>.</p>
+<p>Utiliser la fonction de clonage partiel et demander que le serveur envoie un sous-ensemble d&#8217;objets accessibles selon un filtre d&#8217;objets donné. Lorsque l&#8217;on utilise <span class='synopsis'><code>--filter</code></span>, le <em>&lt;spéc-de-filtre&gt;</em> fourni est utilisé pour le filtre de clonage partiel. Par exemple, <span class='synopsis'><code>--filter=blob:none</code></span> filtrera tous les blobs (contenu des fichiers) jusqu&#8217;à ce que Git en ait besoin. De même, <span class='synopsis'><code>--filter=blob:limit=</code><em>&lt;taille&gt;</em></span> filtrera tous les blobs de taille au moins égale à <em>&lt;taille&gt;</em>. Pour plus de détails sur les spécifications de filtre, voir l&#8217;option <span class='synopsis'><code>--filter</code></span> dans <a href='{{< relurl "docs/git-rev-list/fr" >}}'>git-rev-list[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--also-filter-submodulescode"> <a class="anchor" href="#git-clone---also-filter-submodules"></a> <a class="anchor" href="#git-clone-code--also-filter-submodulescode"></a><code>--also-filter-submodules</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--also-filter-submodulescodespan"> <a class="anchor" href="#git-clone---also-filter-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--also-filter-submodulescodespan"></a><span class='synopsis'><code>--also-filter-submodules</code></span> </dt>
 <dd>
-<p>Applique également le filtre de clonage partiel à tous les sous-modules du dépôt. Requiert <code>--filter</code> et <code>--recurse-submodules</code>. Ceci peut être activé par défaut en définissant l&#8217;option de configuration <code>clone.filterSubmodules</code>.</p>
+<p>Applique également le filtre de clonage partiel à tous les sous-modules du dépôt. Requiert <span class='synopsis'><code>--filter</code></span> et <span class='synopsis'><code>--recurse-submodules</code></span>. Ceci peut être activé par défaut en définissant l&#8217;option de configuration <span class='synopsis'><code>clone.filterSubmodules</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--mirrorcode"> <a class="anchor" href="#git-clone---mirror"></a> <a class="anchor" href="#git-clone-code--mirrorcode"></a><code>--mirror</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--mirrorcodespan"> <a class="anchor" href="#git-clone---mirror"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--mirrorcodespan"></a><span class='synopsis'><code>--mirror</code></span> </dt>
 <dd>
-<p>Construire un miroir du dépôt source. Ceci implique <code>--bare</code>. Par rapport à <code>--bare</code>, <code>--mirror</code> fait correspondre non seulement les branches locales de la source sur les branches locales de la cible, mais également toutes les références (y compris les branches de suivi à distance, les notes, etc.) et elle définit une configuration de refspec telle que toutes ces références sont réécrites par un <code>git remote update</code> dans le dépôt cible.</p>
+<p>Construire un miroir du dépôt source. Ceci implique <span class='synopsis'><code>--bare</code></span>. Par rapport à <span class='synopsis'><code>--bare</code></span>, <span class='synopsis'><code>--mirror</code></span> fait correspondre non seulement les branches locales de la source sur les branches locales de la cible, mais également toutes les références (y compris les branches de suivi à distance, les notes, etc.) et elle définit une configuration de refspec telle que toutes ces références sont réécrites par un <span class='synopsis'><code>git</code> <code>remote</code> <code>update</code></span> dans le dépôt cible.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-ocodeemltnomgtem"> <a class="anchor" href="#git-clone--onom"></a> <a class="anchor" href="#git-clone-code-ocodeemltnomgtem"></a><code>-o</code> <em>&lt;nom&gt;</em> </dt>
-<dt class="hdlist1" id="git-clone-code--origincodeemltnomgtem"> <a class="anchor" href="#git-clone---originnom"></a> <a class="anchor" href="#git-clone-code--origincodeemltnomgtem"></a><code>--origin</code> <em>&lt;nom&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode-ocodespanemltnomgtem"> <a class="anchor" href="#git-clone--onom"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode-ocodespanemltnomgtem"></a><span class='synopsis'><code>-o</code></span> <em>&lt;nom&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--origincodespanemltnomgtem"> <a class="anchor" href="#git-clone---originnom"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--origincodespanemltnomgtem"></a><span class='synopsis'><code>--origin</code></span> <em>&lt;nom&gt;</em> </dt>
 <dd>
-<p>Au lieu d&#8217;utiliser le nom de distant <code>origin</code> pour suivre le dépôt amont, utiliser <em>&lt;nom&gt;</em>. Remplace <code>clone.defaultRemoteName</code> dans la configuration.</p>
+<p>Au lieu d&#8217;utiliser le nom de distant <span class='synopsis'><code>origin</code></span> pour suivre le dépôt amont, utiliser <em>&lt;nom&gt;</em>. Remplace <span class='synopsis'><code>clone.defaultRemoteName</code></span> dans la configuration.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-bcodeemltnomgtem"> <a class="anchor" href="#git-clone--bnom"></a> <a class="anchor" href="#git-clone-code-bcodeemltnomgtem"></a><code>-b</code> <em>&lt;nom&gt;</em> </dt>
-<dt class="hdlist1" id="git-clone-code--branchcodeemltnomgtem"> <a class="anchor" href="#git-clone---branchnom"></a> <a class="anchor" href="#git-clone-code--branchcodeemltnomgtem"></a><code>--branch</code> <em>&lt;nom&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode-bcodespanemltnomgtem"> <a class="anchor" href="#git-clone--bnom"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode-bcodespanemltnomgtem"></a><span class='synopsis'><code>-b</code></span> <em>&lt;nom&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--branchcodespanemltnomgtem"> <a class="anchor" href="#git-clone---branchnom"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--branchcodespanemltnomgtem"></a><span class='synopsis'><code>--branch</code></span> <em>&lt;nom&gt;</em> </dt>
 <dd>
-<p>Au lieu de pointer la <code>HEAD</code> nouvellement créée sur la branche pointée par la <code>HEAD</code> du dépôt cloné, pointer plutôt sur la branche <em>&lt;nom&gt;</em>. Dans un dépôt non-nu, c&#8217;est la branche qui sera extraite. <code>--branch</code> accepte aussi des étiquettes et détache alors la <code>HEAD</code> à ce commit dans le dépôt résultant.</p>
+<p>Au lieu de pointer la <span class='synopsis'><code>HEAD</code></span> nouvellement créée sur la branche pointée par la <span class='synopsis'><code>HEAD</code></span> du dépôt cloné, pointer plutôt sur la branche <em>&lt;nom&gt;</em>. Dans un dépôt non-nu, c&#8217;est la branche qui sera extraite. <span class='synopsis'><code>--branch</code></span> accepte aussi des étiquettes et détache alors la <span class='synopsis'><code>HEAD</code></span> à ce commit dans le dépôt résultant.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--revisionltrvgtcode"> <a class="anchor" href="#git-clone---revisionrv"></a> <a class="anchor" href="#git-clone-code--revisionltrvgtcode"></a><code>--revision=&lt;rév&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--revisioncodeemltrvgtemspan"> <a class="anchor" href="#git-clone---revisionrv"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--revisioncodeemltrvgtemspan"></a><span class='synopsis'><code>--revision=</code><em>&lt;rév&gt;</em></span> </dt>
 <dd>
-<p>Créer un nouveau dépôt, et récupérer l&#8217;historique menant à la révision donnée <em>&lt;rév&gt;</em> (et rien d&#8217;autre), sans faire de branche de suivi à distance, et sans faire de branche locale, et détacher <code>HEAD</code> à <em>&lt;rév&gt;</em>. L&#8217;argument peut être un nom de référence (par exemple <code>refs/heads/main</code> ou <code>refs/tags/v1.0</code>) qui se pèle vers un commit, ou un nom d&#8217;objet hexadécimal. Cette option est incompatible avec <code>--branch</code> et <code>--mirror</code>.</p>
+<p>Créer un nouveau dépôt, et récupérer l&#8217;historique menant à la révision donnée <em>&lt;rév&gt;</em> (et rien d&#8217;autre), sans faire de branche de suivi à distance, et sans faire de branche locale, et détacher <span class='synopsis'><code>HEAD</code></span> à <em>&lt;rév&gt;</em>. L&#8217;argument peut être un nom de référence (par exemple <span class='synopsis'><code>refs/heads/main</code></span> ou <span class='synopsis'><code>refs/tags/v1.0</code></span>) qui se pèle vers un commit, ou un nom d&#8217;objet hexadécimal. Cette option est incompatible avec <span class='synopsis'><code>--branch</code></span> et <span class='synopsis'><code>--mirror</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-ucodeemltupload-packgtem"> <a class="anchor" href="#git-clone--uupload-pack"></a> <a class="anchor" href="#git-clone-code-ucodeemltupload-packgtem"></a><code>-u</code> <em>&lt;upload-pack&gt;</em> </dt>
-<dt class="hdlist1" id="git-clone-code--upload-packcodeemltupload-packgtem"> <a class="anchor" href="#git-clone---upload-packupload-pack"></a> <a class="anchor" href="#git-clone-code--upload-packcodeemltupload-packgtem"></a><code>--upload-pack</code> <em>&lt;upload-pack&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode-ucodespanemltupload-packgtem"> <a class="anchor" href="#git-clone--uupload-pack"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode-ucodespanemltupload-packgtem"></a><span class='synopsis'><code>-u</code></span> <em>&lt;upload-pack&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--upload-packcodespanemltupload-packgtem"> <a class="anchor" href="#git-clone---upload-packupload-pack"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--upload-packcodespanemltupload-packgtem"></a><span class='synopsis'><code>--upload-pack</code></span> <em>&lt;upload-pack&gt;</em> </dt>
 <dd>
 <p>Quand cette option est indiquée et que le dépôt à cloner est accédé via ssh, ceci spécifie un chemin différent de celui par défaut pour la commande lancée sur l&#8217;hôte distant.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--templateltrpertoire-de-modlesgtcode"> <a class="anchor" href="#git-clone---templaterpertoire-de-modles"></a> <a class="anchor" href="#git-clone-code--templateltrpertoire-de-modlesgtcode"></a><code>--template=&lt;répertoire-de-modèles&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--templatecodeemltrpertoire-de-modlesgtemspan"> <a class="anchor" href="#git-clone---templaterpertoire-de-modles"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--templatecodeemltrpertoire-de-modlesgtemspan"></a><span class='synopsis'><code>--template=</code><em>&lt;répertoire-de-modèles&gt;</em></span> </dt>
 <dd>
 <p>Spécifier le répertoire depuis lequel les modèles vont être tirés ; (voir la section « RÉPERTOIRE DE MODÈLES » de <a href='{{< relurl "docs/git-init/fr" >}}'>git-init[1]</a>.)</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code-cltnomgtltvaleurgtcode"> <a class="anchor" href="#git-clone--cnomvaleur"></a> <a class="anchor" href="#git-clone-code-cltnomgtltvaleurgtcode"></a><code>-c &lt;nom&gt;=&lt;valeur&gt;</code> </dt>
-<dt class="hdlist1" id="git-clone-code--configcodecodeltclgtltvaleurgtcode"> <a class="anchor" href="#git-clone---configclvaleur"></a> <a class="anchor" href="#git-clone-code--configcodecodeltclgtltvaleurgtcode"></a><code>--config</code> <code>&lt;clé&gt;=&lt;valeur&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode-ccodeemltnomgtemcodecodeemltvaleurgtemspan"> <a class="anchor" href="#git-clone--cnomvaleur"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode-ccodeemltnomgtemcodecodeemltvaleurgtemspan"></a><span class='synopsis'><code>-c</code> <em>&lt;nom&gt;</em><code>=</code><em>&lt;valeur&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--configcodespanspanclasssynopsisemltclgtemcodecodeemltvaleurgtemspan"> <a class="anchor" href="#git-clone---configclvaleur"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--configcodespanspanclasssynopsisemltclgtemcodecodeemltvaleurgtemspan"></a><span class='synopsis'><code>--config</code></span> <span class='synopsis'><em>&lt;clé&gt;</em><code>=</code><em>&lt;valeur&gt;</em></span> </dt>
 <dd>
-<p>Définir une variable de configuration dans le dépôt nouvellement créé ; ceci prend effet immédiatement après que le dépôt est initialisé, mais avant que l&#8217;historique distant ne soit récupéré ou qu&#8217;un fichier soit extrait. La <em>&lt;clé&gt;</em> est dans le même format qu&#8217;attendu par <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a> (par exemple, <code>core.eol=true</code>). Si des valeurs multiples sont fournies pour la même clé, chaque valeur sera écrite dans le fichier de configuration. Ceci sécurise, par exemple, l&#8217;ajout de spécificateurs de référence de récupération supplémentaires pour le dépôt distant d&#8217;origine.</p>
+<p>Définir une variable de configuration dans le dépôt nouvellement créé ; ceci prend effet immédiatement après que le dépôt est initialisé, mais avant que l&#8217;historique distant ne soit récupéré ou qu&#8217;un fichier soit extrait. La <em>&lt;clé&gt;</em> est dans le même format qu&#8217;attendu par <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a> (par exemple, <span class='synopsis'><code>core.eol=true</code></span>). Si des valeurs multiples sont fournies pour la même clé, chaque valeur sera écrite dans le fichier de configuration. Ceci sécurise, par exemple, l&#8217;ajout de spécificateurs de référence de récupération supplémentaires pour le dépôt distant d&#8217;origine.</p>
 <div class="paragraph">
-<p>Du fait de limitations de l&#8217;implémentation actuelle, certaines variables de configuration ne prennent effet qu&#8217;après la première récupération ou la première extraction. Les variables de configuration connues pour ne pas prendre effet sont : <code>remote.&lt;nom&gt;.mirror</code> et <code>remote.&lt;nom&gt;.tagOpt</code>. Utilisez les options correspondantes <code>--mirror</code> et <code>--no-tags</code> à la place.</p>
+<p>Du fait de limitations de l&#8217;implémentation actuelle, certaines variables de configuration ne prennent effet qu&#8217;après la première récupération ou la première extraction. Les variables de configuration connues pour ne pas prendre effet sont : <span class='synopsis'><code>remote.</code><em>&lt;nom&gt;</em><code>.mirror</code></span> et <span class='synopsis'><code>remote.</code><em>&lt;nom&gt;</em><code>.tagOpt</code></span>. Utilisez les options correspondantes <span class='synopsis'><code>--mirror</code></span> et <span class='synopsis'><code>--no-tags</code></span> à la place.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--depthltprofondeurgtcode"> <a class="anchor" href="#git-clone---depthprofondeur"></a> <a class="anchor" href="#git-clone-code--depthltprofondeurgtcode"></a><code>--depth &lt;profondeur&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--depthcodeemltprofondeurgtemspan"> <a class="anchor" href="#git-clone---depthprofondeur"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--depthcodeemltprofondeurgtemspan"></a><span class='synopsis'><code>--depth</code> <em>&lt;profondeur&gt;</em></span> </dt>
 <dd>
-<p>Créer un clone « superficiel » avec un historique tronqué au nombre spécifié de commits. Implique <code>--single-branch</code> à moins que <code>--no-single-branch</code> ne soit fourni pour récupérer les historiques proches des sommets de toutes les branches. Pour cloner des sous-modules de manière superficielle, passer aussi <code>--shallow-submodules</code>.</p>
+<p>Créer un clone « superficiel » avec un historique tronqué au nombre spécifié de commits. Implique <span class='synopsis'><code>--single-branch</code></span> à moins que <span class='synopsis'><code>--no-single-branch</code></span> ne soit fourni pour récupérer les historiques proches des sommets de toutes les branches. Pour cloner des sous-modules de manière superficielle, passer aussi <span class='synopsis'><code>--shallow-submodules</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--shallow-sinceltdategtcode"> <a class="anchor" href="#git-clone---shallow-sincedate"></a> <a class="anchor" href="#git-clone-code--shallow-sinceltdategtcode"></a><code>--shallow-since=&lt;date&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--shallow-sincecodeemltdategtemspan"> <a class="anchor" href="#git-clone---shallow-sincedate"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--shallow-sincecodeemltdategtemspan"></a><span class='synopsis'><code>--shallow-since=</code><em>&lt;date&gt;</em></span> </dt>
 <dd>
 <p>Créer un clone superficiel avec un historique après le temps spécifié.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--shallow-excludeltrvisiongtcode"> <a class="anchor" href="#git-clone---shallow-excludervision"></a> <a class="anchor" href="#git-clone-code--shallow-excludeltrvisiongtcode"></a><code>--shallow-exclude=&lt;révision&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--shallow-excludecodeemltrvisiongtemspan"> <a class="anchor" href="#git-clone---shallow-excludervision"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--shallow-excludecodeemltrvisiongtemspan"></a><span class='synopsis'><code>--shallow-exclude=</code><em>&lt;révision&gt;</em></span> </dt>
 <dd>
 <p>Créer un clone superficiel avec un historique, en excluant les commits joignables depuis une branche distante spécifiée ou une étiquette. Cette option peut être spécifiée plusieurs fois.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--no-single-branchcode"> <a class="anchor" href="#git-clone---no-single-branch"></a> <a class="anchor" href="#git-clone-code--no-single-branchcode"></a><code>--[no-]single-branch</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecodesingle-branchcodespan"> <a class="anchor" href="#git-clone---no-single-branch"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecodesingle-branchcodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>single-branch</code></span> </dt>
 <dd>
-<p>Cloner uniquement l&#8217;historique menant au sommet d&#8217;une seule branche, soit spécifiée par l&#8217;option <code>--branch</code>, soit la branche primaire sur laquelle la <code>HEAD</code> du distant pointe. Des récupérations subséquentes dans le dépôt résultant ne mettront à jour que la branche de suivi à distance de la branche pour laquelle cette option a été utilisée lors du clonage initial. Si la <code>HEAD</code> du dépôt distant ne pointait sur aucune branche quand le clonage <code>--single-branch</code> a été fait, aucune branche de suivi à distance n&#8217;est créée.</p>
+<p>Cloner uniquement l&#8217;historique menant au sommet d&#8217;une seule branche, soit spécifiée par l&#8217;option <span class='synopsis'><code>--branch</code></span>, soit la branche primaire sur laquelle la <span class='synopsis'><code>HEAD</code></span> du distant pointe. Des récupérations subséquentes dans le dépôt résultant ne mettront à jour que la branche de suivi à distance de la branche pour laquelle cette option a été utilisée lors du clonage initial. Si la <span class='synopsis'><code>HEAD</code></span> du dépôt distant ne pointait sur aucune branche quand le clonage <span class='synopsis'><code>--single-branch</code></span> a été fait, aucune branche de suivi à distance n&#8217;est créée.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--no-tagscode"> <a class="anchor" href="#git-clone---no-tags"></a> <a class="anchor" href="#git-clone-code--no-tagscode"></a><code>--[no-]tags</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecodetagscodespan"> <a class="anchor" href="#git-clone---no-tags"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecodetagscodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>tags</code></span> </dt>
 <dd>
-<p>Contrôler si les étiquettes seront clonées ou non. Quand <code>--no-tags</code> est fourni, l&#8217;option devient permanente en réglant le paramètre de configuration <code>remote.&lt;distant&gt;.tagOpt=--no-tags</code>, de sorte que les futurs <code>git pull</code> et <code>git fetch</code> ne tireront aucune étiquette. Les récupérations explicites d&#8217;étiquette fonctionneront toujours (voir <a href='{{< relurl "docs/git-fetch/fr" >}}'>git-fetch[1]</a>).</p>
+<p>Contrôler si les étiquettes seront clonées ou non. Quand <span class='synopsis'><code>--no-tags</code></span> est fourni, l&#8217;option devient permanente en réglant le paramètre de configuration <span class='synopsis'><code>remote.</code><em>&lt;distant&gt;</em><code>.tagOpt=--no-tags</code></span>, de sorte que les futurs <span class='synopsis'><code>git</code> <code>pull</code></span> et <span class='synopsis'><code>git</code> <code>fetch</code></span> ne tireront aucune étiquette. Les récupérations explicites d&#8217;étiquette fonctionneront toujours (voir <a href='{{< relurl "docs/git-fetch/fr" >}}'>git-fetch[1]</a>).</p>
 <div class="paragraph">
-<p>Par défaut, les étiquettes sont clonées et le passage de <code>--tags</code> est donc généralement une opération nulle, à moins qu&#8217;il annule un précédent <code>--no-tags</code>.</p>
+<p>Par défaut, les étiquettes sont clonées et le passage de <span class='synopsis'><code>--tags</code></span> est donc généralement une opération nulle, à moins qu&#8217;il annule un précédent <span class='synopsis'><code>--no-tags</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Peut être utilisé en conjonction avec <code>--single-branch</code> pour cloner et maintenir une branche sans autre référence qu&#8217;une unique branche clonée. C&#8217;est utile pour, par exemple, maintenir un minimum de clones de la branche par défaut d&#8217;un dépôt pour l&#8217;indexation de la recherche.</p>
+<p>Peut être utilisé en conjonction avec <span class='synopsis'><code>--single-branch</code></span> pour cloner et maintenir une branche sans autre référence qu&#8217;une unique branche clonée. C&#8217;est utile pour, par exemple, maintenir un minimum de clones de la branche par défaut d&#8217;un dépôt pour l&#8217;indexation de la recherche.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--recurse-submodulesltspcdechemingtcode"> <a class="anchor" href="#git-clone---recurse-submodulesspcdechemin"></a> <a class="anchor" href="#git-clone-code--recurse-submodulesltspcdechemingtcode"></a><code>--recurse-submodules[=&lt;spéc de chemin&gt;]</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsisem--recurse-submodulesltspcdechemingtemspan"> <a class="anchor" href="#git-clone---recurse-submodulesspcdechemin"></a> <a class="anchor" href="#git-clone-spanclasssynopsisem--recurse-submodulesltspcdechemingtemspan"></a><span class='synopsis'><em>--recurse-submodules[=&lt;spéc de chemin&gt;]</em></span> </dt>
 <dd>
-<p>Après création du clone, initialiser et cloner les sous-modules inclus à partir du <em>&lt;spec-de-chemin&gt;</em> fourni. Si aucun <code>=&lt;spec-de-chemin&gt;</code> n&#8217;est fourni, tous les sous-modules sont initialisés et clonés. Cette option peut être spécifiée plus d&#8217;une fois pour des spécificateurs de chemins correspondant à des entrées différentes. Le clone résultant a la configuration <code>submodule.active</code> réglée sur le spécificateur de chemin fourni ou "." (qui signifie tous les sous-modules) si aucun spécificateur de chemin n&#8217;est fourni.</p>
+<p>Après création du clone, initialiser et cloner les sous-modules inclus à partir du <em>&lt;spec-de-chemin&gt;</em> fourni. Si aucun <span class='synopsis'><code>=</code><em>&lt;spec-de-chemin&gt;</em></span> n&#8217;est fourni, tous les sous-modules sont initialisés et clonés. Cette option peut être spécifiée plus d&#8217;une fois pour des spécificateurs de chemins correspondant à des entrées différentes. Le clone résultant a la configuration <span class='synopsis'><code>submodule.active</code></span> réglée sur le spécificateur de chemin fourni ou "." (qui signifie tous les sous-modules) si aucun spécificateur de chemin n&#8217;est fourni.</p>
 <div class="paragraph">
-<p>Les sous-modules sont initialisés et clonés en utilisant leurs réglages par défaut. C&#8217;est équivalent à lancer <code>git submodule update --init --recursive &lt;spéc de chemin&gt;</code> immédiatement après la fin du clonage. Cette option est ignorée si le dépôt cloné n&#8217;a pas d&#8217;arbre de travail/d&#8217;extraction (c&#8217;est-à-dire si <code>--no-checkout</code>/<code>-n</code>, <code>--bare</code>, ou <code>--mirror</code> est fourni)</p>
+<p>Les sous-modules sont initialisés et clonés en utilisant leurs réglages par défaut. C&#8217;est équivalent à lancer <span class='synopsis'><em>git submodule update --init --recursive &lt;spéc de chemin&gt;</em></span> immédiatement après la fin du clonage. Cette option est ignorée si le dépôt cloné n&#8217;a pas d&#8217;arbre de travail/d&#8217;extraction (c&#8217;est-à-dire si <span class='synopsis'><code>--no-checkout</code></span>/<span class='synopsis'><code>-n</code></span>, <span class='synopsis'><code>--bare</code></span>, ou <span class='synopsis'><code>--mirror</code></span> est fourni)</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-code--no-shallow-submodulescode"> <a class="anchor" href="#git-clone---no-shallow-submodules"></a> <a class="anchor" href="#git-clone-code--no-shallow-submodulescode"></a><code>--[no-]shallow-submodules</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecodeshallow-submodulescodespan"> <a class="anchor" href="#git-clone---no-shallow-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecodeshallow-submodulescodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>shallow-submodules</code></span> </dt>
 <dd>
 <p>Tous les sous-modules qui sont clonés seront superficiels avec une profondeur de 1.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--no-remote-submodulescode"> <a class="anchor" href="#git-clone---no-remote-submodules"></a> <a class="anchor" href="#git-clone-code--no-remote-submodulescode"></a><code>--[no-]remote-submodules</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecoderemote-submodulescodespan"> <a class="anchor" href="#git-clone---no-remote-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecoderemote-submodulescodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>remote-submodules</code></span> </dt>
 <dd>
-<p>Tous les sous-modules clonés utiliseront l&#8217;état de la branche de suivi à distance du sous-module pour mettre à jour le sous-module, plutôt que le SHA-1 enregistré par le superprojet. Équivalent à passer <code>--remote</code> à <code>git submodule update</code>.</p>
+<p>Tous les sous-modules clonés utiliseront l&#8217;état de la branche de suivi à distance du sous-module pour mettre à jour le sous-module, plutôt que le SHA-1 enregistré par le superprojet. Équivalent à passer <span class='synopsis'><code>--remote</code></span> à <span class='synopsis'><code>git</code> <code>submodule</code> <code>update</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--separate-git-dirltrpertoire-gitgtcode"> <a class="anchor" href="#git-clone---separate-git-dirrpertoire-git"></a> <a class="anchor" href="#git-clone-code--separate-git-dirltrpertoire-gitgtcode"></a><code>--separate-git-dir=&lt;répertoire-git&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--separate-git-dircodeemltrpertoire-gitgtemspan"> <a class="anchor" href="#git-clone---separate-git-dirrpertoire-git"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--separate-git-dircodeemltrpertoire-gitgtemspan"></a><span class='synopsis'><code>--separate-git-dir=</code><em>&lt;répertoire-git&gt;</em></span> </dt>
 <dd>
 <p>Au lieu de placer le dépôt clone là où il est supposé être, placer le dépôt clone dans le répertoire spécifié, puis créer un lien symbolique Git indépendant du système de fichiers. Le résultat est un dépôt Git qui est séparé de son arbre de travail.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--ref-formatltformat-de-rfgtcode"> <a class="anchor" href="#git-clone---ref-formatformat-de-rf"></a> <a class="anchor" href="#git-clone-code--ref-formatltformat-de-rfgtcode"></a><code>--ref-format=&lt;format-de-réf&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--ref-formatcodeemltformat-de-rfgtemspan"> <a class="anchor" href="#git-clone---ref-formatformat-de-rf"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--ref-formatcodeemltformat-de-rfgtemspan"></a><span class='synopsis'><code>--ref-format=</code><em>&lt;format-de-réf&gt;</em></span> </dt>
 <dd>
 <p>Spécifier le format de stockage de réf donné pour le dépôt. Les valeurs valides sont :</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>files</code> pour des fichiers perdus avec des refs emballés. Valeur par défaut.</p>
+<p><span class='synopsis'><code>files</code></span> pour des fichiers perdus avec des refs emballés. Valeur par défaut.</p>
 </li>
 <li>
-<p><code>reftable</code> pour le format reftable. Ce format est expérimental et son fonctionnement interne est sujet à changement.</p>
+<p><span class='synopsis'><code>reftable</code></span> pour le format reftable. Ce format est expérimental et son fonctionnement interne est sujet à changement.</p>
 </li>
 </ul>
 </div>
@@ -240,10 +259,10 @@ aliases:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-clone-code-jcodeemltngtem"> <a class="anchor" href="#git-clone--jn"></a> <a class="anchor" href="#git-clone-code-jcodeemltngtem"></a><code>-j</code> <em>&lt;n&gt;</em> </dt>
-<dt class="hdlist1" id="git-clone-code--jobscodeemltngtem"> <a class="anchor" href="#git-clone---jobsn"></a> <a class="anchor" href="#git-clone-code--jobscodeemltngtem"></a><code>--jobs</code> <em>&lt;n&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode-jcodespanemltngtem"> <a class="anchor" href="#git-clone--jn"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode-jcodespanemltngtem"></a><span class='synopsis'><code>-j</code></span> <em>&lt;n&gt;</em> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--jobscodespanemltngtem"> <a class="anchor" href="#git-clone---jobsn"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--jobscodespanemltngtem"></a><span class='synopsis'><code>--jobs</code></span> <em>&lt;n&gt;</em> </dt>
 <dd>
-<p>Le nombre de sous-modules récupérés en même temps. Par défaut, l&#8217;option <code>submodule.fetchJobs</code>.</p>
+<p>Le nombre de sous-modules récupérés en même temps. Par défaut, l&#8217;option <span class='synopsis'><code>submodule.fetchJobs</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-clone-emltdptgtem"> <a class="anchor" href="#git-clone-dpt"></a> <a class="anchor" href="#git-clone-emltdptgtem"></a><em>&lt;dépôt&gt;</em> </dt>
 <dd>
@@ -251,11 +270,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-clone-emltrpertoiregtem"> <a class="anchor" href="#git-clone-rpertoire"></a> <a class="anchor" href="#git-clone-emltrpertoiregtem"></a><em>&lt;répertoire&gt;</em> </dt>
 <dd>
-<p>Le nom du nouveau répertoire dans lequel cloner. La partie « humaine » du dépôt source est utilisée si aucun <em>&lt;répertoire&gt;</em> n&#8217;est fourni explicitement (<code>dépôt</code> pour <code>/chemin/vers/un/dépôt.git</code> et <code>toto</code> pour <code>hôte.xz:toto/.git</code>). Cloner dans un répertoire existant n&#8217;est permis que si le répertoire en question est vide.</p>
+<p>Le nom du nouveau répertoire dans lequel cloner. La partie « humaine » du dépôt source est utilisée si aucun <em>&lt;répertoire&gt;</em> n&#8217;est fourni explicitement (<span class='synopsis'><em>dépôt</em></span> pour <span class='synopsis'><em>/chemin/vers/un/dépôt.git</em></span> et <span class='synopsis'><code>toto</code></span> pour <span class='synopsis'><em>hôte.xz:toto/.git</em></span>). Cloner dans un répertoire existant n&#8217;est permis que si le répertoire en question est vide.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-code--bundle-urilturigtcode"> <a class="anchor" href="#git-clone---bundle-uriuri"></a> <a class="anchor" href="#git-clone-code--bundle-urilturigtcode"></a><code>--bundle-uri=&lt;uri&gt;</code> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--bundle-uricodeemlturigtemspan"> <a class="anchor" href="#git-clone---bundle-uriuri"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--bundle-uricodeemlturigtemspan"></a><span class='synopsis'><code>--bundle-uri=</code><em>&lt;uri&gt;</em></span> </dt>
 <dd>
-<p>Avant de récupérer depuis le distant, récupérer un colis à partir du <em>&lt;uri&gt;</em> donné et décompresser les données dans le dépôt local. Les références dans le colis seront stockées dans l&#8217;espace de nom caché <code>refs/bundle/*</code>. Cette option est incompatible avec <code>--depth</code>, <code>--shallow-since</code>, et <code>--shallow-exclude</code>.</p>
+<p>Avant de récupérer depuis le distant, récupérer un colis à partir du <em>&lt;uri&gt;</em> donné et décompresser les données dans le dépôt local. Les références dans le colis seront stockées dans l&#8217;espace de nom caché <span class='synopsis'><code>refs/bundle/*</code></span>. Cette option est incompatible avec <span class='synopsis'><code>--depth</code></span>, <span class='synopsis'><code>--shallow-since</code></span>, et <span class='synopsis'><code>--shallow-exclude</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -271,7 +290,7 @@ aliases:
 <p>Git supporte les protocoles ssh, git, http et https (en plus, ftp et ftps peuvent être utilisés pour la récupération, mais ceux-ci sont inefficaces et déconseillés ; ne les utilisez pas).</p>
 </div>
 <div class="paragraph">
-<p>Le transport natif (c&#8217;est-à-dire l&#8217;URL <code>git://</code>) n&#8217;utilise pas d&#8217;authentification et ne devrait être utilisé qu&#8217;avec précaution sur des réseaux non sécurisés.</p>
+<p>Le transport natif (c&#8217;est-à-dire l&#8217;URL <span class='synopsis'><code>git://</code></span>) n&#8217;utilise pas d&#8217;authentification et ne devrait être utilisé qu&#8217;avec précaution sur des réseaux non sécurisés.</p>
 </div>
 <div class="paragraph">
 <p>Les syntaxes suivantes peuvent être utilisées avec eux :</p>
@@ -279,10 +298,10 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p><code>ssh://[&lt;utilisateur&gt;@]&lt;hôte&gt;[:&lt;port&gt;]/&lt;chemin-du-dépôt-git&gt;</code></p>
+<p><span class='synopsis'><code>ssh://</code>[<em>&lt;utilisateur&gt;</em><code>@</code>]<em>&lt;hôte&gt;</em>[<code>:</code><em>&lt;port&gt;</em>]<code>/</code><em>&lt;chemin-du-dépôt-git&gt;</em></span></p>
 </li>
 <li>
-<p><code>git://&lt;hôte&gt;[:&lt;port&gt;]/&lt;chemin-du-dépôt-git&gt;</code></p>
+<p><span class='synopsis'><code>git://</code><em>&lt;hôte&gt;</em>[<code>:</code><em>&lt;port&gt;</em>]<code>/</code><em>&lt;chemin-du-dépôt-git&gt;</em></span></p>
 </li>
 <li>
 <p>git://&lt;hôte&gt;:&lt;port&gt;]/&lt;chemin-du-dépôt-git&gt;`</p>
@@ -298,26 +317,26 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p><code>[&lt;utilisateur&gt;@]&lt;hôte&gt;:/&lt;chemin-du-dépôt-git&gt;</code></p>
+<p><span class='synopsis'>[<em>&lt;utilisateur&gt;</em><code>@</code>]<em>&lt;hôte&gt;</em><code>:/</code><em>&lt;chemin-du-dépôt-git&gt;</em></span></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Cette syntaxe n&#8217;est reconnue que s&#8217;il n&#8217;y a pas de barre oblique devant les premiers deux-points. Cela permet de prendre en charge des chemins locaux qui contiendraient des deux-points. Par exemple, le chemin local <code>toto:titi</code> pourrait être spécifié comme un chemin absolu ou <code>./toto:titi</code> pour éviter d&#8217;être interprété comme une url ssh.</p>
+<p>Cette syntaxe n&#8217;est reconnue que s&#8217;il n&#8217;y a pas de barre oblique devant les premiers deux-points. Cela permet de prendre en charge des chemins locaux qui contiendraient des deux-points. Par exemple, le chemin local <span class='synopsis'><code>toto:titi</code></span> pourrait être spécifié comme un chemin absolu ou <span class='synopsis'><code>./toto:titi</code></span> pour éviter d&#8217;être interprété comme une url ssh.</p>
 </div>
 <div class="paragraph">
-<p>Les protocoles ssh et git supportent en plus l&#8217;expansion <code>~&lt;utilisateur&gt;</code>  :</p>
+<p>Les protocoles ssh et git supportent en plus l&#8217;expansion <span class='synopsis'><code>~</code><em>&lt;utilisateur&gt;</em></span>  :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>ssh://[&lt;utilisateur&gt;@]&lt;hôte&gt;[:&lt;port&gt;]/~&lt;utilisateur&gt;/&lt;chemin-du-dépôt-git&gt;</code></p>
+<p><span class='synopsis'><code>ssh://</code>[<em>&lt;utilisateur&gt;</em><code>@</code>]<em>&lt;hôte&gt;</em>[<code>:</code><em>&lt;port&gt;</em>]<code>/~</code><em>&lt;utilisateur&gt;</em><code>/</code><em>&lt;chemin-du-dépôt-git&gt;</em></span></p>
 </li>
 <li>
-<p><code>git://&lt;hôte&gt;[:&lt;port&gt;]/~&lt;utilisateur&gt;/&lt;chemin-du-dépôt-git&gt;</code></p>
+<p><span class='synopsis'><code>git://</code><em>&lt;hôte&gt;</em>[<code>:</code><em>&lt;port&gt;</em>]<code>/~</code><em>&lt;utilisateur&gt;</em><code>/</code><em>&lt;chemin-du-dépôt-git&gt;</em></span></p>
 </li>
 <li>
-<p><code>[&lt;utilisateur&gt;@]&lt;hôte&gt;:~&lt;utilisateur&gt;/&lt;chemin-du-dépôt-git&gt;</code></p>
+<p><span class='synopsis'>[<em>&lt;utilisateur&gt;</em><code>@</code>]<em>&lt;hôte&gt;</em><code>:~</code><em>&lt;utilisateur&gt;</em><code>/</code><em>&lt;chemin-du-dépôt-git&gt;</em></span></p>
 </li>
 </ul>
 </div>
@@ -327,26 +346,26 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p><code>/chemin/du/dépôt.git/</code></p>
+<p><span class='synopsis'><em>/chemin/du/dépôt.git/</em></span></p>
 </li>
 <li>
-<p><code>file:///chemin/du/dépôt.git/</code></p>
+<p><span class='synopsis'><em>file:///chemin/du/dépôt.git/</em></span></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Ces deux syntaxes sont à peu près équivalentes, à part que la première implique l&#8217;option <code>--local</code>.</p>
+<p>Ces deux syntaxes sont à peu près équivalentes, à part que la première implique l&#8217;option <span class='synopsis'><code>--local</code></span>.</p>
 </div>
 <div class="paragraph">
-<p><code>git clone</code>, <code>git fetch</code> et <code>git pull</code>, mais pas <code>git push</code>, acceptent également un fichier paquet approprié. Voir <a href='{{< relurl "docs/git-bundle/fr" >}}'>git-bundle[1]</a>.</p>
+<p><span class='synopsis'><code>git</code> <code>clone</code></span>, <span class='synopsis'><code>git</code> <code>fetch</code></span> et <span class='synopsis'><code>git</code> <code>pull</code></span>, mais pas <span class='synopsis'><code>git</code> <code>push</code></span>, acceptent également un fichier paquet approprié. Voir <a href='{{< relurl "docs/git-bundle/fr" >}}'>git-bundle[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Quand Git ne sait pas comment gérer un certain protocole, il essaie d&#8217;utiliser l&#8217;assistant de gestion de distant <code>remote-&lt;transport&gt;</code>, s&#8217;il existe. Pour requérir l&#8217;emploi d&#8217;un assistant spécifique, la syntaxe suivante peut être utilisée :</p>
+<p>Quand Git ne sait pas comment gérer un certain protocole, il essaie d&#8217;utiliser l&#8217;assistant de gestion de distant <span class='synopsis'><code>remote-</code><em>&lt;transport&gt;</em></span>, s&#8217;il existe. Pour requérir l&#8217;emploi d&#8217;un assistant spécifique, la syntaxe suivante peut être utilisée :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>&lt;transport&gt;::&lt;adresse&gt;</code></p>
+<p><span class='synopsis'><em>&lt;transport&gt;</em><code>::</code><em>&lt;adresse&gt;</em></span></p>
 </li>
 </ul>
 </div>
@@ -464,7 +483,7 @@ $ cd mon-linux</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/init.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/init.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -481,7 +500,7 @@ $ cd mon-linux</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>fr/config/clone.adoc</code></p>
+<p>Missing <span class='synopsis'><code>fr/config/clone.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>

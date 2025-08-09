@@ -9,6 +9,25 @@ docname: git-replace
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-replace/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 格式
+  id: _格式
+- text: 创建替换对象
+  id: _创建替换对象
+- text: 漏洞
+  id: _漏洞
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -35,16 +54,16 @@ aliases:
 <h2 id="_描述"><a class="anchor" href="#_描述"></a>描述</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在 <code>refs/replace/</code> 命名空间中添加 <em>replace</em> 引用。</p>
+<p>在 <span class='synopsis'><code>refs/replace/</code></span> 命名空间中添加 <em>replace</em> 引用。</p>
 </div>
 <div class="paragraph">
 <p><em>replace</em> 引用的名称是被替换对象的 SHA-1 <em>replace</em> 引用的内容是被替换对象的 SHA-1 值。</p>
 </div>
 <div class="paragraph">
-<p>被替换对象和替换对象必须是同一类型。 使用 <code>-f</code> 可以绕过这一限制。</p>
+<p>被替换对象和替换对象必须是同一类型。 使用 <span class='synopsis'><code>-f</code></span> 可以绕过这一限制。</p>
 </div>
 <div class="paragraph">
-<p>除非给出 <code>-f</code>，否则 <em>replace</em> 引用必须不存在。</p>
+<p>除非给出 <span class='synopsis'><code>-f</code></span>，否则 <em>replace</em> 引用必须不存在。</p>
 </div>
 <div class="paragraph">
 <p>被替换和替换对象没有其他限制。 合并提交可以被非合并提交替换，反之亦然。</p>
@@ -53,7 +72,7 @@ aliases:
 <p>除了进行可达性遍历的命令（剪枝、打包转移和 fsck）外，所有 Git 命令都将默认使用替换引用。</p>
 </div>
 <div class="paragraph">
-<p>使用 <em>git</em> 后面的 <code>--no-replace-objects</code> 选项，可以禁止在任何命令中使用替换引用。</p>
+<p>使用 <em>git</em> 后面的 <span class='synopsis'><code>--no-replace-objects</code></span> 选项，可以禁止在任何命令中使用替换引用。</p>
 </div>
 <div class="paragraph">
 <p>例如，如果提交 <em>foo</em> 已被提交 <em>bar</em> 取代：</p>
@@ -75,7 +94,7 @@ aliases:
 <p>显示有关提交 <em>bar</em> 的信息。</p>
 </div>
 <div class="paragraph">
-<p>可以设置 <code>GIT_NO_REPLACE_OBJECTS</code> 环境变量，以达到与 <code>--no-replace-objects</code> 选项相同的效果。</p>
+<p>可以设置 <span class='synopsis'><code>GIT_NO_REPLACE_OBJECTS</code></span> 环境变量，以达到与 <span class='synopsis'><code>--no-replace-objects</code></span> 选项相同的效果。</p>
 </div>
 </div>
 </div>
@@ -104,11 +123,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-replace---graftltgtltgt82308203"> <a class="anchor" href="#git-replace---graft"></a> <a class="anchor" href="#git-replace---graftltgtltgt82308203"></a>--graft &lt;提交&gt; [&lt;父提交&gt;&#8230;&#8203;] </dt>
 <dd>
-<p>创建嫁接提交。新创建的提交内容与 &lt;提交&gt; 相同，只是它的父提交将是 [&lt;父提交&gt;&#8230;&#8203;]，而不是 &lt;提交&gt; 的父提交。然后会创建一个替换引用，用新创建的提交替换 &lt;提交&gt;。使用 <code>--convert-graft-file</code>，转换 <code>$GIT_DIR/info/grafts</code> 文件并使用替换引用代替。</p>
+<p>创建嫁接提交。新创建的提交内容与 &lt;提交&gt; 相同，只是它的父提交将是 [&lt;父提交&gt;&#8230;&#8203;]，而不是 &lt;提交&gt; 的父提交。然后会创建一个替换引用，用新创建的提交替换 &lt;提交&gt;。使用 <span class='synopsis'><code>--convert-graft-file</code></span>，转换 <span class='synopsis'><code>$GIT_DIR/info/grafts</code></span> 文件并使用替换引用代替。</p>
 </dd>
 <dt class="hdlist1" id="git-replace---convert-graft-file"> <a class="anchor" href="#git-replace---convert-graft-file"></a>--convert-graft-file </dt>
 <dd>
-<p>为 <code>$GIT_DIR/info/grafts</code> 中的所有条目创建嫁接提交，并在成功后删除该文件。目的是帮助用户从现已过时的 graft 文件过渡。</p>
+<p>为 <span class='synopsis'><code>$GIT_DIR/info/grafts</code></span> 中的所有条目创建嫁接提交，并在成功后删除该文件。目的是帮助用户从现已过时的 graft 文件过渡。</p>
 </dd>
 <dt class="hdlist1" id="git-replace--lltgt"> <a class="anchor" href="#git-replace--l"></a> <a class="anchor" href="#git-replace--lltgt"></a>-l &lt;模式&gt; </dt>
 <dt class="hdlist1" id="git-replace---listltgt"> <a class="anchor" href="#git-replace---list"></a> <a class="anchor" href="#git-replace---listltgt"></a>--list &lt;模式&gt; </dt>
@@ -151,7 +170,7 @@ aliases:
 <h2 id="_创建替换对象"><a class="anchor" href="#_创建替换对象"></a>创建替换对象</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href='{{< relurl "docs/git-hash-object/zh_HANS-CN" >}}'>git-hash-object[1]</a>、<a href='{{< relurl "docs/git-rebase/zh_HANS-CN" >}}'>git-rebase[1]</a>、https://github.com/newren/git-filter-repo[git-filter-repo] 等 git 命令可以用来从现有对象创建替换对象。此外，<code>--edit</code> 选项也可以与 <em>git replace</em> 一起使用，通过编辑现有对象来创建替换对象。</p>
+<p><a href='{{< relurl "docs/git-hash-object/zh_HANS-CN" >}}'>git-hash-object[1]</a>、<a href='{{< relurl "docs/git-rebase/zh_HANS-CN" >}}'>git-rebase[1]</a>、https://github.com/newren/git-filter-repo[git-filter-repo] 等 git 命令可以用来从现有对象创建替换对象。此外，<span class='synopsis'><code>--edit</code></span> 选项也可以与 <em>git replace</em> 一起使用，通过编辑现有对象来创建替换对象。</p>
 </div>
 <div class="paragraph">
 <p>如果您想替换属于提交串一部分的许多二进制对象、目录树或提交，您可能只想创建一个替换提交串，然后只用替换提交串顶端的提交替换目标提交串顶端的提交。</p>
@@ -162,7 +181,7 @@ aliases:
 <h2 id="_漏洞"><a class="anchor" href="#_漏洞"></a>漏洞</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>比较被替换的二进制对象或目录树与替换它们的二进制对象或目录树将无法正常工作。使用 <code>git reset --hard</code> 回到被替换的提交，会将分支移动到替换提交，而不是被替换的提交。</p>
+<p>比较被替换的二进制对象或目录树与替换它们的二进制对象或目录树将无法正常工作。使用 <span class='synopsis'><code>git</code> <code>reset</code> <code>--hard</code></span> 回到被替换的提交，会将分支移动到替换提交，而不是被替换的提交。</p>
 </div>
 <div class="paragraph">
 <p>使用 <em>git rev-list</em> 时，可能会遇到与待处理对象相关的其他问题。</p>

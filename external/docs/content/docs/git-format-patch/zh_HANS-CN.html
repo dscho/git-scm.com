@@ -9,6 +9,31 @@ docname: git-format-patch
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-format-patch/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 配置
+  id: _配置
+- text: 讨论
+  id: _讨论
+- text: 针对 Mua 的提示
+  id: _针对_mua_的提示
+- text: 基准树信息
+  id: _基准树信息
+- text: 实例
+  id: _实例
+- text: 注意事项
+  id: _注意事项
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -87,22 +112,22 @@ aliases:
 </ol>
 </div>
 <div class="paragraph">
-<p>在只有一个 &lt;提交&gt; 的情况下，第一条规则具有优先权。 要应用第二条规则，即格式化从历史开始到 &lt;提交&gt; 为止的所有内容，使用 <code>--root</code> 选项：<code>git format-patch --root &lt;提交&gt;</code>。 如果你只想格式化 &lt;提交&gt; 本身，你可以用`git format-patch -1 &lt;提交&gt;`来做。</p>
+<p>在只有一个 &lt;提交&gt; 的情况下，第一条规则具有优先权。 要应用第二条规则，即格式化从历史开始到 &lt;提交&gt; 为止的所有内容，使用 <span class='synopsis'><code>--root</code></span> 选项：<span class='synopsis'><code>git</code> <code>format-patch</code> <code>--root</code> <em>&lt;提交&gt;</em></span>。 如果你只想格式化 &lt;提交&gt; 本身，你可以用`git format-patch -1 &lt;提交&gt;`来做。</p>
 </div>
 <div class="paragraph">
-<p>默认情况下，每个输出文件从 1 开始依次编号，并使用提交信息的第一行（为保证路径名的安全而进行了调整）作为文件名。使用 <code>--numbered-files</code> 选项，输出文件名将只有数字，而没有附加提交信息的第一行。 除非指定 <code>--stdout</code> 选项，否则输出文件的名称将被打印到标准输出。</p>
+<p>默认情况下，每个输出文件从 1 开始依次编号，并使用提交信息的第一行（为保证路径名的安全而进行了调整）作为文件名。使用 <span class='synopsis'><code>--numbered-files</code></span> 选项，输出文件名将只有数字，而没有附加提交信息的第一行。 除非指定 <span class='synopsis'><code>--stdout</code></span> 选项，否则输出文件的名称将被打印到标准输出。</p>
 </div>
 <div class="paragraph">
-<p>如果指定了 <code>-o</code>，输出文件将在&lt;目录&gt;创建。 否则，它们将在当前工作目录下创建。默认路径可以通过 <code>format.outputDirectory</code> 配置选项来设置。 <code>-o</code> 选项优先于 <code>format.outputDirectory</code>。 要在当前工作目录下存储补丁，即使 <code>format.outputDirectory</code> 指向其他地方，使用 <code>-o .</code>。所有的目录组件都将被创建。</p>
+<p>如果指定了 <span class='synopsis'><code>-o</code></span>，输出文件将在&lt;目录&gt;创建。 否则，它们将在当前工作目录下创建。默认路径可以通过 <span class='synopsis'><code>format.outputDirectory</code></span> 配置选项来设置。 <span class='synopsis'><code>-o</code></span> 选项优先于 <span class='synopsis'><code>format.outputDirectory</code></span>。 要在当前工作目录下存储补丁，即使 <span class='synopsis'><code>format.outputDirectory</code></span> 指向其他地方，使用 <span class='synopsis'><code>-o</code> <code>.</code></span>。所有的目录组件都将被创建。</p>
 </div>
 <div class="paragraph">
 <p>默认情况下，单个补丁的主题是 "[PATCH]"，后面是提交信息到第一个空行的串联（见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a> 的讨论部分）。</p>
 </div>
 <div class="paragraph">
-<p>当输出多个补丁时，主题前缀将改为 "[PATCH n/m] "。 要强制为单个补丁添加 1/1，使用 <code>-n</code>。 要从主题中省略补丁编号，使用 <code>-N</code>。</p>
+<p>当输出多个补丁时，主题前缀将改为 "[PATCH n/m] "。 要强制为单个补丁添加 1/1，使用 <span class='synopsis'><code>-n</code></span>。 要从主题中省略补丁编号，使用 <span class='synopsis'><code>-N</code></span>。</p>
 </div>
 <div class="paragraph">
-<p>如果给出 <code>--thread</code>，<code>git-format-patch</code> 将生成 <code>In-Reply-To</code> 和 <code>References</code> 头，使第二封和随后的补丁邮件显示为对第一封邮件的回复；这也会生成一个 <code>Message-ID</code> 头供参考。</p>
+<p>如果给出 <span class='synopsis'><code>--thread</code></span>，<span class='synopsis'><code>git-format-patch</code></span> 将生成 <span class='synopsis'><code>In-Reply-To</code></span> 和 <span class='synopsis'><code>References</code></span> 头，使第二封和随后的补丁邮件显示为对第一封邮件的回复；这也会生成一个 <span class='synopsis'><code>Message-ID</code></span> 头供参考。</p>
 </div>
 </div>
 </div>
@@ -117,7 +142,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>zh_HANS-CN/diff-options.adoc</code></p>
+<p>Missing <span class='synopsis'><code>zh_HANS-CN/diff-options.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -163,7 +188,7 @@ aliases:
 <dt class="hdlist1" id="git-format-patch--s"> <a class="anchor" href="#git-format-patch--s"></a>-s </dt>
 <dt class="hdlist1" id="git-format-patch---signoff"> <a class="anchor" href="#git-format-patch---signoff"></a>--signoff </dt>
 <dd>
-<p>在提交信息中加入 <code>Signed-off-by</code> 的尾注，使用自己的提交者身份。 更多信息见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a> 中的 signoff 选项。</p>
+<p>在提交信息中加入 <span class='synopsis'><code>Signed-off-by</code></span> 的尾注，使用自己的提交者身份。 更多信息见 <a href='{{< relurl "docs/git-commit/zh_HANS-CN" >}}'>git-commit[1]</a> 中的 signoff 选项。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---stdout"> <a class="anchor" href="#git-format-patch---stdout"></a>--stdout </dt>
 <dd>
@@ -171,7 +196,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-format-patch---attachltgt"> <a class="anchor" href="#git-format-patch---attach"></a> <a class="anchor" href="#git-format-patch---attachltgt"></a>--attach[=&lt;边界&gt;] </dt>
 <dd>
-<p>创建多部分/混合附件，第一部分是提交信息，第二部分是补丁本身，<code>Content-Disposition: attachment</code>。</p>
+<p>创建多部分/混合附件，第一部分是提交信息，第二部分是补丁本身，<span class='synopsis'><code>Content-Disposition:</code> <code>attachment</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---no-attach"> <a class="anchor" href="#git-format-patch---no-attach"></a>--no-attach </dt>
 <dd>
@@ -179,25 +204,25 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-format-patch---inlineltgt"> <a class="anchor" href="#git-format-patch---inline"></a> <a class="anchor" href="#git-format-patch---inlineltgt"></a>--inline[=&lt;边界&gt;] </dt>
 <dd>
-<p>创建 multipart/mixed 附件，第一部分是提交信息，第二部分是补丁本身，使用 <code>Content-Disposition: inline</code>。</p>
+<p>创建 multipart/mixed 附件，第一部分是提交信息，第二部分是补丁本身，使用 <span class='synopsis'><code>Content-Disposition:</code> <code>inline</code></span>。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---threadltgt"> <a class="anchor" href="#git-format-patch---thread"></a> <a class="anchor" href="#git-format-patch---threadltgt"></a>--thread[=&lt;样式&gt;] </dt>
 <dt class="hdlist1" id="git-format-patch---no-thread"> <a class="anchor" href="#git-format-patch---no-thread"></a>--no-thread </dt>
 <dd>
-<p>控制添加 <code>In-Reply-To</code> 和 <code>References</code> 标头，使第二封及以后的邮件显示为对第一封邮件的回复。 还控制生成 <code>Message-ID</code> 头，以便参考。</p>
+<p>控制添加 <span class='synopsis'><code>In-Reply-To</code></span> 和 <span class='synopsis'><code>References</code></span> 标头，使第二封及以后的邮件显示为对第一封邮件的回复。 还控制生成 <span class='synopsis'><code>Message-ID</code></span> 头，以便参考。</p>
 <div class="paragraph">
-<p>可选的 &lt;风格&gt; 参数可以是 <code>shallow</code> 或 <code>deep</code>。 ‘浅’ 线程使每封邮件都是对该系列的头的回复，其中头是从封面信、<code>--in-reply-to</code> 和第一个补丁邮件中选择的，按这个顺序。 ‘深’ 线程使每封邮件都是对前一封的回复。</p>
+<p>可选的 &lt;风格&gt; 参数可以是 <span class='synopsis'><code>shallow</code></span> 或 <span class='synopsis'><code>deep</code></span>。 ‘浅’ 线程使每封邮件都是对该系列的头的回复，其中头是从封面信、<span class='synopsis'><code>--in-reply-to</code></span> 和第一个补丁邮件中选择的，按这个顺序。 ‘深’ 线程使每封邮件都是对前一封的回复。</p>
 </div>
 <div class="paragraph">
-<p>默认是 <code>--no-thread</code>，除非设置了 <code>format.thread</code> 配置。 没有参数的 <code>--thread</code> 等同于 <code>--thread=shallow</code>。</p>
+<p>默认是 <span class='synopsis'><code>--no-thread</code></span>，除非设置了 <span class='synopsis'><code>format.thread</code></span> 配置。 没有参数的 <span class='synopsis'><code>--thread</code></span> 等同于 <span class='synopsis'><code>--thread=shallow</code></span>。</p>
 </div>
 <div class="paragraph">
-<p>请注意，<em>git send-email</em> 的默认设置是对邮件本身进行线程处理。 如果你想让 <code>git format-patch</code> 负责线程，你要确保 <code>git send-email</code> 的线程被禁用。</p>
+<p>请注意，<em>git send-email</em> 的默认设置是对邮件本身进行线程处理。 如果你想让 <span class='synopsis'><code>git</code> <code>format-patch</code></span> 负责线程，你要确保 <span class='synopsis'><code>git</code> <code>send-email</code></span> 的线程被禁用。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---in-reply-toltIDgt"> <a class="anchor" href="#git-format-patch---in-reply-toID"></a> <a class="anchor" href="#git-format-patch---in-reply-toltIDgt"></a>--in-reply-to=&lt;消息 ID&gt; </dt>
 <dd>
-<p>使第一封邮件（或所有带有 <code>--no-thread</code> 的邮件）作为给定的 &lt;消息 id&gt; 的回复出现，这可以避免破坏线程以提供一个新的补丁系列。</p>
+<p>使第一封邮件（或所有带有 <span class='synopsis'><code>--no-thread</code></span> 的邮件）作为给定的 &lt;消息 id&gt; 的回复出现，这可以避免破坏线程以提供一个新的补丁系列。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---ignore-if-in-upstream"> <a class="anchor" href="#git-format-patch---ignore-if-in-upstream"></a>--ignore-if-in-upstream </dt>
 <dd>
@@ -211,16 +236,16 @@ aliases:
 <dd>
 <p>控制求职信的哪些部分将使用分支机构的描述自动填充。</p>
 <div class="paragraph">
-<p>如果 <code>&lt;模式&gt;</code> 是 <code>message</code> 或 <code>default</code>，求职信的主题将被填充为占位符文本。信函的正文将被填入分支的描述。这是没有指定配置或命令行选项时的默认模式。</p>
+<p>如果 <span class='synopsis'><em>&lt;模式&gt;</em></span> 是 <span class='synopsis'><code>message</code></span> 或 <span class='synopsis'><code>default</code></span>，求职信的主题将被填充为占位符文本。信函的正文将被填入分支的描述。这是没有指定配置或命令行选项时的默认模式。</p>
 </div>
 <div class="paragraph">
-<p>如果 <code>&lt;模式&gt;</code> 是 <code>subject</code>，分支描述的第一段将填入求职信的主题。描述的其余部分将填充到求职信的正文中。</p>
+<p>如果 <span class='synopsis'><em>&lt;模式&gt;</em></span> 是 <span class='synopsis'><code>subject</code></span>，分支描述的第一段将填入求职信的主题。描述的其余部分将填充到求职信的正文中。</p>
 </div>
 <div class="paragraph">
-<p>如果 <code>&lt;模式&gt;</code> 是 <code>auto</code>，如果分支描述的第一段大于100字节，那么模式将是 <code>message</code>，否则将使用 <code>subject</code>。</p>
+<p>如果 <span class='synopsis'><em>&lt;模式&gt;</em></span> 是 <span class='synopsis'><code>auto</code></span>，如果分支描述的第一段大于100字节，那么模式将是 <span class='synopsis'><code>message</code></span>，否则将使用 <span class='synopsis'><code>subject</code></span>。</p>
 </div>
 <div class="paragraph">
-<p>如果 <code>&lt;模式&gt;</code> 为 <code>none</code>，求职信的主题和正文都将被填充为占位符文本。</p>
+<p>如果 <span class='synopsis'><em>&lt;模式&gt;</em></span> 为 <span class='synopsis'><code>none</code></span>，求职信的主题和正文都将被填充为占位符文本。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---description-fileltgt"> <a class="anchor" href="#git-format-patch---description-file"></a> <a class="anchor" href="#git-format-patch---description-fileltgt"></a>--description-file=&lt;文件&gt; </dt>
@@ -229,14 +254,14 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-format-patch---subject-prefixltgt"> <a class="anchor" href="#git-format-patch---subject-prefix"></a> <a class="anchor" href="#git-format-patch---subject-prefixltgt"></a>--subject-prefix=&lt;主题前缀&gt; </dt>
 <dd>
-<p>在主题行中不要使用标准的 <em>[PATCH]</em> 前缀，而应使用 <em>[&lt;主题前缀&gt;]</em>。这可用于命名补丁系列，并可与 <code>--numbered</code> 选项结合使用。</p>
+<p>在主题行中不要使用标准的 <em>[PATCH]</em> 前缀，而应使用 <em>[&lt;主题前缀&gt;]</em>。这可用于命名补丁系列，并可与 <span class='synopsis'><code>--numbered</code></span> 选项结合使用。</p>
 <div class="paragraph">
-<p>配置变量 <code>format.subjectPrefix</code> 也可用于配置主题前缀，以适用于指定仓库的所有补丁。这在接收多个仓库补丁的邮件列表中通常很有用，可用于消除补丁的歧义（例如值为 "PATCH my-project"）。</p>
+<p>配置变量 <span class='synopsis'><code>format.subjectPrefix</code></span> 也可用于配置主题前缀，以适用于指定仓库的所有补丁。这在接收多个仓库补丁的邮件列表中通常很有用，可用于消除补丁的歧义（例如值为 "PATCH my-project"）。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---filename-max-lengthltngt"> <a class="anchor" href="#git-format-patch---filename-max-lengthn"></a> <a class="anchor" href="#git-format-patch---filename-max-lengthltngt"></a>--filename-max-length=&lt;n&gt; </dt>
 <dd>
-<p>代替标准的 64 字节，将生成的输出文件名压缩到 <em>&lt;n&gt;</em> 字节左右（太短的值会被默默提升到合理的长度）。 默认为 <code>format.filenameMaxLength</code> 配置变量的值，如果没有配置，则为 64。</p>
+<p>代替标准的 64 字节，将生成的输出文件名压缩到 <em>&lt;n&gt;</em> 字节左右（太短的值会被默默提升到合理的长度）。 默认为 <span class='synopsis'><code>format.filenameMaxLength</code></span> 配置变量的值，如果没有配置，则为 64。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---rfcltrfcgt"> <a class="anchor" href="#git-format-patch---rfcrfc"></a> <a class="anchor" href="#git-format-patch---rfcltrfcgt"></a>--rfc[=&lt;rfc&gt;] </dt>
 <dd>
@@ -245,37 +270,37 @@ aliases:
 <p>RFC 意味着“请求评论”（Request For Comments）；在发送一个用于讨论而非应用的实验性补丁时使用这个。使用 "--rfc=WIP" 也可能是一个有用的方式来表明一个补丁尚未完成（"WIP" 代表 "Work In Progress"）。</p>
 </div>
 <div class="paragraph">
-<p>If the convention of the receiving community for a particular extra string is to have it <em>after</em> the subject prefix, the string <em>&lt;rfc&gt;</em> can be prefixed with a dash ("<code>-</code>") to signal that the rest of the <em>&lt;rfc&gt;</em> string should be appended to the subject prefix instead, e.g., <code>--rfc='-(WIP)'</code> results in "PATCH (WIP)".</p>
+<p>If the convention of the receiving community for a particular extra string is to have it <em>after</em> the subject prefix, the string <em>&lt;rfc&gt;</em> can be prefixed with a dash ("<span class='synopsis'><code>-</code></span>") to signal that the rest of the <em>&lt;rfc&gt;</em> string should be appended to the subject prefix instead, e.g., <span class='synopsis'><code>--rfc='-</code>(<code>WIP</code>)</span> results in "PATCH (WIP)".</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch--vltngt"> <a class="anchor" href="#git-format-patch--vn"></a> <a class="anchor" href="#git-format-patch--vltngt"></a>-v &lt;n&gt; </dt>
 <dt class="hdlist1" id="git-format-patch---reroll-countltngt"> <a class="anchor" href="#git-format-patch---reroll-countn"></a> <a class="anchor" href="#git-format-patch---reroll-countltngt"></a>--reroll-count=&lt;n&gt; </dt>
 <dd>
-<p>将该系列标记为该主题的第 &lt;n&gt; 次迭代。输出的文件名有 <code>v&lt;n&gt;</code>，主题前缀（默认为 "PATCH"，但可通过 <code>--subject-prefix</code> 选项配置）有 <code>v&lt;n&gt;</code> 附加在上面。 例如，<code>--reroll-count=4</code> 可能产生 <code>v4-0001-add-makefile.patch</code> 文件，其中有 "Subject： [PATCH v4 1/20] Add makefile"。 <code>&lt;n&gt;</code> 不一定是整数（例如，"--reroll-count=4.4"，或 "--reroll-count=4rev2 "都可以），但使用这种 reroll-count 的缺点是，与前一版本的 range-diff/interdiff 并没有准确说明新的 interation 是与哪个版本比较。</p>
+<p>将该系列标记为该主题的第 &lt;n&gt; 次迭代。输出的文件名有 <span class='synopsis'><code>v</code><em>&lt;n&gt;</em></span>，主题前缀（默认为 "PATCH"，但可通过 <span class='synopsis'><code>--subject-prefix</code></span> 选项配置）有 <span class='synopsis'><code>v</code><em>&lt;n&gt;</em></span> 附加在上面。 例如，<span class='synopsis'><code>--reroll-count=4</code></span> 可能产生 <span class='synopsis'><code>v4-0001-add-makefile.patch</code></span> 文件，其中有 "Subject： [PATCH v4 1/20] Add makefile"。 <span class='synopsis'><em>&lt;n&gt;</em></span> 不一定是整数（例如，"--reroll-count=4.4"，或 "--reroll-count=4rev2 "都可以），但使用这种 reroll-count 的缺点是，与前一版本的 range-diff/interdiff 并没有准确说明新的 interation 是与哪个版本比较。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---tolte-mailgt"> <a class="anchor" href="#git-format-patch---toe-mail"></a> <a class="anchor" href="#git-format-patch---tolte-mailgt"></a>--to=&lt;e-mail&gt; </dt>
 <dd>
-<p>在邮件标题中增加一个 <code>To: ` 头。这是在任何配置的头信息之外的，可以多次使用。 否定的形式 `--no-to</code> 会丢弃到目前为止添加的所有 <code>To:</code> 头信息（来自配置或命令行）。</p>
+<p>在邮件标题中增加一个 <span class='synopsis'><em>To: ` 头。这是在任何配置的头信息之外的，可以多次使用。 否定的形式 `--no-to</em></span> 会丢弃到目前为止添加的所有 <span class='synopsis'><code>To:</code></span> 头信息（来自配置或命令行）。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---ccltemailgt"> <a class="anchor" href="#git-format-patch---ccemail"></a> <a class="anchor" href="#git-format-patch---ccltemailgt"></a>--cc=&lt;email&gt; </dt>
 <dd>
-<p>在邮件标题中添加 <code>Cc: ` 标头。这是在任何配置的头信息之外的，可以多次使用。 否定的形式 `--no-cc</code> 会丢弃到目前为止添加的所有 <code>Cc:</code> 头信息（来自配置或命令行）。</p>
+<p>在邮件标题中添加 <span class='synopsis'><em>Cc: ` 标头。这是在任何配置的头信息之外的，可以多次使用。 否定的形式 `--no-cc</em></span> 会丢弃到目前为止添加的所有 <span class='synopsis'><code>Cc:</code></span> 头信息（来自配置或命令行）。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---from"> <a class="anchor" href="#git-format-patch---from"></a>--from </dt>
 <dt class="hdlist1" id="git-format-patch---fromltgt"> <a class="anchor" href="#git-format-patch---from-1"></a> <a class="anchor" href="#git-format-patch---fromltgt"></a>--from=&lt;身份&gt; </dt>
 <dd>
-<p>在每封提交邮件的`From:` 标头中使用 <code>ident</code>。如果提交的作者身份与所提供的 <code>ident</code> 在文字上不一致，则在邮件正文中放置一个 <code>From: ` 头，注明原作者。如果没有给出 `ident</code>，则使用提交者的身份。</p>
+<p>在每封提交邮件的`From:` 标头中使用 <span class='synopsis'><code>ident</code></span>。如果提交的作者身份与所提供的 <span class='synopsis'><code>ident</code></span> 在文字上不一致，则在邮件正文中放置一个 <span class='synopsis'><em>From: ` 头，注明原作者。如果没有给出 `ident</em></span>，则使用提交者的身份。</p>
 <div class="paragraph">
-<p>注意，这个选项只有在你实际发送邮件时才有用，并且想把你自己确定为发件人，但保留原作者（<code>git am</code> 会正确接收正文头）。还要注意的是，<code>git send-email</code> 已经为你处理了这种转换，如果你将结果反馈给 <code>git send-email</code>，就不应该使用这个选项。</p>
+<p>注意，这个选项只有在你实际发送邮件时才有用，并且想把你自己确定为发件人，但保留原作者（<span class='synopsis'><code>git</code> <code>am</code></span> 会正确接收正文头）。还要注意的是，<span class='synopsis'><code>git</code> <code>send-email</code></span> 已经为你处理了这种转换，如果你将结果反馈给 <span class='synopsis'><code>git</code> <code>send-email</code></span>，就不应该使用这个选项。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---no-force-in-body-from"> <a class="anchor" href="#git-format-patch---no-force-in-body-from"></a>--[no-]force-in-body-from </dt>
 <dd>
-<p>对于通过 <code>--from</code> 选项指定的电子邮件发件人，默认情况下，如果发件人与作者不同，会在提交日志信息的顶部添加一个内文 "From:"，以确定提交的真正作者。 有了这个选项，即使发件人和作者的名字和地址相同，也会在正文中加入 "From："，这在邮件列表软件混淆发件人身份时可能会有帮助。 默认为 <code>format.forceInBodyFrom</code> 配置变量的值。</p>
+<p>对于通过 <span class='synopsis'><code>--from</code></span> 选项指定的电子邮件发件人，默认情况下，如果发件人与作者不同，会在提交日志信息的顶部添加一个内文 "From:"，以确定提交的真正作者。 有了这个选项，即使发件人和作者的名字和地址相同，也会在正文中加入 "From："，这在邮件列表软件混淆发件人身份时可能会有帮助。 默认为 <span class='synopsis'><code>format.forceInBodyFrom</code></span> 配置变量的值。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---add-headerltgt"> <a class="anchor" href="#git-format-patch---add-header"></a> <a class="anchor" href="#git-format-patch---add-headerltgt"></a>--add-header=&lt;头部&gt; </dt>
 <dd>
-<p>在邮件头中添加一个任意的头。 这是在任何配置的头文件之外的，并且可以多次使用。 例如，<code>--add-header="Organization: git-foo"</code>。 否定的形式 <code>--no-add-header</code> 会丢弃 <strong>所有</strong>（<code>To:</code>, <code>Cc:</code>, 和自定义）从配置或命令行添加的头信息。</p>
+<p>在邮件头中添加一个任意的头。 这是在任何配置的头文件之外的，并且可以多次使用。 例如，<span class='synopsis'><code>--add-header="Organization:</code> <code>git-foo"</code></span>。 否定的形式 <span class='synopsis'><code>--no-add-header</code></span> 会丢弃 <strong>所有</strong>（<span class='synopsis'><code>To:</code></span>, <span class='synopsis'><code>Cc:</code></span>, 和自定义）从配置或命令行添加的头信息。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---no-cover-letter"> <a class="anchor" href="#git-format-patch---no-cover-letter"></a>--[no-]cover-letter </dt>
 <dd>
@@ -284,22 +309,22 @@ aliases:
 <dt class="hdlist1" id="git-format-patch---encode-email-headers"> <a class="anchor" href="#git-format-patch---encode-email-headers"></a>--encode-email-headers </dt>
 <dt class="hdlist1" id="git-format-patch---no-encode-email-headers"> <a class="anchor" href="#git-format-patch---no-encode-email-headers"></a>--no-encode-email-headers </dt>
 <dd>
-<p>用 "Q-encoding"（在RFC 2047中描述）对有非 ASCII 字符的邮件头进行编码，而不是逐字输出邮件头。默认为 <code>format.encodeEmailHeaders</code> 配置变量的值。</p>
+<p>用 "Q-encoding"（在RFC 2047中描述）对有非 ASCII 字符的邮件头进行编码，而不是逐字输出邮件头。默认为 <span class='synopsis'><code>format.encodeEmailHeaders</code></span> 配置变量的值。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---interdiffltgt"> <a class="anchor" href="#git-format-patch---interdiff"></a> <a class="anchor" href="#git-format-patch---interdiffltgt"></a>--interdiff=&lt;以前&gt; </dt>
 <dd>
-<p>作为审查员的帮助，在封面信中插入一个 interdiff，或者作为1个补丁系列中唯一一个补丁的注释，显示补丁系列的前一个版本与当前被格式化的系列之间的差异。<code>previous</code> 是一个单一的修订，命名了与被格式化的系列有共同基础的前一个系列的提示（例如 <code>git format-patch --cover-letter --interdiff=feature/v1 -3 feature/v2</code>）。</p>
+<p>作为审查员的帮助，在封面信中插入一个 interdiff，或者作为1个补丁系列中唯一一个补丁的注释，显示补丁系列的前一个版本与当前被格式化的系列之间的差异。<span class='synopsis'><code>previous</code></span> 是一个单一的修订，命名了与被格式化的系列有共同基础的前一个系列的提示（例如 <span class='synopsis'><code>git</code> <code>format-patch</code> <code>--cover-letter</code> <code>--interdiff=feature/v1</code> <code>-3</code> <code>feature/v2</code></span>）。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---range-diffltgt"> <a class="anchor" href="#git-format-patch---range-diff"></a> <a class="anchor" href="#git-format-patch---range-diffltgt"></a>--range-diff=&lt;以前&gt; </dt>
 <dd>
-<p>作为审查员的辅助工具，在封面信中插入一个 range-diff（见 <a href='{{< relurl "docs/git-range-diff/zh_HANS-CN" >}}'>git-range-diff[1]</a>），或者作为1个补丁系列中唯一一个补丁的注释，显示该补丁系列的前一个版本与当前被格式化的系列之间的差异。 <code>previous</code> 可以是一个单一的修订版，如果它与被格式化的系列有共同的基础，则命名为前一个系列的提示（例如 <code>git format-patch --cover-letter --range-diff=feature/v1 -3 feature/v2</code>），如果两个系列的版本不相干，则是一个修订范围（例如 <code>git format-patch --cover-letter --range-diff=feature/v1~3.feature/v1 -3 feature/v2</code>）。</p>
+<p>作为审查员的辅助工具，在封面信中插入一个 range-diff（见 <a href='{{< relurl "docs/git-range-diff/zh_HANS-CN" >}}'>git-range-diff[1]</a>），或者作为1个补丁系列中唯一一个补丁的注释，显示该补丁系列的前一个版本与当前被格式化的系列之间的差异。 <span class='synopsis'><code>previous</code></span> 可以是一个单一的修订版，如果它与被格式化的系列有共同的基础，则命名为前一个系列的提示（例如 <span class='synopsis'><code>git</code> <code>format-patch</code> <code>--cover-letter</code> <code>--range-diff=feature/v1</code> <code>-3</code> <code>feature/v2</code></span>），如果两个系列的版本不相干，则是一个修订范围（例如 <span class='synopsis'><code>git</code> <code>format-patch</code> <code>--cover-letter</code> <code>--range-diff=feature/v1~3.feature/v1</code> <code>-3</code> <code>feature/v2</code></span>）。</p>
 <div class="paragraph">
-<p>请注意，传递给命令的差异选项会影响 <code>format-patch</code> 的主要产品如何生成，它们不会传递给用于生成封面材料的基础 `range-diff ` 机器（这在将来可能会改变）。</p>
+<p>请注意，传递给命令的差异选项会影响 <span class='synopsis'><code>format-patch</code></span> 的主要产品如何生成，它们不会传递给用于生成封面材料的基础 `range-diff ` 机器（这在将来可能会改变）。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---creation-factorltgt"> <a class="anchor" href="#git-format-patch---creation-factor"></a> <a class="anchor" href="#git-format-patch---creation-factorltgt"></a>--creation-factor=&lt;百分比&gt; </dt>
 <dd>
-<p>与 <code>--range-diff</code> 一起使用，通过调整创建/删除成本的模糊系数，来调整匹配上一个和当前系列补丁之间提交的启发式方法。详情见 <a href='{{< relurl "docs/git-range-diff/zh_HANS-CN" >}}'>git-range-diff[1]</a>）。</p>
+<p>与 <span class='synopsis'><code>--range-diff</code></span> 一起使用，通过调整创建/删除成本的模糊系数，来调整匹配上一个和当前系列补丁之间提交的启发式方法。详情见 <a href='{{< relurl "docs/git-range-diff/zh_HANS-CN" >}}'>git-range-diff[1]</a>）。</p>
 <div class="paragraph">
 <p>默认值为 999（<a href='{{< relurl "docs/git-range-diff/zh_HANS-CN" >}}'>git-range-diff[1]</a> 使用 60），因为使用场景是显示与同一主题的旧版本的比较，并且该工具应在两套补丁之间找到更多的对应关系。</p>
 </div>
@@ -309,10 +334,10 @@ aliases:
 <dd>
 <p>在三折线之后添加该提交的注释（见 <a href='{{< relurl "docs/git-notes/zh_HANS-CN" >}}'>git-notes[1]</a>）。</p>
 <div class="paragraph">
-<p>预期的用例是为提交编写不属于提交日志信息本身的支持性解释，并将其包含在补丁提交中。虽然我们可以在 <code>format-patch</code> 运行后但在发送前简单地写下这些解释，但将其保留为 Git 笔记，可以在补丁系列的不同版本之间进行维护（但要使用这种工作流程，请参考 <a href='{{< relurl "docs/git-notes/zh_HANS-CN" >}}'>git-notes[1]</a> 中关于`notes.rewrite` 配置选项的讨论）。</p>
+<p>预期的用例是为提交编写不属于提交日志信息本身的支持性解释，并将其包含在补丁提交中。虽然我们可以在 <span class='synopsis'><code>format-patch</code></span> 运行后但在发送前简单地写下这些解释，但将其保留为 Git 笔记，可以在补丁系列的不同版本之间进行维护（但要使用这种工作流程，请参考 <a href='{{< relurl "docs/git-notes/zh_HANS-CN" >}}'>git-notes[1]</a> 中关于`notes.rewrite` 配置选项的讨论）。</p>
 </div>
 <div class="paragraph">
-<p>默认为`--no-notes`，除非设置了 <code>format.notes</code> 配置。</p>
+<p>默认为`--no-notes`，除非设置了 <span class='synopsis'><code>format.notes</code></span> 配置。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch---no-signatureltgt"> <a class="anchor" href="#git-format-patch---no-signature"></a> <a class="anchor" href="#git-format-patch---no-signatureltgt"></a>--[no-]signature=&lt;签名&gt; </dt>
@@ -325,9 +350,9 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-format-patch---suffixltgt"> <a class="anchor" href="#git-format-patch---suffix"></a> <a class="anchor" href="#git-format-patch---suffixltgt"></a>--suffix=.&lt;后缀&gt; </dt>
 <dd>
-<p>不使用 <code>.patch</code> 作为生成文件名的后缀，而使用指定的后缀。 一个常见的选择是 <code>--suffix=.txt</code>。 将此留空将删除 <code>.patch</code> 后缀。</p>
+<p>不使用 <span class='synopsis'><code>.patch</code></span> 作为生成文件名的后缀，而使用指定的后缀。 一个常见的选择是 <span class='synopsis'><code>--suffix=.txt</code></span>。 将此留空将删除 <span class='synopsis'><code>.patch</code></span> 后缀。</p>
 <div class="paragraph">
-<p>请注意，前导字符不一定是点；例如，你可以使用 <code>--suffix=-patch</code> 来获得 <code>0001-description-of-my-change-patch</code>。</p>
+<p>请注意，前导字符不一定是点；例如，你可以使用 <span class='synopsis'><code>--suffix=-patch</code></span> 来获得 <span class='synopsis'><code>0001-description-of-my-change-patch</code></span>。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-format-patch--q"> <a class="anchor" href="#git-format-patch--q"></a>-q </dt>
@@ -345,7 +370,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-format-patch---no-baseltgt"> <a class="anchor" href="#git-format-patch---no-base"></a> <a class="anchor" href="#git-format-patch---no-baseltgt"></a>--[no-]base[=&lt;提交&gt;] </dt>
 <dd>
-<p>记录基树信息，以确定该补丁系列所适用的状态。 详见下面的基树信息部分。如果 &lt;提交&gt; 是 "auto"，就会自动选择一个基数提交。<code>--no-base</code> 选项会覆盖 <code>format.useAutoBase</code> 配置。</p>
+<p>记录基树信息，以确定该补丁系列所适用的状态。 详见下面的基树信息部分。如果 &lt;提交&gt; 是 "auto"，就会自动选择一个基数提交。<span class='synopsis'><code>--no-base</code></span> 选项会覆盖 <span class='synopsis'><code>format.useAutoBase</code></span> 配置。</p>
 </dd>
 <dt class="hdlist1" id="git-format-patch---root"> <a class="anchor" href="#git-format-patch---root"></a>--root </dt>
 <dd>
@@ -411,7 +436,7 @@ arch/arm config files were slimmed down using a python script
 <p>通常情况下，它会被放在 MUA 的 drafts 文件夹中，被编辑以添加及时的评论，这些评论不应该被放在 changelog 中的三个破折号之后，然后以消息的形式发送，在我们的例子中，其正文以 "arch/arm config files were&#8230;&#8203;" 开始。 在接收端，读者可以将有趣的补丁保存在 UNIX 邮箱中，并通过 <a href='{{< relurl "docs/git-am/zh_HANS-CN" >}}'>git-am[1]</a> 应用它们。</p>
 </div>
 <div class="paragraph">
-<p>当一个补丁是正在进行的讨论的一部分时，由 <em>git format-patch</em> 生成的补丁可以进行调整，以利用 <em>git am --scissors</em> 功能。 在你对讨论的回应之后，有一行只由 "<code>-- &gt;8 --</code>"（剪刀和打孔）组成，后面是去除不必要的头域的补丁：</p>
+<p>当一个补丁是正在进行的讨论的一部分时，由 <em>git format-patch</em> 生成的补丁可以进行调整，以利用 <em>git am --scissors</em> 功能。 在你对讨论的回应之后，有一行只由 "<span class='synopsis'><em>-- &gt;8 --</em></span>"（剪刀和打孔）组成，后面是去除不必要的头域的补丁：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -428,7 +453,7 @@ Subject: [IA64] 将 ia64 配置文件放在 Uwe Kleine-König diet 上
 </div>
 </div>
 <div class="paragraph">
-<p>当用这种方式发送补丁时，大多数情况下是发送你自己的补丁，所以除了 "<code>From $SHA1 $magic_timestamp</code>" 标记外，你应该从补丁文件中省略 `From: ` 和 `Date: ` 行。 补丁的标题很可能与补丁所回应的讨论主题不同，所以很可能要保留 Subject: 这一行，就像上面的例子一样。</p>
+<p>当用这种方式发送补丁时，大多数情况下是发送你自己的补丁，所以除了 "<span class='synopsis'><code>From</code> <code>$SHA1</code> <code>$magic_timestamp</code></span>" 标记外，你应该从补丁文件中省略 `From: ` 和 `Date: ` 行。 补丁的标题很可能与补丁所回应的讨论主题不同，所以很可能要保留 Subject: 这一行，就像上面的例子一样。</p>
 </div>
 <div class="sect2">
 <h3 id="_检查补丁是否损坏"><a class="anchor" href="#_检查补丁是否损坏"></a>检查补丁是否损坏</h3>
@@ -540,7 +565,7 @@ $ git am a.patch</pre>
 </div>
 </li>
 <li>
-<p>禁止使用 format=flowed： 编辑&#8230;&#8203;偏好&#8230;&#8203;高级&#8230;&#8203;配置编辑器。 搜索 "mailnews.send_plaintext_flowed"。 拨动它，确保它被设置为 <code>false</code>。</p>
+<p>禁止使用 format=flowed： 编辑&#8230;&#8203;偏好&#8230;&#8203;高级&#8230;&#8203;配置编辑器。 搜索 "mailnews.send_plaintext_flowed"。 拨动它，确保它被设置为 <span class='synopsis'><code>false</code></span>。</p>
 </li>
 </ol>
 </div>
@@ -627,7 +652,7 @@ $ git am a.patch</pre>
 <p>基准树信息块用于维护者或第三方测试人员了解补丁系列所适用的确切状态。它由 ‘基本提交’ 和零个或多个 ‘前提补丁’ 组成，前者是众所周知的提交，是项目历史中稳定部分的一部分，而后者是正在运行的知名补丁，还不是 ‘基本提交’ 的一部分，在应用这些补丁之前需要在 ‘基本提交’ 之上按拓扑顺序应用。</p>
 </div>
 <div class="paragraph">
-<p>‘基本提交’ 显示为 "base-commit: "，后面是提交对象名称的 40-hex。 ‘先决补丁’ 显示为 "prerequisite-patch-id: "，后面是 40-hex 的 “补丁ID”，这个 ID 可以通过 <code>git patch-id --stable</code> 命令来获得。</p>
+<p>‘基本提交’ 显示为 "base-commit: "，后面是提交对象名称的 40-hex。 ‘先决补丁’ 显示为 "prerequisite-patch-id: "，后面是 40-hex 的 “补丁ID”，这个 ID 可以通过 <span class='synopsis'><code>git</code> <code>patch-id</code> <code>--stable</code></span> 命令来获得。</p>
 </div>
 <div class="paragraph">
 <p>想象一下，在公开提交的 P 之上，你应用了别人的知名补丁 X、Y 和 Z，然后建立了你的三套补丁系列 A、B、C，历史会是这样：</p>
@@ -638,7 +663,7 @@ $ git am a.patch</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>使用 <code>git format-patch --base=P -3 C</code>（或其变体，例如使用 <code>--cover-letter</code> 或使用 <code>Z...C</code> 代替 <code>-3 C</code> 来指定范围），基础树信息块会显示在命令输出的第一个信息（第一个补丁，或封面信）的末尾，像这样：</p>
+<p>使用 <span class='synopsis'><code>git</code> <code>format-patch</code> <code>--base=P</code> <code>-3</code> <code>C</code></span>（或其变体，例如使用 <span class='synopsis'><code>--cover-letter</code></span> 或使用 <span class='synopsis'><code>Z...C</code></span> 代替 <span class='synopsis'><code>-3</code> <code>C</code></span> 来指定范围），基础树信息块会显示在命令输出的第一个信息（第一个补丁，或封面信）的末尾，像这样：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -659,10 +684,10 @@ prerequisite-patch-id: Z</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>你也可以使用 <code>git format-patch --base=P -3 C</code> 来生成 A、B 和 C 的补丁，P、X、Y、Z 的标识符被附加在第一条信息的末尾。</p>
+<p>你也可以使用 <span class='synopsis'><code>git</code> <code>format-patch</code> <code>--base=P</code> <code>-3</code> <code>C</code></span> 来生成 A、B 和 C 的补丁，P、X、Y、Z 的标识符被附加在第一条信息的末尾。</p>
 </div>
 <div class="paragraph">
-<p>如果在 cmdline 中设置 <code>--base=auto</code>，它将自动计算基础提交，作为远程跟踪分支和 cmdline 中指定的修订范围的提示提交的合并基础。 对于本地分支，在使用此选项之前，需要通过 <code>git branch --set-upstream-to</code> 使其跟踪远程分支。</p>
+<p>如果在 cmdline 中设置 <span class='synopsis'><code>--base=auto</code></span>，它将自动计算基础提交，作为远程跟踪分支和 cmdline 中指定的修订范围的提示提交的合并基础。 对于本地分支，在使用此选项之前，需要通过 <span class='synopsis'><code>git</code> <code>branch</code> <code>--set-upstream-to</code></span> 使其跟踪远程分支。</p>
 </div>
 </div>
 </div>
@@ -725,7 +750,7 @@ prerequisite-patch-id: Z</pre>
 <h2 id="_注意事项"><a class="anchor" href="#_注意事项"></a>注意事项</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>请注意，<code>format-patch</code> 将从输出中省略合并提交，即使它们是请求范围的一部分。一个简单的 “补丁” 并不包括足够的信息让接收端重现同一个合并提交。</p>
+<p>请注意，<span class='synopsis'><code>format-patch</code></span> 将从输出中省略合并提交，即使它们是请求范围的一部分。一个简单的 “补丁” 并不包括足够的信息让接收端重现同一个合并提交。</p>
 </div>
 </div>
 </div>

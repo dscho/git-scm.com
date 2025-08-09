@@ -9,6 +9,17 @@ docname: gitglossary
 lang: ru
 aliases:
 - "/docs/gitglossary/ru/index.html"
+headings:
+- text: НАЗВАНИЕ
+  id: _название
+- text: ОБЗОР
+  id: _обзор
+- text: ОПИСАНИЕ
+  id: _описание
+- text: СМОТРИТЕ ТАКЖЕ
+  id: _смотрите_также
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_название"><a class="anchor" href="#_название"></a>НАЗВАНИЕ</h2>
@@ -37,7 +48,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefbarerepositoryabarerepository"> <a class="anchor" href="#gitglossary-barerepository"></a> <a class="anchor" href="#gitglossary-aiddefbarerepositoryabarerepository"></a><a id="def_bare_repository"></a>голый репозиторий (bare repository) </dt>
 <dd>
-<p>Голым репозиторием является <a href="#def_directory">каталог</a> (как правило, названный соответствующим образом, с суффиксом <code>.git</code>), который не имеет каких-либо локальных извлечённых копий файлов, находящихся под контролем СКВ. То есть все служебные и управляющие файлы Git, которые обычно находятся в скрытом подкаталоге <code>.git</code>, находятся вместо этого непосредственно в каталоге &#8216;repository.git&#8217;, и кроме них нет ни каких других файлов, извлечённых из СКВ. Обычно люди, которые публикуют свои репозитории делают голые репозитории общедоступными.</p>
+<p>Голым репозиторием является <a href="#def_directory">каталог</a> (как правило, названный соответствующим образом, с суффиксом <span class='synopsis'><code>.git</code></span>), который не имеет каких-либо локальных извлечённых копий файлов, находящихся под контролем СКВ. То есть все служебные и управляющие файлы Git, которые обычно находятся в скрытом подкаталоге <span class='synopsis'><code>.git</code></span>, находятся вместо этого непосредственно в каталоге &#8216;repository.git&#8217;, и кроме них нет ни каких других файлов, извлечённых из СКВ. Обычно люди, которые публикуют свои репозитории делают голые репозитории общедоступными.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefblobobjectablob-"> <a class="anchor" href="#gitglossary-blob-"></a> <a class="anchor" href="#gitglossary-aiddefblobobjectablob-"></a><a id="def_blob_object"></a>blob-объект, бинарный объект </dt>
 <dd>
@@ -84,7 +95,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefcommitgraphfileacommit-graph"> <a class="anchor" href="#gitglossary-commit-graph"></a> <a class="anchor" href="#gitglossary-aiddefcommitgraphfileacommit-graph"></a><a id="def_commit_graph_file"></a>файл commit-graph </dt>
 <dd>
-<p>Файл «commit-graph» (обычно пишется через дефис) является дополнительным представлением <a href="#def_commit_graph_general">графа коммитов</a>, который ускоряет его обход. Файл «commit-graph» хранится либо в каталоге <code>.git/objects/info</code>, либо в каталоге <code>info</code> дополнительной базы данных объектов.</p>
+<p>Файл «commit-graph» (обычно пишется через дефис) является дополнительным представлением <a href="#def_commit_graph_general">графа коммитов</a>, который ускоряет его обход. Файл «commit-graph» хранится либо в каталоге <span class='synopsis'><code>.git/objects/info</code></span>, либо в каталоге <span class='synopsis'><code>info</code></span> дополнительной базы данных объектов.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefcommitobjecta-"> <a class="anchor" href="#gitglossary--"></a> <a class="anchor" href="#gitglossary-aiddefcommitobjecta-"></a><a id="def_commit_object"></a>объект-коммит </dt>
 <dd>
@@ -123,7 +134,7 @@ aliases:
 <dd>
 <p>Обычно <a href="#def_HEAD">HEAD</a> хранит имя <a href="#def_branch">ветки</a>, и команды, которые работают с историей коммитов, работают с историей, ведущей к верхушке этой ветки, на которую указывает HEAD. Однако, Git также позволяет вам <a href="#def_checkout">переключиться</a> на произвольный <a href="#def_commit">коммит</a>, который может и не являться верхушкой какой-либо конкретной ветки. HEAD в таком состоянии называется «отсоединённым» или «отделённым».</p>
 <div class="paragraph">
-<p>Обратите внимание, что команды, которые работают с историей текущей ветки (например, <code>git commit</code>, которая создаёт новую историю на верхушке ветки), всё ещё работают даже когда HEAD находится в отсоединённом состоянии. Они обновляют указатель HEAD так, чтобы он указывал на верхушку обновлённой истории, но не влияя на какую-либо ветку. Команды же, которые обновляют или запрашивают информацию <em>о</em> текущей ветке (например, <code>git branch --set-upstream-to</code>, которая устанавливает, с какой внешней веткой соотносится текущая локальная), очевидно, не будут работать, так как в этом состоянии нет (настоящей) текущей ветки.</p>
+<p>Обратите внимание, что команды, которые работают с историей текущей ветки (например, <span class='synopsis'><code>git</code> <code>commit</code></span>, которая создаёт новую историю на верхушке ветки), всё ещё работают даже когда HEAD находится в отсоединённом состоянии. Они обновляют указатель HEAD так, чтобы он указывал на верхушку обновлённой истории, но не влияя на какую-либо ветку. Команды же, которые обновляют или запрашивают информацию <em>о</em> текущей ветке (например, <span class='synopsis'><code>git</code> <code>branch</code> <code>--set-upstream-to</code></span>, которая устанавливает, с какой внешней веткой соотносится текущая локальная), очевидно, не будут работать, так как в этом состоянии нет (настоящей) текущей ветки.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefdirectorya"> <a class="anchor" href="#gitglossary--1-1-1-1"></a> <a class="anchor" href="#gitglossary-aiddefdirectorya"></a><a id="def_directory"></a>каталог </dt>
@@ -156,11 +167,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefgitfileagit-gitfile"> <a class="anchor" href="#gitglossary-git-gitfile"></a> <a class="anchor" href="#gitglossary-aiddefgitfileagit-gitfile"></a><a id="def_gitfile"></a>git-файл (gitfile) </dt>
 <dd>
-<p>Обычный файл <code>.git</code> в корне рабочего каталога, который указывает на каталог, являющийся настоящим репозиторием. Для непосредственно использования см. <a href='{{< relurl "docs/git-worktree/ru" >}}'>git-worktree[1]</a> или <a href='{{< relurl "docs/git-submodule/ru" >}}'>git-submodule[1]</a>. Для синтаксиса см. <a href='{{< relurl "docs/gitrepository-layout/ru" >}}'>gitrepository-layout[5]</a>.</p>
+<p>Обычный файл <span class='synopsis'><code>.git</code></span> в корне рабочего каталога, который указывает на каталог, являющийся настоящим репозиторием. Для непосредственно использования см. <a href='{{< relurl "docs/git-worktree/ru" >}}'>git-worktree[1]</a> или <a href='{{< relurl "docs/git-submodule/ru" >}}'>git-submodule[1]</a>. Для синтаксиса см. <a href='{{< relurl "docs/gitrepository-layout/ru" >}}'>gitrepository-layout[5]</a>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefgraftsagrafts"> <a class="anchor" href="#gitglossary-grafts"></a> <a class="anchor" href="#gitglossary-aiddefgraftsagrafts"></a><a id="def_grafts"></a>сращивания (grafts) </dt>
 <dd>
-<p>Сращивание позволяет объединять две иначе различные линии разработки, записывая фиктивную информацию о родстве коммитов. Таким образом, вы можете заставить Git делать вид, что набор <a href="#def_parent">родителей</a> <a href="#def_commit">коммита</a>, отличается от того, который был зафиксирован при создании коммита. Сращивания настраиваются в файле <code>.git/info/grafts</code>.</p>
+<p>Сращивание позволяет объединять две иначе различные линии разработки, записывая фиктивную информацию о родстве коммитов. Таким образом, вы можете заставить Git делать вид, что набор <a href="#def_parent">родителей</a> <a href="#def_commit">коммита</a>, отличается от того, который был зафиксирован при создании коммита. Сращивания настраиваются в файле <span class='synopsis'><code>.git/info/grafts</code></span>.</p>
 <div class="paragraph">
 <p>Обратите внимание, что механизм сращиваний устарел и может вызывать проблемы при передаче объектов между репозиториями; смотрите <a href='{{< relurl "docs/git-replace/ru" >}}'>git-replace[1]</a> для более гибкой и надёжной системы для выполнения той же задачи.</p>
 </div>
@@ -171,7 +182,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefheadahead"> <a class="anchor" href="#gitglossary-head"></a> <a class="anchor" href="#gitglossary-aiddefheadahead"></a><a id="def_head"></a>голова (head) </dt>
 <dd>
-<p><a href="#def_ref">Именованная ссылка</a> на <a href="#def_commit">коммит</a> на верхушке <a href="#def_branch">ветки</a>. Головы хранятся в файле в каталоге <code>$GIT_DIR/refs/heads/</code>, за исключением случаев, когда используются упакованные ссылки. (См. <a href='{{< relurl "docs/git-pack-refs/ru" >}}'>git-pack-refs[1]</a>.)</p>
+<p><a href="#def_ref">Именованная ссылка</a> на <a href="#def_commit">коммит</a> на верхушке <a href="#def_branch">ветки</a>. Головы хранятся в файле в каталоге <span class='synopsis'><code>$GIT_DIR/refs/heads/</code></span>, за исключением случаев, когда используются упакованные ссылки. (См. <a href='{{< relurl "docs/git-pack-refs/ru" >}}'>git-pack-refs[1]</a>.)</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefHEADaHEAD"> <a class="anchor" href="#gitglossary-HEAD-1"></a> <a class="anchor" href="#gitglossary-aiddefHEADaHEAD"></a><a id="def_HEAD"></a>HEAD </dt>
 <dd>
@@ -183,7 +194,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefhookahook"> <a class="anchor" href="#gitglossary-hook"></a> <a class="anchor" href="#gitglossary-aiddefhookahook"></a><a id="def_hook"></a>перехватчик (hook) </dt>
 <dd>
-<p>В ходе нормального выполнения некоторых команд Git могут вызываться дополнительные сценарии, которые позволяют разработчикам добавлять дополнительную функциональность или проверки. Обычно перехватчики позволяют проверить команду перед её непосредственным выполнением и, возможно, прервать её, а также выводить уведомления после завершения операции. Сценарии перехватчиков находятся в каталоге <code>$GIT_DIR/hooks/</code> и их можно включить просто удалив суффикс <code>.sample</code> из имени файла. В более ранних версиях Git вы также должны были сделать их исполняемыми.</p>
+<p>В ходе нормального выполнения некоторых команд Git могут вызываться дополнительные сценарии, которые позволяют разработчикам добавлять дополнительную функциональность или проверки. Обычно перехватчики позволяют проверить команду перед её непосредственным выполнением и, возможно, прервать её, а также выводить уведомления после завершения операции. Сценарии перехватчиков находятся в каталоге <span class='synopsis'><code>$GIT_DIR/hooks/</code></span> и их можно включить просто удалив суффикс <span class='synopsis'><code>.sample</code></span> из имени файла. В более ранних версиях Git вы также должны были сделать их исполняемыми.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefindexa"> <a class="anchor" href="#gitglossary--1-1-1-1-1-1"></a> <a class="anchor" href="#gitglossary-aiddefindexa"></a><a id="def_index"></a>индекс </dt>
 <dd>
@@ -210,7 +221,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefobjectdatabasea"> <a class="anchor" href="#gitglossary--1-1-1-1-1-1-1-1"></a> <a class="anchor" href="#gitglossary-aiddefobjectdatabasea"></a><a id="def_object_database"></a>база данных объектов </dt>
 <dd>
-<p>Хранит множество «объектов» таким образом, что индивидуальные <a href="#def_object">объекты</a> можно идентифицировать по их <a href="#def_object_name">имени объекта</a>. Такие объекты обычно хранятся в <code>$GIT_DIR/objects/</code>.</p>
+<p>Хранит множество «объектов» таким образом, что индивидуальные <a href="#def_object">объекты</a> можно идентифицировать по их <a href="#def_object_name">имени объекта</a>. Такие объекты обычно хранятся в <span class='synopsis'><code>$GIT_DIR/objects/</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefobjectidentifieraoidObjectIDentifier"> <a class="anchor" href="#gitglossary-oidObjectIDentifier"></a> <a class="anchor" href="#gitglossary-aiddefobjectidentifieraoidObjectIDentifier"></a><a id="def_object_identifier"></a>идентификатор объекта (oid, Object IDentifier) </dt>
 <dd>
@@ -234,11 +245,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddeforiginaorigin"> <a class="anchor" href="#gitglossary-origin"></a> <a class="anchor" href="#gitglossary-aiddeforiginaorigin"></a><a id="def_origin"></a>origin </dt>
 <dd>
-<p>Имя вышележащего <a href="#def_repository">репозитория</a> по умолчанию. В большинстве проектов есть как минимум один вышележащий проект, который они отслеживают. По умолчанию имя «origin» используется для этой цели. Новые изменения в вышележащем репозитории будут извлекаться в <a href="#def_remote_tracking_branch">отслеживаемые внешние ветки</a> с именами вида «origin/имя-ветки-в-вышележащем-репозитории», которые можно посмотреть с помощью <code>git branch -r</code>.</p>
+<p>Имя вышележащего <a href="#def_repository">репозитория</a> по умолчанию. В большинстве проектов есть как минимум один вышележащий проект, который они отслеживают. По умолчанию имя «origin» используется для этой цели. Новые изменения в вышележащем репозитории будут извлекаться в <a href="#def_remote_tracking_branch">отслеживаемые внешние ветки</a> с именами вида «origin/имя-ветки-в-вышележащем-репозитории», которые можно посмотреть с помощью <span class='synopsis'><code>git</code> <code>branch</code> <code>-r</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefoverlayaoverlay"> <a class="anchor" href="#gitglossary-overlay"></a> <a class="anchor" href="#gitglossary-aiddefoverlayaoverlay"></a><a id="def_overlay"></a>оверлей (overlay) </dt>
 <dd>
-<p>Режим, в котором файлы в рабочий каталоге только обновляются и добавляются, но не удаляются, подобно тому, как содержимое в целевом каталоге обновляет команда <code>cp -R</code>. Это режим <a href="#def_checkout">извлечения состояния</a> по умолчанию при извлечении отдельных файлов из <a href="#def_index">индекса</a> или <a href="#def_tree-ish">указателя дерева</a>. В отличие от него, «не оверлейный» режим также удаляет отслеживаемые файлы, отсутствующие в источнике, подобно тому как это делает <code>rsync --delete</code>.</p>
+<p>Режим, в котором файлы в рабочий каталоге только обновляются и добавляются, но не удаляются, подобно тому, как содержимое в целевом каталоге обновляет команда <span class='synopsis'><code>cp</code> <code>-R</code></span>. Это режим <a href="#def_checkout">извлечения состояния</a> по умолчанию при извлечении отдельных файлов из <a href="#def_index">индекса</a> или <a href="#def_tree-ish">указателя дерева</a>. В отличие от него, «не оверлейный» режим также удаляет отслеживаемые файлы, отсутствующие в источнике, подобно тому как это делает <span class='synopsis'><code>rsync</code> <code>--delete</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefpackapack-pack"> <a class="anchor" href="#gitglossary-pack-pack"></a> <a class="anchor" href="#gitglossary-aiddefpackapack-pack"></a><a id="def_pack"></a>пакет, pack-файл (pack) </dt>
 <dd>
@@ -275,10 +286,10 @@ aliases:
 <p>Например, <em>Documentation/*.jpg</em> будет сопоставлено всем файлам c расширением <em>.jpg</em> в поддереве Documentation, включая, <em>Documentation/chapter_1/figure_1.jpg</em>.</p>
 </div>
 <div class="paragraph">
-<p>У спецификатора пути, который начинается с двоеточия <code>:</code>, есть особое значение. В короткой форме после начального двоеточия <code>:</code> идёт "волшебная сигнатура" (которая, по желанию, может завершаться вторым двоеточием <code>:</code>), а остаток является шаблоном, который будет сопоставляться с путём. "Волшебная сигнатура" состоит из ASCII-символов, которые не являются ни буквенно-цифровыми символями, ни glob-символами, ни особыми символами регулярных выражений, ни двоеточием. Двоеточие, которое завершает "волшебную сигнатуру", может быть опущено, если паттерн начинается с символа, который не входит в набор символов, допустимых в "волшебной сигнатуре", и не является двоеточием.</p>
+<p>У спецификатора пути, который начинается с двоеточия <span class='synopsis'><code>:</code></span>, есть особое значение. В короткой форме после начального двоеточия <span class='synopsis'><code>:</code></span> идёт "волшебная сигнатура" (которая, по желанию, может завершаться вторым двоеточием <span class='synopsis'><code>:</code></span>), а остаток является шаблоном, который будет сопоставляться с путём. "Волшебная сигнатура" состоит из ASCII-символов, которые не являются ни буквенно-цифровыми символями, ни glob-символами, ни особыми символами регулярных выражений, ни двоеточием. Двоеточие, которое завершает "волшебную сигнатуру", может быть опущено, если паттерн начинается с символа, который не входит в набор символов, допустимых в "волшебной сигнатуре", и не является двоеточием.</p>
 </div>
 <div class="paragraph">
-<p>В длинной форме после двоеточия <code>:</code> идёт открывающая скобка <code>(</code>, разделённый запятыми список из нуля или более "волшебных слов" и закрывающая скобка <code>)</code>, а остаток является шаблон, который будет сопоставляться пути.</p>
+<p>В длинной форме после двоеточия <span class='synopsis'><code>:</code></span> идёт открывающая скобка <span class='synopsis'>(</span>, разделённый запятыми список из нуля или более "волшебных слов" и закрывающая скобка <span class='synopsis'>)</span>, а остаток является шаблон, который будет сопоставляться пути.</p>
 </div>
 <div class="paragraph">
 <p>Спецификатор пути, содержащий только одно двоеточие, означает "спецификатор пути отсутствует". Эта форма не должна использоваться совместно с другими спецификаторами пути.</p>
@@ -289,11 +300,11 @@ aliases:
 <dl>
 <dt class="hdlist1" id="gitglossary-top"> <a class="anchor" href="#gitglossary-top"></a>top </dt>
 <dd>
-<p>Волшебное слово <code>top</code> (волшебная сигнатура <code>/</code>) делает так, что паттерн сопоставляется относительно корня рабочего каталога, даже когда вы запускаете команду внутри одного из подкаталогов.</p>
+<p>Волшебное слово <span class='synopsis'><code>top</code></span> (волшебная сигнатура <span class='synopsis'><code>/</code></span>) делает так, что паттерн сопоставляется относительно корня рабочего каталога, даже когда вы запускаете команду внутри одного из подкаталогов.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-literal"> <a class="anchor" href="#gitglossary-literal"></a>literal </dt>
 <dd>
-<p>Джокеры (<code>*</code> и <code>?</code>) в паттерне будут обрабатываться буквально, как обычные символы.</p>
+<p>Джокеры (<span class='synopsis'><code>*</code></span> и <span class='synopsis'><em>?</em></span>) в паттерне будут обрабатываться буквально, как обычные символы.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-icase"> <a class="anchor" href="#gitglossary-icase"></a>icase </dt>
 <dd>
@@ -301,23 +312,23 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-glob"> <a class="anchor" href="#gitglossary-glob"></a>glob </dt>
 <dd>
-<p>Git будет обрабатывать паттерн как glob-выражение оболочки, передаваемого в fnmatch(3) с флагом FNM_PATHNAME: джокеры в шаблоне не будут сопоставляться слешу <code>/</code> в путях. Например, шаблону "Documentation/*.html" будет сопоставлен "Documentation/git.html", но не "Documentation/ppc/ppc.html" или "tools/perf/Documentation/perf.html".</p>
+<p>Git будет обрабатывать паттерн как glob-выражение оболочки, передаваемого в fnmatch(3) с флагом FNM_PATHNAME: джокеры в шаблоне не будут сопоставляться слешу <span class='synopsis'><code>/</code></span> в путях. Например, шаблону "Documentation/*.html" будет сопоставлен "Documentation/git.html", но не "Documentation/ppc/ppc.html" или "tools/perf/Documentation/perf.html".</p>
 <div class="paragraph">
-<p>Две последовательных звёздочки («<code>**</code>») в шаблонах, сопоставленных с полным именем пути, могут иметь особое значение:</p>
+<p>Две последовательных звёздочки («<span class='synopsis'><code>**</code></span>») в шаблонах, сопоставленных с полным именем пути, могут иметь особое значение:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Начальные «<code>**</code>», после которых идёт слэш (<code>/</code>) означают сопоставление во всех каталогах. Например, шаблон «<code>**/foo» будет сопоставлять файл или каталог «`foo</code>» в любом месте, точно также как и шаблон «<code>foo</code>». А шаблон "<code>**/foo/bar</code>" будет сопоставлять файл или каталог "<code>bar</code>" в каталоге "<code>foo</code>", который в свою очередь уже может находится в любом месте.</p>
+<p>Начальные «<span class='synopsis'><code>**</code></span>», после которых идёт слэш (<span class='synopsis'><code>/</code></span>) означают сопоставление во всех каталогах. Например, шаблон «<span class='synopsis'><em>**/foo» будет сопоставлять файл или каталог «`foo</em></span>» в любом месте, точно также как и шаблон «<span class='synopsis'><code>foo</code></span>». А шаблон "<span class='synopsis'><code>**/foo/bar</code></span>" будет сопоставлять файл или каталог "<span class='synopsis'><code>bar</code></span>" в каталоге "<span class='synopsis'><code>foo</code></span>", который в свою очередь уже может находится в любом месте.</p>
 </li>
 <li>
-<p>Выражению "<code>/**</code>" на конце шаблона будет сопоставлено всё. Например, шаблону "<code>abc/**</code>" будут сопоставлены все файлы в каталоге "abc", относительно местоположения файла <code>.gitignore</code>, и всех его подкатологах рекурсивно.</p>
+<p>Выражению "<span class='synopsis'><code>/**</code></span>" на конце шаблона будет сопоставлено всё. Например, шаблону "<span class='synopsis'><code>abc/**</code></span>" будут сопоставлены все файлы в каталоге "abc", относительно местоположения файла <span class='synopsis'><code>.gitignore</code></span>, и всех его подкатологах рекурсивно.</p>
 </li>
 <li>
-<p>Слэш после которого идут две последовательные звёздочки, а затем ещё один слэш сопоставляется нулю или более каталогов. Например, шаблону «<code>a/**/b</code>» будут сопоставляться «<code>a/b</code>», «<code>a/x/b</code>», «<code>a/x/y/b</code>» и т.д.</p>
+<p>Слэш после которого идут две последовательные звёздочки, а затем ещё один слэш сопоставляется нулю или более каталогов. Например, шаблону «<span class='synopsis'><code>a/**/b</code></span>» будут сопоставляться «<span class='synopsis'><code>a/b</code></span>», «<span class='synopsis'><code>a/x/b</code></span>», «<span class='synopsis'><code>a/x/y/b</code></span>» и т.д.</p>
 </li>
 <li>
-<p>Дальнейшие последующие звёздочки <code>*</code> будут считаться ошибкой.</p>
+<p>Дальнейшие последующие звёздочки <span class='synopsis'><code>*</code></span> будут считаться ошибкой.</p>
 <div class="paragraph">
 <p>Магическое слово "glob" несовместимо с "literal".</p>
 </div>
@@ -327,20 +338,20 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-attr"> <a class="anchor" href="#gitglossary-attr"></a>attr </dt>
 <dd>
-<p>После <code>attr:</code> идёт разделённый пробелами список "требований аттрибутов", каждое из которых должно быть удовлетворено, чтобы путь считался сопоставленным; всё это в дополнение к обычному, не волшебному, сопоставлению шаблона спецификаторов пути. См. <a href='{{< relurl "docs/gitattributes/ru" >}}'>gitattributes[5]</a>.</p>
+<p>После <span class='synopsis'><code>attr:</code></span> идёт разделённый пробелами список "требований аттрибутов", каждое из которых должно быть удовлетворено, чтобы путь считался сопоставленным; всё это в дополнение к обычному, не волшебному, сопоставлению шаблона спецификаторов пути. См. <a href='{{< relurl "docs/gitattributes/ru" >}}'>gitattributes[5]</a>.</p>
 <div class="paragraph">
 <p>Каждое требование аттрибута пути принимает одну из следующих форм:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>"<code>АТТР</code>" требует чтобы аттрибут <code>АТТР</code> был установлен.</p>
+<p>"<span class='synopsis'><em>АТТР</em></span>" требует чтобы аттрибут <span class='synopsis'><em>АТТР</em></span> был установлен.</p>
 </li>
 <li>
 <p>"-АТТР" требует, чтобы атрибут "АТТР" не был установлен.</p>
 </li>
 <li>
-<p>"<code>АТТР=ЗНАЧЕНИЕ</code>" требует, чтобы в атрибуте "<code>АТТР</code>" было установлено строковое значение "ЗНАЧЕНИЕ".</p>
+<p>"<span class='synopsis'><em>АТТР=ЗНАЧЕНИЕ</em></span>" требует, чтобы в атрибуте "<span class='synopsis'><em>АТТР</em></span>" было установлено строковое значение "ЗНАЧЕНИЕ".</p>
 </li>
 <li>
 <p>"&#8216;!АТТР&#8217;" требует, чтобы атрибут "АТТР" был неопределён.</p>
@@ -353,7 +364,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-exclude"> <a class="anchor" href="#gitglossary-exclude"></a>exclude </dt>
 <dd>
-<p>После того, как спецификатор пути будет сопоставлен любому не-exclude шаблону, он будет проходить через все исключающие (exclude) спецификаторы пути (волшебная сигнатура: <code>!', или её синоним: `^</code>). Если шаблон будет сопоставлен, то, путь будет проигнорирован. Если не задано ни одного спецификатора пути кроме исключающих, то они будут применяется к тому набору путей, который был бы сформирован, если бы не было указано вообще ни одного спецификатора пути.</p>
+<p>После того, как спецификатор пути будет сопоставлен любому не-exclude шаблону, он будет проходить через все исключающие (exclude) спецификаторы пути (волшебная сигнатура: <span class='synopsis'><em>!', или её синоним: `^</em></span>). Если шаблон будет сопоставлен, то, путь будет проигнорирован. Если не задано ни одного спецификатора пути кроме исключающих, то они будут применяется к тому набору путей, который был бы сформирован, если бы не было указано вообще ни одного спецификатора пути.</p>
 </dd>
 </dl>
 </div>
@@ -370,7 +381,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefpickaxeapickaxe"> <a class="anchor" href="#gitglossary-pickaxe"></a> <a class="anchor" href="#gitglossary-aiddefpickaxeapickaxe"></a><a id="def_pickaxe"></a>pickaxe </dt>
 <dd>
-<p>The term <a href="#def_pickaxe">pickaxe</a> refers to an option to the diffcore routines that help select changes that add or delete a given text string. With the <code>--pickaxe-all</code> option, it can be used to view the full <a href="#def_changeset">changeset</a> that introduced or removed, say, a particular line of text. See <a href='{{< relurl "docs/git-diff/ru" >}}'>git-diff[1]</a>.</p>
+<p>The term <a href="#def_pickaxe">pickaxe</a> refers to an option to the diffcore routines that help select changes that add or delete a given text string. With the <span class='synopsis'><code>--pickaxe-all</code></span> option, it can be used to view the full <a href="#def_changeset">changeset</a> that introduced or removed, say, a particular line of text. See <a href='{{< relurl "docs/git-diff/ru" >}}'>git-diff[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefplumbingaGitplumbing"> <a class="anchor" href="#gitglossary-Gitplumbing"></a> <a class="anchor" href="#gitglossary-aiddefplumbingaGitplumbing"></a><a id="def_plumbing"></a>внутренний интерфейс Git (plumbing) </dt>
 <dd>
@@ -382,7 +393,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefperworktreerefaper-worktreeref"> <a class="anchor" href="#gitglossary-per-worktreeref"></a> <a class="anchor" href="#gitglossary-aiddefperworktreerefaper-worktreeref"></a><a id="def_per_worktree_ref"></a>per-worktree ref </dt>
 <dd>
-<p>Refs that are per-<a href="#def_worktree">worktree</a>, rather than global. This is presently only <a href="#def_HEAD">HEAD</a> and any refs that start with <code>refs/bisect/</code>, but might later include other unusual refs.</p>
+<p>Refs that are per-<a href="#def_worktree">worktree</a>, rather than global. This is presently only <a href="#def_HEAD">HEAD</a> and any refs that start with <span class='synopsis'><code>refs/bisect/</code></span>, but might later include other unusual refs.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefpseudorefapseudoref"> <a class="anchor" href="#gitglossary-pseudoref"></a> <a class="anchor" href="#gitglossary-aiddefpseudorefapseudoref"></a><a id="def_pseudoref"></a>pseudoref </dt>
 <dd>
@@ -393,10 +404,10 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p><code>FETCH_HEAD</code> is written by <a href='{{< relurl "docs/git-fetch/ru" >}}'>git-fetch[1]</a> or <a href='{{< relurl "docs/git-pull/ru" >}}'>git-pull[1]</a>. It may refer to multiple object IDs. Each object ID is annotated with metadata indicating where it was fetched from and its fetch status.</p>
+<p><span class='synopsis'><code>FETCH_HEAD</code></span> is written by <a href='{{< relurl "docs/git-fetch/ru" >}}'>git-fetch[1]</a> or <a href='{{< relurl "docs/git-pull/ru" >}}'>git-pull[1]</a>. It may refer to multiple object IDs. Each object ID is annotated with metadata indicating where it was fetched from and its fetch status.</p>
 </li>
 <li>
-<p><code>MERGE_HEAD</code> is written by <a href='{{< relurl "docs/git-merge/ru" >}}'>git-merge[1]</a> when resolving merge conflicts. It contains all commit IDs which are being merged.</p>
+<p><span class='synopsis'><code>MERGE_HEAD</code></span> is written by <a href='{{< relurl "docs/git-merge/ru" >}}'>git-merge[1]</a> when resolving merge conflicts. It contains all commit IDs which are being merged.</p>
 </li>
 </ul>
 </div>
@@ -425,7 +436,7 @@ aliases:
 <dd>
 <p>Имя, которое указывает на <a href="#def_object_name">имя объекта</a> или другую ссылку (в последнем случае она называется <a href="#def_symref">символической ссылкой</a>). Для удобства при использовании в качестве аргумента в командах Git, иногда ссылки могут быть сокращены; см. подробности в <a href='{{< relurl "docs/gitrevisions/ru" >}}'>gitrevisions[7]</a>. Ссылки хранятся в <a href="#def_repository">репозиториях</a>.</p>
 <div class="paragraph">
-<p>The ref namespace is hierarchical. Ref names must either start with <code>refs/</code> or be located in the root of the hierarchy. For the latter, their name must follow these rules:</p>
+<p>The ref namespace is hierarchical. Ref names must either start with <span class='synopsis'><code>refs/</code></span> or be located in the root of the hierarchy. For the latter, their name must follow these rules:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -433,27 +444,27 @@ aliases:
 <p>The name consists of only upper-case characters or underscores.</p>
 </li>
 <li>
-<p>The name ends with "<code>_HEAD</code>" or is equal to "<code>HEAD</code>".</p>
+<p>The name ends with "<span class='synopsis'><code>_HEAD</code></span>" or is equal to "<span class='synopsis'><code>HEAD</code></span>".</p>
 <div class="paragraph">
 <p>There are some irregular refs in the root of the hierarchy that do not match these rules. The following list is exhaustive and shall not be extended in the future:</p>
 </div>
 </li>
 <li>
-<p><code>AUTO_MERGE</code></p>
+<p><span class='synopsis'><code>AUTO_MERGE</code></span></p>
 </li>
 <li>
-<p><code>BISECT_EXPECTED_REV</code></p>
+<p><span class='synopsis'><code>BISECT_EXPECTED_REV</code></span></p>
 </li>
 <li>
-<p><code>NOTES_MERGE_PARTIAL</code></p>
+<p><span class='synopsis'><code>NOTES_MERGE_PARTIAL</code></span></p>
 </li>
 <li>
-<p><code>NOTES_MERGE_REF</code></p>
+<p><span class='synopsis'><code>NOTES_MERGE_REF</code></span></p>
 </li>
 <li>
-<p><code>MERGE_AUTOSTASH</code></p>
+<p><span class='synopsis'><code>MERGE_AUTOSTASH</code></span></p>
 <div class="paragraph">
-<p>Different subhierarchies are used for different purposes. For example, the <code>refs/heads/</code> hierarchy is used to represent local branches whereas the <code>refs/tags/</code> hierarchy is used to represent local tags..</p>
+<p>Different subhierarchies are used for different purposes. For example, the <span class='synopsis'><code>refs/heads/</code></span> hierarchy is used to represent local branches whereas the <span class='synopsis'><code>refs/tags/</code></span> hierarchy is used to represent local tags..</p>
 </div>
 </li>
 </ul>
@@ -501,11 +512,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefshallowcloneashallowclone"> <a class="anchor" href="#gitglossary-shallowclone"></a> <a class="anchor" href="#gitglossary-aiddefshallowcloneashallowclone"></a><a id="def_shallow_clone"></a>частичный клон (shallow clone) </dt>
 <dd>
-<p>По большей части, это синоним для «<a href="#def_shallow_repository">частичный репозиторий</a>», но эта формулировка делает акцент на том, что он был создан с помощью команды вроде <code>git clone --depth=...</code>.</p>
+<p>По большей части, это синоним для «<a href="#def_shallow_repository">частичный репозиторий</a>», но эта формулировка делает акцент на том, что он был создан с помощью команды вроде <span class='synopsis'><code>git</code> <code>clone</code> <code>--depth=...</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefshallowrepositoryashallowrepository"> <a class="anchor" href="#gitglossary-shallowrepository"></a> <a class="anchor" href="#gitglossary-aiddefshallowrepositoryashallowrepository"></a><a id="def_shallow_repository"></a>частичный репозиторий (shallow repository) </dt>
 <dd>
-<p>Частичный <a href="#def_repository">репозиторий</a> имеет неполную историю: ссылки на <a href="#def_parent">родителей</a> некоторых из его <a href="#def_commit">коммитов</a> были «ампутированы» (другими словами, Git&#8217;у сказано делать вид, что эти коммиты не имеют родителей, несмотря на то, что в <a href="#def_commit_object">объектном предаставлении этого коммита</a> эти записи всё ещё присутствуют). Иногда это может быть полезно, например, когда вас интересует только недавняя история проекта, даже если реальная история, хранящаяся в вышестоящем репозитории, куда больше. Частичный репозиторий можно создать, передав параметр <code>--depth</code> в <a href='{{< relurl "docs/git-clone/ru" >}}'>git-clone[1]</a>, и его история может быть позже углублена с помощью <a href='{{< relurl "docs/git-fetch/ru" >}}'>git-fetch[1]</a>.</p>
+<p>Частичный <a href="#def_repository">репозиторий</a> имеет неполную историю: ссылки на <a href="#def_parent">родителей</a> некоторых из его <a href="#def_commit">коммитов</a> были «ампутированы» (другими словами, Git&#8217;у сказано делать вид, что эти коммиты не имеют родителей, несмотря на то, что в <a href="#def_commit_object">объектном предаставлении этого коммита</a> эти записи всё ещё присутствуют). Иногда это может быть полезно, например, когда вас интересует только недавняя история проекта, даже если реальная история, хранящаяся в вышестоящем репозитории, куда больше. Частичный репозиторий можно создать, передав параметр <span class='synopsis'><code>--depth</code></span> в <a href='{{< relurl "docs/git-clone/ru" >}}'>git-clone[1]</a>, и его история может быть позже углублена с помощью <a href='{{< relurl "docs/git-fetch/ru" >}}'>git-fetch[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddefstashastashentry"> <a class="anchor" href="#gitglossary-stashentry"></a> <a class="anchor" href="#gitglossary-aiddefstashastashentry"></a><a id="def_stash"></a>stash entry </dt>
 <dd>
@@ -525,7 +536,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddeftagatag"> <a class="anchor" href="#gitglossary-tag"></a> <a class="anchor" href="#gitglossary-aiddeftagatag"></a><a id="def_tag"></a>метка (tag) </dt>
 <dd>
-<p><a href="#def_ref">Ссылка</a> в пространстве имён <code>refs/tags/</code>, которая указывает на объект произвольного типа (как правило, метка указывает либо на <a href="#def_tag_object">объект-метку</a>, либо на <a href="#def_commit_object">объект-коммит</a>). В отличие от <a href="#def_head">головы ветки</a>, метка не обновляется командой <code>commit</code>. Метки в Git не имеют ничего общего с тегами Lisp (который назывались бы <a href="#def_object_type">типами объектов</a> в контексте Git). Метка, как правило, используется для того, чтобы пометить определённую точку в <a href="#def_chain">цепочке</a> наследования.</p>
+<p><a href="#def_ref">Ссылка</a> в пространстве имён <span class='synopsis'><code>refs/tags/</code></span>, которая указывает на объект произвольного типа (как правило, метка указывает либо на <a href="#def_tag_object">объект-метку</a>, либо на <a href="#def_commit_object">объект-коммит</a>). В отличие от <a href="#def_head">головы ветки</a>, метка не обновляется командой <span class='synopsis'><code>commit</code></span>. Метки в Git не имеют ничего общего с тегами Lisp (который назывались бы <a href="#def_object_type">типами объектов</a> в контексте Git). Метка, как правило, используется для того, чтобы пометить определённую точку в <a href="#def_chain">цепочке</a> наследования.</p>
 </dd>
 <dt class="hdlist1" id="gitglossary-aiddeftagobjecta-"> <a class="anchor" href="#gitglossary---1"></a> <a class="anchor" href="#gitglossary-aiddeftagobjecta-"></a><a id="def_tag_object"></a>объект-метка </dt>
 <dd>

@@ -9,6 +9,23 @@ docname: git-upload-pack
 lang: pt_BR
 aliases:
 - "/docs/git-upload-pack/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: VARIÁVEIS DO AMBIENTE
+  id: _variáveis_do_ambiente
+- text: SEGURANÇA
+  id: _segurança
+- text: VEJA TAMBÉM
+  id: _veja_também
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -57,7 +74,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-upload-pack---http-backend-info-refs"> <a class="anchor" href="#git-upload-pack---http-backend-info-refs"></a>--http-backend-info-refs </dt>
 <dd>
-<p>Usado por <a href='{{< relurl "docs/git-http-backend/pt_BR" >}}'>git-http-backend[1]</a> para atender às solicitações <code>$GIT_URL/info/refs?service=git-upload-pack</code>. Consulte "Clientes Inteligentes" no <a href='{{< relurl "docs/gitprotocol-http/pt_BR" >}}'>gitprotocol-http[5]</a> e "Transporte HTTP" em <a href='{{< relurl "docs/gitprotocol-v2/pt_BR" >}}'>gitprotocol-v2[5]</a>. Também é compreendido por <a href='{{< relurl "docs/git-receive-pack/pt_BR" >}}'>git-receive-pack[1]</a>.</p>
+<p>Usado por <a href='{{< relurl "docs/git-http-backend/pt_BR" >}}'>git-http-backend[1]</a> para atender às solicitações <span class='synopsis'><em>$GIT_URL/info/refs?service=git-upload-pack</em></span>. Consulte "Clientes Inteligentes" no <a href='{{< relurl "docs/gitprotocol-http/pt_BR" >}}'>gitprotocol-http[5]</a> e "Transporte HTTP" em <a href='{{< relurl "docs/gitprotocol-v2/pt_BR" >}}'>gitprotocol-v2[5]</a>. Também é compreendido por <a href='{{< relurl "docs/git-receive-pack/pt_BR" >}}'>git-receive-pack[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-upload-pack-ltdiretriogt"> <a class="anchor" href="#git-upload-pack-diretrio"></a> <a class="anchor" href="#git-upload-pack-ltdiretriogt"></a>&lt;diretório&gt; </dt>
 <dd>
@@ -72,15 +89,15 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-upload-pack-codeGITPROTOCOLcode"> <a class="anchor" href="#git-upload-pack-GITPROTOCOL"></a> <a class="anchor" href="#git-upload-pack-codeGITPROTOCOLcode"></a><code>GIT_PROTOCOL</code> </dt>
+<dt class="hdlist1" id="git-upload-pack-spanclasssynopsiscodeGITPROTOCOLcodespan"> <a class="anchor" href="#git-upload-pack-GITPROTOCOL"></a> <a class="anchor" href="#git-upload-pack-spanclasssynopsiscodeGITPROTOCOLcodespan"></a><span class='synopsis'><code>GIT_PROTOCOL</code></span> </dt>
 <dd>
 <p>Variável interna usada para o aperto de mão (handshaking) no protocolo "wire". Os administradores do servidor podem precisar configurar alguns transportes para permitir que essa variável seja aprovada. Consulte <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-upload-pack-codeGITNOLAZYFETCHcode"> <a class="anchor" href="#git-upload-pack-GITNOLAZYFETCH"></a> <a class="anchor" href="#git-upload-pack-codeGITNOLAZYFETCHcode"></a><code>GIT_NO_LAZY_FETCH</code> </dt>
+<dt class="hdlist1" id="git-upload-pack-spanclasssynopsiscodeGITNOLAZYFETCHcodespan"> <a class="anchor" href="#git-upload-pack-GITNOLAZYFETCH"></a> <a class="anchor" href="#git-upload-pack-spanclasssynopsiscodeGITNOLAZYFETCHcodespan"></a><span class='synopsis'><code>GIT_NO_LAZY_FETCH</code></span> </dt>
 <dd>
-<p>When cloning or fetching from a partial repository (i.e., one itself cloned with <code>--filter</code>), the server-side <code>upload-pack</code> may need to fetch extra objects from its upstream in order to complete the request. By default, <code>upload-pack</code> will refuse to perform such a lazy fetch, because <code>git fetch</code> may run arbitrary commands specified in configuration and hooks of the source repository (and <code>upload-pack</code> tries to be safe to run even in untrusted <code>.git</code> directories).</p>
+<p>When cloning or fetching from a partial repository (i.e., one itself cloned with <span class='synopsis'><code>--filter</code></span>), the server-side <span class='synopsis'><code>upload-pack</code></span> may need to fetch extra objects from its upstream in order to complete the request. By default, <span class='synopsis'><code>upload-pack</code></span> will refuse to perform such a lazy fetch, because <span class='synopsis'><code>git</code> <code>fetch</code></span> may run arbitrary commands specified in configuration and hooks of the source repository (and <span class='synopsis'><code>upload-pack</code></span> tries to be safe to run even in untrusted <span class='synopsis'><code>.git</code></span> directories).</p>
 <div class="paragraph">
-<p>This is implemented by having <code>upload-pack</code> internally set the <code>GIT_NO_LAZY_FETCH</code> variable to <code>1</code>. If you want to override it (because you are fetching from a partial clone, and you are sure you trust it), you can explicitly set <code>GIT_NO_LAZY_FETCH</code> to <code>0</code>.</p>
+<p>This is implemented by having <span class='synopsis'><code>upload-pack</code></span> internally set the <span class='synopsis'><code>GIT_NO_LAZY_FETCH</code></span> variable to <span class='synopsis'><code>1</code></span>. If you want to override it (because you are fetching from a partial clone, and you are sure you trust it), you can explicitly set <span class='synopsis'><code>GIT_NO_LAZY_FETCH</code></span> to <span class='synopsis'><code>0</code></span>.</p>
 </div>
 </dd>
 </dl>
@@ -91,10 +108,10 @@ aliases:
 <h2 id="_segurança"><a class="anchor" href="#_segurança"></a>SEGURANÇA</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Most Git commands should not be run in an untrusted <code>.git</code> directory (see the section <code>SECURITY</code> in <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a>). <code>upload-pack</code> tries to avoid any dangerous configuration options or hooks from the repository it&#8217;s serving, making it safe to clone an untrusted directory and run commands on the resulting clone.</p>
+<p>Most Git commands should not be run in an untrusted <span class='synopsis'><code>.git</code></span> directory (see the section <span class='synopsis'><code>SECURITY</code></span> in <a href='{{< relurl "docs/git/pt_BR" >}}'>git[1]</a>). <span class='synopsis'><code>upload-pack</code></span> tries to avoid any dangerous configuration options or hooks from the repository it&#8217;s serving, making it safe to clone an untrusted directory and run commands on the resulting clone.</p>
 </div>
 <div class="paragraph">
-<p>For an extra level of safety, you may be able to run <code>upload-pack</code> as an alternate user. The details will be platform dependent, but on many systems you can run:</p>
+<p>For an extra level of safety, you may be able to run <span class='synopsis'><code>upload-pack</code></span> as an alternate user. The details will be platform dependent, but on many systems you can run:</p>
 </div>
 <div class="literalblock">
 <div class="content">

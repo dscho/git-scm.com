@@ -9,6 +9,23 @@ docname: git-prune
 lang: ru
 aliases:
 - "/docs/git-prune/ru/index.html"
+headings:
+- text: НАЗВАНИЕ
+  id: _название
+- text: ОБЗОР
+  id: _обзор
+- text: ОПИСАНИЕ
+  id: _описание
+- text: ПАРАМЕТРЫ
+  id: _параметры
+- text: ПРИМЕРЫ
+  id: _примеры
+- text: ЗАМЕТКИ
+  id: _заметки
+- text: СМОТРИТЕ ТАКЖЕ
+  id: _смотрите_также
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_название"><a class="anchor" href="#_название"></a>НАЗВАНИЕ</h2>
@@ -36,13 +53,13 @@ aliases:
 <div class="title">Note</div>
 </td>
 <td class="content">
-В большинстве случаев пользователям следует использовать <code>git gc</code>, который сам вызывает <code>git prune</code>. См. раздел «ЗАМЕТКИ» ниже.
+В большинстве случаев пользователям следует использовать <span class='synopsis'><code>git</code> <code>gc</code></span>, который сам вызывает <span class='synopsis'><code>git</code> <code>prune</code></span>. См. раздел «ЗАМЕТКИ» ниже.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Эта команда выполняет <code>git fsck --unreachable</code>, передовая ей все доступные ссылки в <code>refs/</code>, а также объекты, заданные в командной строке (если таковые были указаны), и подчищает из базы данных объектов все распакованные объекты, недостижимые из этих головных объектов. Кроме того, она подчищает распакованные объекты, которые также находятся и в pack-файлах, запуская <code>git prune-packed</code>. Она удаляет записи из <code>.git/shallow</code>, которые недостижимы ни из одной ссылки.</p>
+<p>Эта команда выполняет <span class='synopsis'><code>git</code> <code>fsck</code> <code>--unreachable</code></span>, передовая ей все доступные ссылки в <span class='synopsis'><code>refs/</code></span>, а также объекты, заданные в командной строке (если таковые были указаны), и подчищает из базы данных объектов все распакованные объекты, недостижимые из этих головных объектов. Кроме того, она подчищает распакованные объекты, которые также находятся и в pack-файлах, запуская <span class='synopsis'><code>git</code> <code>prune-packed</code></span>. Она удаляет записи из <span class='synopsis'><code>.git/shallow</code></span>, которые недостижимы ни из одной ссылки.</p>
 </div>
 <div class="paragraph">
 <p>Обратите внимание, что недостижимые упакованные объекты не будут удалены. Если это нежелательно, см. <a href='{{< relurl "docs/git-repack/ru" >}}'>git-repack[1]</a>.</p>
@@ -88,7 +105,7 @@ aliases:
 <h2 id="_примеры"><a class="anchor" href="#_примеры"></a>ПРИМЕРЫ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Чтобы подчистить объекты, не используемые в вашем репозитории или другом, который «заимствует» объекты из вашего репозитория через свой <code>.git/objects/info/alternates</code>:</p>
+<p>Чтобы подчистить объекты, не используемые в вашем репозитории или другом, который «заимствует» объекты из вашего репозитория через свой <span class='synopsis'><code>.git/objects/info/alternates</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -101,10 +118,10 @@ aliases:
 <h2 id="_заметки"><a class="anchor" href="#_заметки"></a>ЗАМЕТКИ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>В большинстве случаев пользователю не нужно вызывать <code>git prune</code> напрямую, а вместо этого следует использовать <code>git gc</code>, который выполняет подчистку вместе со многими другими служебные задачами.</p>
+<p>В большинстве случаев пользователю не нужно вызывать <span class='synopsis'><code>git</code> <code>prune</code></span> напрямую, а вместо этого следует использовать <span class='synopsis'><code>git</code> <code>gc</code></span>, который выполняет подчистку вместе со многими другими служебные задачами.</p>
 </div>
 <div class="paragraph">
-<p>Для описания того, какие объекты рассматриваются как кандидаты на подчистку, см. параметр <code>--unreachable</code> команды <code>git fsck</code>.</p>
+<p>Для описания того, какие объекты рассматриваются как кандидаты на подчистку, см. параметр <span class='synopsis'><code>--unreachable</code></span> команды <span class='synopsis'><code>git</code> <code>fsck</code></span>.</p>
 </div>
 </div>
 </div>

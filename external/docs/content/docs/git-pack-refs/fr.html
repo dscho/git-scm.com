@@ -9,6 +9,21 @@ docname: git-pack-refs
 lang: fr
 aliases:
 - "/docs/git-pack-refs/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: BOGUES
+  id: _bogues
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -30,16 +45,16 @@ aliases:
 <h2 id="_description"><a class="anchor" href="#_description"></a>DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Traditionnellement, des sommets de branches et les étiquettes (collectivement appelés <em>réfs</em>) sont stockés un fichier par réf dans un (sous-)répertoire sous le répertoire <code>$GIT_DIR/refs</code>. Bien que de nombreux sommets de branche ont tendance à être mis à jour souvent, la plupart des étiquettes et quelques sommets de branche ne sont jamais mis à jour. Lorsqu&#8217;un dépôt a des centaines ou des milliers d&#8217;étiquettes, ce format un fichier-par-réf gaspille l&#8217;espace de stockage et nuit aux performances.</p>
+<p>Traditionnellement, des sommets de branches et les étiquettes (collectivement appelés <em>réfs</em>) sont stockés un fichier par réf dans un (sous-)répertoire sous le répertoire <span class='synopsis'><code>$GIT_DIR/refs</code></span>. Bien que de nombreux sommets de branche ont tendance à être mis à jour souvent, la plupart des étiquettes et quelques sommets de branche ne sont jamais mis à jour. Lorsqu&#8217;un dépôt a des centaines ou des milliers d&#8217;étiquettes, ce format un fichier-par-réf gaspille l&#8217;espace de stockage et nuit aux performances.</p>
 </div>
 <div class="paragraph">
-<p>Cette commande est utilisée pour résoudre le problème de stockage et de performance en stockant les réfs dans un seul fichier, <code>$GIT_DIR/packed-refs</code>. Lorsqu&#8217;une réf est absente de la hiérarchie traditionnelle du répertoire <code>$GIT_DIR/refs</code>, elle est recherchée dans ce fichier et utilisée si trouvée.</p>
+<p>Cette commande est utilisée pour résoudre le problème de stockage et de performance en stockant les réfs dans un seul fichier, <span class='synopsis'><code>$GIT_DIR/packed-refs</code></span>. Lorsqu&#8217;une réf est absente de la hiérarchie traditionnelle du répertoire <span class='synopsis'><code>$GIT_DIR/refs</code></span>, elle est recherchée dans ce fichier et utilisée si trouvée.</p>
 </div>
 <div class="paragraph">
-<p>Les mises à jour ultérieures des branches créent toujours de nouveaux fichiers sous la hiérarchie des répertoires <code>$GIT_DIR/refs</code>.</p>
+<p>Les mises à jour ultérieures des branches créent toujours de nouveaux fichiers sous la hiérarchie des répertoires <span class='synopsis'><code>$GIT_DIR/refs</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Une pratique recommandée pour traiter un dépôt avec trop de réfs est d&#8217;empaqueter ses réfs avec <code>--all</code> une fois, et exécuter occasionnellement <code>git pack-refs</code>. Les étiquettes sont par définition fixes et ne sont pas censées changer. Les têtes de branche seront empaquetées avec le premier <code>pack-refs --all</code>, mais seules les têtes de branche actuellement actives seront dépaquetées, et les prochains <code>pack-refs</code> (sans <code>-all</code>) les laisseront dépaquetées.</p>
+<p>Une pratique recommandée pour traiter un dépôt avec trop de réfs est d&#8217;empaqueter ses réfs avec <span class='synopsis'><code>--all</code></span> une fois, et exécuter occasionnellement <span class='synopsis'><code>git</code> <code>pack-refs</code></span>. Les étiquettes sont par définition fixes et ne sont pas censées changer. Les têtes de branche seront empaquetées avec le premier <span class='synopsis'><code>pack-refs</code> <code>--all</code></span>, mais seules les têtes de branche actuellement actives seront dépaquetées, et les prochains <span class='synopsis'><code>pack-refs</code></span> (sans <span class='synopsis'><code>-all</code></span>) les laisseront dépaquetées.</p>
 </div>
 </div>
 </div>
@@ -54,7 +69,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-pack-refs---no-prune"> <a class="anchor" href="#git-pack-refs---no-prune"></a>--no-prune </dt>
 <dd>
-<p>La commande supprime généralement les réfs libres sous la hiérarchie <code>$GIT_DIR/refs</code> après les avoir empaquetées. Cette option indique de ne pas le faire.</p>
+<p>La commande supprime généralement les réfs libres sous la hiérarchie <span class='synopsis'><code>$GIT_DIR/refs</code></span> après les avoir empaquetées. Cette option indique de ne pas le faire.</p>
 </dd>
 <dt class="hdlist1" id="git-pack-refs---auto"> <a class="anchor" href="#git-pack-refs---auto"></a>--auto </dt>
 <dd>
@@ -62,7 +77,7 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p>"files": No special handling for <code>--auto</code> has been implemented.</p>
+<p>"files": No special handling for <span class='synopsis'><code>--auto</code></span> has been implemented.</p>
 </li>
 <li>
 <p>"reftable": Tables are compacted such that they form a geometric sequence. For two tables N and N+1, where N+1 is newer, this maintains the property that N is at least twice as big as N+1. Only tables that violate this property are compacted.</p>
@@ -72,16 +87,16 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-pack-refs---includeltmotifgt"> <a class="anchor" href="#git-pack-refs---includemotif"></a> <a class="anchor" href="#git-pack-refs---includeltmotifgt"></a>--include &lt;motif&gt; </dt>
 <dd>
-<p>Empaquette les réfs correspondant à un motif <code>glob(7)</code>. Les répétitions de cette option augmente les motifs inclus. Si une réf est incluse à la fois dans <code>--include</code> et dans <code>--exclude</code>, <code>-exclude</code> a priorité. L&#8217;utilisation de <code>--include</code> annulera l&#8217;inclusion par défaut de toutes les étiquettes. Les réfs symboliques et les réfs cassées ne seront jamais empaquetées. Avec <code>--all</code>, aucune action ne sera réalisée. Utilisez <code>--no-include</code> pour effacer et réinitialiser la liste des motifs.</p>
+<p>Empaquette les réfs correspondant à un motif <span class='synopsis'><code>glob</code>(<code>7</code>)</span>. Les répétitions de cette option augmente les motifs inclus. Si une réf est incluse à la fois dans <span class='synopsis'><code>--include</code></span> et dans <span class='synopsis'><code>--exclude</code></span>, <span class='synopsis'><code>-exclude</code></span> a priorité. L&#8217;utilisation de <span class='synopsis'><code>--include</code></span> annulera l&#8217;inclusion par défaut de toutes les étiquettes. Les réfs symboliques et les réfs cassées ne seront jamais empaquetées. Avec <span class='synopsis'><code>--all</code></span>, aucune action ne sera réalisée. Utilisez <span class='synopsis'><code>--no-include</code></span> pour effacer et réinitialiser la liste des motifs.</p>
 </dd>
 <dt class="hdlist1" id="git-pack-refs---excludeltmotifgt"> <a class="anchor" href="#git-pack-refs---excludemotif"></a> <a class="anchor" href="#git-pack-refs---excludeltmotifgt"></a>--exclude &lt;motif&gt; </dt>
 <dd>
-<p>Ne pas empaqueter les réfs correspondant au motif <code>glob(7)</code> donné. Les répétitions de cette option accumulent les motifs d&#8217;exclusion. Utilisez <code>--no-exclude</code> pour effacer et réinitialiser la liste des motifs. Si une réf est déjà empaquetée, la cibler avec <code>--exclude</code> ne le dépaquettera pas.</p>
+<p>Ne pas empaqueter les réfs correspondant au motif <span class='synopsis'><code>glob</code>(<code>7</code>)</span> donné. Les répétitions de cette option accumulent les motifs d&#8217;exclusion. Utilisez <span class='synopsis'><code>--no-exclude</code></span> pour effacer et réinitialiser la liste des motifs. Si une réf est déjà empaquetée, la cibler avec <span class='synopsis'><code>--exclude</code></span> ne le dépaquettera pas.</p>
 <div class="paragraph">
-<p>Utilisé avec <code>--all</code>, empaquette seulement les réfs libres qui ne correspondent à aucun des motifs <code>--exclude</code> fournis.</p>
+<p>Utilisé avec <span class='synopsis'><code>--all</code></span>, empaquette seulement les réfs libres qui ne correspondent à aucun des motifs <span class='synopsis'><code>--exclude</code></span> fournis.</p>
 </div>
 <div class="paragraph">
-<p>Utilisé avec <code>--include</code> , les réfs fournies à <code>--include</code> , moins celles qui sont fournies à <code>--exclude</code> seront empaquetées.</p>
+<p>Utilisé avec <span class='synopsis'><code>--include</code></span> , les réfs fournies à <span class='synopsis'><code>--include</code></span> , moins celles qui sont fournies à <span class='synopsis'><code>--exclude</code></span> seront empaquetées.</p>
 </div>
 </dd>
 </dl>

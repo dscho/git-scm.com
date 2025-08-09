@@ -9,6 +9,19 @@ docname: git-send-pack
 lang: pt_BR
 aliases:
 - "/docs/git-send-pack/pt_BR/index.html"
+headings:
+- text: NOME
+  id: _nome
+- text: RESUMO
+  id: _resumo
+- text: DESCRIÇÃO
+  id: _descrição
+- text: OPÇÕES
+  id: _opções
+- text: ESPECIFICANDO AS REFS
+  id: _especificando_as_refs
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_nome"><a class="anchor" href="#_nome"></a>NOME</h2>
@@ -60,9 +73,9 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-send-pack---stdin"> <a class="anchor" href="#git-send-pack---stdin"></a>--stdin </dt>
 <dd>
-<p>Pegue a lista dos <code>refs</code> do stdin, um por linha. Caso haja <code>refs</code> utilizados na linha de comando, além desta opção, os <code>refs</code> do stdin serão processados após as da linha de comando.</p>
+<p>Pegue a lista dos <span class='synopsis'><code>refs</code></span> do stdin, um por linha. Caso haja <span class='synopsis'><code>refs</code></span> utilizados na linha de comando, além desta opção, os <span class='synopsis'><code>refs</code></span> do stdin serão processados após as da linha de comando.</p>
 <div class="paragraph">
-<p>Caso <code>--stateless-rpc</code> seja utilizado junto com esta opção, a lista de referências deverá estar no formato do pacote (linha-pkt). Cada <code>ref</code> deve estar num pacote separado e a lista deve terminar com um pacote liberado.</p>
+<p>Caso <span class='synopsis'><code>--stateless-rpc</code></span> seja utilizado junto com esta opção, a lista de referências deverá estar no formato do pacote (linha-pkt). Cada <span class='synopsis'><code>ref</code></span> deve estar num pacote separado e a lista deve terminar com um pacote liberado.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-send-pack---dry-run"> <a class="anchor" href="#git-send-pack---dry-run"></a>--dry-run </dt>
@@ -88,7 +101,7 @@ aliases:
 <dt class="hdlist1" id="git-send-pack---no-signed"> <a class="anchor" href="#git-send-pack---no-signed"></a>--[no-]signed </dt>
 <dt class="hdlist1" id="git-send-pack---signedtruefalseif-asked"> <a class="anchor" href="#git-send-pack---signedtruefalseif-asked"></a>--signed=(true|false|if-asked) </dt>
 <dd>
-<p>Assine com GPG a solicitação de envio para atualizar as referências no lado receptor, para permitir que ela seja verificada pelos ganchos ou para que seja registrada. Se for <code>false</code> ou <code>--no-signed</code>, não haverá tentativa de assinatura. Se for <code>true</code> ou <code>--signed</code>, o <em>push</em> falhará se o servidor não suportar envios assinados. Se for definido como <code>if-asked</code>, assine, funciona apenas se o servidor suportar envios assinados. O envio também falhará se a chamada real para a opção <code>gpg --sign</code> falhar. Para mais detalhes sobre o recebimento consulte <a href='{{< relurl "docs/git-receive-pack/pt_BR" >}}'>git-receive-pack[1]</a>.</p>
+<p>Assine com GPG a solicitação de envio para atualizar as referências no lado receptor, para permitir que ela seja verificada pelos ganchos ou para que seja registrada. Se for <span class='synopsis'><code>false</code></span> ou <span class='synopsis'><code>--no-signed</code></span>, não haverá tentativa de assinatura. Se for <span class='synopsis'><code>true</code></span> ou <span class='synopsis'><code>--signed</code></span>, o <em>push</em> falhará se o servidor não suportar envios assinados. Se for definido como <span class='synopsis'><code>if-asked</code></span>, assine, funciona apenas se o servidor suportar envios assinados. O envio também falhará se a chamada real para a opção <span class='synopsis'><code>gpg</code> <code>--sign</code></span> falhar. Para mais detalhes sobre o recebimento consulte <a href='{{< relurl "docs/git-receive-pack/pt_BR" >}}'>git-receive-pack[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-send-pack---push-optionlttextogt"> <a class="anchor" href="#git-send-pack---push-optiontexto"></a> <a class="anchor" href="#git-send-pack---push-optionlttextogt"></a>--push-option=&lt;texto&gt; </dt>
 <dd>
@@ -117,13 +130,13 @@ aliases:
 <p>Existem três maneiras para definir quais as refs devem ser atualizadas na extremidade remota.</p>
 </div>
 <div class="paragraph">
-<p>Com a opção <code>--all</code>, todas as referências que existem localmente são transferidas para o lado remoto. Você não pode especificar nenhum <em>&lt;ref&gt;</em> se usar esta opção.</p>
+<p>Com a opção <span class='synopsis'><code>--all</code></span>, todas as referências que existem localmente são transferidas para o lado remoto. Você não pode especificar nenhum <em>&lt;ref&gt;</em> se usar esta opção.</p>
 </div>
 <div class="paragraph">
-<p>Sem <code>--all</code> e sem qualquer <em>&lt;ref&gt;</em>, os cabeçalhos existentes no lado local e no lado remoto são atualizadas.</p>
+<p>Sem <span class='synopsis'><code>--all</code></span> e sem qualquer <em>&lt;ref&gt;</em>, os cabeçalhos existentes no lado local e no lado remoto são atualizadas.</p>
 </div>
 <div class="paragraph">
-<p>Quando um ou mais <em>&lt;ref&gt;</em> são especificadas de forma explicita (seja na linha de comando ou através da opção <code>--stdin</code>), pode ser um único padrão ou um par de padrões separados por dois-pontos ":" (isso significa que um nome de referência não pode ter dois-pontos). Um único padrão <em>&lt;nome&gt;</em> é apenas uma abreviação de <em>&lt;nome&gt;:&lt;nome&gt;</em>.</p>
+<p>Quando um ou mais <em>&lt;ref&gt;</em> são especificadas de forma explicita (seja na linha de comando ou através da opção <span class='synopsis'><code>--stdin</code></span>), pode ser um único padrão ou um par de padrões separados por dois-pontos ":" (isso significa que um nome de referência não pode ter dois-pontos). Um único padrão <em>&lt;nome&gt;</em> é apenas uma abreviação de <em>&lt;nome&gt;:&lt;nome&gt;</em>.</p>
 </div>
 <div class="paragraph">
 <p>Cada par de padrões consiste no lado de origem (antes dos dois-pontos) e no lado do destino (após os dois-pontos). A referência que será enviada é determinada ao encontrar uma correspondência que corresponda o lado da origem, e o local para onde ela é enviada é determinada usando o lado do destino. As regras usadas para corresponder a uma referência são as mesmas regras usadas pelo <em>git rev-parse</em> para resolver um nome de referência simbólico. Consulte <a href='{{< relurl "docs/git-rev-parse/pt_BR" >}}'>git-rev-parse[1]</a>.</p>
@@ -131,13 +144,13 @@ aliases:
 <div class="ulist">
 <ul>
 <li>
-<p>É um erro caso <code>&lt;src&gt;</code> não corresponda exatamente a um dos <code>refs</code> locais.</p>
+<p>É um erro caso <span class='synopsis'><em>&lt;src&gt;</em></span> não corresponda exatamente a um dos <span class='synopsis'><code>refs</code></span> locais.</p>
 </li>
 <li>
 <p>É um erro caso &lt;dst&gt; coincida com mais de uma ref remota.</p>
 </li>
 <li>
-<p>Caso <code>&lt;dst&gt;</code> não corresponda a nenhum <code>ref</code> remoto</p>
+<p>Caso <span class='synopsis'><em>&lt;dst&gt;</em></span> não corresponda a nenhum <span class='synopsis'><code>ref</code></span> remoto</p>
 <div class="ulist">
 <ul>
 <li>
@@ -152,10 +165,10 @@ aliases:
 </ul>
 </div>
 <div class="paragraph">
-<p>Sem a opção <code>--force</code>, a referência &lt;src&gt; é armazenada no ramo remoto somente se o &lt;dst&gt; (destino) não existir ou se o &lt;dst&gt; for um subconjunto adequado (ou seja, um ancestral) de &lt;src&gt;. Essa verificação, conhecida como "verificação de avanço rápido" (fast-forward check), é realizada para evitar a substituição acidental da referência remota e a perda dos commits de outras pessoas a partir daí.</p>
+<p>Sem a opção <span class='synopsis'><code>--force</code></span>, a referência &lt;src&gt; é armazenada no ramo remoto somente se o &lt;dst&gt; (destino) não existir ou se o &lt;dst&gt; for um subconjunto adequado (ou seja, um ancestral) de &lt;src&gt;. Essa verificação, conhecida como "verificação de avanço rápido" (fast-forward check), é realizada para evitar a substituição acidental da referência remota e a perda dos commits de outras pessoas a partir daí.</p>
 </div>
 <div class="paragraph">
-<p>Com <code>--force</code>, a verificação do avanço rápido é desativado para todas as refs.</p>
+<p>Com <span class='synopsis'><code>--force</code></span>, a verificação do avanço rápido é desativado para todas as refs.</p>
 </div>
 <div class="paragraph">
 <p>Opcionalmente, um parâmetro &lt;ref&gt; pode ser prefixado com um sinal de mais <em>+</em> para desativar a verificação de avanço rápido apenas nessa "ref".</p>

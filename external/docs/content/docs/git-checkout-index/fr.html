@@ -9,6 +9,23 @@ docname: git-checkout-index
 lang: fr
 aliases:
 - "/docs/git-checkout-index/fr/index.html"
+headings:
+- text: NOM
+  id: _nom
+- text: SYNOPSIS
+  id: _synopsis
+- text: DESCRIPTION
+  id: _description
+- text: OPTIONS
+  id: _options
+- text: Utilisation de --temp ou --stage=all
+  id: _utilisation_de_temp_ou_stageall
+- text: EXEMPLES
+  id: _exemples
+- text: GIT
+  id: _git
+- text: TRADUCTION
+  id: _traduction
 ---
 <div class="sect1">
 <h2 id="_nom"><a class="anchor" href="#_nom"></a>NOM</h2>
@@ -62,7 +79,7 @@ aliases:
 <dt class="hdlist1" id="git-checkout-index--a"> <a class="anchor" href="#git-checkout-index--a"></a>-a </dt>
 <dt class="hdlist1" id="git-checkout-index---all"> <a class="anchor" href="#git-checkout-index---all"></a>--all </dt>
 <dd>
-<p>vérifier tous les fichiers de l&#8217;index à l&#8217;exception de ceux dont le bit skip-worktree est activé (voir <code>--ignore-skip-worktree-bits</code>). Ne peut pas être utilisé avec des noms de fichiers explicites.</p>
+<p>vérifier tous les fichiers de l&#8217;index à l&#8217;exception de ceux dont le bit skip-worktree est activé (voir <span class='synopsis'><code>--ignore-skip-worktree-bits</code></span>). Ne peut pas être utilisé avec des noms de fichiers explicites.</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-index--n"> <a class="anchor" href="#git-checkout-index--n"></a>-n </dt>
 <dt class="hdlist1" id="git-checkout-index---no-create"> <a class="anchor" href="#git-checkout-index---no-create"></a>--no-create </dt>
@@ -91,7 +108,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-checkout-index--z"> <a class="anchor" href="#git-checkout-index--z"></a>-z </dt>
 <dd>
-<p>N&#8217;a de sens qu&#8217;avec <code>--stdin</code> ; les chemins sont séparés par le caractère NUL au lieu de LF.</p>
+<p>N&#8217;a de sens qu&#8217;avec <span class='synopsis'><code>--stdin</code></span> ; les chemins sont séparés par le caractère NUL au lieu de LF.</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-index---"> <a class="anchor" href="#git-checkout-index---"></a>-- </dt>
 <dd>
@@ -103,7 +120,7 @@ aliases:
 <p>L&#8217;ordre des drapeaux était autrefois important, mais plus maintenant.</p>
 </div>
 <div class="paragraph">
-<p>Faire simplement <code>git checkout-index</code> ne fait rien. Vous vouliez probablement dire <code>git checkout-index -a</code>. Et si vous voulez le forcer, il faut faire <code>git checkout-index -f -a</code>.</p>
+<p>Faire simplement <span class='synopsis'><code>git</code> <code>checkout-index</code></span> ne fait rien. Vous vouliez probablement dire <span class='synopsis'><code>git</code> <code>checkout-index</code> <code>-a</code></span>. Et si vous voulez le forcer, il faut faire <span class='synopsis'><code>git</code> <code>checkout-index</code> <code>-f</code> <code>-a</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>L&#8217;intuitivité n&#8217;est pas le but ici. La répétabilité l&#8217;est. La raison du comportement "pas d&#8217;arguments signifie pas de travail" est que, à partir de scripts, vous êtes censé être capable de faire :</p>
@@ -114,7 +131,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>qui forcera tous les fichiers <code>*.h</code> existants à être remplacés par leurs copies en cache. Si une ligne de commande vide impliquait "all", alors cela forcerait le rafraîchissement de tous les fichiers de l&#8217;index, ce qui n&#8217;était pas le but. Mais puisque <em>git checkout-index</em> accepte --stdin, il serait plus rapide d&#8217;utiliser :</p>
+<p>qui forcera tous les fichiers <span class='synopsis'><code>*.h</code></span> existants à être remplacés par leurs copies en cache. Si une ligne de commande vide impliquait "all", alors cela forcerait le rafraîchissement de tous les fichiers de l&#8217;index, ce qui n&#8217;était pas le but. Mais puisque <em>git checkout-index</em> accepte --stdin, il serait plus rapide d&#8217;utiliser :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -122,7 +139,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Le <code>--</code> est juste une bonne idée quand vous savez que le reste sera des noms de fichiers ; cela évitera les problèmes avec par exemple, un nom de fichier <code>-a</code>. L&#8217;utilisation de <code>--</code> est probablement une bonne politique dans les scripts.</p>
+<p>Le <span class='synopsis'><code>--</code></span> est juste une bonne idée quand vous savez que le reste sera des noms de fichiers ; cela évitera les problèmes avec par exemple, un nom de fichier <span class='synopsis'><code>-a</code></span>. L&#8217;utilisation de <span class='synopsis'><code>--</code></span> est probablement une bonne politique dans les scripts.</p>
 </div>
 </div>
 </div>
@@ -130,7 +147,7 @@ aliases:
 <h2 id="_utilisation_de_temp_ou_stageall"><a class="anchor" href="#_utilisation_de_temp_ou_stageall"></a>Utilisation de --temp ou --stage=all</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Lorsque <code>--temp</code> est utilisé (ou impliqué par <code>--stage=all</code>), <em>git checkout-index</em> créera un fichier temporaire pour chaque entrée de l&#8217;index en cours d&#8217;extraction. L&#8217;index ne sera pas mis à jour avec les informations sur les statuts. Ces options peuvent être utiles si l&#8217;appelant a besoin de toutes les étapes de toutes les entrées non fusionnées afin que les fichiers non fusionnés puissent être traités par un outil de fusion externe.</p>
+<p>Lorsque <span class='synopsis'><code>--temp</code></span> est utilisé (ou impliqué par <span class='synopsis'><code>--stage=all</code></span>), <em>git checkout-index</em> créera un fichier temporaire pour chaque entrée de l&#8217;index en cours d&#8217;extraction. L&#8217;index ne sera pas mis à jour avec les informations sur les statuts. Ces options peuvent être utiles si l&#8217;appelant a besoin de toutes les étapes de toutes les entrées non fusionnées afin que les fichiers non fusionnés puissent être traités par un outil de fusion externe.</p>
 </div>
 <div class="paragraph">
 <p>Une liste sera écrite sur stdout fournissant l&#8217;association des noms de fichiers temporaires aux noms de chemins suivis. Le format de la liste a deux variantes :</p>
@@ -140,13 +157,13 @@ aliases:
 <li>
 <p>nomtemporaire TAB chemin RS</p>
 <div class="paragraph">
-<p>Le premier format est celui qui est utilisé lorsque <code>--stage</code> est omis ou n&#8217;est pas <code>--stage=all</code>. Le champ nomtemporaire est le nom du fichier temporaire contenant le contenu du fichier et chemin est le nom du chemin suivi dans l&#8217;index. Seules les entrées demandées sont produites.</p>
+<p>Le premier format est celui qui est utilisé lorsque <span class='synopsis'><code>--stage</code></span> est omis ou n&#8217;est pas <span class='synopsis'><code>--stage=all</code></span>. Le champ nomtemporaire est le nom du fichier temporaire contenant le contenu du fichier et chemin est le nom du chemin suivi dans l&#8217;index. Seules les entrées demandées sont produites.</p>
 </div>
 </li>
 <li>
 <p>index1temp SP index2temp SP index3tmp TAB chemin RS</p>
 <div class="paragraph">
-<p>Le second format est celui qui est utilisé lorsque <code>--stage=all</code>. Les trois champs temporaires index (index1temp, index2temp, index3temp) listent le nom du fichier temporaire s&#8217;il y a une entrée d&#8217;index dans l&#8217;index ou <code>.</code> s&#8217;il n&#8217;y a pas d&#8217;entrée d&#8217;index. Les chemins qui ont seulement une entrée d&#8217;index 0 seront toujours omis de la sortie.</p>
+<p>Le second format est celui qui est utilisé lorsque <span class='synopsis'><code>--stage=all</code></span>. Les trois champs temporaires index (index1temp, index2temp, index3temp) listent le nom du fichier temporaire s&#8217;il y a une entrée d&#8217;index dans l&#8217;index ou <span class='synopsis'><code>.</code></span> s&#8217;il n&#8217;y a pas d&#8217;entrée d&#8217;index. Les chemins qui ont seulement une entrée d&#8217;index 0 seront toujours omis de la sortie.</p>
 </div>
 </li>
 </ol>
@@ -181,7 +198,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p><code>git checkout-index</code> va "exporter" l&#8217;index dans le répertoire spécifié.</p>
+<p><span class='synopsis'><code>git</code> <code>checkout-index</code></span> va "exporter" l&#8217;index dans le répertoire spécifié.</p>
 </div>
 <div class="paragraph">
 <p>Le "/" final est important. Le nom exporté est littéralement juste préfixé avec la chaîne spécifiée. Comparez cela avec l&#8217;exemple suivant.</p>
@@ -195,7 +212,7 @@ aliases:
 </div>
 </div>
 <div class="paragraph">
-<p>Ceci va extraire la copie actuellement en cache de <code>Makefile</code> dans le fichier <code>.merged-Makefile</code>.</p>
+<p>Ceci va extraire la copie actuellement en cache de <span class='synopsis'><code>Makefile</code></span> dans le fichier <span class='synopsis'><code>.merged-Makefile</code></span>.</p>
 </div>
 </dd>
 </dl>

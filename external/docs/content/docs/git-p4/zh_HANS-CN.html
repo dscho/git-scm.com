@@ -9,6 +9,35 @@ docname: git-p4
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-p4/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 实例
+  id: _实例
+- text: 命令
+  id: _命令
+- text: 选项
+  id: _选项
+- text: 提交钩子
+  id: _提交钩子
+- text: 仓库路径语法
+  id: _仓库路径语法
+- text: CLIENT SPEC
+  id: _client_spec
+- text: 分支检测
+  id: _分支检测
+- text: 性能
+  id: _性能
+- text: 配置变量
+  id: _配置变量
+- text: 执行细节
+  id: _执行细节
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -146,13 +175,13 @@ $ git p4 sync //path/in/your/perforce/depot</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>将指定的仓库导入现有 Git 仓库中的 <em>refs/remotes/p4/master</em>。 可以使用 <code>--branch</code> 选项为 p4 内容指定不同的分支。</p>
+<p>将指定的仓库导入现有 Git 仓库中的 <em>refs/remotes/p4/master</em>。 可以使用 <span class='synopsis'><code>--branch</code></span> 选项为 p4 内容指定不同的分支。</p>
 </div>
 <div class="paragraph">
 <p>如果 Git 仓库包含分支 <em>refs/remotes/origin/p4</em>，那么在 <em>git p4 sync</em> 过程中，这些分支将首先被获取和查阅。 由于直接从 p4 导入要比从 Git 远端拉取更改慢得多，这在多开发人员环境中非常有用。</p>
 </div>
 <div class="paragraph">
-<p>如果有多个分支，<em>git p4 sync</em> 会自动使用 “分支检测” 算法将新的改动分到正确的分支。 可以用 <code>--branch</code> 选项覆盖该算法，只指定更新一个分支。</p>
+<p>如果有多个分支，<em>git p4 sync</em> 会自动使用 “分支检测” 算法将新的改动分到正确的分支。 可以用 <span class='synopsis'><code>--branch</code></span> 选项覆盖该算法，只指定更新一个分支。</p>
 </div>
 </div>
 <div class="sect2">
@@ -169,7 +198,7 @@ $ git p4 sync //path/in/your/perforce/depot</pre>
 <div class="sect2">
 <h3 id="_提交"><a class="anchor" href="#_提交"></a>提交</h3>
 <div class="paragraph">
-<p>将 Git 仓库中的更改提交回 p4 仓库需要一个单独的 p4 客户端工作区。 这需要使用 <code>P4CLIENT</code> 环境变量或 Git 配置变量 <em>git-p4.client</em> 来指定。 p4 客户端必须存在，但如果客户端根目录不存在，则会创建并填充客户端根目录。</p>
+<p>将 Git 仓库中的更改提交回 p4 仓库需要一个单独的 p4 客户端工作区。 这需要使用 <span class='synopsis'><code>P4CLIENT</code></span> 环境变量或 Git 配置变量 <em>git-p4.client</em> 来指定。 p4 客户端必须存在，但如果客户端根目录不存在，则会创建并填充客户端根目录。</p>
 </div>
 <div class="paragraph">
 <p>要提交当前 Git 分支中但不在 <em>p4/master</em> 分支中的所有更改，请使用：</p>
@@ -197,13 +226,13 @@ $ git p4 submit --commit &lt;sha1..sha1&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>上游引用通常是 <em>refs/remotes/p4/master</em>，但可以使用 <code>--origin=</code> 命令行选项来覆盖。</p>
+<p>上游引用通常是 <em>refs/remotes/p4/master</em>，但可以使用 <span class='synopsis'><code>--origin=</code></span> 命令行选项来覆盖。</p>
 </div>
 <div class="paragraph">
-<p>p4 变更将以调用 <em>git p4 submit</em> 的用户身份创建。<code>--preserve-user</code> 选项会根据 Git 提交的作者修改所有权。 该选项需要 p4 的管理员权限，可以使用 <em>p4 protect</em> 授予。</p>
+<p>p4 变更将以调用 <em>git p4 submit</em> 的用户身份创建。<span class='synopsis'><code>--preserve-user</code></span> 选项会根据 Git 提交的作者修改所有权。 该选项需要 p4 的管理员权限，可以使用 <em>p4 protect</em> 授予。</p>
 </div>
 <div class="paragraph">
-<p>要搁置更改而不是提交，请使用 <code>--shelve</code> 和 <code>--update-shelve</code>：</p>
+<p>要搁置更改而不是提交，请使用 <span class='synopsis'><code>--shelve</code></span> 和 <span class='synopsis'><code>--update-shelve</code></span>：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -251,7 +280,7 @@ $ git p4 unshelve 12345
 <dl>
 <dt class="hdlist1" id="git-p4---git-dirltgt"> <a class="anchor" href="#git-p4---git-dir"></a> <a class="anchor" href="#git-p4---git-dirltgt"></a>--git-dir &lt;目录&gt; </dt>
 <dd>
-<p>设置 <code>GIT_DIR</code> 环境变量。 参见 <a href='{{< relurl "docs/git/zh_HANS-CN" >}}'>git[1]</a>。</p>
+<p>设置 <span class='synopsis'><code>GIT_DIR</code></span> 环境变量。 参见 <a href='{{< relurl "docs/git/zh_HANS-CN" >}}'>git[1]</a>。</p>
 </dd>
 <dt class="hdlist1" id="git-p4--v"> <a class="anchor" href="#git-p4--v"></a>-v </dt>
 <dt class="hdlist1" id="git-p4---verbose"> <a class="anchor" href="#git-p4---verbose"></a>--verbose </dt>
@@ -309,7 +338,7 @@ $ git p4 unshelve 12345
 </dd>
 <dt class="hdlist1" id="git-p4---import-local"> <a class="anchor" href="#git-p4---import-local"></a>--import-local </dt>
 <dd>
-<p>默认情况下，p4 分支存储在 <em>refs/remotes/p4/</em> 中，<a href='{{< relurl "docs/git-branch/zh_HANS-CN" >}}'>git-branch[1]</a> 和其他命令会将其视为远程跟踪分支。 该选项会把 p4 分支放到 <em>refs/heads/p4/</em> 中。 需要注意的是，今后的同步操作也必须指定 <code>--import-local</code>，这样才能在 refs/heads 中找到 p4 分支。</p>
+<p>默认情况下，p4 分支存储在 <em>refs/remotes/p4/</em> 中，<a href='{{< relurl "docs/git-branch/zh_HANS-CN" >}}'>git-branch[1]</a> 和其他命令会将其视为远程跟踪分支。 该选项会把 p4 分支放到 <em>refs/heads/p4/</em> 中。 需要注意的是，今后的同步操作也必须指定 <span class='synopsis'><code>--import-local</code></span>，这样才能在 refs/heads 中找到 p4 分支。</p>
 </dd>
 <dt class="hdlist1" id="git-p4---max-changesltngt"> <a class="anchor" href="#git-p4---max-changesn"></a> <a class="anchor" href="#git-p4---max-changesltngt"></a>--max-changes &lt;n&gt; </dt>
 <dd>
@@ -321,7 +350,7 @@ $ git p4 unshelve 12345
 </dd>
 <dt class="hdlist1" id="git-p4---keep-path"> <a class="anchor" href="#git-p4---keep-path"></a>--keep-path </dt>
 <dd>
-<p>默认情况下，从 p4 仓库路径到 Git 的文件名映射涉及删除整个仓库路径。 有了这个选项，Git 会保留完整的 p4 仓库路径。 例如，路径 <em>//depot/main/foo/bar.c ' 从 '//depot/main/</em> 导入时，会变成 <em>foo/bar.c</em>。 如果使用 <code>--keep-path</code>，Git 路径就会变成 <em>depot/main/foo/bar.c</em>。</p>
+<p>默认情况下，从 p4 仓库路径到 Git 的文件名映射涉及删除整个仓库路径。 有了这个选项，Git 会保留完整的 p4 仓库路径。 例如，路径 <em>//depot/main/foo/bar.c ' 从 '//depot/main/</em> 导入时，会变成 <em>foo/bar.c</em>。 如果使用 <span class='synopsis'><code>--keep-path</code></span>，Git 路径就会变成 <em>depot/main/foo/bar.c</em>。</p>
 </dd>
 <dt class="hdlist1" id="git-p4---use-client-spec"> <a class="anchor" href="#git-p4---use-client-spec"></a>--use-client-spec </dt>
 <dd>
@@ -361,7 +390,7 @@ $ git p4 unshelve 12345
 <dl>
 <dt class="hdlist1" id="git-p4---originltgt"> <a class="anchor" href="#git-p4---origin"></a> <a class="anchor" href="#git-p4---originltgt"></a>--origin &lt;提交&gt; </dt>
 <dd>
-<p>提交到 p4 的上游位置。 默认情况下，这是可以从 <code>HEAD</code> 到达的最新 p4 提交。</p>
+<p>提交到 p4 的上游位置。 默认情况下，这是可以从 <span class='synopsis'><code>HEAD</code></span> 到达的最新 p4 提交。</p>
 </dd>
 <dt class="hdlist1" id="git-p4--M"> <a class="anchor" href="#git-p4--M"></a>-M </dt>
 <dd>
@@ -423,7 +452,7 @@ $ git p4 unshelve 12345
 <div class="sect2">
 <h3 id="_p4_pre_submit"><a class="anchor" href="#_p4_pre_submit"></a>p4-pre-submit</h3>
 <div class="paragraph">
-<p>如果存在 <code>p4-pre-submit</code> 钩子且可执行，则执行该钩子。 钩子不需要参数，也不需要标准输入。以非零状态退出该脚本会阻止 <code>git-p4 submit</code> 启动。 可以使用 `--no-verify`命令行选项绕过它。</p>
+<p>如果存在 <span class='synopsis'><code>p4-pre-submit</code></span> 钩子且可执行，则执行该钩子。 钩子不需要参数，也不需要标准输入。以非零状态退出该脚本会阻止 <span class='synopsis'><code>git-p4</code> <code>submit</code></span> 启动。 可以使用 `--no-verify`命令行选项绕过它。</p>
 </div>
 <div class="paragraph">
 <p>一种使用场景是在钩子中运行单元测试。</p>
@@ -432,16 +461,16 @@ $ git p4 unshelve 12345
 <div class="sect2">
 <h3 id="_p4_prepare_changelist"><a class="anchor" href="#_p4_prepare_changelist"></a>p4-prepare-changelist</h3>
 <div class="paragraph">
-<p><code>p4-prepare-changelist</code> 钩子会在准备好默认更改列表信息后，编辑器启动前立即执行。 它需要一个参数，即包含更新列表文本的文件名。以非零状态退出脚本将中止进程。</p>
+<p><span class='synopsis'><code>p4-prepare-changelist</code></span> 钩子会在准备好默认更改列表信息后，编辑器启动前立即执行。 它需要一个参数，即包含更新列表文本的文件名。以非零状态退出脚本将中止进程。</p>
 </div>
 <div class="paragraph">
-<p>该钩子的目的是就地编辑消息文件，它不会被 <code>--no-verify</code>（不验证）选项抑制。即使设置了 <code>--prepare-p4-only</code>，也会调用该钩子。</p>
+<p>该钩子的目的是就地编辑消息文件，它不会被 <span class='synopsis'><code>--no-verify</code></span>（不验证）选项抑制。即使设置了 <span class='synopsis'><code>--prepare-p4-only</code></span>，也会调用该钩子。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_p4_changelist"><a class="anchor" href="#_p4_changelist"></a>p4-changelist</h3>
 <div class="paragraph">
-<p><code>p4-changelist</code> 钩子会在用户编辑更新列表信息后执行。可以使用 <code>--no-verify</code> 选项绕过该钩子。该钩子只接受一个参数，即保存更改列表文本的文件名。以非零状态退出会导致命令中止。</p>
+<p><span class='synopsis'><code>p4-changelist</code></span> 钩子会在用户编辑更新列表信息后执行。可以使用 <span class='synopsis'><code>--no-verify</code></span> 选项绕过该钩子。该钩子只接受一个参数，即保存更改列表文本的文件名。以非零状态退出会导致命令中止。</p>
 </div>
 <div class="paragraph">
 <p>该钩子允许编辑更改列表文件，并可用于将文本规范化为某种项目标准格式。还可以在检查信息文件后拒绝提交。</p>
@@ -450,7 +479,7 @@ $ git p4 unshelve 12345
 <div class="sect2">
 <h3 id="_p4_post_changelist"><a class="anchor" href="#_p4_post_changelist"></a>p4-post-changelist</h3>
 <div class="paragraph">
-<p><code>p4-post-changelist</code> 钩子会在 P4 提交成功后被调用。它不需要参数，主要用于通知，不会影响 git p4 提交操作的结果。</p>
+<p><span class='synopsis'><code>p4-post-changelist</code></span> 钩子会在 P4 提交成功后被调用。它不需要参数，主要用于通知，不会影响 git p4 提交操作的结果。</p>
 </div>
 </div>
 <div class="sect2">
@@ -502,7 +531,7 @@ $ git p4 unshelve 12345
 </dd>
 <dt class="hdlist1" id="git-p4-depotproj1alldepotproj2all"> <a class="anchor" href="#git-p4-depotproj1alldepotproj2all"></a>"//depot/proj1@all //depot/proj2@all" </dt>
 <dd>
-<p>将两个已命名仓库路径中的所有更改导入一个版本库。 只包含这些目录下的文件。 在 Git 中，每个 "proj1" 和 "proj2" 都没有子目录。 指定多个仓库路径时，必须使用 <code>--destination</code> 选项。 每个仓库路径上的修订说明必须完全相同。 如果仓库路径中存在同名文件，则 Git 会显示该文件最新更新版本的路径。</p>
+<p>将两个已命名仓库路径中的所有更改导入一个版本库。 只包含这些目录下的文件。 在 Git 中，每个 "proj1" 和 "proj2" 都没有子目录。 指定多个仓库路径时，必须使用 <span class='synopsis'><code>--destination</code></span> 选项。 每个仓库路径上的修订说明必须完全相同。 如果仓库路径中存在同名文件，则 Git 会显示该文件最新更新版本的路径。</p>
 </dd>
 </dl>
 </div>
@@ -515,7 +544,7 @@ $ git p4 unshelve 12345
 <h2 id="_client_spec"><a class="anchor" href="#_client_spec"></a>CLIENT SPEC</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>p4 客户端规范由 <em>p4 client</em> 命令维护，除其他字段外，它还包含一个 View，用于指定如何将仓库映射到客户端仓库。 如果给定 <code>--use-client-spec</code> 选项，或者 useClientSpec 变量为 true，<em>clone</em> 和 <em>sync</em> 命令就能查阅客户端规范。 <em>git p4 clone</em> 后，useClientSpec 变量会自动在版本库配置文件中设置。 这样，以后的 <em>git p4 submit</em> 命令就能正常工作了；提交命令只查看变量，而没有命令行选项。</p>
+<p>p4 客户端规范由 <em>p4 client</em> 命令维护，除其他字段外，它还包含一个 View，用于指定如何将仓库映射到客户端仓库。 如果给定 <span class='synopsis'><code>--use-client-spec</code></span> 选项，或者 useClientSpec 变量为 true，<em>clone</em> 和 <em>sync</em> 命令就能查阅客户端规范。 <em>git p4 clone</em> 后，useClientSpec 变量会自动在版本库配置文件中设置。 这样，以后的 <em>git p4 submit</em> 命令就能正常工作了；提交命令只查看变量，而没有命令行选项。</p>
 </div>
 <div class="paragraph">
 <p>p4 视图的完整语法记录在 <em>p4 help views</em> 中。 <em>git p4</em> 只知道视图语法的一部分。 它能理解多行映射、用 <em>+</em> 覆盖、用 <em>-</em> 排除，以及在空白处加双引号。 在可能的通配符中，<em>git p4</em> 只处理 <em>&#8230;&#8203;</em>，而且只在路径末尾才处理。 如果遇到未处理的通配符，<em>git p4</em> 会抱怨。</p>
@@ -524,7 +553,7 @@ $ git p4 unshelve 12345
 <p>重叠映射的实现存在错误。 如果多个仓库路径通过重叠映射到仓库中的同一位置，<em>git p4</em> 可能会选择错误的路径。 如果不专门为 <em>git p4</em> 制定客户端规范，这个问题很难解决。</p>
 </div>
 <div class="paragraph">
-<p><em>git p4</em> 可以通过多种方式指定客户端名称。 如果存在变量 <em>git-p4.client</em>，则优先使用。 否则，将使用正常的 p4 机制来确定客户端：环境变量 <code>P4CLIENT</code>、<code>P4CONFIG</code> 引用的文件或本地主机名。</p>
+<p><em>git p4</em> 可以通过多种方式指定客户端名称。 如果存在变量 <em>git-p4.client</em>，则优先使用。 否则，将使用正常的 p4 机制来确定客户端：环境变量 <span class='synopsis'><code>P4CLIENT</code></span>、<span class='synopsis'><code>P4CONFIG</code></span> 引用的文件或本地主机名。</p>
 </div>
 </div>
 </div>
@@ -535,7 +564,7 @@ $ git p4 unshelve 12345
 <p>P4 并不像 Git 那样有分支的概念。 相反，P4 以目录树的形式组织内容，按照惯例，不同的逻辑分支位于目录树的不同位置。 <em>p4 branch</em> 命令用于维护目录树中不同区域之间的映射关系，并指示相关内容。 <em>git p4</em> 可以使用这些映射来确定分支关系。</p>
 </div>
 <div class="paragraph">
-<p>如果你有一个仓库，其中所有感兴趣的分支都作为单个仓库路径的子目录存在，你可以在克隆或同步时使用 <code>--detect-branches</code>，让 <em>git p4</em> 在 p4 中自动查找子目录，并在 Git 中生成这些分支。</p>
+<p>如果你有一个仓库，其中所有感兴趣的分支都作为单个仓库路径的子目录存在，你可以在克隆或同步时使用 <span class='synopsis'><code>--detect-branches</code></span>，让 <em>git p4</em> 在 p4 中自动查找子目录，并在 Git 中生成这些分支。</p>
 </div>
 <div class="paragraph">
 <p>例如，如果 P4 仓库结构为：</p>
@@ -598,19 +627,19 @@ git p4 clone --detect-branches //depot@all .</pre>
 <dl>
 <dt class="hdlist1" id="git-p4-git-p4user"> <a class="anchor" href="#git-p4-git-p4user"></a>git-p4.user </dt>
 <dd>
-<p>作为所有 p4 命令的一个选项，用 <em>-u &lt;用户&gt;</em> 指定用户。 可以使用环境变量 <code>P4USER</code> 代替。</p>
+<p>作为所有 p4 命令的一个选项，用 <em>-u &lt;用户&gt;</em> 指定用户。 可以使用环境变量 <span class='synopsis'><code>P4USER</code></span> 代替。</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4password"> <a class="anchor" href="#git-p4-git-p4password"></a>git-p4.password </dt>
 <dd>
-<p>作为所有 p4 命令的选项，用 <em>-P &lt;密码&gt;</em> 指定密码。 可以使用环境变量 <code>P4PASS</code> 代替。</p>
+<p>作为所有 p4 命令的选项，用 <em>-P &lt;密码&gt;</em> 指定密码。 可以使用环境变量 <span class='synopsis'><code>P4PASS</code></span> 代替。</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4port"> <a class="anchor" href="#git-p4-git-p4port"></a>git-p4.port </dt>
 <dd>
-<p>作为所有 p4 命令的选项，用 <em>-p &lt;端口&gt;</em> 指定端口。 可以使用环境变量 <code>P4PORT</code> 代替。</p>
+<p>作为所有 p4 命令的选项，用 <em>-p &lt;端口&gt;</em> 指定端口。 可以使用环境变量 <span class='synopsis'><code>P4PORT</code></span> 代替。</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4host"> <a class="anchor" href="#git-p4-git-p4host"></a>git-p4.host </dt>
 <dd>
-<p>主机作为所有 p4 命令的选项，用 <em>-h &lt;主机&gt;</em> 指定。 可以使用环境变量 <code>P4HOST</code> 代替。</p>
+<p>主机作为所有 p4 命令的选项，用 <em>-h &lt;主机&gt;</em> 指定。 可以使用环境变量 <span class='synopsis'><code>P4HOST</code></span> 代替。</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4client"> <a class="anchor" href="#git-p4-git-p4client"></a>git-p4.client </dt>
 <dd>
@@ -659,7 +688,7 @@ git config --add git-p4.branchList main:branchB</pre>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4useClientSpec"> <a class="anchor" href="#git-p4-git-p4useClientSpec"></a>git-p4.useClientSpec </dt>
 <dd>
-<p>指定使用 p4 客户端规范来识别感兴趣的 p4 仓库路径。 这等同于指定选项 <code>--use-client-spec</code>。 参见上文的 "CLIENT SPEC"（指定客户端） 章节。 此变量是一个布尔值，而不是 p4 客户端的名称。</p>
+<p>指定使用 p4 客户端规范来识别感兴趣的 p4 仓库路径。 这等同于指定选项 <span class='synopsis'><code>--use-client-spec</code></span>。 参见上文的 "CLIENT SPEC"（指定客户端） 章节。 此变量是一个布尔值，而不是 p4 客户端的名称。</p>
 </dd>
 <dt class="hdlist1" id="git-p4-git-p4pathEncoding"> <a class="anchor" href="#git-p4-git-p4pathEncoding"></a>git-p4.pathEncoding </dt>
 <dd>

@@ -9,6 +9,23 @@ docname: git-upload-pack
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-upload-pack/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 环境变量
+  id: _环境变量
+- text: 安全
+  id: _安全
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -57,7 +74,7 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-upload-pack---http-backend-info-refs"> <a class="anchor" href="#git-upload-pack---http-backend-info-refs"></a>--http-backend-info-refs </dt>
 <dd>
-<p>由 <a href='{{< relurl "docs/git-http-backend/zh_HANS-CN" >}}'>git-http-backend[1]</a> 使用，用于提供 <code>$GIT_URL/info/refs?service=git-upload-pack</code> 请求。参见 <a href='{{< relurl "docs/gitprotocol-http/zh_HANS-CN" >}}'>gitprotocol-http[5]</a> 中的 “智能客户端” 和 <a href='{{< relurl "docs/gitprotocol-v2/zh_HANS-CN" >}}'>gitprotocol-v2[5]</a> 文档中的 “HTTP 传输”。也可理解为 <a href='{{< relurl "docs/git-receive-pack/zh_HANS-CN" >}}'>git-receive-pack[1]</a>。</p>
+<p>由 <a href='{{< relurl "docs/git-http-backend/zh_HANS-CN" >}}'>git-http-backend[1]</a> 使用，用于提供 <span class='synopsis'><em>$GIT_URL/info/refs?service=git-upload-pack</em></span> 请求。参见 <a href='{{< relurl "docs/gitprotocol-http/zh_HANS-CN" >}}'>gitprotocol-http[5]</a> 中的 “智能客户端” 和 <a href='{{< relurl "docs/gitprotocol-v2/zh_HANS-CN" >}}'>gitprotocol-v2[5]</a> 文档中的 “HTTP 传输”。也可理解为 <a href='{{< relurl "docs/git-receive-pack/zh_HANS-CN" >}}'>git-receive-pack[1]</a>。</p>
 </dd>
 <dt class="hdlist1" id="git-upload-pack-ltgt"> <a class="anchor" href="#git-upload-pack-"></a> <a class="anchor" href="#git-upload-pack-ltgt"></a>&lt;目录&gt; </dt>
 <dd>
@@ -72,15 +89,15 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-upload-pack-codeGITPROTOCOLcode"> <a class="anchor" href="#git-upload-pack-GITPROTOCOL"></a> <a class="anchor" href="#git-upload-pack-codeGITPROTOCOLcode"></a><code>GIT_PROTOCOL</code> </dt>
+<dt class="hdlist1" id="git-upload-pack-spanclasssynopsiscodeGITPROTOCOLcodespan"> <a class="anchor" href="#git-upload-pack-GITPROTOCOL"></a> <a class="anchor" href="#git-upload-pack-spanclasssynopsiscodeGITPROTOCOLcodespan"></a><span class='synopsis'><code>GIT_PROTOCOL</code></span> </dt>
 <dd>
 <p>用于与传输协议握手的内部变量。服务器管理员可能需要配置某些传输协议，以允许传递此变量。请参阅 <a href='{{< relurl "docs/git/zh_HANS-CN" >}}'>git[1]</a> 中的讨论。</p>
 </dd>
-<dt class="hdlist1" id="git-upload-pack-codeGITNOLAZYFETCHcode"> <a class="anchor" href="#git-upload-pack-GITNOLAZYFETCH"></a> <a class="anchor" href="#git-upload-pack-codeGITNOLAZYFETCHcode"></a><code>GIT_NO_LAZY_FETCH</code> </dt>
+<dt class="hdlist1" id="git-upload-pack-spanclasssynopsiscodeGITNOLAZYFETCHcodespan"> <a class="anchor" href="#git-upload-pack-GITNOLAZYFETCH"></a> <a class="anchor" href="#git-upload-pack-spanclasssynopsiscodeGITNOLAZYFETCHcodespan"></a><span class='synopsis'><code>GIT_NO_LAZY_FETCH</code></span> </dt>
 <dd>
-<p>当从部分仓库（即本身使用 <code>--filter</code> 克隆的仓库）克隆或提取时，服务器端的 <code>upload-pack</code> 可能需要从其上游获取额外的对象以完成请求。默认情况下，<code>upload-pack</code> 将拒绝执行此类延迟获取，因为 <code>git fetch</code> 可能会运行源仓库配置和钩子中指定的任意命令（并且 <code>upload-pack</code> 尝试即使在不受信任的 <code>.git</code> 目录中也能安全运行）。</p>
+<p>当从部分仓库（即本身使用 <span class='synopsis'><code>--filter</code></span> 克隆的仓库）克隆或提取时，服务器端的 <span class='synopsis'><code>upload-pack</code></span> 可能需要从其上游获取额外的对象以完成请求。默认情况下，<span class='synopsis'><code>upload-pack</code></span> 将拒绝执行此类延迟获取，因为 <span class='synopsis'><code>git</code> <code>fetch</code></span> 可能会运行源仓库配置和钩子中指定的任意命令（并且 <span class='synopsis'><code>upload-pack</code></span> 尝试即使在不受信任的 <span class='synopsis'><code>.git</code></span> 目录中也能安全运行）。</p>
 <div class="paragraph">
-<p>这是通过让 <code>upload-pack</code> 在内部将 <code>GIT_NO_LAZY_FETCH</code> 变量设置为 <code>1</code> 来实现的。如果您想覆盖它（因为您正在从部分克隆中提取，并且您确信您信任它），您可以显式地将 <code>GIT_NO_LAZY_FETCH</code> 设置为 <code>0</code>。</p>
+<p>这是通过让 <span class='synopsis'><code>upload-pack</code></span> 在内部将 <span class='synopsis'><code>GIT_NO_LAZY_FETCH</code></span> 变量设置为 <span class='synopsis'><code>1</code></span> 来实现的。如果您想覆盖它（因为您正在从部分克隆中提取，并且您确信您信任它），您可以显式地将 <span class='synopsis'><code>GIT_NO_LAZY_FETCH</code></span> 设置为 <span class='synopsis'><code>0</code></span>。</p>
 </div>
 </dd>
 </dl>
@@ -91,10 +108,10 @@ aliases:
 <h2 id="_安全"><a class="anchor" href="#_安全"></a>安全</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>大多数 Git 命令不应在不受信任的 <code>.git</code> 目录中运行（参见 <a href='{{< relurl "docs/git/zh_HANS-CN" >}}'>git[1]</a> 中的 <code>SECURITY</code> 部分）。<code>upload-pack</code> 尝试避免来自其服务的仓库的任何危险配置选项或钩子，这使得克隆不受信任的目录并在结果克隆上运行命令是安全的。</p>
+<p>大多数 Git 命令不应在不受信任的 <span class='synopsis'><code>.git</code></span> 目录中运行（参见 <a href='{{< relurl "docs/git/zh_HANS-CN" >}}'>git[1]</a> 中的 <span class='synopsis'><code>SECURITY</code></span> 部分）。<span class='synopsis'><code>upload-pack</code></span> 尝试避免来自其服务的仓库的任何危险配置选项或钩子，这使得克隆不受信任的目录并在结果克隆上运行命令是安全的。</p>
 </div>
 <div class="paragraph">
-<p>为了额外的安全级别，您可能能够以备用用户身份运行 <code>upload-pack</code>。具体细节将取决于平台，但在许多系统上，您可以运行：</p>
+<p>为了额外的安全级别，您可能能够以备用用户身份运行 <span class='synopsis'><code>upload-pack</code></span>。具体细节将取决于平台，但在许多系统上，您可以运行：</p>
 </div>
 <div class="literalblock">
 <div class="content">

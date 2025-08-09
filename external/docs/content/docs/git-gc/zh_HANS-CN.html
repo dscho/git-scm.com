@@ -9,6 +9,27 @@ docname: git-gc
 lang: zh_HANS-CN
 aliases:
 - "/docs/git-gc/zh_HANS-CN/index.html"
+headings:
+- text: 名称
+  id: _名称
+- text: 概述
+  id: _概述
+- text: 描述
+  id: _描述
+- text: 选项
+  id: _选项
+- text: 侵略的
+  id: _侵略的
+- text: 配置
+  id: _配置
+- text: 注释
+  id: _注释
+- text: 钩子
+  id: _钩子
+- text: 参见
+  id: _参见
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_名称"><a class="anchor" href="#_名称"></a>名称</h2>
@@ -33,10 +54,10 @@ aliases:
 <p>在当前版本库中执行一些内务管理任务，比如压缩文件修订（以减少磁盘空间并提高性能），移除之前调用 <em>git add</em> 所创建的不可达对象，打包引用，修剪引用日志、rerere metadata 或过时的工作区。也可以更新辅助索引，如提交图。</p>
 </div>
 <div class="paragraph">
-<p>当运行创建对象的普通上层命令操作时，它们会检查仓库在上次维护后是否有大幅增长，如果有，就自动运行 <code>git gc</code>。参见下面的 <code>gc.auto</code> 以了解如何禁用这一行为。</p>
+<p>当运行创建对象的普通上层命令操作时，它们会检查仓库在上次维护后是否有大幅增长，如果有，就自动运行 <span class='synopsis'><code>git</code> <code>gc</code></span>。参见下面的 <span class='synopsis'><code>gc.auto</code></span> 以了解如何禁用这一行为。</p>
 </div>
 <div class="paragraph">
-<p>手动运行 <code>git gc</code> 应该只在向仓库添加对象而不定期运行这种上层命令时才需要，以进行一次性的仓库优化，或者例如清理次优的大规模导入。关于导入情况的更多细节，请参见 <a href='{{< relurl "docs/git-fast-import/zh_HANS-CN" >}}'>git-fast-import[1]</a> 中的 “包装文件优化” 部分。</p>
+<p>手动运行 <span class='synopsis'><code>git</code> <code>gc</code></span> 应该只在向仓库添加对象而不定期运行这种上层命令时才需要，以进行一次性的仓库优化，或者例如清理次优的大规模导入。关于导入情况的更多细节，请参见 <a href='{{< relurl "docs/git-fast-import/zh_HANS-CN" >}}'>git-fast-import[1]</a> 中的 “包装文件优化” 部分。</p>
 </div>
 </div>
 </div>
@@ -53,31 +74,31 @@ aliases:
 <dd>
 <p>有了这个选项，<em>git gc</em> 就会检查是否需要任何内务处理；如果不需要，它就会退出，不执行任何工作。</p>
 <div class="paragraph">
-<p>关于这个启发式的工作原理，请看下面 “配置” 部分的 <code>gc.auto</code> 选项。</p>
+<p>关于这个启发式的工作原理，请看下面 “配置” 部分的 <span class='synopsis'><code>gc.auto</code></span> 选项。</p>
 </div>
 <div class="paragraph">
-<p>一旦超过配置选项如 <code>gc.auto</code> 和 <code>gc.autoPackLimit</code> 的限制而触发内务管理，所有其他内务管理任务（如 reere、working trees、reflog&#8230;&#8203;）也将被执行。</p>
+<p>一旦超过配置选项如 <span class='synopsis'><code>gc.auto</code></span> 和 <span class='synopsis'><code>gc.autoPackLimit</code></span> 的限制而触发内务管理，所有其他内务管理任务（如 reere、working trees、reflog&#8230;&#8203;）也将被执行。</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-gc---no-detach"> <a class="anchor" href="#git-gc---no-detach"></a>--[no-]detach </dt>
 <dd>
-<p>如果系统支持，则在后台运行。这个选项会覆盖 <code>gc.autoDetach</code> 配置。</p>
+<p>如果系统支持，则在后台运行。这个选项会覆盖 <span class='synopsis'><code>gc.autoDetach</code></span> 配置。</p>
 </dd>
 <dt class="hdlist1" id="git-gc---no-cruft"> <a class="anchor" href="#git-gc---no-cruft"></a>--[no-]cruft </dt>
 <dd>
-<p>当无法到达的对象过期时，将它们单独打包到一个 cruft 包中，而不是将它们作为散装对象存储。<code>--cruft</code> 是默认开启的。</p>
+<p>当无法到达的对象过期时，将它们单独打包到一个 cruft 包中，而不是将它们作为散装对象存储。<span class='synopsis'><code>--cruft</code></span> 是默认开启的。</p>
 </dd>
 <dt class="hdlist1" id="git-gc---max-cruft-sizeltngt"> <a class="anchor" href="#git-gc---max-cruft-sizen"></a> <a class="anchor" href="#git-gc---max-cruft-sizeltngt"></a>--max-cruft-size=&lt;n&gt; </dt>
 <dd>
-<p>在将无法访问的对象打包到 Cruft 包时，限制新 Cruft 包的大小最多为 <code>&lt;n&gt;</code> 字节。覆盖通过 <code>gc.maxCruftSize</code> 配置指定的任何值。参见 <a href='{{< relurl "docs/git-repack/zh_HANS-CN" >}}'>git-repack[1]</a> 的 `--max-cruft-size`选项了解更多。</p>
+<p>在将无法访问的对象打包到 Cruft 包时，限制新 Cruft 包的大小最多为 <span class='synopsis'><em>&lt;n&gt;</em></span> 字节。覆盖通过 <span class='synopsis'><code>gc.maxCruftSize</code></span> 配置指定的任何值。参见 <a href='{{< relurl "docs/git-repack/zh_HANS-CN" >}}'>git-repack[1]</a> 的 `--max-cruft-size`选项了解更多。</p>
 </dd>
 <dt class="hdlist1" id="git-gc---expire-toltgt"> <a class="anchor" href="#git-gc---expire-to"></a> <a class="anchor" href="#git-gc---expire-toltgt"></a>--expire-to=&lt;目录&gt; </dt>
 <dd>
-<p>When packing unreachable objects into a cruft pack, write a cruft pack containing pruned objects (if any) to the directory <code>&lt;dir&gt;</code>. This option only has an effect when used together with <code>--cruft</code>. See the <code>--expire-to</code> option of <a href='{{< relurl "docs/git-repack/zh_HANS-CN" >}}'>git-repack[1]</a> for more information.</p>
+<p>When packing unreachable objects into a cruft pack, write a cruft pack containing pruned objects (if any) to the directory <span class='synopsis'><em>&lt;dir&gt;</em></span>. This option only has an effect when used together with <span class='synopsis'><code>--cruft</code></span>. See the <span class='synopsis'><code>--expire-to</code></span> option of <a href='{{< relurl "docs/git-repack/zh_HANS-CN" >}}'>git-repack[1]</a> for more information.</p>
 </dd>
 <dt class="hdlist1" id="git-gc---pruneltgt"> <a class="anchor" href="#git-gc---prune"></a> <a class="anchor" href="#git-gc---pruneltgt"></a>--prune=&lt;日期&gt; </dt>
 <dd>
-<p>修剪超过日期的松散对象（默认是 2 周前，可由配置变量 <code>gc.pruneExpire</code> 覆盖）。 --prune=now 删减松散对象，无论其年龄大小，如果有其他进程同时向仓库写入，则会增加损坏的风险；见下面的 “注意事项”。--prune 默认是打开的。</p>
+<p>修剪超过日期的松散对象（默认是 2 周前，可由配置变量 <span class='synopsis'><code>gc.pruneExpire</code></span> 覆盖）。 --prune=now 删减松散对象，无论其年龄大小，如果有其他进程同时向仓库写入，则会增加损坏的风险；见下面的 “注意事项”。--prune 默认是打开的。</p>
 </dd>
 <dt class="hdlist1" id="git-gc---no-prune"> <a class="anchor" href="#git-gc---no-prune"></a>--no-prune </dt>
 <dd>
@@ -89,11 +110,11 @@ aliases:
 </dd>
 <dt class="hdlist1" id="git-gc---force"> <a class="anchor" href="#git-gc---force"></a>--force </dt>
 <dd>
-<p>强制 <code>git gc</code> 运行，即使这个仓库可能有另一个 <code>git gc</code> 实例在运行。</p>
+<p>强制 <span class='synopsis'><code>git</code> <code>gc</code></span> 运行，即使这个仓库可能有另一个 <span class='synopsis'><code>git</code> <code>gc</code></span> 实例在运行。</p>
 </dd>
 <dt class="hdlist1" id="git-gc---keep-largest-pack"> <a class="anchor" href="#git-gc---keep-largest-pack"></a>--keep-largest-pack </dt>
 <dd>
-<p>除了最大的非破坏性包，任何标有 <code>.keep</code> 文件的包，以及任何破坏性的包，都会被合并为一个包。当使用这个选项时，<code>gc.bigPackThreshold</code> 被忽略。</p>
+<p>除了最大的非破坏性包，任何标有 <span class='synopsis'><code>.keep</code></span> 文件的包，以及任何破坏性的包，都会被合并为一个包。当使用这个选项时，<span class='synopsis'><code>gc.bigPackThreshold</code></span> 被忽略。</p>
 </dd>
 </dl>
 </div>
@@ -103,13 +124,13 @@ aliases:
 <h2 id="_侵略的"><a class="anchor" href="#_侵略的"></a>侵略的</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>当提供 <code>--aggressive</code> 选项时，<a href='{{< relurl "docs/git-repack/zh_HANS-CN" >}}'>git-repack[1]</a> 将被调用，并带有 <code>-f</code> 标志，这又将把 <code>--no-reuse-delta</code> 传递给 <a href='{{< relurl "docs/git-pack-objects/zh_HANS-CN" >}}'>git-pack-objects[1]</a>。这将丢弃任何现有的 delta 并重新计算，代价是在重新打包上花费更多的时间。</p>
+<p>当提供 <span class='synopsis'><code>--aggressive</code></span> 选项时，<a href='{{< relurl "docs/git-repack/zh_HANS-CN" >}}'>git-repack[1]</a> 将被调用，并带有 <span class='synopsis'><code>-f</code></span> 标志，这又将把 <span class='synopsis'><code>--no-reuse-delta</code></span> 传递给 <a href='{{< relurl "docs/git-pack-objects/zh_HANS-CN" >}}'>git-pack-objects[1]</a>。这将丢弃任何现有的 delta 并重新计算，代价是在重新打包上花费更多的时间。</p>
 </div>
 <div class="paragraph">
 <p>这方面的影响主要是持久性的，例如，当包和松散对象被凝聚成另一个包时，该包中现有的 delta 可能会被重新使用，但也有各种情况，我们可能会从一个较新的包中挑选一个次优 delta。</p>
 </div>
 <div class="paragraph">
-<p>此外，提供 <code>--aggressive</code> 将调整传递给 <a href='{{< relurl "docs/git-repack/zh_HANS-CN" >}}'>git-repack[1]</a> 的 <code>--depth</code> 和 <code>--window</code> 选项。见下面的 <code>gc.aggressiveDepth</code> 和 <code>gc.aggressiveWindow</code> 设置。通过使用较大的窗口尺寸，我们更有可能找到更多的最佳 deltas。</p>
+<p>此外，提供 <span class='synopsis'><code>--aggressive</code></span> 将调整传递给 <a href='{{< relurl "docs/git-repack/zh_HANS-CN" >}}'>git-repack[1]</a> 的 <span class='synopsis'><code>--depth</code></span> 和 <span class='synopsis'><code>--window</code></span> 选项。见下面的 <span class='synopsis'><code>gc.aggressiveDepth</code></span> 和 <span class='synopsis'><code>gc.aggressiveWindow</code></span> 设置。通过使用较大的窗口尺寸，我们更有可能找到更多的最佳 deltas。</p>
 </div>
 <div class="paragraph">
 <p>在没有运行定制的性能基准的情况下，在一个给定的仓库上使用这个选项可能是不值得的。它需要更多的时间，而由此产生的空间/延迟优化可能值得也可能不值得。对于大多数用户和他们的仓库来说，完全不使用这个选项是正确的权衡。</p>
@@ -130,7 +151,7 @@ aliases:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Missing <code>zh_HANS-CN/config/gc.adoc</code></p>
+<p>Missing <span class='synopsis'><code>zh_HANS-CN/config/gc.adoc</code></span></p>
 </div>
 <div class="paragraph">
 <p>See original version for this content.</p>
@@ -153,7 +174,7 @@ aliases:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>任何修改时间早于 <code>--prune</code> 日期的对象都会被保留，同时也会保留所有可以到达的对象。</p>
+<p>任何修改时间早于 <span class='synopsis'><code>--prune</code></span> 日期的对象都会被保留，同时也会保留所有可以到达的对象。</p>
 </li>
 <li>
 <p>大多数向数据库添加对象的操作都会更新对象的修改时间，如果它已经存在，那么 #1 就适用。</p>

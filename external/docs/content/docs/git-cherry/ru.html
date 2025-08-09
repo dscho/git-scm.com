@@ -9,6 +9,21 @@ docname: git-cherry
 lang: ru
 aliases:
 - "/docs/git-cherry/ru/index.html"
+headings:
+- text: НАЗВАНИЕ
+  id: _название
+- text: ОБЗОР
+  id: _обзор
+- text: ОПИСАНИЕ
+  id: _описание
+- text: ПАРАМЕТРЫ
+  id: _параметры
+- text: ПРИМЕРЫ
+  id: _примеры
+- text: СМОТРИТЕ ТАКЖЕ
+  id: _смотрите_также
+- text: GIT
+  id: _git
 ---
 <div class="sect1">
 <h2 id="_название"><a class="anchor" href="#_название"></a>НАЗВАНИЕ</h2>
@@ -30,13 +45,13 @@ aliases:
 <h2 id="_описание"><a class="anchor" href="#_описание"></a>ОПИСАНИЕ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Определить, есть ли в вышестоящей ветке (а именно в диапазоне <code>&lt;редакция&gt;..&lt;вышестоящая-ветка&gt;</code>) коммиты эквивалентные тем, что находятся в «локальном» диапазоне <code>&lt;ограничение&gt;..&lt;голова&gt;</code>.</p>
+<p>Определить, есть ли в вышестоящей ветке (а именно в диапазоне <span class='synopsis'><em>&lt;редакция&gt;</em><code>..</code><em>&lt;вышестоящая-ветка&gt;</em></span>) коммиты эквивалентные тем, что находятся в «локальном» диапазоне <span class='synopsis'><em>&lt;ограничение&gt;</em><code>..</code><em>&lt;голова&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
-<p>Тест на эквивалентность основан на сравнении списков различий (diff), после удаления из них пробелов и номеров строк. Так что <code>git-cherry</code> выявляет те коммиты, которые были «скопированы» с помощью команд <a href='{{< relurl "docs/git-cherry-pick/ru" >}}'>git-cherry-pick[1]</a>, <a href='{{< relurl "docs/git-am/ru" >}}'>git-am[1]</a> или <a href='{{< relurl "docs/git-rebase/ru" >}}'>git-rebase[1]</a>.</p>
+<p>Тест на эквивалентность основан на сравнении списков различий (diff), после удаления из них пробелов и номеров строк. Так что <span class='synopsis'><code>git-cherry</code></span> выявляет те коммиты, которые были «скопированы» с помощью команд <a href='{{< relurl "docs/git-cherry-pick/ru" >}}'>git-cherry-pick[1]</a>, <a href='{{< relurl "docs/git-am/ru" >}}'>git-am[1]</a> или <a href='{{< relurl "docs/git-rebase/ru" >}}'>git-rebase[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>В результате эта команда выводит SHA1 каждого коммита в диапазоне <code>&lt;ограничение&gt;..&lt;голова&gt;</code>, с префиксом минус (<code>-</code>) для коммитов, которые имеют эквивалент в &lt;вышестоящей-ветке&gt;, и плюс (<code>+</code>) — для тех, что не имеют.</p>
+<p>В результате эта команда выводит SHA1 каждого коммита в диапазоне <span class='synopsis'><em>&lt;ограничение&gt;</em><code>..</code><em>&lt;голова&gt;</em></span>, с префиксом минус (<span class='synopsis'><code>-</code></span>) для коммитов, которые имеют эквивалент в &lt;вышестоящей-ветке&gt;, и плюс (<span class='synopsis'><code>+</code></span>) — для тех, что не имеют.</p>
 </div>
 </div>
 </div>
@@ -71,7 +86,7 @@ aliases:
 <div class="sect2">
 <h3 id="_рабочие_процессы_на_основе_патчей"><a class="anchor" href="#_рабочие_процессы_на_основе_патчей"></a>Рабочие процессы на основе патчей</h3>
 <div class="paragraph">
-<p><code>git-cherry</code> часто используется при работе с проектами, в которых рабочий процесс, основан на патчах (см. <a href='{{< relurl "docs/gitworkflows/ru" >}}'>gitworkflows[7]</a>), чтобы определять, была ли серия патчей уже применена в вышестоящем репозитории. В подобном рабочем процессе вы можете создать и отправить ваши изменения из тематической ветки <code>topic</code> следующим образом:</p>
+<p><span class='synopsis'><code>git-cherry</code></span> часто используется при работе с проектами, в которых рабочий процесс, основан на патчах (см. <a href='{{< relurl "docs/gitworkflows/ru" >}}'>gitworkflows[7]</a>), чтобы определять, была ли серия патчей уже применена в вышестоящем репозитории. В подобном рабочем процессе вы можете создать и отправить ваши изменения из тематической ветки <span class='synopsis'><code>topic</code></span> следующим образом:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -82,7 +97,7 @@ $ git send-email ... 00*</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Позже вы можете проверить, были ли ваши изменения применены, выполнив (все ещё находясь на своей ветке <code>topic</code>):</p>
+<p>Позже вы можете проверить, были ли ваши изменения применены, выполнив (все ещё находясь на своей ветке <span class='synopsis'><code>topic</code></span>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -94,7 +109,7 @@ $ git cherry -v</pre>
 <div class="sect2">
 <h3 id="_конкретный_пример"><a class="anchor" href="#_конкретный_пример"></a>Конкретный пример</h3>
 <div class="paragraph">
-<p>В ситуации, когда ветка <code>topic</code> состоит из трёх коммитов, а в вышестоящем репозитории применили только два из них, это может выглядеть следующим образом:</p>
+<p>В ситуации, когда ветка <span class='synopsis'><code>topic</code></span> состоит из трёх коммитов, а в вышестоящем репозитории применили только два из них, это может выглядеть следующим образом:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -112,7 +127,7 @@ o 1234567 точка ветвления</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>В таких случаях <code>git-cherry</code> может показывать сжатое резюме того, что ещё не было применено:</p>
+<p>В таких случаях <span class='synopsis'><code>git-cherry</code></span> может показывать сжатое резюме того, что ещё не было применено:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -123,13 +138,13 @@ o 1234567 точка ветвления</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Здесь мы видим, что коммиты А и В (отмеченные минусом, <code>-</code>) можно удалить из вашей ветки <code>topic</code>, когда вы переместите её (с помощью <code>rebase</code>) на верхушку <code>origin/master</code>, в то время как коммит Б (отмеченный плюсом, <code>+</code>), напротив, всё ещё нужно сохранить, чтобы отправить его для применения в <code>origin/master</code>.</p>
+<p>Здесь мы видим, что коммиты А и В (отмеченные минусом, <span class='synopsis'><code>-</code></span>) можно удалить из вашей ветки <span class='synopsis'><code>topic</code></span>, когда вы переместите её (с помощью <span class='synopsis'><code>rebase</code></span>) на верхушку <span class='synopsis'><code>origin/master</code></span>, в то время как коммит Б (отмеченный плюсом, <span class='synopsis'><code>+</code></span>), напротив, всё ещё нужно сохранить, чтобы отправить его для применения в <span class='synopsis'><code>origin/master</code></span>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_использование_аргумента_ограничение"><a class="anchor" href="#_использование_аргумента_ограничение"></a>Использование аргумента «ограничение»</h3>
 <div class="paragraph">
-<p>Необязательный аргумент &lt;ограничение&gt; полезен в тех случаях, когда ваша ветка <code>topic</code> основана на некоторой другой работе, которая пока не опубликована. Расширяя предыдущий пример, это может выглядеть следующим образом:</p>
+<p>Необязательный аргумент &lt;ограничение&gt; полезен в тех случаях, когда ваша ветка <span class='synopsis'><code>topic</code></span> основана на некоторой другой работе, которая пока не опубликована. Расширяя предыдущий пример, это может выглядеть следующим образом:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -150,7 +165,7 @@ o 1234567 общая база между вышестоящей веткой и 
 </div>
 </div>
 <div class="paragraph">
-<p>Если в качестве ограничивающего коммита вы укажите <code>base</code>, то вы сможете избежать перечисления в выводе всех коммитов между <code>base</code> и <code>topic</code>:</p>
+<p>Если в качестве ограничивающего коммита вы укажите <span class='synopsis'><code>base</code></span>, то вы сможете избежать перечисления в выводе всех коммитов между <span class='synopsis'><code>base</code></span> и <span class='synopsis'><code>topic</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
