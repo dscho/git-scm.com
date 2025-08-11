@@ -215,12 +215,17 @@ h3.plumbing {
 
 // New inline TOC box styles
 .toc-box {
+  position: fixed;
+  left: calc(940px + 5px + (100vw - 940px)/2);
+  max-height: calc(100vh - 150px);
+  overflow: scroll;
+  top: 124px;
   float: right;
-  width: 200px;
-  margin: 0 0 15px 20px;
+  width: 160px;
+  margin: 0;
   padding: 10px 12px;
   font-size: 13px;
-  background-color: var(--callout-color);
+  background-color: var(--main-bg);
   border: 1px solid var(--base-border-color);
   @include border-radius(3px);
 
@@ -266,8 +271,22 @@ h3.plumbing {
 }
 
 // Stack TOC box full-width on small screens
+@media (max-width: $default + 380px) {
+  .toc-box {
+    position: inherit;
+    left: inherit;
+    top: inherit;
+    width: 200px;
+    margin: 0 0 15px 20px;
+    background-color: var(--callout-color);
+  }
+}
+
 @media (max-width: $mobile-m) {
   .toc-box {
+    position: relative;
+    left: inherit;
+    top: inherit;
     float: none;
     width: 80%;
     max-width: none;
