@@ -204,7 +204,8 @@
     let vizInstance
     [...document.querySelectorAll("pre[class=graphviz]")].forEach(async (x) => {
       if (!vizInstance) vizInstance = await Viz.instance()
-      const svg = vizInstance.renderSVGElement(x.innerText)
+      const engine = x.getAttribute("engine") || undefined
+      const svg = vizInstance.renderSVGElement(x.innerText, { engine })
       x.parentNode.insertBefore(svg, x);
       x.style.display = 'none'
     });
