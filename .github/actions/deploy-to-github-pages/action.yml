@@ -81,6 +81,13 @@ runs:
         find public/book public/docs -name \*.html -print0 |
         xargs -0r sed -i 's,http://git-scm\.com,https://git-scm.com,g'
 
+    - uses: actions/setup-node@v5
+    - name: pre-render the Graphviz diagrams
+      shell: bash
+      run: |
+        npm install node-html-parser &&
+        node ./script/graphviz-ssr.js
+
     - name: run Pagefind ${{ env.PAGEFIND_VERSION }} to build the search index
       shell: bash
       run: npx -y pagefind@${{ env.PAGEFIND_VERSION }} --site public

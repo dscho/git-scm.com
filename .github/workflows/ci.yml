@@ -39,6 +39,12 @@ jobs:
           exit 1
         fi
 
+    - uses: actions/setup-node@v5
+    - name: pre-render the Graphviz diagrams
+      run: |
+        npm install node-html-parser &&
+        node ./script/graphviz-ssr.js
+
     - name: run Pagefind ${{ env.PAGEFIND_VERSION }} to build the search index
       run: npx -y pagefind@${{ env.PAGEFIND_VERSION }} --site public
 
