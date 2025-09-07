@@ -76,6 +76,7 @@ const htmlToPDF = async (htmlPath, options) => {
     landscape: true,
     margin: { top: '0cm', bottom: '0cm', left: '0cm', right: '0cm' },
   })
+console.log(`tagline was '${await page.evaluate(() => Print.taglineBackup)}'`)
   if (options.devtools) await new Promise((resolve) => { setTimeout(resolve, 5 * 60 * 1000) })
   await browser.close()
 
