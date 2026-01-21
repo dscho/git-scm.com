@@ -6,6 +6,7 @@ require "octokit"
 require "open-uri"
 require "pathname"
 require "base64"
+require "uri"
 require_relative "book"
 
 def expand(content, path, &get_content)
@@ -138,7 +139,8 @@ def genbook(language_code, &get_content)
       xlink = html.scan(/href="1-.*?\.html\#(.*?)"/)
       xlink&.each do |link|
         xref = link.first
-        book.xrefs[xref] = 'redirect-to-en' if !book.xrefs[xref]
+        decoded = URI.decode_www_form_component(xref)
+        book.xrefs[decoded] = 'redirect-to-en' if !book.xrefs[decoded]
         begin
           html.gsub!(/href="1-.*?\.html\##{xref}"/, "href=\"{{< relurl \"#{book_prefix}ch00/#{xref}\" >}}\"")
         rescue StandardError
@@ -155,7 +157,8 @@ def genbook(language_code, &get_content)
           footnotes.add(xref)
           next
         end
-        book.xrefs[xref] = 'redirect-to-en' if !book.xrefs[xref]
+        decoded = URI.decode_www_form_component(xref)
+        book.xrefs[decoded] = 'redirect-to-en' if !book.xrefs[decoded]
         begin
           html.gsub!(/href="\##{xref}"/, "href=\"{{< relurl \"#{book_prefix}ch00/#{xref}\" >}}\"")
         rescue StandardError
@@ -196,7 +199,8 @@ def genbook(language_code, &get_content)
 
       # create xref
       if section == 1
-        book.xrefs[id_xref_chapter] = csection
+        decoded = URI.decode_www_form_component(id_xref_chapter)
+        book.xrefs[decoded] = csection
       end
 
       images.each do |path|
@@ -217,12 +221,14 @@ def genbook(language_code, &get_content)
         end
       end
 
-      book.xrefs[id_xref] = csection
+      decoded = URI.decode_www_form_component(id_xref)
+      book.xrefs[decoded] = csection
 
       # record all the xrefs
       sec.search(".//*[@id]").each do |id|
         id_xref = id.attribute("id").to_s
-        book.xrefs[id_xref] = csection if !id_xref.start_with?('_footnoteref_')
+        decoded = URI.decode_www_form_component(id_xref)
+        book.xrefs[decoded] = csection if !decoded.start_with?('_footnoteref_')
       end
 
       section += 1
