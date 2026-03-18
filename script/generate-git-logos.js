@@ -1,8 +1,9 @@
-// Generate Git-Icon-*.svg and Git-Logo-*.svg using Paper.js boolean
-// operations to produce a single closed path from design primitives.
+// Generate Git-Icon-*.{svg,png} and Git-Logo-*.{svg,png} using Paper.js
+// boolean operations to produce a single closed path from design
+// primitives, then rasterize the SVGs to PNG via resvg.
 //
 // Prerequisites:
-//   npm install --no-save paper paperjs-offset
+//   npm install --no-save paper paperjs-offset @resvg/resvg-js
 //
 // Icon source geometry (on a 58x58 grid with origin at 0,0):
 //   - Rounded rectangle background: (0,0) 58x58, corner radius 5
@@ -20,6 +21,7 @@
 
 const paper = require('paper');
 const { PaperOffset } = require('paperjs-offset');
+const { Resvg } = require('@resvg/resvg-js');
 const fs = require('fs');
 const path = require('path');
 
@@ -68,6 +70,15 @@ const brown  = '#362701';
 const black  = '#100f0d';
 const white  = '#fff';
 
+// Render an SVG string to PNG at 300 DPI via resvg.
+// Icons (92pt x 92pt) render to 383x383; Logos need fitTo since the
+// width attribute uses unitless px that resvg does not scale by DPI.
+function renderPng(svgString, fitTo) {
+  const opts = fitTo ? { fitTo } : { dpi: 300 };
+  const resvg = new Resvg(svgString, opts);
+  return resvg.render().asPng();
+}
+
 // --- Icon files (icon only, 92x92) ---
 
 for (const [variant, fill] of [['1788C', orange], ['Black', black], ['White', white]]) {
@@ -76,9 +87,13 @@ for (const [variant, fill] of [['1788C', orange], ['Black', black], ['White', wh
     ` viewBox="0 0 92 92"><path fill="${fill}"` +
     ` transform="${transform}" d="${iconPathData}"/></svg>`;
 
-  const outPath = path.join(outDir, `Git-Icon-${variant}.svg`);
-  fs.writeFileSync(outPath, svg);
-  console.log(`Wrote ${outPath}`);
+  const svgPath = path.join(outDir, `Git-Icon-${variant}.svg`);
+  fs.writeFileSync(svgPath, svg);
+  console.log(`Wrote ${svgPath}`);
+
+  const pngPath = path.join(outDir, `Git-Icon-${variant}.png`);
+  fs.writeFileSync(pngPath, renderPng(svg));
+  console.log(`Wrote ${pngPath}`);
 }
 
 // --- Logo files (icon + "git" text glyphs, 219x92) ---
@@ -125,7 +140,7 @@ function logoSvg(textFill, iconFill) {
     `<path fill="${textFill}" d="${iGlyph}"/>` +
     `<path fill="${textFill}" d="${tGlyph}"/>`;
   return (
-    `<svg xmlns="http://www.w3.org/2000/svg" width="292pt" height="92pt"` +
+    `<svg xmlns="http://www.w3.org/2000/svg" width="292" height="92pt"` +
     ` viewBox="0 0 219 92">${textPaths}${iconPath}</svg>`
   );
 }
@@ -139,7 +154,13 @@ const logoVariants = {
 
 for (const [variant, { text, icon: iconFill }] of Object.entries(logoVariants)) {
   const svg = logoSvg(text, iconFill);
-  const outPath = path.join(outDir, `Git-Logo-${variant}.svg`);
-  fs.writeFileSync(outPath, svg);
-  console.log(`Wrote ${outPath}`);
+  const svgPath = path.join(outDir, `Git-Logo-${variant}.svg`);
+  fs.writeFileSync(svgPath, svg);
+  console.log(`Wrote ${svgPath}`);
+
+  // Logo height="92pt" at 300 DPI = 383px; fitTo by height so the
+  // unitless width scales proportionally via the viewBox aspect ratio.
+  const pngPath = path.join(outDir, `Git-Logo-${variant}.png`);
+  fs.writeFileSync(pngPath, renderPng(svg, { mode: 'height', value: 383 }));
+  console.log(`Wrote ${pngPath}`);
 }
