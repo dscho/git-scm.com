@@ -3,7 +3,7 @@
 // primitives, then rasterize the SVGs to PNG via resvg.
 //
 // Prerequisites:
-//   npm install --no-save paper paperjs-offset @resvg/resvg-js
+//   npm install --no-save paper paperjs-offset @resvg/resvg-js sharp
 //
 // Icon source geometry (on a 58x58 grid with origin at 0,0):
 //   - Rounded rectangle background: (0,0) 58x58, corner radius 5
@@ -22,6 +22,7 @@
 const paper = require('paper');
 const { PaperOffset } = require('paperjs-offset');
 const { Resvg } = require('@resvg/resvg-js');
+const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
@@ -70,14 +71,20 @@ const brown  = '#362701';
 const black  = '#100f0d';
 const white  = '#fff';
 
-// Render an SVG string to PNG at 300 DPI via resvg.
+// Render an SVG string to PNG at 300 DPI via resvg, then reduce to
+// 8-bit palette mode via sharp for smaller file sizes.
 // Icons (92pt x 92pt) render to 383x383; Logos need fitTo since the
 // width attribute uses unitless px that resvg does not scale by DPI.
-function renderPng(svgString, fitTo) {
+async function renderPng(svgString, fitTo) {
   const opts = fitTo ? { fitTo } : { dpi: 300 };
   const resvg = new Resvg(svgString, opts);
-  return resvg.render().asPng();
+  const raw = resvg.render().asPng();
+  return sharp(raw)
+    .png({ palette: true, quality: 90, compressionLevel: 9, effort: 10 })
+    .toBuffer();
 }
+
+async function main() {
 
 // --- Icon files (icon only, 92x92) ---
 
@@ -92,7 +99,7 @@ for (const [variant, fill] of [['1788C', orange], ['Black', black], ['White', wh
   console.log(`Wrote ${svgPath}`);
 
   const pngPath = path.join(outDir, `Git-Icon-${variant}.png`);
-  fs.writeFileSync(pngPath, renderPng(svg));
+  fs.writeFileSync(pngPath, await renderPng(svg));
   console.log(`Wrote ${pngPath}`);
 }
 
@@ -161,6 +168,10 @@ for (const [variant, { text, icon: iconFill }] of Object.entries(logoVariants)) 
   // Logo height="92pt" at 300 DPI = 383px; fitTo by height so the
   // unitless width scales proportionally via the viewBox aspect ratio.
   const pngPath = path.join(outDir, `Git-Logo-${variant}.png`);
-  fs.writeFileSync(pngPath, renderPng(svg, { mode: 'height', value: 383 }));
+  fs.writeFileSync(pngPath, await renderPng(svg, { mode: 'height', value: 383 }));
   console.log(`Wrote ${pngPath}`);
 }
+
+} // main()
+
+main().catch(e => { console.error(e); process.exitCode = 1; });
