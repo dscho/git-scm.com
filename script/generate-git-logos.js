@@ -1,6 +1,7 @@
-// Generate Git-Icon-*.{svg,png} and Git-Logo-*.{svg,png} using Paper.js
-// boolean operations to produce a single closed path from design
-// primitives, then rasterize the SVGs to PNG via resvg.
+// Generate Git-Icon-*.{svg,png,eps} and Git-Logo-*.{svg,png,eps} using
+// Paper.js boolean operations to produce a single closed path from
+// design primitives, then rasterize the SVGs to PNG via resvg and
+// wrap vector + raster preview into EPS.
 //
 // Prerequisites:
 //   npm install --no-save paper paperjs-offset @resvg/resvg-js sharp
@@ -84,6 +85,103 @@ async function renderPng(svgString, fitTo) {
     .toBuffer();
 }
 
+// --- EPS generation ---
+
+// Convert hex color (#rgb or #rrggbb) to "r g b" PS string (0-1 range).
+function hexToPS(hex) {
+  const h = hex.replace('#', '');
+  const n = h.length === 3
+    ? [parseInt(h[0] + h[0], 16), parseInt(h[1] + h[1], 16), parseInt(h[2] + h[2], 16)]
+    : [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
+  return n.map(v => +(v / 255).toFixed(5)).join(' ');
+}
+
+// Convert SVG path `d` string to PostScript path commands.
+// Handles: M/m, L/l, H/h, V/v, C/c, Z/z (the subset Paper.js emits).
+function svgPathToPS(d) {
+  const tokens = d.match(/[MmLlHhVvCcZz]|[-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?/g);
+  const out = [];
+  let cx = 0, cy = 0, mx = 0, my = 0, i = 0;
+  const r = v => +v.toFixed(5);
+  const num = () => parseFloat(tokens[i++]);
+  const isNum = () => i < tokens.length && /^[-+.\d]/.test(tokens[i]);
+
+  while (i < tokens.length) {
+    switch (tokens[i++]) {
+      case 'M':
+        cx = num(); cy = num(); mx = cx; my = cy;
+        out.push(`${r(cx)} ${r(cy)} moveto`);
+        while (isNum()) { cx = num(); cy = num(); out.push(`${r(cx)} ${r(cy)} lineto`); }
+        break;
+      case 'm':
+        cx += num(); cy += num(); mx = cx; my = cy;
+        out.push(`${r(cx)} ${r(cy)} moveto`);
+        while (isNum()) { cx += num(); cy += num(); out.push(`${r(cx)} ${r(cy)} lineto`); }
+        break;
+      case 'L':
+        while (isNum()) { cx = num(); cy = num(); out.push(`${r(cx)} ${r(cy)} lineto`); }
+        break;
+      case 'l':
+        while (isNum()) { cx += num(); cy += num(); out.push(`${r(cx)} ${r(cy)} lineto`); }
+        break;
+      case 'H':
+        while (isNum()) { cx = num(); out.push(`${r(cx)} ${r(cy)} lineto`); }
+        break;
+      case 'h':
+        while (isNum()) { cx += num(); out.push(`${r(cx)} ${r(cy)} lineto`); }
+        break;
+      case 'V':
+        while (isNum()) { cy = num(); out.push(`${r(cx)} ${r(cy)} lineto`); }
+        break;
+      case 'v':
+        while (isNum()) { cy += num(); out.push(`${r(cx)} ${r(cy)} lineto`); }
+        break;
+      case 'C':
+        while (isNum()) {
+          const x1 = num(), y1 = num(), x2 = num(), y2 = num();
+          cx = num(); cy = num();
+          out.push(`${r(x1)} ${r(y1)} ${r(x2)} ${r(y2)} ${r(cx)} ${r(cy)} curveto`);
+        }
+        break;
+      case 'c':
+        while (isNum()) {
+          const x1 = cx + num(), y1 = cy + num(), x2 = cx + num(), y2 = cy + num();
+          cx += num(); cy += num();
+          out.push(`${r(x1)} ${r(y1)} ${r(x2)} ${r(y2)} ${r(cx)} ${r(cy)} curveto`);
+        }
+        break;
+      case 'Z': case 'z':
+        out.push('closepath'); cx = mx; cy = my;
+        break;
+    }
+  }
+  return out.join('\n');
+}
+
+// Build a DOS EPS Binary file: 30-byte header + PostScript + TIFF preview.
+async function buildEPS(psContent, svgString, previewFitTo) {
+  // Render TIFF preview at 1:1 (1pt = 1px)
+  const resvgOpts = previewFitTo ? { fitTo: previewFitTo } : { dpi: 72 };
+  const resvg = new Resvg(svgString, resvgOpts);
+  const tiffBuf = await sharp(resvg.render().asPng())
+    .tiff({ compression: 'none' })
+    .toBuffer();
+
+  const psBuf = Buffer.from(psContent, 'latin1');
+  const hdrSize = 30;
+  const header = Buffer.alloc(hdrSize);
+  header.writeUInt32LE(0xC6D3D0C5, 0);      // DOS EPS magic
+  header.writeUInt32LE(hdrSize, 4);           // PS offset
+  header.writeUInt32LE(psBuf.length, 8);      // PS length
+  header.writeUInt32LE(0, 12);                // WMF offset (none)
+  header.writeUInt32LE(0, 16);                // WMF length (none)
+  header.writeUInt32LE(hdrSize + psBuf.length, 20); // TIFF offset
+  header.writeUInt32LE(tiffBuf.length, 24);   // TIFF length
+  header.writeUInt16LE(0xFFFF, 28);           // checksum (none)
+
+  return Buffer.concat([header, psBuf, tiffBuf]);
+}
+
 async function main() {
 
 // --- Icon files (icon only, 92x92) ---
@@ -101,6 +199,24 @@ for (const [variant, fill] of [['1788C', orange], ['Black', black], ['White', wh
   const pngPath = path.join(outDir, `Git-Icon-${variant}.png`);
   fs.writeFileSync(pngPath, await renderPng(svg));
   console.log(`Wrote ${pngPath}`);
+
+  const ps = [
+    '%!PS-Adobe-3.0 EPSF-3.0',
+    '%%BoundingBox: 0 0 92 92',
+    '%%EndComments',
+    'gsave',
+    '0 92 translate 1 -1 scale',
+    '1.179487 1.179487 scale 10 10 translate',
+    '29 29 translate -45 rotate -29 -29 translate',
+    'newpath',
+    svgPathToPS(iconPathData),
+    `${hexToPS(fill)} setrgbcolor fill`,
+    'grestore',
+    '%%EOF\n',
+  ].join('\n');
+  const epsPath = path.join(outDir, `Git-Icon-${variant}.eps`);
+  fs.writeFileSync(epsPath, await buildEPS(ps, svg));
+  console.log(`Wrote ${epsPath}`);
 }
 
 // --- Logo files (icon + "git" text glyphs, 219x92) ---
@@ -170,6 +286,34 @@ for (const [variant, { text, icon: iconFill }] of Object.entries(logoVariants)) 
   const pngPath = path.join(outDir, `Git-Logo-${variant}.png`);
   fs.writeFileSync(pngPath, await renderPng(svg, { mode: 'height', value: 383 }));
   console.log(`Wrote ${pngPath}`);
+
+  const textColor = hexToPS(text);
+  const ps = [
+    '%!PS-Adobe-3.0 EPSF-3.0',
+    '%%BoundingBox: 0 0 219 92',
+    '%%EndComments',
+    'gsave',
+    '0 92 translate 1 -1 scale',
+    // Text glyphs (directly in viewBox coordinates)
+    `newpath\n${svgPathToPS(gGlyph)}`,
+    `${textColor} setrgbcolor fill`,
+    `newpath\n${svgPathToPS(iGlyph)}`,
+    `${textColor} setrgbcolor fill`,
+    `newpath\n${svgPathToPS(tGlyph)}`,
+    `${textColor} setrgbcolor fill`,
+    // Icon with transform
+    'gsave',
+    '1.179487 1.179487 scale 10 10 translate',
+    '29 29 translate -45 rotate -29 -29 translate',
+    `newpath\n${svgPathToPS(iconPathData)}`,
+    `${hexToPS(iconFill)} setrgbcolor fill`,
+    'grestore',
+    'grestore',
+    '%%EOF\n',
+  ].join('\n');
+  const epsPath = path.join(outDir, `Git-Logo-${variant}.eps`);
+  fs.writeFileSync(epsPath, await buildEPS(ps, svg, { mode: 'height', value: 92 }));
+  console.log(`Wrote ${epsPath}`);
 }
 
 } // main()
